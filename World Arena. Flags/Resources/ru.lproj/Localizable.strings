@@ -1,0 +1,156 @@
+// General
+"World Flags" = "Флаги Мира";
+"Score" = "Счёт";
+"Exit" = "Выход";
+"Error loading countries" = "Ошибка загрузки стран";
+"Retry" = "Повторить";
+"System" = "Системная";
+
+// Start Screen
+"Select Language" = "Выберите язык";
+"Select Regions" = "Выберите регионы";
+"START GAME" = "НАЧАТЬ ИГРУ";
+"All Regions" = "Все регионы";
+"Europe" = "Европа";
+"Asia" = "Азия";
+"Americas" = "Америка";
+"Africa" = "Африка";
+"Oceania" = "Океания";
+"North America" = "Северная Америка";
+"South America" = "Южная Америка";
+
+// Game Over
+"Game Over!" = "Игра окончена!";
+"points" = "очков";
+"Play Again" = "Играть снова";
+"Home" = "На главную";
+// Russian (ru)
+"Play Again" = "Играть снова";
+// Statistics
+"Statistics" = "Статистика";
+"Total Games" = "Всего игр";
+"Best Score" = "Лучший счёт";
+"Correct Answers" = "Правильных ответов";
+"Accuracy" = "Точность";
+"Best Time" = "Лучшее время";
+"Time" = "Время";
+"Clear" = "Очистить";
+"Close" = "Закрыть";
+"Clear Statistics" = "Очистить статистику";
+"Are you sure you want to clear all statistics?" = "Вы уверены, что хотите очистить всю статистику?";
+"Cancel" = "Отмена";
+
+// Game Results
+"Excellent game!" = "🏆 Великолепно!";
+"Great result!" = "🎯 Отличный результат!";
+"Good game!" = "👍 Хорошая игра!";
+"Keep practicing!" = "💪 Продолжай тренироваться!";
+
+// Share Result
+"Share Result" = "Поделиться";
+"Share Message" = "Я набрал %d очков в игре World Flags! 🎮🌍\nСкачай и попробуй побить мой рекорд!";
+
+// Network Errors
+"No Internet Connection" = "Нет подключения к интернету";
+"Request Timeout" = "Превышено время ожидания";
+"Server Not Found" = "Сервер не найден";
+"Too Many Requests" = "Слишком много запросов";
+"Server Error" = "Ошибка сервера";
+"HTTP Error: %d" = "Ошибка HTTP: %d";
+"Try Again" = "Повторить попытку";
+"Not enough countries in selected regions (found %d, need at least 4)" = "Недостаточно стран в выбранных регионах (найдено %d, нужно минимум 4)";
+"Empty response from server" = "Пустой ответ от сервера";
+
+// New additions
+"Capital" = "Столица";
+"Population" = "Население";
+"Area" = "Площадь";
+"Region" = "Регион";
+"Subregion" = "Субрегион";
+
+// Exit confirmation
+"Exit Confirmation" = "Вы уверены, что хотите выйти?";
+"Yes" = "Да";
+"No" = "Нет";
+
+// New addition
+"Tap to continue" = "Нажмите, чтобы продолжить";
+
+// New additions
+"Game Mode" = "Режим игры";
+"20 Flags" = "20 флагов";
+"30 Flags" = "30 флагов";
+"All Flags" = "Все флаги";
+"50 Flags" = "50 флагов";
+"100 Flags" = "100 флагов";
+
+"of" = "из";
+"flags" = "флагов";
+
+// Theme
+"App Theme" = "Цветовая гамма";
+"System" = "Системная";
+"Light" = "Светлая";
+"Dark" = "Тёмная";
+
+// Game Modes with flags
+"20 flags" = "20 флагов";
+"30 flags" = "30 флагов";
+"50 flags" = "50 флагов";
+"100 flags" = "100 флагов";
+"All flags" = "Все флаги";
+
+// Caribbean capitals
+"Philipsburg" = "Филипсбург";
+"Marigot" = "Мариго";
+"Fort-de-France" = "Фор-де-Франс";
+"Cockburn Town" = "Кокберн-Таун";
+"Oranjestad" = "Ораньестад";
+"Plymouth" = "Плимут";
+"Charlotte Amalie" = "Шарлотта-Амалия";
+"St. George's" = "Сент-Джорджес";
+"San Juan" = "Сан-Хуан";
+"Basse-Terre" = "Бас-Тер";
+"The Valley" = "Валли";
+"Road Town" = "Род-Таун";
+"Gustavia" = "Густавия";
+"Kralendijk" = "Кралендейк";
+"George Town" = "Джорджтаун";
+"Willemstad" = "Виллемстад";
+
+// Country names
+"Sint Maarten" = "Синт-Мартен";
+"Saint Martin" = "Сен-Мартен";
+"Martinique" = "Мартиника";
+"Turks and Caicos Islands" = "Теркс и Кайкос";
+"Aruba" = "Аруба";
+"Montserrat" = "Монтсеррат";
+"United States Virgin Islands" = "Виргинские Острова (США)";
+"Grenada" = "Гренада";
+"Puerto Rico" = "Пуэрто-Рико";
+"Guadeloupe" = "Гваделупа";
+"Anguilla" = "Ангилья";
+"British Virgin Islands" = "Британские Виргинские острова";
+"Saint Barthélemy" = "Сен-Бартелеми";
+"Caribbean Netherlands" = "Карибские Нидерланды";
+"Cayman Islands" = "Каймановы острова";
+"Curaçao" = "Кюрасао";
+
+"Flags" = "Флаги";
+
+"Kosovo" = "Косово";
+
+"City of San Marino" = "Сан-Марино";
+
+"Douglas" = "Дуглас";
+
+"Saint Helier" = "Сент-Хелиер";
+"Longyearbyen" = "Лонгйир";
+"Gibraltar" = "Гибралтар";
+"Pristina" = "Приштина";
+"Mariehamn" = "Мариехамн";
+"Nicosia" = "Никосия";
+"Tórshavn" = "Торсхавн";
+"Chișinău" = "Кишинёв";
+
+"My Mistakes" = "Мои ошибки";

@@ -1,0 +1,552 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    -webkit-tap-highlight-color: transparent;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+    background-color: #f0f0f0;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    touch-action: manipulation;
+}
+
+.container {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    padding: 16px;
+    max-width: 100%;
+}
+
+.header {
+    padding: 10px;
+    background-color: #fff;
+    border-radius: 12px;
+    margin-bottom: 16px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.top-bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.score-container {
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: #333;
+}
+
+.level-selector select {
+    padding: 8px 12px;
+    border-radius: 8px;
+    border: 1px solid #ddd;
+    font-size: 1rem;
+    background-color: white;
+}
+
+.progress-bar {
+    width: 100%;
+    height: 6px;
+    background-color: #eee;
+    border-radius: 3px;
+    overflow: hidden;
+}
+
+.progress-fill {
+    width: 0%;
+    height: 100%;
+    background-color: #4CAF50;
+    transition: width 0.3s ease;
+}
+
+.quiz-container {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.flag-container {
+    background-color: #f8f8f8;
+    border-radius: 12px;
+    padding: 16px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#flag-image {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+    display: block;
+    max-width: 500px;
+    max-height: 300px;
+    object-fit: contain;
+    border: 1px solid #ddd;
+}
+
+.options-container {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 12px;
+    padding: 0 4px;
+}
+
+.option {
+    padding: 16px;
+    font-size: 1rem;
+    border: none;
+    background-color: #fff;
+    color: #333;
+    border-radius: 12px;
+    cursor: pointer;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    font-weight: 500;
+    min-height: 54px;
+    transition: transform 0.2s, background-color 0.2s;
+}
+
+.option:active {
+    transform: scale(0.98);
+}
+
+.option.correct {
+    background-color: #4CAF50;
+    color: white;
+}
+
+.option.incorrect {
+    background-color: #f44336;
+    color: white;
+}
+
+.option:disabled {
+    opacity: 0.7;
+    cursor: not-allowed;
+}
+
+.controls {
+    display: flex;
+    justify-content: space-around;
+    padding: 16px 0;
+    gap: 10px;
+}
+
+.control-btn {
+    flex: 1;
+    padding: 12px;
+    border: none;
+    border-radius: 8px;
+    background-color: #fff;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    font-size: 1rem;
+    cursor: pointer;
+}
+
+.modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 1000;
+}
+
+.modal-content {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: white;
+    padding: 20px;
+    border-radius: 12px;
+    width: 80%;
+    max-width: 400px;
+}
+
+.stats-grid {
+    display: grid;
+    gap: 15px;
+    margin: 20px 0;
+}
+
+.stat-item {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px;
+    background-color: #f5f5f5;
+    border-radius: 8px;
+}
+
+.close-modal {
+    width: 100%;
+    padding: 10px;
+    border: none;
+    border-radius: 8px;
+    background-color: #4CAF50;
+    color: white;
+    margin-top: 15px;
+    cursor: pointer;
+}
+
+.loading-screen {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #f0f0f0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+}
+
+.spinner {
+    width: 40px;
+    height: 40px;
+    border: 4px solid #f3f3f3;
+    border-top: 4px solid #3498db;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+    margin-bottom: 16px;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+@media (min-width: 400px) {
+    .options-container {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (hover: none) {
+    .option:hover {
+        transform: none;
+    }
+}
+
+.timer-container {
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: #333;
+}
+
+.timer-container.warning {
+    color: #f44336;
+}
+
+.language-selector select {
+    padding: 8px 12px;
+    border-radius: 8px;
+    border: 1px solid #ddd;
+    font-size: 1rem;
+    background-color: white;
+    margin-right: 10px;
+}
+
+.start-screen {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(240, 240, 240, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 2000;
+}
+
+.start-content {
+    background-color: rgba(255, 255, 255, 0.97);
+    padding: 2rem;
+    border-radius: 16px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.15);
+    text-align: center;
+    width: 90%;
+    max-width: 400px;
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+}
+
+.start-content h1 {
+    margin-bottom: 2rem;
+    color: #333;
+}
+
+.start-options {
+    margin: 20px 0;
+}
+
+.language-select {
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.language-select label {
+    display: block;
+    margin-bottom: 10px;
+    color: #333;
+    font-size: 1.1rem;
+}
+
+.language-select select {
+    padding: 10px 20px;
+    font-size: 1rem;
+    border-radius: 8px;
+    border: 1px solid #ddd;
+    background-color: white;
+    width: 200px;
+}
+
+.start-button {
+    margin-top: 20px;
+    padding: 1rem;
+    border: none;
+    border-radius: 8px;
+    background-color: #4CAF50;
+    color: white;
+    font-size: 1.1rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.2s;
+    width: 100%;
+    max-width: 300px;
+}
+
+.start-button:hover {
+    background-color: #45a049;
+}
+
+.start-button:active {
+    transform: scale(0.98);
+}
+
+/* Обновим стили для фона и стартового экрана */
+.background-flags {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    overflow: hidden;
+    opacity: 0.2;
+    pointer-events: none;
+    background-color: #f0f0f0;
+}
+
+/* Обновим стили для полос с флагами */
+.flag-stripe {
+    position: absolute;
+    display: flex;
+    gap: 20px;
+    transform: rotate(-45deg);
+    animation: slideStripe 60s linear infinite;
+    width: 200%;
+    left: -50%;
+}
+
+/* Сделаем флаги немного больше */
+.background-flag {
+    width: 120px;
+    height: 72px;
+    object-fit: cover;
+    border-radius: 4px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Разные скорости анимации для разных полос, но все в одном направлении */
+.flag-stripe:nth-child(2) {
+    animation-duration: 80s;
+}
+
+.flag-stripe:nth-child(3) {
+    animation-duration: 70s;
+}
+
+.flag-stripe:nth-child(4) {
+    animation-duration: 90s;
+}
+
+.flag-stripe:nth-child(5) {
+    animation-duration: 50s;
+}
+
+/* Анимация движения полос */
+@keyframes slideStripe {
+    0% {
+        transform: rotate(-45deg) translateX(-50%);
+    }
+    100% {
+        transform: rotate(-45deg) translateX(0%);
+    }
+}
+
+/* Стили для финального экрана */
+.game-over-modal {
+    background-color: rgba(0, 0, 0, 0.85);
+}
+
+.game-over-content {
+    text-align: center;
+    padding: 2rem;
+    background-color: rgba(255, 255, 255, 0.97);
+    border-radius: 20px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+}
+
+.game-over-content h2 {
+    font-size: 1.8rem;
+    color: #333;
+    margin-bottom: 1.5rem;
+}
+
+.final-score {
+    margin: 2rem 0;
+}
+
+.score-circle {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #4CAF50, #45a049);
+    color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto;
+    box-shadow: 0 4px 15px rgba(76, 175, 80, 0.3);
+}
+
+.score-circle #final-score {
+    font-size: 3rem;
+    font-weight: bold;
+    line-height: 1;
+}
+
+.score-circle span:last-child {
+    font-size: 1rem;
+    opacity: 0.9;
+}
+
+.final-stats {
+    margin: 2rem 0;
+}
+
+.stat-row {
+    display: flex;
+    justify-content: space-between;
+    padding: 0.8rem;
+    background-color: #f5f5f5;
+    border-radius: 8px;
+    margin: 0.5rem 0;
+}
+
+.final-buttons {
+    display: grid;
+    gap: 1rem;
+    margin-top: 2rem;
+}
+
+.final-btn {
+    padding: 1rem;
+    border: none;
+    border-radius: 8px;
+    font-size: 1.1rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: transform 0.2s, background-color 0.2s;
+}
+
+.final-btn:active {
+    transform: scale(0.98);
+}
+
+.share-btn {
+    background-color: #2196F3;
+    color: white;
+}
+
+.play-btn {
+    background-color: #4CAF50;
+    color: white;
+}
+
+.home-btn {
+    background-color: #f5f5f5;
+    color: #333;
+}
+
+.share-btn:hover {
+    background-color: #1976D2;
+}
+
+.play-btn:hover {
+    background-color: #45a049;
+}
+
+.home-btn:hover {
+    background-color: #e0e0e0;
+}
+
+.region-selector {
+    margin: 20px 0;
+    text-align: left;
+}
+
+.region-selector h3 {
+    margin-bottom: 10px;
+    color: #333;
+    font-size: 1.2rem;
+}
+
+.region-options {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+    gap: 10px;
+    background: rgba(255, 255, 255, 0.9);
+    padding: 15px;
+    border-radius: 10px;
+}
+
+.region-option {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    padding: 8px;
+    border-radius: 6px;
+    transition: background-color 0.2s;
+}
+
+.region-option:hover {
+    background-color: rgba(0, 0, 0, 0.05);
+}
+
+.region-option input[type="checkbox"] {
+    margin-right: 8px;
+    width: 16px;
+    height: 16px;
+}
+
+.region-option span {
+    font-size: 1rem;
+    color: #333;
+}

@@ -1,0 +1,163 @@
+// General
+"World Flags" = "Прапори Світу";
+"Score" = "Рахунок";
+"Exit" = "Вихід";
+"Error loading countries" = "Помилка завантаження країн";
+"Retry" = "Повторити";
+"System" = "Системний";
+
+// Start Screen
+"Select Language" = "Оберіть мову";
+"Select Regions" = "Оберіть регіони";
+"START GAME" = "ПОЧАТИ ГРУ";
+"All Regions" = "Всі регіони";
+"Europe" = "Європа";
+"Asia" = "Азія";
+"Americas" = "Америка";
+"Africa" = "Африка";
+"Oceania" = "Океанія";
+"North America" = "Північна Америка";
+"South America" = "Південна Америка";
+
+// Game Over
+"points" = "балів";
+"Play Again" = "Грати знову";
+"Home" = "На головну";
+
+// Statistics
+"Statistics" = "Статистика";
+"Total Games" = "Всього ігор";
+"Best Score" = "Найкращий результат";
+"Correct Answers" = "Правильних відповідей";
+"Accuracy" = "Точність";
+"Best Time" = "Найкращий час";
+"Time" = "Час";
+"Clear" = "Очистити";
+"Close" = "Закрити";
+"Clear Statistics" = "Очистити статистику";
+"Are you sure you want to clear all statistics?" = "Ви впевнені, що хочете очистити всю статистику?";
+"Cancel" = "Скасувати";
+
+// Game Results
+"Excellent game!" = "🏆 Блискуча гра!";
+"Great result!" = "🎯 Чудовий результат!";
+"Good game!" = "👍 Гарна гра!";
+"Keep practicing!" = "💪 Продовжуй тренуватися!";
+// Ukrainian (uk)
+"Play Again" = "Грати знову";
+
+
+// Share Result
+"Share Result" = "Поділитися";
+"Share Message" = "Я набрав %d балів у грі World Flags! 🎮🌍\nЗавантаж та спробуй побити мій рекорд!";
+
+// Exit confirmation
+"Exit Confirmation" = "Ви впевнені, що хочете вийти?";
+"Yes" = "Так";
+"No" = "Ні";
+
+// New translation
+"Tap to continue" = "Торкніться, щоб продовжити";
+
+// Additional translations
+"Game Mode" = "Режим гри";
+"20 Flags" = "20 прапорів";
+"30 Flags" = "30 прапорів";
+"All Flags" = "Усі прапори";
+"50 Flags" = "50 прапорів";
+"100 Flags" = "100 прапорів";
+
+// Game Modes
+"Game Mode" = "Режим гри";
+"20 Flags" = "20 прапорів";
+"50 Flags" = "50 прапорів";
+"100 Flags" = "100 прапорів";
+"All Flags" = "Усі прапори";
+
+"of" = "з";
+"flags" = "прапорів";
+
+// Theme
+"App Theme" = "Оформлення";
+"System" = "Системна";
+"Light" = "Світла";
+"Dark" = "Темна";
+
+// Caribbean capitals
+"Philipsburg" = "Філіпсбург";
+"Marigot" = "Маріго";
+"Fort-de-France" = "Фор-де-Франс";
+"Cockburn Town" = "Кокберн-Таун";
+"Oranjestad" = "Ораньєстад";
+"Plymouth" = "Плімут";
+"Charlotte Amalie" = "Шарлотта-Амалія";
+"St. George's" = "Сент-Джорджес";
+"San Juan" = "Сан-Хуан";
+"Basse-Terre" = "Бас-Тер";
+"The Valley" = "Валлі";
+"Road Town" = "Род-Таун";
+"Gustavia" = "Густавія";
+"Kralendijk" = "Кралендейк";
+"George Town" = "Джорджтаун";
+"Willemstad" = "Віллемстад";
+
+// Country names
+"Sint Maarten" = "Сінт-Мартен";
+"Saint Martin" = "Сен-Мартен";
+"Martinique" = "Мартиніка";
+"Turks and Caicos Islands" = "Теркс і Кайкос";
+"Aruba" = "Аруба";
+"Montserrat" = "Монтсеррат";
+"United States Virgin Islands" = "Віргінські Острови (США)";
+"Grenada" = "Гренада";
+"Puerto Rico" = "Пуерто-Рико";
+"Guadeloupe" = "Гваделупа";
+"Anguilla" = "Ангілья";
+"British Virgin Islands" = "Британські Віргінські острови";
+"Saint Barthélemy" = "Сен-Бартелемі";
+"Caribbean Netherlands" = "Карибські Нідерланди";
+"Cayman Islands" = "Кайманові острови";
+"Curaçao" = "Кюрасао";
+
+// Additional translations
+"Saint George's" = "Сент-Джорджес";
+"Saint George" = "Сент-Джорджес";
+"Saint John's" = "Сент-Джонс";
+"Fort de France" = "Фор-де-Франс";
+"Fort-De-France" = "Фор-де-Франс";
+"Cockburn-Town" = "Кокберн-Таун";
+"Basseterre" = "Бас-Тер";
+"Basse Terre" = "Бас-Тер";
+"Roadtown" = "Род-Таун";
+"Flags" = "Прапори";
+
+"Kosovo" = "Косово";
+"Kosovo (Europe, Southeast Europe)" = "Косово";
+"Republic of Kosovo" = "Косово";
+"Kosovo and Metohija" = "Косово";
+"Kosovo*" = "Косово";
+"Kosovo (Europe)" = "Косово";
+"Kosovo (Southeast Europe)" = "Косово";
+
+"City of San Marino" = "Сан-Марино";
+"San Marino" = "Сан-Марино";
+"San Marino City" = "Сан-Марино";
+"City of San Marino (San Marino)" = "Сан-Марино";
+
+"Douglas" = "Дуглас";
+
+"Saint Helier" = "Сент-Гелієр";
+"Longyearbyen" = "Лонг'їр";
+"Gibraltar" = "Гібралтар";
+"Pristina" = "Приштина";
+"Mariehamn" = "Марієгамн";
+"Nicosia" = "Нікосія";
+"Tórshavn" = "Торсгавн";
+"Chișinău" = "Кишинів";
+
+// Добавляем St. Peter Port
+"St. Peter Port" = "Сент-Пітер-Порт";
+"Saint Peter Port" = "Сент-Пітер-Порт";
+"St Peter Port" = "Сент-Пітер-Порт";
+
+"My Mistakes" = "Мої помилки";

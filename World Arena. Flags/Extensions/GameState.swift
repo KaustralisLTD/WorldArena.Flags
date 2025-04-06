@@ -1,0 +1,1100 @@
+import Foundation
+import SwiftUI
+
+@MainActor
+class GameState: ObservableObject {
+    @Published var score = 0
+    @Published var currentQuestion = 0
+    @Published var selectedRegions: Set<Region> = [.all]
+    @Published private(set) var selectedLanguage: Language = .system {
+        didSet {
+            print("\n=== Changing Language ===")
+            print("Old language: \(oldValue.rawValue)")
+            print("New language: \(selectedLanguage.rawValue)")
+            localizationManager.setLanguage(selectedLanguage)
+            print("Language updated successfully")
+            print("=====================\n")
+        }
+    }
+    @Published var statistics = Statistics()
+    @Published var countries: [Country] = []
+    @Published var isLoading = false
+    @Published var error: Error?
+    @Published var currentFlag: Country?
+    @Published var options: [Country] = []
+    @Published var localizationManager = LocalizationManager.shared
+    @Published var networkMonitor = NetworkMonitor.shared
+    @Published var isGameOver = false
+    @Published private(set) var elapsedTime: TimeInterval = 0
+    @Published private(set) var timeProgress: Double = 0
+    @Published var isNavigatingToGame = false {
+        didSet {
+            if isNavigatingToGame {
+                print("\n🎮 Navigation to game triggered")
+            }
+        }
+    }
+    @Published var selectedGameMode: GameMode = .twenty {
+        didSet {
+            print("\n=== Game Mode Changed ===")
+            print("New mode: \(selectedGameMode.displayName)")
+            print("Questions per game: \(questionsPerGame)")
+            print("=====================\n")
+        }
+    }
+    
+    var questionsPerGame: Int {
+        switch selectedGameMode {
+        case .all:
+            return countries.filter(isCountryInSelectedRegions).count
+        default:
+            return selectedGameMode.rawValue
+        }
+    }
+    
+    @Published private(set) var usedCountries: Set<String> = []
+    private var availableCountries: [Country] = []
+    
+    private var isUpdatingRegions = false
+    
+    let optionsCount = 6
+    
+    let gameDuration: TimeInterval = 300 // 5 минут на игру
+    
+    private var startTime: Date?
+    private var timer: Timer?
+    
+    @Published var mistakeCountries: [Country] = []
+    
+    // Добавляем новые свойства
+    @Published var isCardFlipped = false
+    @Published var canProceedToNextQuestion = false
+    
+    // Добавляем новое свойство для отслеживания причины перехода
+    private var lastActionReason = ""
+    
+    // Добавляем свойство для отслеживания состояния обработки
+    private var isProcessingAnswer = false
+    
+    // Добавляем свойство для отслеживания источника вызова
+    private var callStack: [String] = []
+    
+    // Добавляем свойство для отслеживания предыдущего флага
+    private var previousFlags: [String] = []
+    
+    // Добавляем новое свойство для отслеживания всех использованных флагов в текущей игре
+    private var usedFlagsInGame: Set<String> = []
+    
+    // Добавляем новое свойство для таймера перехода
+    private var transitionTimer: Timer?
+    
+    // Добавляем новые свойства
+    @Published private var usedCountriesInGame: Set<String> = []
+    @Published private var totalQuestionsInGame: Int = 20
+    
+    @Published var isStartingNewGame = false
+    
+    private var loadedCountriesCache: [Region: [Country]] = [:]
+    
+    private var gameStartTime: Date?
+    
+    private var lastGameStartAttempt: Date?
+    private let minimumTimeBetweenStarts: TimeInterval = 2.0
+    
+    // Добавим проверку, чтобы не загружать ошибки повторно
+    private var mistakesLoaded = false
+    
+    // Добавляем флаг для отслеживания загрузки статистики
+    private var statisticsLoaded = false
+    
+    // Добавим свойство для отслеживания последнего обработанного ответа
+    private var lastProcessedAnswer: (id: String, time: Date)?
+    
+    private var isGameInProgress = false
+    
+    // Добавим новое свойство для хранения временных правильных ответов
+    private var correctlyAnsweredMistakes: Set<String> = []
+    
+    // Добавляем свойство для хранения изначального количества вопросов
+    private var initialQuestionsCount: Int = 0
+    
+    // Добавим свойство для отслеживания состояния карточки
+    @Published var isCardInteractionEnabled = true
+    
+    struct Statistics: Codable {
+        var totalGames = 0
+        var bestScore = 0
+        var correctAnswers = 0
+        var totalAnswers = 0
+        var bestTime: TimeInterval = 0
+    }
+    
+    enum Region: String, CaseIterable {
+        case all = "All Regions"
+        case europe = "Europe"
+        case asia = "Asia"
+        case africa = "Africa"
+        case northAmerica = "North America"
+        case southAmerica = "South America"
+        case oceania = "Oceania"
+        case myMistakes = "My Mistakes"
+    }
+    
+    enum Language: String, CaseIterable {
+        case system = "system"
+        case english = "en"
+        case russian = "ru"
+        case spanish = "es"
+        case ukrainian = "uk"
+        case catalan = "ca"
+        case chinese = "zh"
+    }
+    
+    enum GameMode: Int, CaseIterable {
+        case twenty = 20
+        case fifty = 50
+        case hundred = 100
+        case all = 0
+        
+        @MainActor
+        var displayName: String {
+            switch self {
+            case .twenty:
+                return LocalizationManager.shared.localizedString("20 Flags")
+            case .fifty:
+                return LocalizationManager.shared.localizedString("50 Flags")
+            case .hundred:
+                return LocalizationManager.shared.localizedString("100 Flags")
+            case .all:
+                return LocalizationManager.shared.localizedString("All Flags")
+            }
+        }
+    }
+    
+    @Published var availableGameModes: [GameMode] = [.twenty, .all] {
+        didSet {
+            if !availableGameModes.contains(selectedGameMode) {
+                selectedGameMode = availableGameModes.first ?? .twenty
+            }
+        }
+    }
+    
+    init() {
+        // Загружаем статистику и ошибки только один раз при инициализации
+        statistics = StatisticsService.shared.loadStatistics()
+        loadMistakes()
+    }
+    
+    private func isCountryInSelectedRegions(_ country: Country) -> Bool {
+        // Исключаем Антарктику
+        if country.region == "Antarctic" {
+            return false
+        }
+        
+        // Проверяем все регионы
+        if selectedRegions.contains(.all) {
+            return true
+        }
+        
+        // Проверяем список ошибок
+        if selectedRegions.contains(Region.myMistakes) {
+            if mistakeCountries.contains(where: { $0.id == country.id }) {
+                return true
+            }
+        }
+        
+        // Проверяем конкретные регионы
+        if selectedRegions.contains(.europe) && country.region == "Europe" {
+            return true
+        }
+        
+        if selectedRegions.contains(.asia) && country.region == "Asia" {
+            return true
+        }
+        
+        if selectedRegions.contains(.africa) && country.region == "Africa" {
+            return true
+        }
+        
+        if selectedRegions.contains(.oceania) && country.region == "Oceania" {
+            return true
+        }
+        
+        if selectedRegions.contains(.northAmerica) && 
+           country.region == "Americas" && 
+           (country.subregion == "Northern America" ||
+            country.subregion == "Central America" ||
+            country.subregion == "Caribbean") {
+            return true
+        }
+        
+        if selectedRegions.contains(.southAmerica) && 
+           country.region == "Americas" && 
+           country.subregion == "South America" {
+            return true
+        }
+        
+        return false
+    }
+    
+    func startNewGame() async {
+        print("\n=== Starting New Game ===")
+        // Сбрасываем состояние игры
+        resetGameState()
+        
+        do {
+            // Загружаем страны для выбранных регионов
+            let loadedCountries = try await fetchCountries(for: Array(selectedRegions))
+            print("Total countries loaded: \(loadedCountries.count)")
+            
+            // Перемешиваем страны и берем нужное количество
+            availableCountries = Array(loadedCountries.shuffled().prefix(totalQuestionsInGame))
+            print("Countries selected for game: \(availableCountries.count)")
+            
+            // Выбираем первый вопрос
+            await selectNextQuestion()
+            
+        } catch {
+            print("Error starting new game: \(error)")
+        }
+    }
+    
+    // Заменим асинхронный метод selectNextQuestion на синхронный
+    private func selectNextQuestion() {
+        print("\n=== Preparing Question \(currentQuestion + 1)/\(initialQuestionsCount) ===")
+        
+        guard currentQuestion < availableCountries.count else {
+            print("No more questions available")
+            isGameOver = true
+            return
+        }
+        
+        // Берем следующую страну из уже отобранного списка
+        let nextCountry = availableCountries[currentQuestion]
+        print("Next country: \(nextCountry.name.common)")
+        
+        // Обновляем UI
+        withAnimation(.easeInOut(duration: 0.3)) {
+            // Устанавливаем новый флаг
+            self.currentFlag = nextCountry
+            
+            var answerOptions = [nextCountry]
+            
+            // Если играем в режиме "Мои ошибки" и не хватает вариантов ответов
+            if selectedRegions.contains(.myMistakes) && mistakeCountries.count < optionsCount {
+                print("Not enough mistake countries for options, adding countries from other regions")
+                
+                // Собираем все доступные страны из кэша
+                var otherCountries: [Country] = []
+                for region in Region.allCases where region != .myMistakes && region != .all {
+                    if let countries = loadedCountriesCache[region] {
+                        otherCountries.append(contentsOf: countries)
+                    }
+                }
+                
+                // Перемешиваем и добавляем недостающие варианты
+                otherCountries.shuffle()
+                let additionalOptions = otherCountries
+                    .filter { $0.id != nextCountry.id && !mistakeCountries.contains($0) }
+                    .prefix(optionsCount - answerOptions.count)
+                
+                answerOptions.append(contentsOf: additionalOptions)
+            } else {
+                // Стандартная логика для других режимов
+                let otherCountries = availableCountries.filter { $0.id != nextCountry.id }
+                answerOptions.append(contentsOf: otherCountries.shuffled().prefix(optionsCount - 1))
+            }
+            
+            // Перемешиваем все варианты ответов
+            self.options = answerOptions.shuffled()
+            
+            print("Answer options: \(self.options.map { $0.name.common })")
+        }
+        
+        print("=== Question Ready ===\n")
+    }
+    
+    // Добавим синхронную версию метода selectNextQuestion
+    private func selectNextQuestionSync() {
+        print("\n=== Preparing Question \(currentQuestion + 1)/\(initialQuestionsCount) ===")
+        
+        guard currentQuestion < availableCountries.count else {
+            print("No more questions available")
+            isGameOver = true
+            return
+        }
+        
+        // Берем следующую страну из уже отобранного списка
+        let nextCountry = availableCountries[currentQuestion]
+        print("Next country: \(nextCountry.name.common)")
+        
+        // Обновляем UI
+        withAnimation(.easeInOut(duration: 0.3)) {
+            // Устанавливаем новый флаг
+            self.currentFlag = nextCountry
+            
+            var answerOptions = [nextCountry]
+            
+            // Стандартная логика для других режимов
+            let otherCountries = availableCountries.filter { $0.id != nextCountry.id }
+            answerOptions.append(contentsOf: otherCountries.shuffled().prefix(optionsCount - 1))
+            
+            // Перемешиваем все варианты ответов
+            self.options = answerOptions.shuffled()
+            
+            // Разрешаем взаимодействие с карточкой
+            self.isCardInteractionEnabled = true
+            
+            print("Answer options: \(self.options.map { $0.name.common })")
+        }
+        
+        print("=== Question Ready ===\n")
+    }
+    
+    // Изменим метод selectAnswer на синхронный
+    func selectAnswer(_ country: Country) {
+        guard let currentFlag = currentFlag else {
+            print("⚠️ No current flag to check answer against")
+            return
+        }
+        
+        guard !isProcessingAnswer else {
+            print("\n⚠️ Answer is already being processed")
+            return
+        }
+        
+        // Блокируем взаимодействие с карточкой
+        isCardInteractionEnabled = false
+        isProcessingAnswer = true
+        
+        print("\n=== Answer Processing ===")
+        print("Selected answer: \(country.name.common)")
+        print("Correct answer: \(currentFlag.name.common)")
+        
+        let isCorrect = country.id == currentFlag.id
+        
+        if isCorrect {
+            print("✅ CORRECT ANSWER!")
+            score += 1
+            // Сохраняем правильный ответ в список, если играем в режиме ошибок
+            if selectedRegions.contains(.myMistakes) {
+                print("Adding to correctly answered list: \(currentFlag.name.common) (ID: \(currentFlag.id))")
+                correctlyAnsweredMistakes.insert(currentFlag.id)
+                print("Current correctly answered count: \(correctlyAnsweredMistakes.count)")
+                let correctlyAnswered = mistakeCountries
+                    .filter { correctlyAnsweredMistakes.contains($0.id) }
+                    .map { $0.name.common }
+                print("Correctly answered so far: \(correctlyAnswered.joined(separator: ", "))")
+            }
+        } else {
+            print("❌ WRONG ANSWER!")
+        }
+        
+        print("\nGame Statistics:")
+        print("Current score: \(score)")
+        print("Question: \(currentQuestion + 1)/\(initialQuestionsCount)")
+        print("=====================\n")
+        
+        currentQuestion += 1
+        
+        if currentQuestion >= initialQuestionsCount {
+            print("\n🎮 Game Over!")
+            isGameOver = true
+            isProcessingAnswer = false
+            finishGameSync() // Вызываем завершение игры здесь
+            return
+        }
+        
+        // Очищаем текущий флаг и варианты ответов
+        withAnimation {
+            self.currentFlag = nil
+            self.options = []
+        }
+        
+        // Используем синхронную версию для следующего вопроса
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) { [weak self] in
+            self?.selectNextQuestionSync()
+            self?.isProcessingAnswer = false
+            print("\n=== Ready for Next Question ===")
+        }
+    }
+    
+    func updateStatistics(isCorrect: Bool) {
+        statistics.totalAnswers += 1
+        if isCorrect {
+            statistics.correctAnswers += 1
+        }
+    }
+    
+    // Добавим синхронный метод для завершения игры
+    private func finishGameSync() {
+        print("\n=== Finishing Game ===")
+        print("Current score: \(score)")
+        print("Current time: \(formattedTime())")
+        print("Previous best time: \(formattedTime(statistics.bestTime))")
+        
+        // Обновляем список ошибок после завершения игры
+        if selectedRegions.contains(.myMistakes) {
+            print("\n=== Updating Mistakes List After Game ===")
+            print("Correctly answered mistakes: \(correctlyAnsweredMistakes.count)")
+            
+            let correctlyAnsweredNames = mistakeCountries
+                .filter { correctlyAnsweredMistakes.contains($0.id) }
+                .map { $0.name.common }
+            print("Correctly answered flags: \(correctlyAnsweredNames.joined(separator: ", "))")
+            
+            // Создаем новый список ошибок, исключая правильно отвеченные
+            let updatedMistakes = mistakeCountries.filter { country in
+                let shouldKeep = !correctlyAnsweredMistakes.contains(country.id)
+                if !shouldKeep {
+                    print("Removing from mistakes: \(country.name.common) (ID: \(country.id))")
+                }
+                return shouldKeep
+            }
+            
+            // Обновляем список ошибок
+            mistakeCountries = updatedMistakes
+            
+            // Сохраняем обновленный список ошибок
+            saveMistakes()
+            
+            print("Remaining mistakes: \(mistakeCountries.map { $0.name.common }.joined(separator: ", "))")
+        }
+        
+        // Останавливаем таймер
+        stopTimer()
+        
+        // Обновляем статистику
+        statistics.totalGames += 1
+        statistics.bestScore = max(statistics.bestScore, score)
+        statistics.correctAnswers += score
+        statistics.totalAnswers += currentQuestion
+        if elapsedTime < statistics.bestTime || statistics.bestTime == 0 {
+            statistics.bestTime = elapsedTime
+        }
+        
+        saveStatistics()
+    }
+    
+    // Изменим метод handleGameTimeout
+    private func handleGameTimeout() {
+        timer?.invalidate()
+        timer = nil
+        finishGameSync()
+    }
+    
+    // Оставим асинхронный метод для вызова из других мест
+    func finishGame() {
+        stopTimer()
+        finishGameSync()
+    }
+    
+    func setLanguage(_ language: Language) async {
+        // Проверяем, не тот же ли это язык
+        guard language != selectedLanguage else {
+            print("ℹ️ Language already set to \(language.rawValue), skipping...")
+            return
+        }
+        
+        print("\n=== Changing Language ===")
+        print("Old language: \(selectedLanguage.rawValue)")
+        print("New language: \(language.rawValue)")
+        
+        selectedLanguage = language
+        await localizationManager.setLanguage(language)
+        
+        // Принудительно обновляем режимы игры
+        let currentFlags = countries.count
+        await MainActor.run {
+            // Сохраняем текущий режим
+            let currentMode = selectedGameMode
+            
+            // Обновляем доступные режимы
+            updateAvailableGameModes(totalFlags: currentFlags)
+            
+            // Восстанавливаем выбранный режим
+            if availableGameModes.contains(currentMode) {
+                selectedGameMode = currentMode
+            }
+            
+            // Уведомляем об изменениях
+            objectWillChange.send()
+        }
+        
+        print("Language and game modes updated successfully")
+        print("=====================\n")
+    }
+    
+    private func updateRegions(_ newRegions: Set<Region>) async {
+        print("\n=== Updating Regions ===")
+        print("Old regions: \(selectedRegions.map { $0.rawValue })")
+        print("New regions: \(newRegions.map { $0.rawValue })")
+        
+        selectedRegions = newRegions
+        
+        do {
+            isLoading = true
+            error = nil
+            
+            print("\n=== Loading Countries ===")
+            print("Current regions: \(selectedRegions.map { $0.rawValue })")
+            
+            let loadedCountries = try await fetchCountries(for: Array(selectedRegions))
+            countries = loadedCountries
+            
+            print("Total countries loaded: \(countries.count)")
+            
+            // Обновляем режимы игры с учетом новой логики
+            await MainActor.run {
+                updateAvailableGameModes(totalFlags: countries.count)
+            }
+            
+            isLoading = false
+        } catch {
+            self.error = error
+            self.isLoading = false
+            print("Error updating regions: \(error)")
+        }
+    }
+    
+    func setRegions(_ newRegions: Set<Region>) {
+        selectedRegions = newRegions
+        Task {
+            await updateRegions(newRegions)
+            // Режимы игры уже обновляются в updateRegions
+        }
+    }
+    
+    func toggleRegion(_ region: Region) {
+        var newRegions = Set<Region>()
+        
+        if region == .all {
+            newRegions = [.all]
+        } else {
+            newRegions = selectedRegions.filter { $0 != .all }
+            
+            if newRegions.contains(region) {
+                newRegions.remove(region)
+                if newRegions.isEmpty {
+                    newRegions = [region]
+                }
+            } else {
+                newRegions.insert(region)
+            }
+        }
+        
+        Task {
+            await updateRegions(newRegions)
+        }
+    }
+    
+    func startNewGameWithCurrentRegions() async {
+        guard !isStartingNewGame else {
+            print("\n⚠️ Game start in progress")
+            return
+        }
+        
+        guard !isGameInProgress else {
+            print("\n⚠️ Game is already in progress")
+            return
+        }
+        
+        isStartingNewGame = true
+        isGameInProgress = true
+        
+        print("\n=== Starting New Game ===")
+        print("Selected regions: \(selectedRegions.map { $0.rawValue })")
+        
+        // Сбрасываем состояние
+        resetGameState()
+        
+        // Загружаем ошибки
+        loadMistakes()
+        
+        print("Final selected regions: \(selectedRegions.map { $0.rawValue })")
+        
+        // Сохраняем изначальное количество вопросов
+        initialQuestionsCount = questionsPerGame
+        print("Setting initial questions count to: \(initialQuestionsCount)")
+        
+        // Очищаем список правильных ответов при начале новой игры
+        print("Clearing previously correctly answered mistakes")
+        correctlyAnsweredMistakes.removeAll()
+        
+        do {
+            // Загружаем страны только для выбранных регионов
+            let loadedCountries = try await fetchCountries(for: Array(selectedRegions))
+            print("Total unique countries loaded: \(loadedCountries.count)")
+            
+            guard !loadedCountries.isEmpty else {
+                print("Error: No countries loaded")
+                self.error = GameError.notEnoughCountries(count: 0)
+                isStartingNewGame = false
+                isGameInProgress = false
+                return
+            }
+            
+            // Перемешиваем страны и берем нужное количество для игры
+            availableCountries = Array(loadedCountries.shuffled().prefix(questionsPerGame))
+            print("\n=== Selected Countries for Game (\(availableCountries.count)) ===")
+            for (index, country) in availableCountries.enumerated() {
+                print("\(index + 1). \(country.name.common)")
+            }
+            print("=====================\n")
+            
+            // Выбираем первый вопрос синхронно
+            selectNextQuestion()
+            
+            // Запускаем таймер
+            startTimer()
+            
+            // Устанавливаем флаг навигации
+            isNavigatingToGame = true
+            
+        } catch {
+            print("Error starting new game: \(error)")
+            self.error = error
+            isStartingNewGame = false
+            isGameInProgress = false
+            return
+        }
+        
+        isStartingNewGame = false
+        print("\n✅ Game successfully started")
+    }
+    
+    func proceedToNextQuestion() {
+        // Добавляем вызов в стек
+        callStack.append("proceedToNextQuestion")
+        if callStack.count > 10 { callStack.removeFirst() }
+        
+        guard canProceedToNextQuestion else {
+            print("\n=== Attempted to Proceed to Next Question ===")
+            print("Status: Blocked")
+            print("Reason: Cannot proceed yet")
+            print("Card flipped: \(isCardFlipped)")
+            print("Can proceed: \(canProceedToNextQuestion)")
+            print("Is processing: \(isProcessingAnswer)")
+            print("Call stack depth: \(callStack.count)")
+            print("=====================\n")
+            return
+        }
+        
+        // Проверяем, не обрабатывается ли уже ответ
+        if isProcessingAnswer {
+            print("\n=== Proceed Blocked ===")
+            print("Status: Blocked")
+            print("Reason: Answer is being processed")
+            print("=====================\n")
+            return
+        }
+        
+        print("\n=== Proceeding to Next Question ===")
+        print("Status: Allowed")
+        print("Previous action: \(lastActionReason)")
+        print("Card flipped: \(isCardFlipped)")
+        print("Current question: \(currentQuestion)")
+        print("=====================\n")
+        
+        lastActionReason = "Manual proceed to next question"
+        isCardFlipped = false
+        canProceedToNextQuestion = false
+        
+        // Принудительно очищаем текущий флаг перед загрузкой нового
+        currentFlag = nil
+        
+        loadNewQuestion()
+    }
+    
+    private func moveToNextQuestion() {
+        print("\n=== Moving to Next Question ===")
+        print("Current state:")
+        print("Card flipped: \(isCardFlipped)")
+        print("Can proceed: \(canProceedToNextQuestion)")
+        print("Is processing: \(isProcessingAnswer)")
+        
+        // Сбрасываем состояние
+        isCardFlipped = false
+        canProceedToNextQuestion = false
+        isProcessingAnswer = false
+        lastActionReason = "Auto proceed after answer"
+        
+        // Загружаем новый вопрос
+        loadNewQuestion()
+        
+        print("State after reset:")
+        print("Card flipped: \(isCardFlipped)")
+        print("Can proceed: \(canProceedToNextQuestion)")
+        print("Is processing: \(isProcessingAnswer)")
+        print("=====================\n")
+    }
+    
+    func loadNewQuestion() {
+        if currentQuestion == 0 {
+            generateNewQuestion()
+        }
+    }
+    
+    private func generateNewQuestion() {
+        var newCountry: Country?
+        let availableForSelection = availableCountries.filter { country in
+            !previousFlags.contains(country.id)
+        }
+        
+        if !availableForSelection.isEmpty {
+            newCountry = availableForSelection.randomElement()
+        } else {
+            previousFlags.removeAll()
+            newCountry = availableCountries.randomElement()
+        }
+        
+        guard let randomCountry = newCountry else { return }
+        
+        var options = Set([randomCountry])
+        let otherCountries = availableCountries.filter { $0.id != randomCountry.id }
+        while options.count < optionsCount {
+            if let country = otherCountries.randomElement() {
+                options.insert(country)
+            }
+        }
+        
+        withAnimation {
+            currentFlag = randomCountry
+            self.options = Array(options).shuffled()
+            isCardFlipped = false
+            canProceedToNextQuestion = false
+            isProcessingAnswer = false
+        }
+    }
+    
+    func addMistake(_ country: Country) {
+        print("\n=== Adding to Mistakes List ===")
+        print("Country: \(country.name.common)")
+        
+        // Проверяем, нет ли уже такой страны в списке ошибок
+        if !mistakeCountries.contains(where: { $0.id == country.id }) {
+            mistakeCountries.append(country)
+            saveMistakes() // Сразу сохраняем изменения
+            print("✅ Country added and saved to mistakes list")
+            print("Total mistakes now: \(mistakeCountries.count)")
+        } else {
+            print("ℹ️ Country already in mistakes list")
+        }
+    }
+    
+    func removeMistake(_ country: Country) {
+        print("\n=== Removing from Mistakes List ===")
+        print("Country: \(country.name.common)")
+        print("Reason: Correctly answered")
+        
+        mistakeCountries.removeAll(where: { $0.id == country.id })
+        saveMistakes()
+        
+        print("\nMistakes List Status:")
+        print("Total mistakes: \(mistakeCountries.count)")
+        print("Remaining mistakes: \(mistakeCountries.map { $0.name.common }.joined(separator: ", "))")
+        print("=====================\n")
+    }
+    
+    var hasMistakes: Bool {
+        !mistakeCountries.isEmpty
+    }
+    
+    private func getRegionPath(for region: GameState.Region) -> String {
+        switch region {
+        case .all:
+            return "all"
+        case .europe:
+            return "region/europe"
+        case .asia:
+            return "region/asia"
+        case .northAmerica, .southAmerica:
+            return "region/americas"
+        case .africa:
+            return "region/africa"
+        case .oceania:
+            return "region/oceania"
+        case .myMistakes:
+            return "my-mistakes"
+        }
+    }
+    
+    func saveMistakes() {
+        print("\n💾 Saving Mistakes")
+        if let encoded = try? JSONEncoder().encode(mistakeCountries) {
+            UserDefaults.standard.set(encoded, forKey: "mistakeCountries")
+            print("✅ Saved \(mistakeCountries.count) mistakes")
+            if !mistakeCountries.isEmpty {
+                print("Current mistakes: \(mistakeCountries.map { $0.name.common }.joined(separator: ", "))")
+                print("Remaining mistakes: \(mistakeCountries.map { $0.name.common }.joined(separator: ", "))")
+            }
+        } else {
+            print("❌ Failed to save mistakes")
+        }
+    }
+    
+    func loadMistakes() {
+        print("\n📂 Loading Mistakes")
+        guard !mistakesLoaded else {
+            print("ℹ️ Mistakes already loaded, skipping...")
+            return
+        }
+        
+        if let data = UserDefaults.standard.data(forKey: "mistakeCountries") {
+            do {
+                mistakeCountries = try JSONDecoder().decode([Country].self, from: data)
+                print("✅ Successfully loaded \(mistakeCountries.count) mistakes")
+                if !mistakeCountries.isEmpty {
+                    print("Current mistakes: \(mistakeCountries.map { $0.name.common }.joined(separator: ", "))")
+                }
+            } catch {
+                print("❌ Error decoding mistakes:", error)
+                print("Previous mistakes preserved")
+            }
+        } else {
+            print("ℹ️ No mistakes data found")
+            mistakeCountries = []
+        }
+        
+        print("Initial mistakes count: \(mistakeCountries.count)")
+        mistakesLoaded = true
+    }
+    
+    func fetchCountries(for regions: [Region]) async throws -> [Country] {
+        print("\nFetching countries for regions: \(regions.map { $0.rawValue })")
+        var allCountries: [Country] = []
+        
+        // Проверяем кэш для каждого региона
+        for region in regions {
+            if let cachedCountries = loadedCountriesCache[region] {
+                print("Using cached data for region: \(region.rawValue)")
+                allCountries.append(contentsOf: cachedCountries)
+                continue
+            }
+            
+            // Если данных нет в кэше, загружаем
+            switch region {
+            case .myMistakes:
+                loadMistakes()
+                if !mistakeCountries.isEmpty {
+                    print("Found \(mistakeCountries.count) mistakes to use")
+                    allCountries.append(contentsOf: mistakeCountries)
+                    loadedCountriesCache[.myMistakes] = mistakeCountries
+                }
+            case .all:
+                let allRegions = Region.allCases.filter { $0 != .all && $0 != .myMistakes }
+                for subRegion in allRegions {
+                    if let cachedSubRegion = loadedCountriesCache[subRegion] {
+                        allCountries.append(contentsOf: cachedSubRegion)
+                    } else {
+                        let countries = try await CountryService.shared.fetchCountries(for: Set([subRegion]))
+                        loadedCountriesCache[subRegion] = countries
+                        allCountries.append(contentsOf: countries)
+                    }
+                }
+            default:
+                let countries = try await CountryService.shared.fetchCountries(for: Set([region]))
+                loadedCountriesCache[region] = countries
+                allCountries.append(contentsOf: countries)
+            }
+        }
+        
+        let uniqueCountries = Array(Set(allCountries))
+        print("Total unique countries loaded: \(uniqueCountries.count)")
+        return uniqueCountries
+    }
+    
+    private func saveStatistics() {
+        print("\n=== Saving Statistics ===")
+        print("Total games: \(statistics.totalGames)")
+        print("Best score: \(statistics.bestScore)")
+        print("Correct answers: \(statistics.correctAnswers)")
+        print("Total answers: \(statistics.totalAnswers)")
+        print("Best time: \(statistics.bestTime)")
+        
+        StatisticsService.shared.saveStatistics(statistics)
+        
+        print("Statistics successfully encoded and saved")
+        print("=====================\n")
+    }
+    
+    // При деинициализации класса
+    deinit {
+        Task { @MainActor in
+            await stopTimer()
+            transitionTimer?.invalidate()
+            transitionTimer = nil
+        }
+    }
+    
+    private func formatPopulation(_ population: Int) -> String {
+        let formatter = NumberFormatter()
+        formatter.numberStyle = .decimal
+        formatter.groupingSeparator = " "
+        
+        if population >= 1_000_000 {
+            let millions = Double(population) / 1_000_000.0
+            return String(format: "%.1f million", millions)
+        } else if population >= 1_000 {
+            let thousands = Double(population) / 1_000.0
+            return String(format: "%.1f thousand", thousands)
+        } else {
+            return "\(population)"
+        }
+    }
+    
+    private func formatArea(_ area: Double) -> String {
+        let formatter = NumberFormatter()
+        formatter.numberStyle = .decimal
+        formatter.maximumFractionDigits = 0
+        formatter.groupingSeparator = " "
+        
+        if area >= 1_000_000 {
+            let millions = area / 1_000_000.0
+            return String(format: "%.2f million km²", millions)
+        } else {
+            return "\(formatter.string(from: NSNumber(value: area)) ?? String(format: "%.0f", area)) km²"
+        }
+    }
+    
+    func resetGameState() {
+        print("\n=== Resetting Game State ===")
+        score = 0
+        currentQuestion = 0
+        isGameOver = false
+        elapsedTime = 0
+        timeProgress = 0
+        isNavigatingToGame = false
+        usedCountriesInGame.removeAll()
+        usedFlagsInGame.removeAll()
+        timer?.invalidate()
+        timer = nil
+        startTime = nil
+        lastGameStartAttempt = nil
+        isGameInProgress = false // Сбрасываем флаг при окончании игры
+        print("Game state has been reset")
+        print("=====================\n")
+    }
+    
+    func prepareNextQuestion() async {
+        currentQuestion += 1
+        print("\n=== Preparing Question \(currentQuestion + 1)/\(questionsPerGame) ===")
+        
+        // Получаем следующую страну из предварительно загруженного списка
+        let nextCountry = availableCountries[currentQuestion]
+        print("Next country: \(nextCountry.name.common)")
+        
+        // Обновляем текущий флаг и варианты ответов
+        await MainActor.run {
+            withAnimation {
+                self.currentFlag = nextCountry
+                
+                // Генерируем варианты ответов
+                let otherCountries = availableCountries.filter { $0.id != nextCountry.id }
+                var newOptions = [nextCountry]
+                newOptions.append(contentsOf: otherCountries.shuffled().prefix(optionsCount - 1))
+                self.options = newOptions.shuffled()
+                
+                print("Answer options: \(self.options.map { $0.name.common })")
+            }
+        }
+        
+        print("=== Question Ready ===\n")
+    }
+    
+    private func updateAvailableGameModes(totalFlags: Int) {
+        print("\n=== Updating Game Modes ===")
+        print("Total flags available: \(totalFlags)")
+        
+        var modes: [GameMode] = []
+        
+        // Если выбран только регион "Мои Ошибки"
+        if selectedRegions.count == 1 && selectedRegions.contains(.myMistakes) {
+            print("Region: My Mistakes only")
+            print("Mistakes count: \(mistakeCountries.count)")
+            // Для региона "Мои Ошибки" доступен только режим "Все Флаги"
+            modes = [.all]
+            // Автоматически устанавливаем режим "Все Флаги"
+            selectedGameMode = .all
+        } else {
+            // Для других регионов стандартная логика
+            if totalFlags >= 20 {
+                modes.append(.twenty)
+            }
+            if totalFlags >= 50 {
+                modes.append(.fifty)
+            }
+            if totalFlags >= 100 {
+                modes.append(.hundred)
+            }
+            modes.append(.all)
+        }
+        
+        availableGameModes = modes
+        print("Available game modes: \(modes.map { $0.displayName })")
+        print("Selected game mode: \(selectedGameMode.displayName)")
+        print("=====================\n")
+    }
+    
+    // Изменим метод formattedTime
+    func formattedTime(_ time: TimeInterval = 0) -> String {
+        let timeToFormat = time > 0 ? time : elapsedTime
+        let minutes = Int(timeToFormat) / 60
+        let seconds = timeToFormat.truncatingRemainder(dividingBy: 60)
+        return String(format: "%02d:%04.1f", minutes, seconds)
+    }
+    
+    // Изменим метод startTimer
+    func startTimer() {
+        print("\n=== Starting Timer ===")
+        startTime = Date()
+        timer?.invalidate()
+        
+        timer = Timer.scheduledTimer(withTimeInterval: 0.1, repeats: true) { [weak self] _ in
+            guard let self = self,
+                  let startTime = self.startTime else { return }
+            
+            self.elapsedTime = Date().timeIntervalSince(startTime)
+            self.timeProgress = min(self.elapsedTime / self.gameDuration, 1.0)
+            
+            if self.timeProgress >= 1.0 {
+                self.timer?.invalidate()
+                self.timer = nil
+                // Вызываем синхронное завершение игры
+                self.finishGameSync()
+            }
+        }
+        
+        RunLoop.main.add(timer!, forMode: .common)
+        print("Timer started")
+        print("=====================\n")
+    }
+    
+    // Изменим метод stopTimer на синхронный
+    func stopTimer() {
+        print("\n=== Stopping Timer ===")
+        timer?.invalidate()
+        timer = nil
+        print("Timer stopped")
+        print("Final time: \(formattedTime())")
+        print("=====================\n")
+    }
+}
+
+enum GameError: LocalizedError {
+    case notEnoughCountries(count: Int)
+    
+    var errorDescription: String? {
+        switch self {
+        case .notEnoughCountries(let count):
+            return String(format: NSLocalizedString("Not enough countries in selected regions (found %d, need at least 6)", comment: ""), count)
+        }
+    }
+}
+
+// Оставляем только одно расширение для NotificationCenter.Name
+extension Notification.Name {
+    static let languageChanged = Notification.Name("languageChanged")
+}
+
+// Все остальные объявления уже существуют в других местах кода 

@@ -1,0 +1,99 @@
+// General
+"World Flags" = "World Flags";
+"Score" = "Score";
+"Exit" = "Exit";
+"Error loading countries" = "Error loading countries";
+"Retry" = "Retry";
+"System" = "System";
+
+// Start Screen
+"Select Language" = "Select Language";
+"Select Regions" = "Select Regions";
+"START GAME" = "START GAME";
+"All Regions" = "All Regions";
+"Europe" = "Europe";
+"Asia" = "Asia";
+"Americas" = "Americas";
+"Africa" = "Africa";
+"Oceania" = "Oceania";
+"North America" = "North America";
+"South America" = "South America";
+
+// Game Over
+"Game Over!" = "Game Over!";
+"points" = "points";
+"Play Again" = "Play Again";
+"Home" = "Home";
+
+// Statistics
+"Statistics" = "Statistics";
+"Total Games" = "Total Games";
+"Best Score" = "Best Score";
+"Correct Answers" = "Correct Answers";
+"Accuracy" = "Accuracy";
+"Best Time" = "Best Time";
+"Time" = "Time";
+"Clear" = "Clear";
+"Close" = "Close";
+
+// Game Results
+"Excellent game!" = "🏆 Excellent!";
+"Great result!" = "🎯 Great result!";
+"Good game!" = "👍 Good game!";
+"Keep practicing!" = "💪 Keep practicing!";
+// English (default)
+"Play Again" = "Play Again";
+
+// Share
+"Share Result" = "Share";
+"Share Message" = "I scored %d points in World Flags game! 🎮🌍\nDownload and try to beat my score!";
+
+// Network Errors
+"No Internet Connection" = "No Internet Connection";
+"Request Timeout" = "Request Timeout";
+"Server Not Found" = "Server Not Found";
+"Too Many Requests" = "Too Many Requests";
+"Server Error" = "Server Error";
+"HTTP Error: %d" = "HTTP Error: %d";
+"Try Again" = "Try Again";
+"Not enough countries in selected regions (found %d, need at least 4)" = "Not enough countries in selected regions (found %d, need at least 4)";
+"Empty response from server" = "Empty response from server";
+
+// New additions
+"Capital" = "Capital";
+"Population" = "Population";
+"Area" = "Area";
+"Region" = "Region";
+"Subregion" = "Subregion";
+
+// Language additions
+"system_language" = "System";
+"ru_language" = "Русский";
+"uk_language" = "Українська";
+"es_language" = "Español";
+"ca_language" = "Català";
+"zh_language" = "中文";
+
+// Exit confirmation
+"Exit Confirmation" = "Are you sure you want to exit?";
+"Yes" = "Yes";
+"No" = "No";
+
+// New additions
+"Tap to continue" = "Tap to continue";
+
+// Game Modes
+"Game Mode" = "Game Mode";
+"20 Flags" = "20 Flags";
+"50 Flags" = "50 Flags";
+"100 Flags" = "100 Flags";
+"All Flags" = "All Flags";
+
+"of" = "of";
+"flags" = "flags";
+
+// Theme
+"App Theme" = "Appearance";
+"System" = "System";
+"Light" = "Light";
+"Dark" = "Dark";

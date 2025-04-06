@@ -1,0 +1,126 @@
+// General
+"World Flags" = "Banderes del Món";
+"Score" = "Puntuació";
+"Exit" = "Sortir";
+"Error loading countries" = "Error en carregar països";
+"Retry" = "Tornar a provar";
+"System" = "Sistema";
+
+// Start Screen
+"Select Language" = "Seleccionar idioma";
+"Select Regions" = "Seleccionar regions";
+"START GAME" = "COMENÇAR JOC";
+"All Regions" = "Totes les regions";
+"Europe" = "Europa";
+"Asia" = "Àsia";
+"Americas" = "Amèrica";
+"Africa" = "Àfrica";
+"Oceania" = "Oceania";
+"North America" = "Amèrica del Nord";
+"South America" = "Amèrica del Sud";
+
+// Game Over
+"points" = "punts";
+"Play Again" = "Tornar a jugar";
+"Home" = "Inici";
+
+// Statistics
+"Statistics" = "Estadístiques";
+"Total Games" = "Jocs totals";
+"Best Score" = "Millor puntuació";
+"Correct Answers" = "Respostes correctes";
+"Accuracy" = "Precisió";
+"Best Time" = "Millor temps";
+"Time" = "Temps";
+"Clear" = "Netejar";
+"Close" = "Tancar";
+"Clear Statistics" = "Esborrar estadístiques";
+"Are you sure you want to clear all statistics?" = "Estàs segur que vols esborrar totes les estadístiques?";
+"Cancel" = "Cancel·lar";
+
+// Game Results
+"Excellent game!" = "🏆 Excel·lent!";
+"Great result!" = "🎯 Gran resultat!";
+"Good game!" = "👍 Bon joc!";
+"Keep practicing!" = "💪 Segueix practicant!";
+
+// Share Result
+"Share Result" = "Compartir";
+"Share Message" = "He aconseguit %d punts a World Flags! 🎮🌍\nDescarrega'l i intenta superar la meva puntuació!";
+
+// Exit confirmation
+"Exit Confirmation" = "Estàs segur que vols sortir?";
+"Yes" = "Sí";
+"No" = "No";
+
+// New translation
+"Tap to continue" = "Toca per continuar";
+
+// Game Modes
+"Game Mode" = "Mode de joc";
+"20 Flags" = "20 banderes";
+"50 Flags" = "50 banderes";
+"100 Flags" = "100 banderes";
+"All Flags" = "Totes les banderes";
+
+"of" = "de";
+"flags" = "banderes";
+
+// Theme
+"App Theme" = "Aparença";
+"System" = "Sistema";
+"Light" = "Clara";
+"Dark" = "Fosca";
+
+// Caribbean capitals
+"Philipsburg" = "Philipsburg";
+"Marigot" = "Marigot";
+"Fort-de-France" = "Fort-de-France";
+"Cockburn Town" = "Cockburn Town";
+"Oranjestad" = "Oranjestad";
+"Plymouth" = "Plymouth";
+"Charlotte Amalie" = "Charlotte Amalie";
+"St. George's" = "Saint George";
+"San Juan" = "San Juan";
+"Basse-Terre" = "Basse-Terre";
+"The Valley" = "La Vall";
+"Road Town" = "Road Town";
+"Gustavia" = "Gustavia";
+"Kralendijk" = "Kralendijk";
+"George Town" = "George Town";
+"Willemstad" = "Willemstad";
+
+// Country names
+"Sint Maarten" = "Sint Maarten (Països Baixos)";
+"Saint Martin" = "Saint Martin (França)";
+"Martinique" = "Martinica";
+"Turks and Caicos Islands" = "Illes Turks i Caicos";
+"Aruba" = "Aruba";
+"Montserrat" = "Montserrat";
+"United States Virgin Islands" = "Illes Verges dels Estats Units";
+"Grenada" = "Granada";
+"Puerto Rico" = "Puerto Rico";
+"Guadeloupe" = "Guadalupe";
+"Anguilla" = "Anguilla";
+"British Virgin Islands" = "Illes Verges Britàniques";
+"Saint Barthélemy" = "Saint Barthélemy";
+"Caribbean Netherlands" = "Carib Neerlandès";
+"Cayman Islands" = "Illes Caiman";
+"Curaçao" = "Curaçao";
+"Kosovo" = "Kosovo";
+
+"Flags" = "Banderes";
+
+"City of San Marino" = "Ciutat de San Marino";
+
+"Douglas" = "Douglas";
+
+"Saint Helier" = "Saint Helier";
+"Longyearbyen" = "Longyearbyen";
+"Gibraltar" = "Gibraltar";
+"Pristina" = "Pristina";
+"Mariehamn" = "Mariehamn";
+"Nicosia" = "Nicòsia";
+"Tórshavn" = "Tórshavn";
+"Chișinău" = "Chişinău";
+"My Mistakes" = "Els meus errors";

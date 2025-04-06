@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title data-i18n="title">Флаги Мира</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Фоновые флаги -->
+    <div class="background-flags">
+        <!-- Полосы флагов будут добавлены через JavaScript -->
+    </div>
+
+    <!-- Стартовый экран -->
+    <div id="start-screen" class="start-screen">
+        <div class="start-content">
+            <h1 data-i18n="title">🌎 Флаги Мира</h1>
+            <div class="start-options">
+                <div class="language-select">
+                    <label for="start-language">Выберите язык / Choose language:</label>
+                    <select id="start-language">
+                        <option value="ru">Русский</option>
+                        <option value="en">English</option>
+                        <option value="es">Español</option>
+                        <option value="uk">Українська</option>
+                        <option value="ca">Català</option>
+                        <option value="zh">中文</option>
+                    </select>
+                </div>
+            </div>
+            <div class="region-selector">
+                <h3 data-i18n="selectRegions">Выберите регионы</h3>
+                <div class="region-options">
+                    <label class="region-option">
+                        <input type="checkbox" value="all" checked>
+                        <span data-i18n="allRegions">Все регионы</span>
+                    </label>
+                    <label class="region-option">
+                        <input type="checkbox" value="Europe">
+                        <span data-i18n="europe">Европа</span>
+                    </label>
+                    <label class="region-option">
+                        <input type="checkbox" value="Asia">
+                        <span data-i18n="asia">Азия</span>
+                    </label>
+                    <label class="region-option">
+                        <input type="checkbox" value="Americas">
+                        <span data-i18n="americas">Америка</span>
+                    </label>
+                    <label class="region-option">
+                        <input type="checkbox" value="Africa">
+                        <span data-i18n="africa">Африка</span>
+                    </label>
+                    <label class="region-option">
+                        <input type="checkbox" value="Oceania">
+                        <span data-i18n="oceania">Океания</span>
+                    </label>
+                </div>
+            </div>
+            <button id="start-game" class="start-button">НАЧАТЬ ИГРУ</button>
+        </div>
+    </div>
+
+    <!-- Основной контейнер игры -->
+    <div id="game-container" class="container" style="display: none;">
+        <div class="header">
+            <div class="top-bar">
+                <div class="score-container">
+                    <span data-i18n="score">Счёт:</span>
+                    <span id="score">0</span>
+                </div>
+                <div class="timer-container">
+                    <span data-i18n="time">Время:</span>
+                    <span id="timer">0</span>
+                </div>
+                <div class="level-selector">
+                    <select id="difficulty">
+                        <option value="easy" data-i18n="easy">Легкий</option>
+                        <option value="medium" data-i18n="medium">Средний</option>
+                        <option value="hard" data-i18n="hard">Сложный</option>
+                    </select>
+                </div>
+            </div>
+            <div class="progress-bar">
+                <div class="progress-fill"></div>
+            </div>
+        </div>
+
+        <div class="quiz-container">
+            <div class="flag-container">
+                <img id="flag-image" src="" alt="Флаг страны">
+            </div>
+            <div class="options-container">
+                <button class="option"></button>
+                <button class="option"></button>
+                <button class="option"></button>
+                <button class="option"></button>
+            </div>
+        </div>
+
+        <div class="controls">
+            <button id="share-btn" class="control-btn" data-i18n="share">
+                Поделиться
+            </button>
+            <button id="stats-btn" class="control-btn" data-i18n="stats">
+                Статистика
+            </button>
+        </div>
+
+        <!-- Модальное окно статистики -->
+        <div id="stats-modal" class="modal">
+            <div class="modal-content">
+                <h2 data-i18n="stats">Статистика</h2>
+                <div class="stats-grid">
+                    <div class="stat-item">
+                        <span data-i18n="totalGames">Всего игр:</span>
+                        <span id="total-games">0</span>
+                    </div>
+                    <div class="stat-item">
+                        <span data-i18n="bestScore">Лучший счёт:</span>
+                        <span id="best-score">0</span>
+                    </div>
+                    <div class="stat-item">
+                        <span data-i18n="correctAnswers">Правильных ответов:</span>
+                        <span id="correct-answers">0</span>
+                    </div>
+                </div>
+                <button class="close-modal" data-i18n="close">Закрыть</button>
+            </div>
+        </div>
+
+        <div class="loading-screen">
+            <div class="spinner"></div>
+            <p>Загрузка...</p>
+        </div>
+    </div>
+
+    <!-- Добавим модальное окно с результатами -->
+    <div id="game-over-modal" class="modal game-over-modal">
+        <div class="modal-content game-over-content">
+            <h2 data-i18n="gameOverTitle">🎯 Игра окончена!</h2>
+            <div class="final-score">
+                <div class="score-circle">
+                    <span id="final-score">0</span>
+                    <span data-i18n="points">очков</span>
+                </div>
+            </div>
+            <div class="final-stats">
+                <div class="stat-row">
+                    <span data-i18n="correctAnswers">Правильных ответов:</span>
+                    <span id="final-correct-answers">0/10</span>
+                </div>
+                <div class="stat-row">
+                    <span data-i18n="bestScore">Лучший счёт:</span>
+                    <span id="final-best-score">0</span>
+                </div>
+            </div>
+            <div class="final-buttons">
+                <button id="share-result-btn" class="final-btn share-btn" data-i18n="share">
+                    Поделиться
+                </button>
+                <button id="play-again-btn" class="final-btn play-btn" data-i18n="playAgain">
+                    Играть снова
+                </button>
+                <button id="go-home-btn" class="final-btn home-btn" data-i18n="goHome">
+                    На главную
+                </button>
+            </div>
+        </div>
+    </div>
+    <script src="translations.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
