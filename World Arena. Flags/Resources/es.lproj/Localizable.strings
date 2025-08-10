@@ -59,6 +59,7 @@
 
 // New translations
 "Tap to continue" = "Toca para continuar";
+"Loading flag..." = "Cargando bandera...";
 
 // Game Modes
 "Game Mode" = "Modo de juego";
@@ -137,3 +138,11 @@
 
 // New translations
 "My Mistakes" = "Mis errores";
+
+// iPad Main Screen
+"Challenge Yourself, Learn the World" = "Desafíate a ti mismo, aprende el mundo";
+"WorldArena Description" = "WorldArena es una serie de juegos educativos globales que convierte el aprendizaje en diversión. Adivina banderas, capitales, fronteras y mucho más en un formato de quiz dinámico diseñado para todas las edades.";
+
+// Push Notifications
+"Push Notification Title" = "¡Hora de practicar!";
+"Push Notification Body" = "¡Pon a prueba tu conocimiento de banderas y mejora tus habilidades! 🌍🎯";

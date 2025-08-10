@@ -3,6 +3,7 @@ import SwiftUI
 struct RegionToggle: View {
     @ObservedObject var gameState: GameState
     let region: GameState.Region
+    @Environment(\.horizontalSizeClass) private var horizontalSizeClass
     
     var body: some View {
         Button(action: {
@@ -10,17 +11,17 @@ struct RegionToggle: View {
         }) {
             HStack(spacing: 4) {
                 Text(LocalizationManager.shared.localizedString(region.rawValue))
-                    .font(.system(size: 18, weight: .medium))
+                    .font(.system(size: horizontalSizeClass == .regular ? 27 : 18, weight: .medium))
                     .lineLimit(1)
                     .minimumScaleFactor(0.8)
                 if region == .myMistakes {
                     Text("(\(gameState.mistakeCountries.count))")
-                        .font(.system(size: 16))
+                        .font(.system(size: horizontalSizeClass == .regular ? 24 : 16))
                         .foregroundColor(.secondary)
                 }
             }
-            .padding(.horizontal, 10)
-            .padding(.vertical, 8)
+            .padding(.horizontal, horizontalSizeClass == .regular ? 15 : 10)
+            .padding(.vertical, horizontalSizeClass == .regular ? 12 : 8)
             .frame(maxWidth: .infinity)
             .background(
                 gameState.selectedRegions.contains(region)

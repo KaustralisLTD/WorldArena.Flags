@@ -38,31 +38,69 @@ class GameState: ObservableObject {
         didSet {
             print("\n=== Game Mode Changed ===")
             print("New mode: \(selectedGameMode.displayName)")
+            print("=====================\n")
+        }
+    }
+    
+    @Published var selectedPlayMode: PlayMode = .classic {
+        didSet {
+            print("\n=== Play Mode Changed ===")
+            print("New mode: \(selectedPlayMode.displayName)")
+            print("=====================\n")
+        }
+    }
+    
+    @Published var selectedDifficulty: Difficulty = .medium {
+        didSet {
+            print("\n=== Difficulty Changed ===")
+            print("New difficulty: \(selectedDifficulty.displayName)")
             print("Questions per game: \(questionsPerGame)")
             print("=====================\n")
         }
     }
     
     var questionsPerGame: Int {
-        switch selectedGameMode {
-        case .all:
-            return countries.filter(isCountryInSelectedRegions).count
-        default:
-            return selectedGameMode.rawValue
+        switch selectedPlayMode {
+        case .classic:
+            // В классическом режиме используем количество вопросов из сложности
+            // но ограничиваем максимальным количеством флагов из GameMode
+            let difficultyQuestions = selectedDifficulty.questionCount
+            let maxFlags = selectedGameMode.flagCount
+            
+            // Если выбрано "Все флаги", используем количество из сложности
+            if maxFlags == 0 {
+                return difficultyQuestions
+            }
+            
+            // Иначе берем минимум из сложности и лимита GameMode
+            return min(difficultyQuestions, maxFlags)
+        case .timeChallenge, .survival:
+            return selectedDifficulty.questionCount
         }
     }
+    
+    // Новые свойства для игровых режимов
+    @Published var questionTimeLeft: TimeInterval = 0
+    @Published var questionTimeProgress: Double = 0
+    @Published var isQuestionTimerActive = false
+    @Published var isSurvivalMode = false
+    @Published var survivalLives = 3
+    
+    let gameDuration: TimeInterval = 900 // 15 минут на игру
+    
+    private var startTime: Date?
+    private var timer: Timer?
+    private var questionTimer: Timer?
+    private var questionStartTime: Date?
     
     @Published private(set) var usedCountries: Set<String> = []
     private var availableCountries: [Country] = []
     
     private var isUpdatingRegions = false
     
-    let optionsCount = 6
-    
-    let gameDuration: TimeInterval = 300 // 5 минут на игру
-    
-    private var startTime: Date?
-    private var timer: Timer?
+        // Адаптивное количество вариантов ответов: 6 для iPhone, 8 для iPad
+    @Published var optionsCount = 6
+
     
     @Published var mistakeCountries: [Country] = []
     
@@ -93,6 +131,8 @@ class GameState: ObservableObject {
     @Published private var totalQuestionsInGame: Int = 20
     
     @Published var isStartingNewGame = false
+    @Published var isPreloadingFlags = false
+    @Published var flagPreloadProgress = 0.0
     
     private var loadedCountriesCache: [Region: [Country]] = [:]
     
@@ -116,7 +156,7 @@ class GameState: ObservableObject {
     private var correctlyAnsweredMistakes: Set<String> = []
     
     // Добавляем свойство для хранения изначального количества вопросов
-    private var initialQuestionsCount: Int = 0
+    @Published var initialQuestionsCount: Int = 0
     
     // Добавим свойство для отслеживания состояния карточки
     @Published var isCardInteractionEnabled = true
@@ -150,6 +190,7 @@ class GameState: ObservableObject {
         case chinese = "zh"
     }
     
+    // Восстанавливаем оригинальный GameMode для количества флагов
     enum GameMode: Int, CaseIterable {
         case twenty = 20
         case fifty = 50
@@ -169,20 +210,127 @@ class GameState: ObservableObject {
                 return LocalizationManager.shared.localizedString("All Flags")
             }
         }
+        
+        var flagCount: Int {
+            return self.rawValue
+        }
     }
     
-    @Published var availableGameModes: [GameMode] = [.twenty, .all] {
-        didSet {
-            if !availableGameModes.contains(selectedGameMode) {
-                selectedGameMode = availableGameModes.first ?? .twenty
+    // Новый enum для режимов игры
+    enum PlayMode: String, CaseIterable {
+        case classic = "classic"
+        case timeChallenge = "time-challenge"
+        case survival = "survival"
+        
+        @MainActor
+        var displayName: String {
+            switch self {
+            case .classic:
+                return LocalizationManager.shared.localizedString("Classic")
+            case .timeChallenge:
+                return LocalizationManager.shared.localizedString("Time Challenge")
+            case .survival:
+                return LocalizationManager.shared.localizedString("Survival")
+            }
+        }
+        
+        @MainActor
+        var description: String {
+            switch self {
+            case .classic:
+                return LocalizationManager.shared.localizedString("Standard multiple choice game")
+            case .timeChallenge:
+                return LocalizationManager.shared.localizedString("Answer quickly, time is limited")
+            case .survival:
+                return LocalizationManager.shared.localizedString("Game until first mistake")
+            }
+        }
+        
+        var icon: String {
+            switch self {
+            case .classic:
+                return "🎯"
+            case .timeChallenge:
+                return "⚡"
+            case .survival:
+                return "🔥"
             }
         }
     }
+    
+    enum Difficulty: String, CaseIterable {
+        case easy = "easy"
+        case medium = "medium"
+        case hard = "hard"
+        case expert = "expert"
+        case erudite = "erudite"
+        
+        @MainActor
+        var displayName: String {
+            switch self {
+            case .easy:
+                return LocalizationManager.shared.localizedString("Easy")
+            case .medium:
+                return LocalizationManager.shared.localizedString("Medium")
+            case .hard:
+                return LocalizationManager.shared.localizedString("Hard")
+            case .expert:
+                return LocalizationManager.shared.localizedString("Expert")
+            case .erudite:
+                return LocalizationManager.shared.localizedString("Erudite")
+            }
+        }
+        
+        @MainActor
+        var description: String {
+            switch self {
+            case .easy:
+                return LocalizationManager.shared.localizedString("10 questions, 45 sec per answer")
+            case .medium:
+                return LocalizationManager.shared.localizedString("15 questions, 30 sec per answer")
+            case .hard:
+                return LocalizationManager.shared.localizedString("20 questions, 15 sec per answer")
+            case .expert:
+                return LocalizationManager.shared.localizedString("25 questions, 10 sec per answer")
+            case .erudite:
+                return LocalizationManager.shared.localizedString("30 questions, 5 sec per answer")
+            }
+        }
+        
+        var questionCount: Int {
+            switch self {
+            case .easy: return 10
+            case .medium: return 15
+            case .hard: return 20
+            case .expert: return 25
+            case .erudite: return 30
+            }
+        }
+        
+        var timeLimit: TimeInterval {
+            switch self {
+            case .easy: return 45
+            case .medium: return 30
+            case .hard: return 15
+            case .expert: return 10
+            case .erudite: return 5
+            }
+        }
+    }
+
+    @Published var availableGameModes: [GameMode] = GameMode.allCases
+    @Published var availablePlayModes: [PlayMode] = PlayMode.allCases
+    @Published var availableDifficulties: [Difficulty] = Difficulty.allCases
     
     init() {
         // Загружаем статистику и ошибки только один раз при инициализации
         statistics = StatisticsService.shared.loadStatistics()
         loadMistakes()
+    }
+    
+    // Метод для обновления количества вариантов ответов в зависимости от устройства
+    func updateOptionsCount(isIPad: Bool) {
+        optionsCount = isIPad ? 8 : 6
     }
     
     private func isCountryInSelectedRegions(_ country: Country) -> Bool {
@@ -252,7 +400,7 @@ class GameState: ObservableObject {
             print("Countries selected for game: \(availableCountries.count)")
             
             // Выбираем первый вопрос
-            await selectNextQuestion()
+            selectNextQuestion()
             
         } catch {
             print("Error starting new game: \(error)")
@@ -311,7 +459,12 @@ class GameState: ObservableObject {
             print("Answer options: \(self.options.map { $0.name.common })")
         }
         
-        print("=== Question Ready ===\n")
+        print("=== Question Ready ===")
+        
+        // Запускаем таймер для вопроса
+        startQuestionTimer()
+        
+        print("=== Question Timer Started ===\n")
     }
     
     // Добавим синхронную версию метода selectNextQuestion
@@ -348,7 +501,12 @@ class GameState: ObservableObject {
             print("Answer options: \(self.options.map { $0.name.common })")
         }
         
-        print("=== Question Ready ===\n")
+        print("=== Question Ready ===")
+        
+        // Запускаем таймер для вопроса
+        startQuestionTimer()
+        
+        print("=== Question Timer Started ===\n")
     }
     
     // Изменим метод selectAnswer на синхронный
@@ -366,6 +524,9 @@ class GameState: ObservableObject {
         // Блокируем взаимодействие с карточкой
         isCardInteractionEnabled = false
         isProcessingAnswer = true
+        
+        // Останавливаем таймер вопроса
+        stopQuestionTimer()
         
         print("\n=== Answer Processing ===")
         print("Selected answer: \(country.name.common)")
@@ -395,28 +556,11 @@ class GameState: ObservableObject {
         print("Question: \(currentQuestion + 1)/\(initialQuestionsCount)")
         print("=====================\n")
         
-        currentQuestion += 1
+        // Обновляем статистику
+        updateStatistics(isCorrect: isCorrect)
         
-        if currentQuestion >= initialQuestionsCount {
-            print("\n🎮 Game Over!")
-            isGameOver = true
-            isProcessingAnswer = false
-            finishGameSync() // Вызываем завершение игры здесь
-            return
-        }
-        
-        // Очищаем текущий флаг и варианты ответов
-        withAnimation {
-            self.currentFlag = nil
-            self.options = []
-        }
-        
-        // Используем синхронную версию для следующего вопроса
-        DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) { [weak self] in
-            self?.selectNextQuestionSync()
-            self?.isProcessingAnswer = false
-            print("\n=== Ready for Next Question ===")
-        }
+        // Разблокируем обработку ответов
+        isProcessingAnswer = false
     }
     
     func updateStatistics(isCorrect: Bool) {
@@ -465,13 +609,40 @@ class GameState: ObservableObject {
         stopTimer()
         
         // Обновляем статистику
+        print("\n=== Updating Statistics ===")
+        print("Before update:")
+        print("  Total games: \(statistics.totalGames)")
+        print("  Best score: \(statistics.bestScore)")
+        print("  Correct answers: \(statistics.correctAnswers)")
+        print("  Total answers: \(statistics.totalAnswers)")
+        print("  Best time: \(statistics.bestTime)")
+        
+        print("\nCurrent game results:")
+        print("  Score (correct answers): \(score)")
+        print("  Questions per game: \(questionsPerGame)")
+        print("  Current question index: \(currentQuestion)")
+        print("  Elapsed time: \(elapsedTime)")
+        
         statistics.totalGames += 1
         statistics.bestScore = max(statistics.bestScore, score)
-        statistics.correctAnswers += score
-        statistics.totalAnswers += currentQuestion
+        statistics.correctAnswers += score  // score уже содержит количество правильных ответов
+        statistics.totalAnswers += initialQuestionsCount  // общее количество вопросов в игре
         if elapsedTime < statistics.bestTime || statistics.bestTime == 0 {
             statistics.bestTime = elapsedTime
         }
+        
+        print("\nAfter update:")
+        print("  Total games: \(statistics.totalGames)")
+        print("  Best score: \(statistics.bestScore)")
+        print("  Correct answers: \(statistics.correctAnswers)")
+        print("  Total answers: \(statistics.totalAnswers)")
+        print("  Best time: \(statistics.bestTime)")
+        let accuracy = statistics.totalAnswers > 0 ? Double(statistics.correctAnswers) / Double(statistics.totalAnswers) * 100 : 0
+        print("  Accuracy: \(String(format: "%.1f", accuracy))%")
+        print("=====================\n")
+        
+        // Валидируем статистику перед сохранением
+        validateStatistics()
         
         saveStatistics()
     }
@@ -501,7 +672,7 @@ class GameState: ObservableObject {
         print("New language: \(language.rawValue)")
         
         selectedLanguage = language
-        await localizationManager.setLanguage(language)
+        localizationManager.setLanguage(language)
         
         // Принудительно обновляем режимы игры
         let currentFlags = countries.count
@@ -634,13 +805,28 @@ class GameState: ObservableObject {
                 return
             }
             
+            // Корректируем количество вопросов в зависимости от доступных стран
+            let actualQuestionsCount = min(questionsPerGame, loadedCountries.count)
+            initialQuestionsCount = actualQuestionsCount
+            print("Adjusted questions count from \(questionsPerGame) to \(actualQuestionsCount) based on available countries")
+            
             // Перемешиваем страны и берем нужное количество для игры
-            availableCountries = Array(loadedCountries.shuffled().prefix(questionsPerGame))
+            availableCountries = Array(loadedCountries.shuffled().prefix(actualQuestionsCount))
             print("\n=== Selected Countries for Game (\(availableCountries.count)) ===")
             for (index, country) in availableCountries.enumerated() {
                 print("\(index + 1). \(country.name.common)")
             }
             print("=====================\n")
+            
+            // Предзагружаем все флаги для игры
+            print("🚀 Preloading flags for selected countries...")
+            isPreloadingFlags = true
+            flagPreloadProgress = 0.0
+            
+            await preloadFlagsWithProgress(for: availableCountries)
+            
+            isPreloadingFlags = false
+            print("✅ Flag preloading completed")
             
             // Выбираем первый вопрос синхронно
             selectNextQuestion()
@@ -849,7 +1035,9 @@ class GameState: ObservableObject {
                 }
             } catch {
                 print("❌ Error decoding mistakes:", error)
-                print("Previous mistakes preserved")
+                print("Clearing incompatible mistake data...")
+                UserDefaults.standard.removeObject(forKey: "mistakeCountries")
+                mistakeCountries = []
             }
         } else {
             print("ℹ️ No mistakes data found")
@@ -920,11 +1108,129 @@ class GameState: ObservableObject {
     
     // При деинициализации класса
     deinit {
-        Task { @MainActor in
-            await stopTimer()
-            transitionTimer?.invalidate()
-            transitionTimer = nil
+        timer?.invalidate()
+        timer = nil
+        questionTimer?.invalidate()
+        questionTimer = nil
+        transitionTimer?.invalidate()
+        transitionTimer = nil
+    }
+    
+    // Метод для проверки целостности статистики
+    func validateStatistics() {
+        print("\n=== Validating Statistics ===")
+        print("Current statistics:")
+        print("  Total games: \(statistics.totalGames)")
+        print("  Best score: \(statistics.bestScore)")
+        print("  Correct answers: \(statistics.correctAnswers)")
+        print("  Total answers: \(statistics.totalAnswers)")
+        print("  Best time: \(statistics.bestTime)")
+        
+        // Проверки целостности
+        var issues: [String] = []
+        
+        if statistics.totalGames < 0 {
+            issues.append("Total games is negative")
         }
+        
+        if statistics.bestScore < 0 {
+            issues.append("Best score is negative")
+        }
+        
+        if statistics.correctAnswers < 0 {
+            issues.append("Correct answers is negative")
+        }
+        
+        if statistics.totalAnswers < 0 {
+            issues.append("Total answers is negative")
+        }
+        
+        if statistics.correctAnswers > statistics.totalAnswers {
+            issues.append("Correct answers (\(statistics.correctAnswers)) > Total answers (\(statistics.totalAnswers))")
+        }
+        
+        if statistics.bestTime < 0 {
+            issues.append("Best time is negative")
+        }
+        
+        let accuracy = statistics.totalAnswers > 0 ? Double(statistics.correctAnswers) / Double(statistics.totalAnswers) * 100 : 0
+        if accuracy > 100 {
+            issues.append("Accuracy is over 100%")
+        }
+        
+        if issues.isEmpty {
+            print("✅ Statistics validation passed")
+        } else {
+            print("❌ Statistics validation failed:")
+            for issue in issues {
+                print("  - \(issue)")
+            }
+        }
+        
+        print("  Calculated accuracy: \(String(format: "%.1f", accuracy))%")
+        print("=====================\n")
+    }
+    
+    // Тестовый метод для проверки сохранения статистики
+    func testStatisticsSaveLoad() {
+        print("\n=== Testing Statistics Save/Load ===")
+        
+        // Сохраняем текущую статистику
+        let originalStats = statistics
+        print("Original statistics:")
+        print("  Total games: \(originalStats.totalGames)")
+        print("  Best score: \(originalStats.bestScore)")
+        print("  Correct answers: \(originalStats.correctAnswers)")
+        print("  Total answers: \(originalStats.totalAnswers)")
+        print("  Best time: \(originalStats.bestTime)")
+        
+        // Создаем тестовую статистику
+        var testStats = GameState.Statistics()
+        testStats.totalGames = 5
+        testStats.bestScore = 18
+        testStats.correctAnswers = 75
+        testStats.totalAnswers = 100
+        testStats.bestTime = 120.5
+        
+        print("\nSaving test statistics:")
+        print("  Total games: \(testStats.totalGames)")
+        print("  Best score: \(testStats.bestScore)")
+        print("  Correct answers: \(testStats.correctAnswers)")
+        print("  Total answers: \(testStats.totalAnswers)")
+        print("  Best time: \(testStats.bestTime)")
+        
+        // Сохраняем тестовую статистику
+        StatisticsService.shared.saveStatistics(testStats)
+        
+        // Загружаем статистику обратно
+        let loadedStats = StatisticsService.shared.loadStatistics()
+        
+        print("\nLoaded statistics:")
+        print("  Total games: \(loadedStats.totalGames)")
+        print("  Best score: \(loadedStats.bestScore)")
+        print("  Correct answers: \(loadedStats.correctAnswers)")
+        print("  Total answers: \(loadedStats.totalAnswers)")
+        print("  Best time: \(loadedStats.bestTime)")
+        
+        // Проверяем соответствие
+        let isMatching = testStats.totalGames == loadedStats.totalGames &&
+                        testStats.bestScore == loadedStats.bestScore &&
+                        testStats.correctAnswers == loadedStats.correctAnswers &&
+                        testStats.totalAnswers == loadedStats.totalAnswers &&
+                        abs(testStats.bestTime - loadedStats.bestTime) < 0.01
+        
+        if isMatching {
+            print("✅ Statistics save/load test PASSED")
+        } else {
+            print("❌ Statistics save/load test FAILED")
+        }
+        
+        // Восстанавливаем оригинальную статистику
+        StatisticsService.shared.saveStatistics(originalStats)
+        statistics = originalStats
+        
+        print("Original statistics restored")
+        print("=====================\n")
     }
     
     private func formatPopulation(_ population: Int) -> String {
@@ -969,6 +1275,12 @@ class GameState: ObservableObject {
         usedFlagsInGame.removeAll()
         timer?.invalidate()
         timer = nil
+        questionTimer?.invalidate()
+        questionTimer = nil
+        questionStartTime = nil
+        questionTimeLeft = 0
+        questionTimeProgress = 0
+        isQuestionTimerActive = false
         startTime = nil
         lastGameStartAttempt = nil
         isGameInProgress = false // Сбрасываем флаг при окончании игры
@@ -976,62 +1288,79 @@ class GameState: ObservableObject {
         print("=====================\n")
     }
     
-    func prepareNextQuestion() async {
+    func prepareNextQuestion() {
         currentQuestion += 1
-        print("\n=== Preparing Question \(currentQuestion + 1)/\(questionsPerGame) ===")
+        print("\n=== Preparing Question \(currentQuestion + 1)/\(initialQuestionsCount) ===")
+        
+        // Проверяем, есть ли еще вопросы
+        guard currentQuestion < availableCountries.count else {
+            print("No more questions available - finishing game")
+            isGameOver = true
+            finishGame()
+            return
+        }
         
         // Получаем следующую страну из предварительно загруженного списка
         let nextCountry = availableCountries[currentQuestion]
         print("Next country: \(nextCountry.name.common)")
         
         // Обновляем текущий флаг и варианты ответов
-        await MainActor.run {
-            withAnimation {
-                self.currentFlag = nextCountry
-                
-                // Генерируем варианты ответов
-                let otherCountries = availableCountries.filter { $0.id != nextCountry.id }
-                var newOptions = [nextCountry]
-                newOptions.append(contentsOf: otherCountries.shuffled().prefix(optionsCount - 1))
-                self.options = newOptions.shuffled()
-                
-                print("Answer options: \(self.options.map { $0.name.common })")
-            }
+        withAnimation {
+            self.currentFlag = nextCountry
+            
+            // Генерируем варианты ответов
+            let otherCountries = availableCountries.filter { $0.id != nextCountry.id }
+            var newOptions = [nextCountry]
+            newOptions.append(contentsOf: otherCountries.shuffled().prefix(optionsCount - 1))
+            self.options = newOptions.shuffled()
+            
+            print("Answer options: \(self.options.map { $0.name.common })")
         }
         
-        print("=== Question Ready ===\n")
+        print("=== Question Ready ===")
+        
+        // Запускаем таймер для вопроса
+        startQuestionTimer()
+        
+        print("=== Question Timer Started ===\n")
     }
     
     private func updateAvailableGameModes(totalFlags: Int) {
         print("\n=== Updating Game Modes ===")
         print("Total flags available: \(totalFlags)")
         
-        var modes: [GameMode] = []
+        // Все игровые режимы доступны всегда
+        availableGameModes = GameMode.allCases
         
-        // Если выбран только регион "Мои Ошибки"
-        if selectedRegions.count == 1 && selectedRegions.contains(.myMistakes) {
-            print("Region: My Mistakes only")
-            print("Mistakes count: \(mistakeCountries.count)")
-            // Для региона "Мои Ошибки" доступен только режим "Все Флаги"
-            modes = [.all]
-            // Автоматически устанавливаем режим "Все Флаги"
-            selectedGameMode = .all
-        } else {
-            // Для других регионов стандартная логика
-            if totalFlags >= 20 {
-                modes.append(.twenty)
-            }
-            if totalFlags >= 50 {
-                modes.append(.fifty)
-            }
-            if totalFlags >= 100 {
-                modes.append(.hundred)
-            }
-            modes.append(.all)
+        // Обновляем доступные уровни сложности в зависимости от количества флагов
+        var difficulties: [Difficulty] = []
+        
+        if totalFlags >= 10 {
+            difficulties.append(.easy)
+        }
+        if totalFlags >= 15 {
+            difficulties.append(.medium)
+        }
+        if totalFlags >= 20 {
+            difficulties.append(.hard)
+        }
+        if totalFlags >= 25 {
+            difficulties.append(.expert)
+        }
+        if totalFlags >= 30 {
+            difficulties.append(.erudite)
         }
         
-        availableGameModes = modes
-        print("Available game modes: \(modes.map { $0.displayName })")
+        availableDifficulties = difficulties.isEmpty ? [.easy] : difficulties
+        
+        // Если текущая сложность недоступна, выбираем первую доступную
+        if !availableDifficulties.contains(selectedDifficulty) {
+            selectedDifficulty = availableDifficulties.first ?? .easy
+        }
+        
+        print("Available difficulties: \(availableDifficulties.map { $0.displayName })")
+        print("Selected difficulty: \(selectedDifficulty.displayName)")
+        print("Available game modes: \(availableGameModes.map { $0.displayName })")
         print("Selected game mode: \(selectedGameMode.displayName)")
         print("=====================\n")
     }
@@ -1051,17 +1380,19 @@ class GameState: ObservableObject {
         timer?.invalidate()
         
         timer = Timer.scheduledTimer(withTimeInterval: 0.1, repeats: true) { [weak self] _ in
-            guard let self = self,
-                  let startTime = self.startTime else { return }
-            
-            self.elapsedTime = Date().timeIntervalSince(startTime)
-            self.timeProgress = min(self.elapsedTime / self.gameDuration, 1.0)
-            
-            if self.timeProgress >= 1.0 {
-                self.timer?.invalidate()
-                self.timer = nil
-                // Вызываем синхронное завершение игры
-                self.finishGameSync()
+            Task { @MainActor in
+                guard let self = self,
+                      let startTime = self.startTime else { return }
+                
+                self.elapsedTime = Date().timeIntervalSince(startTime)
+                self.timeProgress = min(self.elapsedTime / self.gameDuration, 1.0)
+                
+                if self.timeProgress >= 1.0 {
+                    self.timer?.invalidate()
+                    self.timer = nil
+                    // Вызываем синхронное завершение игры
+                    self.finishGameSync()
+                }
             }
         }
         
@@ -1070,14 +1401,118 @@ class GameState: ObservableObject {
         print("=====================\n")
     }
     
+    // Методы для управления таймером вопросов
+    func startQuestionTimer() {
+        let timeLimit = selectedDifficulty.timeLimit
+        print("\n=== Starting Question Timer ===")
+        print("Time limit: \(timeLimit) seconds")
+        
+        questionStartTime = Date()
+        questionTimeLeft = timeLimit
+        questionTimeProgress = 0
+        isQuestionTimerActive = true
+        
+        questionTimer?.invalidate()
+        questionTimer = Timer.scheduledTimer(withTimeInterval: 0.1, repeats: true) { [weak self] _ in
+            Task { @MainActor in
+                guard let self = self,
+                      let startTime = self.questionStartTime else { return }
+                
+                let elapsed = Date().timeIntervalSince(startTime)
+                self.questionTimeLeft = max(0, timeLimit - elapsed)
+                self.questionTimeProgress = min(elapsed / timeLimit, 1.0)
+                
+                // Если время истекло
+                if self.questionTimeLeft <= 0 {
+                    print("⏰ Question time expired!")
+                    self.stopQuestionTimer()
+                    self.handleQuestionTimeout()
+                }
+            }
+        }
+        
+        RunLoop.main.add(questionTimer!, forMode: .common)
+        print("Question timer started")
+        print("=====================\n")
+    }
+    
+    func stopQuestionTimer() {
+        print("\n=== Stopping Question Timer ===")
+        questionTimer?.invalidate()
+        questionTimer = nil
+        isQuestionTimerActive = false
+        questionStartTime = nil
+        print("Question timer stopped")
+        print("=====================\n")
+    }
+    
+    private func handleQuestionTimeout() {
+        print("\n=== Handling Question Timeout ===")
+        
+        // Блокируем взаимодействие с карточкой
+        isCardInteractionEnabled = false
+        
+        // Засчитываем как неправильный ответ
+        updateStatistics(isCorrect: false)
+        
+        // Добавляем в список ошибок, если это не режим "Мои ошибки"
+        if let currentFlag = currentFlag, !selectedRegions.contains(.myMistakes) {
+            addMistake(currentFlag)
+            print("🔥 Added to mistakes due to timeout: \(currentFlag.name.common)")
+        }
+        
+        print("Statistics updated for timeout")
+        print("Current score: \(score)")
+        print("Question: \(currentQuestion + 1)/\(initialQuestionsCount)")
+        print("=====================\n")
+        
+        // Переходим к следующему вопросу через небольшую задержку
+        DispatchQueue.main.asyncAfter(deadline: .now() + 1.5) {
+            self.proceedToNextQuestionAfterTimeout()
+        }
+    }
+    
+    private func proceedToNextQuestionAfterTimeout() {
+        print("\n=== Proceeding After Timeout ===")
+        
+        // Проверяем, не закончилась ли игра
+        if currentQuestion + 1 >= initialQuestionsCount {
+            print("Game finished due to timeout on last question")
+            isGameOver = true
+            finishGame()
+            return
+        }
+        
+        // Переходим к следующему вопросу
+        prepareNextQuestion()
+        
+        // Разрешаем взаимодействие с карточкой
+        isCardInteractionEnabled = true
+        
+        print("Ready for next question after timeout")
+        print("=====================\n")
+    }
+
     // Изменим метод stopTimer на синхронный
     func stopTimer() {
         print("\n=== Stopping Timer ===")
         timer?.invalidate()
         timer = nil
+        stopQuestionTimer() // Также останавливаем таймер вопросов
         print("Timer stopped")
         print("Final time: \(formattedTime())")
         print("=====================\n")
+    }
+    
+    // MARK: - Flag Preloading
+    
+    @MainActor
+    private func preloadFlagsWithProgress(for countries: [Country]) async {
+        await FlagImageService.shared.preloadFlagsWithProgress(for: countries) { [weak self] progress in
+            Task { @MainActor in
+                self?.flagPreloadProgress = progress
+            }
+        }
     }
 }
 

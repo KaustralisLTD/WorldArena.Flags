@@ -1,0 +1,15 @@
+version: '3.8'
+
+services:
+  flags-world-web:
+    build: .
+    ports:
+      - "3000:80"
+    container_name: flags-world-web
+    restart: unless-stopped
+    environment:
+      - NODE_ENV=production
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.flags.rule=PathPrefix(`/flags`)"
+      - "traefik.http.services.flags.loadbalancer.server.port=80" 

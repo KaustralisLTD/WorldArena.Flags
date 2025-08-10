@@ -1,0 +1,8 @@
+=== BACKUP REPORT ===
+Date: Tue Jun 17 01:00:21 EEST 2025
+Project: Flags World Game
+Backup file: Flags.World_backup_20250617_010021.tar.gz
+
+=== PROJECT STRUCTURE ===
+
+=== DOCKER STATUS ===

@@ -75,14 +75,29 @@
 
 // New addition
 "Tap to continue" = "Нажмите, чтобы продолжить";
+"Loading flag..." = "Загрузка флага...";
 
 // New additions
 "Game Mode" = "Режим игры";
-"20 Flags" = "20 флагов";
-"30 Flags" = "30 флагов";
-"All Flags" = "Все флаги";
-"50 Flags" = "50 флагов";
-"100 Flags" = "100 флагов";
+"Classic" = "Классический";
+"Time Challenge" = "На время";
+"Survival" = "Выживание";
+"Standard multiple choice game" = "Стандартная игра с выбором ответов";
+"Answer quickly, time is limited" = "Отвечайте быстро, время ограничено";
+"Game until first mistake" = "Игра до первой ошибки";
+
+// Difficulty
+"Difficulty" = "Сложность";
+"Easy" = "Легкий";
+"Medium" = "Средний";
+"Hard" = "Сложный";
+"Expert" = "Эксперт";
+"Erudite" = "Эрудит";
+"10 questions, 45 sec per answer" = "10 вопросов, 45 сек на ответ";
+"15 questions, 30 sec per answer" = "15 вопросов, 30 сек на ответ";
+"20 questions, 15 sec per answer" = "20 вопросов, 15 сек на ответ";
+"25 questions, 10 sec per answer" = "25 вопросов, 10 сек на ответ";
+"30 questions, 5 sec per answer" = "30 вопросов, 5 сек на ответ";
 
 "of" = "из";
 "flags" = "флагов";
@@ -154,3 +169,11 @@
 "Chișinău" = "Кишинёв";
 
 "My Mistakes" = "Мои ошибки";
+
+// iPad Main Screen
+"Challenge Yourself, Learn the World" = "Бросьте себе вызов, изучите мир";
+"WorldArena Description" = "WorldArena — это серия глобальных образовательных игр, которая превращает обучение в увлекательный процесс. Угадывайте флаги, столицы, границы и многое другое в динамичном формате викторины, созданной для всех возрастов.";
+
+// Push Notifications
+"Push Notification Title" = "Время тренироваться!";
+"Push Notification Body" = "Проверьте свои знания флагов и улучшите навыки! 🌍🎯";

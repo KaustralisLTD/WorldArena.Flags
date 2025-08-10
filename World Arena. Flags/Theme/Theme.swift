@@ -18,10 +18,10 @@ enum AppTheme: String, CaseIterable {
     }
 }
 
-// Отдельное расширение для асинхронных операций
+// Отдельное расширение для локализации
 extension AppTheme {
     @MainActor
-    func getLocalizedName() async -> String {
-        await LocalizationManager.shared.localizedString(localizationKey)
+    func getLocalizedName() -> String {
+        LocalizationManager.shared.localizedString(localizationKey)
     }
 } 

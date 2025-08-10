@@ -3,27 +3,28 @@ import SwiftUI
 @main
 struct FlagsWorldApp: App {
     @StateObject private var gameState = GameState()
+    @StateObject private var notificationService = NotificationService.shared
     
     var body: some Scene {
         WindowGroup {
-            ZStack {
-                BackgroundView()
-                
-                NavigationView {
-                    ContentView()
-                        .environmentObject(gameState)
+            ContentView(gameState: gameState)
+                .environmentObject(gameState)
+                .environmentObject(notificationService)
+                .onAppear {
+                    // Настраиваем метрики запуска
+                    #if DEBUG
+                    if CommandLine.arguments.contains("UITesting") {
+                        // Для UI тестов - отключаем анимации
+                    }
+                    #endif
+                    
+                    // Обновляем время последнего открытия приложения
+                    notificationService.updateLastAppOpenDate()
+                    
+                    // Проверяем статус уведомлений
+                    notificationService.checkNotificationStatus()
                 }
-            }
-            .onAppear {
-                // Настраиваем метрики запуска
-                #if DEBUG
-                if CommandLine.arguments.contains("UITesting") {
-                    // Для UI тестов
-                    UIView.setAnimationsEnabled(false)
-                }
-                #endif
-            }
-            .measureMetrics()
+                .measureMetrics()
         }
     }
 }
@@ -41,11 +42,7 @@ struct MetricsModifier: ViewModifier {
             .onAppear {
                 #if DEBUG
                 // Отмечаем момент готовности UI
-                DispatchQueue.main.async {
-                    guard let scene = UIApplication.shared.connectedScenes.first as? UIWindowScene,
-                          let window = scene.windows.first else { return }
-                    let _ = window.layer.presentation()
-                }
+                print("UI готов к отображению")
                 #endif
             }
     }

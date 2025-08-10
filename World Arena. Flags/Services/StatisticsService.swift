@@ -27,32 +27,59 @@ class StatisticsService {
     private init() {}
     
     func saveStatistics(_ statistics: GameState.Statistics) {
-        print("\n=== Saving Statistics ===")
-        if let encoded = try? JSONEncoder().encode(statistics) {
+        print("\n=== StatisticsService: Saving Statistics ===")
+        print("Data to save:")
+        print("  Total games: \(statistics.totalGames)")
+        print("  Best score: \(statistics.bestScore)")
+        print("  Correct answers: \(statistics.correctAnswers)")
+        print("  Total answers: \(statistics.totalAnswers)")
+        print("  Best time: \(statistics.bestTime)")
+        print("  Accuracy: \(statistics.totalAnswers > 0 ? Double(statistics.correctAnswers) / Double(statistics.totalAnswers) * 100 : 0)%")
+        
+        do {
+            let encoded = try JSONEncoder().encode(statistics)
             UserDefaults.standard.set(encoded, forKey: statisticsKey)
-            print("Statistics successfully saved")
+            UserDefaults.standard.synchronize() // Принудительная синхронизация
+            print("✅ Statistics successfully saved to UserDefaults")
+            
+            // Проверяем, что данные действительно сохранились
+            if let savedData = UserDefaults.standard.data(forKey: statisticsKey) {
+                print("✅ Verification: Data exists in UserDefaults (\(savedData.count) bytes)")
+            } else {
+                print("❌ Verification failed: No data found in UserDefaults")
+            }
+        } catch {
+            print("❌ Error encoding statistics: \(error)")
         }
+        print("=====================\n")
     }
     
     func loadStatistics() -> GameState.Statistics {
-        print("\n=== Loading Statistics ===")
+        print("\n=== StatisticsService: Loading Statistics ===")
         
         if let data = UserDefaults.standard.data(forKey: statisticsKey) {
+            print("Found data in UserDefaults (\(data.count) bytes)")
             do {
                 let statistics = try JSONDecoder().decode(GameState.Statistics.self, from: data)
-                print("Statistics successfully loaded:")
-                print("Total games: \(statistics.totalGames)")
-                print("Best score: \(statistics.bestScore)")
-                print("Correct answers: \(statistics.correctAnswers)")
-                print("Total answers: \(statistics.totalAnswers)")
-                print("Best time: \(statistics.bestTime)")
+                print("✅ Statistics successfully loaded:")
+                print("  Total games: \(statistics.totalGames)")
+                print("  Best score: \(statistics.bestScore)")
+                print("  Correct answers: \(statistics.correctAnswers)")
+                print("  Total answers: \(statistics.totalAnswers)")
+                print("  Best time: \(statistics.bestTime)")
+                print("  Accuracy: \(statistics.totalAnswers > 0 ? Double(statistics.correctAnswers) / Double(statistics.totalAnswers) * 100 : 0)%")
+                print("=====================\n")
                 return statistics
             } catch {
-                print("No saved statistics found or decode error")
+                print("❌ Error decoding statistics: \(error)")
+                print("Creating new empty statistics")
+                print("=====================\n")
                 return GameState.Statistics()
             }
         } else {
-            print("No saved statistics found or decode error")
+            print("No saved statistics found in UserDefaults")
+            print("Creating new empty statistics")
+            print("=====================\n")
             return GameState.Statistics()
         }
     }

@@ -11,8 +11,7 @@ struct StartScreen: View {
     var body: some View {
         VStack(spacing: 20) {
             Text(LocalizationManager.shared.localizedString("World Flags"))
-                .font(.largeTitle)
-                .bold()
+                .font(.system(size: 34, weight: .bold, design: .default))
             
             // Language Selector
             VStack(alignment: .leading) {
@@ -85,8 +84,7 @@ struct StartScreen: View {
                 startGame()
             } label: {
                 Text(LocalizationManager.shared.localizedString("START GAME"))
-                    .font(.title2)
-                    .bold()
+                    .font(.system(size: 22, weight: .bold, design: .default))
                     .foregroundColor(.white)
                     .frame(maxWidth: .infinity)
                     .padding()
@@ -102,7 +100,7 @@ struct StartScreen: View {
                 Label(LocalizationManager.shared.localizedString("Statistics"), systemImage: "chart.bar.fill")
                     .foregroundColor(.primary)
                     .padding()
-                    .background(Color(.systemBackground))
+                    .background(.background)
                     .cornerRadius(10)
             }
             .sheet(isPresented: $showingStatistics) {
@@ -129,15 +127,11 @@ struct StartScreen: View {
         Task { @MainActor in
             isStartingGame = true
             
-            do {
-                // Инициализируем игру
-                await gameState.startNewGameWithCurrentRegions()
-                
-                // Отмечаем, что игра инициализирована
-                gameInitialized = true
-            } catch {
-                print("Error starting game: \(error)")
-            }
+            // Инициализируем игру
+            await gameState.startNewGameWithCurrentRegions()
+            
+            // Отмечаем, что игра инициализирована
+            gameInitialized = true
             
             isStartingGame = false
         }

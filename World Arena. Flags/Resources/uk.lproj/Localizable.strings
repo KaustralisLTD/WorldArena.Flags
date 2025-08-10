@@ -58,6 +58,7 @@
 
 // New translation
 "Tap to continue" = "Торкніться, щоб продовжити";
+"Loading flag..." = "Завантаження прапора...";
 
 // Additional translations
 "Game Mode" = "Режим гри";
@@ -69,10 +70,25 @@
 
 // Game Modes
 "Game Mode" = "Режим гри";
-"20 Flags" = "20 прапорів";
-"50 Flags" = "50 прапорів";
-"100 Flags" = "100 прапорів";
-"All Flags" = "Усі прапори";
+"Classic" = "Класичний";
+"Time Challenge" = "На час";
+"Survival" = "Виживання";
+"Standard multiple choice game" = "Стандартна гра з вибором відповідей";
+"Answer quickly, time is limited" = "Відповідайте швидко, час обмежений";
+"Game until first mistake" = "Гра до першої помилки";
+
+// Difficulty
+"Difficulty" = "Складність";
+"Easy" = "Легкий";
+"Medium" = "Середній";
+"Hard" = "Складний";
+"Expert" = "Експерт";
+"Erudite" = "Ерудит";
+"10 questions, 45 sec per answer" = "10 питань, 45 сек на відповідь";
+"15 questions, 30 sec per answer" = "15 питань, 30 сек на відповідь";
+"20 questions, 15 sec per answer" = "20 питань, 15 сек на відповідь";
+"25 questions, 10 sec per answer" = "25 питань, 10 сек на відповідь";
+"30 questions, 5 sec per answer" = "30 питань, 5 сек на відповідь";
 
 "of" = "з";
 "flags" = "прапорів";
@@ -161,3 +177,11 @@
 "St Peter Port" = "Сент-Пітер-Порт";
 
 "My Mistakes" = "Мої помилки";
+
+// iPad Main Screen
+"Challenge Yourself, Learn the World" = "Кинь собі виклик, вивчи світ";
+"WorldArena Description" = "WorldArena — це серія глобальних освітніх ігор, яка перетворює навчання на захоплюючий процес. Вгадуйте прапори, столиці, кордони та багато іншого в динамічному форматі вікторини, створеної для всіх вікових груп.";
+
+// Push Notifications
+"Push Notification Title" = "Час тренуватися!";
+"Push Notification Body" = "Перевірте свої знання прапорів та покращте навички! 🌍🎯";

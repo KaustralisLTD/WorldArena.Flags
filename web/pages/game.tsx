@@ -1,0 +1,365 @@
+import { useState, useEffect } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
+import { useRouter } from 'next/router';
+import { useGameStore } from '../src/lib/gameStore';
+import { useTranslation } from '../src/lib/translations';
+import { apiService } from '../src/lib/apiService';
+import Layout from '../src/components/Layout';
+import GameResultModal from '../src/components/GameResultModal';
+import toast from 'react-hot-toast';
+import type { GameAnswer } from '../src/lib/gameStore';
+
+export default function GamePage() {
+  const router = useRouter();
+  const { 
+    currentSession, 
+    countries, 
+    isLoading,
+    nextQuestion,
+    answerQuestion,
+    endGame,
+    settings,
+    resetGame,
+    language,
+    setCountries,
+    setLoading
+  } = useGameStore();
+  
+  const { t } = useTranslation(language);
+
+  const [selectedAnswer, setSelectedAnswer] = useState<string | null>(null);
+  const [timeLeft, setTimeLeft] = useState<number>(0);
+  const [showResult, setShowResult] = useState(false);
+  const [questionStartTime, setQuestionStartTime] = useState<number>(0);
+  const [showGameResultModal, setShowGameResultModal] = useState(false);
+  const [isClient, setIsClient] = useState(false);
+
+  // Проверка клиентской гидратации
+  useEffect(() => {
+    setIsClient(true);
+  }, []);
+
+  console.log('🎮 GamePage rendered');
+  console.log('📊 Current session exists:', !!currentSession);
+  console.log('📈 Countries loaded:', countries.length);
+  console.log('⏳ Is loading:', isLoading);
+  console.log('🖥️ Is client:', isClient);
+  
+  if (currentSession) {
+    console.log('🎯 Session details:', {
+      id: currentSession.id,
+      questionsCount: currentSession.questions.length,
+      currentIndex: currentSession.currentQuestionIndex,
+      isCompleted: currentSession.isCompleted
+    });
+  } else {
+    console.log('❌ No current session found!');
+    console.log('🔍 Checking localStorage...');
+    if (typeof window !== 'undefined') {
+      const stored = localStorage.getItem('flags-world-game-store');
+      if (stored) {
+        try {
+          const parsed = JSON.parse(stored);
+          console.log('💾 Found in localStorage:', {
+            hasState: !!parsed.state,
+            hasCurrentSession: !!parsed.state?.currentSession,
+            sessionId: parsed.state?.currentSession?.id
+          });
+        } catch (e) {
+          console.log('❌ Failed to parse localStorage:', e);
+        }
+      } else {
+        console.log('💾 No data in localStorage');
+      }
+    }
+  }
+
+  // Load countries if not loaded
+  useEffect(() => {
+    const loadCountriesIfNeeded = async () => {
+      if (countries.length === 0 && !isLoading) {
+        console.log('🌍 Loading countries for game page...');
+        try {
+          setLoading(true);
+          const loadedCountries = await apiService.forceRefreshCountries(language);
+          setCountries(loadedCountries);
+          console.log('✅ Countries loaded on game page:', loadedCountries.length);
+        } catch (error) {
+          console.error('❌ Failed to load countries on game page:', error);
+        } finally {
+          setLoading(false);
+        }
+      }
+    };
+
+    loadCountriesIfNeeded();
+  }, [countries.length, isLoading, language, setCountries, setLoading]);
+
+  useEffect(() => {
+    // Ждем гидратации клиента перед проверкой сессии
+    if (!isClient) return;
+    
+    console.log('🔄 useEffect triggered - checking session');
+    console.log('📊 Current session in effect:', !!currentSession);
+    
+    // Если нет активной игры, перенаправляем на главную
+    if (!currentSession) {
+      console.log('❌ No session found, redirecting to home');
+      router.push('/');
+      return;
+    }
+
+    console.log('✅ Session found, setting up question');
+    // Устанавливаем таймер для текущего вопроса
+    setTimeLeft(settings.timeLimit || 30);
+    setSelectedAnswer(null);
+    setShowResult(false);
+    setQuestionStartTime(Date.now());
+  }, [isClient, currentSession?.currentQuestionIndex]);
+
+  useEffect(() => {
+    if (!currentSession || timeLeft <= 0) return;
+
+    const timer = setInterval(() => {
+      setTimeLeft(prev => {
+        if (prev <= 1) {
+          // Время вышло, автоматически отвечаем неправильно
+          handleTimeUp();
+          return 0;
+        }
+        return prev - 1;
+      });
+    }, 1000);
+
+    return () => clearInterval(timer);
+  }, [timeLeft, currentSession]);
+
+  const handleTimeUp = () => {
+    if (!currentSession) return;
+    
+    const currentQuestion = currentSession.questions[currentSession.currentQuestionIndex];
+    const answer: GameAnswer = {
+      questionId: currentQuestion.id,
+      selectedAnswer: '',
+      correctAnswer: currentQuestion.country.name,
+      isCorrect: false,
+      timeSpent: (settings.timeLimit || 30) * 1000,
+      timestamp: Date.now()
+    };
+    
+    answerQuestion(answer);
+    setShowResult(true);
+    
+    setTimeout(() => {
+      if (currentSession.currentQuestionIndex < currentSession.questions.length - 1) {
+        nextQuestion();
+      } else {
+        handleGameEnd();
+      }
+    }, 2000);
+  };
+
+  const handleAnswerSelect = (selectedCountry: string) => {
+    if (selectedAnswer || showResult || !currentSession) return;
+    
+    const currentQuestion = currentSession.questions[currentSession.currentQuestionIndex];
+    const isCorrect = selectedCountry === currentQuestion.country.name;
+    const timeSpent = Date.now() - questionStartTime;
+    
+    const answer: GameAnswer = {
+      questionId: currentQuestion.id,
+      selectedAnswer: selectedCountry,
+      correctAnswer: currentQuestion.country.name,
+      isCorrect,
+      timeSpent,
+      timestamp: Date.now()
+    };
+    
+    setSelectedAnswer(selectedCountry);
+    answerQuestion(answer);
+    setShowResult(true);
+    
+    if (isCorrect) {
+      toast.success(t.correct);
+    } else {
+      toast.error(`${t.incorrect} ${currentQuestion.country.name}`);
+    }
+
+    // Переход к следующему вопросу или завершение игры
+    setTimeout(() => {
+      if (currentSession && currentSession.currentQuestionIndex < currentSession.questions.length - 1) {
+        nextQuestion();
+      } else {
+        handleGameEnd();
+      }
+    }, 2000);
+  };
+
+  const handleGameEnd = () => {
+    if (!currentSession) return;
+    
+    endGame();
+    setShowGameResultModal(true);
+  };
+
+  const handleCloseResultModal = () => {
+    setShowGameResultModal(false);
+    resetGame();
+    router.push('/');
+  };
+
+  if (isLoading) {
+    return (
+      <Layout title={t.loading} showBackButton>
+        <div className="flex items-center justify-center min-h-96">
+          <div className="text-center">
+            <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-primary-500 mx-auto mb-4"></div>
+            <p className="text-lg text-gray-600 dark:text-gray-300">{t.loading}</p>
+          </div>
+        </div>
+      </Layout>
+    );
+  }
+
+  if (!currentSession) {
+    return (
+      <Layout title={t.gameNotFound} showBackButton>
+        <div className="flex items-center justify-center min-h-96">
+          <div className="text-center">
+            <h1 className="text-2xl font-bold text-gray-900 dark:text-white mb-4">
+              {t.gameNotFound}
+            </h1>
+            <button
+              onClick={() => router.push('/')}
+              className="bg-primary-500 hover:bg-primary-600 text-white font-semibold py-2 px-4 rounded-lg"
+            >
+              {t.returnHome}
+            </button>
+          </div>
+        </div>
+      </Layout>
+    );
+  }
+
+  const currentQuestion = currentSession.questions[currentSession.currentQuestionIndex];
+  const progress = ((currentSession.currentQuestionIndex + 1) / currentSession.questions.length) * 100;
+  const currentScore = currentSession.answers.filter(a => a.isCorrect).length;
+
+  return (
+    <Layout title={`${t.question} ${currentSession.currentQuestionIndex + 1}`} showBackButton hideLanguageSelector>
+      <div className="container mx-auto px-4 py-8">
+        {/* Game Stats */}
+        <div className="flex justify-between items-center mb-8">
+          <div className="text-sm text-gray-600 dark:text-gray-400">
+            {t.question} {currentSession.currentQuestionIndex + 1} {t.of} {currentSession.questions.length}
+          </div>
+          <div className="flex items-center space-x-4">
+            <div className="text-sm text-gray-600 dark:text-gray-400">
+              {t.score}: {currentScore}
+            </div>
+            <div className="text-sm text-gray-600 dark:text-gray-400">
+              {t.time}: {timeLeft}с
+            </div>
+          </div>
+        </div>
+
+        {/* Progress Bar */}
+        <div className="w-full bg-gray-200 dark:bg-gray-700 rounded-full h-2 mb-8">
+          <motion.div
+            className="bg-primary-500 h-2 rounded-full"
+            initial={{ width: 0 }}
+            animate={{ width: `${progress}%` }}
+            transition={{ duration: 0.5 }}
+          />
+        </div>
+
+        {/* Question */}
+        <div className="text-center mb-8">
+          <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-6">
+            {currentQuestion.type === 'flag-to-name' ? t.whichCountryFlag : t.selectCountryFlag}
+          </h2>
+          
+          {currentQuestion.type === 'flag-to-name' ? (
+            <div className="mb-8">
+              <img
+                src={currentQuestion.country.flag}
+                alt="Flag"
+                className="w-48 h-30 object-cover rounded-lg shadow-lg mx-auto border-2 border-gray-200 dark:border-gray-700"
+              />
+            </div>
+          ) : (
+            <div className="text-xl font-semibold text-gray-800 dark:text-gray-200 mb-8">
+              {currentQuestion.country.name}
+            </div>
+          )}
+        </div>
+
+        {/* Answer Options */}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-4 max-w-2xl mx-auto">
+          {currentQuestion.options.map((option: any, index: number) => {
+            const isSelected = selectedAnswer === option.name;
+            const isCorrect = option.name === currentQuestion.country.name;
+            const showCorrect = showResult && isCorrect;
+            const showIncorrect = showResult && isSelected && !isCorrect;
+
+            return (
+              <motion.button
+                key={option.code}
+                onClick={() => handleAnswerSelect(option.name)}
+                disabled={showResult}
+                className={`p-4 rounded-lg border-2 transition-all duration-200 ${
+                  showCorrect
+                    ? 'border-green-500 bg-green-50 dark:bg-green-900/20'
+                    : showIncorrect
+                    ? 'border-red-500 bg-red-50 dark:bg-red-900/20'
+                    : isSelected
+                    ? 'border-primary-500 bg-primary-50 dark:bg-primary-900/20'
+                    : 'border-gray-200 dark:border-gray-700 hover:border-primary-300'
+                } ${showResult ? 'cursor-not-allowed' : 'cursor-pointer'}`}
+                whileHover={!showResult ? { scale: 1.02 } : {}}
+                whileTap={!showResult ? { scale: 0.98 } : {}}
+              >
+                {currentQuestion.type === 'name-to-flag' ? (
+                  <div className="flex items-center justify-center">
+                    <img
+                      src={option.flag}
+                      alt={`Flag ${index + 1}`}
+                      className="w-24 h-16 object-cover rounded border border-gray-300"
+                    />
+                  </div>
+                ) : (
+                  <span className="font-medium text-gray-900 dark:text-white">
+                    {option.name}
+                  </span>
+                )}
+                
+                {showCorrect && (
+                  <span className="ml-2 text-green-600">✓</span>
+                )}
+                {showIncorrect && (
+                  <span className="ml-2 text-red-600">✗</span>
+                )}
+              </motion.button>
+            );
+          })}
+        </div>
+      </div>
+
+      {/* Game Result Modal */}
+      {currentSession && (
+        <GameResultModal
+          isOpen={showGameResultModal}
+          onClose={handleCloseResultModal}
+          score={currentSession.answers.filter(a => a.isCorrect).length * 100}
+          totalQuestions={currentSession.questions.length}
+          correctAnswers={currentSession.answers.filter(a => a.isCorrect).length}
+          totalTime={currentSession.answers.reduce((total, answer) => total + answer.timeSpent, 0)}
+          accuracy={Math.round((currentSession.answers.filter(a => a.isCorrect).length / currentSession.questions.length) * 100)}
+          language={language}
+          difficulty={settings.difficulty}
+          region={settings.region}
+        />
+      )}
+    </Layout>
+  );
+} 

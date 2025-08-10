@@ -8,6 +8,7 @@ struct AnswerButton: View {
     let action: () -> Void
     
     @State private var isPressed = false
+    @Environment(\.horizontalSizeClass) private var horizontalSizeClass
     
     var body: some View {
         Button(action: {
@@ -18,10 +19,10 @@ struct AnswerButton: View {
             }
         }) {
             Text(LocalizationManager.shared.localizedCountryName(country))
-                .font(.system(size: 18, weight: .medium))
+                .font(horizontalSizeClass == .regular ? .title2 : .body)
                 .foregroundColor(foregroundColor)
-                .frame(maxWidth: .infinity)
-                .padding(.vertical, 12)
+                .frame(maxWidth: horizontalSizeClass == .regular ? 400 : .infinity)
+                .padding(horizontalSizeClass == .regular ? 20 : 16)
                 .background(backgroundColor)
                 .cornerRadius(10)
                 .overlay(

@@ -30,7 +30,7 @@ final class FlagGameViewModel: ObservableObject {
         
         // Убедимся, что инициализация происходит только один раз
         if !isInitialized {
-            statisticsService.loadStatistics()
+            _ = statisticsService.loadStatistics()
             statisticsService.loadMistakes()
             isInitialized = true
         }
@@ -129,9 +129,9 @@ final class FlagGameViewModel: ObservableObject {
         nextQuestionTask?.cancel()
         nextQuestionTask = nil
         
-        if gameState.currentQuestion + 1 >= gameState.questionsPerGame {
-            await gameState.stopTimer()
-            await gameState.finishGame()
+        if gameState.currentQuestion + 1 >= gameState.initialQuestionsCount {
+            gameState.stopTimer()
+            gameState.finishGame()
             showingGameOver = true
         } else {
             withAnimation {

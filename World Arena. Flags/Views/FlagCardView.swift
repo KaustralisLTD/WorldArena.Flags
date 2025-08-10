@@ -9,32 +9,49 @@ struct FlagCardView: View {
     var onNextQuestion: () -> Void
     
     @State private var showTapHint = false
+    @Environment(\.horizontalSizeClass) private var horizontalSizeClass
     
-    private let cardSize = CGSize(width: 300, height: 200)
+    private var cardSize: CGSize {
+        if horizontalSizeClass == .regular {
+            // iPad - увеличиваем в 2 раза
+            return CGSize(width: 600, height: 400)
+        } else {
+            // iPhone - оставляем как есть
+            return CGSize(width: 300, height: 200)
+        }
+    }
     
     var body: some View {
         GeometryReader { geometry in
             ZStack {
                 // Передняя сторона (флаг)
-                AsyncImage(url: country.flagURL) { image in
+                CachedAsyncImage(url: country.flagURL) { image in
                     image
                         .resizable()
                         .scaledToFit()
                 } placeholder: {
-                    ProgressView()
+                    VStack {
+                        ProgressView()
+                            .scaleEffect(1.2)
+                        Text(LocalizationManager.shared.localizedString("Loading flag..."))
+                            .font(.caption)
+                            .foregroundColor(.secondary)
+                            .padding(.top, 8)
+                    }
+                    .frame(maxWidth: .infinity, maxHeight: .infinity)
+                    .background(Color.gray.opacity(0.1))
                 }
                 .frame(width: cardSize.width, height: cardSize.height)
                 .opacity(isShowingInfo ? 0 : 1)
                 
                 // Задняя сторона (информация)
-                VStack(alignment: .leading, spacing: 3) {  // Уменьшаем spacing до 3
+                VStack(alignment: .leading, spacing: horizontalSizeClass == .regular ? 12 : 3) {
                     // Название страны
                     Text(getLocalizedName())
-                        .font(.title3)
-                        .bold()
+                        .font(.system(size: horizontalSizeClass == .regular ? 34 : 20, weight: .bold, design: .default))
                         .fixedSize(horizontal: false, vertical: true)
                         .lineLimit(2)
-                        .padding(.bottom, 1)  // Уменьшаем отступ после названия до 1
+                        .padding(.bottom, horizontalSizeClass == .regular ? 4 : 1)
                     
                     // Остальная информация
                     Group {
@@ -43,31 +60,31 @@ struct FlagCardView: View {
                             let capitalText = getLocalizedText("Capital")
                             let localizedCapitals = capitals.map { getLocalizedCapital($0) }
                             Text("\(capitalText): \(localizedCapitals.joined(separator: ", "))")
-                                .font(.callout)
+                                .font(horizontalSizeClass == .regular ? .title2 : .callout)
                         }
                         
                         // Население
                         let populationText = getLocalizedText("Population")
                         Text("\(populationText): \(formatPopulation(country.population))")
-                            .font(.callout)
+                            .font(horizontalSizeClass == .regular ? .title2 : .callout)
                         
                         // Площадь
                         if let area = country.area {
                             let areaText = getLocalizedText("Area")
                             Text("\(areaText): \(formatArea(area))")
-                                .font(.callout)
+                                .font(horizontalSizeClass == .regular ? .title2 : .callout)
                         }
                         
                         // Регион
                         let regionText = getLocalizedText("Region")
                         Text("\(regionText): \(getLocalizedRegion())")
-                            .font(.callout)
+                            .font(horizontalSizeClass == .regular ? .title2 : .callout)
                         
                         // Субрегион (последний элемент)
                         if let subregion = country.subregion {
                             let subregionText = getLocalizedText("Subregion")
                             Text("\(subregionText): \(getLocalizedSubregion(subregion))")
-                                .font(.callout)
+                                .font(horizontalSizeClass == .regular ? .title2 : .callout)
                         }
                         
                         // Подсказка сразу после субрегиона
@@ -75,20 +92,20 @@ struct FlagCardView: View {
                             HStack {
                                 Spacer()
                                 Text(LocalizationManager.shared.localizedString("Tap to continue"))
-                                    .font(.caption)
+                                    .font(horizontalSizeClass == .regular ? .title3 : .caption)
                                     .foregroundColor(.secondary)
                                     .opacity(showTapHint ? 0.8 : 0.4)
                                     .animation(.easeInOut(duration: 1).repeatForever(), value: showTapHint)
                             }
-                            .padding(.top, 2) // Минимальный отступ сверху
+                            .padding(.top, horizontalSizeClass == .regular ? 8 : 2)
                         }
                     }
                     .foregroundColor(.secondary)
                 }
-                .padding(.horizontal, 16)
-                .padding(.vertical, 12)
+                .padding(.horizontal, horizontalSizeClass == .regular ? 32 : 16)
+                .padding(.vertical, horizontalSizeClass == .regular ? 24 : 12)
                 .frame(width: cardSize.width, height: cardSize.height)
-                .background(Color(.systemBackground))
+                .background(.background)
                 .opacity(isShowingInfo ? 1 : 0)
                 .rotation3DEffect(.degrees(180), axis: (x: 0, y: 1, z: 0))
             }
@@ -103,11 +120,6 @@ struct FlagCardView: View {
             axis: (x: 0, y: 1, z: 0)
         )
         .animation(.spring(response: 0.5, dampingFraction: 0.6), value: isShowingInfo)
-        .onTapGesture {
-            if isShowingInfo {
-                onNextQuestion()
-            }
-        }
         .onAppear {
             if isShowingInfo {
                 DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {

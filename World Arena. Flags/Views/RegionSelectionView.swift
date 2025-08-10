@@ -3,6 +3,7 @@ import SwiftUI
 struct RegionSelectionView: View {
     @ObservedObject var gameState: GameState
     @State private var availableRegions: [GameState.Region] = []
+    @Environment(\.horizontalSizeClass) private var horizontalSizeClass
     
     private func updateAvailableRegions() {
         print("\n=== Updating Available Regions ===")
@@ -26,7 +27,7 @@ struct RegionSelectionView: View {
     var body: some View {
         VStack(alignment: .leading, spacing: 8) {
             Text(LocalizationManager.shared.localizedString("Select Regions"))
-                .font(.headline)
+                .font(horizontalSizeClass == .regular ? .title2 : .headline)
                 .foregroundColor(.primary)
                 .padding(.horizontal, 8)
                 .padding(.bottom, 4)

@@ -1,0 +1,37 @@
+{
+  "name": "WorldArena.Games FLAGS",
+  "short_name": "FLAGS",
+  "description": "Изучайте флаги стран мира с помощью интерактивной викторины",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#F8F9FA",
+  "theme_color": "#4A90E2",
+  "orientation": "portrait-primary",
+  "scope": "/",
+  "lang": "ru",
+  "dir": "ltr",
+  "categories": ["education", "games", "geography"],
+  "icons": [
+    {
+      "src": "/logo-worldarena-58x58.png",
+      "sizes": "58x58",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ],
+  "shortcuts": [
+    {
+      "name": "Быстрая игра",
+      "short_name": "Играть",
+      "description": "Начать игру с настройками по умолчанию",
+      "url": "/game"
+    },
+    {
+      "name": "Статистика",
+      "short_name": "Статистика",
+      "description": "Посмотреть свои результаты",
+      "url": "/statistics"
+    }
+  ],
+  "prefer_related_applications": false
+} 

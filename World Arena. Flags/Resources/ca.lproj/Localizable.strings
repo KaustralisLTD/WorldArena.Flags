@@ -55,6 +55,7 @@
 
 // New translation
 "Tap to continue" = "Toca per continuar";
+"Loading flag..." = "Carregant bandera...";
 
 // Game Modes
 "Game Mode" = "Mode de joc";
@@ -124,3 +125,11 @@
 "Tórshavn" = "Tórshavn";
 "Chișinău" = "Chişinău";
 "My Mistakes" = "Els meus errors";
+
+// iPad Main Screen
+"Challenge Yourself, Learn the World" = "Desafia't a tu mateix, aprèn el món";
+"WorldArena Description" = "WorldArena és una sèrie de jocs educatius globals que converteix l'aprenentatge en diversió. Endevina banderes, capitals, fronteres i molt més en un format de qüestionari dinàmic dissenyat per a totes les edats.";
+
+// Push Notifications
+"Push Notification Title" = "Hora de practicar!";
+"Push Notification Body" = "Posa a prova el teu coneixement de banderes i millora les teves habilitats! 🌍🎯";

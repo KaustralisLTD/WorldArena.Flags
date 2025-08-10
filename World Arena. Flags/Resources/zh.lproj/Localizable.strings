@@ -55,13 +55,29 @@
 
 // New translation
 "Tap to continue" = "点击继续";
+"Loading flag..." = "正在加载国旗...";
 
 // Game Modes
 "Game Mode" = "游戏模式";
-"20 Flags" = "20面旗帜";
-"50 Flags" = "50面旗帜";
-"100 Flags" = "100面旗帜";
-"All Flags" = "所有旗帜";
+"Classic" = "经典";
+"Time Challenge" = "限时挑战";
+"Survival" = "生存";
+"Standard multiple choice game" = "标准多选题游戏";
+"Answer quickly, time is limited" = "快速回答，时间有限";
+"Game until first mistake" = "游戏直到第一个错误";
+
+// Difficulty
+"Difficulty" = "难度";
+"Easy" = "简单";
+"Medium" = "中等";
+"Hard" = "困难";
+"Expert" = "专家";
+"Erudite" = "博学";
+"10 questions, 45 sec per answer" = "10个问题，每题45秒";
+"15 questions, 30 sec per answer" = "15个问题，每题30秒";
+"20 questions, 15 sec per answer" = "20个问题，每题15秒";
+"25 questions, 10 sec per answer" = "25个问题，每题10秒";
+"30 questions, 5 sec per answer" = "30个问题，每题5秒";
 
 "of" = "之";
 "flags" = "旗帜";
@@ -125,3 +141,11 @@
 "Chișinău" = "基希讷乌";
 
 "My Mistakes" = "我的错误";
+
+// iPad Main Screen
+"Challenge Yourself, Learn the World" = "挑战自己，学习世界";
+"WorldArena Description" = "WorldArena是一系列全球教育游戏，将学习转化为乐趣。在为所有年龄段设计的动态问答格式中猜测国旗、首都、边界等等。";
+
+// Push Notifications
+"Push Notification Title" = "练习时间到了！";
+"Push Notification Body" = "测试你的国旗知识并提高技能！🌍🎯";

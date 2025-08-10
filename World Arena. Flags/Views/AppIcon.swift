@@ -52,68 +52,17 @@ struct AppIcon: View {
         .frame(width: size, height: size)
     }
     
-    // Функция для создания изображения
-    func generateImage(for size: CGFloat, scale: CGFloat = 1) -> UIImage {
-        let scaledSize = CGSize(width: size * scale, height: size * scale)
-        let renderer = UIGraphicsImageRenderer(size: scaledSize)
-        
-        return renderer.image { context in
-            let hostingController = UIHostingController(rootView: AppIcon(size: size * scale))
-            hostingController.view.frame = CGRect(origin: .zero, size: scaledSize)
-            hostingController.view.backgroundColor = .clear
-            hostingController.view.drawHierarchy(in: hostingController.view.bounds, afterScreenUpdates: true)
-        }
+    // Функция для создания изображения (только для предпросмотра)
+    @available(iOS 16.0, *)
+    func generateImage(for size: CGFloat, scale: CGFloat = 1) -> Image {
+        return Image(systemName: "flag.circle.fill")
     }
 }
 
 struct IconGenerator {
     static func generateAllIcons() {
-        let icons: [(name: String, size: CGFloat, scale: CGFloat)] = [
-            ("iPhone_60@2x", 60.0, 2.0),
-            ("iPhone_60@3x", 60.0, 3.0),
-            ("iPad_76@2x", 76.0, 2.0),
-            ("iPadPro_83.5@2x", 83.5, 2.0),
-            ("AppStore_1024", 1024.0, 1.0)
-        ]
-        
-        // Получаем URL для директории документов
-        let documentsPath = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)[0]
-        let iconsDirectoryURL = documentsPath.appendingPathComponent("AppIcons")
-        
-        // Создаем директорию для иконок, если её нет
-        try? FileManager.default.createDirectory(at: iconsDirectoryURL, withIntermediateDirectories: true)
-        
-        for (name, size, scale) in icons {
-            let icon = AppIcon(size: size)
-            let image = icon.generateImage(for: size, scale: scale)
-            let imageData = image.pngData()
-            let filePath = iconsDirectoryURL.appendingPathComponent("\(name).png")
-            
-            do {
-                try imageData?.write(to: filePath)
-                print("Иконка сохранена в: \(filePath.path)")
-            } catch {
-                print("Ошибка сохранения иконки \(name): \(error.localizedDescription)")
-            }
-        }
-        
-        // Выводим путь к директории с иконками
-        print("\nВсе иконки сохранены в директории:\n\(iconsDirectoryURL.path)\n")
-        
-        #if DEBUG
-        // Показываем путь к файлам в режиме отладки
-        let activityVC = UIActivityViewController(
-            activityItems: [iconsDirectoryURL],
-            applicationActivities: nil
-        )
-        
-        // Получаем текущее окно для показа share sheet
-        if let windowScene = UIApplication.shared.connectedScenes.first as? UIWindowScene,
-           let window = windowScene.windows.first,
-           let rootViewController = window.rootViewController {
-            rootViewController.present(activityVC, animated: true)
-        }
-        #endif
+        print("Генерация иконок доступна только через Xcode Asset Catalog")
+        print("Используйте AppIcon в Assets.xcassets для создания иконок приложения")
     }
 }
 
