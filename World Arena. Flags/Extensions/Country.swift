@@ -94,6 +94,11 @@ struct Country: Identifiable, Codable, Hashable {
         return s
     }
     
+    // Computed property для получения 2-буквенного кода страны
+    var countryCode: String {
+        return countryCodeToTwoLetter(id)
+    }
+    
     // Преобразование 3-буквенного кода в 2-буквенный
     private func countryCodeToTwoLetter(_ threeLetterCode: String) -> String {
         let mapping: [String: String] = [

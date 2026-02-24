@@ -14,6 +14,10 @@ body {
     touch-action: manipulation;
 }
 
+body.has-app-store-banner {
+    padding-top: 56px;
+}
+
 .container {
     flex: 1;
     display: flex;
@@ -30,11 +34,163 @@ body {
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
+.header-row {
+    display: none; /* на десктопе не показываем */
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 0;
+}
+
+.header-title {
+    font-size: 1.1rem;
+    font-weight: bold;
+    color: #333;
+}
+
+.hamburger {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 5px;
+    width: 44px;
+    height: 44px;
+    padding: 10px;
+    border: none;
+    background: transparent;
+    cursor: pointer;
+    border-radius: 8px;
+    -webkit-tap-highlight-color: transparent;
+}
+
+.hamburger span {
+    display: block;
+    width: 22px;
+    height: 2px;
+    background-color: #333;
+    border-radius: 1px;
+    transition: transform 0.2s, opacity 0.2s;
+}
+
+.hamburger[aria-expanded="true"] span:nth-child(1) {
+    transform: translateY(7px) rotate(45deg);
+}
+
+.hamburger[aria-expanded="true"] span:nth-child(2) {
+    opacity: 0;
+}
+
+.hamburger[aria-expanded="true"] span:nth-child(3) {
+    transform: translateY(-7px) rotate(-45deg);
+}
+
 .top-bar {
     display: flex;
     justify-content: space-between;
     align-items: center;
     margin-bottom: 10px;
+}
+
+/* Мобильное меню: гамбургер + выпадающее меню вниз */
+@media (max-width: 768px) {
+    .header-row {
+        display: flex;
+    }
+
+    .top-bar {
+        display: none;
+        flex-direction: column;
+        align-items: stretch;
+        gap: 12px;
+        padding-top: 12px;
+        margin-top: 4px;
+        border-top: 1px solid #eee;
+    }
+
+    .header.menu-open .top-bar {
+        display: flex;
+    }
+
+    .top-bar .score-container,
+    .top-bar .timer-container,
+    .top-bar .level-selector {
+        width: 100%;
+    }
+
+    .level-selector select {
+        width: 100%;
+    }
+}
+
+/* Баннер «Скачать в App Store» для iOS/iPad */
+.app-store-banner {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 9999;
+    background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+    color: #fff;
+    padding: 12px 16px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+}
+
+.app-store-banner-inner {
+    position: relative;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 12px;
+    max-width: 600px;
+    margin: 0 auto;
+    padding-right: 40px;
+}
+
+.app-store-banner-text {
+    flex: 1;
+    min-width: 140px;
+    margin: 0;
+    font-size: 0.95rem;
+    font-weight: 500;
+}
+
+.app-store-btn {
+    display: inline-block;
+    padding: 8px 16px;
+    background: #007AFF;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 8px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    white-space: nowrap;
+    -webkit-tap-highlight-color: transparent;
+}
+
+.app-store-btn:hover {
+    background: #0056b3;
+    color: #fff;
+}
+
+.app-store-banner-close {
+    position: absolute;
+    top: 8px;
+    right: 8px;
+    width: 32px;
+    height: 32px;
+    border: none;
+    background: rgba(255, 255, 255, 0.15);
+    color: #fff;
+    font-size: 1.4rem;
+    line-height: 1;
+    cursor: pointer;
+    border-radius: 6px;
+    padding: 0;
+    -webkit-tap-highlight-color: transparent;
+}
+
+.app-store-banner-close:hover {
+    background: rgba(255, 255, 255, 0.25);
 }
 
 .score-container {

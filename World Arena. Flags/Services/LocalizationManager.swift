@@ -8,8 +8,16 @@ class LocalizationManager: ObservableObject {
     private var bundle: Bundle?
     
     private init() {
-        currentLocale = .current
+        // Логика старта:
+        // 1) если пользователь выбрал язык в приложении — используем его
+        // 2) иначе — подстраиваемся под систему (Locale.preferredLanguages)
+        // 3) никаких манипуляций с AppleLanguages (во избежание неожиданных переопределений)
+        let saved = UserDefaults.standard.string(forKey: "selectedLanguage")
+        let resolvedCode: String = LocalizationManager.resolveLanguageCode(saved: saved)
+        currentLocale = Locale(identifier: resolvedCode)
         updateBundle(for: currentLocale)
+        // Чистим возможные старые переопределения AppleLanguages
+        UserDefaults.standard.removeObject(forKey: "AppleLanguages")
     }
     
     func setLanguage(_ language: GameState.Language) {
@@ -21,18 +29,13 @@ class LocalizationManager: ObservableObject {
         UserDefaults.standard.set(language.rawValue, forKey: "selectedLanguage")
         
         // Обновляем локаль в зависимости от выбранного языка
-        let localeIdentifier = language == .system ? Locale.current.identifier : language.rawValue
+        let localeIdentifier = language == .system
+            ? LocalizationManager.resolveLanguageCode(saved: nil)
+            : language.rawValue
         currentLocale = Locale(identifier: localeIdentifier)
         
         // Обновляем bundle
         updateBundle(for: currentLocale)
-        
-        // Устанавливаем язык системы
-        if language == .system {
-            UserDefaults.standard.removeObject(forKey: "AppleLanguages")
-        } else {
-            UserDefaults.standard.set([language.rawValue], forKey: "AppleLanguages")
-        }
         
         // Принудительно обновляем UI
         UserDefaults.standard.synchronize()
@@ -42,6 +45,31 @@ class LocalizationManager: ObservableObject {
         
         print("Language updated successfully")
         print("=====================\n")
+    }
+    
+    // Поддерживаемые языки приложения
+    private static let supportedLanguageCodes: [String] = ["en", "ru", "uk", "es", "ca", "zh"]
+    
+    // Разрешение старта языка при выборе «Система»
+    private static func resolveLanguageCode(saved: String?) -> String {
+        // Если сохранён пользовательский выбор и он не "system"
+        if let saved, saved != "system" { return saved }
+        // Сначала — основной язык устройства (Locale.current), чтобы при испанской системе не подставлять украинский
+        if let current = Locale.current.languageCode?.lowercased(),
+           supportedLanguageCodes.contains(current) {
+            return current
+        }
+        // Иначе — первая из preferredLanguages, которую поддерживаем
+        let preferred = Locale.preferredLanguages
+            .compactMap { langId -> String? in
+                if let code = Locale(identifier: langId).languageCode?.lowercased() { return code }
+                let two = langId.split(separator: "-").first.map(String.init)?.lowercased()
+                return two
+            }
+        if let match = preferred.first(where: { supportedLanguageCodes.contains($0) }) {
+            return match
+        }
+        return "en"
     }
     
     private func updateBundle(for locale: Locale) {

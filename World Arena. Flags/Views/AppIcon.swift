@@ -74,15 +74,15 @@ struct IconExporter: View {
         VStack {
             AppIcon(size: 200)
             
-            Button("Generate Icons") {
+            Button(LocalizationManager.shared.localizedString("Generate Icons")) {
                 IconGenerator.generateAllIcons()
-                alertMessage = "Иконки сгенерированы. Проверьте консоль для путей к файлам."
+                alertMessage = LocalizationManager.shared.localizedString("Иконки сгенерированы. Проверьте консоль для путей к файлам.")
                 showingAlert = true
             }
             .padding()
         }
-        .alert("Готово", isPresented: $showingAlert) {
-            Button("OK") { }
+        .alert(LocalizationManager.shared.localizedString("Готово"), isPresented: $showingAlert) {
+            Button(LocalizationManager.shared.localizedString("OK")) { }
         } message: {
             Text(alertMessage)
         }

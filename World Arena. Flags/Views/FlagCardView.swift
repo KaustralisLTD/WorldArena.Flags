@@ -1,4 +1,7 @@
 import SwiftUI
+#if os(iOS)
+import UIKit
+#endif
 
 struct FlagCardView: View {
     let country: Country
@@ -7,17 +10,24 @@ struct FlagCardView: View {
     var flagRotation: Double
     @ObservedObject var gameState: GameState
     var onNextQuestion: () -> Void
+    /// iPad в альбомной: уменьшенная карточка флага, чтобы всё помещалось на один экран
+    var compactForLandscape: Bool = false
     
     @State private var showTapHint = false
     @Environment(\.horizontalSizeClass) private var horizontalSizeClass
+    @Environment(\.sizeCategory) private var sizeCategory
     
     private var cardSize: CGSize {
+        if compactForLandscape {
+            return CGSize(width: 560, height: 240)
+        }
+        let isLargeText = sizeCategory.isAccessibilityCategory
         if horizontalSizeClass == .regular {
-            // iPad - увеличиваем в 2 раза
-            return CGSize(width: 600, height: 400)
+            // iPad
+            return CGSize(width: isLargeText ? 720 : 600, height: isLargeText ? 480 : 400)
         } else {
-            // iPhone - оставляем как есть
-            return CGSize(width: 300, height: 200)
+            // iPhone
+            return CGSize(width: isLargeText ? 340 : 300, height: isLargeText ? 240 : 200)
         }
     }
     
@@ -29,26 +39,26 @@ struct FlagCardView: View {
                     image
                         .resizable()
                         .scaledToFit()
+                        .overlay(
+                            // Лёгкая окантовка в тёмной теме, чтобы чёрные флаги не терялись
+                            RoundedRectangle(cornerRadius: 8)
+                                .stroke(Color.white.opacity(0.15), lineWidth: 1)
+                        )
                 } placeholder: {
-                    VStack {
-                        ProgressView()
-                            .scaleEffect(1.2)
-                        Text(LocalizationManager.shared.localizedString("Loading flag..."))
-                            .font(.caption)
-                            .foregroundColor(.secondary)
-                            .padding(.top, 8)
-                    }
-                    .frame(maxWidth: .infinity, maxHeight: .infinity)
-                    .background(Color.gray.opacity(0.1))
+                    // Быстрый старт: пробуем racing-загрузку и подменяем placeholder
+                    RacingFlagPlaceholder(url: country.flagURL)
                 }
                 .frame(width: cardSize.width, height: cardSize.height)
                 .opacity(isShowingInfo ? 0 : 1)
                 
                 // Задняя сторона (информация)
-                VStack(alignment: .leading, spacing: horizontalSizeClass == .regular ? 12 : 3) {
+                let isCompact = compactForLandscape
+                let backTitleSize: CGFloat = isCompact ? 24 : (horizontalSizeClass == .regular ? 34 : 20)
+                let backInfoFont: Font = isCompact ? .callout : (horizontalSizeClass == .regular ? .title2 : .callout)
+                VStack(alignment: .leading, spacing: isCompact ? 4 : (horizontalSizeClass == .regular ? 8 : 2)) {
                     // Название страны
                     Text(getLocalizedName())
-                        .font(.system(size: horizontalSizeClass == .regular ? 34 : 20, weight: .bold, design: .default))
+                        .font(.system(size: backTitleSize, weight: .bold, design: .default))
                         .fixedSize(horizontal: false, vertical: true)
                         .lineLimit(2)
                         .padding(.bottom, horizontalSizeClass == .regular ? 4 : 1)
@@ -60,31 +70,31 @@ struct FlagCardView: View {
                             let capitalText = getLocalizedText("Capital")
                             let localizedCapitals = capitals.map { getLocalizedCapital($0) }
                             Text("\(capitalText): \(localizedCapitals.joined(separator: ", "))")
-                                .font(horizontalSizeClass == .regular ? .title2 : .callout)
+                                .font(backInfoFont)
                         }
                         
                         // Население
                         let populationText = getLocalizedText("Population")
                         Text("\(populationText): \(formatPopulation(country.population))")
-                            .font(horizontalSizeClass == .regular ? .title2 : .callout)
+                            .font(backInfoFont)
                         
                         // Площадь
                         if let area = country.area {
                             let areaText = getLocalizedText("Area")
                             Text("\(areaText): \(formatArea(area))")
-                                .font(horizontalSizeClass == .regular ? .title2 : .callout)
+                                .font(backInfoFont)
                         }
                         
                         // Регион
                         let regionText = getLocalizedText("Region")
                         Text("\(regionText): \(getLocalizedRegion())")
-                            .font(horizontalSizeClass == .regular ? .title2 : .callout)
+                            .font(backInfoFont)
                         
                         // Субрегион (последний элемент)
                         if let subregion = country.subregion {
                             let subregionText = getLocalizedText("Subregion")
                             Text("\(subregionText): \(getLocalizedSubregion(subregion))")
-                                .font(horizontalSizeClass == .regular ? .title2 : .callout)
+                                .font(backInfoFont)
                         }
                         
                         // Подсказка сразу после субрегиона
@@ -92,7 +102,7 @@ struct FlagCardView: View {
                             HStack {
                                 Spacer()
                                 Text(LocalizationManager.shared.localizedString("Tap to continue"))
-                                    .font(horizontalSizeClass == .regular ? .title3 : .caption)
+                                    .font(isCompact ? .caption : (horizontalSizeClass == .regular ? .title3 : .caption))
                                     .foregroundColor(.secondary)
                                     .opacity(showTapHint ? 0.8 : 0.4)
                                     .animation(.easeInOut(duration: 1).repeatForever(), value: showTapHint)
@@ -102,10 +112,15 @@ struct FlagCardView: View {
                     }
                     .foregroundColor(.secondary)
                 }
-                .padding(.horizontal, horizontalSizeClass == .regular ? 32 : 16)
-                .padding(.vertical, horizontalSizeClass == .regular ? 24 : 12)
+                .padding(.top, isCompact ? 18 : (horizontalSizeClass == .regular ? 28 : 18))
+                .padding(.horizontal, isCompact ? 16 : (horizontalSizeClass == .regular ? 32 : 16))
+                .padding(.bottom, isCompact ? 12 : (horizontalSizeClass == .regular ? 24 : 12))
                 .frame(width: cardSize.width, height: cardSize.height)
-                .background(.background)
+                .background(Color(UIColor.secondarySystemGroupedBackground))
+                .overlay(
+                    RoundedRectangle(cornerRadius: 10)
+                        .stroke(Color.primary.opacity(0.1), lineWidth: 1)
+                )
                 .opacity(isShowingInfo ? 1 : 0)
                 .rotation3DEffect(.degrees(180), axis: (x: 0, y: 1, z: 0))
             }
@@ -1617,3 +1632,67 @@ struct FlagCardView: View {
         }
     }
 } 
+
+private struct RacingFlagPlaceholder: View {
+    let url: URL
+    #if os(iOS)
+    @State private var image: UIImage?
+    #endif
+    @State private var isLoading = false
+    
+    var body: some View {
+        Group {
+            #if os(iOS)
+            if let image = image {
+                Image(uiImage: image)
+                    .resizable()
+                    .scaledToFit()
+            } else {
+                VStack {
+                    ProgressView()
+                        .scaleEffect(1.2)
+                    Text(LocalizationManager.shared.localizedString("Loading flag..."))
+                        .font(.caption)
+                        .foregroundColor(.secondary)
+                        .padding(.top, 8)
+                }
+                .frame(maxWidth: .infinity, maxHeight: .infinity)
+                .background(Color.gray.opacity(0.1))
+                .overlay(
+                    RoundedRectangle(cornerRadius: 8)
+                        .stroke(Color.white.opacity(0.15), lineWidth: 1)
+                )
+                .task {
+                    guard !isLoading else { return }
+                    isLoading = true
+                    if let img = await FlagImageService.shared.loadImageRacing(from: url) {
+                        await MainActor.run { self.image = img }
+                    }
+                    isLoading = false
+                }
+            }
+            #else
+            VStack {
+                ProgressView()
+                    .scaleEffect(1.2)
+                Text(LocalizationManager.shared.localizedString("Loading flag..."))
+                    .font(.caption)
+                    .foregroundColor(.secondary)
+                    .padding(.top, 8)
+            }
+            .frame(maxWidth: .infinity, maxHeight: .infinity)
+            .background(Color.gray.opacity(0.1))
+            .overlay(
+                RoundedRectangle(cornerRadius: 8)
+                    .stroke(Color.white.opacity(0.15), lineWidth: 1)
+            )
+            .task {
+                guard !isLoading else { return }
+                isLoading = true
+                // macOS implementation would go here
+                isLoading = false
+            }
+            #endif
+        }
+    }
+}

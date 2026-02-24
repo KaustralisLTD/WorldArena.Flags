@@ -62,10 +62,26 @@
         </div>
     </div>
 
+    <!-- Баннер «Скачать в App Store» для iOS/iPad (скрыт по умолчанию, показывается скриптом) -->
+    <div id="app-store-banner" class="app-store-banner" style="display: none;" aria-hidden="true">
+        <div class="app-store-banner-inner">
+            <p class="app-store-banner-text">Установите приложение World Arena Flags</p>
+            <!-- Замените idXXXXXXXX на ваш App Store ID приложения -->
+<a id="app-store-link" href="https://apps.apple.com/app/id674525943" class="app-store-btn" target="_blank" rel="noopener">Скачать в App Store</a>
+            <button type="button" class="app-store-banner-close" id="app-store-banner-close" aria-label="Закрыть">×</button>
+        </div>
+    </div>
+
     <!-- Основной контейнер игры -->
     <div id="game-container" class="container" style="display: none;">
         <div class="header">
-            <div class="top-bar">
+            <div class="header-row">
+                <div class="header-title" data-i18n="title">Флаги Мира</div>
+                <button type="button" class="hamburger" id="hamburger" aria-label="Меню" aria-expanded="false">
+                    <span></span><span></span><span></span>
+                </button>
+            </div>
+            <div class="top-bar" id="top-bar" aria-hidden="true">
                 <div class="score-container">
                     <span data-i18n="score">Счёт:</span>
                     <span id="score">0</span>

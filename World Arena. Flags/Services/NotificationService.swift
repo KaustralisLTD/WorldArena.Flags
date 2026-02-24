@@ -78,6 +78,32 @@ class NotificationService: NSObject, ObservableObject {
         UNUserNotificationCenter.current().removeDeliveredNotifications(withIdentifiers: ["inactivity_reminder"])
     }
     
+    /// Push: «Вам бросил вызов на дуэль [challengerName]»
+    @MainActor
+    func scheduleDuelChallengeNotification(from challengerName: String) {
+        let template = LocalizationManager.shared.localizedString("Duel challenge from %@")
+        let body = String(format: template, challengerName)
+        let content = UNMutableNotificationContent()
+        content.title = LocalizationManager.shared.localizedString("Duel")
+        content.body = body
+        content.sound = .default
+        let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 1, repeats: false)
+        let request = UNNotificationRequest(identifier: "duel_challenge_\(UUID().uuidString)", content: content, trigger: trigger)
+        UNUserNotificationCenter.current().add(request, withCompletionHandler: nil)
+    }
+    
+    /// Push: «Вы победили в дуэли»
+    @MainActor
+    func scheduleDuelWonNotification() {
+        let content = UNMutableNotificationContent()
+        content.title = LocalizationManager.shared.localizedString("Duel")
+        content.body = LocalizationManager.shared.localizedString("You won the duel!")
+        content.sound = .default
+        let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 1, repeats: false)
+        let request = UNNotificationRequest(identifier: "duel_won_\(UUID().uuidString)", content: content, trigger: trigger)
+        UNUserNotificationCenter.current().add(request, withCompletionHandler: nil)
+    }
+    
     // Проверка статуса разрешений
     func checkNotificationStatus() {
         UNUserNotificationCenter.current().getNotificationSettings { settings in

@@ -4,6 +4,12 @@ struct RegionSelectionView: View {
     @ObservedObject var gameState: GameState
     @State private var availableRegions: [GameState.Region] = []
     @Environment(\.horizontalSizeClass) private var horizontalSizeClass
+    /// Количество колонок (2 по умолчанию, 3 для iPad горизонтально)
+    var columnCount: Int = 2
+    /// Компактный вид кнопок (меньше отступы), например для iPad landscape
+    var compact: Bool = false
+    /// Крупный шрифт названий регионов (для iPad landscape)
+    var largeFontForLandscape: Bool = false
     
     private func updateAvailableRegions() {
         print("\n=== Updating Available Regions ===")
@@ -25,24 +31,13 @@ struct RegionSelectionView: View {
     }
     
     var body: some View {
-        VStack(alignment: .leading, spacing: 8) {
-            Text(LocalizationManager.shared.localizedString("Select Regions"))
-                .font(horizontalSizeClass == .regular ? .title2 : .headline)
-                .foregroundColor(.primary)
-                .padding(.horizontal, 8)
-                .padding(.bottom, 4)
-            
-            LazyVGrid(columns: [
-                GridItem(.flexible(), spacing: 8),
-                GridItem(.flexible(), spacing: 8)
-            ], spacing: 8) {
-                ForEach(availableRegions, id: \.self) { region in
-                    RegionToggle(gameState: gameState, region: region)
-                        .frame(maxWidth: .infinity)
-                }
+        LazyVGrid(columns: Array(repeating: GridItem(.flexible(), spacing: compact ? 6 : 8), count: columnCount), spacing: compact ? 6 : 8) {
+            ForEach(availableRegions, id: \.self) { region in
+                RegionToggle(gameState: gameState, region: region, compact: compact, largeFontForLandscape: largeFontForLandscape)
+                    .frame(maxWidth: .infinity)
             }
-            .padding(.horizontal, 8)
         }
+        .padding(.horizontal, compact ? 6 : 8)
         .onAppear {
             updateAvailableRegions()
         }

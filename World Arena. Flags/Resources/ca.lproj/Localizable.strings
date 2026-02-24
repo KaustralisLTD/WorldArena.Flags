@@ -1,5 +1,147 @@
+"Сыграй %d игр" = "Juga %d partides";
+"Завершите %d игр в этом месяце" = "Completa %d partides aquest mes";
+"Точность %d%%" = "Precisió %d%%";
+"Достигните точности %d%% в играх" = "Aconsegueix %d%% de precisió a les partides";
+"Серия %d дней" = "Ratxa de %d dies";
+"Поддерживайте серию %d дней подряд" = "Mantén una ratxa de %d dies seguits";
+/* Help Center Categories */
+"Игра" = "Joc";
+"Прогресс" = "Progrés";
+"Лиги" = "Lligues";
+"Профиль" = "Perfil";
+"Социальные функции" = "Funcions socials";
+"Технические вопросы" = "Qüestions tècniques";
+/* Settings screen */
+"Настройки" = "Configuració";
+"Аккаунт" = "Compte";
+"Профиль пользователя" = "Perfil d'usuari";
+"Поддержка" = "Suport";
+"Настройки приложения" = "Configuració de l'app";
+"Обратная связь" = "Comentaris";
+"World Arena Premium" = "World Arena Premium";
+"Обратная связь по World Arena Flags" = "Comentaris sobre World Arena Flags";
+
+/* Achievements */
+"Достижения" = "Logros";
+"Достижение" = "Logro";
+"ЛИЧНЫЕ РЕКОРДЫ" = "RÈCORDS PERSONALS";
+"НАГРАДЫ" = "PREMIS";
+"Лучшая серия" = "Millor ratxa";
+"Макс. лига" = "Lliga màx.";
+"Макс. XP" = "XP màx.";
+"Открыто" = "Desblocat";
+
+/* Profile */
+"League" = "Lliga";
+"Following" = "Amics";
+"Days in a row" = "Dies seguits";
+"Текущая серия" = "Ratxa actual";
+"дней" = "dies";
+"Joined in %@" = "Unit el %@";
+"Level %d • %d XP • %d-day streak" = "Nivell %d • %d XP • ratxa de %d dies";
+"SUPER" = "SUPER";
+
+/* Leagues medals & labels */
+"1st" = "1r";
+"2nd" = "2n";
+"3rd" = "3r";
+"XP" = "XP";
+
+/* Monthly badges sample titles */
+"Алмазная лига" = "Lliga Diamant";
+"Серия мастера" = "Ratxa mestra";
+"Чемпион месяца" = "Campió del mes";
+"Идеальная неделя" = "Setmana perfecta";
+"Бронзовая лига" = "Lliga de bronze";
+"Лига Мастеров" = "Lliga de mestres";
 // General
 "World Flags" = "Banderes del Món";
+"Learn flags of the world" = "Aprèn les banderes del món";
+
+/* Game Loading */
+"Loading flags..." = "Carregant banderes...";
+"Starting..." = "Iniciant...";
+
+/* Main Tab Navigation */
+"Главная" = "Inici";
+"Игра" = "Jugar";
+"Квесты" = "Missions";
+"Лиги" = "Lligues";
+"Статистика" = "Estadístiques";
+"Профиль" = "Perfil";
+
+/* Profile Page */
+"ОБЗОР" = "RESUM";
+"Всего изучено флагов" = "Total de banderes apreses";
+"Текущая лига" = "Lliga actual";
+"Общий опыт" = "Experiència total";
+"Текущая серия" = "Ratxa actual";
+"XP" = "XP";
+"ДОБАВИТЬ ДРУЗЕЙ" = "AFEGIR AMICS";
+"СЕРИИ ДРУЗЕЙ" = "RATXES D'AMICS";
+"МЕСЯЧНЫЕ ДОСТИЖЕНИЯ" = "ASSOLIMENTS MENSALS";
+"Месячные цели" = "OBJECTIUS MENSUALS";
+
+// Add Friends page
+"Ваш код друга" = "El teu codi d'amic";
+"Добавить по коду" = "Afegir per codi";
+"Введите код друга" = "Introdueix el codi de l'amic";
+"Добавить" = "Afegir";
+"Добавить друзей" = "Afegir amics";
+"Готово" = "Fet";
+"Скопировано" = "Copiat";
+"Мой код друга" = "El meu codi d'amic";
+"Добавить по имени (логину)" = "Afegir per nom (usuari)";
+"Введите имя пользователя" = "Introdueix el nom d'usuari";
+"Пользователь не найден или уже в друзьях. Проверьте имя." = "Usuari no trobat o ja és a amics. Comprova el nom.";
+"Ваша страна (флаг в профиле)" = "El teu país (bandera al perfil)";
+"Выберите страну — её флаг будет отображаться у вас в профиле у друзей." = "Tria un país — la seva bandera es mostrarà al teu perfil als amics.";
+"Не выбрано" = "No seleccionat";
+"Ваша страна" = "El teu país";
+
+// Settings page
+"Премиум" = "Premium";
+"World Arena Premium" = "World Arena Premium";
+"Премиум подписка активна" = "Subscripció premium activa";
+"ВОССТАНОВИТЬ ПОДПИСКУ" = "RESTAURAR SUBSCRIPCIÓ";
+"ВЫЙТИ" = "TANCAR SESSIÓ";
+"Удалить аккаунт" = "Eliminar compte";
+"Это действие нельзя отменить. Все ваши данные будут удалены навсегда." = "Aquesta acció no es pot desfer. Totes les teves dades s'eliminaran permanentment.";
+
+/* Language Selection */
+"Выберите язык игры" = "Triar idioma del joc";
+"Язык интерфейса игры и заданий" = "Idioma de la interfície i tasques del joc";
+
+/* Leagues */
+"Вы занимаете #%d место" = "Estàs classificat al #%d";
+"Зона повышения - переход в следующую лигу!" = "Zona d'ascens - avança a la següent lliga!";
+"Зона вылета - риск понижения лиги" = "Zona de descens - risc de baixar de lliga";
+"Безопасная зона - остаетесь в текущей лиге" = "Zona segura - et quedes a la lliga actual";
+"Конец недели через %d часов" = "La setmana acaba en %d hores";
+"До конца лиги: %02dч %02dм (GMT)" = "Fi de lliga en %02dh %02dm (GMT)";
+"До конца лиги: %@ (GMT)" = "Fi de lliga en %@ (GMT)";
+"д" = "d";
+"ч" = "h";
+"м" = "m";
+"ЗОНА ВЫЛЕТА" = "ZONA DE DESCENS";
+"ЗОНА ПОВЫШЕНИЯ" = "ZONA D'ASCENS";
+
+/* Monthly Quests */
+"Августовский Квест" = "Missió d'Agost";
+"Mision de Agosto" = "Missió d'Agost";
+"21 ДЕНЬ" = "21 DIES";
+"Заработай 40 очков квеста" = "Guanya 40 punts de missió";
+"ЕЖЕДНЕВНЫЕ КВЕСТЫ" = "MISSIONS DIÀRIES";
+
+/* Help Center */
+"Популярные темы" = "Temes populars";
+"Категории" = "Categories";
+"Нужна дополнительная помощь?" = "Necessites ajuda addicional?";
+"Связаться с поддержкой" = "Contactar suport";
+"Результаты поиска" = "Resultats de cerca";
+"Ничего не найдено" = "No s'ha trobat res";
+"Попробуйте другие ключевые слова" = "Prova altres paraules clau";
+"%d тем" = "%d temes";
 "Score" = "Puntuació";
 "Exit" = "Sortir";
 "Error loading countries" = "Error en carregar països";
@@ -8,7 +150,9 @@
 
 // Start Screen
 "Select Language" = "Seleccionar idioma";
+"Select Region" = "Seleccionar regió";
 "Select Regions" = "Seleccionar regions";
+"Multiple Regions" = "Múltiples regions";
 "START GAME" = "COMENÇAR JOC";
 "All Regions" = "Totes les regions";
 "Europe" = "Europa";
@@ -46,7 +190,108 @@
 
 // Share Result
 "Share Result" = "Compartir";
+"Share" = "Compartir";
+"ACCURACY" = "Precisió";
+"TOTAL XP" = "XP Total";
+"CONTINUE" = "Continuar";
+"Perfect! You're unstoppable!" = "Perfecte! Ets imparable!";
+"Excellent performance!" = "Excel·lent rendiment!";
+"Well done! Keep practicing!" = "Ben fet! Segueix practicant!";
+"Don't give up! Practice makes perfect!" = "No et rendeixis! La pràctica fa al mestre!";
+"PERFECT" = "Perfecte";
+"AMAZING" = "Increïble";
+"GOOD" = "Bé";
+"KEEP GOING" = "Segueix endavant";
+"Play Again" = "Jugar de nou";
+"Home" = "Inici";
+"Quest Update!" = "Actualització de missions!";
+"Check your progress" = "Revisa el teu progrés";
+"2x XP for 10 min!" = "2x XP durant 10 min!";
+"3x XP for 15 min!" = "3x XP durant 15 min!";
+"Подарок за квесты" = "Regal de missions diàries";
 "Share Message" = "He aconseguit %d punts a World Flags! 🎮🌍\nDescarrega'l i intenta superar la meva puntuació!";
+"Statistics Share Promo" = "Joco a World Arena Flags — aprèn banderes del món, desafia amics i puja de lliga! 🎮🌍\nLes meves estadístiques: millor puntuació %d, precisió %.1f%%, %d partides.\nVols aprendre banderes i posar a prova les teves habilitats? Uneix-te!\n%@";
+
+// Post-Game Flow
+"CLAIM XP" = "RECLAMAR XP";
+"TOTAL XP" = "XP TOTAL";
+"PERFECT" = "PERFECTE";
+"AMAZING" = "INCREÏBLE";
+"GOOD" = "BÉ";
+"KEEP GOING" = "CONTINUA";
+"Perfect! You're unstoppable!" = "¡Perfecte! ¡Ets imparable!";
+"Excellent performance!" = "¡Excel·lent rendiment!";
+"Well done! Keep practicing!" = "¡Ben fet! ¡Segueix practicant!";
+"Don't give up! Practice makes perfect!" = "¡No et rendeixis! ¡La pràctica fa al mestre!";
+"day streak" = "dies seguits";
+"This Week" = "Aquesta setmana";
+"Incredible streak! You're on fire!" = "¡Ratxa increïble! ¡Estàs en flames!";
+"Great job! Keep the momentum going!" = "¡Excel·lent feina! ¡Mantén l'impuls!";
+"Nice start! Build your streak day by day!" = "¡Bon començament! ¡Construeix la teva ratxa dia a dia!";
+"Your Friend Streaks" = "Ratxes dels teus amics";
+"See how your friends are doing" = "Vegeu com van els teus amics";
+"No friends yet" = "Encara no hi ha amics";
+"Add friends to see their streaks and compete together!" = "¡Afegeix amics per veure les seves ratxes i competir junts!";
+"NUDGE" = "RECORDAR";
+"Remind" = "Recordar";
+"Reminder sent to %@" = "Recordatori enviat a %@";
+"%@ reminds you" = "%@ et recorda";
+"nudge_phrase_1" = "No et rendeixis! Ho aconseguiràs!";
+"nudge_phrase_2" = "La teva ratxa t'espera. Juga avui!";
+"nudge_phrase_3" = "Una partida al dia manté la ratxa viva!";
+"nudge_phrase_4" = "Torna i mostra a les banderes qui mana!";
+"nudge_phrase_5" = "Et trobem a faltar! Una partida ràpida?";
+"nudge_phrase_6" = "Els teus amics juguen. Uneix-te!";
+"nudge_phrase_7" = "Petit pas avui, gran ratxa demà!";
+"nudge_phrase_8" = "Estàs molt a prop! No perdis la ratxa!";
+"nudge_phrase_9" = "Les banderes et criden. Respon!";
+"nudge_phrase_10" = "Desperta — és hora de banderes!";
+"nudge_phrase_11" = "Una mica de pràctica i endavant!";
+"nudge_phrase_12" = "Avui és el dia de mantenir la ratxa!";
+"nudge_phrase_13" = "Torna al joc! Creiem en tu!";
+"nudge_phrase_14" = "Una partida més i et sentiràs genial!";
+"nudge_phrase_15" = "La teva ratxa et troba a faltar. Torna!";
+"CONTINUE" = "CONTINUAR";
+"streak" = "ratxa";
+"days" = "dies";
+"Quest Update!" = "¡Actualització de missions!";
+"Check your progress" = "Revisa el teu progrés";
+"Заблокировано" = "Bloquejat";
+"Базовый пакет" = "Paquet bàsic";
+"Обучение" = "Aprenentatge";
+"Изучай флаги и страны мира" = "Aprèn banderes i països del món";
+"Континенты" = "Continents";
+"Европа" = "Europa";
+"Азия" = "Àsia";
+"Африка" = "Àfrica";
+"Северная Америка" = "Amèrica del Nord";
+"Южная Америка" = "Amèrica del Sud";
+"Океания" = "Oceania";
+"стран" = "països";
+"Самый маленький континент" = "El continent més petit";
+"Самый большой континент" = "El continent més gran";
+"Колыбель человечества" = "El bressol de la humanitat";
+"Новый свет" = "El Nou Món";
+"Земля контрастов" = "Terra de contrastos";
+"Острова Тихого океана" = "Illes de l'Oceà Pacífic";
+"Статистика флагов" = "Estadístiques de Banderes";
+"Всего стран" = "Total de Països";
+"Цветов на флагах" = "Colors a les Banderes";
+"Самый популярный цвет" = "Color Més Popular";
+"Красный" = "Vermell";
+"Флагов с крестом" = "Banderes amb Creu";
+"Интересные факты" = "Fets Curiosos";
+"Самый старый флаг" = "Bandera Més Antiga";
+"Флаг Дании используется с 1219 года" = "La bandera de Dinamarca s'usa des de 1219";
+"Единственный квадратный флаг" = "Única Bandera Quadrada";
+"У Швейцарии единственный квадратный флаг в мире" = "Suïssa té l'única bandera quadrada del món";
+"Самый сложный флаг" = "Bandera Més Complexa";
+"У Бутана на флаге изображен дракон" = "La bandera de Bhutan té un drac";
+"Go Premium" = "Anar a Premium";
+"Мой профиль в World Arena Flags" = "El meu perfil a World Arena Flags";
+"Не удалось добавить друга. Проверьте код." = "No s'ha pogut afegir amic. Comprova el codi.";
+"Daily Quests" = "Missions diàries";
+"Monthly Quest" = "Missió mensual";
 
 // Exit confirmation
 "Exit Confirmation" = "Estàs segur que vols sortir?";
@@ -56,6 +301,8 @@
 // New translation
 "Tap to continue" = "Toca per continuar";
 "Loading flag..." = "Carregant bandera...";
+"Select Difficulty" = "Seleccionar dificultat";
+"Game Mode" = "Mode de joc";
 
 // Game Modes
 "Game Mode" = "Mode de joc";
@@ -126,6 +373,17 @@
 "Chișinău" = "Chişinău";
 "My Mistakes" = "Els meus errors";
 
+/* Help Center topics */
+"Как играть в World Arena Flags?" = "Com jugar a World Arena Flags?";
+"Основы игры и правила" = "Conceptes bàsics i regles";
+"HELP_GAME_RULES" = "World Arena Flags és un joc divertit per aprendre banderes.\n\nRegles:\n1. Veus la bandera d'un país\n2. Tria el nom correcte entre les opcions\n3. Guanya XP per respostes correctes\n4. Mantén la ratxa diària\n5. Puja de nivell i lliga\n\nCom més jugues, més banderes aprens!";
+"Что такое серия дней?" = "Què és una ratxa?";
+"Как работает система серий" = "Com funciona el sistema de ratxes";
+"HELP_STREAK_TEXT" = "La ratxa mostra quants dies seguits has jugat.\n\nCom mantenir-la:\n• Juga com a mínim una partida cada dia\n• La ratxa es restableix si saltes un dia\n• Ratxes llargues donen més XP extra\n\nLa ratxa ajuda a crear l'hàbit!";
+"Как работают лиги?" = "Com funcionen les lligues?";
+"Система рейтингов и соревнований" = "Sistema de classificació i competició";
+"HELP_LEAGUES_TEXT" = "Les lligues són competicions amb altres jugadors.\n\nLligues (de menor a major):\n• Bronze\n• Plata\n• Or\n• Platí\n• Diamant\n• Mestre\n\nActualització setmanal:\n• Els 3 primers reben recompenses\n• Els llocs 16–20 poden baixar\n• La resta es mantenen a la mateixa lliga";
+
 // iPad Main Screen
 "Challenge Yourself, Learn the World" = "Desafia't a tu mateix, aprèn el món";
 "WorldArena Description" = "WorldArena és una sèrie de jocs educatius globals que converteix l'aprenentatge en diversió. Endevina banderes, capitals, fronteres i molt més en un format de qüestionari dinàmic dissenyat per a totes les edats.";
@@ -133,3 +391,316 @@
 // Push Notifications
 "Push Notification Title" = "Hora de practicar!";
 "Push Notification Body" = "Posa a prova el teu coneixement de banderes i millora les teves habilitats! 🌍🎯";
+
+// Difficulty Descriptions
+"Easy" = "Fàcil";
+"Medium" = "Mitjà";
+"Hard" = "Difícil";
+"Expert" = "Expert";
+"Erudite" = "Erudit";
+"10 questions, 45 sec per answer" = "10 preguntes, 45 seg per resposta";
+"15 questions, 30 sec per answer" = "15 preguntes, 30 seg per resposta";
+"20 questions, 15 sec per answer" = "20 preguntes, 15 seg per resposta";
+"25 questions, 10 sec per answer" = "25 preguntes, 10 seg per resposta";
+"30 questions, 5 sec per answer" = "30 preguntes, 5 seg per resposta";
+"All %d countries of selected regions, 5 sec per answer" = "Tots els %d països de les regions seleccionades, 5 seg per resposta";
+"All 238 countries of the world, 5 sec per answer" = "Tots els 238 països del món, 5 seg per resposta";
+
+/* Settings - Added */
+"Уведомления" = "Notificacions";
+"Приватность" = "Privadesa";
+"Центр помощи" = "Centre d'ajuda";
+"Язык игры" = "Idioma del joc";
+"Звуковые эффекты" = "Efectes de so";
+"Вибрация" = "Vibració";
+
+/* Notification Settings - Sections */
+"Основные уведомления" = "Notificacions principals";
+"Напоминания об игре" = "Recordatoris del joc";
+"Ежедневные напоминания" = "Recordatoris diaris";
+"Напоминания о серии" = "Recordatoris de ratxa";
+"Время напоминания" = "Hora del recordatori";
+"Время" = "Hora";
+"Достижения и прогресс" = "Assoliments i progrés";
+"Социальные уведомления" = "Notificacions socials";
+"Друзья" = "Amics";
+
+/* Privacy Settings */
+"Приватность профиля" = "Privadesa del perfil";
+"Публичный профиль" = "Perfil públic";
+"Показывать статистику" = "Mostrar estadístiques";
+"Заявки в друзья" = "Sol·licituds d'amistat";
+"Сбор данных" = "Recollida de dades";
+"Аналитика использования" = "Analítica d'ús";
+"Отчеты о сбоях" = "Informes d'errors";
+"Управление данными" = "Gestió de dades";
+"Политика конфиденциальности" = "Política de privadesa";
+"Ознакомьтесь с нашей политикой конфиденциальности" = "Consulta la nostra política de privadesa";
+"Условия использования" = "Condicions del servei";
+"Прочитайте наши условия использования" = "Llegeix les nostres condicions del servei";
+"Экспорт данных" = "Exportar dades";
+"Скачать копию ваших данных" = "Descarregar una còpia de les teves dades";
+"Удалить все данные" = "Eliminar totes les dades";
+"Безвозвратно удалить все ваши данные" = "Eliminar permanentment totes les teves dades";
+
+/* Vides i Premium */
+"Lives" = "Vides";
+"Next +%d in %02d:%02d" = "Pròximes +%d en %02d:%02d";
+"Lives refill info" = "Informació sobre vides";
+"You will receive +%d new lives in %02d:%02d" = "Rebràs +%d vides noves en %02d:%02d";
+"Unlimited hearts enabled" = "Cors il·limitats activats";
+"Unlimited Hearts" = "Cors il·limitats";
+"Your Premium benefits" = "Els teus avantatges Premium";
+"F-Bucks" = "F-Bucks";
+"Flags Bucks" = "Flags Bucks";
+
+/* F-Bucks Info Page */
+"О F-Bucks" = "Sobre els F-Bucks";
+"Как заработать" = "Com guanyar";
+"История" = "Historial";
+"Магазин" = "Botiga";
+"Что такое F-Bucks?" = "Què són els F-Bucks?";
+"F-Bucks (Flags Bucks) — это внутриигровая валюта, которую можно заработать, играя в World Arena Flags. Используйте F-Bucks для покупки уникальных элементов аватара, скинов и других эксклюзивных предметов." = "F-Bucks (Flags Bucks) és una moneda del joc que pots guanyar jugant World Arena Flags. Utilitza F-Bucks per comprar elements únics d'avatar, skins i altres articles exclusius.";
+"Особенности:" = "Característiques:";
+"Зарабатывайте за идеальные результаты в играх" = "Guanya per resultats perfectes als jocs";
+"Получайте бонусы за длинные серии дней" = "Obtén bonificacions per ratxes llargues de dies";
+"Покупайте эксклюзивные элементы для аватара" = "Compra elements exclusius per al teu avatar";
+"Создавайте уникальный стиль" = "Crea un estil únic";
+"Как заработать F-Bucks" = "Com guanyar F-Bucks";
+"Идеальный результат" = "Resultat perfecte";
+"Идеальный результат игры" = "Resultat perfecte de partida";
+"Получите идеальный результат в игре (10/10 или 15/15)" = "Obtén un resultat perfecte al joc (10/10 o 15/15)";
+"Серия 10 дней" = "Ratxa de 10 dies";
+"Играйте 10 дней подряд" = "Juga 10 dies seguits";
+"Серия 20 дней" = "Ratxa de 20 dies";
+"Играйте 20 дней подряд" = "Juga 20 dies seguits";
+"Серия 50 дней" = "Ratxa de 50 dies";
+"Играйте 50 дней подряд" = "Juga 50 dies seguits";
+"Серия 100 дней" = "Ratxa de 100 dies";
+"Играйте 100 дней подряд" = "Juga 100 dies seguits";
+"История начислений" = "Historial de transaccions";
+"История пуста" = "L'historial està buit";
+"Начните играть и зарабатывать F-Bucks!" = "Comença a jugar i guanyar F-Bucks!";
+"Магазин F-Bucks" = "Botiga F-Bucks";
+"Потратьте F-Bucks на эксклюзивные элементы для вашего аватара" = "Gasta F-Bucks en elements exclusius per al teu avatar";
+"Одежда" = "Roba";
+"Уникальные наряды и аксессуары" = "Vestits i accessoris únics";
+"Скины" = "Skins";
+"Особые визуальные эффекты" = "Efectes visuals especials";
+"Эффекты" = "Efectes";
+"Анимации и спецэффекты" = "Animacions i efectes especials";
+"Футболка чемпиона" = "Samarreta de campió";
+"Кепка путешественника" = "Gorra de viatger";
+"Куртка исследователя" = "Jaqueta d'explorador";
+"Золотой скин" = "Skin daurat";
+"Радужный скин" = "Skin arc de Sant Martin";
+"Неоновый скин" = "Skin neó";
+"Эффект блёсток" = "Efecte de brillants";
+"Огненный эффект" = "Efecte de foc";
+"Звёздный эффект" = "Efecte d'estrelles";
+"Купить" = "Comprar";
+"Покупка" = "Compra";
+"Текст гимна" = "Text de l'Himne";
+"Continue playing with unlimited hearts!" = "Continua jugant amb cors il·limitats!";
+"No lives available" = "No hi ha vides disponibles";
+"Unfortunately, the game is not available now: you have no lives. You can buy lives or go Premium." = "Malauradament, el joc no està disponible ara: no tens vides. Pots comprar vides o passar a Premium.";
+"Go Premium" = "Anar a Premium";
+"Out of lives" = "Sense vides";
+"Get Free Lives" = "Gratuït +5 vides";
+"Unfortunately you ran out of lives this time. Try again or come back later." = "Malauradament, aquesta vegada t'has quedat sense vides. Torna-ho a provar o torna més tard.";
+
+/* Premium */
+"Learn all countries and flags in ~2 months with Premium" = "Aprèn tots els països i banderes en ~2 mesos amb Premium";
+
+/* Popovers de capçalera de joc */
+"Total Game Time" = "Temps Total del Joc";
+"Time Per Question" = "Temps per Pregunta";
+
+/* Game header motivation (iPad) */
+"Game motivation 1" = "Ho aconseguiràs!";
+"Game motivation 2" = "Continua així!";
+"Game motivation 3" = "Cada bandera compta!";
+"Game motivation 4" = "Estàs en forma!";
+"Game motivation 5" = "Mantén la concentració!";
+"Game motivation 6" = "Una més!";
+"Game motivation 7" = "Bon ritme!";
+"Game motivation 8" = "Quasi hi som!";
+"%d min %d sec" = "%d min %d seg";
+"%d sec" = "%d seg";
+"Unlimited Hearts" = "Cors il·limitats";
+"Personalized Practice" = "Pràctica personalitzada";
+"Explain My Answer" = "Explica la meva resposta";
+"Roleplay Scenarios" = "Escenaris de rol";
+"Access 'My Mistakes'" = "Accés a «Els meus errors»";
+"Erudite Difficulty" = "Dificultat «Erudit»";
+"Learning Section" = "Secció d'Aprenentatge";
+"UPGRADE TO PREMIUM" = "ACTUALITZA A PREMIUM";
+"NO THANKS" = "Ara no";
+
+/* Popovers de capçalera del joc */
+"Total game time since start" = "Temps total de la partida des de l'inici";
+"Time limit per question depending on difficulty" = "Límit de temps per pregunta segons la dificultat";
+
+// Friends messages
+"У вас пока нет друзей" = "Encara no tens amics";
+"Добавьте друзей, чтобы видеть их серии" = "Afegeix amics per veure les seves ratxes";
+
+// Quests page
+"Щоденні квести" = "Missions Diàries";
+"Сыграй 3 игры" = "Juga 3 partides";
+"Дай 10 правильных ответов" = "Dona 10 respostes correctes";
+"Заработай 500 XP" = "Guanya 500 XP";
+"%d/7 дней активности" = "%d/7 dies actius";
+"Месячные цели" = "Objectius Mensuals";
+"Сыграй 10 игр" = "Juga 10 partides";
+"Завершите 10 игр в этом месяце" = "Completa 10 partides aquest mes";
+"Точность 62%" = "Precisió 62%";
+"Достигните точности 62% в играх" = "Assoleix 62% de precisió a les partides";
+"Серия 3 дней" = "Ratxa de 3 dies";
+"Поддерживайте серию 3 дней подряд" = "Manté una ratxa de 3 dies seguits";
+
+// Profile page buttons
+"Отмена" = "Cancel·lar";
+"Сохранить" = "Desar";
+
+// Profile statistics
+"Статистика" = "Estadístiques";
+"Уровень" = "Nivell";
+"Опыт" = "Experiència";
+"Серия дней" = "Ratxa de dies";
+"Всего игр" = "Total de partides";
+"Точность" = "Precisió";
+
+// Avatar Editor
+"Edit Avatar" = "Editar Avatar";
+"Upload photo" = "Pujar foto";
+"Photo" = "Foto";
+"Create" = "Crear";
+"Select photo" = "Seleccionar foto";
+"Upload your photo from gallery or take a new one" = "Puja la teva foto des de la galeria o fes una de nova";
+"Save Avatar" = "Desar Avatar";
+
+// Learning Section
+"More facts" = "Més fets";
+"стран" = "països";
+"фактов о флагах и странах" = "fets sobre banderes i països";
+"Столица" = "Capital";
+
+// Continent names
+"Европа" = "Europa";
+"Азия" = "Àsia";
+"Африка" = "Àfrica";
+"Северная Америка" = "Amèrica del Nord";
+"Южная Америка" = "Amèrica del Sud";
+"Океания" = "Oceania";
+
+// Continent descriptions
+"Самый маленький континент" = "El continent més petit";
+"Самый большой континент" = "El continent més gran";
+"Колыбель человечества" = "Bressol de la humanitat";
+"Новый свет" = "Nou món";
+"Земля контрастов" = "Terra de contrastos";
+"Острова Тихого океана" = "Illes del Pacífic";
+
+/* Subscription Management */
+"Управление подпиской" = "Gestió de Subscripció";
+"Ваша премиум подписка активна" = "La teva subscripció premium està activa";
+"Текущий план" = "Pla Actual";
+"Цена" = "Preu";
+"месяц" = "mes";
+"Информация о платежах" = "Informació de Facturació";
+"Дата начала" = "Data d'Inici";
+"Следующий платеж" = "Proper Pagament";
+"Статус" = "Estat";
+"Активна" = "Activa";
+"Премиум преимущества" = "Beneficis Premium";
+"Безлимитные жизни" = "Vides Ilimitades";
+"Играйте без ожидания" = "Juga sense esperar";
+"Раздел Обучения" = "Secció d'Aprenentatge";
+"Изучайте флаги и страны" = "Aprèn banderes i països";
+"Сложность Эрудит" = "Dificultat Erudita";
+"Продвинутые вопросы" = "Preguntes avançades";
+"Мои ошибки" = "Els Meus Errors";
+"Анализ ваших ошибок" = "Anàlisi dels teus errors";
+"Отменить подписку" = "Cancel·lar Subscripció";
+"Закрыть" = "Tancar";
+"Отмена" = "Cancel·lar";
+"Вы уверены, что хотите отменить премиум подписку? Вы потеряете доступ ко всем премиум функциям." = "Estàs segur que vols cancel·lar la teva subscripció premium? Perdras accés a totes les funcions premium.";
+
+/* Friend Management */
+"Удалить из друзей" = "Eliminar d'amics";
+"Удалить друга" = "Eliminar amic";
+"Вы уверены, что хотите удалить %@ из друзей и перестать следить за его успехами?" = "Estàs segur que vols eliminar %@ d'amics i deixar de seguir els seus progressos?";
+
+/* Subscription Cancellation */
+"Нам очень жаль, что вы отменили премиум подписку" = "Ens sap greu que hagis cancel·lat la teva subscripció premium";
+"Ваши результаты за период премиум подписки:" = "Els teus resultats durant el període de subscripció premium:";
+"Изучено флагов" = "Banderes estudiades";
+"Лучший результат" = "Millor puntuació";
+"очков" = "punts";
+"Текущая серия" = "Ratxa actual";
+"дней" = "dies";
+"Точность" = "Precisió";
+"Теперь вы можете без единой ошибки отвечать на все наши вопросы с точностью в %d%%" = "Ara pots respondre totes les nostres preguntes sense un sol error amb %d%% de precisió";
+"Мы будем рады, если вы захотите снова вернуться к нам!" = "Ens alegraríem si volguessis tornar a nosaltres!";
+"Продолжить" = "Continuar";
+
+/* Learning Section New Strings */
+"ВСЕ СТРАНЫ" = "TOTS ELS PAÏSOS";
+"Все страны" = "Tots els països";
+"стран" = "països";
+"Столица" = "Capital";
+
+/* Enhanced Game Results (post-game screen) */
+"PERFECT!" = "PERFECTE!";
+"EXCELLENT!" = "EXCEL·LENT!";
+"GREAT JOB!" = "BON TREBALL!";
+"GOOD EFFORT!" = "BONA FEINA!";
+"KEEP TRYING!" = "CONTINUA INTENTANT-HO!";
+"XP EARNED" = "XP GUANYATS";
+"ACCURACY" = "Precisió";
+"TIME" = "Temps";
+"CONTINUE" = "Continuar";
+"Absolutely incredible! You're a true champion! 🎉" = "Increïble! Ets un veritable campió! 🎉";
+"Outstanding performance! You're almost perfect! ✨" = "Rendiment excel·lent! Quasi perfecte! ✨";
+"Fantastic work! You're doing amazing! 🚀" = "Feina fantàstica! Ho estàs fent genial! 🚀";
+"Nice job! Keep up the great work! 💫" = "Bona feina! Continua així! 💫";
+"Don't give up! Every expert was once a beginner! 🌱" = "No et rendeixis! Cada expert va ser un principiant! 🌱";
+
+/* Premium restrictions */
+"Premium Feature" = "Funció Premium";
+"Erudite Level - Premium Only" = "Nivell Erudit - Només Premium";
+"My Mistakes - Premium Only" = "Els Meus Errors - Només Premium";
+"This feature is available only for Premium users" = "Aquesta funció està disponible només per a usuaris Premium";
+"Continue with Premium" = "Continuar amb Premium";
+"Get Premium access to unlock:" = "Obtingueu accés Premium per desbloquejar:";
+"• Erudite difficulty level" = "• Nivell de dificultat Erudit";
+"• My Mistakes section" = "• Secció Els Meus Errors";
+"• Unlimited lives" = "• Vides il·limitades";
+"• All premium features" = "• Totes les funcions premium";
+
+
+/* Monthly XP Quest */
+"Заработай %d XP за месяц" = "Guanya %d XP aquest mes";
+"Заработайте %d XP играя минимум 7 дней в месяц" = "Guanya %d XP jugant almenys 7 dies aquest mes";
+
+"Duel" = "Duel";
+"Challenge a friend to the same game, compare results" = "Repta un amic a la mateixa partida i compareu els resultats";
+"Challenge to Duel" = "Reptar a duel";
+"You won the duel!" = "Has guanyat el duel!";
+"Duel challenge from %@" = "%@ t'ha desafiat a un duel";
+"Duel result" = "Resultat del duel";
+"You won!" = "Has guanyat!";
+"won" = "ha guanyat";
+"You" = "Tu";
+"24h to accept" = "24 h per acceptar";
+"Accept" = "Acceptar";
+"Random opponent" = "Oponent aleatori";
+"No friends yet. Add friends in Profile." = "Encara no tens amics. Afegeix amics al Perfil.";
+
+/* League end popup */
+"Итоги лиги" = "Resultats de la lliga";
+"Вы заняли %d место." = "Has quedat en %dè lloc.";
+"Вы поднялись в лигу: %@" = "Has pujat a la lliga: %@.";
+"Вы остались в текущей лиге." = "T'has quedat a la teva lliga actual.";
+"Вы понижены в лигу: %@" = "Has baixat a la lliga: %@.";

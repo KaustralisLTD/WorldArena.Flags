@@ -1,5 +1,28 @@
 import Foundation
+import StoreKit
 import SwiftUI
+
+// Детерминированный RNG для дуэли: одинаковый seed даёт одинаковый порядок вопросов/вариантов.
+private struct SeededRNG: RandomNumberGenerator {
+    private var state: UInt64
+    init(seed: Int) {
+        self.state = UInt64(truncatingIfNeeded: seed)
+        if self.state == 0 { self.state = 1 }
+    }
+    mutating func next() -> UInt64 {
+        state = state &* 6364136223846793005 &+ 1442695040888963407
+        return state
+    }
+}
+
+/// Результат дуэли для отображения после завершения игры (когда оба игрока сыграли).
+struct DuelResultInfo {
+    let challengerName: String
+    let challengerScore: Int
+    let opponentScore: Int
+    let winnerSide: String
+    var iWon: Bool { winnerSide == "opponent" }
+}
 
 @MainActor
 class GameState: ObservableObject {
@@ -59,13 +82,26 @@ class GameState: ObservableObject {
         }
     }
     
+    /// Режим дуэли: seed для одинаковой игры у обоих игроков
+    @Published var duelSeed: Int?
+    @Published var duelChallengeId: String?
+    @Published var duelOpponentId: String?
+    @Published var duelChallengerName: String?
+    /// Результат дуэли для отображения после завершения игры вторым игроком (opponent).
+    @Published var pendingDuelResult: DuelResultInfo?
+    
     var questionsPerGame: Int {
         switch selectedPlayMode {
         case .classic:
             // В классическом режиме используем количество вопросов из сложности
             // но ограничиваем максимальным количеством флагов из GameMode
-            let difficultyQuestions = selectedDifficulty.questionCount
+            let difficultyQuestions = selectedDifficulty.questionCount(for: self)
             let maxFlags = selectedGameMode.flagCount
+            
+            // Для эрудита всегда используем все доступные страны
+            if selectedDifficulty == .erudite {
+                return difficultyQuestions // Int.max, будет ограничено доступными странами
+            }
             
             // Если выбрано "Все флаги", используем количество из сложности
             if maxFlags == 0 {
@@ -75,7 +111,13 @@ class GameState: ObservableObject {
             // Иначе берем минимум из сложности и лимита GameMode
             return min(difficultyQuestions, maxFlags)
         case .timeChallenge, .survival:
-            return selectedDifficulty.questionCount
+            return selectedDifficulty.questionCount(for: self)
+        case .duel:
+            let difficultyQuestions = selectedDifficulty.questionCount(for: self)
+            let maxFlags = selectedGameMode.flagCount
+            if selectedDifficulty == .erudite { return difficultyQuestions }
+            if maxFlags == 0 { return difficultyQuestions }
+            return min(difficultyQuestions, maxFlags)
         }
     }
     
@@ -133,6 +175,7 @@ class GameState: ObservableObject {
     @Published var isStartingNewGame = false
     @Published var isPreloadingFlags = false
     @Published var flagPreloadProgress = 0.0
+    private var preloadTask: Task<Void, Never>?
     
     private var loadedCountriesCache: [Region: [Country]] = [:]
     
@@ -160,6 +203,112 @@ class GameState: ObservableObject {
     
     // Добавим свойство для отслеживания состояния карточки
     @Published var isCardInteractionEnabled = true
+
+    // MARK: - Lives & Premium
+    @Published var lives: Int = 5
+    @Published var isPremium: Bool = false
+    @Published var showMistakesPremiumAlert: Bool = false
+    let maxLives: Int = 5
+    private let livesRefillInterval: TimeInterval = 3600 // 1 час
+    private var livesRefillTimer: Timer?
+    private let livesStorageKey = "game.lives.current"
+    private let lastRefillStorageKey = "game.lives.lastRefillAt"
+    private let premiumStorageKey = "game.premium.enabled"
+
+    private func loadLivesState() {
+        let defaults = UserDefaults.standard
+        if defaults.object(forKey: livesStorageKey) == nil {
+            defaults.set(maxLives, forKey: livesStorageKey)
+        }
+        lives = defaults.integer(forKey: livesStorageKey)
+        
+        // НЕ загружаем isPremium из UserDefaults - он будет синхронизирован с StoreManager
+        // isPremium = defaults.bool(forKey: premiumStorageKey)
+        
+        refillLivesIfNeeded()
+        startLivesRefillTimer()
+        
+        // Синхронизируем Premium статус при каждой загрузке
+        Task {
+            await syncPremiumStatus()
+        }
+    }
+
+    private func saveLivesState() {
+        let defaults = UserDefaults.standard
+        defaults.set(lives, forKey: livesStorageKey)
+        // НЕ сохраняем isPremium в UserDefaults - он управляется StoreManager
+        // defaults.set(isPremium, forKey: premiumStorageKey)
+    }
+
+    private func startLivesRefillTimer() {
+        livesRefillTimer?.invalidate()
+        livesRefillTimer = Timer.scheduledTimer(withTimeInterval: 60, repeats: true) { [weak self] _ in
+            Task { @MainActor in
+                self?.refillLivesIfNeeded()
+            }
+        }
+        if let timer = livesRefillTimer { RunLoop.main.add(timer, forMode: .common) }
+    }
+
+    func refillLivesIfNeeded() {
+        guard !isPremium else { return }
+        let defaults = UserDefaults.standard
+        let now = Date().timeIntervalSince1970
+        let last = defaults.double(forKey: lastRefillStorageKey)
+        if last == 0 {
+            defaults.set(now, forKey: lastRefillStorageKey)
+            return
+        }
+        if now - last >= livesRefillInterval, lives < maxLives {
+            lives = maxLives
+            defaults.set(now, forKey: lastRefillStorageKey)
+            saveLivesState()
+            print("❤️ Lives refilled to max: \(lives)")
+        }
+    }
+
+    // Время до следующего автоматического пополнения жизней
+    func timeToNextLivesRefill() -> TimeInterval? {
+        guard !isPremium else { return nil }
+        let defaults = UserDefaults.standard
+        let last = defaults.double(forKey: lastRefillStorageKey)
+        let now = Date().timeIntervalSince1970
+        if last == 0 { return livesRefillInterval }
+        let remaining = livesRefillInterval - (now - last)
+        return max(0, remaining)
+    }
+
+    func consumeLifeOnWrongAnswer() {
+        guard !isPremium else { return }
+        if lives > 0 {
+            lives -= 1
+            saveLivesState()
+            print("💔 Life consumed. Lives left: \(lives)")
+        }
+    }
+
+    func canStartGameWithLives() -> Bool {
+        return isPremium || lives > 0
+    }
+    
+    /// Перемешивает массив: при дуэли — детерминированно по seed (одинаковый порядок у обоих игроков).
+    private func shuffledWithSeed<T>(_ array: [T], seed: Int?, questionIndex: Int = 0) -> [T] {
+        guard let s = seed else { return array.shuffled() }
+        let combinedSeed = s &+ questionIndex &* 31
+        var rng = SeededRNG(seed: combinedSeed)
+        return array.shuffled(using: &rng)
+    }
+
+    // Бесплатное пополнение жизней (например, из алерта «Бесплатно +5 жизней»)
+    func refillLivesFree() {
+        guard !isPremium else { return }
+        lives = maxLives
+        saveLivesState()
+        let now = Date().timeIntervalSince1970
+        UserDefaults.standard.set(now, forKey: lastRefillStorageKey)
+        print("❤️ Free lives refilled to: \(lives)")
+    }
     
     struct Statistics: Codable {
         var totalGames = 0
@@ -221,6 +370,7 @@ class GameState: ObservableObject {
         case classic = "classic"
         case timeChallenge = "time-challenge"
         case survival = "survival"
+        case duel = "duel"
         
         @MainActor
         var displayName: String {
@@ -231,6 +381,8 @@ class GameState: ObservableObject {
                 return LocalizationManager.shared.localizedString("Time Challenge")
             case .survival:
                 return LocalizationManager.shared.localizedString("Survival")
+            case .duel:
+                return LocalizationManager.shared.localizedString("Duel")
             }
         }
         
@@ -243,6 +395,8 @@ class GameState: ObservableObject {
                 return LocalizationManager.shared.localizedString("Answer quickly, time is limited")
             case .survival:
                 return LocalizationManager.shared.localizedString("Game until first mistake")
+            case .duel:
+                return LocalizationManager.shared.localizedString("Challenge a friend to the same game, compare results")
             }
         }
         
@@ -254,6 +408,16 @@ class GameState: ObservableObject {
                 return "⚡"
             case .survival:
                 return "🔥"
+            case .duel:
+                return "⚔️"
+            }
+        }
+        
+        /// SF Symbol для режима (если есть — в UI показывать его вместо emoji)
+        var systemImage: String? {
+            switch self {
+            case .duel: return "person.2.fill"
+            default: return nil
             }
         }
     }
@@ -269,15 +433,15 @@ class GameState: ObservableObject {
         var displayName: String {
             switch self {
             case .easy:
-                return LocalizationManager.shared.localizedString("Easy")
+                return "Level - \(LocalizationManager.shared.localizedString("Easy"))"
             case .medium:
-                return LocalizationManager.shared.localizedString("Medium")
+                return "Level - \(LocalizationManager.shared.localizedString("Medium"))"
             case .hard:
-                return LocalizationManager.shared.localizedString("Hard")
+                return "Level - \(LocalizationManager.shared.localizedString("Hard"))"
             case .expert:
-                return LocalizationManager.shared.localizedString("Expert")
+                return "Level - \(LocalizationManager.shared.localizedString("Expert"))"
             case .erudite:
-                return LocalizationManager.shared.localizedString("Erudite")
+                return "Level - \(LocalizationManager.shared.localizedString("Erudite"))"
             }
         }
         
@@ -297,13 +461,25 @@ class GameState: ObservableObject {
             }
         }
         
+        func questionCount(for gameState: GameState) -> Int {
+            switch self {
+            case .easy: return 10
+            case .medium: return 15
+            case .hard: return 20
+            case .expert: return 25
+            case .erudite:
+                // Для эрудита возвращаем максимальное количество (будет ограничено доступными странами)
+                return Int.max
+            }
+        }
+        
         var questionCount: Int {
             switch self {
             case .easy: return 10
             case .medium: return 15
             case .hard: return 20
             case .expert: return 25
-            case .erudite: return 30
+            case .erudite: return 30 // Fallback значение
             }
         }
         
@@ -331,6 +507,16 @@ class GameState: ObservableObject {
     // Метод для обновления количества вариантов ответов в зависимости от устройства
     func updateOptionsCount(isIPad: Bool) {
         optionsCount = isIPad ? 8 : 6
+    }
+    
+    // Метод для получения количества стран в выбранных регионах
+    func getCountriesCountInSelectedRegions() async -> Int {
+        do {
+            let countries = try await fetchCountries(for: Array(selectedRegions))
+            return countries.count
+        } catch {
+            return 0
+        }
     }
     
     private func isCountryInSelectedRegions(_ country: Country) -> Bool {
@@ -395,8 +581,8 @@ class GameState: ObservableObject {
             let loadedCountries = try await fetchCountries(for: Array(selectedRegions))
             print("Total countries loaded: \(loadedCountries.count)")
             
-            // Перемешиваем страны и берем нужное количество
-            availableCountries = Array(loadedCountries.shuffled().prefix(totalQuestionsInGame))
+            // Перемешиваем страны (в дуэли — по seed)
+            availableCountries = Array(shuffledWithSeed(loadedCountries, seed: duelSeed).prefix(totalQuestionsInGame))
             print("Countries selected for game: \(availableCountries.count)")
             
             // Выбираем первый вопрос
@@ -448,13 +634,23 @@ class GameState: ObservableObject {
                 
                 answerOptions.append(contentsOf: additionalOptions)
             } else {
-                // Стандартная логика для других режимов
-                let otherCountries = availableCountries.filter { $0.id != nextCountry.id }
-                answerOptions.append(contentsOf: otherCountries.shuffled().prefix(optionsCount - 1))
+                // Стандартная логика: всегда набираем optionsCount вариантов (6/8), при нехватке — дополняем из кэша регионов
+                var pool = availableCountries.filter { $0.id != nextCountry.id }
+                if pool.count < optionsCount - 1 {
+                    var supplement: [Country] = []
+                    for (_, list) in loadedCountriesCache { supplement.append(contentsOf: list) }
+                    let poolIds = Set(pool.map(\.id))
+                    let extra = supplement.filter { $0.id != nextCountry.id && !poolIds.contains($0.id) }
+                    let needed = (optionsCount - 1) - pool.count
+                    let taken = shuffledWithSeed(extra, seed: duelSeed, questionIndex: currentQuestion + 1000).prefix(needed)
+                    pool = pool + Array(taken)
+                }
+                let shuffledOthers = shuffledWithSeed(pool, seed: duelSeed, questionIndex: currentQuestion)
+                answerOptions.append(contentsOf: shuffledOthers.prefix(optionsCount - 1))
             }
             
-            // Перемешиваем все варианты ответов
-            self.options = answerOptions.shuffled()
+            // Перемешиваем все варианты ответов (в дуэли — по seed+question)
+            self.options = shuffledWithSeed(answerOptions, seed: duelSeed, questionIndex: currentQuestion)
             
             print("Answer options: \(self.options.map { $0.name.common })")
         }
@@ -488,12 +684,22 @@ class GameState: ObservableObject {
             
             var answerOptions = [nextCountry]
             
-            // Стандартная логика для других режимов
-            let otherCountries = availableCountries.filter { $0.id != nextCountry.id }
-            answerOptions.append(contentsOf: otherCountries.shuffled().prefix(optionsCount - 1))
+            // Стандартная логика: всегда optionsCount вариантов, при нехватке — дополняем из кэша
+            var pool = availableCountries.filter { $0.id != nextCountry.id }
+            if pool.count < optionsCount - 1 {
+                var supplement: [Country] = []
+                for (_, list) in loadedCountriesCache { supplement.append(contentsOf: list) }
+                let poolIds = Set(pool.map(\.id))
+                let extra = supplement.filter { $0.id != nextCountry.id && !poolIds.contains($0.id) }
+                let needed = (optionsCount - 1) - pool.count
+                let taken = shuffledWithSeed(extra, seed: duelSeed, questionIndex: currentQuestion + 1000).prefix(needed)
+                pool = pool + Array(taken)
+            }
+            let shuffledOthers = shuffledWithSeed(pool, seed: duelSeed, questionIndex: currentQuestion)
+            answerOptions.append(contentsOf: shuffledOthers.prefix(optionsCount - 1))
             
             // Перемешиваем все варианты ответов
-            self.options = answerOptions.shuffled()
+            self.options = shuffledWithSeed(answerOptions, seed: duelSeed, questionIndex: currentQuestion)
             
             // Разрешаем взаимодействие с карточкой
             self.isCardInteractionEnabled = true
@@ -625,8 +831,10 @@ class GameState: ObservableObject {
         
         statistics.totalGames += 1
         statistics.bestScore = max(statistics.bestScore, score)
-        statistics.correctAnswers += score  // score уже содержит количество правильных ответов
-        statistics.totalAnswers += initialQuestionsCount  // общее количество вопросов в игре
+        // score уже содержит количество правильных ответов за игру
+        statistics.correctAnswers += score
+        // Плюсуем фактическое количество заданных вопросов в игре
+        statistics.totalAnswers += initialQuestionsCount
         if elapsedTime < statistics.bestTime || statistics.bestTime == 0 {
             statistics.bestTime = elapsedTime
         }
@@ -645,6 +853,39 @@ class GameState: ObservableObject {
         validateStatistics()
         
         saveStatistics()
+
+        // Обновляем профиль пользователя и достижения
+        let profile = UserProfile.shared
+        let gainedXP = score * 10
+        let effectiveXP = gainedXP * profile.xpBoostMultiplier
+        let answersThisGame = initialQuestionsCount
+        print("\n=== Updating UserProfile After Game ===")
+        print("Gained XP: \(gainedXP)" + (profile.xpBoostMultiplier > 1 ? " x\(profile.xpBoostMultiplier) = \(effectiveXP)" : ""))
+        print("Answers this game: \(answersThisGame)")
+        profile.totalGamesPlayed += 1
+        profile.correctAnswers += score
+        profile.totalAnswers += initialQuestionsCount
+        // Правильная логика серии по дням
+        profile.updateStreak()
+        profile.addXP(gainedXP)
+        profile.evaluateAchievementsAndUnlock()
+        // Сообщаем сервису лиг о росте пользователя (с учётом буста XP)
+        LeaguesService.shared.userGainedXP(effectiveXP, in: profile.currentLeague)
+        // Обновляем месячные цели на основе результатов игры
+        profile.updateMonthlyQuestsAfterGame(score: score, questions: initialQuestionsCount)
+        // F-Bucks: +1 за идеальный результат (в дуэли — отдельно; за «Мои Ошибки» не начисляем)
+        if selectedPlayMode != .duel && !selectedRegions.contains(.myMistakes) && score == initialQuestionsCount && initialQuestionsCount > 0 {
+            profile.addFBucks(1, reason: .perfectGame)
+        }
+        // Режим дуэли: сохраняем результат и при двух результатах определяем победителя
+        if selectedPlayMode == .duel, let cid = duelChallengeId {
+            handleDuelFinish(score: score, challengeId: cid, profile: profile)
+        }
+        // Сохраняем обновлённый профиль
+        profile.saveToStorage()
+        // Обновляем ежедневные квесты
+        QuestService.shared.updateAfterGame(score: score, totalQuestions: initialQuestionsCount, correctAnswers: score)
+        print("✅ UserProfile updated; achievements re-evaluated")
     }
     
     // Изменим метод handleGameTimeout
@@ -660,6 +901,60 @@ class GameState: ObservableObject {
         finishGameSync()
     }
     
+    private func handleDuelFinish(score: Int, challengeId: String, profile: UserProfile) {
+        var side: String?
+        if let idx = profile.outgoingDuelChallenges.firstIndex(where: { $0.id == challengeId }) {
+            var c = profile.outgoingDuelChallenges[idx]
+            c.challengerScore = score
+            c.status = .challengerCompleted
+            profile.outgoingDuelChallenges[idx] = c
+            side = "challenger"
+        }
+        if let idx = profile.incomingDuelChallenges.firstIndex(where: { $0.id == challengeId }) {
+            var c = profile.incomingDuelChallenges[idx]
+            c.opponentScore = score
+            c.status = .opponentCompleted
+            let challengerScoreVal = c.challengerScore ?? 0
+            let challengerNameVal = c.challengerName
+            profile.incomingDuelChallenges[idx] = c
+            if challengerScoreVal >= 0 {
+                let opponentWon = score > challengerScoreVal
+                if opponentWon {
+                    profile.addFBucks(1)
+                    Task { @MainActor in
+                        NotificationService.shared.scheduleDuelWonNotification()
+                    }
+                }
+                profile.incomingDuelChallenges.removeAll { $0.id == challengeId }
+            }
+            side = "opponent"
+            let nameForResult = challengerNameVal
+            let chScoreForResult = challengerScoreVal
+            Task {
+                guard let winner = try? await DuelAPIService.shared.submitScore(challengeId: challengeId, score: score, side: "opponent") else { return }
+                await MainActor.run {
+                    self.pendingDuelResult = DuelResultInfo(
+                        challengerName: nameForResult,
+                        challengerScore: chScoreForResult,
+                        opponentScore: score,
+                        winnerSide: winner
+                    )
+                }
+            }
+        }
+        if let s = side, s == "challenger" {
+            Task {
+                guard let winner = try? await DuelAPIService.shared.submitScore(challengeId: challengeId, score: score, side: s) else { return }
+                await MainActor.run {
+                    if winner == "challenger" {
+                        profile.addFBucks(1)
+                        NotificationService.shared.scheduleDuelWonNotification()
+                    }
+                }
+            }
+        }
+    }
+    
     func setLanguage(_ language: Language) async {
         // Проверяем, не тот же ли это язык
         guard language != selectedLanguage else {
@@ -670,6 +965,12 @@ class GameState: ObservableObject {
         print("\n=== Changing Language ===")
         print("Old language: \(selectedLanguage.rawValue)")
         print("New language: \(language.rawValue)")
+        // Если игра была активна, мягко останавливаем таймеры и снимаем флаг активности,
+        // чтобы после смены языка можно было начать новую игру
+        if isGameInProgress {
+            print("⏸️ Pausing active game due to language change")
+            stopTimer()
+        }
         
         selectedLanguage = language
         localizationManager.setLanguage(language)
@@ -769,6 +1070,12 @@ class GameState: ObservableObject {
             print("\n⚠️ Game is already in progress")
             return
         }
+
+        guard canStartGameWithLives() else {
+            print("\n⚠️ Not enough lives to start the game")
+            self.error = nil
+            return
+        }
         
         isStartingNewGame = true
         isGameInProgress = true
@@ -778,6 +1085,7 @@ class GameState: ObservableObject {
         
         // Сбрасываем состояние
         resetGameState()
+        loadLivesState()
         
         // Загружаем ошибки
         loadMistakes()
@@ -810,32 +1118,83 @@ class GameState: ObservableObject {
             initialQuestionsCount = actualQuestionsCount
             print("Adjusted questions count from \(questionsPerGame) to \(actualQuestionsCount) based on available countries")
             
-            // Перемешиваем страны и берем нужное количество для игры
-            availableCountries = Array(loadedCountries.shuffled().prefix(actualQuestionsCount))
+            // Перемешиваем страны (в дуэли — по seed для одинаковой игры)
+            availableCountries = Array(shuffledWithSeed(loadedCountries, seed: duelSeed).prefix(actualQuestionsCount))
             print("\n=== Selected Countries for Game (\(availableCountries.count)) ===")
             for (index, country) in availableCountries.enumerated() {
                 print("\(index + 1). \(country.name.common)")
             }
             print("=====================\n")
             
-            // Предзагружаем все флаги для игры
-            print("🚀 Preloading flags for selected countries...")
+            // Оппортунистическая предзагрузка: быстрый буфер и ограниченный бюджет времени
+            print("🚀 Starting opportunistic preloading...")
             isPreloadingFlags = true
             flagPreloadProgress = 0.0
-            
-            await preloadFlagsWithProgress(for: availableCountries)
-            
-            isPreloadingFlags = false
-            print("✅ Flag preloading completed")
+            preloadTask?.cancel()
+            preloadTask = Task { [countries = availableCountries] in
+                // 1) Прогреть первые 3 флага мгновенно
+                let warmCount = min(3, countries.count)
+                if warmCount > 0 {
+                    await FlagImageService.shared.preloadFlagsOpportunistic(
+                        for: countries,
+                        startIndex: 0,
+                        count: warmCount,
+                        maxDuration: 3.0
+                    ) { [weak self] progress in
+                        Task { @MainActor in self?.flagPreloadProgress = progress * 0.3 }
+                    }
+                }
+                // 2) Скользящий буфер на следующие 6 флагов с бюджетом 5с
+                let bufferStart = warmCount
+                let bufferCount = min(6, max(0, countries.count - bufferStart))
+                if bufferCount > 0 {
+                    await FlagImageService.shared.preloadFlagsOpportunistic(
+                        for: countries,
+                        startIndex: bufferStart,
+                        count: bufferCount,
+                        maxDuration: 5.0
+                    ) { [weak self] progress in
+                        Task { @MainActor in self?.flagPreloadProgress = 0.3 + progress * 0.5 }
+                    }
+                }
+                // 3) Остальные — только если остался бюджет времени, не более 8с суммарно
+                let restStart = bufferStart + bufferCount
+                if restStart < countries.count {
+                    await FlagImageService.shared.preloadFlagsOpportunistic(
+                        for: countries,
+                        startIndex: restStart,
+                        count: countries.count - restStart,
+                        maxDuration: 8.0
+                    ) { [weak self] progress in
+                        Task { @MainActor in self?.flagPreloadProgress = 0.8 + progress * 0.2 }
+                    }
+                }
+                await MainActor.run {
+                    self.isPreloadingFlags = false
+                    print("✅ Opportunistic preloading done (time-bounded)")
+                }
+            }
             
             // Выбираем первый вопрос синхронно
             selectNextQuestion()
+
+            // Мгновенно прогреваем первое изображение флага для комфортного старта
+            if let first = currentFlag {
+                Task.detached(priority: .userInitiated) {
+                    _ = await FlagImageService.shared.loadImageFast(from: first.flagURL)
+                }
+            }
             
             // Запускаем таймер
             startTimer()
             
+            // Небольшая задержка для показа завершения загрузки
+            try? await Task.sleep(nanoseconds: 500_000_000) // 0.5 секунды
+            
             // Устанавливаем флаг навигации
-            isNavigatingToGame = true
+            await MainActor.run {
+                isNavigatingToGame = true
+            }
             
         } catch {
             print("Error starting new game: \(error)")
@@ -1264,13 +1623,20 @@ class GameState: ObservableObject {
     }
     
     func resetGameState() {
+        resetGameState(preserveNavigation: false)
+    }
+
+    // Мягкий сброс без изменения флага навигации при перезапуске внутри GameView
+    func resetGameState(preserveNavigation: Bool) {
         print("\n=== Resetting Game State ===")
         score = 0
         currentQuestion = 0
         isGameOver = false
         elapsedTime = 0
         timeProgress = 0
-        isNavigatingToGame = false
+        if !preserveNavigation {
+            isNavigatingToGame = false
+        }
         usedCountriesInGame.removeAll()
         usedFlagsInGame.removeAll()
         timer?.invalidate()
@@ -1284,8 +1650,85 @@ class GameState: ObservableObject {
         startTime = nil
         lastGameStartAttempt = nil
         isGameInProgress = false // Сбрасываем флаг при окончании игры
+        duelSeed = nil
+        duelChallengeId = nil
+        duelOpponentId = nil
+        duelChallengerName = nil
+        pendingDuelResult = nil
         print("Game state has been reset")
         print("=====================\n")
+    }
+
+    // Перезапуск игры без выхода с экрана игры
+    func restartGameInPlace() async {
+        guard !isStartingNewGame else { return }
+        isStartingNewGame = true
+        print("\n=== Restarting Game In Place ===")
+        print("Current question before reset: \(currentQuestion)")
+        // Сохраняем навигацию и сбрасываем только игровые счетчики
+        resetGameState(preserveNavigation: true)
+        print("Current question after reset: \(currentQuestion)")
+        isGameOver = false
+        isNavigatingToGame = true
+        loadLivesState()
+        // отменяем предзагрузку от предыдущей сессии
+        preloadTask?.cancel(); preloadTask = nil
+        loadMistakes()
+        correctlyAnsweredMistakes.removeAll()
+        // Сбрасываем состояние карточки и вариантов ответов
+        currentFlag = nil
+        options = []
+        isCardFlipped = false
+        canProceedToNextQuestion = false
+        do {
+            let loadedCountries = try await fetchCountries(for: Array(selectedRegions))
+            guard !loadedCountries.isEmpty else {
+                self.error = GameError.notEnoughCountries(count: 0)
+                isStartingNewGame = false
+                return
+            }
+            let actualQuestionsCount = min(questionsPerGame, loadedCountries.count)
+            initialQuestionsCount = actualQuestionsCount
+            availableCountries = Array(shuffledWithSeed(loadedCountries, seed: duelSeed).prefix(actualQuestionsCount))
+            print("Available countries count: \(availableCountries.count)")
+            print("Current question before selectNextQuestion: \(currentQuestion)")
+            // Оппортунистическая предзагрузка в фоне
+            isPreloadingFlags = true
+            flagPreloadProgress = 0.0
+            preloadTask = Task { [countries = availableCountries] in
+                await FlagImageService.shared.preloadFlagsOpportunistic(
+                    for: countries,
+                    startIndex: 0,
+                    count: min(3, countries.count),
+                    maxDuration: 3.0
+                ) { [weak self] progress in
+                    Task { @MainActor in self?.flagPreloadProgress = progress * 0.5 }
+                }
+                let bufferStart = min(3, countries.count)
+                let bufferCount = min(6, max(0, countries.count - bufferStart))
+                if bufferCount > 0 {
+                    await FlagImageService.shared.preloadFlagsOpportunistic(
+                        for: countries,
+                        startIndex: bufferStart,
+                        count: bufferCount,
+                        maxDuration: 5.0
+                    ) { [weak self] progress in
+                        Task { @MainActor in self?.flagPreloadProgress = 0.5 + progress * 0.5 }
+                    }
+                }
+                await MainActor.run { self.isPreloadingFlags = false }
+            }
+            // Убеждаемся, что currentQuestion равен 0 перед выбором первого вопроса
+            currentQuestion = 0
+            print("Current question set to 0, calling selectNextQuestion")
+            selectNextQuestion()
+            startTimer()
+        } catch {
+            self.error = error
+        }
+        isStartingNewGame = false
+        isGameInProgress = true
+        print("=== Restart In Place Completed ===\n")
     }
     
     func prepareNextQuestion() {
@@ -1308,11 +1751,21 @@ class GameState: ObservableObject {
         withAnimation {
             self.currentFlag = nextCountry
             
-            // Генерируем варианты ответов
-            let otherCountries = availableCountries.filter { $0.id != nextCountry.id }
+            // Генерируем варианты ответов: всегда optionsCount, при нехватке — дополняем из кэша
+            var pool = availableCountries.filter { $0.id != nextCountry.id }
+            if pool.count < optionsCount - 1 {
+                var supplement: [Country] = []
+                for (_, list) in loadedCountriesCache { supplement.append(contentsOf: list) }
+                let poolIds = Set(pool.map(\.id))
+                let extra = supplement.filter { $0.id != nextCountry.id && !poolIds.contains($0.id) }
+                let needed = (optionsCount - 1) - pool.count
+                let taken = shuffledWithSeed(extra, seed: duelSeed, questionIndex: currentQuestion + 1000).prefix(needed)
+                pool = pool + Array(taken)
+            }
             var newOptions = [nextCountry]
-            newOptions.append(contentsOf: otherCountries.shuffled().prefix(optionsCount - 1))
-            self.options = newOptions.shuffled()
+            let shuffledOthers = shuffledWithSeed(pool, seed: duelSeed, questionIndex: currentQuestion)
+            newOptions.append(contentsOf: shuffledOthers.prefix(optionsCount - 1))
+            self.options = shuffledWithSeed(newOptions, seed: duelSeed, questionIndex: currentQuestion)
             
             print("Answer options: \(self.options.map { $0.name.common })")
         }
@@ -1365,12 +1818,15 @@ class GameState: ObservableObject {
         print("=====================\n")
     }
     
-    // Изменим метод formattedTime
-    func formattedTime(_ time: TimeInterval = 0) -> String {
+    // Изменим метод formattedTime (includeFraction: false — только минуты и секунды, без десятых)
+    func formattedTime(_ time: TimeInterval = 0, includeFraction: Bool = true) -> String {
         let timeToFormat = time > 0 ? time : elapsedTime
         let minutes = Int(timeToFormat) / 60
         let seconds = timeToFormat.truncatingRemainder(dividingBy: 60)
-        return String(format: "%02d:%04.1f", minutes, seconds)
+        if includeFraction {
+            return String(format: "%02d:%04.1f", minutes, seconds)
+        }
+        return String(format: "%02d:%02d", minutes, Int(seconds))
     }
     
     // Изменим метод startTimer
@@ -1442,6 +1898,9 @@ class GameState: ObservableObject {
         questionTimer = nil
         isQuestionTimerActive = false
         questionStartTime = nil
+        // Обнуляем отображаемые значения таймера
+        questionTimeLeft = 0
+        questionTimeProgress = 1.0
         print("Question timer stopped")
         print("=====================\n")
     }
@@ -1454,6 +1913,12 @@ class GameState: ObservableObject {
         
         // Засчитываем как неправильный ответ
         updateStatistics(isCorrect: false)
+        
+        // Отнимаем жизнь при истечении времени (только для не-Premium пользователей)
+        if !isPremium {
+            consumeLifeOnWrongAnswer()
+            print("💔 Lost life due to timeout")
+        }
         
         // Добавляем в список ошибок, если это не режим "Мои ошибки"
         if let currentFlag = currentFlag, !selectedRegions.contains(.myMistakes) {
@@ -1502,6 +1967,11 @@ class GameState: ObservableObject {
         print("Timer stopped")
         print("Final time: \(formattedTime())")
         print("=====================\n")
+        // Останавливаем любую предзагрузку
+        preloadTask?.cancel()
+        preloadTask = nil
+        // Сессия игры больше не активна
+        isGameInProgress = false
     }
     
     // MARK: - Flag Preloading
@@ -1511,6 +1981,38 @@ class GameState: ObservableObject {
         await FlagImageService.shared.preloadFlagsWithProgress(for: countries) { [weak self] progress in
             Task { @MainActor in
                 self?.flagPreloadProgress = progress
+            }
+        }
+    }
+    
+    // MARK: - Premium Status Sync
+    
+    func syncPremiumStatus() async {
+        await StoreManager.shared.updatePurchasedProducts()
+        self.isPremium = StoreManager.shared.isPremium
+        print("✅ Premium status synced: \(isPremium)")
+    }
+    
+    func initializeStoreManager() {
+        Task {
+            await StoreManager.shared.loadProducts()
+            await syncPremiumStatus()
+            
+            // Устанавливаем наблюдение за изменениями Premium статуса
+            await setupPremiumStatusObserver()
+        }
+    }
+    
+    private func setupPremiumStatusObserver() async {
+        // Наблюдаем за изменениями purchasedProductIDs в StoreManager
+        Timer.scheduledTimer(withTimeInterval: 1.0, repeats: true) { [weak self] _ in
+            Task { @MainActor in
+                guard let self = self else { return }
+                let newPremiumStatus = StoreManager.shared.isPremium
+                if self.isPremium != newPremiumStatus {
+                    self.isPremium = newPremiumStatus
+                    print("🔄 Premium status updated: \(self.isPremium)")
+                }
             }
         }
     }

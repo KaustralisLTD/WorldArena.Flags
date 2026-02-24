@@ -3,8 +3,8 @@ import SwiftUI
 struct GameOverView: View {
     let score: Int
     let timeElapsed: String
-    let dismiss: DismissAction
     @EnvironmentObject var gameState: GameState
+    @Environment(\.dismiss) private var sheetDismiss
     @Environment(\.horizontalSizeClass) private var horizontalSizeClass
     
     @State private var scoreScale = 0.5
@@ -81,6 +81,8 @@ struct GameOverView: View {
                 VStack(spacing: horizontalSizeClass == .regular ? 20 : 15) {
                     Text("\(score)")
                         .font(.system(size: horizontalSizeClass == .regular ? 100 : 70, weight: .bold, design: .rounded))
+                        .minimumScaleFactor(0.3)
+                        .lineLimit(1)
                         .scaleEffect(scoreScale)
                         .foregroundStyle(
                             LinearGradient(
@@ -119,9 +121,13 @@ struct GameOverView: View {
                 VStack(spacing: horizontalSizeClass == .regular ? 20 : 15) {
                     // Play Again - главная кнопка
                     Button(action: {
-                        Task {
-                            await gameState.startNewGameWithCurrentRegions()
+                        Task { @MainActor in
                             isSharePresented = false
+                            // Сначала закрываем экран результатов (только шит)
+                            sheetDismiss()
+                            // Небольшая задержка до завершения dismiss, затем перезапуск в том же экране
+                            try? await Task.sleep(nanoseconds: 150_000_000)
+                            await gameState.restartGameInPlace()
                         }
                     }) {
                         HStack {
@@ -170,7 +176,11 @@ struct GameOverView: View {
                         
                         // Home
                         Button(action: {
-                            dismiss()
+                            // Возврат на главную: явно выходим из игры
+                            gameState.stopTimer()
+                            gameState.isNavigatingToGame = false
+                            // Закрываем только шит; уход на главную выполнит сам навигатор
+                            sheetDismiss()
                         }) {
                             HStack {
                                 Image(systemName: "house.circle.fill")
@@ -230,8 +240,8 @@ struct GameOverView: View {
                 pulseAnimation = true
             }
         }
-        .alert("Share Result", isPresented: $isSharePresented) {
-            Button("OK") { }
+        .alert(LocalizationManager.shared.localizedString("Share Result"), isPresented: $isSharePresented) {
+            Button(LocalizationManager.shared.localizedString("OK")) { }
         } message: {
             Text(ShareService.shared.createShareMessage(score: score))
         }

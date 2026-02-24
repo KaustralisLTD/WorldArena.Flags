@@ -971,10 +971,50 @@ function initRegionSelector() {
     });
 }
 
+// Мобильное меню: гамбургер открывает/закрывает выпадающее меню
+function initMobileMenu() {
+    const hamburger = document.getElementById('hamburger');
+    const topBar = document.getElementById('top-bar');
+    const header = hamburger && hamburger.closest('.header');
+    if (!hamburger || !topBar || !header) return;
+
+    hamburger.addEventListener('click', () => {
+        const isOpen = header.classList.toggle('menu-open');
+        hamburger.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+        topBar.setAttribute('aria-hidden', isOpen ? 'false' : 'true');
+    });
+}
+
+// Показать баннер «Скачать в App Store» на iOS и iPad
+function initAppStoreBanner() {
+    const banner = document.getElementById('app-store-banner');
+    const closeBtn = document.getElementById('app-store-banner-close');
+    if (!banner || !closeBtn) return;
+
+    const isIOS = /iPad|iPhone|iPod/.test(navigator.userAgent) ||
+        (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1);
+    const dismissed = sessionStorage.getItem('app-store-banner-dismissed') === '1';
+
+    if (isIOS && !dismissed) {
+        banner.style.display = 'block';
+        banner.setAttribute('aria-hidden', 'false');
+        document.body.classList.add('has-app-store-banner');
+    }
+
+    closeBtn.addEventListener('click', () => {
+        banner.style.display = 'none';
+        banner.setAttribute('aria-hidden', 'true');
+        document.body.classList.remove('has-app-store-banner');
+        sessionStorage.setItem('app-store-banner-dismissed', '1');
+    });
+}
+
 // Обновляем window.onload
 window.onload = () => {
     loadStatistics();
     initStartScreen();
     initRegionSelector();
     createBackgroundFlags();
+    initMobileMenu();
+    initAppStoreBanner();
 };

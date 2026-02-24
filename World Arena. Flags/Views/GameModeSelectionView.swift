@@ -2,14 +2,13 @@ import SwiftUI
 
 struct GameModeSelectionView: View {
     @ObservedObject var gameState: GameState
+    /// Крупный шрифт для iPad landscape
+    var largeFontForLandscape: Bool = false
     @Environment(\.horizontalSizeClass) private var horizontalSizeClass
     
     var body: some View {
-        VStack(spacing: 20) {
-            difficultySelectionView
-            gameModeSelectionView
-        }
-        .padding()
+        gameModeSelectionView
+            .padding(.horizontal, 20)
     }
     
     private var difficultySelectionView: some View {
@@ -28,16 +27,9 @@ struct GameModeSelectionView: View {
     }
     
     private var gameModeSelectionView: some View {
-        VStack(alignment: .leading, spacing: 12) {
-            Text(LocalizationManager.shared.localizedString("Game Mode"))
-                .font(titleFont)
-                .foregroundColor(.primary)
-                .padding(.horizontal, 8)
-            
-            LazyVGrid(columns: gridColumns, spacing: 8) {
-                ForEach(gameState.availablePlayModes, id: \.self) { playMode in
-                    gameModeButton(for: playMode)
-                }
+        LazyVGrid(columns: gridColumns, spacing: 8) {
+            ForEach(gameState.availablePlayModes, id: \.self) { playMode in
+                gameModeButton(for: playMode)
             }
         }
     }
@@ -99,18 +91,30 @@ struct GameModeSelectionView: View {
         let secondaryColor = isSelected ? Color.white.opacity(0.8) : Color.secondary
         let backgroundColor = isSelected ? Color.accentColor : Color.secondary.opacity(0.15)
         
+        let titleSize: CGFloat = largeFontForLandscape ? 22 : (horizontalSizeClass == .regular ? 18 : 16)
+        let descSize: CGFloat = largeFontForLandscape ? 17 : (horizontalSizeClass == .regular ? 14 : 12)
+        let iconSize: CGFloat = largeFontForLandscape ? 22 : 20
         return VStack(alignment: .leading, spacing: 4) {
             HStack {
-                Text(playMode.icon)
-                    .font(.system(size: 20))
-                
+                Group {
+                    if let sys = playMode.systemImage {
+                        Image(systemName: sys)
+                            .font(.system(size: iconSize))
+                    } else {
+                        Text(playMode.icon)
+                            .font(.system(size: iconSize))
+                    }
+                }
+                .foregroundColor(textColor)
                 Text(playMode.displayName)
-                    .font(.system(size: horizontalSizeClass == .regular ? 18 : 16, weight: .medium))
+                    .font(.system(size: titleSize, weight: .medium))
                     .foregroundColor(textColor)
+                    .lineLimit(1)
+                    .minimumScaleFactor(0.8)
             }
             
             Text(playMode.description)
-                .font(.system(size: horizontalSizeClass == .regular ? 14 : 12))
+                .font(.system(size: descSize))
                 .foregroundColor(secondaryColor)
                 .lineLimit(2)
                 .minimumScaleFactor(0.8)

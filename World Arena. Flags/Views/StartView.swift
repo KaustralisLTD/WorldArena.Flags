@@ -11,6 +11,7 @@ struct StartView: View {
     @State private var showStatistics = false
     @State private var showThemeMenu = false
     @ObservedObject private var localizationManager = LocalizationManager.shared
+    @Environment(\.horizontalSizeClass) private var horizontalSizeClass
     
     // Animation states
     @State private var titleScale: CGFloat = 0.8
@@ -21,18 +22,17 @@ struct StartView: View {
     var body: some View {
         NavigationView {
             ZStack {
-                // Animated gradient background
+                // ТЕСТОВЫЙ ЯРКИЙ ФОН ДЛЯ ПРОВЕРКИ
                 LinearGradient(
                     colors: [
-                        Color.blue.opacity(0.1),
-                        Color.purple.opacity(0.05),
-                        Color.pink.opacity(0.1)
+                        Color.red.opacity(0.3),
+                        Color.orange.opacity(0.3),
+                        Color.yellow.opacity(0.3)
                     ],
                     startPoint: .topLeading,
                     endPoint: .bottomTrailing
                 )
                 .ignoresSafeArea()
-                .animation(.easeInOut(duration: 3).repeatForever(autoreverses: true), value: showContent)
                 
                 ScrollView {
                     VStack(spacing: 24) {
@@ -132,47 +132,47 @@ struct StartView: View {
     // MARK: - View Components
     
     private var languageSelector: some View {
-        HStack {
-            Text(LocalizationManager.shared.localizedString("Select Language"))
-                .font(.headline)
-            
-            Spacer()
-            
-            Menu {
-                ForEach(GameState.Language.allCases, id: \.self) { language in
-                    Button(action: {
-                        Task {
-                            await gameState.setLanguage(language)
-                        }
-                    }) {
-                        HStack {
-                            Text(language.displayName)
-                            if gameState.selectedLanguage == language {
-                                Image(systemName: "checkmark")
+                HStack {
+                    Text(LocalizationManager.shared.localizedString("Select Language"))
+                        .font(.headline)
+                    
+                    Spacer()
+                    
+                    Menu {
+                        ForEach(GameState.Language.allCases, id: \.self) { language in
+                            Button(action: {
+                                Task {
+                                    await gameState.setLanguage(language)
+                                }
+                            }) {
+                                HStack {
+                                    Text(language.displayName)
+                                    if gameState.selectedLanguage == language {
+                                        Image(systemName: "checkmark")
+                                    }
+                                }
                             }
                         }
+                    } label: {
+                        Button(action: {}) {
+                            HStack(spacing: 4) {
+                                Text(gameState.selectedLanguage.displayName)
+                                Image(systemName: "chevron.down")
+                                    .foregroundColor(.blue)
+                            }
+                            .padding(.vertical, 8)
+                            .padding(.horizontal, 12)
+                            .background(
+                                RoundedRectangle(cornerRadius: 8)
+                                    .fill(Color.appBackgroundSecondary)
+                            )
+                        }
+                        .buttonStyle(PlainButtonStyle())
                     }
+                    .menuStyle(BorderlessButtonMenuStyle())
                 }
-            } label: {
-                Button(action: {}) {
-                    HStack(spacing: 4) {
-                        Text(gameState.selectedLanguage.displayName)
-                        Image(systemName: "chevron.down")
-                            .foregroundColor(.blue)
-                    }
-                    .padding(.vertical, 8)
-                    .padding(.horizontal, 12)
-                    .background(
-                        RoundedRectangle(cornerRadius: 8)
-                            .fill(Color.appBackgroundSecondary)
-                    )
-                }
-                .buttonStyle(PlainButtonStyle())
-            }
-            .menuStyle(BorderlessButtonMenuStyle())
-        }
-        .padding(.horizontal)
-        .padding(.vertical, 4)
+                .padding(.horizontal)
+                .padding(.vertical, 4)
     }
     
     private var titleView: some View {
@@ -184,15 +184,11 @@ struct StartView: View {
                 .animation(.spring(response: 0.6, dampingFraction: 0.6).delay(0.2), value: titleScale)
                 .animation(.easeIn(duration: 0.8).delay(0.2), value: titleOpacity)
             
-            Text(LocalizationManager.shared.localizedString("World Flags"))
-                .font(.system(size: 36, weight: .bold, design: .rounded))
-                .foregroundStyle(
-                    LinearGradient(
-                        colors: [.blue, .purple, .pink],
-                        startPoint: .leading,
-                        endPoint: .trailing
-                    )
-                )
+            Text("🔥 НОВЫЙ ДИЗАЙН! 🔥")
+                .font(.system(size: 40, weight: .black, design: .rounded))
+                .foregroundColor(.red)
+                .background(Color.yellow)
+                .padding()
                 .scaleEffect(titleScale)
                 .opacity(titleOpacity)
                 .animation(.spring(response: 0.8, dampingFraction: 0.7).delay(0.3), value: titleScale)
@@ -208,45 +204,45 @@ struct StartView: View {
     }
     
     private var difficultySelection: some View {
-        VStack(alignment: .leading, spacing: 8) {
-            Text(LocalizationManager.shared.localizedString("Difficulty"))
-                .font(.headline)
-                .foregroundColor(.primary)
-                .padding(.horizontal, 8)
-            
-            LazyVGrid(columns: [
-                GridItem(.flexible(), spacing: 8),
-                GridItem(.flexible(), spacing: 8)
-            ], spacing: 8) {
-                ForEach(gameState.availableDifficulties, id: \.self) { difficulty in
-                    Button(action: {
+                VStack(alignment: .leading, spacing: 8) {
+                    Text(LocalizationManager.shared.localizedString("Difficulty"))
+                        .font(.headline)
+                        .foregroundColor(.primary)
+                        .padding(.horizontal, 8)
+                    
+                    LazyVGrid(columns: [
+                        GridItem(.flexible(), spacing: 8),
+                        GridItem(.flexible(), spacing: 8)
+                    ], spacing: 8) {
+                        ForEach(gameState.availableDifficulties, id: \.self) { difficulty in
+                            Button(action: {
                         // Haptic feedback
                         let impactFeedback = UIImpactFeedbackGenerator(style: .medium)
                         impactFeedback.impactOccurred()
                         
                         withAnimation(.spring(response: 0.3, dampingFraction: 0.6)) {
-                            gameState.selectedDifficulty = difficulty
+                                gameState.selectedDifficulty = difficulty
                         }
-                    }) {
-                        VStack(alignment: .leading, spacing: 4) {
-                            Text(difficulty.displayName)
-                                .font(.system(size: 16, weight: .medium))
-                                .foregroundColor(
-                                    gameState.selectedDifficulty == difficulty ? .white : .primary
-                                )
-                            
-                            Text(difficulty.description)
-                                .font(.system(size: 12))
-                                .foregroundColor(
-                                    gameState.selectedDifficulty == difficulty ? .white.opacity(0.8) : .secondary
-                                )
-                                .lineLimit(2)
-                                .minimumScaleFactor(0.8)
-                        }
-                        .padding(.horizontal, 10)
-                        .padding(.vertical, 8)
-                        .frame(maxWidth: .infinity, alignment: .leading)
-                        .background(
+                            }) {
+                                VStack(alignment: .leading, spacing: 4) {
+                                    Text(difficulty.displayName)
+                                        .font(.system(size: 16, weight: .medium))
+                                        .foregroundColor(
+                                            gameState.selectedDifficulty == difficulty ? .white : .primary
+                                        )
+                                    
+                                    Text(difficulty.description)
+                                        .font(.system(size: 12))
+                                        .foregroundColor(
+                                            gameState.selectedDifficulty == difficulty ? .white.opacity(0.8) : .secondary
+                                        )
+                                        .lineLimit(2)
+                                        .minimumScaleFactor(0.8)
+                                }
+                                .padding(.horizontal, 10)
+                                .padding(.vertical, 8)
+                                .frame(maxWidth: .infinity, alignment: .leading)
+                                .background(
                             RoundedRectangle(cornerRadius: 12)
                                 .fill(
                                     gameState.selectedDifficulty == difficulty
@@ -257,58 +253,58 @@ struct StartView: View {
                         )
                         .scaleEffect(gameState.selectedDifficulty == difficulty ? 1.02 : 1.0)
                         .animation(.spring(response: 0.3, dampingFraction: 0.7), value: gameState.selectedDifficulty)
+                            }
+                        }
                     }
-                }
-            }
-            .padding(.horizontal, 8)
+                    .padding(.horizontal, 8)
         }
-    }
-    
+                }
+                
     private var gameModeSelection: some View {
-        VStack(alignment: .leading, spacing: 8) {
-            Text(LocalizationManager.shared.localizedString("Game Mode"))
-                .font(.headline)
-                .foregroundColor(.primary)
-                .padding(.horizontal, 8)
-            
-            LazyVGrid(columns: [
-                GridItem(.flexible(), spacing: 8)
-            ], spacing: 8) {
-                ForEach(gameState.availableGameModes, id: \.self) { mode in
-                    Button(action: {
+                VStack(alignment: .leading, spacing: 8) {
+                    Text(LocalizationManager.shared.localizedString("Game Mode"))
+                        .font(.headline)
+                        .foregroundColor(.primary)
+                        .padding(.horizontal, 8)
+                    
+                    LazyVGrid(columns: [
+                        GridItem(.flexible(), spacing: 8)
+                    ], spacing: 8) {
+                        ForEach(gameState.availableGameModes, id: \.self) { mode in
+                            Button(action: {
                         // Haptic feedback
                         let impactFeedback = UIImpactFeedbackGenerator(style: .light)
                         impactFeedback.impactOccurred()
                         
                         withAnimation(.spring(response: 0.3, dampingFraction: 0.6)) {
-                            gameState.selectedGameMode = mode
+                                gameState.selectedGameMode = mode
                         }
-                    }) {
-                        HStack(spacing: 12) {
+                            }) {
+                                HStack(spacing: 12) {
                             Text("🎯")
-                                .font(.system(size: 24))
-                            
-                            VStack(alignment: .leading, spacing: 2) {
-                                Text(mode.displayName)
-                                    .font(.system(size: 16, weight: .medium))
-                                    .foregroundColor(
-                                        gameState.selectedGameMode == mode ? .white : .primary
-                                    )
-                                
+                                        .font(.system(size: 24))
+                                    
+                                    VStack(alignment: .leading, spacing: 2) {
+                                        Text(mode.displayName)
+                                            .font(.system(size: 16, weight: .medium))
+                                            .foregroundColor(
+                                                gameState.selectedGameMode == mode ? .white : .primary
+                                            )
+                                        
                                 Text(LocalizationManager.shared.localizedString("Standard multiple choice game"))
-                                    .font(.system(size: 12))
-                                    .foregroundColor(
-                                        gameState.selectedGameMode == mode ? .white.opacity(0.8) : .secondary
-                                    )
-                                    .lineLimit(2)
-                            }
-                            
-                            Spacer()
-                        }
-                        .padding(.horizontal, 12)
-                        .padding(.vertical, 10)
-                        .frame(maxWidth: .infinity, alignment: .leading)
-                        .background(
+                                            .font(.system(size: 12))
+                                            .foregroundColor(
+                                                gameState.selectedGameMode == mode ? .white.opacity(0.8) : .secondary
+                                            )
+                                            .lineLimit(2)
+                                    }
+                                    
+                                    Spacer()
+                                }
+                                .padding(.horizontal, 12)
+                                .padding(.vertical, 10)
+                                .frame(maxWidth: .infinity, alignment: .leading)
+                                .background(
                             RoundedRectangle(cornerRadius: 16)
                                 .fill(
                                     gameState.selectedGameMode == mode
@@ -319,10 +315,10 @@ struct StartView: View {
                         )
                         .scaleEffect(gameState.selectedGameMode == mode ? 1.02 : 1.0)
                         .animation(.spring(response: 0.3, dampingFraction: 0.7), value: gameState.selectedGameMode)
+                            }
+                        }
                     }
-                }
-            }
-            .padding(.horizontal, 8)
+                    .padding(.horizontal, 8)
         }
     }
     
@@ -344,13 +340,13 @@ struct StartView: View {
                     }
                 }
                 
-                Task {
-                    isLoading = true
-                    error = nil
-                    await gameState.startNewGameWithCurrentRegions()
-                    isLoading = false
-                }
-            }) {
+                    Task {
+                        isLoading = true
+                        error = nil
+                        await gameState.startNewGameWithCurrentRegions()
+                        isLoading = false
+                    }
+                }) {
                 HStack(spacing: 12) {
                     if isLoading && !gameState.isPreloadingFlags {
                         ProgressView()
@@ -359,18 +355,18 @@ struct StartView: View {
                     }
                     
                     Text(LocalizationManager.shared.localizedString("START GAME"))
-                        .font(.system(size: 24, weight: .bold, design: .rounded))
+                        .font(.system(size: horizontalSizeClass == .regular ? 32 : 24, weight: .bold, design: .rounded))
                         .foregroundColor(.white)
                     
                     if !isLoading {
                         Image(systemName: "play.fill")
-                            .font(.system(size: 20, weight: .bold))
+                            .font(.system(size: horizontalSizeClass == .regular ? 28 : 20, weight: .bold))
                             .foregroundColor(.white)
                     }
                 }
-                .frame(maxWidth: .infinity)
-                .frame(height: 60)
-                .background(
+                        .frame(maxWidth: .infinity)
+                .frame(height: horizontalSizeClass == .regular ? 80 : 60)
+                        .background(
                     RoundedRectangle(cornerRadius: 20)
                         .fill(
                             gameState.selectedRegions.isEmpty 
@@ -398,17 +394,17 @@ struct StartView: View {
                             ),
                             lineWidth: 1
                         )
-                )
-            }
-            .disabled(gameState.selectedRegions.isEmpty || isLoading)
+                        )
+                }
+                .disabled(gameState.selectedRegions.isEmpty || isLoading)
             .scaleEffect(gameState.selectedRegions.isEmpty ? 0.95 : 1.0)
             .animation(.spring(response: 0.4, dampingFraction: 0.8), value: gameState.selectedRegions.isEmpty)
-            
+                
             // Современный индикатор загрузки флагов
             if gameState.isPreloadingFlags {
                 VStack(spacing: 8) {
                     HStack(spacing: 8) {
-                        ProgressView()
+                    ProgressView()
                             .scaleEffect(0.8)
                             .tint(.blue)
                         
@@ -455,35 +451,35 @@ struct StartView: View {
     }
     
     private var themeSelector: some View {
-        VStack(alignment: .leading) {
-            Text(LocalizationManager.shared.localizedString("App Theme"))
-                .font(.headline)
-                .padding(.horizontal)
-            
-            ScrollView(.horizontal, showsIndicators: false) {
-                HStack(spacing: 12) {
-                    ForEach(AppTheme.allCases, id: \.self) { theme in
-                        ThemeButton(
-                            theme: theme,
-                            isSelected: themeManager.selectedTheme == theme,
-                            action: { },
-                            gameState: gameState
-                        )
+                VStack(alignment: .leading) {
+                    Text(LocalizationManager.shared.localizedString("App Theme"))
+                        .font(.headline)
+                        .padding(.horizontal)
+                    
+                    ScrollView(.horizontal, showsIndicators: false) {
+                        HStack(spacing: 12) {
+                            ForEach(AppTheme.allCases, id: \.self) { theme in
+                                ThemeButton(
+                                    theme: theme,
+                                    isSelected: themeManager.selectedTheme == theme,
+                                    action: { },
+                                    gameState: gameState
+                                )
+                            }
+                        }
+                        .padding(.horizontal)
+            }
                     }
                 }
-                .padding(.horizontal)
-            }
-        }
-    }
-    
+                
     private var statisticsButton: some View {
-        Button(action: {
+                Button(action: {
             // Light haptic feedback
             let impactFeedback = UIImpactFeedbackGenerator(style: .light)
             impactFeedback.impactOccurred()
             
-            showingStatistics = true
-        }) {
+                    showingStatistics = true
+                }) {
             HStack(spacing: 8) {
                 Image(systemName: "chart.bar.fill")
                     .font(.system(size: 16, weight: .semibold))

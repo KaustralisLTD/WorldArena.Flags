@@ -264,6 +264,64 @@ class CountryService {
     }
 }
 
+// MARK: - RestCountries full response for single country (detail screen)
+struct RestCountryDetailResponse: Codable {
+    let name: Name?
+    let capital: [String]?
+    let population: Int?
+    let area: Double?
+    let region: String?
+    let subregion: String?
+    let flags: Flags?
+    let currencies: [String: CurrencyInfo]?
+    let idd: Idd?
+    let languages: [String: String]?
+    
+    struct Name: Codable {
+        let common: String?
+        let official: String?
+    }
+    struct Flags: Codable {
+        let png: String?
+    }
+    struct CurrencyInfo: Codable {
+        let name: String?
+        let symbol: String?
+    }
+    struct Idd: Codable {
+        let root: String?
+        let suffixes: [String]?
+    }
+    
+    var capitalFirst: String? { capital?.first }
+    var dialingCode: String? {
+        guard let root = idd?.root?.trimmingCharacters(in: CharacterSet(charactersIn: "+")),
+              let suffix = idd?.suffixes?.first else { return nil }
+        return "+" + root + suffix
+    }
+    var currencyString: String? {
+        guard let cur = currencies?.first else { return nil }
+        let name = cur.value.name ?? cur.key
+        let sym = cur.value.symbol ?? ""
+        return "\(name) (\(sym))".trimmingCharacters(in: CharacterSet(charactersIn: " ()"))
+    }
+    var languageString: String? {
+        languages?.values.sorted().joined(separator: ", ")
+    }
+}
+
+extension CountryService {
+    /// Загрузка одной страны по коду (alpha2) для экрана «Информация о стране».
+    func fetchCountryDetailByCode(_ code: String) async throws -> RestCountryDetailResponse? {
+        let url = URL(string: "\(baseURL)/alpha/\(code)")!
+        let (data, response) = try await session.data(from: url)
+        guard let http = response as? HTTPURLResponse else { throw URLError(.badServerResponse) }
+        guard http.statusCode == 200 else { return nil }
+        let decoded = try JSONDecoder().decode([RestCountryDetailResponse].self, from: data)
+        return decoded.first
+    }
+}
+
 enum NetworkError: LocalizedError {
     case noInternet
     case timeout

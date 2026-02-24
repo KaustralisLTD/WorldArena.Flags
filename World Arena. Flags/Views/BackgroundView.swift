@@ -16,15 +16,15 @@ struct BackgroundView: View {
     var body: some View {
         GeometryReader { geometry in
             ZStack {
-                Color.appBackgroundPrimary
-                    .edgesIgnoringSafeArea(.all)
+                Color.clear
+                    .ignoresSafeArea(.all)
                 
                 // Создаем строки флагов
                 ForEach(Array(flags.enumerated()), id: \.0) { rowIndex, rowFlags in
                     // Основная строка
                     HStack(spacing: flagSpacing) {
                         ForEach(Array(zip(rowFlags.indices, rowFlags)), id: \.0) { flagIndex, country in
-                            AsyncImage(url: country.flagURL) { image in
+                            CachedAsyncImage(url: country.flagURL) { image in
                                 image
                                     .resizable()
                                     .scaledToFit()
@@ -45,7 +45,7 @@ struct BackgroundView: View {
                     // Дублирующая строка для непрерывности
                     HStack(spacing: flagSpacing) {
                         ForEach(Array(zip(rowFlags.indices, rowFlags)), id: \.0) { flagIndex, country in
-                            AsyncImage(url: country.flagURL) { image in
+                            CachedAsyncImage(url: country.flagURL) { image in
                                 image
                                     .resizable()
                                     .scaledToFit()

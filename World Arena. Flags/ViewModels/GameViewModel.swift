@@ -1,4 +1,7 @@
 import SwiftUI
+#if os(iOS)
+import UIKit
+#endif
 
 @MainActor
 final class FlagGameViewModel: ObservableObject {
@@ -7,6 +10,7 @@ final class FlagGameViewModel: ObservableObject {
     @Published var isShowingResult = false
     @Published var isShowingInfo = false
     @Published var showingGameOver = false
+    @Published var showingOutOfLives = false
     @Published var flagScale: CGFloat = 1.0
     @Published var flagRotation: Double = 0.0
     @Published var optionsOpacity: Double = 1.0
@@ -41,6 +45,15 @@ final class FlagGameViewModel: ObservableObject {
         print("\n=== selectAnswer called ===")
         print("Selected country: \(country.name.common)")
         
+        // Вибрация при выборе ответа
+        #if os(iOS)
+        let impactFeedback = UIImpactFeedbackGenerator(style: .medium)
+        impactFeedback.impactOccurred()
+        #endif
+        
+        // Останавливаем таймер вопроса при выборе ответа
+        gameState.stopQuestionTimer()
+        
         nextQuestionTask?.cancel()
         selectedAnswer = country
         
@@ -60,12 +73,23 @@ final class FlagGameViewModel: ObservableObject {
         if !isCorrect {
             print("Adding to mistakes list: \(currentFlag.name.common)")
             gameState.addMistake(currentFlag)
+            gameState.consumeLifeOnWrongAnswer()
+            print("Lifes: \(gameState.isPremium ? Int.max : gameState.lives)")
+            if !gameState.isPremium && gameState.lives <= 0 {
+                print("\n=== Out Of Lives ===\nLives depleted. Stopping game.\n=====================\n")
+                gameState.stopTimer()
+                showingOutOfLives = true
+                return
+            }
             
             // Выводим текущий список ошибок
             print("\nCurrent Mistakes List:")
             for mistake in gameState.mistakeCountries {
                 print("- \(mistake.name.common)")
             }
+        }
+        else {
+            print("Lifes: \(gameState.isPremium ? Int.max : gameState.lives)")
         }
         print("=====================\n")
         
@@ -80,6 +104,13 @@ final class FlagGameViewModel: ObservableObject {
         if isCorrect {
             print("✅ CORRECT ANSWER!")
             gameState.score += 1
+            
+            // Вибрация при правильном ответе (более веселая)
+            #if os(iOS)
+            let notificationFeedback = UINotificationFeedbackGenerator()
+            notificationFeedback.notificationOccurred(.success)
+            #endif
+            
             withAnimation(.spring(response: 0.5, dampingFraction: 0.6)) {
                 flagScale = 1.2
             }
@@ -91,6 +122,13 @@ final class FlagGameViewModel: ObservableObject {
             }
         } else {
             print("❌ WRONG ANSWER!")
+            
+            // Вибрация при неправильном ответе (более грустная)
+            #if os(iOS)
+            let notificationFeedback = UINotificationFeedbackGenerator()
+            notificationFeedback.notificationOccurred(.error)
+            #endif
+            
             print("\nMistake Details:")
             print("- You selected: \(country.name.common)")
             print("  Region: \(country.region)")
