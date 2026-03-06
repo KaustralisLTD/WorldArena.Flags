@@ -23,9 +23,12 @@ struct QuestResultsView: View {
     @State private var showButton = false
     @State private var titleScale: CGFloat = 0.8
     @State private var safeTopInset: CGFloat = 0
+    @State private var pendingMonthlyRewardToasts: [MonthlyQuestCompletionReward] = []
+    @State private var currentMonthlyRewardToast: MonthlyQuestCompletionReward? = nil
+    @State private var displayedDailyQuests: [DailyQuest] = []
+    @State private var displayedMonthlyQuests: [MonthlyQuest] = []
 
     @ObservedObject private var localizationManager = LocalizationManager.shared
-    private var allDailyCompleted: Bool { dailyQuests.allSatisfy(\.isCompleted) }
     
     var body: some View {
         ZStack {
@@ -69,14 +72,14 @@ struct QuestResultsView: View {
                                 .padding(.horizontal, 20)
                             
                             VStack(spacing: 12) {
-                                ForEach(Array(dailyQuests.enumerated()), id: \.element.id) { index, quest in
+                                ForEach(Array(displayedDailyQuests.enumerated()), id: \.element.id) { index, quest in
                                     QuestResultRow(
                                         quest: quest,
                                         delay: Double(index) * 0.1,
                                         isVisible: showDailyQuests,
                                         isGiftOpened: openedGiftIndices.contains(index),
                                         isGiftOpening: giftOpeningIndex == index,
-                                        onGiftTap: allDailyCompleted && !openedGiftIndices.contains(index) ? { openGift(at: index) } : nil
+                                        onGiftTap: quest.isCompleted && !openedGiftIndices.contains(index) ? { openGift(at: index) } : nil
                                     )
                                 }
                             }
@@ -93,7 +96,7 @@ struct QuestResultsView: View {
                                 .padding(.horizontal, 20)
                             
                             VStack(spacing: 12) {
-                                ForEach(Array(monthlyQuests.enumerated()), id: \.element.id) { index, quest in
+                                ForEach(Array(displayedMonthlyQuests.enumerated()), id: \.element.id) { index, quest in
                                     MonthlyQuestResultRow(
                                         quest: quest,
                                         delay: Double(index) * 0.1,
@@ -184,23 +187,73 @@ struct QuestResultsView: View {
         .onPreferenceChange(SafeTopInsetKeyQuest.self) { safeTopInset = $0 }
         .onAppear {
             openedGiftIndices = QuestService.shared.openedDailyGiftIndices()
+            refreshDisplayedQuestsForCurrentLanguage()
             startAnimations()
+            pendingMonthlyRewardToasts = UserProfile.shared.consumeRecentMonthlyQuestRewards()
+            showNextMonthlyRewardToastIfNeeded()
+        }
+        .onReceive(NotificationCenter.default.publisher(for: .languageChanged)) { _ in
+            refreshDisplayedQuestsForCurrentLanguage()
         }
         .overlay(alignment: .top) {
-            if let text = lastRewardText {
-                Text(text)
-                    .font(.system(size: 14, weight: .semibold))
-                    .foregroundColor(.white)
-                    .padding(.horizontal, 16)
-                    .padding(.vertical, 10)
-                    .background(Color.orange)
-                    .cornerRadius(12)
-                    .padding(.top, 60)
-                    .transition(.opacity.combined(with: .scale))
-                    .onAppear {
-                        DispatchQueue.main.asyncAfter(deadline: .now() + 2.0) { lastRewardText = nil }
+            VStack(spacing: 10) {
+                if let text = lastRewardText {
+                    Text(text)
+                        .font(.system(size: 14, weight: .semibold))
+                        .foregroundColor(.white)
+                        .padding(.horizontal, 16)
+                        .padding(.vertical, 10)
+                        .background(Color.orange)
+                        .cornerRadius(12)
+                        .transition(.opacity.combined(with: .scale))
+                        .onAppear {
+                            DispatchQueue.main.asyncAfter(deadline: .now() + 2.0) { lastRewardText = nil }
+                        }
+                }
+
+                if let rewardToast = currentMonthlyRewardToast {
+                    HStack(spacing: 12) {
+                        ZStack {
+                            Circle()
+                                .fill(Color.yellow.opacity(0.22))
+                                .frame(width: 38, height: 38)
+                            Image(systemName: rewardToast.questIcon)
+                                .font(.system(size: 18, weight: .bold))
+                                .foregroundColor(.yellow)
+                        }
+
+                        VStack(alignment: .leading, spacing: 3) {
+                            Text(localizationManager.localizedString("Monthly Quest"))
+                                .font(.system(size: 12, weight: .bold))
+                                .foregroundColor(.secondary)
+                            Text(rewardToast.questTitle)
+                                .font(.system(size: 13, weight: .semibold))
+                                .lineLimit(1)
+                                .foregroundColor(.primary)
+                            Text(monthlyRewardSummaryText(rewardToast))
+                                .font(.system(size: 13, weight: .bold))
+                                .foregroundColor(.green)
+                        }
+                        Spacer(minLength: 0)
                     }
+                    .padding(.horizontal, 14)
+                    .padding(.vertical, 10)
+                    #if os(iOS)
+                    .background(Color(UIColor.secondarySystemBackground).opacity(0.96))
+                    #else
+                    .background(Color(NSColor.controlBackgroundColor))
+                    #endif
+                    .clipShape(RoundedRectangle(cornerRadius: 14))
+                    .overlay(
+                        RoundedRectangle(cornerRadius: 14)
+                            .stroke(Color.green.opacity(0.35), lineWidth: 1)
+                    )
+                    .shadow(color: .green.opacity(0.2), radius: 10, x: 0, y: 4)
+                    .transition(.move(edge: .top).combined(with: .opacity))
+                }
             }
+            .padding(.horizontal, 18)
+            .padding(.top, 56)
         }
         .overlay {
             if let text = showGiftRewardOverlay {
@@ -237,11 +290,15 @@ struct QuestResultsView: View {
 
     @MainActor
     private func openGift(at index: Int) {
-        guard allDailyCompleted, (0..<3).contains(index), !openedGiftIndices.contains(index) else {
+        guard (0..<3).contains(index), !openedGiftIndices.contains(index) else {
             openedGiftIndices = QuestService.shared.openedDailyGiftIndices()
             return
         }
-        guard let reward = QuestService.shared.openDailyGift(index: index, allQuestsCompleted: true) else {
+        guard displayedDailyQuests.indices.contains(index), displayedDailyQuests[index].isCompleted else {
+            openedGiftIndices = QuestService.shared.openedDailyGiftIndices()
+            return
+        }
+        guard let reward = QuestService.shared.openDailyGift(index: index, allQuestsCompleted: displayedDailyQuests[index].isCompleted) else {
             openedGiftIndices = QuestService.shared.openedDailyGiftIndices()
             return
         }
@@ -250,7 +307,7 @@ struct QuestResultsView: View {
         let rewardText: String = {
             switch reward {
             case .xpBoost2x10min: return localizationManager.localizedString("2x XP for 10 min!")
-            case .xpBoost3x15min: return localizationManager.localizedString("3x XP for 15 min!")
+            case .xpBoost3x10min: return localizationManager.localizedString("3x XP for 10 min!")
             case .fBucks1: return "+1 F-Bucks"
             case .fBucks2: return "+2 F-Bucks"
             }
@@ -259,12 +316,16 @@ struct QuestResultsView: View {
             openedGiftIndices.insert(index)
         }
         lastRewardText = rewardText
-        showGiftRewardOverlay = rewardText
+        withAnimation(.spring(response: 0.45, dampingFraction: 0.75)) {
+            showGiftRewardOverlay = rewardText
+        }
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
             giftOpeningIndex = nil
         }
         DispatchQueue.main.asyncAfter(deadline: .now() + 2.5) {
-            showGiftRewardOverlay = nil
+            withAnimation(.easeInOut(duration: 0.25)) {
+                showGiftRewardOverlay = nil
+            }
         }
     }
 
@@ -289,6 +350,99 @@ struct QuestResultsView: View {
         
         withAnimation(.easeOut(duration: 0.5).delay(1.2)) {
             showButton = true
+        }
+    }
+
+    private func monthlyRewardSummaryText(_ reward: MonthlyQuestCompletionReward) -> String {
+        if reward.fBucks > 0 {
+            return "+\(reward.xp) XP • +\(reward.fBucks) F-Bucks"
+        }
+        return "+\(reward.xp) XP"
+    }
+
+    private func showNextMonthlyRewardToastIfNeeded() {
+        guard currentMonthlyRewardToast == nil, !pendingMonthlyRewardToasts.isEmpty else { return }
+        let next = pendingMonthlyRewardToasts.removeFirst()
+        withAnimation(.spring(response: 0.35, dampingFraction: 0.86)) {
+            currentMonthlyRewardToast = next
+        }
+        DispatchQueue.main.asyncAfter(deadline: .now() + 2.4) {
+            withAnimation(.easeInOut(duration: 0.25)) {
+                currentMonthlyRewardToast = nil
+            }
+            DispatchQueue.main.asyncAfter(deadline: .now() + 0.18) {
+                showNextMonthlyRewardToastIfNeeded()
+            }
+        }
+    }
+
+    private func refreshDisplayedQuestsForCurrentLanguage() {
+        displayedDailyQuests = dailyQuests.map { quest in
+            DailyQuest(
+                title: localizedDailyQuestTitle(for: quest),
+                target: quest.target,
+                progress: quest.progress,
+                icon: quest.icon,
+                kind: quest.kind
+            )
+        }
+        displayedMonthlyQuests = monthlyQuests.map { quest in
+            MonthlyQuest(
+                id: quest.id,
+                title: localizedMonthlyQuestTitle(for: quest),
+                description: localizedMonthlyQuestDescription(for: quest),
+                targetValue: quest.targetValue,
+                currentValue: quest.currentValue,
+                questType: quest.questType,
+                xpReward: quest.xpReward,
+                icon: quest.icon,
+                color: quest.color
+            )
+        }
+    }
+
+    private func localizedDailyQuestTitle(for quest: DailyQuest) -> String {
+        switch quest.kind {
+        case .gamesPlayed:
+            return String(format: localizationManager.localizedString("Сыграй %d игр"), quest.target)
+        case .correctAnswers:
+            return String(format: localizationManager.localizedString("Дай %d правильных ответов"), quest.target)
+        case .xpEarned:
+            return String(format: localizationManager.localizedString("Заработай %d XP"), quest.target)
+        }
+    }
+
+    private func localizedMonthlyQuestTitle(for quest: MonthlyQuest) -> String {
+        switch quest.questType {
+        case .gamesPlayed:
+            return String(format: localizationManager.localizedString("Сыграй %d игр"), quest.targetValue)
+        case .accuracy:
+            return String(format: localizationManager.localizedString("Точность %d%%"), quest.targetValue)
+        case .streak:
+            return String(format: localizationManager.localizedString("Серия %d дней"), quest.targetValue)
+        case .correctAnswers:
+            return String(format: localizationManager.localizedString("Дай %d правильных ответов"), quest.targetValue)
+        case .perfectGames:
+            return String(format: localizationManager.localizedString("Сыграй %d идеальных игр"), quest.targetValue)
+        case .monthlyXP:
+            return String(format: localizationManager.localizedString("Заработай %d XP за месяц"), quest.targetValue)
+        }
+    }
+
+    private func localizedMonthlyQuestDescription(for quest: MonthlyQuest) -> String {
+        switch quest.questType {
+        case .gamesPlayed:
+            return String(format: localizationManager.localizedString("Завершите %d игр в этом месяце"), quest.targetValue)
+        case .accuracy:
+            return String(format: localizationManager.localizedString("Достигните точности %d%% в играх"), quest.targetValue)
+        case .streak:
+            return String(format: localizationManager.localizedString("Поддерживайте серию %d дней подряд"), quest.targetValue)
+        case .correctAnswers:
+            return String(format: localizationManager.localizedString("Наберите %d правильных ответов за месяц"), quest.targetValue)
+        case .perfectGames:
+            return String(format: localizationManager.localizedString("Завершите %d игр без ошибок"), quest.targetValue)
+        case .monthlyXP:
+            return String(format: localizationManager.localizedString("Заработайте %d XP играя минимум 7 дней в месяц"), quest.targetValue)
         }
     }
 }

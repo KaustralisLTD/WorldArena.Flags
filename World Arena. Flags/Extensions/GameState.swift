@@ -24,6 +24,25 @@ struct DuelResultInfo {
     var iWon: Bool { winnerSide == "opponent" }
 }
 
+struct DuelHistoryEntry: Identifiable, Codable {
+    let id: String
+    let opponentName: String
+    let myScore: Int
+    let opponentScore: Int
+    let iWon: Bool
+    let playedAt: Date
+}
+
+struct GameQuestionResult: Identifiable, Codable {
+    let id: String
+    let questionNumber: Int
+    let flagEmoji: String
+    let flagName: String
+    let selectedAnswer: String?
+    let isCorrect: Bool
+    let timedOut: Bool
+}
+
 @MainActor
 class GameState: ObservableObject {
     @Published var score = 0
@@ -86,9 +105,13 @@ class GameState: ObservableObject {
     @Published var duelSeed: Int?
     @Published var duelChallengeId: String?
     @Published var duelOpponentId: String?
+    @Published var duelOpponentName: String?
     @Published var duelChallengerName: String?
     /// Результат дуэли для отображения после завершения игры вторым игроком (opponent).
     @Published var pendingDuelResult: DuelResultInfo?
+    @Published var duelHistory: [DuelHistoryEntry] = []
+    @Published var currentGameResults: [GameQuestionResult] = []
+    @Published var lastGameResults: [GameQuestionResult] = []
     
     var questionsPerGame: Int {
         switch selectedPlayMode {
@@ -186,6 +209,7 @@ class GameState: ObservableObject {
     
     // Добавим проверку, чтобы не загружать ошибки повторно
     private var mistakesLoaded = false
+    private let duelHistoryStorageKey = "duel.history.v1"
     
     // Добавляем флаг для отслеживания загрузки статистики
     private var statisticsLoaded = false
@@ -203,17 +227,52 @@ class GameState: ObservableObject {
     
     // Добавим свойство для отслеживания состояния карточки
     @Published var isCardInteractionEnabled = true
+    @Published var comboStreak: Int = 0
+    @Published var liveComboText: String? = nil
+    @Published var liveBonusText: String? = nil
+    @Published var bonusXP: Int = 0
+    @Published var lastAppliedXPBoostMultiplier: Int = 1
+    @Published var lastGameEarnedFBucks: Int = 0
 
     // MARK: - Lives & Premium
     @Published var lives: Int = 5
     @Published var isPremium: Bool = false
     @Published var showMistakesPremiumAlert: Bool = false
     let maxLives: Int = 5
-    private let livesRefillInterval: TimeInterval = 3600 // 1 час
+    private let firstDailyRefillInterval: TimeInterval = 300   // 5 минут
+    private let secondDailyRefillInterval: TimeInterval = 900  // 15 минут
+    private let nextDailyRefillInterval: TimeInterval = 3600   // 60 минут
     private var livesRefillTimer: Timer?
     private let livesStorageKey = "game.lives.current"
     private let lastRefillStorageKey = "game.lives.lastRefillAt"
+    private let dailyRefillCountStorageKey = "game.lives.dailyRefillCount"
+    private let dailyRefillDayStartStorageKey = "game.lives.dailyRefillDayStart"
     private let premiumStorageKey = "game.premium.enabled"
+
+    private func currentDayStartTimestamp(_ date: Date = Date()) -> TimeInterval {
+        Calendar.current.startOfDay(for: date).timeIntervalSince1970
+    }
+
+    private func refillIntervalForCurrentDailyStep() -> TimeInterval {
+        let count = UserDefaults.standard.integer(forKey: dailyRefillCountStorageKey)
+        switch count {
+        case 0: return firstDailyRefillInterval
+        case 1: return secondDailyRefillInterval
+        default: return nextDailyRefillInterval
+        }
+    }
+
+    private func resetDailyRefillProgressIfNeeded(now: Date = Date()) {
+        let defaults = UserDefaults.standard
+        let today = currentDayStartTimestamp(now)
+        let storedDay = defaults.double(forKey: dailyRefillDayStartStorageKey)
+        if storedDay == 0 || storedDay != today {
+            defaults.set(today, forKey: dailyRefillDayStartStorageKey)
+            defaults.set(0, forKey: dailyRefillCountStorageKey)
+            // С новым днём стартуем новый цикл отсчёта интервалов.
+            defaults.set(now.timeIntervalSince1970, forKey: lastRefillStorageKey)
+        }
+    }
 
     private func loadLivesState() {
         let defaults = UserDefaults.standard
@@ -224,6 +283,8 @@ class GameState: ObservableObject {
         
         // НЕ загружаем isPremium из UserDefaults - он будет синхронизирован с StoreManager
         // isPremium = defaults.bool(forKey: premiumStorageKey)
+
+        resetDailyRefillProgressIfNeeded()
         
         refillLivesIfNeeded()
         startLivesRefillTimer()
@@ -254,17 +315,22 @@ class GameState: ObservableObject {
     func refillLivesIfNeeded() {
         guard !isPremium else { return }
         let defaults = UserDefaults.standard
-        let now = Date().timeIntervalSince1970
+        let nowDate = Date()
+        resetDailyRefillProgressIfNeeded(now: nowDate)
+        let now = nowDate.timeIntervalSince1970
         let last = defaults.double(forKey: lastRefillStorageKey)
+        let interval = refillIntervalForCurrentDailyStep()
         if last == 0 {
             defaults.set(now, forKey: lastRefillStorageKey)
             return
         }
-        if now - last >= livesRefillInterval, lives < maxLives {
-            lives = maxLives
+        if now - last >= interval, lives < maxLives {
+            lives = min(maxLives, lives + maxLives)
+            let newDailyCount = defaults.integer(forKey: dailyRefillCountStorageKey) + 1
+            defaults.set(newDailyCount, forKey: dailyRefillCountStorageKey)
             defaults.set(now, forKey: lastRefillStorageKey)
             saveLivesState()
-            print("❤️ Lives refilled to max: \(lives)")
+            print("❤️ Lives refilled (+\(maxLives)), daily step: \(newDailyCount), lives: \(lives)")
         }
     }
 
@@ -272,10 +338,13 @@ class GameState: ObservableObject {
     func timeToNextLivesRefill() -> TimeInterval? {
         guard !isPremium else { return nil }
         let defaults = UserDefaults.standard
+        let nowDate = Date()
+        resetDailyRefillProgressIfNeeded(now: nowDate)
         let last = defaults.double(forKey: lastRefillStorageKey)
-        let now = Date().timeIntervalSince1970
-        if last == 0 { return livesRefillInterval }
-        let remaining = livesRefillInterval - (now - last)
+        let now = nowDate.timeIntervalSince1970
+        let interval = refillIntervalForCurrentDailyStep()
+        if last == 0 { return interval }
+        let remaining = interval - (now - last)
         return max(0, remaining)
     }
 
@@ -298,6 +367,103 @@ class GameState: ObservableObject {
         let combinedSeed = s &+ questionIndex &* 31
         var rng = SeededRNG(seed: combinedSeed)
         return array.shuffled(using: &rng)
+    }
+
+    // MARK: - Adaptive country difficulty
+    private enum CountryBucket { case easy, medium, hard }
+
+    private func easyCountryCodes() -> Set<String> {
+        [
+            "USA","CAN","MEX","BRA","ARG","GBR","FRA","DEU","ITA","ESP","PRT","NLD","BEL","CHE","AUT","SWE","NOR","FIN",
+            "POL","UKR","RUS","TUR","GRC","JPN","CHN","IND","KOR","THA","VNM","AUS","NZL","ZAF","EGY","MAR","SAU","ARE",
+            "ISR","IRL","DNK","CZE","HUN","ROU"
+        ]
+    }
+
+    private func bucket(for country: Country) -> CountryBucket {
+        var score = 60
+        if easyCountryCodes().contains(country.id) { score -= 35 }
+        if country.population >= 50_000_000 { score -= 12 }
+        if country.population <= 5_000_000 { score += 10 }
+        if country.name.common.count <= 6 { score -= 8 }
+        if country.name.common.count >= 12 { score += 8 }
+        if country.region == "Europe" || country.region == "Americas" { score -= 4 }
+        if country.region == "Oceania" { score += 4 }
+        if score <= 35 { return .easy }
+        if score <= 65 { return .medium }
+        return .hard
+    }
+
+    private func adaptiveMixForCurrentPlayer() -> (easy: Double, medium: Double, hard: Double) {
+        var mix: (Double, Double, Double)
+        switch selectedDifficulty {
+        case .easy: mix = (0.75, 0.20, 0.05)
+        case .medium: mix = (0.55, 0.35, 0.10)
+        case .hard: mix = (0.30, 0.45, 0.25)
+        case .expert: mix = (0.15, 0.35, 0.50)
+        case .erudite: mix = (0.10, 0.30, 0.60)
+        }
+
+        let profile = UserProfile.shared
+        let accuracy = profile.accuracy
+        let isNewPlayer = profile.totalGamesPlayed < 3 || profile.totalAnswers < 30
+
+        // На старте даём ощущение успеха: Easy/Medium ~90% простых вопросов.
+        if isNewPlayer && (selectedDifficulty == .easy || selectedDifficulty == .medium) {
+            return (0.90, 0.09, 0.01)
+        }
+
+        if selectedDifficulty == .easy || selectedDifficulty == .medium {
+            if accuracy < 85 {
+                mix.0 += 0.15; mix.1 -= 0.10; mix.2 -= 0.05
+            } else if accuracy > 93 {
+                mix.0 -= 0.10; mix.1 += 0.06; mix.2 += 0.04
+            }
+        }
+
+        let total = max(0.01, mix.0 + mix.1 + mix.2)
+        return (mix.0 / total, mix.1 / total, mix.2 / total)
+    }
+
+    private func selectCountriesForSession(_ loadedCountries: [Country], count: Int) -> [Country] {
+        guard selectedPlayMode != .duel else {
+            // Для дуэли всегда одинаковый набор у обоих игроков по seed.
+            return Array(shuffledWithSeed(loadedCountries, seed: duelSeed).prefix(count))
+        }
+        let mix = adaptiveMixForCurrentPlayer()
+        var easy: [Country] = []
+        var medium: [Country] = []
+        var hard: [Country] = []
+        for c in loadedCountries {
+            switch bucket(for: c) {
+            case .easy: easy.append(c)
+            case .medium: medium.append(c)
+            case .hard: hard.append(c)
+            }
+        }
+        easy.shuffle(); medium.shuffle(); hard.shuffle()
+
+        var needEasy = Int(Double(count) * mix.easy)
+        var needMedium = Int(Double(count) * mix.medium)
+        var needHard = max(0, count - needEasy - needMedium)
+
+        // Если в какой-то корзине мало стран — перераспределяем.
+        if easy.count < needEasy { let d = needEasy - easy.count; needEasy = easy.count; needMedium += d / 2; needHard += d - d / 2 }
+        if medium.count < needMedium { let d = needMedium - medium.count; needMedium = medium.count; needHard += d }
+        if hard.count < needHard { let d = needHard - hard.count; needHard = hard.count; needEasy += d }
+        if easy.count < needEasy { needEasy = easy.count }
+
+        var selected: [Country] = []
+        selected.append(contentsOf: easy.prefix(needEasy))
+        selected.append(contentsOf: medium.prefix(needMedium))
+        selected.append(contentsOf: hard.prefix(needHard))
+
+        if selected.count < count {
+            let picked = Set(selected.map(\.id))
+            let tail = loadedCountries.filter { !picked.contains($0.id) }.shuffled().prefix(count - selected.count)
+            selected.append(contentsOf: tail)
+        }
+        return Array(shuffledWithSeed(selected, seed: nil).prefix(count))
     }
 
     // Бесплатное пополнение жизней (например, из алерта «Бесплатно +5 жизней»)
@@ -431,17 +597,18 @@ class GameState: ObservableObject {
         
         @MainActor
         var displayName: String {
+            let format = LocalizationManager.shared.localizedString("Level - %@")
             switch self {
             case .easy:
-                return "Level - \(LocalizationManager.shared.localizedString("Easy"))"
+                return String(format: format, LocalizationManager.shared.localizedString("Easy"))
             case .medium:
-                return "Level - \(LocalizationManager.shared.localizedString("Medium"))"
+                return String(format: format, LocalizationManager.shared.localizedString("Medium"))
             case .hard:
-                return "Level - \(LocalizationManager.shared.localizedString("Hard"))"
+                return String(format: format, LocalizationManager.shared.localizedString("Hard"))
             case .expert:
-                return "Level - \(LocalizationManager.shared.localizedString("Expert"))"
+                return String(format: format, LocalizationManager.shared.localizedString("Expert"))
             case .erudite:
-                return "Level - \(LocalizationManager.shared.localizedString("Erudite"))"
+                return String(format: format, LocalizationManager.shared.localizedString("Erudite"))
             }
         }
         
@@ -502,6 +669,50 @@ class GameState: ObservableObject {
         // Загружаем статистику и ошибки только один раз при инициализации
         statistics = StatisticsService.shared.loadStatistics()
         loadMistakes()
+        loadDuelHistory()
+    }
+
+    private func loadDuelHistory() {
+        guard let data = UserDefaults.standard.data(forKey: duelHistoryStorageKey),
+              let decoded = try? JSONDecoder().decode([DuelHistoryEntry].self, from: data) else {
+            duelHistory = []
+            return
+        }
+        duelHistory = decoded
+    }
+
+    private func saveDuelHistory() {
+        guard let data = try? JSONEncoder().encode(duelHistory) else { return }
+        UserDefaults.standard.set(data, forKey: duelHistoryStorageKey)
+    }
+
+    private func addDuelHistory(opponentName: String, myScore: Int, opponentScore: Int, iWon: Bool) {
+        let item = DuelHistoryEntry(
+            id: UUID().uuidString,
+            opponentName: opponentName,
+            myScore: myScore,
+            opponentScore: opponentScore,
+            iWon: iWon,
+            playedAt: Date()
+        )
+        duelHistory.insert(item, at: 0)
+        if duelHistory.count > 50 {
+            duelHistory.removeLast(duelHistory.count - 50)
+        }
+        saveDuelHistory()
+    }
+
+    func recordQuestionResult(correctCountry: Country, selectedCountry: Country?, questionIndex: Int, isCorrect: Bool, timedOut: Bool = false) {
+        let item = GameQuestionResult(
+            id: UUID().uuidString,
+            questionNumber: questionIndex + 1,
+            flagEmoji: correctCountry.flagEmoji,
+            flagName: correctCountry.name.common,
+            selectedAnswer: selectedCountry?.name.common,
+            isCorrect: isCorrect,
+            timedOut: timedOut
+        )
+        currentGameResults.append(item)
     }
     
     // Метод для обновления количества вариантов ответов в зависимости от устройства
@@ -581,8 +792,8 @@ class GameState: ObservableObject {
             let loadedCountries = try await fetchCountries(for: Array(selectedRegions))
             print("Total countries loaded: \(loadedCountries.count)")
             
-            // Перемешиваем страны (в дуэли — по seed)
-            availableCountries = Array(shuffledWithSeed(loadedCountries, seed: duelSeed).prefix(totalQuestionsInGame))
+            // Подбираем страны адаптивно по сложности (в дуэли — по seed одинаково у обоих).
+            availableCountries = selectCountriesForSession(loadedCountries, count: totalQuestionsInGame)
             print("Countries selected for game: \(availableCountries.count)")
             
             // Выбираем первый вопрос
@@ -782,6 +993,7 @@ class GameState: ObservableObject {
         print("Current score: \(score)")
         print("Current time: \(formattedTime())")
         print("Previous best time: \(formattedTime(statistics.bestTime))")
+        lastGameResults = currentGameResults
         
         // Обновляем список ошибок после завершения игры
         if selectedRegions.contains(.myMistakes) {
@@ -856,8 +1068,10 @@ class GameState: ObservableObject {
 
         // Обновляем профиль пользователя и достижения
         let profile = UserProfile.shared
-        let gainedXP = score * 10
+        let fBucksBefore = profile.fBucks
+        let gainedXP = score * 10 + bonusXP
         let effectiveXP = gainedXP * profile.xpBoostMultiplier
+        lastAppliedXPBoostMultiplier = profile.xpBoostMultiplier
         let answersThisGame = initialQuestionsCount
         print("\n=== Updating UserProfile After Game ===")
         print("Gained XP: \(gainedXP)" + (profile.xpBoostMultiplier > 1 ? " x\(profile.xpBoostMultiplier) = \(effectiveXP)" : ""))
@@ -867,7 +1081,7 @@ class GameState: ObservableObject {
         profile.totalAnswers += initialQuestionsCount
         // Правильная логика серии по дням
         profile.updateStreak()
-        profile.addXP(gainedXP)
+        profile.addXP(effectiveXP)
         profile.evaluateAchievementsAndUnlock()
         // Сообщаем сервису лиг о росте пользователя (с учётом буста XP)
         LeaguesService.shared.userGainedXP(effectiveXP, in: profile.currentLeague)
@@ -884,7 +1098,13 @@ class GameState: ObservableObject {
         // Сохраняем обновлённый профиль
         profile.saveToStorage()
         // Обновляем ежедневные квесты
-        QuestService.shared.updateAfterGame(score: score, totalQuestions: initialQuestionsCount, correctAnswers: score)
+        QuestService.shared.updateAfterGame(
+            score: score,
+            totalQuestions: initialQuestionsCount,
+            correctAnswers: score,
+            earnedXP: effectiveXP
+        )
+        lastGameEarnedFBucks = max(0, profile.fBucks - fBucksBefore)
         print("✅ UserProfile updated; achievements re-evaluated")
     }
     
@@ -931,24 +1151,61 @@ class GameState: ObservableObject {
             let nameForResult = challengerNameVal
             let chScoreForResult = challengerScoreVal
             Task {
-                guard let winner = try? await DuelAPIService.shared.submitScore(challengeId: challengeId, score: score, side: "opponent") else { return }
+                guard let result = try? await DuelAPIService.shared.submitScore(challengeId: challengeId, score: score, side: "opponent") else { return }
                 await MainActor.run {
+                    let winner = result.winner ?? "challenger"
+                    let challengerScore = result.challengerScore ?? chScoreForResult
+                    let opponentScore = result.opponentScore ?? score
                     self.pendingDuelResult = DuelResultInfo(
                         challengerName: nameForResult,
-                        challengerScore: chScoreForResult,
-                        opponentScore: score,
+                        challengerScore: challengerScore,
+                        opponentScore: opponentScore,
                         winnerSide: winner
+                    )
+                    self.addDuelHistory(
+                        opponentName: nameForResult,
+                        myScore: opponentScore,
+                        opponentScore: challengerScore,
+                        iWon: winner == "opponent"
+                    )
+                    NotificationService.shared.scheduleDuelResultNotification(
+                        challengerName: nameForResult,
+                        challengerScore: challengerScore,
+                        myScore: opponentScore,
+                        iWon: winner == "opponent"
                     )
                 }
             }
         }
         if let s = side, s == "challenger" {
             Task {
-                guard let winner = try? await DuelAPIService.shared.submitScore(challengeId: challengeId, score: score, side: s) else { return }
+                guard let result = try? await DuelAPIService.shared.submitScore(challengeId: challengeId, score: score, side: s) else { return }
                 await MainActor.run {
+                    let winner = result.winner
                     if winner == "challenger" {
                         profile.addFBucks(1)
                         NotificationService.shared.scheduleDuelWonNotification()
+                    }
+                    // Если сервер уже вернул полный результат, показываем и для стороны challenger.
+                    if let winner, let challengerScore = result.challengerScore, let opponentScore = result.opponentScore {
+                        self.pendingDuelResult = DuelResultInfo(
+                            challengerName: profile.username,
+                            challengerScore: challengerScore,
+                            opponentScore: opponentScore,
+                            winnerSide: winner
+                        )
+                        self.addDuelHistory(
+                            opponentName: self.duelOpponentName ?? self.duelChallengerName ?? LocalizationManager.shared.localizedString("Opponent"),
+                            myScore: challengerScore,
+                            opponentScore: opponentScore,
+                            iWon: winner == "challenger"
+                        )
+                        NotificationService.shared.scheduleDuelResultNotification(
+                            challengerName: profile.username,
+                            challengerScore: challengerScore,
+                            myScore: opponentScore,
+                            iWon: winner == "opponent"
+                        )
                     }
                 }
             }
@@ -973,7 +1230,11 @@ class GameState: ObservableObject {
         }
         
         selectedLanguage = language
-        localizationManager.setLanguage(language)
+        
+        // Сразу пере-локализуем квесты, чтобы вкладка "Квесты" обновлялась без pull-to-refresh.
+        QuestService.shared.refreshQuestLocalization()
+        UserProfile.shared.generateMonthlyQuests()
+        UserProfile.shared.saveToStorage()
         
         // Принудительно обновляем режимы игры
         let currentFlags = countries.count
@@ -1079,12 +1340,27 @@ class GameState: ObservableObject {
         
         isStartingNewGame = true
         isGameInProgress = true
+        let duelContext = (
+            seed: duelSeed,
+            challengeId: duelChallengeId,
+            opponentId: duelOpponentId,
+            opponentName: duelOpponentName,
+            challengerName: duelChallengerName
+        )
+        let shouldPreserveDuelContext = selectedPlayMode == .duel && duelContext.seed != nil
         
         print("\n=== Starting New Game ===")
         print("Selected regions: \(selectedRegions.map { $0.rawValue })")
         
         // Сбрасываем состояние
-        resetGameState()
+        resetGameState(preserveNavigation: false, preserveDuelContext: shouldPreserveDuelContext)
+        if shouldPreserveDuelContext {
+            duelSeed = duelContext.seed
+            duelChallengeId = duelContext.challengeId
+            duelOpponentId = duelContext.opponentId
+            duelOpponentName = duelContext.opponentName
+            duelChallengerName = duelContext.challengerName
+        }
         loadLivesState()
         
         // Загружаем ошибки
@@ -1118,8 +1394,8 @@ class GameState: ObservableObject {
             initialQuestionsCount = actualQuestionsCount
             print("Adjusted questions count from \(questionsPerGame) to \(actualQuestionsCount) based on available countries")
             
-            // Перемешиваем страны (в дуэли — по seed для одинаковой игры)
-            availableCountries = Array(shuffledWithSeed(loadedCountries, seed: duelSeed).prefix(actualQuestionsCount))
+            // Подбираем страны адаптивно по сложности (в дуэли — одинаково по seed).
+            availableCountries = selectCountriesForSession(loadedCountries, count: actualQuestionsCount)
             print("\n=== Selected Countries for Game (\(availableCountries.count)) ===")
             for (index, country) in availableCountries.enumerated() {
                 print("\(index + 1). \(country.name.common)")
@@ -1623,11 +1899,11 @@ class GameState: ObservableObject {
     }
     
     func resetGameState() {
-        resetGameState(preserveNavigation: false)
+        resetGameState(preserveNavigation: false, preserveDuelContext: false)
     }
 
     // Мягкий сброс без изменения флага навигации при перезапуске внутри GameView
-    func resetGameState(preserveNavigation: Bool) {
+    func resetGameState(preserveNavigation: Bool, preserveDuelContext: Bool = false) {
         print("\n=== Resetting Game State ===")
         score = 0
         currentQuestion = 0
@@ -1643,17 +1919,28 @@ class GameState: ObservableObject {
         timer = nil
         questionTimer?.invalidate()
         questionTimer = nil
+        transitionTimer?.invalidate()
+        transitionTimer = nil
         questionStartTime = nil
         questionTimeLeft = 0
         questionTimeProgress = 0
         isQuestionTimerActive = false
+        comboStreak = 0
+        liveComboText = nil
+        liveBonusText = nil
+        bonusXP = 0
+        lastGameEarnedFBucks = 0
+        currentGameResults.removeAll()
         startTime = nil
         lastGameStartAttempt = nil
         isGameInProgress = false // Сбрасываем флаг при окончании игры
-        duelSeed = nil
-        duelChallengeId = nil
-        duelOpponentId = nil
-        duelChallengerName = nil
+        if !preserveDuelContext {
+            duelSeed = nil
+            duelChallengeId = nil
+            duelOpponentId = nil
+            duelOpponentName = nil
+            duelChallengerName = nil
+        }
         pendingDuelResult = nil
         print("Game state has been reset")
         print("=====================\n")
@@ -1663,10 +1950,25 @@ class GameState: ObservableObject {
     func restartGameInPlace() async {
         guard !isStartingNewGame else { return }
         isStartingNewGame = true
+        let duelContext = (
+            seed: duelSeed,
+            challengeId: duelChallengeId,
+            opponentId: duelOpponentId,
+            opponentName: duelOpponentName,
+            challengerName: duelChallengerName
+        )
+        let shouldPreserveDuelContext = selectedPlayMode == .duel && duelContext.seed != nil
         print("\n=== Restarting Game In Place ===")
         print("Current question before reset: \(currentQuestion)")
         // Сохраняем навигацию и сбрасываем только игровые счетчики
-        resetGameState(preserveNavigation: true)
+        resetGameState(preserveNavigation: true, preserveDuelContext: shouldPreserveDuelContext)
+        if shouldPreserveDuelContext {
+            duelSeed = duelContext.seed
+            duelChallengeId = duelContext.challengeId
+            duelOpponentId = duelContext.opponentId
+            duelOpponentName = duelContext.opponentName
+            duelChallengerName = duelContext.challengerName
+        }
         print("Current question after reset: \(currentQuestion)")
         isGameOver = false
         isNavigatingToGame = true
@@ -1689,7 +1991,7 @@ class GameState: ObservableObject {
             }
             let actualQuestionsCount = min(questionsPerGame, loadedCountries.count)
             initialQuestionsCount = actualQuestionsCount
-            availableCountries = Array(shuffledWithSeed(loadedCountries, seed: duelSeed).prefix(actualQuestionsCount))
+            availableCountries = selectCountriesForSession(loadedCountries, count: actualQuestionsCount)
             print("Available countries count: \(availableCountries.count)")
             print("Current question before selectNextQuestion: \(currentQuestion)")
             // Оппортунистическая предзагрузка в фоне
@@ -1913,6 +2215,15 @@ class GameState: ObservableObject {
         
         // Засчитываем как неправильный ответ
         updateStatistics(isCorrect: false)
+        if let currentFlag = currentFlag {
+            recordQuestionResult(
+                correctCountry: currentFlag,
+                selectedCountry: nil,
+                questionIndex: currentQuestion,
+                isCorrect: false,
+                timedOut: true
+            )
+        }
         
         // Отнимаем жизнь при истечении времени (только для не-Premium пользователей)
         if !isPremium {
@@ -1931,10 +2242,15 @@ class GameState: ObservableObject {
         print("Question: \(currentQuestion + 1)/\(initialQuestionsCount)")
         print("=====================\n")
         
-        // Переходим к следующему вопросу через небольшую задержку
-        DispatchQueue.main.asyncAfter(deadline: .now() + 1.5) {
+        // Переходим к следующему вопросу через небольшую задержку.
+        // Сохраняем таймер, чтобы можно было отменить его при выходе из игры.
+        transitionTimer?.invalidate()
+        transitionTimer = Timer.scheduledTimer(withTimeInterval: 1.5, repeats: false) { [weak self] _ in
+            guard let self = self else { return }
+            self.transitionTimer = nil
             self.proceedToNextQuestionAfterTimeout()
         }
+        if let t = transitionTimer { RunLoop.main.add(t, forMode: .common) }
     }
     
     private func proceedToNextQuestionAfterTimeout() {
@@ -1964,6 +2280,8 @@ class GameState: ObservableObject {
         timer?.invalidate()
         timer = nil
         stopQuestionTimer() // Также останавливаем таймер вопросов
+        transitionTimer?.invalidate()
+        transitionTimer = nil
         print("Timer stopped")
         print("Final time: \(formattedTime())")
         print("=====================\n")

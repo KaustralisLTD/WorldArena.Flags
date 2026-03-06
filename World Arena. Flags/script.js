@@ -27,6 +27,12 @@ const state = {
 
 // Добавить в начало файла после CONFIG
 let currentLang = localStorage.getItem('preferred-language') || 'ru';
+const DEFAULT_SETTINGS = {
+    vibration: true,
+    animations: true,
+    sound: true
+};
+let appSettings = { ...DEFAULT_SETTINGS };
 
 // Функция перевода интерфейса
 function translateUI() {
@@ -50,6 +56,38 @@ function loadStatistics() {
     }
 }
 
+function loadSettings() {
+    const saved = localStorage.getItem('flagQuizSettings');
+    if (saved) {
+        try {
+            appSettings = { ...DEFAULT_SETTINGS, ...JSON.parse(saved) };
+        } catch (e) {
+            appSettings = { ...DEFAULT_SETTINGS };
+        }
+    }
+    applySettingsToUI();
+}
+
+function saveSettings() {
+    localStorage.setItem('flagQuizSettings', JSON.stringify(appSettings));
+    applySettingsToUI();
+}
+
+function applySettingsToUI() {
+    const vibration = document.getElementById('setting-vibration');
+    const animations = document.getElementById('setting-animations');
+    const sound = document.getElementById('setting-sound');
+    if (vibration) vibration.checked = !!appSettings.vibration;
+    if (animations) animations.checked = !!appSettings.animations;
+    if (sound) sound.checked = !!appSettings.sound;
+
+    if (appSettings.animations) {
+        document.body.classList.remove('animations-disabled');
+    } else {
+        document.body.classList.add('animations-disabled');
+    }
+}
+
 // Обновление отображения статистики
 function updateStatisticsDisplay() {
     document.getElementById('total-games').textContent = state.statistics.totalGames;
@@ -58,10 +96,23 @@ function updateStatisticsDisplay() {
         `${state.statistics.correctAnswers} (${Math.round(state.statistics.correctAnswers / state.statistics.totalAnswers * 100) || 0}%)`;
 }
 
+function updateRatingDisplay() {
+    const bestScoreEl = document.getElementById('rating-best-score');
+    const accuracyEl = document.getElementById('rating-accuracy');
+    const gamesEl = document.getElementById('rating-games');
+    if (!bestScoreEl || !accuracyEl || !gamesEl) return;
+
+    const accuracy = Math.round((state.statistics.correctAnswers / state.statistics.totalAnswers) * 100) || 0;
+    bestScoreEl.textContent = state.statistics.bestScore;
+    accuracyEl.textContent = `${accuracy}%`;
+    gamesEl.textContent = state.statistics.totalGames;
+}
+
 // Сохранение статистики
 function saveStatistics() {
     localStorage.setItem('flagQuizStats', JSON.stringify(state.statistics));
     updateStatisticsDisplay();
+    updateRatingDisplay();
 }
 
 // Обновление прогресс-бара
@@ -72,6 +123,7 @@ function updateProgress() {
 
 // Вибрация при ответе
 function vibrate(isCorrect) {
+    if (!appSettings.vibration) return;
     if ('vibrate' in navigator) {
         if (isCorrect) {
             navigator.vibrate(100);
@@ -821,10 +873,102 @@ document.getElementById('share-btn').onclick = shareResult;
 document.getElementById('stats-btn').onclick = () => {
     document.getElementById('stats-modal').style.display = 'block';
 };
-document.querySelector('.close-modal').onclick = () => {
-    document.getElementById('stats-modal').style.display = 'none';
-};
 document.getElementById('difficulty').onchange = loadCountries;
+document.getElementById('nav-home').onclick = () => {
+    document.getElementById('start-screen').style.display = 'flex';
+    document.getElementById('game-container').style.display = 'none';
+};
+document.getElementById('nav-stats').onclick = () => {
+    document.getElementById('stats-modal').style.display = 'block';
+};
+document.getElementById('nav-rating').onclick = () => {
+    updateRatingDisplay();
+    document.getElementById('rating-modal').style.display = 'block';
+};
+document.getElementById('nav-about').onclick = () => {
+    document.getElementById('about-modal').style.display = 'block';
+};
+document.getElementById('nav-settings').onclick = () => {
+    applySettingsToUI();
+    document.getElementById('settings-modal').style.display = 'block';
+};
+
+document.querySelectorAll('.close-modal').forEach((btn) => {
+    btn.addEventListener('click', () => {
+        const modal = btn.closest('.modal');
+        if (modal) modal.style.display = 'none';
+    });
+});
+
+document.getElementById('setting-vibration').addEventListener('change', (e) => {
+    appSettings.vibration = e.target.checked;
+    saveSettings();
+});
+document.getElementById('setting-animations').addEventListener('change', (e) => {
+    appSettings.animations = e.target.checked;
+    saveSettings();
+});
+document.getElementById('setting-sound').addEventListener('change', (e) => {
+    appSettings.sound = e.target.checked;
+    saveSettings();
+});
+document.getElementById('reset-stats-btn').addEventListener('click', () => {
+    state.statistics = {
+        totalGames: 0,
+        bestScore: 0,
+        correctAnswers: 0,
+        totalAnswers: 0
+    };
+    saveStatistics();
+});
+
+// Закрытие модалок по клику на затемнение и клавише Esc.
+document.addEventListener('click', (e) => {
+    const statsModal = document.getElementById('stats-modal');
+    const ratingModal = document.getElementById('rating-modal');
+    const aboutModal = document.getElementById('about-modal');
+    const settingsModal = document.getElementById('settings-modal');
+    const gameOverModal = document.getElementById('game-over-modal');
+    if (e.target === statsModal) {
+        statsModal.style.display = 'none';
+    }
+    if (e.target === ratingModal) {
+        ratingModal.style.display = 'none';
+    }
+    if (e.target === aboutModal) {
+        aboutModal.style.display = 'none';
+    }
+    if (e.target === settingsModal) {
+        settingsModal.style.display = 'none';
+    }
+    if (e.target === gameOverModal) {
+        gameOverModal.style.display = 'none';
+    }
+});
+
+document.addEventListener('keydown', (e) => {
+    if (e.key !== 'Escape') return;
+    const statsModal = document.getElementById('stats-modal');
+    const ratingModal = document.getElementById('rating-modal');
+    const aboutModal = document.getElementById('about-modal');
+    const settingsModal = document.getElementById('settings-modal');
+    const gameOverModal = document.getElementById('game-over-modal');
+    if (statsModal.style.display === 'block') {
+        statsModal.style.display = 'none';
+    }
+    if (ratingModal.style.display === 'block') {
+        ratingModal.style.display = 'none';
+    }
+    if (aboutModal.style.display === 'block') {
+        aboutModal.style.display = 'none';
+    }
+    if (settingsModal.style.display === 'block') {
+        settingsModal.style.display = 'none';
+    }
+    if (gameOverModal.style.display === 'block') {
+        gameOverModal.style.display = 'none';
+    }
+});
 
 // Инициализация стартового экрана
 function initStartScreen() {
@@ -976,12 +1120,64 @@ function initMobileMenu() {
     const hamburger = document.getElementById('hamburger');
     const topBar = document.getElementById('top-bar');
     const header = hamburger && hamburger.closest('.header');
+    const menuBackdrop = document.getElementById('menu-backdrop');
     if (!hamburger || !topBar || !header) return;
 
-    hamburger.addEventListener('click', () => {
-        const isOpen = header.classList.toggle('menu-open');
-        hamburger.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
-        topBar.setAttribute('aria-hidden', isOpen ? 'false' : 'true');
+    const closeMenu = () => {
+        header.classList.remove('menu-open');
+        hamburger.setAttribute('aria-expanded', 'false');
+        topBar.setAttribute('aria-hidden', 'true');
+        document.body.classList.remove('menu-open-global');
+    };
+
+    const openMenu = () => {
+        header.classList.add('menu-open');
+        hamburger.setAttribute('aria-expanded', 'true');
+        topBar.setAttribute('aria-hidden', 'false');
+        document.body.classList.add('menu-open-global');
+    };
+
+    hamburger.addEventListener('click', (e) => {
+        e.stopPropagation();
+        const isOpen = header.classList.contains('menu-open');
+        if (isOpen) {
+            closeMenu();
+        } else {
+            openMenu();
+        }
+    });
+
+    if (menuBackdrop) {
+        menuBackdrop.addEventListener('click', closeMenu);
+    }
+
+    document.addEventListener('click', (e) => {
+        if (!header.classList.contains('menu-open')) return;
+        if (!header.contains(e.target)) {
+            closeMenu();
+        }
+    });
+
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape') {
+            closeMenu();
+        }
+    });
+
+    // После выбора сложности на мобилке меню автоматически закрывается.
+    const difficulty = document.getElementById('difficulty');
+    if (difficulty) {
+        difficulty.addEventListener('change', () => {
+            if (window.innerWidth <= 768) {
+                closeMenu();
+            }
+        });
+    }
+
+    window.addEventListener('resize', () => {
+        if (window.innerWidth > 768) {
+            closeMenu();
+        }
     });
 }
 
@@ -1012,9 +1208,11 @@ function initAppStoreBanner() {
 // Обновляем window.onload
 window.onload = () => {
     loadStatistics();
+    loadSettings();
     initStartScreen();
     initRegionSelector();
     createBackgroundFlags();
     initMobileMenu();
     initAppStoreBanner();
+    updateRatingDisplay();
 };

@@ -81,6 +81,13 @@
                     <span></span><span></span><span></span>
                 </button>
             </div>
+            <nav class="main-nav" aria-label="Main navigation">
+                <button type="button" class="nav-btn" id="nav-home" data-i18n="home">Главная</button>
+                <button type="button" class="nav-btn" id="nav-stats" data-i18n="stats">Статистика</button>
+                <button type="button" class="nav-btn" id="nav-rating" data-i18n="rating">Рейтинг</button>
+                <button type="button" class="nav-btn" id="nav-about" data-i18n="about">О нас</button>
+                <button type="button" class="nav-btn" id="nav-settings" data-i18n="settings">Настройки</button>
+            </nav>
             <div class="top-bar" id="top-bar" aria-hidden="true">
                 <div class="score-container">
                     <span data-i18n="score">Счёт:</span>
@@ -98,6 +105,7 @@
                     </select>
                 </div>
             </div>
+            <button type="button" id="menu-backdrop" class="menu-backdrop" aria-hidden="true" tabindex="-1"></button>
             <div class="progress-bar">
                 <div class="progress-fill"></div>
             </div>
@@ -142,6 +150,58 @@
                         <span id="correct-answers">0</span>
                     </div>
                 </div>
+                <button class="close-modal" data-i18n="close">Закрыть</button>
+            </div>
+        </div>
+
+        <div id="rating-modal" class="modal">
+            <div class="modal-content">
+                <h2 data-i18n="rating">Рейтинг</h2>
+                <div class="stats-grid">
+                    <div class="stat-item">
+                        <span data-i18n="ratingBestScore">Лучший счёт</span>
+                        <span id="rating-best-score">0</span>
+                    </div>
+                    <div class="stat-item">
+                        <span data-i18n="ratingAccuracy">Точность</span>
+                        <span id="rating-accuracy">0%</span>
+                    </div>
+                    <div class="stat-item">
+                        <span data-i18n="ratingGames">Игр сыграно</span>
+                        <span id="rating-games">0</span>
+                    </div>
+                </div>
+                <button class="close-modal" data-i18n="close">Закрыть</button>
+            </div>
+        </div>
+
+        <div id="about-modal" class="modal">
+            <div class="modal-content">
+                <h2 data-i18n="about">О нас</h2>
+                <p class="about-text" data-i18n="aboutText1">World Arena Flags - интерактивная игра для изучения флагов стран.</p>
+                <p class="about-text" data-i18n="aboutText2">Тренируйте память, улучшайте скорость ответов и изучайте географию в удобном формате.</p>
+                <button class="close-modal" data-i18n="close">Закрыть</button>
+            </div>
+        </div>
+
+        <div id="settings-modal" class="modal">
+            <div class="modal-content">
+                <h2 data-i18n="settings">Настройки</h2>
+                <div class="settings-list">
+                    <label class="settings-item">
+                        <span data-i18n="settingVibration">Вибрация</span>
+                        <input type="checkbox" id="setting-vibration" checked>
+                    </label>
+                    <label class="settings-item">
+                        <span data-i18n="settingAnimations">Анимации</span>
+                        <input type="checkbox" id="setting-animations" checked>
+                    </label>
+                    <label class="settings-item">
+                        <span data-i18n="settingSound">Звуки</span>
+                        <input type="checkbox" id="setting-sound" checked>
+                    </label>
+                </div>
+                <button id="reset-stats-btn" class="close-modal" data-i18n="resetStats">Сбросить статистику</button>
                 <button class="close-modal" data-i18n="close">Закрыть</button>
             </div>
         </div>

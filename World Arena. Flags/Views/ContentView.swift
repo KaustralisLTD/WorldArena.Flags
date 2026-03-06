@@ -9,6 +9,7 @@ struct ContentView: View {
     @ObservedObject private var themeManager = AppThemeManager.shared
     @ObservedObject private var localizationManager = LocalizationManager.shared
     @Environment(\.horizontalSizeClass) private var horizontalSizeClass
+    @Environment(\.colorScheme) private var systemColorScheme
     
     private var isIPad: Bool {
         #if os(iOS)
@@ -21,6 +22,10 @@ struct ContentView: View {
     private func isLandscapeIPad(_ width: CGFloat, _ height: CGFloat) -> Bool {
         isIPad && width > height
     }
+
+    private var effectiveColorScheme: ColorScheme {
+        themeManager.colorScheme ?? systemColorScheme
+    }
     
     // Animation states
     @State private var showContent = false
@@ -31,8 +36,23 @@ struct ContentView: View {
     @State private var showFBucksInfo = false
     @State private var isAcceptingIncomingDuel = false
     @State private var isDifficultySliderInteracting = false
+    @State private var firstLaunchDate: Date = Date()
+    @State private var onboardingNow: Date = Date()
+    @State private var cityLeaderboardPercentile: Int = 72
 
     private static let duelExpiryHours: TimeInterval = 24
+    private static let firstRunWindowSeconds: TimeInterval = 180
+    private static let firstLaunchDateKey = "onboarding.firstLaunchDate.v1"
+    private static let firstRunPercentileKey = "onboarding.cityPercentile.v1"
+
+    private var firstRunRemainingSeconds: Int {
+        let spent = onboardingNow.timeIntervalSince(firstLaunchDate)
+        return max(0, Int(Self.firstRunWindowSeconds - spent))
+    }
+
+    private var shouldShowFirstRunMotivation: Bool {
+        firstRunRemainingSeconds > 0
+    }
     private var pendingIncomingDuel: DuelChallenge? {
         userProfile.incomingDuelChallenges.first { c in
             c.status == .pending && Date().timeIntervalSince(c.createdAt) < Self.duelExpiryHours
@@ -51,16 +71,17 @@ struct ContentView: View {
 
             GeometryReader { geo in
                     let landscapeIPad = isLandscapeIPad(geo.size.width, geo.size.height)
+                    let compactPhone = !isIPad && geo.size.height <= 880
                     
                     VStack(spacing: 0) {
                         if landscapeIPad {
                             // iPad горизонтально: крупный логотип по центру, жизни слева и F-Bucks справа
                             ZStack(alignment: .center) {
                                 HStack(alignment: .center, spacing: 16) {
-                                    LivesInfoBar(gameState: gameState)
+                                    LivesInfoBar(gameState: gameState, largeText: isIPad)
                                     Spacer(minLength: 8)
                                     Button(action: { showFBucksInfo = true }) {
-                                        FBucksChipView(count: userProfile.fBucks, size: .compact)
+                                        FBucksChipView(count: userProfile.fBucks, size: isIPad ? .regular : .compact)
                                     }
                                     .buttonStyle(PlainButtonStyle())
                                 }
@@ -70,16 +91,21 @@ struct ContentView: View {
                                         .font(.system(size: 30, weight: .bold, design: .rounded))
                                         .foregroundStyle(
                                             LinearGradient(
-                                                colors: Color.appTextGradient(for: themeManager.colorScheme),
+                                                colors: Color.appTextGradient(for: effectiveColorScheme),
                                                 startPoint: .topLeading,
                                                 endPoint: .bottomTrailing
                                             )
                                         )
-                                    Text("Learn flags and countries of the World")
+                                    Text(localizationManager.localizedString("Learn flags and countries of the World"))
                                         .font(.system(size: 14, weight: .medium))
-                                        .foregroundColor(themeManager.colorScheme == .dark ? .white.opacity(0.9) : .black.opacity(0.7))
+                                        .foregroundColor(effectiveColorScheme == .dark ? .white.opacity(0.9) : .black.opacity(0.7))
                                 }
                                 .frame(maxWidth: .infinity)
+                                .padding(.horizontal, 10)
+                                .background(
+                                    Capsule()
+                                        .fill(effectiveColorScheme == .dark ? Color.white.opacity(0.12) : Color.white.opacity(0.22))
+                                )
                             }
                             .padding(.vertical, 14)
                             .opacity(showContent ? 1.0 : 0.0)
@@ -91,37 +117,50 @@ struct ContentView: View {
                                     .font(.system(size: 28, weight: .bold, design: .rounded))
                                     .foregroundStyle(
                                         LinearGradient(
-                                            colors: Color.appTextGradient(for: themeManager.colorScheme),
+                                            colors: Color.appTextGradient(for: effectiveColorScheme),
                                             startPoint: .topLeading,
                                             endPoint: .bottomTrailing
                                         )
                                     )
-                                    .shadow(color: themeManager.colorScheme == .dark ? .black.opacity(0.5) : .black.opacity(0.3), radius: themeManager.colorScheme == .dark ? 6 : 4, x: 0, y: 2)
-                                Text("Learn flags and countries of the World")
+                                    .shadow(color: effectiveColorScheme == .dark ? .black.opacity(0.5) : .black.opacity(0.3), radius: effectiveColorScheme == .dark ? 6 : 4, x: 0, y: 2)
+                                Text(localizationManager.localizedString("Learn flags and countries of the World"))
                                     .font(.system(size: 14, weight: .medium))
-                                    .foregroundColor(themeManager.colorScheme == .dark ? .white.opacity(0.9) : .black.opacity(0.7))
+                                    .foregroundColor(effectiveColorScheme == .dark ? .white.opacity(0.9) : .black.opacity(0.7))
                             }
+                            .padding(.horizontal, 10)
+                            .background(
+                                Capsule()
+                                    .fill(effectiveColorScheme == .dark ? Color.white.opacity(0.12) : Color.white.opacity(0.22))
+                            )
                             .padding(.top, 8)
-                            .padding(.bottom, 6)
+                            .padding(.bottom, compactPhone ? 2 : 6)
                             .opacity(showContent ? 1.0 : 0.0)
                             .animation(.easeOut(duration: 0.8).delay(0.2), value: showContent)
                             HStack(alignment: .center, spacing: 10) {
-                                LivesInfoBar(gameState: gameState)
+                                LivesInfoBar(gameState: gameState, largeText: isIPad)
                                 Button(action: {
                                     showFBucksInfo = true
                                 }) {
-                                    FBucksChipView(count: userProfile.fBucks, size: .compact)
+                                    FBucksChipView(count: userProfile.fBucks, size: isIPad ? .regular : .compact)
                                 }
                                 .buttonStyle(PlainButtonStyle())
                             }
                             .padding(.horizontal, 20)
-                            .padding(.bottom, 6)
+                            .padding(.bottom, compactPhone ? 2 : 6)
                             .opacity(showContent ? 1.0 : 0.0)
                             .animation(.easeOut(duration: 0.6).delay(0.3), value: showContent)
                         }
 
                         ScrollView {
-                            VStack(spacing: 14) {
+                            VStack(spacing: compactPhone ? 10 : 14) {
+                                if shouldShowFirstRunMotivation {
+                                    FirstRunMotivationCardView(
+                                        percentile: cityLeaderboardPercentile,
+                                        secondsLeft: firstRunRemainingSeconds
+                                    )
+                                    .padding(.horizontal, 20)
+                                }
+
                                 VStack(alignment: .leading, spacing: 8) {
                                     Text(localizationManager.localizedString("Select Region"))
                                         .font(.system(size: isIPad ? 22 : 16, weight: .semibold))
@@ -129,7 +168,7 @@ struct ContentView: View {
                                         .padding(.horizontal, 20)
                                     RegionSelectionView(gameState: gameState, columnCount: landscapeIPad ? 3 : 2, compact: landscapeIPad, largeFontForLandscape: isIPad)
                                 }
-                            .padding(.vertical, 8)
+                            .padding(.vertical, compactPhone ? 4 : 8)
                             .background(
                                 RoundedRectangle(cornerRadius: 16)
                                     .fill(.ultraThinMaterial)
@@ -142,7 +181,7 @@ struct ContentView: View {
                             
                             // Выбор сложности (на iPad landscape — компактнее)
                             VStack(alignment: .leading, spacing: landscapeIPad ? 4 : 8) {
-                                Text("Select Level")
+                                Text(localizationManager.localizedString("Select Level"))
                                     .font(.system(size: isIPad ? 22 : 16, weight: .semibold))
                                     .foregroundColor(.primary)
                                     .padding(.horizontal, 20)
@@ -150,11 +189,12 @@ struct ContentView: View {
                                 DifficultySelectionView(
                                     gameState: gameState,
                                     compact: landscapeIPad,
+                                    phoneCompact: compactPhone,
                                     largeFontForIPad: isIPad,
                                     isInteracting: $isDifficultySliderInteracting
                                 )
                             }
-                            .padding(.vertical, landscapeIPad ? 2 : 4)
+                            .padding(.vertical, landscapeIPad ? 2 : (compactPhone ? 1 : 4))
                             .background(
                                 RoundedRectangle(cornerRadius: 16)
                                     .fill(.ultraThinMaterial)
@@ -174,7 +214,7 @@ struct ContentView: View {
                                 
                                 GameModeSelectionView(gameState: gameState, largeFontForLandscape: isIPad)
                             }
-                            .padding(.vertical, 8)
+                            .padding(.vertical, compactPhone ? 4 : 8)
                             .background(
                                 RoundedRectangle(cornerRadius: 16)
                                     .fill(.ultraThinMaterial)
@@ -271,7 +311,7 @@ struct ContentView: View {
                                     }
                                 }
                                 .frame(maxWidth: .infinity)
-                                .frame(height: isIPad ? 76 : 52)
+                                .frame(height: isIPad ? 76 : (compactPhone ? 46 : 52))
                                 .background(
                                     RoundedRectangle(cornerRadius: 28)
                                         .fill(
@@ -296,7 +336,7 @@ struct ContentView: View {
                             .offset(y: showContent ? 0 : 50)
                             .animation(.spring(response: 0.8, dampingFraction: 0.8).delay(1.0), value: showContent)
                         }
-                        .padding(.bottom, 20)
+                        .padding(.bottom, compactPhone ? 8 : 20)
                     }
                     }
                 }
@@ -363,12 +403,36 @@ struct ContentView: View {
             }
             .onAppear {
                 gameState.updateOptionsCount(isIPad: horizontalSizeClass == .regular)
+                setupFirstRunMotivation()
                 withAnimation(.easeOut(duration: 0.5)) {
                     showContent = true
                 }
                 Task { await refreshIncomingDuelChallenges() }
             }
+            .onReceive(Timer.publish(every: 1, on: .main, in: .common).autoconnect()) { date in
+                onboardingNow = date
+            }
         .frame(maxWidth: .infinity, maxHeight: .infinity)
+    }
+
+    private func setupFirstRunMotivation() {
+        let defaults = UserDefaults.standard
+        if let saved = defaults.object(forKey: Self.firstLaunchDateKey) as? Date {
+            firstLaunchDate = saved
+        } else {
+            let now = Date()
+            firstLaunchDate = now
+            defaults.set(now, forKey: Self.firstLaunchDateKey)
+        }
+
+        let storedPercentile = defaults.integer(forKey: Self.firstRunPercentileKey)
+        if storedPercentile == 0 {
+            let generated = Int.random(in: 68...78)
+            cityLeaderboardPercentile = generated
+            defaults.set(generated, forKey: Self.firstRunPercentileKey)
+        } else {
+            cityLeaderboardPercentile = storedPercentile
+        }
     }
 
     private func refreshIncomingDuelChallenges() async {
@@ -397,6 +461,7 @@ struct ContentView: View {
                 gameState.duelSeed = result.seed
                 gameState.duelChallengeId = challenge.id
                 gameState.duelOpponentId = challenge.challengerId
+                gameState.duelOpponentName = result.challengerName
                 gameState.duelChallengerName = result.challengerName
             }
             await gameState.startNewGameWithCurrentRegions()
@@ -416,6 +481,42 @@ struct ContentView: View {
             }
         }
         .frame(maxWidth: .infinity, maxHeight: .infinity)
+    }
+}
+
+struct FirstRunMotivationCardView: View {
+    let percentile: Int
+    let secondsLeft: Int
+    @ObservedObject private var localizationManager = LocalizationManager.shared
+
+    var body: some View {
+        VStack(alignment: .leading, spacing: 8) {
+            Text(String(format: localizationManager.localizedString("You already outranked %d%% of players in your city"), percentile))
+                .font(.system(size: 16, weight: .bold, design: .rounded))
+                .foregroundColor(.white)
+            Text(localizationManager.localizedString("Goal: keep 90% accuracy in first challenge"))
+                .font(.system(size: 13, weight: .semibold))
+                .foregroundColor(.white.opacity(0.95))
+            Text(String(format: localizationManager.localizedString("Challenge ends in %d sec"), secondsLeft))
+                .font(.system(size: 12, weight: .medium))
+                .foregroundColor(.white.opacity(0.85))
+        }
+        .padding(14)
+        .frame(maxWidth: .infinity, alignment: .leading)
+        .background(
+            RoundedRectangle(cornerRadius: 14, style: .continuous)
+                .fill(
+                    LinearGradient(
+                        colors: [Color.purple.opacity(0.9), Color.blue.opacity(0.85)],
+                        startPoint: .topLeading,
+                        endPoint: .bottomTrailing
+                    )
+                )
+        )
+        .overlay(
+            RoundedRectangle(cornerRadius: 14, style: .continuous)
+                .stroke(Color.white.opacity(0.35), lineWidth: 1)
+        )
     }
 }
 
@@ -475,9 +576,9 @@ struct FBucksChipView: View {
     enum Size { case compact, regular }
     var size: Size = .compact
     
-    private var chipDiameter: CGFloat { size == .compact ? 44 : 56 }
-    private var fontSize: CGFloat { size == .compact ? 18 : 24 }
-    private var countFontSize: CGFloat { size == .compact ? 14 : 16 }
+    private var chipDiameter: CGFloat { size == .compact ? 44 : 64 }
+    private var fontSize: CGFloat { size == .compact ? 18 : 28 }
+    private var countFontSize: CGFloat { size == .compact ? 14 : 20 }
     
     var body: some View {
         HStack(spacing: size == .compact ? 6 : 10) {
@@ -519,8 +620,8 @@ struct FBucksChipView: View {
                 .foregroundColor(.primary)
                 .monospacedDigit()
         }
-        .padding(.horizontal, size == .compact ? 10 : 14)
-        .padding(.vertical, size == .compact ? 8 : 10)
+        .padding(.horizontal, size == .compact ? 10 : 16)
+        .padding(.vertical, size == .compact ? 8 : 12)
         .background(RoundedRectangle(cornerRadius: 12).fill(.ultraThinMaterial))
     }
 }
@@ -528,33 +629,53 @@ struct FBucksChipView: View {
 // MARK: - Lives info bar on Home
 struct LivesInfoBar: View {
     @ObservedObject var gameState: GameState
+    @Environment(\.scenePhase) private var scenePhase
+    var largeText: Bool = false
     @State private var showTooltip = false
+    @State private var showUpgradePromo = false
     @State private var countdown: TimeInterval = 0
     @State private var timer: Timer?
+
+    private func startCountdownTimer() {
+        guard !gameState.isPremium else { return }
+        countdown = gameState.timeToNextLivesRefill() ?? 0
+        timer?.invalidate()
+        timer = Timer.scheduledTimer(withTimeInterval: 1, repeats: true) { _ in
+            if countdown > 0 {
+                countdown -= 1
+            } else {
+                gameState.refillLivesIfNeeded()
+                countdown = gameState.timeToNextLivesRefill() ?? 0
+            }
+        }
+        if let t = timer { RunLoop.main.add(t, forMode: .common) }
+    }
     
     var body: some View {
         HStack(spacing: 12) {
             if gameState.isPremium {
                 ZStack {
                     Image(systemName: "heart.circle.fill")
-                        .font(.title2)
+                        .font(.system(size: largeText ? 24 : 20, weight: .semibold))
                         .foregroundColor(.pink)
                     Image(systemName: "infinity")
-                        .font(.caption)
+                        .font(.system(size: largeText ? 13 : 11, weight: .bold))
                         .foregroundColor(.white)
                         .offset(y: 0.5)
                 }
                 Text(LocalizationManager.shared.localizedString("Unlimited Hearts"))
-                    .font(.system(size: 16, weight: .semibold))
+                    .font(.system(size: largeText ? 20 : 16, weight: .semibold))
                     .lineLimit(1)
                     .minimumScaleFactor(0.7)
                     .foregroundColor(.primary)
                 Spacer()
             } else {
                 // Для обычных пользователей: ограничиваем размер шрифта, чтобы при увеличенном тексте шапка не занимала весь экран и кнопка «ПОЧАТИ ГРУ» помещалась
-                Image(systemName: "heart.fill").foregroundColor(.red)
+                Image(systemName: "heart.fill")
+                    .font(.system(size: largeText ? 20 : 16, weight: .semibold))
+                    .foregroundColor(.red)
                 Text("\(LocalizationManager.shared.localizedString("Lives")): \(String(gameState.lives))")
-                    .font(.system(size: 16, weight: .semibold))
+                    .font(.system(size: largeText ? 20 : 16, weight: .semibold))
                     .lineLimit(1)
                     .minimumScaleFactor(0.7)
                 Spacer()
@@ -562,16 +683,22 @@ struct LivesInfoBar: View {
                     let minutes = Int(remaining) / 60
                     let seconds = Int(remaining) % 60
                     Text(String(format: LocalizationManager.shared.localizedString("Next +%d in %02d:%02d"), gameState.maxLives, minutes, seconds))
-                        .font(.system(size: 12, weight: .regular))
+                        .font(.system(size: largeText ? 14 : 12, weight: .regular))
                         .foregroundColor(.secondary)
                         .lineLimit(1)
                         .minimumScaleFactor(0.7)
                 }
             }
         }
-        .padding(12)
+        .padding(largeText ? 14 : 12)
         .background(RoundedRectangle(cornerRadius: 12).fill(.ultraThinMaterial))
-        .onTapGesture { showTooltip.toggle() }
+        .onTapGesture {
+            if gameState.isPremium {
+                showTooltip.toggle()
+            } else {
+                showUpgradePromo = true
+            }
+        }
         .popover(isPresented: $showTooltip) {
             VStack(alignment: .leading, spacing: 12) {
                 if gameState.isPremium {
@@ -595,44 +722,204 @@ struct LivesInfoBar: View {
                         NotificationCenter.default.post(name: NSNotification.Name("showPremiumFromHome"), object: nil)
                     }
                     .buttonStyle(.borderedProminent)
-                } else {
-                    Text(LocalizationManager.shared.localizedString("Lives refill info"))
-                        .font(.headline)
-                    if let remaining = (countdown > 0 ? countdown : gameState.timeToNextLivesRefill()) {
-                        let minutes = Int(remaining) / 60
-                        let seconds = Int(remaining) % 60
-                        Text(String(format: LocalizationManager.shared.localizedString("You will receive +%d new lives in %02d:%02d"), gameState.maxLives, minutes, seconds))
-                            .font(.subheadline)
-                            .foregroundColor(.secondary)
-                    }
-                    Button(LocalizationManager.shared.localizedString("Go Premium")) {
-                        showTooltip = false
-                        NotificationCenter.default.post(name: NSNotification.Name("showPremiumFromHome"), object: nil)
-                    }
-                    .buttonStyle(.borderedProminent)
                 }
             }
             .padding()
             .frame(minWidth: 260)
         }
+        .sheet(isPresented: $showUpgradePromo) {
+            LivesUpgradePromoView(
+                onClose: { showUpgradePromo = false },
+                onGoPremium: {
+                    showUpgradePromo = false
+                    NotificationCenter.default.post(name: NSNotification.Name("showPremiumFromHome"), object: nil)
+                }
+            )
+        }
         .onAppear {
             if !gameState.isPremium {
-                // Инициализируем текущее значение и запускаем тикающий таймер раз в секунду
-                countdown = gameState.timeToNextLivesRefill() ?? 0
+                startCountdownTimer()
+            }
+        }
+        .onChange(of: scenePhase) { newPhase in
+            guard !gameState.isPremium else { return }
+            switch newPhase {
+            case .active:
+                // После возврата из другого приложения сразу пересчитываем остаток,
+                // чтобы таймер на главной не "зависал".
+                gameState.refillLivesIfNeeded()
+                startCountdownTimer()
+            case .inactive, .background:
                 timer?.invalidate()
-                timer = Timer.scheduledTimer(withTimeInterval: 1, repeats: true) { _ in
-                    if countdown > 0 {
-                        countdown -= 1
-                    } else {
-                        countdown = gameState.timeToNextLivesRefill() ?? 0
-                    }
-                }
-                if let t = timer { RunLoop.main.add(t, forMode: .common) }
+                timer = nil
+            @unknown default:
+                break
             }
         }
         .onDisappear {
             timer?.invalidate()
             timer = nil
+        }
+    }
+}
+
+private struct LivesUpgradePromoView: View {
+    let onClose: () -> Void
+    let onGoPremium: () -> Void
+    @ObservedObject private var localizationManager = LocalizationManager.shared
+
+    var body: some View {
+        NavigationView {
+            ZStack {
+                LinearGradient(
+                    colors: [
+                        Color.blue.opacity(0.22),
+                        Color.purple.opacity(0.20),
+                        Color.orange.opacity(0.12)
+                    ],
+                    startPoint: .topLeading,
+                    endPoint: .bottomTrailing
+                )
+                .ignoresSafeArea()
+
+                ScrollView {
+                    VStack(spacing: 18) {
+                        VStack(spacing: 8) {
+                            Text("🚀")
+                                .font(.system(size: 52))
+                            Text(localizationManager.localizedString("Unlock your full progress"))
+                                .font(.system(size: 28, weight: .bold, design: .rounded))
+                                .multilineTextAlignment(.center)
+                            Text(localizationManager.localizedString("Get Premium tools for faster learning and better game results"))
+                                .font(.system(size: 15, weight: .medium))
+                                .foregroundColor(.secondary)
+                                .multilineTextAlignment(.center)
+                                .padding(.horizontal, 8)
+                        }
+                        .padding(.top, 8)
+
+                        HStack(spacing: 8) {
+                            Image(systemName: "chart.line.uptrend.xyaxis")
+                                .foregroundColor(.green)
+                            Text(localizationManager.localizedString("Up to +750% faster flag learning with Premium"))
+                                .font(.system(size: 14, weight: .semibold))
+                                .foregroundColor(.primary)
+                                .multilineTextAlignment(.leading)
+                            Spacer(minLength: 0)
+                        }
+                        .padding(12)
+                        .background(
+                            RoundedRectangle(cornerRadius: 12)
+                                .fill(Color.green.opacity(0.12))
+                        )
+
+                        VStack(spacing: 12) {
+                            PromoFeatureRow(
+                                icon: "heart.fill",
+                                color: .red,
+                                title: localizationManager.localizedString("Unlimited Hearts"),
+                                subtitle: localizationManager.localizedString("Play without waiting and keep your learning momentum")
+                            )
+                            PromoFeatureRow(
+                                icon: "book.fill",
+                                color: .blue,
+                                title: localizationManager.localizedString("Learning section"),
+                                subtitle: localizationManager.localizedString("Train flags, listen to anthems, and explore detailed country profiles")
+                            )
+                            PromoFeatureRow(
+                                icon: "brain.head.profile",
+                                color: .purple,
+                                title: localizationManager.localizedString("Erudite difficulty"),
+                                subtitle: localizationManager.localizedString("Advanced challenge with deeper knowledge checks")
+                            )
+                            PromoFeatureRow(
+                                icon: "exclamationmark.bubble.fill",
+                                color: .orange,
+                                title: localizationManager.localizedString("My mistakes"),
+                                subtitle: localizationManager.localizedString("Focus on weak topics and improve accuracy")
+                            )
+                            PromoFeatureRow(
+                                icon: "sparkles",
+                                color: .green,
+                                title: localizationManager.localizedString("Personalized practice"),
+                                subtitle: localizationManager.localizedString("Adaptive sessions based on your progress")
+                            )
+                            PromoFeatureRow(
+                                icon: "text.bubble.fill",
+                                color: .indigo,
+                                title: localizationManager.localizedString("Explain my answer"),
+                                subtitle: localizationManager.localizedString("Understand every mistake and learn faster")
+                            )
+                        }
+                        .padding(16)
+                        .background(
+                            RoundedRectangle(cornerRadius: 18)
+                                .fill(.ultraThinMaterial)
+                                .overlay(
+                                    RoundedRectangle(cornerRadius: 18)
+                                        .stroke(Color.white.opacity(0.35), lineWidth: 1)
+                                )
+                        )
+
+                        Button(action: onGoPremium) {
+                            HStack(spacing: 10) {
+                                Image(systemName: "crown.fill")
+                                Text(localizationManager.localizedString("Go Premium"))
+                                    .fontWeight(.bold)
+                            }
+                            .foregroundColor(.white)
+                            .frame(maxWidth: .infinity)
+                            .frame(height: 56)
+                            .background(
+                                LinearGradient(
+                                    colors: [Color.blue, Color.purple],
+                                    startPoint: .leading,
+                                    endPoint: .trailing
+                                )
+                            )
+                            .cornerRadius(16)
+                            .shadow(color: .blue.opacity(0.35), radius: 10, x: 0, y: 6)
+                        }
+                        .padding(.top, 4)
+                    }
+                    .padding(.horizontal, 20)
+                    .padding(.bottom, 24)
+                }
+            }
+            .navigationBarTitleDisplayMode(.inline)
+            .toolbar {
+                ToolbarItem(placement: .navigationBarLeading) {
+                    Button(localizationManager.localizedString("Close")) { onClose() }
+                }
+            }
+        }
+    }
+}
+
+private struct PromoFeatureRow: View {
+    let icon: String
+    let color: Color
+    let title: String
+    let subtitle: String
+
+    var body: some View {
+        HStack(alignment: .top, spacing: 12) {
+            Image(systemName: icon)
+                .font(.system(size: 17, weight: .semibold))
+                .foregroundColor(.white)
+                .frame(width: 34, height: 34)
+                .background(color)
+                .clipShape(RoundedRectangle(cornerRadius: 10, style: .continuous))
+
+            VStack(alignment: .leading, spacing: 2) {
+                Text(title)
+                    .font(.system(size: 16, weight: .semibold))
+                    .foregroundColor(.primary)
+                Text(subtitle)
+                    .font(.system(size: 13))
+                    .foregroundColor(.secondary)
+            }
+            Spacer(minLength: 0)
         }
     }
 }
@@ -781,6 +1068,7 @@ struct TappableDifficultySlider: UIViewRepresentable {
 struct DifficultySelectionView: View {
     @ObservedObject var gameState: GameState
     var compact: Bool = false
+    var phoneCompact: Bool = false
     /// Крупный шрифт названия уровня и описания на iPad (портрет и ландшафт)
     var largeFontForIPad: Bool = false
     @Binding var isInteracting: Bool
@@ -800,11 +1088,15 @@ struct DifficultySelectionView: View {
     private var currentIndex: Int {
         min(max(Int(sliderValue.rounded()), 0), difficulties.count - 1)
     }
+
+    private var useCompactLayout: Bool {
+        compact || phoneCompact
+    }
     
     /// Блок с названием уровня и описанием (крупный шрифт на iPad или в compact)
     private var difficultyLabelBlock: some View {
         let useLarge = compact || largeFontForIPad
-        return VStack(spacing: compact ? 4 : 4) {
+        return VStack(spacing: useCompactLayout ? 3 : 4) {
             HStack(spacing: 4) {
                 Text(currentDifficulty.displayName)
                     .font(.system(size: useLarge ? 22 : 16, weight: .bold))
@@ -821,13 +1113,13 @@ struct DifficultySelectionView: View {
                 .multilineTextAlignment(.center)
                 .lineLimit(2)
         }
-        .padding(.horizontal, compact ? 10 : 8)
-        .padding(.vertical, compact ? 8 : 12)
+        .padding(.horizontal, useCompactLayout ? 8 : 8)
+        .padding(.vertical, useCompactLayout ? 6 : 12)
         .background(
-            RoundedRectangle(cornerRadius: compact ? 10 : 12)
+            RoundedRectangle(cornerRadius: useCompactLayout ? 10 : 12)
                 .fill(.ultraThinMaterial)
                 .overlay(
-                    RoundedRectangle(cornerRadius: compact ? 10 : 12)
+                    RoundedRectangle(cornerRadius: useCompactLayout ? 10 : 12)
                         .stroke(Color.blue.opacity(0.3), lineWidth: 1)
                 )
         )
@@ -850,18 +1142,18 @@ struct DifficultySelectionView: View {
 
     private func sliderWithTap(horizontalPadding: CGFloat = 0) -> some View {
         let maxVal = Double(difficulties.count - 1)
-        return VStack(spacing: compact ? 8 : 10) {
+        return VStack(spacing: useCompactLayout ? 7 : 10) {
             TappableDifficultySlider(
                 value: $sliderValue,
                 maxValue: maxVal,
                 onValueChanged: applySliderChange,
                 onInteractionChanged: { isInteracting = $0 }
             )
-            .frame(height: compact ? 42 : 46)
+            .frame(height: useCompactLayout ? 40 : 46)
             .padding(.horizontal, horizontalPadding)
         }
-        .padding(.top, compact ? 4 : 6)
-        .padding(.bottom, compact ? 2 : 3)
+        .padding(.top, useCompactLayout ? 1 : 3)
+        .padding(.bottom, compact ? 1 : 1)
     }
 
     var body: some View {
@@ -875,8 +1167,8 @@ struct DifficultySelectionView: View {
                 }
                 .padding(.horizontal, 8)
             } else {
-                VStack(spacing: 16) {
-                    sliderWithTap(horizontalPadding: 20)
+                VStack(spacing: useCompactLayout ? 6 : 8) {
+                    sliderWithTap(horizontalPadding: useCompactLayout ? 12 : 20)
                     difficultyLabelBlock
                 }
             }

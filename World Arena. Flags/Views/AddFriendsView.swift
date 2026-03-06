@@ -51,7 +51,7 @@ struct AddFriendsView: View {
                         Text("@")
                             .font(.system(size: 17))
                             .foregroundColor(.primary)
-                        TextField(LocalizationManager.shared.localizedString("логин без @"), text: $friendUsernameToAdd)
+                        TextField(LocalizationManager.shared.localizedString("Login without @"), text: $friendUsernameToAdd)
                             .textInputAutocapitalization(.never)
                             .autocorrectionDisabled(true)
                             .onChange(of: friendUsernameToAdd) { new in
@@ -82,6 +82,11 @@ struct AddFriendsView: View {
                             }
                         }
                     }
+                }
+            }
+            .onChange(of: userProfile.selectedCountryCode) { newCode in
+                Task {
+                    await syncSelectedCountryToServer(newCode)
                 }
             }
             .navigationTitle(LocalizationManager.shared.localizedString("Добавить друзей"))
@@ -131,6 +136,13 @@ struct AddFriendsView: View {
 
     private func share() {
         friendsService.shareProfile(for: userProfile)
+    }
+
+    private func syncSelectedCountryToServer(_ newCode: String?) async {
+        guard let code = FriendsService.normalizeCountryCode(newCode), !code.isEmpty else { return }
+        let userId = userProfile.username.trimmingCharacters(in: .whitespacesAndNewlines)
+        guard !userId.isEmpty else { return }
+        try? await DuelAPIService.shared.updateMyCountryCode(userId: userId, countryCode: code)
     }
     
     private func addFriendByCode() async {
@@ -195,6 +207,7 @@ struct CountryPickerView: View {
     @Binding var selectedCode: String?
     @Environment(\.presentationMode) private var presentationMode
     @ObservedObject private var localizationManager = LocalizationManager.shared
+    @State private var searchText: String = ""
 
     private var sortedCountries: [(code: String, name: String)] {
         let lang = localizationManager.currentLocale.languageCode ?? "en"
@@ -208,12 +221,20 @@ struct CountryPickerView: View {
             }
             .sorted { $0.name.localizedCaseInsensitiveCompare($1.name) == .orderedAscending }
     }
+    
+    private var filteredCountries: [(code: String, name: String)] {
+        let q = searchText.trimmingCharacters(in: .whitespacesAndNewlines).lowercased()
+        guard !q.isEmpty else { return sortedCountries }
+        return sortedCountries.filter {
+            $0.name.lowercased().contains(q) || $0.code.lowercased().contains(q)
+        }
+    }
 
     var body: some View {
         List {
-            ForEach(sortedCountries, id: \.code) { item in
+            ForEach(filteredCountries, id: \.code) { item in
                 Button(action: {
-                    selectedCode = item.code
+                    selectedCode = FriendsService.normalizeCountryCode(item.code) ?? item.code
                     presentationMode.wrappedValue.dismiss()
                 }) {
                     HStack {
@@ -232,6 +253,7 @@ struct CountryPickerView: View {
         }
         .navigationTitle(LocalizationManager.shared.localizedString("Ваша страна"))
         .navigationBarTitleDisplayMode(.inline)
+        .searchable(text: $searchText, prompt: LocalizationManager.shared.localizedString("Search"))
     }
 }
 

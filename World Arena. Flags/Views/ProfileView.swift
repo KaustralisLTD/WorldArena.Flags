@@ -87,6 +87,9 @@ struct ProfileView: View {
                             ScrollView {
                                 ipadScrollContent
                             }
+                            .refreshable {
+                                await refreshProfileData()
+                            }
                             .modifier(ProfileHideScrollContentBackgroundModifier())
                             .background(systemGroupedBackground)
                             ipadOverlayLandscape
@@ -95,6 +98,9 @@ struct ProfileView: View {
                         ZStack(alignment: .top) {
                             ScrollView {
                                 ipadScrollContent
+                            }
+                            .refreshable {
+                                await refreshProfileData()
                             }
                             .modifier(ProfileHideScrollContentBackgroundModifier())
                             .background(systemGroupedBackground.ignoresSafeArea())
@@ -133,6 +139,9 @@ struct ProfileView: View {
                     monthlyBadgesSection
                 }
                 .padding(.bottom, 100)
+            }
+            .refreshable {
+                await refreshProfileData()
             }
             .padding(.top, contentTopInset)
             headerContent
@@ -173,6 +182,7 @@ struct ProfileView: View {
                 }
                 #endif
                 userProfile.evaluateAchievementsAndUnlock()
+                Task { await refreshProfileData() }
             }
             .onDisappear {
                 #if os(iOS)
@@ -245,6 +255,46 @@ struct ProfileView: View {
                     .padding(.vertical, isIPad ? 12 : 8)
                 }
                 .buttonStyle(PlainButtonStyle())
+
+                // Глобальный рейтинг по странам и миру (мотивационный блок)
+                VStack(alignment: .leading, spacing: 8) {
+                    Text(LocalizationManager.shared.localizedString("Global ranking by countries"))
+                        .font(.system(size: isIPad ? 16 : 14, weight: .semibold))
+                        .foregroundColor(.secondary)
+                    Button(action: { showingCountryPicker = true }) {
+                        HStack(spacing: 8) {
+                            Text(countryRankLine(code: userProfile.selectedCountryCode ?? "US", seed: 11))
+                                .font(.system(size: isIPad ? 16 : 14, weight: .bold))
+                                .foregroundColor(.primary)
+                            Image(systemName: "chevron.down.circle.fill")
+                                .font(.system(size: isIPad ? 16 : 14, weight: .semibold))
+                                .foregroundColor(.blue.opacity(0.85))
+                        }
+                    }
+                    .buttonStyle(.plain)
+                    Text(worldRankLine(seed: 29))
+                        .font(.system(size: isIPad ? 16 : 14, weight: .bold))
+                }
+                .frame(maxWidth: .infinity, alignment: .leading)
+                .padding(.top, 2)
+
+                NavigationLink {
+                    DuelSummaryView()
+                        .environmentObject(gameState)
+                } label: {
+                    HStack(spacing: 12) {
+                        Image(systemName: "list.bullet.rectangle.portrait")
+                            .font(.system(size: isIPad ? 18 : 16, weight: .semibold))
+                        Text(LocalizationManager.shared.localizedString("Duel Summary"))
+                            .font(.system(size: isIPad ? 18 : 16, weight: .semibold))
+                        Spacer()
+                        Image(systemName: "chevron.right")
+                            .font(.system(size: isIPad ? 14 : 12, weight: .bold))
+                            .foregroundColor(.secondary)
+                    }
+                    .foregroundColor(.primary)
+                    .padding(.vertical, isIPad ? 12 : 10)
+                }
             }
             .padding(.horizontal, isIPad ? 40 : 20)
         }
@@ -252,6 +302,7 @@ struct ProfileView: View {
     
     @State private var showingAddFriends = false
     @State private var showingFBucksInfo = false
+    @State private var showingCountryPicker = false
 
     private var addFriendsButton: some View {
         Button(action: {
@@ -281,6 +332,14 @@ struct ProfileView: View {
         .sheet(isPresented: $showingAddFriends) {
             AddFriendsView()
                 .environmentObject(userProfile)
+        }
+        .sheet(isPresented: $showingCountryPicker) {
+            NavigationView {
+                CountryPickerView(selectedCode: Binding(
+                    get: { userProfile.selectedCountryCode },
+                    set: { userProfile.selectedCountryCode = $0 }
+                ))
+            }
         }
     }
     
@@ -506,9 +565,14 @@ extension ProfileView {
                 #endif
             }
             VStack(alignment: .leading, spacing: 4) {
-                Text(userProfile.username)
-                    .font(.system(size: 32, weight: .bold))
-                    .foregroundColor(.white)
+                HStack(spacing: 8) {
+                    Text(userProfile.username)
+                        .font(.system(size: 32, weight: .bold))
+                        .foregroundColor(.white)
+                    Image(systemName: userProfile.currentLeague.icon)
+                        .font(.system(size: 17, weight: .bold))
+                        .foregroundColor(.white)
+                }
                 Text("@\(userProfile.username.uppercased()) • \(profileJoinDateText)")
                     .font(.system(size: 14, weight: .medium))
                     .foregroundColor(.white.opacity(0.9))
@@ -638,9 +702,14 @@ extension ProfileView {
                     #endif
                 }
                 VStack(alignment: .leading, spacing: 2) {
-                    Text(userProfile.username)
-                        .font(.system(size: 26, weight: .bold))
-                        .foregroundColor(.white)
+                    HStack(spacing: 8) {
+                        Text(userProfile.username)
+                            .font(.system(size: 26, weight: .bold))
+                            .foregroundColor(.white)
+                        Image(systemName: userProfile.currentLeague.icon)
+                            .font(.system(size: 14, weight: .bold))
+                            .foregroundColor(.white)
+                    }
                     Text("@\(userProfile.username.uppercased()) • \(formatJoinDate(userProfile.joinDate))")
                         .font(.system(size: 14, weight: .medium))
                         .foregroundColor(.white.opacity(0.9))
@@ -723,9 +792,14 @@ extension ProfileView {
                 }
 
                 VStack(alignment: .leading, spacing: 2) {
-                    Text(userProfile.username)
-                        .font(.system(size: isIPad ? 26 : 22, weight: .bold))
-                        .foregroundColor(.white)
+                    HStack(spacing: 8) {
+                        Text(userProfile.username)
+                            .font(.system(size: isIPad ? 26 : 22, weight: .bold))
+                            .foregroundColor(.white)
+                        Image(systemName: userProfile.currentLeague.icon)
+                            .font(.system(size: isIPad ? 14 : 13, weight: .bold))
+                            .foregroundColor(.white)
+                    }
                     Text("@\(userProfile.username.uppercased()) • \(formatJoinDate(userProfile.joinDate))")
                         .font(.system(size: isIPad ? 14 : 12, weight: .medium))
                         .foregroundColor(.white.opacity(0.9))
@@ -828,6 +902,77 @@ extension ProfileView {
 
 // MARK: - Share Profile Functions
 extension ProfileView {
+    fileprivate func pseudoRank(seed: Int, scope: Int) -> Int {
+        let base = max(1, (2_000_000 - (userProfile.xp * 73 + userProfile.streak * 31)))
+        let mixed = abs((base + seed * 997) % max(scope, 1))
+        return max(1, mixed + 1)
+    }
+
+    fileprivate func countryRankLine(code: String, seed: Int) -> String {
+        let upper = code.uppercased()
+        let flag = FriendsService.countryCodeToFlagEmoji(upper)
+        let rank = pseudoRank(seed: seed, scope: 12_000)
+        let format = LocalizationManager.shared.localizedString("Country rank line")
+        return String(format: format, flag, rank, LocalizationManager.shared.localizedString(countryNameByCode(upper)))
+    }
+
+    fileprivate func worldRankLine(seed: Int) -> String {
+        let rank = pseudoRank(seed: seed, scope: 150_000)
+        let format = LocalizationManager.shared.localizedString("World rank line")
+        return String(format: format, rank)
+    }
+
+    private func countryNameByCode(_ code: String) -> String {
+        let upper = code.uppercased()
+        let lang = LocalizationManager.shared.currentLocale.languageCode ?? "en"
+        return CountryDatabase.getLocalizedCountryData(for: upper, language: lang)?.name
+            ?? CountryDatabase.getCountryData(for: upper)?.ru.name
+            ?? upper
+    }
+
+    @MainActor
+    fileprivate func refreshProfileData() async {
+        let userId = userProfile.username.trimmingCharacters(in: .whitespacesAndNewlines)
+        guard !userId.isEmpty else { return }
+
+        if let apiFriends = try? await DuelAPIService.shared.fetchMyFriends(userId: userId) {
+            let oldByUsername = Dictionary(uniqueKeysWithValues: userProfile.friends.map { ($0.username, $0) })
+            userProfile.friends = apiFriends.map { api in
+                let mapped = api.toFriend()
+                if let old = oldByUsername[api.username] {
+                    return Friend(
+                        id: old.id,
+                        username: mapped.username,
+                        displayName: api.displayName ?? mapped.displayName,
+                        avatar: mapped.avatar,
+                        countryCode: mapped.countryCode,
+                        level: mapped.level,
+                        xp: mapped.xp,
+                        streak: mapped.streak,
+                        isOnline: old.isOnline,
+                        joinDate: old.joinDate
+                    )
+                }
+                return mapped
+            }
+        }
+
+        if let incoming = try? await DuelAPIService.shared.fetchIncomingChallenges(userId: userId) {
+            let existingIds = Set(userProfile.incomingDuelChallenges.map(\.id))
+            let newOnes = incoming
+                .compactMap { $0.toDuelChallenge(opponentId: userId, opponentName: userId) }
+                .filter { !existingIds.contains($0.id) }
+            if !newOnes.isEmpty {
+                userProfile.incomingDuelChallenges.append(contentsOf: newOnes)
+            }
+        }
+
+        // Лёгкий тик лиги и переоценка достижений, чтобы карточки на профиле были актуальны.
+        LeaguesService.shared.tickCompetitors(for: userProfile.currentLeague)
+        userProfile.evaluateAchievementsAndUnlock()
+        userProfile.saveToStorage()
+    }
+
     private func generateProfileURL() -> String {
         return "https://worldarena.games/profile/\(userProfile.username)"
     }
@@ -1114,6 +1259,103 @@ struct MonthlyBadge: View {
                 .multilineTextAlignment(.center)
                 .frame(width: 80)
         }
+    }
+}
+
+struct DuelSummaryView: View {
+    @EnvironmentObject var gameState: GameState
+    @ObservedObject private var localizationManager = LocalizationManager.shared
+    @State private var filter: DuelHistoryFilter = .all
+    #if os(iOS)
+    @State private var showShareSheet = false
+    #endif
+
+    private enum DuelHistoryFilter: Int, CaseIterable {
+        case all
+        case wins
+        case losses
+    }
+
+    private var filteredHistory: [DuelHistoryEntry] {
+        switch filter {
+        case .all: return gameState.duelHistory
+        case .wins: return gameState.duelHistory.filter(\.iWon)
+        case .losses: return gameState.duelHistory.filter { !$0.iWon }
+        }
+    }
+
+    private var dateFormatter: DateFormatter {
+        let formatter = DateFormatter()
+        formatter.locale = localizationManager.currentLocale
+        formatter.dateStyle = .short
+        formatter.timeStyle = .short
+        return formatter
+    }
+
+    var body: some View {
+        VStack(spacing: 8) {
+            Picker("", selection: $filter) {
+                Text(localizationManager.localizedString("All")).tag(DuelHistoryFilter.all)
+                Text(localizationManager.localizedString("Wins")).tag(DuelHistoryFilter.wins)
+                Text(localizationManager.localizedString("Losses")).tag(DuelHistoryFilter.losses)
+            }
+            .pickerStyle(.segmented)
+            .padding(.horizontal)
+
+            List {
+                if filteredHistory.isEmpty {
+                    Text(localizationManager.localizedString("No duel history yet"))
+                        .foregroundColor(.secondary)
+                } else {
+                    ForEach(filteredHistory) { item in
+                        VStack(alignment: .leading, spacing: 6) {
+                            HStack {
+                                Text(item.iWon ? "✅ \(localizationManager.localizedString("Victory"))" : "⚔️ \(localizationManager.localizedString("Defeat"))")
+                                    .font(.system(size: 14, weight: .bold))
+                                    .foregroundColor(item.iWon ? .green : .orange)
+                                Spacer()
+                                Text(dateFormatter.string(from: item.playedAt))
+                                    .font(.caption)
+                                    .foregroundColor(.secondary)
+                            }
+                            Text("\(localizationManager.localizedString("Opponent")): \(item.opponentName)")
+                                .font(.system(size: 15, weight: .semibold))
+                            Text("\(localizationManager.localizedString("Score")): \(item.myScore) : \(item.opponentScore)")
+                                .font(.system(size: 14))
+                                .foregroundColor(.secondary)
+                        }
+                        .padding(.vertical, 4)
+                    }
+                }
+            }
+        }
+        .navigationTitle(localizationManager.localizedString("Duel Summary"))
+        #if os(iOS)
+        .toolbar {
+            ToolbarItem(placement: .navigationBarTrailing) {
+                Button(localizationManager.localizedString("Share")) {
+                    showShareSheet = true
+                }
+                .disabled(filteredHistory.isEmpty)
+            }
+        }
+        .sheet(isPresented: $showShareSheet) {
+            ShareSheet(activityItems: [makeShareText()])
+        }
+        #endif
+    }
+
+    private func makeShareText() -> String {
+        var lines: [String] = [localizationManager.localizedString("Duel Summary Share Header")]
+        for item in filteredHistory.prefix(10) {
+            let status = item.iWon ? localizationManager.localizedString("Victory") : localizationManager.localizedString("Defeat")
+            lines.append("• \(status) — \(item.opponentName): \(item.myScore):\(item.opponentScore)")
+        }
+        if let url = ShareService.shared.appStoreURL {
+            lines.append("")
+            lines.append(url.absoluteString)
+        }
+        return lines.joined(separator: "\n")
     }
 }
 

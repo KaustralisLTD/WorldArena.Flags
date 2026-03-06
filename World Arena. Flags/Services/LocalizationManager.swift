@@ -41,7 +41,7 @@ class LocalizationManager: ObservableObject {
         UserDefaults.standard.synchronize()
         
         // Добавляем отправку уведомления для обновления UI
-        NotificationCenter.default.post(name: NSNotification.Name("LanguageChanged"), object: nil)
+        NotificationCenter.default.post(name: .languageChanged, object: nil)
         
         print("Language updated successfully")
         print("=====================\n")

@@ -16,6 +16,8 @@ final class LeaguesService: ObservableObject {
     static let shared = LeaguesService()
 
     private init() {}
+    
+    private static let onboardingStartDateKey = "leagues.onboardingStartDate"
 
     private func storageKey(for league: League, weekKey: String) -> String {
         return "leagues.competitors.\(league.rawValue).\(weekKey)"
@@ -38,6 +40,35 @@ final class LeaguesService: ObservableObject {
     private static let savedWeekKeyUD = "leagues.savedWeekKey"
     private static let savedPositionUD = "leagues.savedPosition"
     private static let savedLeagueUD = "leagues.savedLeague"
+
+    private func ensureOnboardingStartDate() -> Date {
+        if let saved = UserDefaults.standard.object(forKey: Self.onboardingStartDateKey) as? Date {
+            return saved
+        }
+        let now = Date()
+        UserDefaults.standard.set(now, forKey: Self.onboardingStartDateKey)
+        return now
+    }
+
+    private func onboardingWeeksSinceStart() -> Int {
+        let start = ensureOnboardingStartDate()
+        let days = max(0, Calendar.current.dateComponents([.day], from: start, to: Date()).day ?? 0)
+        return max(1, days / 7 + 1)
+    }
+
+    /// Более мягкий режим лиг для первых недель:
+    /// - ранний период: шире зона повышения, без понижения;
+    /// - переходный: немного шире повышение, понижение только с последнего места.
+    func leagueThresholds(for userProfile: UserProfile) -> (promote: ClosedRange<Int>, demote: ClosedRange<Int>?) {
+        let weeks = onboardingWeeksSinceStart()
+        if weeks <= 2 || userProfile.totalGamesPlayed < 40 {
+            return (1...10, nil)
+        }
+        if weeks <= 4 || userProfile.totalGamesPlayed < 90 {
+            return (1...8, 20...20)
+        }
+        return (1...5, 16...20)
+    }
 
     /// Сохранить позицию и лигу пользователя за текущую неделю (вызывать при отображении лиги).
     func saveCurrentWeekResult(position: Int, league: League) {

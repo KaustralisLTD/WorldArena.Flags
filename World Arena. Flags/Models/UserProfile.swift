@@ -15,6 +15,7 @@ struct FBucksTransaction: Identifiable, Codable {
         case streak100 = "streak_100" // 100 дней подряд
         case purchase = "purchase" // Покупка (отрицательное значение)
         case dailyGift = "daily_gift" // Подарок за ежедневные квесты
+        case leagueReward = "league_reward" // Награда за повышение в лиге
 
         nonisolated(unsafe) var localizedDescription: String {
             return MainActor.assumeIsolated {
@@ -27,6 +28,7 @@ struct FBucksTransaction: Identifiable, Codable {
                 case .streak100: return L.localizedString("Серия 100 дней")
                 case .purchase: return L.localizedString("Покупка")
                 case .dailyGift: return L.localizedString("Подарок за квесты")
+                case .leagueReward: return L.localizedString("Награда за лигу")
                 }
             }
         }
@@ -113,6 +115,7 @@ class UserProfile: ObservableObject {
     @Published var achievements: [Achievement] = []
     @Published var friends: [Friend] = []
     @Published var monthlyQuests: [MonthlyQuest] = []
+    @Published var recentMonthlyQuestRewards: [MonthlyQuestCompletionReward] = []
     /// F-Bucks (Flags Bucks) — начисляются за идеальный результат игры (10/10 или 15/15) и за серии дней
     @Published var fBucks: Int = 0 { didSet { saveIfReady() } }
     /// История начислений F-bucks (для страницы статистики)
@@ -200,9 +203,8 @@ class UserProfile: ObservableObject {
     }
 
     func addXP(_ points: Int) {
-        let effectivePoints = points * xpBoostMultiplier
-        xp += effectivePoints
-        addXPForDay(effectivePoints) // Отслеживаем XP по дням для месячных квестов
+        xp += points
+        addXPForDay(points) // Отслеживаем XP по дням для месячных квестов
         checkLevelUp()
         evaluateAchievementsAndUnlock()
     }
@@ -578,6 +580,61 @@ class UserProfile: ObservableObject {
     }
     
     // MARK: - Monthly quests live update after game
+    private static let monthlyQuestRewardedMonthKey = "monthly.quest.rewarded.month"
+    private static let monthlyQuestRewardedIndicesKey = "monthly.quest.rewarded.indices"
+
+    private func currentMonthToken() -> String {
+        let formatter = DateFormatter()
+        formatter.dateFormat = "yyyy-MM"
+        return formatter.string(from: Date())
+    }
+
+    private func loadRewardedMonthlyQuestIndices() -> Set<Int> {
+        let token = currentMonthToken()
+        let savedToken = UserDefaults.standard.string(forKey: Self.monthlyQuestRewardedMonthKey)
+        if savedToken != token {
+            UserDefaults.standard.set(token, forKey: Self.monthlyQuestRewardedMonthKey)
+            UserDefaults.standard.set([], forKey: Self.monthlyQuestRewardedIndicesKey)
+            return []
+        }
+        let raw = UserDefaults.standard.array(forKey: Self.monthlyQuestRewardedIndicesKey) as? [Int] ?? []
+        return Set(raw)
+    }
+
+    private func saveRewardedMonthlyQuestIndices(_ indices: Set<Int>) {
+        UserDefaults.standard.set(Array(indices), forKey: Self.monthlyQuestRewardedIndicesKey)
+        UserDefaults.standard.set(currentMonthToken(), forKey: Self.monthlyQuestRewardedMonthKey)
+    }
+
+    func consumeRecentMonthlyQuestRewards() -> [MonthlyQuestCompletionReward] {
+        let rewards = recentMonthlyQuestRewards
+        recentMonthlyQuestRewards.removeAll()
+        return rewards
+    }
+
+    private func applyMonthlyQuestCompletionReward(for quest: MonthlyQuest) -> MonthlyQuestCompletionReward {
+        // Награды за месячные квесты не зависят от активного XP-бустера.
+        let rewardXP = max(quest.xpReward, 0)
+        var rewardFBucks = 0
+        if rewardXP > 0 {
+            addXP(rewardXP)
+        }
+        // Дополнительная мотивация за более сложные квесты.
+        switch quest.questType {
+        case .monthlyXP, .perfectGames:
+            addFBucks(1, reason: .dailyGift)
+            rewardFBucks = 1
+        default:
+            break
+        }
+        return MonthlyQuestCompletionReward(
+            questTitle: quest.title,
+            questIcon: quest.icon,
+            xp: rewardXP,
+            fBucks: rewardFBucks
+        )
+    }
+
     @MainActor
     func updateMonthlyQuestsAfterGame(score: Int, questions: Int) {
         // Update best score if current score is higher
@@ -587,7 +644,10 @@ class UserProfile: ObservableObject {
         
         guard !monthlyQuests.isEmpty else { return }
         var hasChanges = false
+        var rewardedIndices = loadRewardedMonthlyQuestIndices()
+        var rewardsChanged = false
         for index in monthlyQuests.indices {
+            let wasCompleted = monthlyQuests[index].isCompleted
             switch monthlyQuests[index].questType {
             case .gamesPlayed:
                 let newValue = min(monthlyQuests[index].targetValue, monthlyQuests[index].currentValue + 1)
@@ -632,6 +692,18 @@ class UserProfile: ObservableObject {
                     hasChanges = true
                 }
             }
+            let becameCompleted = !wasCompleted && monthlyQuests[index].isCompleted
+            if becameCompleted && !rewardedIndices.contains(index) {
+                let reward = applyMonthlyQuestCompletionReward(for: monthlyQuests[index])
+                if reward.xp > 0 || reward.fBucks > 0 {
+                    recentMonthlyQuestRewards.append(reward)
+                }
+                rewardedIndices.insert(index)
+                rewardsChanged = true
+            }
+        }
+        if rewardsChanged {
+            saveRewardedMonthlyQuestIndices(rewardedIndices)
         }
         if hasChanges { saveToStorage() }
     }
@@ -651,10 +723,12 @@ class UserProfile: ObservableObject {
         monthlyQuests.removeAll()
         
         // Generate quests based on user level and stats
-        let baseGamesTarget = max(10, level * 5)
-        let baseAccuracyTarget = min(95, 60 + level * 2)
-        let streakTarget = max(3, level)
-        let monthlyXPTarget = max(2000, level * 500) // Большая награда XP требует минимум 7 дней активности
+        let baseGamesTarget = max(16, level * 6)
+        let baseAccuracyTarget = min(97, 68 + level * 2)
+        let streakTarget = max(5, level + 2)
+        let correctAnswersTarget = max(140, level * 70)
+        let perfectGamesTarget = max(3, min(14, level / 2 + 2))
+        let monthlyXPTarget = max(3500, level * 700) // Большая награда XP требует минимум 7 дней активности
         
         let L = LocalizationManager.shared
         monthlyQuests = [
@@ -693,6 +767,28 @@ class UserProfile: ObservableObject {
             ),
             MonthlyQuest(
                 id: UUID(),
+                title: String(format: L.localizedString("Дай %d правильных ответов"), correctAnswersTarget),
+                description: String(format: L.localizedString("Наберите %d правильных ответов за месяц"), correctAnswersTarget),
+                targetValue: correctAnswersTarget,
+                currentValue: min(correctAnswersTarget, correctAnswers),
+                questType: .correctAnswers,
+                xpReward: correctAnswersTarget * 3,
+                icon: "checkmark.seal.fill",
+                color: .mint
+            ),
+            MonthlyQuest(
+                id: UUID(),
+                title: String(format: L.localizedString("Сыграй %d идеальных игр"), perfectGamesTarget),
+                description: String(format: L.localizedString("Завершите %d игр без ошибок"), perfectGamesTarget),
+                targetValue: perfectGamesTarget,
+                currentValue: 0,
+                questType: .perfectGames,
+                xpReward: perfectGamesTarget * 180,
+                icon: "crown.fill",
+                color: .yellow
+            ),
+            MonthlyQuest(
+                id: UUID(),
                 title: String(format: L.localizedString("Заработай %d XP за месяц"), monthlyXPTarget),
                 description: String(format: L.localizedString("Заработайте %d XP играя минимум 7 дней в месяц"), monthlyXPTarget),
                 targetValue: monthlyXPTarget,
@@ -728,11 +824,11 @@ enum League: String, CaseIterable {
         case .gold:
             return LocalizationManager.shared.localizedString("Золотая лига")
         case .platinum:
-            return LocalizationManager.shared.localizedString("Платиновая лига")
-        case .diamond:
-            return LocalizationManager.shared.localizedString("Алмазная лига")
-        case .master:
             return LocalizationManager.shared.localizedString("Лига Мастеров")
+        case .diamond:
+            return LocalizationManager.shared.localizedString("Лига Мастеров")
+        case .master:
+            return LocalizationManager.shared.localizedString("Лига Чемпионов Мира")
         }
     }
     
@@ -803,6 +899,14 @@ struct MonthlyQuest: Identifiable {
     var isCompleted: Bool {
         return currentValue >= targetValue
     }
+}
+
+struct MonthlyQuestCompletionReward: Identifiable, Equatable {
+    let id: UUID = UUID()
+    let questTitle: String
+    let questIcon: String
+    let xp: Int
+    let fBucks: Int
 }
 
 enum QuestType {

@@ -103,6 +103,25 @@ class NotificationService: NSObject, ObservableObject {
         let request = UNNotificationRequest(identifier: "duel_won_\(UUID().uuidString)", content: content, trigger: trigger)
         UNUserNotificationCenter.current().add(request, withCompletionHandler: nil)
     }
+
+    /// Push c результатом дуэли и мотивационным текстом.
+    @MainActor
+    func scheduleDuelResultNotification(challengerName: String, challengerScore: Int, myScore: Int, iWon: Bool) {
+        let content = UNMutableNotificationContent()
+        content.title = LocalizationManager.shared.localizedString("Duel result")
+        let base = String(
+            format: LocalizationManager.shared.localizedString("Duel result push format"),
+            challengerName,
+            challengerScore,
+            myScore
+        )
+        let motivationKey = iWon ? "Duel motivation win" : "Duel motivation lose"
+        content.body = "\(base) \(LocalizationManager.shared.localizedString(motivationKey))"
+        content.sound = .default
+        let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 1, repeats: false)
+        let request = UNNotificationRequest(identifier: "duel_result_\(UUID().uuidString)", content: content, trigger: trigger)
+        UNUserNotificationCenter.current().add(request, withCompletionHandler: nil)
+    }
     
     // Проверка статуса разрешений
     func checkNotificationStatus() {

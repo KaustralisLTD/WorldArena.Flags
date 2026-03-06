@@ -13,6 +13,8 @@ struct MockProduct {
 @MainActor
 class StoreManager: ObservableObject {
     static let shared = StoreManager()
+    private static let productLoadTimeoutNanoseconds: UInt64 = 15_000_000_000
+    private static let purchaseTimeoutNanoseconds: UInt64 = 30_000_000_000
     
     @Published var products: [Product] = []
     @Published var purchasedProductIDs: Set<String> = []
@@ -23,11 +25,16 @@ class StoreManager: ObservableObject {
     private var mockProducts: [MockProduct] = []
     private var isUsingMockProducts = false
     
-    // Product IDs — должны совпадать с App Store Connect (раздел Подписки или Встроенные покупки)
-    private let productIDs: Set<String> = [
-        "WorldArena.Flags.MonthPremium2025",   // подписка в разделе Подписки
-        "WorldArena.Flags.YearlyPremium2025"  // подписка в разделе Подписки
+    // Product IDs — только активные автопродляемые подписки.
+    private let monthlyProductIDCandidates: [String] = [
+        "WorldArena.Flags.MonthPremium2025"
     ]
+    private let yearlyProductIDCandidates: [String] = [
+        "WorldArena.Flags.YearlyPremium2025"
+    ]
+    private var productIDs: Set<String> {
+        Set(monthlyProductIDCandidates + yearlyProductIDCandidates)
+    }
     
     private init() {
         // Загружаем сохраненные покупки
@@ -43,6 +50,10 @@ class StoreManager: ObservableObject {
     // MARK: - Product Loading
     
     func loadProducts() async {
+        // Защита от залипания одновременных запросов
+        if isLoading {
+            return
+        }
         isLoading = true
         errorMessage = nil
         
@@ -60,7 +71,7 @@ class StoreManager: ObservableObject {
                 return
             }
             
-            let products = try await Product.products(for: productIDs)
+            let products = try await fetchProductsWithTimeout()
             self.products = products.sorted { $0.price < $1.price }
             print("✅ Loaded \(products.count) products from App Store")
             
@@ -74,6 +85,7 @@ class StoreManager: ObservableObject {
                 print("⚠️ No products loaded, using mock products for development")
                 await loadMockProducts()
                 #else
+                errorMessage = "No subscription products are currently available. Please tap Retry."
                 isUsingMockProducts = false
                 #endif
             } else {
@@ -83,7 +95,9 @@ class StoreManager: ObservableObject {
             print("❌ Failed to load products: \(error)")
             print("Error details: \(error.localizedDescription)")
             
-            if let storeError = error as? StoreKitError {
+            if let localStoreError = error as? StoreError, case .timeout = localStoreError {
+                errorMessage = "Timed out loading products. Please tap Retry."
+            } else if let storeError = error as? StoreKitError {
                 switch storeError {
                 case .networkError(let underlyingError):
                     errorMessage = "Network error: \(underlyingError.localizedDescription)"
@@ -106,6 +120,34 @@ class StoreManager: ObservableObject {
         }
         
         isLoading = false
+    }
+
+    /// Повторная загрузка для UI-кнопок "Tap to load price" и "Retry".
+    func retryLoadProducts() async {
+        // Явно сбрасываем прошлую ошибку и зависший state перед новой попыткой.
+        errorMessage = nil
+        if isLoading {
+            isLoading = false
+        }
+        await loadProducts()
+    }
+
+    private func fetchProductsWithTimeout() async throws -> [Product] {
+        let ids = productIDs
+        return try await withThrowingTaskGroup(of: [Product].self) { group in
+            group.addTask {
+                try await Product.products(for: ids)
+            }
+            group.addTask {
+                try await Task.sleep(nanoseconds: Self.productLoadTimeoutNanoseconds)
+                throw StoreError.timeout
+            }
+            guard let firstFinished = try await group.next() else {
+                throw StoreError.timeout
+            }
+            group.cancelAll()
+            return firstFinished
+        }
     }
     
     // MARK: - Mock Products for Development
@@ -138,27 +180,20 @@ class StoreManager: ObservableObject {
     // MARK: - Purchase
     
     func purchase(_ product: Product) async -> Bool {
-        // Добавить родительский контроль
-        guard parentalGatePassed() else {
-            print("❌ Parental gate not passed")
-            errorMessage = "Parental gate not passed"
-            return false
-        }
-
         isLoading = true
         errorMessage = nil
+        defer { isLoading = false }
         
         print("🛒 Starting purchase for product: \(product.id)")
         
         guard SKPaymentQueue.canMakePayments() else {
             print("❌ Payments not allowed")
             errorMessage = "In-app purchases are not allowed on this device"
-            isLoading = false
             return false
         }
         
         do {
-            let result = try await product.purchase()
+            let result = try await purchaseWithTimeout(product)
             
             switch result {
             case .success(let verificationResult):
@@ -174,7 +209,6 @@ class StoreManager: ObservableObject {
                 await transaction.finish()
                 
                 print("✅ Purchase completed for: \(product.id)")
-                isLoading = false
                 return true
                 
             case .userCancelled:
@@ -191,19 +225,33 @@ class StoreManager: ObservableObject {
             }
         } catch {
             print("❌ Purchase failed: \(error)")
-            errorMessage = "Purchase failed: \(error.localizedDescription)"
+            if let localStoreError = error as? StoreError, case .purchaseTimeout = localStoreError {
+                errorMessage = "Purchase request timed out. Please try again."
+            } else {
+                errorMessage = "Purchase failed: \(error.localizedDescription)"
+            }
         }
         
-        isLoading = false
         return false
     }
 
-    private func parentalGatePassed() -> Bool {
-        // Логика проверки родительского контроля
-        // Например, простая математическая задача
-        return true // Заменить на реальную проверку
+    private func purchaseWithTimeout(_ product: Product) async throws -> Product.PurchaseResult {
+        try await withThrowingTaskGroup(of: Product.PurchaseResult.self) { group in
+            group.addTask {
+                try await product.purchase()
+            }
+            group.addTask {
+                try await Task.sleep(nanoseconds: Self.purchaseTimeoutNanoseconds)
+                throw StoreError.purchaseTimeout
+            }
+            guard let firstFinished = try await group.next() else {
+                throw StoreError.purchaseTimeout
+            }
+            group.cancelAll()
+            return firstFinished
+        }
     }
-    
+
     // MARK: - Restore Purchases
     
     func restorePurchases() async {
@@ -278,11 +326,11 @@ class StoreManager: ObservableObject {
     }
     
     var monthlyProduct: Product? {
-        product(for: "WorldArena.Flags.MonthlyAccess")
+        products.first { monthlyProductIDCandidates.contains($0.id) }
     }
     
     var yearlyProduct: Product? {
-        product(for: "WorldArena.Flags.TotalAccess")
+        products.first { yearlyProductIDCandidates.contains($0.id) }
     }
     
     // MARK: - Mock Product Helpers
@@ -291,12 +339,12 @@ class StoreManager: ObservableObject {
         mockProducts.first { $0.id == id }
     }
     
-        var monthlyMockProduct: MockProduct? {
-        mockProduct(for: "WorldArena.Flags.MonthPremium2025")
+    var monthlyMockProduct: MockProduct? {
+        mockProducts.first { monthlyProductIDCandidates.contains($0.id) }
     }
 
     var yearlyMockProduct: MockProduct? {
-        mockProduct(for: "WorldArena.Flags.YearlyPremium2025")
+        mockProducts.first { yearlyProductIDCandidates.contains($0.id) }
     }
     
     var hasProducts: Bool {
@@ -336,7 +384,7 @@ class StoreManager: ObservableObject {
             }
         }
     }
-    
+
     // MARK: - Mock Purchase for Development (only in DEBUG; no-op in Release)
     
     func simulateMockPurchase(productID: String) {
@@ -366,6 +414,8 @@ enum StoreError: Error, LocalizedError {
     case failedVerification
     case productNotFound
     case purchaseFailed
+    case timeout
+    case purchaseTimeout
     
     var errorDescription: String? {
         switch self {
@@ -375,6 +425,10 @@ enum StoreError: Error, LocalizedError {
             return "Product not found"
         case .purchaseFailed:
             return "Purchase failed"
+        case .timeout:
+            return "Request timed out"
+        case .purchaseTimeout:
+            return "Purchase request timed out"
         }
     }
 }

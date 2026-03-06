@@ -153,6 +153,13 @@ private struct GameHeaderSectionView: View {
     @Environment(\.horizontalSizeClass) private var horizontalSizeClass
 
     private var isIPad: Bool { horizontalSizeClass == .regular }
+    private var isCompactPhone: Bool {
+        #if os(iOS)
+        return !isIPad && UIScreen.main.bounds.height <= 880
+        #else
+        return false
+        #endif
+    }
 
     private static let motivationKeys = (1...8).map { "Game motivation \($0)" }
     private var motivationPhrase: String {
@@ -172,6 +179,11 @@ private struct GameHeaderSectionView: View {
     }
 
     private func fontSize(_ phone: CGFloat, iPad: CGFloat) -> CGFloat { isIPad ? iPad : phone }
+    private var duelOpponentDisplayName: String {
+        if let name = gameState.duelOpponentName, !name.isEmpty { return name }
+        if let name = gameState.duelChallengerName, !name.isEmpty { return name }
+        return LocalizationManager.shared.localizedString("Opponent")
+    }
 
     var body: some View {
         VStack(spacing: 0) {
@@ -244,7 +256,7 @@ private struct GameHeaderSectionView: View {
                 }
                 .padding(.trailing, isIPad ? 24 : 20)
             }
-            .padding(.top, safeTopInset + 6)
+            .padding(.top, safeTopInset + (isCompactPhone ? 2 : 6))
             HStack(alignment: .center, spacing: isIPad ? 24 : 16) {
                 VStack(alignment: .leading, spacing: isIPad ? 8 : 6) {
                     let regionDisplay = gameState.selectedRegions.count == 1 ? (gameState.selectedRegions.first?.displayName ?? "") : LocalizationManager.shared.localizedString("Multiple Regions")
@@ -257,6 +269,22 @@ private struct GameHeaderSectionView: View {
                         .shadow(color: .black.opacity(0.2), radius: 1, x: 0, y: 1)
                 }
                 .padding(.leading, isIPad ? 24 : 20)
+
+                if gameState.selectedPlayMode == .duel {
+                    VStack(spacing: 4) {
+                        Text(LocalizationManager.shared.localizedString("Duel"))
+                            .font(.system(size: fontSize(11, iPad: 15), weight: .bold))
+                            .foregroundColor(.white)
+                        Text(String(format: LocalizationManager.shared.localizedString("vs %@"), duelOpponentDisplayName))
+                            .font(.system(size: fontSize(11, iPad: 14), weight: .semibold))
+                            .foregroundColor(.white.opacity(0.92))
+                            .lineLimit(1)
+                    }
+                    .padding(.horizontal, 10)
+                    .padding(.vertical, 6)
+                    .background(Capsule().fill(Color.white.opacity(0.16)))
+                }
+
                 Spacer()
                 HStack(spacing: 10) {
                     Image(systemName: "heart.fill")
@@ -293,10 +321,25 @@ private struct GameHeaderSectionView: View {
                 }
                 .padding(.trailing, isIPad ? 24 : 20)
             }
-            .padding(.top, 14)
-            .padding(.bottom, isIPad ? 24 : 20)
+            .padding(.top, isCompactPhone ? 8 : 14)
+            .padding(.bottom, isIPad ? 24 : (isCompactPhone ? 12 : 20))
+
+            if gameState.liveComboText != nil || gameState.liveBonusText != nil {
+                LiveBonusBannerView(
+                    comboText: gameState.liveComboText,
+                    bonusText: gameState.liveBonusText,
+                    isIPad: isIPad
+                )
+                .padding(.horizontal, isIPad ? 24 : 16)
+                .padding(.top, isCompactPhone ? 4 : 6)
+                .padding(.bottom, isCompactPhone ? 8 : 12)
+                .transition(.asymmetric(
+                    insertion: .move(edge: .top).combined(with: .opacity),
+                    removal: .opacity
+                ))
+            }
         }
-        .frame(height: 140 + safeTopInset, alignment: .top)
+        .frame(height: (isCompactPhone ? 120 : 140) + safeTopInset, alignment: .top)
         .background(
             LinearGradient(
                 colors: [
@@ -308,6 +351,69 @@ private struct GameHeaderSectionView: View {
                 endPoint: .bottomTrailing
             )
         )
+    }
+}
+
+private struct LiveBonusBannerView: View {
+    let comboText: String?
+    let bonusText: String?
+    let isIPad: Bool
+    @State private var pulse = false
+
+    var body: some View {
+        HStack(spacing: 8) {
+            if let comboText {
+                bonusChip(
+                    icon: "flame.fill",
+                    text: comboText,
+                    colors: [Color.orange, Color.red]
+                )
+            }
+            if let bonusText {
+                bonusChip(
+                    icon: "bolt.fill",
+                    text: bonusText,
+                    colors: [Color.purple, Color.blue]
+                )
+            }
+        }
+        .padding(.horizontal, isIPad ? 14 : 10)
+        .padding(.vertical, isIPad ? 10 : 8)
+        .background(
+            RoundedRectangle(cornerRadius: 16, style: .continuous)
+                .fill(Color.white.opacity(0.14))
+                .overlay(
+                    RoundedRectangle(cornerRadius: 16, style: .continuous)
+                        .stroke(Color.white.opacity(0.35), lineWidth: 1)
+                )
+                .shadow(color: .black.opacity(0.18), radius: 8, x: 0, y: 3)
+        )
+        .scaleEffect(pulse ? 1.03 : 1.0)
+        .onAppear { pulse = true }
+        .animation(.easeInOut(duration: 0.45).repeatForever(autoreverses: true), value: pulse)
+    }
+
+    private func bonusChip(icon: String, text: String, colors: [Color]) -> some View {
+        HStack(spacing: 6) {
+            Image(systemName: icon)
+                .font(.system(size: isIPad ? 14 : 12, weight: .bold))
+            Text(text)
+                .font(.system(size: isIPad ? 15 : 13, weight: .bold, design: .rounded))
+                .lineLimit(1)
+                .minimumScaleFactor(0.82)
+        }
+        .foregroundColor(.white)
+        .padding(.horizontal, isIPad ? 12 : 9)
+        .padding(.vertical, isIPad ? 8 : 6)
+        .background(
+            LinearGradient(
+                colors: colors,
+                startPoint: .topLeading,
+                endPoint: .bottomTrailing
+            )
+        )
+        .clipShape(Capsule())
+        .shadow(color: colors.first?.opacity(0.4) ?? .clear, radius: 6, x: 0, y: 2)
     }
 }
 
@@ -489,10 +595,9 @@ struct GameView: View {
             setTabBarHidden(true)
         }
         .onDisappear {
-            // Останавливаем таймеры ТОЛЬКО если реально выходим из игры (навигация из GameView)
-            if !gameState.isNavigatingToGame {
-                gameState.stopTimer()
-            }
+            // При любом уходе с экрана игры полностью останавливаем игровые таймеры,
+            // чтобы в фоне не росли ошибки и не списывались жизни.
+            gameState.stopTimer()
             // Возвращаем таббар
             setTabBarHidden(false)
         }
@@ -772,6 +877,7 @@ private struct iPadGameLayout: View {
                 setTabBarHidden(true)
             }
             .onDisappear {
+                viewModel.cancelPendingWork()
                 // Показываем TabBar при выходе из игры
                 setTabBarHidden(false)
                 #if os(iOS)
@@ -1036,6 +1142,10 @@ private struct phoneGameLayout: View {
         return false
         #endif
     }
+
+    private var isCompactPhone: Bool {
+        !isIPad && screenHeight <= 880
+    }
     
     var body: some View {
         ZStack(alignment: .top) {
@@ -1078,6 +1188,7 @@ private struct phoneGameLayout: View {
                 #endif
             }
             .onDisappear {
+                viewModel.cancelPendingWork()
                 // Показываем TabBar при выходе из игры
                 setTabBarHidden(false)
                 #if os(iOS)
@@ -1257,8 +1368,8 @@ private struct phoneGameLayout: View {
                         LoadingView()
                     }
                 }
-                .padding(.top, 30)
-                .padding(.bottom, 30)
+                .padding(.top, isCompactPhone ? 12 : 30)
+                .padding(.bottom, isCompactPhone ? 12 : 30)
             }
             .background(
                 RoundedRectangle(cornerRadius: 25, style: .continuous)
@@ -1446,6 +1557,13 @@ struct GameContentView: View {
         return false
         #endif
     }
+    private var isCompactPhone: Bool {
+        #if os(iOS)
+        return !isIPad && UIScreen.main.bounds.height <= 880
+        #else
+        return false
+        #endif
+    }
     
     var body: some View {
         VStack {
@@ -1463,7 +1581,7 @@ struct GameContentView: View {
             .id(currentFlag.id)
             .transition(.opacity)
             .padding(.horizontal, isIPad ? 40 : 16)
-            .padding(.vertical, 8)
+            .padding(.vertical, isCompactPhone ? 4 : 8)
             
             AnswerOptionsView(
                 viewModel: viewModel,
@@ -1487,15 +1605,30 @@ struct AnswerOptionsView: View {
         return false
         #endif
     }
+    private var isCompactPhone: Bool {
+        #if os(iOS)
+        return !isIPad && UIScreen.main.bounds.height <= 860
+        #else
+        return false
+        #endif
+    }
+    private var useSmallButtons: Bool {
+        #if os(iOS)
+        return !isIPad && UIScreen.main.bounds.height <= 820
+        #else
+        return false
+        #endif
+    }
     
     var body: some View {
-        VStack(spacing: 12) {
+        VStack(spacing: isCompactPhone ? 10 : 12) {
             ForEach(viewModel.options, id: \.id) { country in
                 AnswerButton(
                     country: country,
                     isSelected: viewModel.selectedAnswer == country,
                     isCorrect: viewModel.isShowingResult ? (country == currentFlag) : nil,
                     isIncorrect: viewModel.isShowingResult ? viewModel.selectedAnswer == country && country != currentFlag : nil,
+                    compact: useSmallButtons,
                     action: {
                         withAnimation {
                             viewModel.selectAnswer(country)
@@ -1505,7 +1638,7 @@ struct AnswerOptionsView: View {
             }
         }
         .padding(.horizontal, isIPad ? 40 : 16)
-        .padding(.vertical, 8)
+        .padding(.vertical, isCompactPhone ? 6 : 8)
         .disabled(viewModel.isShowingResult)
         .opacity(viewModel.optionsOpacity)
     }
@@ -1584,13 +1717,13 @@ struct SurvivalModeView: View {
                 Text("🔥")
                     .font(.system(size: 20))
                 
-                Text("Survival Mode")
+                Text(LocalizationManager.shared.localizedString("Survival Mode"))
                     .font(.system(size: 16, weight: .medium))
                     .foregroundColor(.primary)
                 
                 Spacer()
                 
-                Text("One mistake = Game Over")
+                Text(LocalizationManager.shared.localizedString("One mistake = Game Over"))
                     .font(.system(size: 14))
                     .foregroundColor(.secondary)
             }
@@ -1615,6 +1748,7 @@ class GameViewModel: ObservableObject {
     @Published var optionsOpacity = 1.0
     
     private var nextQuestionTask: Task<Void, Never>?
+    private var liveEffectsHideTask: Task<Void, Never>?
     private var correctlyAnsweredMistakes: Set<String> = []
     
     var currentFlag: Country? { gameState.currentFlag }
@@ -1654,6 +1788,12 @@ class GameViewModel: ObservableObject {
         isShowingResult = true
         
         let isCorrect = country.id == currentFlag.id
+        gameState.recordQuestionResult(
+            correctCountry: currentFlag,
+            selectedCountry: country,
+            questionIndex: gameState.currentQuestion,
+            isCorrect: isCorrect
+        )
         
         print("\n=== Answer Processing ===")
         print("Selected answer: \(country.name.common)")
@@ -1662,6 +1802,23 @@ class GameViewModel: ObservableObject {
         if isCorrect {
             print("✅ CORRECT ANSWER!")
             gameState.score += 1
+            gameState.comboStreak += 1
+            if gameState.comboStreak >= 3 {
+                showLiveCombo(streak: gameState.comboStreak)
+            }
+
+            // Бонус за серию правильных ответов: дофамин-поинты каждые 3/5/10
+            if [3, 5, 10].contains(gameState.comboStreak) {
+                gameState.bonusXP += 10
+                showLiveBonus(text: String(format: LocalizationManager.shared.localizedString("Combo x%d bonus"), gameState.comboStreak))
+            }
+
+            // Бонус за скорость: если ответили быстро, начисляем +1
+            let fastThreshold = gameState.selectedDifficulty.timeLimit * 0.7
+            if gameState.questionTimeLeft >= fastThreshold {
+                gameState.bonusXP += 10
+                showLiveBonus(text: LocalizationManager.shared.localizedString("Speed bonus +1"))
+            }
             
             // Положительная вибрация при правильном ответе
             #if os(iOS)
@@ -1682,6 +1839,8 @@ class GameViewModel: ObservableObject {
              }
         } else {
             print("❌ WRONG ANSWER!")
+            gameState.comboStreak = 0
+            gameState.liveComboText = nil
             
             // Отрицательная вибрация при неправильном ответе
             #if os(iOS)
@@ -1729,6 +1888,27 @@ class GameViewModel: ObservableObject {
             }
         }
     }
+
+    private func showLiveBonus(text: String) {
+        gameState.liveBonusText = text
+        scheduleLiveEffectsHide()
+    }
+
+    private func showLiveCombo(streak: Int) {
+        gameState.liveComboText = String(format: LocalizationManager.shared.localizedString("Combo x%d"), streak)
+        scheduleLiveEffectsHide()
+    }
+
+    private func scheduleLiveEffectsHide() {
+        liveEffectsHideTask?.cancel()
+        liveEffectsHideTask = Task { @MainActor in
+            try? await Task.sleep(nanoseconds: 1_700_000_000)
+            if !Task.isCancelled {
+                gameState.liveComboText = nil
+                gameState.liveBonusText = nil
+            }
+        }
+    }
     
     func goToNextQuestion() async {
         nextQuestionTask?.cancel()
@@ -1759,6 +1939,13 @@ class GameViewModel: ObservableObject {
             selectedAnswer = nil
             isShowingResult = false
         }
+    }
+
+    func cancelPendingWork() {
+        nextQuestionTask?.cancel()
+        nextQuestionTask = nil
+        liveEffectsHideTask?.cancel()
+        liveEffectsHideTask = nil
     }
     
     private func updateMistakesAfterGame() {

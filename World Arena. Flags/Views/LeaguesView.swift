@@ -80,6 +80,7 @@ struct LeaguesView: View {
                             }
                             .modifier(LeaguesHideScrollContentBackgroundModifier())
                             .background(systemGroupedBackground.ignoresSafeArea())
+                            .refreshable { await refreshLeaguesContent() }
                             .onAppear { scrollToUserIfNeeded(proxy: proxy) }
                             .onChange(of: leaderboardData.count) { _ in scrollToUserIfNeeded(proxy: proxy) }
                         }
@@ -94,6 +95,7 @@ struct LeaguesView: View {
                                     .padding(.top, contentTopInset)
                             }
                             .background(systemGroupedBackground)
+                            .refreshable { await refreshLeaguesContent() }
                             .onAppear { scrollToUserIfNeeded(proxy: proxy) }
                             .onChange(of: leaderboardData.count) { _ in scrollToUserIfNeeded(proxy: proxy) }
                         }
@@ -378,16 +380,25 @@ struct LeaguesView: View {
         }
     }
 
+    @MainActor
+    private func refreshLeaguesContent() async {
+        leaguesService.tickCompetitors(for: userProfile.currentLeague)
+        generateLeaderboardData()
+    }
+
     private func checkPreviousWeekAndShowPopupIfNeeded() {
         guard let prev = leaguesService.takePreviousWeekResultIfNeeded() else { return }
         let place = prev.position
         let league = prev.league
+        let thresholds = leaguesService.leagueThresholds(for: userProfile)
         var newLeague = league
         var outcome: LeagueEndOutcome = .stayed
-        if (1...5).contains(place), let up = league.leagueAbove {
+        if thresholds.promote.contains(place), let up = league.leagueAbove {
             newLeague = up
             outcome = .promoted
-        } else if (16...20).contains(place), let down = league.leagueBelow {
+            // В ранний период дополнительно поощряем прогресс.
+            userProfile.addFBucks(1, reason: .leagueReward)
+        } else if let demoteRange = thresholds.demote, demoteRange.contains(place), let down = league.leagueBelow {
             newLeague = down
             outcome = .demoted
         }
@@ -399,14 +410,14 @@ struct LeaguesView: View {
     }
     
     private func getRowBackground(for position: Int) -> Color {
-        switch position {
-        case 1...5:
+        let thresholds = leaguesService.leagueThresholds(for: userProfile)
+        if thresholds.promote.contains(position) {
             return Color.green.opacity(0.05) // Зона повышения
-        case 16...20:
-            return Color.red.opacity(0.05)   // Зона вылета
-        default:
-            return secondarySystemGroupedBackground // Безопасная зона
         }
+        if let demoteRange = thresholds.demote, demoteRange.contains(position) {
+            return Color.red.opacity(0.05)   // Зона вылета
+        }
+        return secondarySystemGroupedBackground // Безопасная зона
     }
 
     private func timeRemainingStringGMT() -> String {

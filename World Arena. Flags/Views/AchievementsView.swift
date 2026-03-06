@@ -58,8 +58,24 @@ private struct AchievementCell: View {
     let definition: AchievementDefinition
     
     var isUnlocked: Bool { userProfile.isAchievementUnlocked(id: definition.id) }
+    private var progressData: (current: Int, target: Int) { userProfile.progress(for: definition) }
+    private var visualLevel: Int {
+        let ratio = Double(max(progressData.current, 0)) / Double(max(progressData.target, 1))
+        if ratio >= 2.2 { return 3 }
+        if ratio >= 1.2 { return 2 }
+        if ratio >= 1.0 { return 1 }
+        return 0
+    }
+    private var levelAccent: Color {
+        switch visualLevel {
+        case 3: return .yellow
+        case 2: return .orange
+        case 1: return definition.color
+        default: return .gray.opacity(0.45)
+        }
+    }
     var progressText: String {
-        let p = userProfile.progress(for: definition)
+        let p = progressData
         return "\(min(p.current, p.target)) / \(p.target)"
     }
     
@@ -75,8 +91,13 @@ private struct AchievementCell: View {
         VStack(spacing: 8) {
             ZStack {
                 Circle()
-                    .fill(isUnlocked ? definition.color : Color.gray.opacity(0.2))
+                    .fill(levelAccent)
                     .frame(width: 72, height: 72)
+                    .overlay(
+                        Circle()
+                            .stroke(levelAccent.opacity(0.45), lineWidth: visualLevel > 0 ? CGFloat(visualLevel) + 1 : 1)
+                    )
+                    .shadow(color: levelAccent.opacity(visualLevel > 0 ? 0.28 : 0), radius: 8, x: 0, y: 4)
                 
                 if isUnlocked {
                     Image(systemName: definition.icon)
@@ -87,6 +108,21 @@ private struct AchievementCell: View {
                         .foregroundColor(.gray)
                         .font(.system(size: 20))
                 }
+
+                if visualLevel > 0 {
+                    HStack(spacing: 2) {
+                        ForEach(0..<visualLevel, id: \.self) { _ in
+                            Image(systemName: "star.fill")
+                                .font(.system(size: 8, weight: .bold))
+                                .foregroundColor(.white.opacity(0.95))
+                        }
+                    }
+                    .padding(.horizontal, 7)
+                    .padding(.vertical, 3)
+                    .background(Color.black.opacity(0.25))
+                    .clipShape(Capsule())
+                    .offset(y: 33)
+                }
             }
             
             Text(LocalizationManager.shared.localizedString(definition.titleKey))
@@ -96,7 +132,7 @@ private struct AchievementCell: View {
                 .lineLimit(2)
                 .frame(height: 34)
             
-            Text(isUnlocked ? LocalizationManager.shared.localizedString("Открыто") : progressText)
+            Text(isUnlocked ? "\(LocalizationManager.shared.localizedString("Открыто")) • Lv\(visualLevel)" : progressText)
                 .font(.system(size: 12, weight: .medium))
                 .foregroundColor(.secondary)
         }

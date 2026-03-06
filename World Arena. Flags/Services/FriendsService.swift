@@ -4,10 +4,24 @@ import SwiftUI
 class FriendsService: ObservableObject {
     static let shared = FriendsService()
 
+    /// Нормализация кода страны к alpha-2 (UA, SE). Принимает также alpha-3 (UKR, SWE).
+    static func normalizeCountryCode(_ raw: String?) -> String? {
+        guard let s = raw?.trimmingCharacters(in: .whitespacesAndNewlines).uppercased(), !s.isEmpty else { return nil }
+        if s.count == 2 { return s }
+        if s.count == 3 {
+            let alpha3To2: [String: String] = [
+                "UKR": "UA", "RUS": "RU", "USA": "US", "SWE": "SE", "DEU": "DE", "GBR": "GB",
+                "FRA": "FR", "ITA": "IT", "ESP": "ES", "POL": "PL", "BLR": "BY", "KAZ": "KZ",
+                "CAN": "CA", "AUS": "AU", "JPN": "JP", "CHN": "CN", "TUR": "TR", "BRA": "BR"
+            ]
+            return alpha3To2[s]
+        }
+        return nil
+    }
+
     /// Региональные индикаторы: две буквы кода страны -> флаг-эмодзи (например US -> 🇺🇸)
     static func countryCodeToFlagEmoji(_ code: String) -> String {
-        let u = code.uppercased()
-        guard u.count == 2 else { return "🏳️" }
+        guard let u = normalizeCountryCode(code), u.count == 2 else { return "🏳️" }
         let scalars = Array(u.unicodeScalars)
         guard scalars.count == 2,
               let a = Unicode.Scalar(0x1F1E6 - 0x41 + scalars[0].value),
@@ -62,8 +76,12 @@ class FriendsService: ObservableObject {
     @MainActor
     func addFriend(byUsername username: String, to userProfile: UserProfile) async -> AddFriendResult {
         let normalized = username.trimmingCharacters(in: .whitespacesAndNewlines)
+            .replacingOccurrences(of: "@", with: "")
         guard !normalized.isEmpty else { return .addFailed }
-        if userProfile.friends.contains(where: { $0.username.lowercased() == normalized.lowercased() }) {
+        if userProfile.friends.contains(where: {
+            $0.username.lowercased() == normalized.lowercased() ||
+            ($0.displayName?.lowercased() == normalized.lowercased())
+        }) {
             return .alreadyFriends
         }
         if normalized.lowercased() == userProfile.username.lowercased() {
@@ -73,7 +91,9 @@ class FriendsService: ObservableObject {
         guard !myId.isEmpty else { return .addFailed }
         do {
             guard let found = try await DuelAPIService.shared.fetchUserByUsername(normalized) else {
-                return .userNotFound
+                // Fallback: в некоторых окружениях сервер может принимать логин напрямую в addFriend.
+                let fallback = await addFriend(by: normalized, to: userProfile)
+                return fallback == .addFailed ? .userNotFound : fallback
             }
             guard !found.friendCode.isEmpty else {
                 return .noFriendCode
@@ -139,7 +159,10 @@ class FriendsService: ObservableObject {
     func shareProfile(for userProfile: UserProfile) {
         #if os(iOS)
         let profileURL = generateProfileURL(for: userProfile.username)
-        let shareText = "\(LocalizationManager.shared.localizedString("Мой профиль в World Arena Flags")): \(profileURL)"
+        var shareText = "\(LocalizationManager.shared.localizedString("My Profile Share Title")): \(profileURL)"
+        if let appLink = ShareService.shared.appStoreURL?.absoluteString {
+            shareText += "\n\n\(appLink)"
+        }
         
         let activityVC = UIActivityViewController(activityItems: [shareText], applicationActivities: nil)
         
@@ -161,7 +184,7 @@ extension Friend {
 
     /// Флаг-эмодзи по коду страны (RU -> 🇷🇺) или текущий avatar
     var displayAvatar: String {
-        if let code = countryCode, code.count == 2 {
+        if let code = FriendsService.normalizeCountryCode(countryCode) {
             return FriendsService.countryCodeToFlagEmoji(code)
         }
         if avatar.hasPrefix("custom_") {

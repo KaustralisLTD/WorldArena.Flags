@@ -7,6 +7,7 @@ import AppKit
 
 struct SettingsView: View {
     @Environment(\.presentationMode) var presentationMode
+    @Environment(\.horizontalSizeClass) private var horizontalSizeClass
     @EnvironmentObject var userProfile: UserProfile
     @EnvironmentObject var gameState: GameState
     @EnvironmentObject var themeManager: AppThemeManager
@@ -21,6 +22,7 @@ struct SettingsView: View {
     @State private var showingLanguageSelection = false
     @State private var showingThemeSelection = false
     @State private var showingPremium = false
+    @State private var isUpdateAvailable = false
     
     private var systemGroupedBackground: Color {
         #if os(iOS)
@@ -162,12 +164,7 @@ struct SettingsView: View {
                             isOn: $hapticEnabled
                         )
                         
-                        SettingsRow(
-                            title: LocalizationManager.shared.localizedString("Версия"),
-                            icon: "info.circle",
-                            hasArrow: false,
-                            subtitle: appVersion
-                        ) {}
+                        versionRow
                         
                         if let url = appStoreURL {
                             SettingsRow(
@@ -260,6 +257,9 @@ struct SettingsView: View {
                     .environmentObject(themeManager)
             }
             .modifier(SettingsPremiumModifier(showingPremium: $showingPremium, gameState: gameState))
+            .task {
+                await checkForUpdates()
+            }
     }
     
     private var appVersion: String {
@@ -272,12 +272,111 @@ struct SettingsView: View {
         return URL(string: "https://apps.apple.com/app/id\(id)")
     }
 
+    private var isRunningViaTestFlight: Bool {
+        Bundle.main.appStoreReceiptURL?.lastPathComponent == "sandboxReceipt"
+    }
+
+    private var isIPad: Bool {
+        #if os(iOS)
+        UIDevice.current.userInterfaceIdiom == .pad || horizontalSizeClass == .regular
+        #else
+        horizontalSizeClass == .regular
+        #endif
+    }
+
+    private var versionRow: some View {
+        HStack(spacing: 16) {
+            Image(systemName: "info.circle")
+                .font(.system(size: 16, weight: .medium))
+                .foregroundColor(.blue)
+                .frame(width: 24, height: 24)
+
+            VStack(alignment: .leading, spacing: 2) {
+                Text(LocalizationManager.shared.localizedString("Version"))
+                    .font(.system(size: 16))
+                    .foregroundColor(.primary)
+                Text(appVersion)
+                    .font(.system(size: 14))
+                    .foregroundColor(.secondary)
+            }
+
+            Spacer()
+
+            if isUpdateAvailable {
+                Button(LocalizationManager.shared.localizedString("Update")) {
+                    openUpdateDestination()
+                }
+                .font(.system(size: isIPad ? 15 : 14, weight: .bold))
+                .foregroundColor(.white)
+                .padding(.horizontal, isIPad ? 14 : 12)
+                .padding(.vertical, isIPad ? 9 : 7)
+                .background(
+                    LinearGradient(
+                        colors: [Color.blue, Color.purple],
+                        startPoint: .leading,
+                        endPoint: .trailing
+                    )
+                )
+                .overlay(
+                    RoundedRectangle(cornerRadius: 10)
+                        .stroke(Color.white.opacity(0.25), lineWidth: 0.7)
+                )
+                .cornerRadius(10)
+                .shadow(color: Color.blue.opacity(0.25), radius: 6, x: 0, y: 2)
+            }
+        }
+        .padding(.horizontal, 16)
+        .padding(.vertical, 12)
+        .background(secondarySystemGroupedBackground)
+    }
+
     private func openAppStore(url: URL) {
         #if os(iOS)
         UIApplication.shared.open(url)
         #elseif os(macOS)
         NSWorkspace.shared.open(url)
         #endif
+    }
+
+    private func openUpdateDestination() {
+        #if os(iOS)
+        if isRunningViaTestFlight, let tfURL = URL(string: "itms-beta://") {
+            UIApplication.shared.open(tfURL)
+            return
+        }
+        #endif
+        if let url = appStoreURL {
+            openAppStore(url: url)
+        }
+    }
+
+    private func checkForUpdates() async {
+        if isRunningViaTestFlight {
+            await MainActor.run { isUpdateAvailable = true }
+            return
+        }
+
+        guard let id = Bundle.main.infoDictionary?["AppStoreID"] as? String, !id.isEmpty else { return }
+        guard let url = URL(string: "https://itunes.apple.com/lookup?id=\(id)") else { return }
+
+        do {
+            let (data, _) = try await URLSession.shared.data(from: url)
+            guard
+                let json = try JSONSerialization.jsonObject(with: data) as? [String: Any],
+                let results = json["results"] as? [[String: Any]],
+                let first = results.first,
+                let storeVersion = first["version"] as? String
+            else { return }
+
+            let needsUpdate = compareVersions(storeVersion, appVersion) == .orderedDescending
+            await MainActor.run { isUpdateAvailable = needsUpdate }
+        } catch {
+            // Ignore lookup failures silently.
+        }
+    }
+
+    private func compareVersions(_ lhs: String, _ rhs: String) -> ComparisonResult {
+        lhs.compare(rhs, options: .numeric)
     }
 
     // MARK: - Functions

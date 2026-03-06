@@ -15,6 +15,7 @@ struct StatisticsView: View {
     @Environment(\.verticalSizeClass) private var verticalSizeClass
     @State private var containerSize: CGSize = .zero
     @State private var showingClearAlert = false
+    @Environment(\.dismiss) private var dismiss
     
     private var isIPad: Bool {
         #if os(iOS)
@@ -33,6 +34,16 @@ struct StatisticsView: View {
         let size = containerSize
         #endif
         return size.width > size.height
+    }
+    
+    private var isCompactPhone: Bool {
+        #if os(iOS)
+        guard !isIPad else { return false }
+        let size = containerSize.width > 0 ? containerSize : UIScreen.main.bounds.size
+        return size.height <= 880
+        #else
+        return false
+        #endif
     }
     
     @State private var animateCards = false
@@ -121,7 +132,8 @@ struct StatisticsView: View {
                 } else {
                     ZStack(alignment: .top) {
                         ScrollView {
-                    let compact = false
+                    let compact = isCompactPhone
+                    let compactHeightMultiplier: CGFloat = compact ? 1.5 : 1.0
                     let gridCols: [GridItem] = compact
                         ? [GridItem(.flexible()), GridItem(.flexible()), GridItem(.flexible())]
                         : [GridItem(.flexible()), GridItem(.flexible())]
@@ -136,7 +148,8 @@ struct StatisticsView: View {
                             value: "\(userProfile.totalGamesPlayed)",
                             color: .blue,
                             isLarge: horizontalSizeClass == .regular && !compact,
-                            compactForLandscape: compact
+                            compactForLandscape: compact,
+                            compactHeightMultiplier: compactHeightMultiplier
                         )
                         StatisticCard(
                             icon: "🏆",
@@ -144,7 +157,8 @@ struct StatisticsView: View {
                             value: "\(userProfile.bestScore)",
                             color: .orange,
                             isLarge: horizontalSizeClass == .regular && !compact,
-                            compactForLandscape: compact
+                            compactForLandscape: compact,
+                            compactHeightMultiplier: compactHeightMultiplier
                         )
                         StatisticCard(
                             icon: "✅",
@@ -152,7 +166,8 @@ struct StatisticsView: View {
                             value: "\(userProfile.correctAnswers)",
                             color: .green,
                             isLarge: horizontalSizeClass == .regular && !compact,
-                            compactForLandscape: compact
+                            compactForLandscape: compact,
+                            compactHeightMultiplier: compactHeightMultiplier
                         )
                         StatisticCard(
                             icon: "🎯",
@@ -160,7 +175,8 @@ struct StatisticsView: View {
                             value: String(format: "%.1f%%", min(100.0, max(0.0, userProfile.accuracy))),
                             color: .purple,
                             isLarge: horizontalSizeClass == .regular && !compact,
-                            compactForLandscape: compact
+                            compactForLandscape: compact,
+                            compactHeightMultiplier: compactHeightMultiplier
                         )
                         StatisticCard(
                             icon: "🔥",
@@ -168,7 +184,8 @@ struct StatisticsView: View {
                             value: "\(userProfile.streak) days",
                             color: .red,
                             isLarge: horizontalSizeClass == .regular && !compact,
-                            compactForLandscape: compact
+                            compactForLandscape: compact,
+                            compactHeightMultiplier: compactHeightMultiplier
                         )
                         StatisticCard(
                             icon: "💰",
@@ -176,7 +193,8 @@ struct StatisticsView: View {
                             value: "\(userProfile.fBucks)",
                             color: .yellow,
                             isLarge: horizontalSizeClass == .regular && !compact,
-                            compactForLandscape: compact
+                            compactForLandscape: compact,
+                            compactHeightMultiplier: compactHeightMultiplier
                         )
                         Rectangle()
                             .fill(Color.clear)
@@ -230,11 +248,15 @@ struct StatisticsView: View {
                     .scaleEffect(animateCards ? 1.0 : 0.8)
                     .opacity(animateCards ? 1.0 : 0.0)
                     }
-                .padding(.bottom, horizontalSizeClass == .regular ? 40 : 20)
+                .padding(.bottom, compact ? 10 : (horizontalSizeClass == .regular ? 40 : 20))
             }
             .padding(.top, contentTopInset)
                         headerContent
                     }
+                }
+                if isPushedFromProfile {
+                    backButtonOverlay
+                        .zIndex(20)
                 }
             }
             .background(
@@ -263,6 +285,10 @@ struct StatisticsView: View {
                     appearance.shadowColor = .clear
                     UINavigationBar.appearance().standardAppearance = appearance
                     UINavigationBar.appearance().scrollEdgeAppearance = appearance
+                }
+                if isPushedFromProfile, let nav = findNavigationController() {
+                    nav.interactivePopGestureRecognizer?.isEnabled = true
+                    nav.interactivePopGestureRecognizer?.delegate = nil
                 }
                 #endif
             }
@@ -318,6 +344,7 @@ private extension StatisticsView {
 
     var headerHeight: CGFloat {
         if isIPadLandscape { return 92 + safeTopInset }
+        if isCompactPhone { return 142 + safeTopInset }
         return (horizontalSizeClass == .regular ? 200 : 160) + safeTopInset
     }
 
@@ -337,24 +364,7 @@ private extension StatisticsView {
                     .foregroundColor(.white)
             }
             .frame(maxWidth: .infinity)
-            .padding(.top, max(0, safeTopInset - 16))
-            #if os(iOS)
-            if isPushedFromProfile, let windowScene = UIApplication.shared.connectedScenes.first as? UIWindowScene,
-               let window = windowScene.windows.first,
-               let nav = window.rootViewController?.navigationController,
-               nav.viewControllers.count > 1 {
-                Button(action: { nav.popViewController(animated: true) }) {
-                    Image(systemName: "chevron.left")
-                        .font(.system(size: 18, weight: .semibold))
-                        .foregroundColor(.white)
-                        .padding(8)
-                        .background(Color.white.opacity(0.15))
-                        .clipShape(Circle())
-                }
-                .padding(.leading, 12)
-                .padding(.top, max(0, safeTopInset - 16))
-            }
-            #endif
+            .padding(.top, max(0, safeTopInset - 24))
         }
         .padding(.bottom, 12)
         .frame(height: 92 + safeTopInset, alignment: .top)
@@ -379,39 +389,63 @@ private extension StatisticsView {
                     .font(.system(size: compact ? 15 : (horizontalSizeClass == .regular ? 24 : 20), weight: .bold))
                     .foregroundColor(.white)
             }
-            .padding(.top, compact ? (safeTopInset + 4) : (safeTopInset + 16))
+            .padding(.top, compact ? max(0, safeTopInset - 6) : max(0, safeTopInset + 2))
             .frame(height: headerHeight, alignment: .top)
         }
         .frame(height: headerHeight)
         .clipped()
-        .overlay(
-            // Кнопка "Назад" как overlay - строго в пределах шапки
+    }
+
+    @ViewBuilder
+    var backButtonOverlay: some View {
+        #if os(iOS)
+        VStack(spacing: 0) {
             HStack {
-                #if os(iOS)
-                if let windowScene = UIApplication.shared.connectedScenes.first as? UIWindowScene,
-                   let window = windowScene.windows.first,
-                   let navigationController = window.rootViewController?.navigationController,
-                   navigationController.viewControllers.count > 1 {
-                    Button(action: {
-                        navigationController.popViewController(animated: true)
-                    }) {
-                        Image(systemName: "chevron.left")
-                            .foregroundColor(.white)
-                            .font(.system(size: 18, weight: .semibold))
-                            .padding(8)
-                            .background(Color.white.opacity(0.15))
-                            .clipShape(Circle())
-                    }
-                    .padding(.leading, 20)
-                    .padding(.top, safeTopInset + 20)
+                Button(action: { dismiss() }) {
+                    Image(systemName: "chevron.left")
+                        .foregroundColor(.white)
+                        .font(.system(size: 18, weight: .semibold))
+                        .padding(8)
+                        .background(Color.white.opacity(0.15))
+                        .clipShape(Circle())
                 }
-                #endif
                 Spacer()
             }
-            .frame(height: headerHeight - 40), // Ограничиваем высоту в пределах шапки
-            alignment: .topLeading
-        )
+            .padding(.leading, isIPadLandscape ? 12 : 20)
+            .padding(.top, isIPadLandscape ? max(0, safeTopInset - 8) : max(0, safeTopInset - 6))
+            Spacer(minLength: 0)
+        }
+        .frame(height: isIPadLandscape ? (92 + safeTopInset) : headerHeight, alignment: .top)
+        .frame(maxWidth: .infinity, alignment: .topLeading)
+        #endif
     }
+
+    #if os(iOS)
+    func findNavigationController() -> UINavigationController? {
+        guard let windowScene = UIApplication.shared.connectedScenes.first as? UIWindowScene else { return nil }
+        guard let root = windowScene.windows.first(where: { $0.isKeyWindow })?.rootViewController
+            ?? windowScene.windows.first?.rootViewController else { return nil }
+        return findNavigationController(in: root)
+    }
+
+    func findNavigationController(in vc: UIViewController?) -> UINavigationController? {
+        guard let vc else { return nil }
+        if let nav = vc as? UINavigationController { return nav }
+        if let tab = vc as? UITabBarController {
+            return findNavigationController(in: tab.selectedViewController) ?? findNavigationController(in: tab.viewControllers?.first)
+        }
+        if let split = vc as? UISplitViewController {
+            return findNavigationController(in: split.viewControllers.last) ?? findNavigationController(in: split.viewControllers.first)
+        }
+        if let presented = vc.presentedViewController {
+            return findNavigationController(in: presented)
+        }
+        for child in vc.children {
+            if let nav = findNavigationController(in: child) { return nav }
+        }
+        return nil
+    }
+    #endif
 }
 
 // Прямоугольник со скруглением только снизу (iOS 15)
@@ -533,6 +567,7 @@ struct StatisticCard: View {
     let color: Color
     let isLarge: Bool
     var compactForLandscape: Bool = false
+    var compactHeightMultiplier: CGFloat = 1.0
     @State private var animateValue = false
     
     private var iconSize: CGFloat {
@@ -552,7 +587,7 @@ struct StatisticCard: View {
         return isLarge ? 25 : 20
     }
     private var cardHeight: CGFloat {
-        if compactForLandscape { return 112 }
+        if compactForLandscape { return 112 * compactHeightMultiplier }
         return isLarge ? 180 : 140
     }
     private var cornerRadius: CGFloat {

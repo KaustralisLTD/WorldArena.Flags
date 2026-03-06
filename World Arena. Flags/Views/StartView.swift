@@ -114,7 +114,7 @@ struct StartView: View {
         #if os(iOS)
         .navigationViewStyle(.stack)
         #endif
-        .onReceive(NotificationCenter.default.publisher(for: NSNotification.Name("LanguageChanged"))) { _ in
+        .onReceive(NotificationCenter.default.publisher(for: .languageChanged)) { _ in
             // Принудительно обновляем view при смене языка
             gameState.objectWillChange.send()
         }

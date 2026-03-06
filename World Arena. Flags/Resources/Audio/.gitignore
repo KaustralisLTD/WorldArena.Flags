@@ -1,0 +1,16 @@
+# Исключаем скрипты из сборки Xcode
+*.py
+*.sh
+*.md
+real_anthems/
+temp_anthems/
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.Python
+env/
+venv/
+.env
+.venv
+

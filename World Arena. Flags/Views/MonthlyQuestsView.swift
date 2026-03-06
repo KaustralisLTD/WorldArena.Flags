@@ -71,6 +71,7 @@ struct MonthlyQuestsView: View {
                         }
                         .padding(.top, 20) // Добавляем отступ сверху
                     }
+                    .refreshable { await refreshQuestsContent() }
                     .background(
                         RoundedRectangle(cornerRadius: 25, style: .continuous)
                             .fill(systemGroupedBackground)
@@ -115,6 +116,13 @@ struct MonthlyQuestsView: View {
                 UINavigationBar.appearance().scrollEdgeAppearance = appearance
                 #endif
         }
+    }
+
+    @MainActor
+    private func refreshQuestsContent() async {
+        questService.loadDailyQuests()
+        userProfile.generateMonthlyQuests()
+        userProfile.saveToStorage()
     }
     
     private var headerSection: some View {

@@ -57,6 +57,10 @@ struct PostGameFlowContainer: View {
                     totalQuestions: totalQuestions,
                     timeElapsed: timeElapsed,
                     duelResult: gameState.pendingDuelResult,
+                    bonusXP: gameState.bonusXP,
+                    earnedFBucks: gameState.lastGameEarnedFBucks,
+                    appliedXPBoostMultiplier: gameState.lastAppliedXPBoostMultiplier,
+                    detailedResults: gameState.lastGameResults,
                     onContinue: {
                         gameState.pendingDuelResult = nil
                         next()
@@ -251,6 +255,7 @@ struct DuelOpponentPickerView: View {
                 gameState.duelSeed = seed
                 gameState.duelChallengeId = challengeId
                 gameState.duelOpponentId = friend.id.uuidString
+                gameState.duelOpponentName = friend.displayNameOrUsername
                 gameState.duelChallengerName = myName
             }
             await gameState.startNewGameWithCurrentRegions()
@@ -309,6 +314,22 @@ struct FriendProfileView: View {
                 stat("🏆", LocalizationManager.shared.localizedString("Diamond"), LocalizationManager.shared.localizedString("League"))
             }
             .padding()
+            .background(.ultraThinMaterial)
+            .cornerRadius(16)
+            .padding(.horizontal, 20)
+
+            VStack(alignment: .leading, spacing: 8) {
+                Text(localizationManager.localizedString("Global ranking by countries"))
+                    .font(.system(size: 14, weight: .semibold))
+                    .foregroundColor(.secondary)
+                Text(friendCountryRankLine(code: friend.countryCode ?? "US", seed: 31))
+                    .font(.system(size: 15, weight: .bold))
+                Text(friendWorldRankLine(seed: 43))
+                    .font(.system(size: 15, weight: .bold))
+            }
+            .frame(maxWidth: .infinity, alignment: .leading)
+            .padding(.horizontal, 20)
+            .padding(.vertical, 12)
             .background(.ultraThinMaterial)
             .cornerRadius(16)
             .padding(.horizontal, 20)
@@ -411,6 +432,7 @@ struct FriendProfileView: View {
                 gameState.duelSeed = seed
                 gameState.duelChallengeId = challengeId
                 gameState.duelOpponentId = friend.id.uuidString
+                gameState.duelOpponentName = friend.displayNameOrUsername
                 gameState.duelChallengerName = myName
             }
             await gameState.startNewGameWithCurrentRegions()
@@ -430,16 +452,43 @@ struct FriendProfileView: View {
         }
         .frame(maxWidth: .infinity)
     }
+
+    private func friendPseudoRank(seed: Int, scope: Int) -> Int {
+        let base = max(1, (2_000_000 - (friend.xp * 73 + friend.streak * 31)))
+        let mixed = abs((base + seed * 997) % max(scope, 1))
+        return max(1, mixed + 1)
+    }
+
+    private func friendCountryRankLine(code: String, seed: Int) -> String {
+        let upper = code.uppercased()
+        let flag = FriendsService.countryCodeToFlagEmoji(upper)
+        let rank = friendPseudoRank(seed: seed, scope: 12_000)
+        let format = localizationManager.localizedString("Country rank line")
+        return String(format: format, flag, rank, localizationManager.localizedString(friendCountryNameByCode(upper)))
+    }
+
+    private func friendWorldRankLine(seed: Int) -> String {
+        let rank = friendPseudoRank(seed: seed, scope: 150_000)
+        let format = localizationManager.localizedString("World rank line")
+        return String(format: format, rank)
+    }
+
+    private func friendCountryNameByCode(_ code: String) -> String {
+        let upper = code.uppercased()
+        let lang = localizationManager.currentLocale.languageCode ?? "en"
+        return CountryDatabase.getLocalizedCountryData(for: upper, language: lang)?.name
+            ?? CountryDatabase.getCountryData(for: upper)?.ru.name
+            ?? upper
+    }
 }
 
 struct PremiumView: View {
     @ObservedObject var gameState: GameState
     @Environment(\.dismiss) private var dismiss
     @Environment(\.horizontalSizeClass) private var horizontalSizeClass
-    @State private var animate = false
     @StateObject private var storeManager = StoreManager.shared
-    @State private var showParentalGate = false
-    @State private var parentalGateCompleted = false
+    private let privacyPolicyURL = URL(string: "https://worldarena.games/privacy-policy.html")!
+    private let termsOfUseURL = URL(string: "https://worldarena.games/terms-of-use.html")!
     
     private var isIPad: Bool {
         #if os(iOS)
@@ -461,28 +510,17 @@ struct PremiumView: View {
                             Circle()
                                 .fill(LinearGradient(colors: [.purple, .blue], startPoint: .top, endPoint: .bottom))
                                 .frame(width: isIPad ? 240 : 180, height: isIPad ? 240 : 180)
-                                .scaleEffect(animate ? 1.05 : 0.95)
                                 .opacity(0.9)
-                                .animation(.easeInOut(duration: 1.6).repeatForever(autoreverses: true), value: animate)
                             Image(systemName: "sparkles")
                                 .font(.system(size: isIPad ? 80 : 64, weight: .bold))
                                 .foregroundColor(.white)
                         }
                         .padding(.top, isIPad ? 40 : 30)
                         .onAppear { 
-                            animate = true
                             Task {
                                 await storeManager.loadProducts()
                             }
                         }
-                        .overlay(
-                            ParentalGateOverlay(
-                                isPresented: $showParentalGate,
-                                onSuccess: {
-                                    parentalGateCompleted = true
-                                }
-                            )
-                        )
                         
                         Text(LocalizationManager.shared.localizedString("Go Premium"))
                             .font(.system(size: isIPad ? 44 : 32, weight: .heavy, design: .rounded))
@@ -502,6 +540,7 @@ struct PremiumView: View {
                             premiumRow(title: "Access 'My Mistakes'", icon: "exclamationmark.bubble.fill")
                             premiumRow(title: "Erudite Difficulty", icon: "brain.head.profile")
                             premiumRow(title: "Learning Section", icon: "book.fill")
+                            premiumRow(title: "Exclusive tournaments with cash F-Bucks prizes", icon: "trophy.fill")
                         }
                         .padding(isIPad ? 24 : 16)
                         .background(.ultraThinMaterial)
@@ -510,11 +549,24 @@ struct PremiumView: View {
                         
                         // Purchase Options
                         VStack(spacing: 12) {
+                            if let errorMessage = storeManager.errorMessage {
+                                Text(errorMessage)
+                                    .font(.system(size: isIPad ? 15 : 12, weight: .medium))
+                                    .foregroundColor(.orange)
+                                    .multilineTextAlignment(.center)
+                                    .padding(.horizontal, 8)
+                            }
+
                             if storeManager.isLoading {
-                                ProgressView()
-                                    .progressViewStyle(CircularProgressViewStyle(tint: .white))
-                                    .scaleEffect(1.2)
-                                    .padding()
+                                VStack(spacing: 10) {
+                                    ProgressView()
+                                        .progressViewStyle(CircularProgressViewStyle(tint: .white))
+                                        .scaleEffect(isIPad ? 1.5 : 1.2)
+                                    Text(LocalizationManager.shared.localizedString("Connecting to App Store..."))
+                                        .font(.system(size: isIPad ? 17 : 13, weight: .semibold))
+                                        .foregroundColor(.white.opacity(0.95))
+                                }
+                                .padding(.vertical, isIPad ? 12 : 8)
                             } else if !storeManager.hasProducts {
                                 VStack(spacing: 16) {
                                     if let errorMessage = storeManager.errorMessage {
@@ -522,7 +574,7 @@ struct PremiumView: View {
                                             Image(systemName: "exclamationmark.triangle")
                                                 .font(.system(size: 32))
                                                 .foregroundColor(.orange)
-                                            Text("Unable to load products")
+                                            Text(LocalizationManager.shared.localizedString("Unable to load products"))
                                                 .font(.headline)
                                                 .foregroundColor(.primary)
                                             Text(errorMessage)
@@ -533,27 +585,27 @@ struct PremiumView: View {
                                         }
                                     }
                                     Text(LocalizationManager.shared.localizedString("Sign in with Apple ID in Settings → App Store to see prices. Tap an option or Retry to try again."))
-                                        .font(.system(size: 13))
+                                        .font(.system(size: isIPad ? 16 : 13))
                                         .foregroundColor(.white.opacity(0.9))
                                         .multilineTextAlignment(.center)
                                         .padding(.horizontal, 8)
-                                    // Плейсхолдеры подписок (Release: продукты не загрузились — по нажатию пробуем загрузить; после загрузки появятся цены и кнопки оформления)
+                                    // Плейсхолдеры подписок (Release: продукты не загрузились — по нажатию пробуем загрузить снова)
                                     PremiumPlaceholderRow(
                                         title: LocalizationManager.shared.localizedString("Premium Monthly"),
                                         isYearly: false,
                                         isLoading: storeManager.isLoading
                                     ) {
-                                        Task { await storeManager.loadProducts() }
+                                        Task { await storeManager.retryLoadProducts() }
                                     }
                                     PremiumPlaceholderRow(
                                         title: LocalizationManager.shared.localizedString("Yearly Premium"),
                                         isYearly: true,
                                         isLoading: storeManager.isLoading
                                     ) {
-                                        Task { await storeManager.loadProducts() }
+                                        Task { await storeManager.retryLoadProducts() }
                                     }
                                     Button {
-                                        Task { await storeManager.loadProducts() }
+                                        Task { await storeManager.retryLoadProducts() }
                                     } label: {
                                         HStack {
                                             if storeManager.isLoading {
@@ -567,7 +619,8 @@ struct PremiumView: View {
                                         }
                                         .foregroundColor(.white)
                                         .padding(.horizontal, 24)
-                                        .padding(.vertical, 12)
+                                        .padding(.vertical, isIPad ? 16 : 12)
+                                        .font(.system(size: isIPad ? 20 : 16, weight: .bold))
                                         .background(
                                             LinearGradient(
                                                 colors: [.blue, .purple],
@@ -586,11 +639,7 @@ struct PremiumView: View {
                                     PremiumProductButton(
                                         product: product, 
                                         storeManager: storeManager, 
-                                        gameState: gameState,
-                                        parentalGateCompleted: parentalGateCompleted,
-                                        onParentalGateRequired: {
-                                            showParentalGate = true
-                                        }
+                                        gameState: gameState
                                     ) {
                                         dismiss()
                                     }
@@ -611,9 +660,26 @@ struct PremiumView: View {
                                 }
                                 #endif
                             }
+
+                            Button(LocalizationManager.shared.localizedString("Redeem Offer Code")) {
+                                #if os(iOS)
+                                SKPaymentQueue.default().presentCodeRedemptionSheet()
+                                #endif
+                            }
+                            .foregroundColor(.white)
+                            .font(.system(size: isIPad ? 20 : 14, weight: .semibold))
+                            .padding(.horizontal, 16)
+                            .padding(.vertical, isIPad ? 14 : 10)
+                            .background(Color.white.opacity(0.16))
+                            .cornerRadius(10)
+
+                            Text(LocalizationManager.shared.localizedString("Have a promo code?"))
+                                .font(.system(size: isIPad ? 16 : 12))
+                                .foregroundColor(.white.opacity(0.85))
+                                .multilineTextAlignment(.center)
                             
                             // Restore Purchases
-                            Button("Restore Purchases") {
+                            Button(LocalizationManager.shared.localizedString("Restore Purchases")) {
                                 Task {
                                     await storeManager.restorePurchases()
                                     if storeManager.isPremium {
@@ -623,15 +689,26 @@ struct PremiumView: View {
                                 }
                             }
                             .foregroundColor(.white.opacity(0.7))
-                            .font(.system(size: 14))
+                            .font(.system(size: isIPad ? 20 : 14, weight: .semibold))
                             .padding(.top, 8)
+                            .padding(.vertical, isIPad ? 6 : 0)
+
+                            HStack(spacing: 16) {
+                                Link(LocalizationManager.shared.localizedString("Политика конфиденциальности"), destination: privacyPolicyURL)
+                                    .font(.system(size: isIPad ? 18 : 13, weight: .semibold))
+                                Link(LocalizationManager.shared.localizedString("Условия использования"), destination: termsOfUseURL)
+                                    .font(.system(size: isIPad ? 18 : 13, weight: .semibold))
+                            }
+                            .foregroundColor(.white.opacity(0.85))
+                            .padding(.top, 2)
                         }
                         .padding(.horizontal, 20)
                         
                         Button(LocalizationManager.shared.localizedString("NO THANKS")) {
                             dismiss()
                         }
-                        .foregroundColor(.white.opacity(0.7))
+                        .foregroundColor(.white.opacity(0.8))
+                        .font(.system(size: isIPad ? 19 : 14, weight: .semibold))
                         .padding(.bottom, 30)
                     }
                 }
@@ -660,6 +737,7 @@ struct PremiumView: View {
             Spacer()
         }
     }
+
 }
 
 // MARK: - FinalGameOverView
@@ -821,14 +899,14 @@ struct ManageSubscriptionView: View {
 
     /// Цена и название плана из StoreKit (по региону пользователя) или мок
     private var monthlyDisplayPrice: String {
-        if let p = storeManager.product(for: "WorldArena.Flags.MonthPremium2025") { return p.displayPrice }
-        if let m = storeManager.mockProduct(for: "WorldArena.Flags.MonthPremium2025") { return m.displayPrice }
+        if let p = storeManager.monthlyProduct { return p.displayPrice }
+        if let m = storeManager.monthlyMockProduct { return m.displayPrice }
         return "$1.99"
     }
 
     private var monthlyPlanDisplayName: String {
-        if let p = storeManager.product(for: "WorldArena.Flags.MonthPremium2025") { return p.displayName }
-        if let m = storeManager.mockProduct(for: "WorldArena.Flags.MonthPremium2025") { return m.displayName }
+        if let p = storeManager.monthlyProduct { return p.displayName }
+        if let m = storeManager.monthlyMockProduct { return m.displayName }
         return "Premium Monthly"
     }
     
@@ -1035,11 +1113,9 @@ struct PremiumPlaceholderRow: View {
                     Text(title)
                         .font(.system(size: 16, weight: .semibold))
                         .foregroundColor(.white)
-                    if isYearly {
-                        Text(LocalizationManager.shared.localizedString(Self.tapToLoadKey))
-                            .font(.system(size: 12))
-                            .foregroundColor(.white.opacity(0.9))
-                    }
+                    Text(LocalizationManager.shared.localizedString(isYearly ? "Duration: 1 year (auto-renewable)" : "Duration: 1 month (auto-renewable)"))
+                        .font(.system(size: 12))
+                        .foregroundColor(.white.opacity(0.9))
                 }
                 Spacer()
                 if isLoading {
@@ -1054,7 +1130,7 @@ struct PremiumPlaceholderRow: View {
                 }
             }
             .padding(.horizontal, 16)
-            .padding(.vertical, 12)
+            .padding(.vertical, 14)
             .contentShape(Rectangle())
             .background(
                 LinearGradient(
@@ -1067,7 +1143,8 @@ struct PremiumPlaceholderRow: View {
                 RoundedRectangle(cornerRadius: 12)
                     .stroke(isYearly ? Color.green.opacity(0.5) : Color.purple.opacity(0.5), lineWidth: 1)
             )
-            .cornerRadius(12)
+            .cornerRadius(14)
+            .shadow(color: (isYearly ? Color.green : Color.purple).opacity(0.25), radius: 8, x: 0, y: 4)
         }
         .buttonStyle(PlainButtonStyle())
         .disabled(isLoading)
@@ -1079,18 +1156,18 @@ struct PremiumProductButton: View {
     let product: Product
     let storeManager: StoreManager
     let gameState: GameState
-    let parentalGateCompleted: Bool
-    let onParentalGateRequired: () -> Void
     let onPurchaseComplete: () -> Void
+    
+    private var isIPad: Bool {
+        #if os(iOS)
+        UIDevice.current.userInterfaceIdiom == .pad
+        #else
+        false
+        #endif
+    }
     
     var body: some View {
         Button {
-            // Проверяем parental gate для Kids category
-            if !parentalGateCompleted {
-                onParentalGateRequired()
-                return
-            }
-            
             Task {
                 let success = await storeManager.purchase(product)
                 if success {
@@ -1099,16 +1176,20 @@ struct PremiumProductButton: View {
                 }
             }
         } label: {
-            VStack(spacing: 4) {
+            VStack(spacing: 6) {
                 HStack {
                     VStack(alignment: .leading, spacing: 2) {
                         Text(productTitle)
-                            .font(.system(size: 16, weight: .semibold))
+                            .font(.system(size: isIPad ? 22 : 16, weight: .bold))
                             .foregroundColor(.white)
-                        
+
+                        Text(durationText)
+                            .font(.system(size: isIPad ? 16 : 12, weight: .medium))
+                            .foregroundColor(.white.opacity(0.9))
+
                         if let pricePerMonth = monthlyPrice {
                             Text(pricePerMonth)
-                                .font(.system(size: 12))
+                                .font(.system(size: isIPad ? 15 : 12))
                                 .foregroundColor(.white.opacity(0.8))
                         }
                     }
@@ -1116,13 +1197,13 @@ struct PremiumProductButton: View {
                     Spacer()
                     
                     Text(product.displayPrice)
-                        .font(.system(size: 18, weight: .bold))
+                        .font(.system(size: isIPad ? 30 : 18, weight: .heavy))
                         .foregroundColor(.white)
                 }
                 
                 if isYearlyProduct && savingsPercentage > 0 {
                     HStack {
-                        Text("Save \(savingsPercentage)%")
+                        Text(String(format: LocalizationManager.shared.localizedString("Save %d%%"), savingsPercentage))
                             .font(.system(size: 12, weight: .medium))
                             .foregroundColor(.green)
                             .padding(.horizontal, 8)
@@ -1134,7 +1215,7 @@ struct PremiumProductButton: View {
                 }
             }
             .padding(.horizontal, 16)
-            .padding(.vertical, 12)
+            .padding(.vertical, isIPad ? 20 : 14)
             .background(
                 LinearGradient(
                     colors: isYearlyProduct ? [.green.opacity(0.3), .blue.opacity(0.3)] : [.purple.opacity(0.3), .blue.opacity(0.3)],
@@ -1143,16 +1224,21 @@ struct PremiumProductButton: View {
                 )
             )
             .overlay(
-                RoundedRectangle(cornerRadius: 12)
-                    .stroke(isYearlyProduct ? Color.green.opacity(0.5) : Color.purple.opacity(0.5), lineWidth: 1)
+                RoundedRectangle(cornerRadius: 16)
+                    .stroke(isYearlyProduct ? Color.green.opacity(0.6) : Color.purple.opacity(0.6), lineWidth: 1.2)
             )
-            .cornerRadius(12)
+            .cornerRadius(16)
+            .shadow(color: (isYearlyProduct ? Color.green : Color.purple).opacity(0.28), radius: 10, x: 0, y: 4)
         }
         .disabled(storeManager.isLoading)
     }
     
     private var productTitle: String {
-        product.displayName
+        LocalizationManager.shared.localizedString(isYearlyProduct ? "Yearly Premium Title" : "Monthly Premium Title")
+    }
+
+    private var durationText: String {
+        LocalizationManager.shared.localizedString(isYearlyProduct ? "Duration: 1 year (auto-renewable)" : "Duration: 1 month (auto-renewable)")
     }
     
     private var isYearlyProduct: Bool {
@@ -1175,8 +1261,8 @@ struct PremiumProductButton: View {
     
     private var savingsPercentage: Int {
         guard isYearlyProduct else { return 0 }
-        guard let monthlyProduct = storeManager.product(for: "WorldArena.Flags.MonthPremium2025") else {
-            if let mock = storeManager.mockProduct(for: "WorldArena.Flags.MonthPremium2025") {
+        guard let monthlyProduct = storeManager.monthlyProduct else {
+            if let mock = storeManager.monthlyMockProduct {
                 let monthly12 = NSDecimalNumber(decimal: mock.price).doubleValue * 12
                 let yearly = NSDecimalNumber(decimal: product.price).doubleValue
                 guard monthly12 > 0 else { return 0 }
@@ -1410,7 +1496,7 @@ struct MockPremiumProductButton: View {
 
     private var mockSavingsPercentage: Int? {
         guard mockProduct.id.contains("Yearly"),
-              let monthly = storeManager.mockProduct(for: "WorldArena.Flags.MonthPremium2025") else { return nil }
+              let monthly = storeManager.monthlyMockProduct else { return nil }
         let monthly12 = NSDecimalNumber(decimal: monthly.price).doubleValue * 12
         let yearly = NSDecimalNumber(decimal: mockProduct.price).doubleValue
         guard monthly12 > 0 else { return nil }

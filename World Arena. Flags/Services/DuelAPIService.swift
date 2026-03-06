@@ -71,8 +71,9 @@ final class DuelAPIService {
         return (seed, name, score)
     }
     
-    /// Отправить результат (challenger или opponent). Возвращает winner: "challenger" | "opponent" | nil.
-    func submitScore(challengeId: String, score: Int, side: String) async throws -> String? {
+    /// Отправить результат (challenger или opponent).
+    /// Возвращает winner: "challenger" | "opponent" | nil и, если доступны, оба счёта.
+    func submitScore(challengeId: String, score: Int, side: String) async throws -> (winner: String?, challengerScore: Int?, opponentScore: Int?) {
         let url = URL(string: "\(baseURL)/duel/submit")!
         var request = URLRequest(url: url)
         request.httpMethod = "POST"
@@ -84,7 +85,11 @@ final class DuelAPIService {
             throw DuelAPIError.serverError(String(data: data, encoding: .utf8) ?? "")
         }
         let json = try JSONSerialization.jsonObject(with: data) as? [String: Any]
-        return json?["winner"] as? String
+        return (
+            winner: json?["winner"] as? String,
+            challengerScore: json?["challengerScore"] as? Int,
+            opponentScore: json?["opponentScore"] as? Int
+        )
     }
     
     /// Зарегистрировать пользователя; возвращает friendCode с сервера (сохранять и показывать в «Добавить друзей»).
@@ -160,6 +165,20 @@ final class DuelAPIService {
         let (_, response) = try await session.data(for: request)
         guard let http = response as? HTTPURLResponse, (200...299).contains(http.statusCode) else {
             throw DuelAPIError.serverError("update display name failed")
+        }
+    }
+
+    /// Обновить код страны на сервере (чтобы у друзей обновлялся флаг).
+    func updateMyCountryCode(userId: String, countryCode: String) async throws {
+        let url = URL(string: "\(baseURL)/users/me")!
+        var request = URLRequest(url: url)
+        request.httpMethod = "PATCH"
+        request.setValue("application/json", forHTTPHeaderField: "Content-Type")
+        request.setValue(userId, forHTTPHeaderField: "X-User-Id")
+        request.httpBody = try JSONSerialization.data(withJSONObject: ["countryCode": countryCode])
+        let (_, response) = try await session.data(for: request)
+        guard let http = response as? HTTPURLResponse, (200...299).contains(http.statusCode) else {
+            throw DuelAPIError.serverError("update countryCode failed")
         }
     }
 

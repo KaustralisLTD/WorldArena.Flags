@@ -82,6 +82,11 @@
 1. **Цена**  
    Для каждой подписки задайте цену в разделе «Subscription Prices» (например, базовая территория — United States).
 
+1a. **Ссылка Terms of Use (EULA) в метаданных версии (обязательно для 3.1.2)**  
+   Добавьте в поле App Description (или Custom EULA field) рабочую ссылку:  
+   - Terms of Use (EULA): `https://worldarena.games/terms-of-use.html`  
+   - Privacy Policy: `https://worldarena.games/privacy-policy.html`
+
 2. **App Review Screenshot**  
    Загрузите один скриншот экрана, где видно:
    - предложение подписки (тарифы «Месяц» и «Год») или
@@ -99,3 +104,18 @@
    Убедитесь, что обе подписки входят в одну группу подписок (например, «World Arena Premium»), чтобы пользователь мог переключаться между месячной и годовой.
 
 После заполнения метаданных, цен и скриншота статус продуктов должен смениться на **«Готово к отправке»**.
+
+---
+
+## Обязательный блок для App Description (Guideline 3.1.2)
+
+Добавьте в описание приложения (App Store Connect → App Information / Version Description) рабочую ссылку на Terms of Use (EULA).
+
+### Готовый текст для вставки (EN)
+
+```
+Terms of Use (EULA): https://worldarena.games/terms-of-use.html
+Privacy Policy: https://worldarena.games/privacy-policy.html
+```
+
+> Если используете стандартный Apple EULA, этой ссылки достаточно для требования Terms of Use.

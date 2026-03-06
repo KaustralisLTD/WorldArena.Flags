@@ -447,12 +447,15 @@ struct MainTabView: View {
                     }
                     .tag(3)
                 
-                ProfileView(selectedTab: $selectedTab)
-                    .tabItem {
-                        Image(systemName: selectedTab == 4 ? "person.fill" : "person")
-                        Text(LocalizationManager.shared.localizedString("Профиль"))
-                    }
-                    .tag(4)
+                NavigationView {
+                    ProfileView(selectedTab: $selectedTab)
+                }
+                .navigationViewStyle(.stack)
+                .tabItem {
+                    Image(systemName: selectedTab == 4 ? "person.fill" : "person")
+                    Text(LocalizationManager.shared.localizedString("Профиль"))
+                }
+                .tag(4)
             } else {
                 // Премиум план
                 ContentView(gameState: gameState)
@@ -484,12 +487,15 @@ struct MainTabView: View {
                     }
                     .tag(3)
                 
-                ProfileView(selectedTab: $selectedTab)
-                    .tabItem {
-                        Image(systemName: selectedTab == 4 ? "person.fill" : "person")
-                        Text(LocalizationManager.shared.localizedString("Профиль"))
-                    }
-                    .tag(4)
+                NavigationView {
+                    ProfileView(selectedTab: $selectedTab)
+                }
+                .navigationViewStyle(.stack)
+                .tabItem {
+                    Image(systemName: selectedTab == 4 ? "person.fill" : "person")
+                    Text(LocalizationManager.shared.localizedString("Профиль"))
+                }
+                .tag(4)
             }
             }
             .accentColor(.blue)

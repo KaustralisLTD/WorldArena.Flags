@@ -30,12 +30,13 @@ class QuestService: ObservableObject {
         do {
             let decoded = try JSONDecoder().decode([DailyQuestPersisted].self, from: data)
             dailyQuests = decoded.map { $0.toModel() }
+            refreshQuestLocalization(save: false)
         } catch {
             generateNewDailyQuests(); saveDailyQuests()
         }
     }
 
-    func updateAfterGame(score: Int, totalQuestions: Int, correctAnswers: Int) {
+    func updateAfterGame(score: Int, totalQuestions: Int, correctAnswers: Int, earnedXP: Int) {
         var updated = dailyQuests
         // Игры сыграно
         if let idx = updated.firstIndex(where: { $0.kind == .gamesPlayed }) {
@@ -47,7 +48,7 @@ class QuestService: ObservableObject {
         }
         // Очки (XP) через правильные ответы
         if let idx = updated.firstIndex(where: { $0.kind == .xpEarned }) {
-            updated[idx].progress = min(updated[idx].target, updated[idx].progress + score * 10)
+            updated[idx].progress = min(updated[idx].target, updated[idx].progress + earnedXP)
         }
         dailyQuests = updated
         saveDailyQuests()
@@ -56,10 +57,35 @@ class QuestService: ObservableObject {
     private func generateNewDailyQuests() {
         // Лёгкие задания ~5-10 минут
         dailyQuests = [
-            DailyQuest(title: LocalizationManager.shared.localizedString("Сыграй 3 игры"), target: 3, progress: 0, icon: "🎮", kind: .gamesPlayed),
-            DailyQuest(title: LocalizationManager.shared.localizedString("Дай 10 правильных ответов"), target: 10, progress: 0, icon: "✅", kind: .correctAnswers),
-            DailyQuest(title: LocalizationManager.shared.localizedString("Заработай 500 XP"), target: 500, progress: 0, icon: "⚡", kind: .xpEarned)
+            DailyQuest(title: localizedDailyTitle(kind: .gamesPlayed, target: 3), target: 3, progress: 0, icon: "🎮", kind: .gamesPlayed),
+            DailyQuest(title: localizedDailyTitle(kind: .correctAnswers, target: 10), target: 10, progress: 0, icon: "✅", kind: .correctAnswers),
+            DailyQuest(title: localizedDailyTitle(kind: .xpEarned, target: 500), target: 500, progress: 0, icon: "⚡", kind: .xpEarned)
         ]
+    }
+
+    func refreshQuestLocalization(save: Bool = true) {
+        dailyQuests = dailyQuests.map { quest in
+            DailyQuest(
+                title: localizedDailyTitle(kind: quest.kind, target: quest.target),
+                target: quest.target,
+                progress: quest.progress,
+                icon: quest.icon,
+                kind: quest.kind
+            )
+        }
+        if save { saveDailyQuests() }
+    }
+
+    private func localizedDailyTitle(kind: DailyQuest.Kind, target: Int) -> String {
+        let L = LocalizationManager.shared
+        switch kind {
+        case .gamesPlayed:
+            return String(format: L.localizedString("Сыграй %d игр"), target)
+        case .correctAnswers:
+            return String(format: L.localizedString("Дай %d правильных ответов"), target)
+        case .xpEarned:
+            return String(format: L.localizedString("Заработай %d XP"), target)
+        }
     }
 
     private func saveDailyQuests() {
@@ -103,14 +129,14 @@ class QuestService: ObservableObject {
 // Награда за открытие подарка: буст XP или F-Bucks
 enum DailyGiftReward {
     case xpBoost2x10min
-    case xpBoost3x15min
+    case xpBoost3x10min
     case fBucks1
     case fBucks2
 
     static func random() -> DailyGiftReward {
         switch Int.random(in: 0..<100) {
         case 0..<40: return .xpBoost2x10min
-        case 40..<75: return .xpBoost3x15min
+        case 40..<75: return .xpBoost3x10min
         case 75..<92: return .fBucks1
         default: return .fBucks2
         }
@@ -120,7 +146,7 @@ enum DailyGiftReward {
     func apply(to profile: UserProfile) {
         switch self {
         case .xpBoost2x10min: profile.activateXPBoost(multiplier: 2, durationMinutes: 10)
-        case .xpBoost3x15min: profile.activateXPBoost(multiplier: 3, durationMinutes: 15)
+        case .xpBoost3x10min: profile.activateXPBoost(multiplier: 3, durationMinutes: 10)
         case .fBucks1: profile.addFBucks(1, reason: .dailyGift)
         case .fBucks2: profile.addFBucks(2, reason: .dailyGift)
         }

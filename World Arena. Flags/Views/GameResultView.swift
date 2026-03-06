@@ -10,6 +10,10 @@ struct GameResultView: View {
     let totalQuestions: Int
     let timeElapsed: TimeInterval
     var duelResult: DuelResultInfo? = nil
+    var bonusXP: Int = 0
+    var earnedFBucks: Int = 0
+    var appliedXPBoostMultiplier: Int = 1
+    var detailedResults: [GameQuestionResult] = []
     let onContinue: () -> Void
     
     @State private var showContent = false
@@ -32,8 +36,12 @@ struct GameResultView: View {
     @State private var rotationAngle: Double = 0
     @State private var bounceAnimation = false
     @State private var glowOpacity: Double = 0
+    @State private var showDetailedResults = false
     
     @ObservedObject private var localizationManager = LocalizationManager.shared
+    
+    private var baseXP: Int { score * 10 + bonusXP }
+    private var boostedXP: Int { baseXP * max(1, appliedXPBoostMultiplier) }
     
     var body: some View {
         ZStack {
@@ -161,7 +169,9 @@ struct GameResultView: View {
                 ], spacing: 15) {
                     EnhancedStatCard(
                         title: localizationManager.localizedString("XP EARNED"),
-                        value: "\(score * 2)",
+                        value: "\(boostedXP)",
+                        oldValue: appliedXPBoostMultiplier > 1 ? "\(baseXP)" : nil,
+                        boostMultiplier: appliedXPBoostMultiplier,
                         icon: "⚡",
                         color: .orange,
                         isVisible: showStats,
@@ -185,38 +195,71 @@ struct GameResultView: View {
                         isVisible: showStats,
                         delay: 0.2
                     )
+
+                    if earnedFBucks > 0 {
+                        EnhancedStatCard(
+                            title: localizationManager.localizedString("F-BUCKS EARNED"),
+                            value: "+\(earnedFBucks)",
+                            icon: "💰",
+                            color: .yellow,
+                            isVisible: showStats,
+                            delay: 0.3
+                        )
+                    }
                 }
                 .opacity(showStats ? 1 : 0)
                 .offset(y: showStats ? 0 : 50)
                 
                 Spacer()
                 
-                // Enhanced continue button
-                Button(action: onContinue) {
-                    HStack(spacing: 12) {
-                        Text(localizationManager.localizedString("CONTINUE"))
-                            .font(.system(size: 20, weight: .bold))
-                            .foregroundColor(.white)
-                        
-                        Image(systemName: "arrow.right.circle.fill")
-                            .font(.system(size: 20))
-                            .foregroundColor(.white)
+                VStack(spacing: 10) {
+                    if !detailedResults.isEmpty {
+                        Button(action: { showDetailedResults = true }) {
+                            HStack(spacing: 10) {
+                                Image(systemName: "list.bullet.clipboard")
+                                    .font(.system(size: 18, weight: .semibold))
+                                Text(localizationManager.localizedString("View Detailed Results"))
+                                    .font(.system(size: 17, weight: .semibold))
+                            }
+                            .foregroundColor(.primary)
+                            .frame(maxWidth: .infinity)
+                            .frame(height: 52)
+                            .background(systemGray6)
+                            .cornerRadius(18)
+                            .overlay(
+                                RoundedRectangle(cornerRadius: 18)
+                                    .stroke(Color.primary.opacity(0.16), lineWidth: 1)
+                            )
+                        }
                     }
-                    .frame(maxWidth: .infinity)
-                    .frame(height: 64)
-                    .background(
-                        LinearGradient(
-                            colors: [Color.blue, Color.purple, Color.pink],
-                            startPoint: .leading,
-                            endPoint: .trailing
+
+                    // Enhanced continue button
+                    Button(action: onContinue) {
+                        HStack(spacing: 12) {
+                            Text(localizationManager.localizedString("CONTINUE"))
+                                .font(.system(size: 20, weight: .bold))
+                                .foregroundColor(.white)
+                            
+                            Image(systemName: "arrow.right.circle.fill")
+                                .font(.system(size: 20))
+                                .foregroundColor(.white)
+                        }
+                        .frame(maxWidth: .infinity)
+                        .frame(height: 64)
+                        .background(
+                            LinearGradient(
+                                colors: [Color.blue, Color.purple, Color.pink],
+                                startPoint: .leading,
+                                endPoint: .trailing
+                            )
                         )
-                    )
-                    .cornerRadius(32)
-                    .shadow(color: .blue.opacity(0.4), radius: 15, x: 0, y: 8)
-                    .overlay(
-                        RoundedRectangle(cornerRadius: 32)
-                            .stroke(Color.white.opacity(0.3), lineWidth: 1)
-                    )
+                        .cornerRadius(32)
+                        .shadow(color: .blue.opacity(0.4), radius: 15, x: 0, y: 8)
+                        .overlay(
+                            RoundedRectangle(cornerRadius: 32)
+                                .stroke(Color.white.opacity(0.3), lineWidth: 1)
+                        )
+                    }
                 }
                 .opacity(showButton ? 1 : 0)
                 .scaleEffect(showButton ? 1 : 0.8)
@@ -225,6 +268,9 @@ struct GameResultView: View {
                 .padding(.horizontal, 30)
                 .padding(.bottom, 40)
             }
+        }
+        .sheet(isPresented: $showDetailedResults) {
+            GameDetailedResultsView(results: detailedResults)
         }
         .onAppear {
             startEnhancedAnimations()
@@ -405,11 +451,74 @@ struct GameResultView: View {
     }
 }
 
+private struct GameDetailedResultsView: View {
+    let results: [GameQuestionResult]
+    @Environment(\.dismiss) private var dismiss
+    @ObservedObject private var localizationManager = LocalizationManager.shared
+    private var secondaryGroupedBackground: Color {
+        #if os(iOS)
+        return Color(UIColor.secondarySystemGroupedBackground)
+        #else
+        return Color(NSColor.textBackgroundColor)
+        #endif
+    }
+
+    var body: some View {
+        NavigationView {
+            ScrollView {
+                LazyVStack(spacing: 10) {
+                    ForEach(results) { item in
+                        VStack(alignment: .leading, spacing: 6) {
+                            HStack {
+                                Text("#\(item.questionNumber)")
+                                    .font(.system(size: 14, weight: .bold))
+                                    .foregroundColor(.secondary)
+                                Spacer()
+                                Text(item.isCorrect ? "✅ \(localizationManager.localizedString("Correct"))" : "❌ \(localizationManager.localizedString("Wrong"))")
+                                    .font(.system(size: 13, weight: .semibold))
+                                    .foregroundColor(item.isCorrect ? .green : .red)
+                            }
+                            Text(item.flagEmoji)
+                                .font(.system(size: 28))
+                            Text("\(localizationManager.localizedString("Flag")): \(item.flagName)")
+                                .font(.system(size: 16, weight: .semibold))
+                            if item.timedOut {
+                                Text(localizationManager.localizedString("Time is up"))
+                                    .font(.system(size: 14, weight: .medium))
+                                    .foregroundColor(.orange)
+                            } else if let selected = item.selectedAnswer {
+                                Text("\(localizationManager.localizedString("Your answer")): \(selected)")
+                                    .font(.system(size: 14))
+                                    .foregroundColor(.secondary)
+                            }
+                        }
+                        .frame(maxWidth: .infinity, alignment: .leading)
+                        .padding(12)
+                        .background(
+                            RoundedRectangle(cornerRadius: 12, style: .continuous)
+                                .fill(secondaryGroupedBackground)
+                        )
+                    }
+                }
+                .padding()
+            }
+            .navigationTitle(localizationManager.localizedString("Detailed Results"))
+            .toolbar {
+                ToolbarItem(placement: .cancellationAction) {
+                    Button(localizationManager.localizedString("Close")) { dismiss() }
+                }
+            }
+        }
+    }
+}
+
 // MARK: - Enhanced Stat Card
 
 struct EnhancedStatCard: View {
     let title: String
     let value: String
+    var oldValue: String? = nil
+    var boostMultiplier: Int = 1
     let icon: String
     let color: Color
     let isVisible: Bool
@@ -420,6 +529,10 @@ struct EnhancedStatCard: View {
     @State private var glowPulse: Bool = false
     @State private var backgroundWave: Bool = false
     @State private var numberCountUp: Double = 0
+    @State private var revealBoostedValue = false
+    @State private var oldValueStriked = false
+    @State private var boostedScale: CGFloat = 1.0
+    @State private var strikeProgress: CGFloat = 0
     
     var body: some View {
         VStack(spacing: 8) {
@@ -458,17 +571,56 @@ struct EnhancedStatCard: View {
                     .animation(.spring(response: 0.4, dampingFraction: 0.6), value: iconBounce)
             }
             
-            // Animated value display
-            Text(getAnimatedValue())
-                .font(.system(size: 24, weight: .heavy, design: .rounded))
-                .foregroundStyle(
-                    LinearGradient(
-                        colors: [color, color.opacity(0.8)],
-                        startPoint: .leading,
-                        endPoint: .trailing
+            VStack(spacing: 1) {
+                if let oldValue, revealBoostedValue {
+                    ZStack {
+                        Text(oldValue)
+                            .font(.system(size: 14, weight: .bold, design: .rounded))
+                            .foregroundColor(.secondary)
+                            .overlay(alignment: .leading) {
+                                GeometryReader { geo in
+                                    Rectangle()
+                                        .fill(Color.secondary.opacity(0.9))
+                                        .frame(width: geo.size.width * strikeProgress, height: 1.6)
+                                        .offset(y: geo.size.height * 0.52)
+                                }
+                            }
+                    }
+                    .transition(.opacity.combined(with: .move(edge: .top)))
+                }
+                // Animated value display
+                Text(getAnimatedValue())
+                    .font(.system(size: (oldValue != nil && revealBoostedValue) ? 30 : 24, weight: .heavy, design: .rounded))
+                    .foregroundStyle(
+                        LinearGradient(
+                            colors: [color, color.opacity(0.8)],
+                            startPoint: .leading,
+                            endPoint: .trailing
+                        )
                     )
-                )
-                .animation(.easeOut(duration: 0.8).delay(delay), value: numberCountUp)
+                    .scaleEffect(boostedScale)
+                    .animation(.easeOut(duration: 0.8).delay(delay), value: numberCountUp)
+                    .animation(.spring(response: 0.35, dampingFraction: 0.65), value: boostedScale)
+
+                if boostMultiplier > 1 {
+                    Text("x\(boostMultiplier)")
+                        .font(.system(size: 12, weight: .black, design: .rounded))
+                        .foregroundColor(.white)
+                        .padding(.horizontal, 8)
+                        .padding(.vertical, 3)
+                        .background(
+                            Capsule()
+                                .fill(
+                                    LinearGradient(
+                                        colors: [color, color.opacity(0.75)],
+                                        startPoint: .leading,
+                                        endPoint: .trailing
+                                    )
+                                )
+                        )
+                        .transition(.scale.combined(with: .opacity))
+                }
+            }
             
             // Modern title styling
             Text(title)
@@ -582,14 +734,57 @@ struct EnhancedStatCard: View {
             iconBounce = true
             glowPulse = true
             backgroundWave = true
-            
-            // Set the final value immediately without animation
-            if let numericValue = extractNumericValue() {
-                numberCountUp = numericValue
+
+            let newNumeric = extractNumericValue() ?? 0
+            if let oldValue, let oldNumeric = extractNumericValue(from: oldValue) {
+                // 1) Показываем базовый XP, 2) зачёркиваем, 3) крупно показываем boosted XP.
+                numberCountUp = oldNumeric
+                revealBoostedValue = false
+                oldValueStriked = false
+                boostedScale = 1.0
+                strikeProgress = 0
+
+                DispatchQueue.main.asyncAfter(deadline: .now() + 0.55) {
+                    withAnimation(.easeInOut(duration: 0.25)) {
+                        revealBoostedValue = true
+                        oldValueStriked = true
+                    }
+                    withAnimation(.easeInOut(duration: 0.35)) {
+                        strikeProgress = 1
+                    }
+                    withAnimation(.spring(response: 0.35, dampingFraction: 0.65)) {
+                        numberCountUp = newNumeric
+                        boostedScale = 1.14
+                    }
+                    DispatchQueue.main.asyncAfter(deadline: .now() + 0.25) {
+                        withAnimation(.easeOut(duration: 0.2)) {
+                            boostedScale = 1.0
+                        }
+                    }
+                }
             } else {
-                numberCountUp = 0
+                numberCountUp = newNumeric
             }
         }
+    }
+
+    private func extractNumericValue(from rawValue: String) -> Double? {
+        if rawValue.contains(":") {
+            let components = rawValue.components(separatedBy: ":")
+            if components.count == 2,
+               let minutes = Double(components[0]),
+               let seconds = Double(components[1]) {
+                return minutes * 60 + seconds
+            }
+        }
+        if rawValue.contains("%") {
+            let cleanValue = rawValue.replacingOccurrences(of: "%", with: "")
+            return Double(cleanValue)
+        }
+        let cleanValue = rawValue.replacingOccurrences(of: "s", with: "")
+            .replacingOccurrences(of: "min", with: "")
+            .replacingOccurrences(of: " ", with: "")
+        return Double(cleanValue)
     }
 }
 
@@ -667,6 +862,7 @@ struct ConfettiPiece: View {
         score: 8,
         totalQuestions: 10,
         timeElapsed: 120,
+        earnedFBucks: 1,
         onContinue: {}
     )
 }
