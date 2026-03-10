@@ -135,10 +135,13 @@ app.post('/api/v1/auth/reset-password/request', (req, res) => {
       if (!process.env.MAILGUN_API_KEY || !process.env.MAILGUN_DOMAIN) {
         console.log(`[auth/reset-password] Mailgun not configured; code for ${result.username} (${email}): ${result.code}`);
       } else {
+        console.log('[auth/reset-password] sending email to user');
         mailgun.sendResetEmail(email, result.code, result.username).catch((err) => {
           console.error('[auth/reset-password] mailgun', err.message);
         });
       }
+    } else {
+      console.log('[auth/reset-password] request received, no user with this email in DB');
     }
     return res.json({ ok: true });
   } catch (e) {
