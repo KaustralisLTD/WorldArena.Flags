@@ -242,6 +242,138 @@ final class DuelAPIService {
             throw DuelAPIError.serverError(String(data: data, encoding: .utf8) ?? "")
         }
     }
+
+    // MARK: - Auth
+    func authRegister(email: String, password: String, username: String?) async throws -> AuthResponse {
+        let url = URL(string: "\(baseURL)/auth/register")!
+        var request = URLRequest(url: url)
+        request.httpMethod = "POST"
+        request.setValue("application/json", forHTTPHeaderField: "Content-Type")
+        var body: [String: Any] = ["email": email, "password": password]
+        if let username, !username.isEmpty { body["username"] = username }
+        request.httpBody = try JSONSerialization.data(withJSONObject: body)
+        let (data, response) = try await session.data(for: request)
+        guard let http = response as? HTTPURLResponse, (200...299).contains(http.statusCode) else {
+            throw DuelAPIError.serverError(String(data: data, encoding: .utf8) ?? "")
+        }
+        let json = try JSONSerialization.jsonObject(with: data) as? [String: Any] ?? [:]
+        guard let parsed = AuthResponse(from: json) else { throw DuelAPIError.invalidResponse }
+        return parsed
+    }
+
+    func authLogin(email: String, password: String) async throws -> AuthResponse {
+        let url = URL(string: "\(baseURL)/auth/login")!
+        var request = URLRequest(url: url)
+        request.httpMethod = "POST"
+        request.setValue("application/json", forHTTPHeaderField: "Content-Type")
+        request.httpBody = try JSONSerialization.data(withJSONObject: ["email": email, "password": password])
+        let (data, response) = try await session.data(for: request)
+        guard let http = response as? HTTPURLResponse, (200...299).contains(http.statusCode) else {
+            throw DuelAPIError.serverError(String(data: data, encoding: .utf8) ?? "")
+        }
+        let json = try JSONSerialization.jsonObject(with: data) as? [String: Any] ?? [:]
+        guard let parsed = AuthResponse(from: json) else { throw DuelAPIError.invalidResponse }
+        return parsed
+    }
+
+    func authSocialLogin(provider: String, providerUserId: String, email: String?, displayName: String?) async throws -> AuthResponse {
+        let url = URL(string: "\(baseURL)/auth/social-login")!
+        var request = URLRequest(url: url)
+        request.httpMethod = "POST"
+        request.setValue("application/json", forHTTPHeaderField: "Content-Type")
+        var body: [String: Any] = [
+            "provider": provider,
+            "providerUserId": providerUserId
+        ]
+        if let email, !email.isEmpty { body["email"] = email }
+        if let displayName, !displayName.isEmpty { body["displayName"] = displayName }
+        request.httpBody = try JSONSerialization.data(withJSONObject: body)
+        let (data, response) = try await session.data(for: request)
+        guard let http = response as? HTTPURLResponse, (200...299).contains(http.statusCode) else {
+            throw DuelAPIError.serverError(String(data: data, encoding: .utf8) ?? "")
+        }
+        let json = try JSONSerialization.jsonObject(with: data) as? [String: Any] ?? [:]
+        guard let parsed = AuthResponse(from: json) else { throw DuelAPIError.invalidResponse }
+        return parsed
+    }
+
+    func authChangePassword(token: String, currentPassword: String, newPassword: String) async throws {
+        let url = URL(string: "\(baseURL)/auth/change-password")!
+        var request = URLRequest(url: url)
+        request.httpMethod = "POST"
+        request.setValue("application/json", forHTTPHeaderField: "Content-Type")
+        request.setValue("Bearer \(token)", forHTTPHeaderField: "Authorization")
+        request.httpBody = try JSONSerialization.data(withJSONObject: [
+            "currentPassword": currentPassword,
+            "newPassword": newPassword
+        ])
+        let (data, response) = try await session.data(for: request)
+        guard let http = response as? HTTPURLResponse, (200...299).contains(http.statusCode) else {
+            throw DuelAPIError.serverError(String(data: data, encoding: .utf8) ?? "")
+        }
+    }
+
+    /// Возвращает true, если письмо с кодом отправлено; false — аккаунта с таким email нет.
+    func authRequestPasswordReset(email: String) async throws -> Bool {
+        let url = URL(string: "\(baseURL)/auth/reset-password/request")!
+        var request = URLRequest(url: url)
+        request.httpMethod = "POST"
+        request.setValue("application/json", forHTTPHeaderField: "Content-Type")
+        request.httpBody = try JSONSerialization.data(withJSONObject: ["email": email])
+        let (data, response) = try await session.data(for: request)
+        guard let http = response as? HTTPURLResponse, (200...299).contains(http.statusCode) else {
+            let body = String(data: data, encoding: .utf8) ?? ""
+            let code = (response as? HTTPURLResponse)?.statusCode ?? 0
+            print("[Auth] reset-password/request failed HTTP \(code): \(body.prefix(500))")
+            throw DuelAPIError.serverError(body)
+        }
+        let json = (try? JSONSerialization.jsonObject(with: data)) as? [String: Any]
+        return (json?["emailSent"] as? Bool) ?? false
+    }
+
+    func authConfirmPasswordReset(email: String, code: String, newPassword: String) async throws {
+        let url = URL(string: "\(baseURL)/auth/reset-password/confirm")!
+        var request = URLRequest(url: url)
+        request.httpMethod = "POST"
+        request.setValue("application/json", forHTTPHeaderField: "Content-Type")
+        request.httpBody = try JSONSerialization.data(withJSONObject: [
+            "email": email,
+            "code": code,
+            "newPassword": newPassword
+        ])
+        let (data, response) = try await session.data(for: request)
+        guard let http = response as? HTTPURLResponse, (200...299).contains(http.statusCode) else {
+            throw DuelAPIError.serverError(String(data: data, encoding: .utf8) ?? "")
+        }
+    }
+}
+
+struct AuthUserFromAPI {
+    let username: String
+    let email: String?
+    let friendCode: String?
+
+    init?(from json: [String: Any]) {
+        guard let username = json["username"] as? String else { return nil }
+        self.username = username
+        self.email = json["email"] as? String
+        self.friendCode = json["friendCode"] as? String
+    }
+}
+
+struct AuthResponse {
+    let token: String
+    let user: AuthUserFromAPI
+    let awardedRegistrationBonus: Bool
+
+    init?(from json: [String: Any]) {
+        guard let token = json["token"] as? String,
+              let userJson = json["user"] as? [String: Any],
+              let user = AuthUserFromAPI(from: userJson) else { return nil }
+        self.token = token
+        self.user = user
+        self.awardedRegistrationBonus = (json["awardedRegistrationBonus"] as? Bool) ?? false
+    }
 }
 
 /// Напоминание из inbox (кто напомнил, phraseId для локализованной фразы).
@@ -400,7 +532,20 @@ struct DuelChallengeFromAPI {
     }
 }
 
-enum DuelAPIError: Error {
+enum DuelAPIError: Error, LocalizedError {
     case serverError(String)
     case invalidResponse
+
+    var errorDescription: String? {
+        switch self {
+        case .serverError(let message):
+            if let data = message.data(using: .utf8),
+               let json = try? JSONSerialization.jsonObject(with: data) as? [String: Any],
+               let err = json["error"] as? String { return err }
+            if !message.isEmpty, message.count < 300 { return message }
+            return NSLocalizedString("Server error. Try again.", comment: "DuelAPIError fallback")
+        case .invalidResponse:
+            return NSLocalizedString("Invalid server response.", comment: "DuelAPIError")
+        }
+    }
 }

@@ -119,6 +119,10 @@ app.post('/api/v1/auth/change-password', (req, res) => {
     if (result.error === 'invalid_credentials') return res.status(400).json({ error: 'Current password is invalid' });
     if (result.error === 'weak_password') return res.status(400).json({ error: 'New password is too weak' });
     if (result.error) return res.status(400).json({ error: 'Password update failed' });
+    if (auth.email) {
+      const locale = mailgun.localeFromAcceptLanguage(req.headers['accept-language']);
+      mailgun.sendPasswordChangedEmail(auth.email, auth.username, locale).catch((err) => console.error('[auth/change-password] mailgun', err.message));
+    }
     return res.json({ ok: true });
   } catch (e) {
     console.error('auth/change-password', e);
@@ -136,7 +140,8 @@ app.post('/api/v1/auth/reset-password/request', (req, res) => {
         console.log(`[auth/reset-password] Mailgun not configured; code for ${result.username} (${email}): ${result.code}`);
       } else {
         console.log('[auth/reset-password] sending email to user');
-        mailgun.sendResetEmail(email, result.code, result.username).catch((err) => {
+        const locale = mailgun.localeFromAcceptLanguage(req.headers['accept-language']);
+        mailgun.sendResetEmail(email, result.code, result.username, locale).catch((err) => {
           console.error('[auth/reset-password] mailgun', err.message);
         });
       }

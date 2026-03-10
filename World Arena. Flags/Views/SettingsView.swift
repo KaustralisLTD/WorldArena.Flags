@@ -11,6 +11,7 @@ struct SettingsView: View {
     @EnvironmentObject var userProfile: UserProfile
     @EnvironmentObject var gameState: GameState
     @EnvironmentObject var themeManager: AppThemeManager
+    @ObservedObject private var authService = AuthService.shared
     @State private var notificationsEnabled = true
     @State private var soundEnabled = true
     @State private var hapticEnabled = true
@@ -22,6 +23,9 @@ struct SettingsView: View {
     @State private var showingLanguageSelection = false
     @State private var showingThemeSelection = false
     @State private var showingPremium = false
+    @State private var showingAuth = false
+    @State private var showingChangePassword = false
+    @State private var showingResetPassword = false
     @State private var isUpdateAvailable = false
     
     private var systemGroupedBackground: Color {
@@ -68,6 +72,45 @@ struct SettingsView: View {
                             hasArrow: true
                         ) {
                             showingPrivacy = true
+                        }
+
+                        if authService.isGuestMode {
+                            SettingsRow(
+                                title: LocalizationManager.shared.localizedString("Login / Register"),
+                                icon: "person.badge.key",
+                                hasArrow: true
+                            ) {
+                                showingAuth = true
+                            }
+                        } else {
+                            SettingsRow(
+                                title: LocalizationManager.shared.localizedString("Logged in"),
+                                icon: "person.crop.circle.badge.checkmark",
+                                hasArrow: false,
+                                subtitle: authService.authEmail ?? authService.authUsername
+                            ) { }
+
+                            SettingsRow(
+                                title: LocalizationManager.shared.localizedString("Change password"),
+                                icon: "key.fill",
+                                hasArrow: true
+                            ) {
+                                showingChangePassword = true
+                            }
+
+                            SettingsRow(
+                                title: LocalizationManager.shared.localizedString("Reset password"),
+                                icon: "envelope.badge",
+                                hasArrow: true
+                            ) {
+                                showingResetPassword = true
+                            }
+
+                            SettingsToggleRow(
+                                title: LocalizationManager.shared.localizedString("Use Face ID / Touch ID"),
+                                icon: "faceid",
+                                isOn: $authService.biometricEnabled
+                            )
                         }
                     }
                     
@@ -175,20 +218,21 @@ struct SettingsView: View {
                         }
                     }
                     
-                    // Sign out button
-                    Button(action: {
-                        signOut()
-                    }) {
-                        Text(LocalizationManager.shared.localizedString("ВЫЙТИ"))
-                            .font(.system(size: 16, weight: .semibold))
-                            .foregroundColor(.red)
-                            .frame(maxWidth: .infinity)
-                            .padding(.vertical, 16)
-                            .background(secondarySystemGroupedBackground)
-                            .cornerRadius(12)
+                    if !authService.isGuestMode {
+                        Button(action: {
+                            signOut()
+                        }) {
+                            Text(LocalizationManager.shared.localizedString("Sign out"))
+                                .font(.system(size: 16, weight: .semibold))
+                                .foregroundColor(.red)
+                                .frame(maxWidth: .infinity)
+                                .padding(.vertical, 16)
+                                .background(secondarySystemGroupedBackground)
+                                .cornerRadius(12)
+                        }
+                        .padding(.horizontal, 20)
+                        .padding(.top, 20)
                     }
-                    .padding(.horizontal, 20)
-                    .padding(.top, 20)
                     
                     // Delete account
                     Button(action: {
@@ -238,6 +282,15 @@ struct SettingsView: View {
         .sheet(isPresented: $showingProfile) {
             ProfileEditView()
                 .environmentObject(userProfile)
+        }
+        .sheet(isPresented: $showingAuth) {
+            AuthGatewayView()
+        }
+        .sheet(isPresented: $showingChangePassword) {
+            ChangePasswordView()
+        }
+        .sheet(isPresented: $showingResetPassword) {
+            ResetPasswordView()
         }
         .sheet(isPresented: $showingNotifications) {
             NotificationSettingsView()
@@ -394,11 +447,7 @@ struct SettingsView: View {
     }
     
     private func signOut() {
-        // Выйти из аккаунта
-        userProfile.username = LocalizationManager.shared.localizedString("Player")
-        userProfile.xp = 0
-        userProfile.level = 1
-        userProfile.streak = 0
+        authService.logoutToGuest()
         presentationMode.wrappedValue.dismiss()
     }
     

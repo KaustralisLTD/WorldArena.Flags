@@ -16,6 +16,7 @@ struct FBucksTransaction: Identifiable, Codable {
         case purchase = "purchase" // Покупка (отрицательное значение)
         case dailyGift = "daily_gift" // Подарок за ежедневные квесты
         case leagueReward = "league_reward" // Награда за повышение в лиге
+        case registrationBonus = "registration_bonus" // Бонус за регистрацию
 
         nonisolated(unsafe) var localizedDescription: String {
             return MainActor.assumeIsolated {
@@ -29,6 +30,7 @@ struct FBucksTransaction: Identifiable, Codable {
                 case .purchase: return L.localizedString("Покупка")
                 case .dailyGift: return L.localizedString("Подарок за квесты")
                 case .leagueReward: return L.localizedString("Награда за лигу")
+                case .registrationBonus: return L.localizedString("Бонус за регистрацию")
                 }
             }
         }
