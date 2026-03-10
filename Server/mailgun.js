@@ -1024,7 +1024,7 @@ function sendMail(toEmail, subject, text, html) {
     form.append('to', toEmail);
     form.append('subject', subject);
     form.append('text', text);
-    if (html) form.append('html', html);
+    if (html) form.append('html', Buffer.from(html, 'utf8'), { contentType: 'text/html; charset=utf-8' });
 
     const opts = {
       host,

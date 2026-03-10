@@ -246,7 +246,7 @@ function confirmPasswordReset({ email, code, newPassword }) {
   const { saltHex, hashHex } = makePasswordHash(newPassword);
   updatePasswordStmt.run(hashHex, saltHex, row.username);
   db.prepare('UPDATE password_resets SET used_at = datetime(\'now\') WHERE id = ?').run(row.id);
-  return { ok: true };
+  return { ok: true, username: row.username };
 }
 
 function socialLogin({ provider, providerUserId, email, displayName }) {

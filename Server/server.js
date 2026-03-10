@@ -13,10 +13,14 @@ if (process.env.MAILGUN_API_KEY && process.env.MAILGUN_DOMAIN) {
   console.log('[server] .env loaded, Mailgun enabled');
 }
 const mailgun = require('./mailgun');
+// Парсим локаль из заголовка сами, чтобы не зависеть от экспорта mailgun
+const SUPPORTED_LOCALES = ['en', 'ru', 'de', 'es', 'fr', 'it', 'nl', 'pl', 'pt', 'zh', 'ca', 'uk'];
 function getMailgunLocale(acceptLanguage) {
-  return (typeof mailgun.localeFromAcceptLanguage === 'function')
-    ? mailgun.localeFromAcceptLanguage(acceptLanguage)
-    : 'en';
+  if (!acceptLanguage) return 'en';
+  const raw = (acceptLanguage.split(',')[0] || '').trim().toLowerCase();
+  const first = raw.substring(0, 2);
+  if (first === 'pt' && (raw.startsWith('pt-br') || raw.startsWith('pt_br'))) return 'pt';
+  return SUPPORTED_LOCALES.includes(first) ? first : 'en';
 }
 
 const app = express();
@@ -153,6 +157,9 @@ app.post('/api/v1/auth/reset-password/request', (req, res) => {
         const locale = getMailgunLocale(req.headers['accept-language']);
         mailgun.sendResetEmail(email, result.code, result.username, locale).catch((err) => {
           console.error('[auth/reset-password] mailgun', err.message);
+          if (String(err.message).includes('401')) {
+            console.error('[auth/reset-password] 401 = wrong API key or wrong region. Check MAILGUN_API_KEY (Private key) and MAILGUN_EU (true for EU domain) in .env');
+          }
         });
       }
     } else {
@@ -176,6 +183,12 @@ app.post('/api/v1/auth/reset-password/confirm', (req, res) => {
     if (result.error === 'invalid_code') return res.status(400).json({ error: 'Invalid reset code' });
     if (result.error === 'weak_password') return res.status(400).json({ error: 'New password is too weak' });
     if (result.error) return res.status(400).json({ error: 'Password reset failed' });
+    if (result.username && req.body?.email && process.env.MAILGUN_API_KEY && process.env.MAILGUN_DOMAIN) {
+      const locale = getMailgunLocale(req.headers['accept-language']);
+      mailgun.sendPasswordChangedEmail(req.body.email, result.username, locale).catch((err) => {
+        console.error('[auth/reset-password/confirm] password-changed email', err.message);
+      });
+    }
     return res.json({ ok: true });
   } catch (e) {
     console.error('auth/reset-password/confirm', e);

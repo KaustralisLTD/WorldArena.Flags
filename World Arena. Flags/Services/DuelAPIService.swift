@@ -6,6 +6,14 @@ final class DuelAPIService {
     
     private let baseURL = "https://flags.worldarena.games/api/v1"
     private let session: URLSession
+
+    /// Значение для заголовка Accept-Language по коду языка (es, uk, pt-BR и т.д.).
+    private static func acceptLanguageValue(localeCode: String?) -> String {
+        let code = (localeCode ?? UserDefaults.standard.string(forKey: "selectedLanguage") ?? Locale.current.languageCode ?? "en").lowercased()
+        if code.isEmpty || code == "system" { return Locale.current.languageCode.map { "\($0),en;q=0.9" } ?? "en" }
+        if code.hasPrefix("pt") { return "pt-BR,en;q=0.9" }
+        return "\(code),en;q=0.9"
+    }
     
     private init() {
         let config = URLSessionConfiguration.default
@@ -244,11 +252,12 @@ final class DuelAPIService {
     }
 
     // MARK: - Auth
-    func authRegister(email: String, password: String, username: String?) async throws -> AuthResponse {
+    func authRegister(email: String, password: String, username: String?, localeCode: String? = nil) async throws -> AuthResponse {
         let url = URL(string: "\(baseURL)/auth/register")!
         var request = URLRequest(url: url)
         request.httpMethod = "POST"
         request.setValue("application/json", forHTTPHeaderField: "Content-Type")
+        request.setValue(Self.acceptLanguageValue(localeCode: localeCode), forHTTPHeaderField: "Accept-Language")
         var body: [String: Any] = ["email": email, "password": password]
         if let username, !username.isEmpty { body["username"] = username }
         request.httpBody = try JSONSerialization.data(withJSONObject: body)
@@ -261,11 +270,12 @@ final class DuelAPIService {
         return parsed
     }
 
-    func authLogin(email: String, password: String) async throws -> AuthResponse {
+    func authLogin(email: String, password: String, localeCode: String? = nil) async throws -> AuthResponse {
         let url = URL(string: "\(baseURL)/auth/login")!
         var request = URLRequest(url: url)
         request.httpMethod = "POST"
         request.setValue("application/json", forHTTPHeaderField: "Content-Type")
+        request.setValue(Self.acceptLanguageValue(localeCode: localeCode), forHTTPHeaderField: "Accept-Language")
         request.httpBody = try JSONSerialization.data(withJSONObject: ["email": email, "password": password])
         let (data, response) = try await session.data(for: request)
         guard let http = response as? HTTPURLResponse, (200...299).contains(http.statusCode) else {
@@ -276,11 +286,12 @@ final class DuelAPIService {
         return parsed
     }
 
-    func authSocialLogin(provider: String, providerUserId: String, email: String?, displayName: String?) async throws -> AuthResponse {
+    func authSocialLogin(provider: String, providerUserId: String, email: String?, displayName: String?, localeCode: String? = nil) async throws -> AuthResponse {
         let url = URL(string: "\(baseURL)/auth/social-login")!
         var request = URLRequest(url: url)
         request.httpMethod = "POST"
         request.setValue("application/json", forHTTPHeaderField: "Content-Type")
+        request.setValue(Self.acceptLanguageValue(localeCode: localeCode), forHTTPHeaderField: "Accept-Language")
         var body: [String: Any] = [
             "provider": provider,
             "providerUserId": providerUserId
@@ -297,11 +308,12 @@ final class DuelAPIService {
         return parsed
     }
 
-    func authChangePassword(token: String, currentPassword: String, newPassword: String) async throws {
+    func authChangePassword(token: String, currentPassword: String, newPassword: String, localeCode: String? = nil) async throws {
         let url = URL(string: "\(baseURL)/auth/change-password")!
         var request = URLRequest(url: url)
         request.httpMethod = "POST"
         request.setValue("application/json", forHTTPHeaderField: "Content-Type")
+        request.setValue(Self.acceptLanguageValue(localeCode: localeCode), forHTTPHeaderField: "Accept-Language")
         request.setValue("Bearer \(token)", forHTTPHeaderField: "Authorization")
         request.httpBody = try JSONSerialization.data(withJSONObject: [
             "currentPassword": currentPassword,
@@ -314,11 +326,12 @@ final class DuelAPIService {
     }
 
     /// Возвращает true, если письмо с кодом отправлено; false — аккаунта с таким email нет.
-    func authRequestPasswordReset(email: String) async throws -> Bool {
+    func authRequestPasswordReset(email: String, localeCode: String? = nil) async throws -> Bool {
         let url = URL(string: "\(baseURL)/auth/reset-password/request")!
         var request = URLRequest(url: url)
         request.httpMethod = "POST"
         request.setValue("application/json", forHTTPHeaderField: "Content-Type")
+        request.setValue(Self.acceptLanguageValue(localeCode: localeCode), forHTTPHeaderField: "Accept-Language")
         request.httpBody = try JSONSerialization.data(withJSONObject: ["email": email])
         let (data, response) = try await session.data(for: request)
         guard let http = response as? HTTPURLResponse, (200...299).contains(http.statusCode) else {
@@ -331,11 +344,12 @@ final class DuelAPIService {
         return (json?["emailSent"] as? Bool) ?? false
     }
 
-    func authConfirmPasswordReset(email: String, code: String, newPassword: String) async throws {
+    func authConfirmPasswordReset(email: String, code: String, newPassword: String, localeCode: String? = nil) async throws {
         let url = URL(string: "\(baseURL)/auth/reset-password/confirm")!
         var request = URLRequest(url: url)
         request.httpMethod = "POST"
         request.setValue("application/json", forHTTPHeaderField: "Content-Type")
+        request.setValue(Self.acceptLanguageValue(localeCode: localeCode), forHTTPHeaderField: "Accept-Language")
         request.httpBody = try JSONSerialization.data(withJSONObject: [
             "email": email,
             "code": code,

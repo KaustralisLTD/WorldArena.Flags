@@ -30,7 +30,8 @@ final class AuthService: ObservableObject {
     }
 
     func register(email: String, password: String, username: String?) async throws {
-        let result = try await DuelAPIService.shared.authRegister(email: email, password: password, username: username)
+        let locale = LocalizationManager.shared.apiLanguageCode
+        let result = try await DuelAPIService.shared.authRegister(email: email, password: password, username: username, localeCode: locale)
         applyAuth(response: result)
         if result.awardedRegistrationBonus {
             UserProfile.shared.addFBucks(3, reason: .registrationBonus)
@@ -43,11 +44,13 @@ final class AuthService: ObservableObject {
     }
 
     func loginWithSocial(provider: String, providerUserId: String, email: String?, displayName: String?) async throws {
+        let locale = LocalizationManager.shared.apiLanguageCode
         let result = try await DuelAPIService.shared.authSocialLogin(
             provider: provider,
             providerUserId: providerUserId,
             email: email,
-            displayName: displayName
+            displayName: displayName,
+            localeCode: locale
         )
         applyAuth(response: result)
         if result.awardedRegistrationBonus {
@@ -59,7 +62,8 @@ final class AuthService: ObservableObject {
         guard let token = authToken else {
             throw NSError(domain: "auth", code: 401, userInfo: [NSLocalizedDescriptionKey: "Unauthorized"])
         }
-        try await DuelAPIService.shared.authChangePassword(token: token, currentPassword: currentPassword, newPassword: newPassword)
+        let locale = LocalizationManager.shared.apiLanguageCode
+        try await DuelAPIService.shared.authChangePassword(token: token, currentPassword: currentPassword, newPassword: newPassword, localeCode: locale)
     }
 
     /// Возвращает true, если письмо с кодом отправлено; false — аккаунта с таким email нет.
@@ -68,7 +72,8 @@ final class AuthService: ObservableObject {
     }
 
     func confirmPasswordReset(email: String, code: String, newPassword: String) async throws {
-        try await DuelAPIService.shared.authConfirmPasswordReset(email: email, code: code, newPassword: newPassword)
+        let locale = LocalizationManager.shared.apiLanguageCode
+        try await DuelAPIService.shared.authConfirmPasswordReset(email: email, code: code, newPassword: newPassword, localeCode: locale)
     }
 
     func logoutToGuest() {

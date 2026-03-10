@@ -105,6 +105,13 @@ class LocalizationManager: ObservableObject {
         return "en"
     }
     
+    /// Код языка для API (Accept-Language), совпадает с тем, что видит пользователь в приложении.
+    var apiLanguageCode: String {
+        let id = currentLocale.identifier
+        if id.lowercased().hasPrefix("pt") { return "pt-BR" }
+        return currentLocale.languageCode ?? "en"
+    }
+
     func localizedString(_ key: String) -> String {
         return bundle?.localizedString(forKey: key, value: key, table: nil) 
             ?? Bundle.main.localizedString(forKey: key, value: key, table: nil)
