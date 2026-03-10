@@ -4,11 +4,14 @@
  * Продакшен: flags.worldarena.games (nginx проксирует /api/ на этот процесс).
  */
 const path = require('path');
-require('dotenv').config({ path: path.join(__dirname, '.env') });
+require('dotenv').config({ path: path.join(__dirname, '.env'), override: true });
 const express = require('express');
 const cors = require('cors');
 const { v4: uuidv4 } = require('uuid');
 const db = require('./db');
+if (process.env.MAILGUN_API_KEY && process.env.MAILGUN_DOMAIN) {
+  console.log('[server] .env loaded, Mailgun enabled');
+}
 const mailgun = require('./mailgun');
 
 const app = express();
