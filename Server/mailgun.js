@@ -6,9 +6,13 @@ const https = require('https');
 const FormData = require('form-data');
 
 const apiKey = process.env.MAILGUN_API_KEY;
-const domain = process.env.MAILGUN_DOMAIN || '';
+const domain = (process.env.MAILGUN_DOMAIN || '').trim();
 const eu = process.env.MAILGUN_EU === 'true' || process.env.MAILGUN_EU === '1';
 const host = eu ? 'api.eu.mailgun.net' : 'api.mailgun.net';
+
+if (!apiKey || !domain) {
+  console.log('[mailgun] Disabled: set MAILGUN_API_KEY and MAILGUN_DOMAIN in .env to enable');
+}
 
 function sendResetEmail(toEmail, code, username) {
   if (!apiKey || !domain) {

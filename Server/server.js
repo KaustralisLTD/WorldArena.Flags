@@ -3,7 +3,8 @@
  * Хранилище: SQLite (users, friendships, duel_challenges).
  * Продакшен: flags.worldarena.games (nginx проксирует /api/ на этот процесс).
  */
-require('dotenv').config();
+const path = require('path');
+require('dotenv').config({ path: path.join(__dirname, '.env') });
 const express = require('express');
 const cors = require('cors');
 const { v4: uuidv4 } = require('uuid');
@@ -128,11 +129,12 @@ app.post('/api/v1/auth/reset-password/request', (req, res) => {
     const { email } = req.body || {};
     const result = db.requestPasswordReset(email);
     if (result && result.code && result.username) {
-      mailgun.sendResetEmail(email, result.code, result.username).catch((err) => {
-        console.error('[auth/reset-password] mailgun', err.message);
-      });
-      if (!process.env.MAILGUN_API_KEY) {
-        console.log(`[auth/reset-password] code for ${result.username} (${email}): ${result.code}`);
+      if (!process.env.MAILGUN_API_KEY || !process.env.MAILGUN_DOMAIN) {
+        console.log(`[auth/reset-password] Mailgun not configured; code for ${result.username} (${email}): ${result.code}`);
+      } else {
+        mailgun.sendResetEmail(email, result.code, result.username).catch((err) => {
+          console.error('[auth/reset-password] mailgun', err.message);
+        });
       }
     }
     return res.json({ ok: true });
