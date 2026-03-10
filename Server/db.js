@@ -5,6 +5,7 @@
 const Database = require('better-sqlite3');
 const path = require('path');
 const fs = require('fs');
+const crypto = require('crypto');
 
 const dataDir = path.join(__dirname, 'data');
 if (!fs.existsSync(dataDir)) fs.mkdirSync(dataDir, { recursive: true });
@@ -58,8 +59,31 @@ db.exec(`
     read_at TEXT
   );
   CREATE INDEX IF NOT EXISTS idx_nudges_to ON nudges(to_username);
+
+  CREATE TABLE IF NOT EXISTS auth_sessions (
+    token TEXT PRIMARY KEY,
+    username TEXT NOT NULL,
+    created_at TEXT DEFAULT (datetime('now')),
+    expires_at TEXT NOT NULL
+  );
+
+  CREATE TABLE IF NOT EXISTS password_resets (
+    id TEXT PRIMARY KEY,
+    username TEXT NOT NULL,
+    email TEXT NOT NULL,
+    code TEXT NOT NULL,
+    created_at TEXT DEFAULT (datetime('now')),
+    used_at TEXT
+  );
 `);
 try { db.exec(`ALTER TABLE users ADD COLUMN display_name TEXT`); } catch (_) {}
+try { db.exec(`ALTER TABLE users ADD COLUMN email TEXT`); } catch (_) {}
+try { db.exec(`ALTER TABLE users ADD COLUMN password_hash TEXT`); } catch (_) {}
+try { db.exec(`ALTER TABLE users ADD COLUMN password_salt TEXT`); } catch (_) {}
+try { db.exec(`ALTER TABLE users ADD COLUMN auth_provider TEXT DEFAULT 'guest'`); } catch (_) {}
+try { db.exec(`ALTER TABLE users ADD COLUMN is_registered INTEGER DEFAULT 0`); } catch (_) {}
+try { db.exec(`ALTER TABLE users ADD COLUMN registration_reward_granted INTEGER DEFAULT 0`); } catch (_) {}
+try { db.exec(`CREATE UNIQUE INDEX IF NOT EXISTS idx_users_email_unique ON users(email)`); } catch (_) {}
 
 function randomFriendCode() {
   const chars = 'ABCDEFGHJKLMNPQRSTUVWXYZ23456789';
@@ -81,6 +105,186 @@ const updateUserStats = db.prepare(`
 const updateDisplayName = db.prepare(`
   UPDATE users SET display_name = ?, updated_at = datetime('now') WHERE username = ?
 `);
+const updatePasswordStmt = db.prepare(`
+  UPDATE users SET password_hash = ?, password_salt = ?, auth_provider = 'email', is_registered = 1, updated_at = datetime('now') WHERE username = ?
+`);
+
+function normalizeEmail(email) {
+  return (email || '').trim().toLowerCase();
+}
+
+function makePasswordHash(password, saltHex) {
+  const salt = saltHex ? Buffer.from(saltHex, 'hex') : crypto.randomBytes(16);
+  const hash = crypto.pbkdf2Sync(password, salt, 120000, 32, 'sha256');
+  return {
+    saltHex: salt.toString('hex'),
+    hashHex: hash.toString('hex'),
+  };
+}
+
+function verifyPassword(password, saltHex, hashHex) {
+  if (!password || !saltHex || !hashHex) return false;
+  const { hashHex: calc } = makePasswordHash(password, saltHex);
+  const a = Buffer.from(calc, 'hex');
+  const b = Buffer.from(hashHex, 'hex');
+  if (a.length !== b.length) return false;
+  return crypto.timingSafeEqual(a, b);
+}
+
+function randomToken() {
+  return crypto.randomBytes(32).toString('hex');
+}
+
+function randomResetCode() {
+  return String(Math.floor(100000 + Math.random() * 900000));
+}
+
+function buildSafeUsername(base) {
+  let clean = (base || 'player').trim().toLowerCase().replace(/[^a-z0-9_]/g, '');
+  if (!clean) clean = `player_${Math.floor(Math.random() * 100000)}`;
+  let candidate = clean;
+  let i = 1;
+  while (db.prepare('SELECT 1 FROM users WHERE username = ?').get(candidate)) {
+    i += 1;
+    candidate = `${clean}_${i}`;
+  }
+  return candidate;
+}
+
+function createSession(username) {
+  const token = randomToken();
+  db.prepare('INSERT INTO auth_sessions (token, username, expires_at) VALUES (?, ?, datetime(\'now\', \'+30 days\'))')
+    .run(token, username);
+  return token;
+}
+
+function getSession(token) {
+  if (!token) return null;
+  return db.prepare(`
+    SELECT s.token, s.username, s.expires_at, u.email, u.is_registered
+    FROM auth_sessions s
+    JOIN users u ON u.username = s.username
+    WHERE s.token = ? AND datetime(s.expires_at) > datetime('now')
+  `).get(token);
+}
+
+function registerAuthUser({ email, password, username }) {
+  const normalizedEmail = normalizeEmail(email);
+  if (!normalizedEmail || !password || password.length < 6) {
+    return { error: 'invalid_input' };
+  }
+  const existingByEmail = db.prepare('SELECT username FROM users WHERE email = ?').get(normalizedEmail);
+  if (existingByEmail) return { error: 'email_exists' };
+
+  const uname = buildSafeUsername(username || normalizedEmail.split('@')[0]);
+  let friendCode = randomFriendCode().toUpperCase();
+  while (db.prepare('SELECT 1 FROM users WHERE friend_code = ?').get(friendCode)) {
+    friendCode = randomFriendCode().toUpperCase();
+  }
+
+  const { saltHex, hashHex } = makePasswordHash(password);
+  db.prepare(`
+    INSERT INTO users (
+      username, friend_code, email, password_hash, password_salt,
+      auth_provider, is_registered, registration_reward_granted, display_name
+    ) VALUES (?, ?, ?, ?, ?, 'email', 1, 0, ?)
+  `).run(uname, friendCode, normalizedEmail, hashHex, saltHex, uname);
+
+  db.prepare('UPDATE users SET registration_reward_granted = 1 WHERE username = ?').run(uname);
+  const token = createSession(uname);
+  return { username: uname, email: normalizedEmail, token, friendCode, rewardGranted: true };
+}
+
+function loginAuthUser({ email, password }) {
+  const normalizedEmail = normalizeEmail(email);
+  const row = db.prepare(`
+    SELECT username, email, friend_code, password_hash, password_salt
+    FROM users WHERE email = ?
+  `).get(normalizedEmail);
+  if (!row) return { error: 'invalid_credentials' };
+  if (!verifyPassword(password, row.password_salt, row.password_hash)) {
+    return { error: 'invalid_credentials' };
+  }
+  const token = createSession(row.username);
+  return { username: row.username, email: row.email, friendCode: row.friend_code, token };
+}
+
+function changePassword({ username, currentPassword, newPassword }) {
+  const row = db.prepare('SELECT password_hash, password_salt FROM users WHERE username = ?').get(username);
+  if (!row) return { error: 'not_found' };
+  if (!verifyPassword(currentPassword, row.password_salt, row.password_hash)) {
+    return { error: 'invalid_credentials' };
+  }
+  if (!newPassword || newPassword.length < 6) return { error: 'weak_password' };
+  const { saltHex, hashHex } = makePasswordHash(newPassword);
+  updatePasswordStmt.run(hashHex, saltHex, username);
+  return { ok: true };
+}
+
+function requestPasswordReset(email) {
+  const normalizedEmail = normalizeEmail(email);
+  const row = db.prepare('SELECT username, email FROM users WHERE email = ?').get(normalizedEmail);
+  if (!row) return { ok: true };
+  const code = randomResetCode();
+  const id = crypto.randomUUID();
+  db.prepare('INSERT INTO password_resets (id, username, email, code) VALUES (?, ?, ?, ?)')
+    .run(id, row.username, normalizedEmail, code);
+  return { ok: true, username: row.username, code };
+}
+
+function confirmPasswordReset({ email, code, newPassword }) {
+  const normalizedEmail = normalizeEmail(email);
+  if (!newPassword || newPassword.length < 6) return { error: 'weak_password' };
+  const row = db.prepare(`
+    SELECT id, username, code
+    FROM password_resets
+    WHERE email = ? AND used_at IS NULL AND datetime(created_at) > datetime('now', '-30 minutes')
+    ORDER BY created_at DESC
+    LIMIT 1
+  `).get(normalizedEmail);
+  if (!row || row.code !== String(code || '').trim()) return { error: 'invalid_code' };
+  const { saltHex, hashHex } = makePasswordHash(newPassword);
+  updatePasswordStmt.run(hashHex, saltHex, row.username);
+  db.prepare('UPDATE password_resets SET used_at = datetime(\'now\') WHERE id = ?').run(row.id);
+  return { ok: true };
+}
+
+function socialLogin({ provider, providerUserId, email, displayName }) {
+  const safeProvider = ['apple', 'google'].includes(provider) ? provider : 'social';
+  const normalizedEmail = normalizeEmail(email);
+  let user = null;
+  if (normalizedEmail) {
+    user = db.prepare('SELECT username, email, friend_code FROM users WHERE email = ?').get(normalizedEmail);
+  }
+  if (!user) {
+    const base = displayName || `${safeProvider}_${providerUserId || randomToken().slice(0, 6)}`;
+    const username = buildSafeUsername(base);
+    let friendCode = randomFriendCode().toUpperCase();
+    while (db.prepare('SELECT 1 FROM users WHERE friend_code = ?').get(friendCode)) {
+      friendCode = randomFriendCode().toUpperCase();
+    }
+    db.prepare(`
+      INSERT INTO users (
+        username, friend_code, email, auth_provider, is_registered, registration_reward_granted, display_name
+      ) VALUES (?, ?, ?, ?, 1, 0, ?)
+    `).run(username, friendCode, normalizedEmail || null, safeProvider, displayName || username);
+    db.prepare('UPDATE users SET registration_reward_granted = 1 WHERE username = ?').run(username);
+    user = { username, email: normalizedEmail || null, friend_code: friendCode };
+    user.rewardGranted = true;
+  } else {
+    db.prepare('UPDATE users SET auth_provider = ?, is_registered = 1, updated_at = datetime(\'now\') WHERE username = ?')
+      .run(safeProvider, user.username);
+    user.rewardGranted = false;
+  }
+  const token = createSession(user.username);
+  return {
+    username: user.username,
+    email: user.email,
+    friendCode: user.friend_code,
+    token,
+    rewardGranted: !!user.rewardGranted
+  };
+}
 
 function registerUser({ userId, username, deviceToken = null, stats = {} }) {
   const name = (username || userId || 'Player').trim();
@@ -273,4 +477,11 @@ module.exports = {
   createNudge,
   getNudgesForUser,
   markNudgesRead,
+  getSession,
+  registerAuthUser,
+  loginAuthUser,
+  changePassword,
+  requestPasswordReset,
+  confirmPasswordReset,
+  socialLogin,
 };
