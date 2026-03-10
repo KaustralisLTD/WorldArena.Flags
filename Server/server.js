@@ -3,10 +3,12 @@
  * Хранилище: SQLite (users, friendships, duel_challenges).
  * Продакшен: flags.worldarena.games (nginx проксирует /api/ на этот процесс).
  */
+require('dotenv').config();
 const express = require('express');
 const cors = require('cors');
 const { v4: uuidv4 } = require('uuid');
 const db = require('./db');
+const mailgun = require('./mailgun');
 
 const app = express();
 app.use(cors({ origin: true }));
@@ -16,6 +18,146 @@ const PORT = process.env.PORT || 3001;
 
 app.get('/api/v1/health', (_, res) => {
   res.json({ ok: true, service: 'duel-api' });
+});
+
+function authFromRequest(req) {
+  const bearer = (req.headers.authorization || '').trim();
+  const token = bearer.startsWith('Bearer ') ? bearer.slice(7) : null;
+  if (!token) return null;
+  return db.getSession(token);
+}
+
+// ——— Auth ———
+// POST /api/v1/auth/register
+app.post('/api/v1/auth/register', (req, res) => {
+  try {
+    const result = db.registerAuthUser({
+      email: req.body?.email,
+      password: req.body?.password,
+      username: req.body?.username
+    });
+    if (result.error === 'email_exists') return res.status(409).json({ error: 'Email already exists' });
+    if (result.error) return res.status(400).json({ error: 'Invalid registration payload' });
+    return res.status(201).json({
+      ok: true,
+      token: result.token,
+      user: {
+        username: result.username,
+        email: result.email,
+        friendCode: result.friendCode
+      },
+      awardedRegistrationBonus: result.rewardGranted === true
+    });
+  } catch (e) {
+    console.error('auth/register', e);
+    return res.status(500).json({ error: 'Registration failed' });
+  }
+});
+
+// POST /api/v1/auth/login
+app.post('/api/v1/auth/login', (req, res) => {
+  try {
+    const result = db.loginAuthUser({
+      email: req.body?.email,
+      password: req.body?.password
+    });
+    if (result.error) return res.status(401).json({ error: 'Invalid credentials' });
+    return res.json({
+      ok: true,
+      token: result.token,
+      user: {
+        username: result.username,
+        email: result.email,
+        friendCode: result.friendCode
+      }
+    });
+  } catch (e) {
+    console.error('auth/login', e);
+    return res.status(500).json({ error: 'Login failed' });
+  }
+});
+
+// POST /api/v1/auth/social-login
+app.post('/api/v1/auth/social-login', (req, res) => {
+  try {
+    const result = db.socialLogin({
+      provider: req.body?.provider,
+      providerUserId: req.body?.providerUserId,
+      email: req.body?.email,
+      displayName: req.body?.displayName
+    });
+    return res.json({
+      ok: true,
+      token: result.token,
+      user: {
+        username: result.username,
+        email: result.email,
+        friendCode: result.friendCode
+      },
+      awardedRegistrationBonus: result.rewardGranted === true
+    });
+  } catch (e) {
+    console.error('auth/social-login', e);
+    return res.status(500).json({ error: 'Social login failed' });
+  }
+});
+
+// POST /api/v1/auth/change-password
+app.post('/api/v1/auth/change-password', (req, res) => {
+  const auth = authFromRequest(req);
+  if (!auth) return res.status(401).json({ error: 'Unauthorized' });
+  try {
+    const result = db.changePassword({
+      username: auth.username,
+      currentPassword: req.body?.currentPassword,
+      newPassword: req.body?.newPassword
+    });
+    if (result.error === 'invalid_credentials') return res.status(400).json({ error: 'Current password is invalid' });
+    if (result.error === 'weak_password') return res.status(400).json({ error: 'New password is too weak' });
+    if (result.error) return res.status(400).json({ error: 'Password update failed' });
+    return res.json({ ok: true });
+  } catch (e) {
+    console.error('auth/change-password', e);
+    return res.status(500).json({ error: 'Password update failed' });
+  }
+});
+
+// POST /api/v1/auth/reset-password/request
+app.post('/api/v1/auth/reset-password/request', (req, res) => {
+  try {
+    const { email } = req.body || {};
+    const result = db.requestPasswordReset(email);
+    if (result && result.code && result.username) {
+      mailgun.sendResetEmail(email, result.code, result.username).catch((err) => {
+        console.error('[auth/reset-password] mailgun', err.message);
+      });
+      if (!process.env.MAILGUN_API_KEY) {
+        console.log(`[auth/reset-password] code for ${result.username} (${email}): ${result.code}`);
+      }
+    }
+    return res.json({ ok: true });
+  } catch (e) {
+    console.error('auth/reset-password/request', e);
+    return res.status(500).json({ error: 'Reset request failed' });
+  }
+});
+
+// POST /api/v1/auth/reset-password/confirm
+app.post('/api/v1/auth/reset-password/confirm', (req, res) => {
+  try {
+    const result = db.confirmPasswordReset({
+      email: req.body?.email,
+      code: req.body?.code,
+      newPassword: req.body?.newPassword
+    });
+    if (result.error === 'invalid_code') return res.status(400).json({ error: 'Invalid reset code' });
+    if (result.error === 'weak_password') return res.status(400).json({ error: 'New password is too weak' });
+    if (result.error) return res.status(400).json({ error: 'Password reset failed' });
+    return res.json({ ok: true });
+  } catch (e) {
+    console.error('auth/reset-password/confirm', e);
+    return res.status(500).json({ error: 'Password reset failed' });
+  }
 });
 
 // ——— Users ———
