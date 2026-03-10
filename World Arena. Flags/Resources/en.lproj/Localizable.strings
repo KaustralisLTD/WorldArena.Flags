@@ -1008,6 +1008,8 @@
 "Reset code" = "Reset code";
 "Send reset code" = "Send reset code";
 "No account with this email" = "No account with this email";
+"reset_request_failed" = "Password reset failed. Please try again later.";
+"registration_failed" = "Registration failed. Please try again.";
 "Login / Register" = "Login / Register";
 "Logged in" = "Logged in";
 "Use Face ID / Touch ID" = "Use Face ID / Touch ID";

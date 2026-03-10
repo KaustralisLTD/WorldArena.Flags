@@ -920,6 +920,8 @@
 "Reset code" = "Код скидання";
 "Send reset code" = "Надіслати код";
 "No account with this email" = "Обліковий запис з цією поштою не знайдено";
+"reset_request_failed" = "Помилка скидання пароля. Спробуйте пізніше.";
+"registration_failed" = "Помилка реєстрації. Спробуйте пізніше.";
 "Login / Register" = "Увійти / Реєстрація";
 "Logged in" = "Ви увійшли";
 "Use Face ID / Touch ID" = "Використовувати Face ID / Touch ID";

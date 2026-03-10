@@ -19,6 +19,7 @@ struct AuthGatewayView: View {
     @State private var showReset = false
     @State private var googleEmail = ""
     @State private var showGooglePrompt = false
+    @State private var passwordVisible = false
 
     var body: some View {
         NavigationView {
@@ -69,11 +70,29 @@ struct AuthGatewayView: View {
                                 .background(Color.white.opacity(0.85))
                                 .cornerRadius(12)
 
-                            SecureField(localizationManager.localizedString("Password"), text: $password)
-                                .textInputAutocapitalization(.never)
+                            HStack {
+                                Group {
+                                    if passwordVisible {
+                                        TextField(localizationManager.localizedString("Password"), text: $password)
+                                            .textInputAutocapitalization(.never)
+                                            .disableAutocorrection(true)
+                                    } else {
+                                        SecureField(localizationManager.localizedString("Password"), text: $password)
+                                            .textInputAutocapitalization(.never)
+                                    }
+                                }
                                 .padding(12)
-                                .background(Color.white.opacity(0.85))
-                                .cornerRadius(12)
+                                Button {
+                                    passwordVisible.toggle()
+                                } label: {
+                                    Image(systemName: passwordVisible ? "eye.slash.fill" : "eye.fill")
+                                        .foregroundColor(.secondary)
+                                        .font(.system(size: 18))
+                                }
+                                .padding(.trailing, 8)
+                            }
+                            .background(Color.white.opacity(0.85))
+                            .cornerRadius(12)
                         }
                         .padding(12)
                         .background(.ultraThinMaterial)

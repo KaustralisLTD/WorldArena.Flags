@@ -1062,6 +1062,8 @@
 "Reset code" = "Код сброса";
 "Send reset code" = "Отправить код сброса";
 "No account with this email" = "Аккаунт с таким email не найден";
+"reset_request_failed" = "Ошибка сброса пароля. Попробуйте позже.";
+"registration_failed" = "Ошибка регистрации. Попробуйте позже.";
 "Login / Register" = "Вход / Регистрация";
 "Logged in" = "Выполнен вход";
 "Use Face ID / Touch ID" = "Использовать Face ID / Touch ID";

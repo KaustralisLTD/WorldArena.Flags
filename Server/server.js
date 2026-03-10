@@ -13,6 +13,11 @@ if (process.env.MAILGUN_API_KEY && process.env.MAILGUN_DOMAIN) {
   console.log('[server] .env loaded, Mailgun enabled');
 }
 const mailgun = require('./mailgun');
+function getMailgunLocale(acceptLanguage) {
+  return (typeof mailgun.localeFromAcceptLanguage === 'function')
+    ? mailgun.localeFromAcceptLanguage(acceptLanguage)
+    : 'en';
+}
 
 const app = express();
 app.use(cors({ origin: true }));
@@ -40,8 +45,12 @@ app.post('/api/v1/auth/register', (req, res) => {
       password: req.body?.password,
       username: req.body?.username
     });
-    if (result.error === 'email_exists') return res.status(409).json({ error: 'Email already exists' });
-    if (result.error) return res.status(400).json({ error: 'Invalid registration payload' });
+    if (result.error === 'email_exists') return res.status(409).json({ error: 'Email already exists', errorCode: 'email_already_exists' });
+    if (result.error) return res.status(400).json({ error: 'Invalid registration payload', errorCode: 'invalid_registration' });
+    const locale = getMailgunLocale(req.headers['accept-language']);
+    if (process.env.MAILGUN_API_KEY && process.env.MAILGUN_DOMAIN) {
+      mailgun.sendWelcomeEmail(result.email, result.username, locale).catch((err) => console.error('[auth/register] welcome email', err.message));
+    }
     return res.status(201).json({
       ok: true,
       token: result.token,
@@ -54,7 +63,7 @@ app.post('/api/v1/auth/register', (req, res) => {
     });
   } catch (e) {
     console.error('auth/register', e);
-    return res.status(500).json({ error: 'Registration failed' });
+    return res.status(500).json({ error: 'Registration failed', errorCode: 'registration_failed' });
   }
 });
 
@@ -120,7 +129,7 @@ app.post('/api/v1/auth/change-password', (req, res) => {
     if (result.error === 'weak_password') return res.status(400).json({ error: 'New password is too weak' });
     if (result.error) return res.status(400).json({ error: 'Password update failed' });
     if (auth.email) {
-      const locale = mailgun.localeFromAcceptLanguage(req.headers['accept-language']);
+      const locale = getMailgunLocale(req.headers['accept-language']);
       mailgun.sendPasswordChangedEmail(auth.email, auth.username, locale).catch((err) => console.error('[auth/change-password] mailgun', err.message));
     }
     return res.json({ ok: true });
@@ -135,12 +144,13 @@ app.post('/api/v1/auth/reset-password/request', (req, res) => {
   try {
     const { email } = req.body || {};
     const result = db.requestPasswordReset(email);
-    if (result && result.code && result.username) {
+    const userFound = !!(result && result.code && result.username);
+    if (userFound) {
       if (!process.env.MAILGUN_API_KEY || !process.env.MAILGUN_DOMAIN) {
         console.log(`[auth/reset-password] Mailgun not configured; code for ${result.username} (${email}): ${result.code}`);
       } else {
         console.log('[auth/reset-password] sending email to user');
-        const locale = mailgun.localeFromAcceptLanguage(req.headers['accept-language']);
+        const locale = getMailgunLocale(req.headers['accept-language']);
         mailgun.sendResetEmail(email, result.code, result.username, locale).catch((err) => {
           console.error('[auth/reset-password] mailgun', err.message);
         });
@@ -148,10 +158,10 @@ app.post('/api/v1/auth/reset-password/request', (req, res) => {
     } else {
       console.log('[auth/reset-password] request received, no user with this email in DB');
     }
-    return res.json({ ok: true });
+    return res.json({ ok: true, emailSent: userFound });
   } catch (e) {
     console.error('auth/reset-password/request', e);
-    return res.status(500).json({ error: 'Reset request failed' });
+    return res.status(500).json({ error: 'Reset request failed', errorCode: 'reset_request_failed' });
   }
 });
 

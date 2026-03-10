@@ -170,7 +170,20 @@
 ### English (U.S.)
 
 ```
-World Arena Flags is a quiz game for learning world flags and countries. You see a flag and choose the correct country from four options. Play Classic (unlimited time), Time Challenge (beat the clock), Survival (three lives), or Duel — the same quiz with a friend on another device, then compare scores. Earn F-Bucks for perfect games and duels, complete daily quests for XP and rewards, and climb leagues from Bronze to Master. Add friends, send gifts, and track your learning streaks. NEW in this version: World Progress Map — see your learning progress on a real map. Tap any country for correct/wrong stats and accuracy. Track continent mastery and unlock the "Continent Master" badge when you master all countries in a region. Weak Countries tab shows your top weak countries for focused review; one-tap "Start Weak Countries Training" to practise them in the game. Weekly Challenge encourages several weak-country sessions per week. Profile now has a prominent card for quick access to the Progress Map. Content is organised by region; you can focus on one continent or play the whole world. Premium options: unlimited lives, Learning mode (see the answer after each question), Erudite (harder questions), My Mistakes (practise only your wrong answers). Learn world flags in short, fun sessions alone or with friends.
+World Arena Flags is a quiz game for learning world flags and countries. 
+You see a flag and choose the correct country from four options. 
+Play Classic (unlimited time), Time Challenge (beat the clock), Survival (three lives), or Duel — the same quiz with a friend on another device, then compare scores. 
+Earn F-Bucks for perfect games and duels, complete daily quests for XP and rewards, and climb leagues from Bronze to Master. 
+Add friends, send gifts, and track your learning streaks. 
+NEW in this version: World Progress Map — see your learning progress on a real map. 
+Tap any country for correct/wrong stats and accuracy. 
+Track continent mastery and unlock the "Continent Master" badge when you master all countries in a region. 
+Weak Countries tab shows your top weak countries for focused review; one-tap "Start Weak Countries Training" to practise them in the game. 
+Weekly Challenge encourages several weak-country sessions per week. 
+Profile now has a prominent card for quick access to the Progress Map. 
+Content is organised by region; you can focus on one continent or play the whole world. 
+
+Premium options: unlimited lives, Learning mode (see the answer after each question), Erudite (harder questions), My Mistakes (practise only your wrong answers). Learn world flags in short, fun sessions alone or with friends.
 ```
 
 ### Русский
@@ -212,19 +225,60 @@ World Arena Flags è un quiz per imparare bandiere e paesi del mondo. Vedi una b
 ### Polski
 
 ```
-World Arena Flags to quiz do nauki flag i krajów świata. Widzisz flagę i wybierasz właściwy kraj z czterech opcji. Tryby: Klasyczny (bez limitu czasu), Na czas, Przetrwanie (trzy życia) lub Pojedynek — ten sam quiz z przyjacielem na innym urządzeniu, potem porównanie wyników. Zarabiaj F-Bucks za idealne rozgrywki i pojedynki, wykonuj codzienne misje za XP i nagrody, awansuj w ligach od Brązu do Mistrza. Dodawaj znajomych, wysyłaj prezenty, śledź serie. NOWE w tej wersji: Mapa postępów świata — Twoje postępy na mapie. Dotknij kraju, by zobaczyć poprawne/błędne statystyki i dokładność. Śledź opanowanie kontynentów i odblokuj "Mistrz kontynentu", gdy opanujesz wszystkie kraje regionu. Karta Słabe kraje pokazuje Twoje najsłabsze kraje do powtórki; jedno dotknięcie "Rozpocznij trening słabych krajów" uruchamia grę z nimi. Wyzwanie tygodniowe: kilka takich sesji w tygodniu. W profilu jest wyraźna karta do szybkiego dostępu do mapy postępów. Treści według regionu; możesz skupić się na jednym kontynencie lub grać cały świat. Premium: nieograniczone życia, tryb Nauka (odpowiedź po każdym pytaniu), Erudite (trudniejsze pytania), Moje błędy (ćwicz tylko błędne odpowiedzi). Ucz się flag świata w krótkich sesjach sam lub ze znajomymi.
+World Arena Flags to quiz do nauki flag i krajów świata. 
+Widzisz flagę i wybierasz właściwy kraj z czterech opcji. 
+Tryby: Klasyczny (bez limitu czasu), Na czas, Przetrwanie (trzy życia) lub Pojedynek — ten sam quiz z przyjacielem na innym urządzeniu, potem porównanie wyników. 
+Zarabiaj F-Bucks za idealne rozgrywki i pojedynki, wykonuj codzienne misje za XP i nagrody, awansuj w ligach od Brązu do Mistrza. 
+Dodawaj znajomych, wysyłaj prezenty, śledź serie. 
+
+NOWE w tej wersji: Mapa postępów świata — Twoje postępy na mapie. 
+Dotknij kraju, by zobaczyć poprawne/błędne statystyki i dokładność. 
+Śledź opanowanie kontynentów i odblokuj "Mistrz kontynentu", gdy opanujesz wszystkie kraje regionu. 
+Karta Słabe kraje pokazuje Twoje najsłabsze kraje do powtórki; jedno dotknięcie "Rozpocznij trening słabych krajów" uruchamia grę z nimi. 
+Wyzwanie tygodniowe: kilka takich sesji w tygodniu. 
+W profilu jest wyraźna karta do szybkiego dostępu do mapy postępów. 
+Treści według regionu; możesz skupić się na jednym kontynencie lub grać cały świat. 
+
+Premium: nieograniczone życia, tryb Nauka (odpowiedź po każdym pytaniu), Erudite (trudniejsze pytania), Moje błędy (ćwicz tylko błędne odpowiedzi). Ucz się flag świata w krótkich sesjach sam lub ze znajomymi.
 ```
 
 ### Português (Brasil)
 
 ```
-World Arena Flags é um quiz para aprender bandeiras e países do mundo. Você vê uma bandeira e escolhe o país correto entre quatro opções. Modos: Clássico (sem limite de tempo), Contra o tempo, Sobrevivência (três vidas) ou Duelo — o mesmo quiz que um amigo em outro dispositivo, depois comparem as pontuações. Ganhe F-Bucks por partidas e duelos perfeitos, cumpra missões diárias por XP e recompensas, suba nas ligas do Bronze ao Master. Adicione amigos, envie presentes, acompanhe suas sequências. NOVO nesta versão: Mapa de progresso mundial — seu progresso no mapa. Toque em um país para ver acertos/erros e precisão. Acompanhe o domínio dos continentes e desbloqueie "Mestre do continente" ao dominar todos os países de uma região. A aba Países fracos mostra seus países mais fracos para revisar; um toque em "Iniciar treino países fracos" para praticá-los no jogo. Desafio semanal: várias sessões por semana. O perfil tem um card em destaque para acesso rápido ao mapa de progresso. Conteúdo por região; você pode focar um continente ou jogar o mundo todo. Premium: vidas ilimitadas, modo Aprendizado (ver resposta após cada pergunta), Erudite (perguntas mais difíceis), Meus erros (praticar só respostas erradas). Aprenda bandeiras do mundo em sessões curtas sozinho ou com amigos.
+World Arena Flags é um quiz para aprender bandeiras e países do mundo. Você vê uma bandeira e escolhe o país correto entre quatro opções. 
+Modos: Clássico (sem limite de tempo), Contra o tempo, Sobrevivência (três vidas) ou Duelo — o mesmo quiz que um amigo em outro dispositivo, depois comparem as pontuações. 
+Ganhe F-Bucks por partidas e duelos perfeitos, cumpra missões diárias por XP e recompensas, suba nas ligas do Bronze ao Master. 
+Adicione amigos, envie presentes, acompanhe suas sequências. 
+
+NOVO nesta versão: Mapa de progresso mundial — seu progresso no mapa. 
+Toque em um país para ver acertos/erros e precisão. 
+Acompanhe o domínio dos continentes e desbloqueie "Mestre do continente" ao dominar todos os países de uma região. 
+A aba Países fracos mostra seus países mais fracos para revisar; um toque em "Iniciar treino países fracos" para praticá-los no jogo. 
+Desafio semanal: várias sessões por semana. 
+O perfil tem um card em destaque para acesso rápido ao mapa de progresso. 
+Conteúdo por região; você pode focar um continente ou jogar o mundo todo. 
+
+Premium: vidas ilimitadas, modo Aprendizado (ver resposta após cada pergunta), Erudite (perguntas mais difíceis), Meus erros (praticar só respostas erradas). Aprenda bandeiras do mundo em sessões curtas sozinho ou com amigos.
 ```
 
 ### Nederlands
 
 ```
-World Arena Flags is een quiz om wereldvlaggen en landen te leren. Je ziet een vlag en kiest het juiste land uit vier opties. Modi: Klassiek (onbeperkte tijd), Tijdrace, Overleven (drie levens) of Duel — dezelfde quiz als een vriend op een ander apparaat, daarna scores vergelijken. Verdien F-Bucks voor perfecte games en duels, voltooi dagmissies voor XP en beloningen, klim in competities van Brons tot Master. Voeg vrienden toe, stuur cadeaus, volg je reeksen. NIEUW in deze versie: Wereldvoortgangskaart — je voortgang op de kaart. Tik op een land voor goede/foute statistieken en nauwkeurigheid. Volg continentbeheersing en ontgrendel "Continentmeester" als je alle landen van een regio beheerst. Tabblad Zwakke landen toont je zwakste landen om te herhalen; één tik op "Start training zwakke landen" om ze in het spel te oefenen. Wekelijkse uitdaging: meerdere sessies per week. Het profiel heeft een opvallende kaart voor snelle toegang tot de voortgangskaart. Inhoud per regio; je kunt één continent of de hele wereld spelen. Premium: onbeperkte levens, Leermodus (antwoord na elke vraag), Erudite (moeilijkere vragen), Mijn fouten (alleen foute antwoorden oefenen). Leer wereldvlaggen in korte sessies alleen of met vrienden.
+World Arena Flags is een quiz om wereldvlaggen en landen te leren. 
+Je ziet een vlag en kiest het juiste land uit vier opties. 
+
+Modi: Klassiek (onbeperkte tijd), Tijdrace, Overleven (drie levens) of Duel — dezelfde quiz als een vriend op een ander apparaat, daarna scores vergelijken. 
+Verdien F-Bucks voor perfecte games en duels, voltooi dagmissies voor XP en beloningen, klim in competities van Brons tot Master. 
+Voeg vrienden toe, stuur cadeaus, volg je reeksen. 
+
+NIEUW in deze versie: Wereldvoortgangskaart — je voortgang op de kaart. Tik op een land voor goede/foute statistieken en nauwkeurigheid. 
+Volg continentbeheersing en ontgrendel "Continentmeester" als je alle landen van een regio beheerst. 
+Tabblad Zwakke landen toont je zwakste landen om te herhalen; één tik op "Start training zwakke landen" om ze in het spel te oefenen. 
+Wekelijkse uitdaging: meerdere sessies per week. 
+Het profiel heeft een opvallende kaart voor snelle toegang tot de voortgangskaart. 
+Inhoud per regio; je kunt één continent of de hele wereld spelen. 
+
+Premium: onbeperkte levens, Leermodus (antwoord na elke vraag), Erudite (moeilijkere vragen), Mijn fouten (alleen foute antwoorden oefenen). Leer wereldvlaggen in korte sessies alleen of met vrienden.
 ```
 
 ### Català

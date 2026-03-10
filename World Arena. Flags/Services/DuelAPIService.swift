@@ -540,8 +540,13 @@ enum DuelAPIError: Error, LocalizedError {
         switch self {
         case .serverError(let message):
             if let data = message.data(using: .utf8),
-               let json = try? JSONSerialization.jsonObject(with: data) as? [String: Any],
-               let err = json["error"] as? String { return err }
+               let json = try? JSONSerialization.jsonObject(with: data) as? [String: Any] {
+                if let code = json["errorCode"] as? String {
+                    let localized = NSLocalizedString(code, comment: "API error code")
+                    if localized != code { return localized }
+                }
+                if let err = json["error"] as? String { return err }
+            }
             if !message.isEmpty, message.count < 300 { return message }
             return NSLocalizedString("Server error. Try again.", comment: "DuelAPIError fallback")
         case .invalidResponse:
