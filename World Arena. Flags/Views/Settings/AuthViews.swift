@@ -222,18 +222,31 @@ struct AuthGatewayView: View {
     private func handleAppleLogin(_ result: Result<ASAuthorization, any Error>) async {
         switch result {
         case .failure(let error):
+            print("[Auth] Apple Sign In failed: \(error.localizedDescription)")
+            if let authError = error as? ASAuthorizationError {
+                print("[Auth] Apple ASAuthorizationError code: \(authError.code.rawValue)")
+            }
             errorText = error.localizedDescription
         case .success(let authResult):
-            guard let credential = authResult.credential as? ASAuthorizationAppleIDCredential else { return }
+            guard let credential = authResult.credential as? ASAuthorizationAppleIDCredential else {
+                print("[Auth] Apple: credential is not ASAuthorizationAppleIDCredential")
+                errorText = "Apple sign in failed. Try again."
+                return
+            }
             let appleId = credential.user
             let email = credential.email
             let displayName = [credential.fullName?.givenName, credential.fullName?.familyName]
                 .compactMap { $0 }
                 .joined(separator: " ")
+            print("[Auth] Apple credential received, userId: \(appleId.prefix(8))..., email: \(email ?? "nil")")
             do {
                 try await auth.loginWithSocial(provider: "apple", providerUserId: appleId, email: email, displayName: displayName.isEmpty ? nil : displayName)
                 dismiss()
             } catch {
+                print("[Auth] Apple social-login API error: \(error.localizedDescription)")
+                if let duelError = error as? DuelAPIError, case .serverError(let body) = duelError {
+                    print("[Auth] Server response: \(body.prefix(500))")
+                }
                 errorText = error.localizedDescription
             }
         }
@@ -258,15 +271,30 @@ struct ChangePasswordView: View {
     @State private var currentPassword = ""
     @State private var newPassword = ""
     @State private var repeatPassword = ""
+    @State private var currentPasswordVisible = false
+    @State private var newPasswordVisible = false
+    @State private var repeatPasswordVisible = false
     @State private var loading = false
     @State private var errorText: String?
 
     var body: some View {
         NavigationView {
             Form {
-                SecureField(localizationManager.localizedString("Current password"), text: $currentPassword)
-                SecureField(localizationManager.localizedString("New password"), text: $newPassword)
-                SecureField(localizationManager.localizedString("Repeat new password"), text: $repeatPassword)
+                passwordRow(
+                    label: localizationManager.localizedString("Current password"),
+                    text: $currentPassword,
+                    visible: $currentPasswordVisible
+                )
+                passwordRow(
+                    label: localizationManager.localizedString("New password"),
+                    text: $newPassword,
+                    visible: $newPasswordVisible
+                )
+                passwordRow(
+                    label: localizationManager.localizedString("Repeat new password"),
+                    text: $repeatPassword,
+                    visible: $repeatPasswordVisible
+                )
 
                 if let errorText {
                     Text(errorText).foregroundColor(.red)
@@ -297,6 +325,29 @@ struct ChangePasswordView: View {
         }
         loading = false
     }
+
+    @ViewBuilder
+    private func passwordRow(label: String, text: Binding<String>, visible: Binding<Bool>) -> some View {
+        HStack {
+            Group {
+                if visible.wrappedValue {
+                    TextField(label, text: text)
+                        .textInputAutocapitalization(.never)
+                        .disableAutocorrection(true)
+                } else {
+                    SecureField(label, text: text)
+                        .textInputAutocapitalization(.never)
+                }
+            }
+            Button {
+                visible.wrappedValue = !visible.wrappedValue
+            } label: {
+                Image(systemName: visible.wrappedValue ? "eye.slash.fill" : "eye.fill")
+                    .foregroundColor(.secondary)
+                    .font(.system(size: 18))
+            }
+        }
+    }
 }
 
 struct ResetPasswordView: View {
@@ -306,6 +357,7 @@ struct ResetPasswordView: View {
     @State private var email = ""
     @State private var code = ""
     @State private var newPassword = ""
+    @State private var newPasswordVisible = false
     @State private var requested = false
     @State private var errorText: String?
     @State private var loading = false
@@ -319,7 +371,25 @@ struct ResetPasswordView: View {
                 if requested {
                     TextField(localizationManager.localizedString("Reset code"), text: $code)
                         .keyboardType(.numberPad)
-                    SecureField(localizationManager.localizedString("New password"), text: $newPassword)
+                    HStack {
+                        Group {
+                            if newPasswordVisible {
+                                TextField(localizationManager.localizedString("New password"), text: $newPassword)
+                                    .textInputAutocapitalization(.never)
+                                    .disableAutocorrection(true)
+                            } else {
+                                SecureField(localizationManager.localizedString("New password"), text: $newPassword)
+                                    .textInputAutocapitalization(.never)
+                            }
+                        }
+                        Button {
+                            newPasswordVisible.toggle()
+                        } label: {
+                            Image(systemName: newPasswordVisible ? "eye.slash.fill" : "eye.fill")
+                                .foregroundColor(.secondary)
+                                .font(.system(size: 18))
+                        }
+                    }
                 }
                 if let errorText { Text(errorText).foregroundColor(.red) }
 
