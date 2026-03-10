@@ -1,27 +1,22 @@
 import Foundation
 
+@MainActor
 extension GameState.Region {
     var displayName: String {
+        let key: String
         switch self {
-        case .all:
-            return NSLocalizedString("All Regions", comment: "")
-        case .europe:
-            return NSLocalizedString("Europe", comment: "")
-        case .asia:
-            return NSLocalizedString("Asia", comment: "")
-        case .africa:
-            return NSLocalizedString("Africa", comment: "")
-        case .northAmerica:
-            return NSLocalizedString("North America", comment: "")
-        case .southAmerica:
-            return NSLocalizedString("South America", comment: "")
-        case .oceania:
-            return NSLocalizedString("Oceania", comment: "")
-        case .myMistakes:
-            return NSLocalizedString("My Mistakes", comment: "")
+        case .all: key = "All Regions"
+        case .europe: key = "Europe"
+        case .asia: key = "Asia"
+        case .africa: key = "Africa"
+        case .northAmerica: key = "North America"
+        case .southAmerica: key = "South America"
+        case .oceania: key = "Oceania"
+        case .myMistakes: key = "My Mistakes"
         }
+        return LocalizationManager.shared.localizedString(key)
     }
-    
+
     var systemImageName: String {
         switch self {
         case .all: return "globe"

@@ -1,0 +1,12 @@
+# Краулер AdMob app-ads.txt — явно разрешаем (https://support.google.com/admob/answer/9776740)
+User-agent: Google-adstxt
+Disallow:
+
+User-agent: Mediapartners-Google
+Disallow:
+
+# Остальные боты
+User-agent: *
+Allow: /
+
+Sitemap: https://www.worldarena.games/sitemap.xml

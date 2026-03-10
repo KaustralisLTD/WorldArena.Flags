@@ -485,8 +485,6 @@ private struct GiftButtonUIKit: UIViewRepresentable {
             button.trailingAnchor.constraint(equalTo: container.trailingAnchor),
             button.topAnchor.constraint(equalTo: container.topAnchor),
             button.bottomAnchor.constraint(equalTo: container.bottomAnchor),
-            container.widthAnchor.constraint(equalToConstant: 56),
-            container.heightAnchor.constraint(equalToConstant: 56),
         ])
         context.coordinator.label = label
         return container
@@ -576,6 +574,7 @@ struct QuestResultRow: View {
                 } else if let onGiftTap = onGiftTap {
                     #if os(iOS)
                     GiftButtonUIKit(isOpening: isGiftOpening, onTap: onGiftTap)
+                        .frame(width: 56, height: 56)
                     #else
                     Button(action: onGiftTap) {
                         ZStack {

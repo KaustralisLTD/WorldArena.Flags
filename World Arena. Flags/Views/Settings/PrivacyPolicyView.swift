@@ -54,10 +54,16 @@ struct PrivacyPolicyView: View {
     }
     
     private func getTitle() -> String {
-        let languageCode = Locale.current.languageCode ?? "en"
+        let languageCode = LocalizationManager.shared.currentLocale.languageCode ?? "en"
         
         switch languageCode {
         case "ru": return "Политика конфиденциальности"
+        case "de": return "Datenschutzrichtlinie"
+        case "fr": return "Politique de confidentialité"
+        case "it": return "Informativa sulla privacy"
+        case "pt": return "Política de Privacidade"
+        case "pl": return "Polityka prywatności"
+        case "nl": return "Privacybeleid"
         case "es": return "Política de Privacidad"
         case "uk": return "Політика конфіденційності"
         case "ca": return "Política de Privacitat"
@@ -67,7 +73,7 @@ struct PrivacyPolicyView: View {
     }
     
     private func getPrivacyContent() -> String {
-        let languageCode = Locale.current.languageCode ?? "en"
+        let languageCode = LocalizationManager.shared.currentLocale.languageCode ?? "en"
         
         switch languageCode {
         case "ru":
@@ -81,6 +87,7 @@ struct PrivacyPolicyView: View {
         case "zh":
             return chinesePrivacy
         default:
+            // Для новых языков, где юридический текст пока не переведен, используем английскую версию.
             return englishPrivacy
         }
     }
@@ -952,7 +959,7 @@ struct PrivacyPolicyView: View {
     private func getCurrentDate() -> String {
         let formatter = DateFormatter()
         formatter.dateStyle = .long
-        formatter.locale = Locale.current
+        formatter.locale = LocalizationManager.shared.currentLocale
         return formatter.string(from: Date())
     }
 }

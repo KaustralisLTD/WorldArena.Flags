@@ -68,6 +68,7 @@ final class FlagGameViewModel: ObservableObject {
         print("Selected Answer: \(country.name.common)")
         let isCorrect = country == currentFlag
         print("Result: \(isCorrect ? "Correct" : "Incorrect")")
+        gameState.recordCountryAnswerProgress(countryCode3: currentFlag.id, isCorrect: isCorrect)
         
         // Если ответ неправильный, добавляем текущий флаг в список ошибок
         if !isCorrect {

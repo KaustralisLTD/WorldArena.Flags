@@ -166,6 +166,12 @@ struct LanguageRow: View {
         case .ukrainian: return "🇺🇦"
         case .catalan: return "🏴󠁥󠁳󠁣󠁴󠁿"
         case .chinese: return "🇨🇳"
+        case .german: return "🇩🇪"
+        case .french: return "🇫🇷"
+        case .italian: return "🇮🇹"
+        case .portugueseBrazil: return "🇧🇷"
+        case .polish: return "🇵🇱"
+        case .dutch: return "🇳🇱"
         }
     }
     
@@ -178,6 +184,12 @@ struct LanguageRow: View {
         case .ukrainian: return "Українська"
         case .catalan: return "Català"
         case .chinese: return "中文"
+        case .german: return "Deutsch"
+        case .french: return "Français"
+        case .italian: return "Italiano"
+        case .portugueseBrazil: return "Português (Brasil)"
+        case .polish: return "Polski"
+        case .dutch: return "Nederlands"
         }
     }
 }

@@ -274,6 +274,23 @@ struct MonthlyQuestsView: View {
             return "\(n) dies"
         case "zh":
             return "剩余 \(n) 天"
+        case "de":
+            let word = (n == 1) ? "Tag" : "Tage"
+            return "\(n) \(word) übrig"
+        case "fr":
+            let word = (n == 1) ? "jour" : "jours"
+            return "Il reste \(n) \(word)"
+        case "it":
+            let word = (n == 1) ? "giorno" : "giorni"
+            return "Restano \(n) \(word)"
+        case "pt":
+            let word = (n == 1) ? "dia" : "dias"
+            return "Faltam \(n) \(word)"
+        case "pl":
+            return "Pozostało \(n) dni"
+        case "nl":
+            let word = (n == 1) ? "dag" : "dagen"
+            return "Nog \(n) \(word)"
         default:
             let word = (n == 1) ? "day" : "days"
             return "\(n) \(word) left"

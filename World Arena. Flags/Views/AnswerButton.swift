@@ -1,4 +1,7 @@
 import SwiftUI
+#if os(iOS)
+import UIKit
+#endif
 
 struct AnswerButton: View {
     let country: Country
@@ -14,16 +17,39 @@ struct AnswerButton: View {
     
     @State private var isPressed = false
     @Environment(\.horizontalSizeClass) private var horizontalSizeClass
+    @Environment(\.sizeCategory) private var sizeCategory
     
+    #if os(iOS)
+    private static var isLargeAccessibilityText: Bool {
+        UIFont.preferredFont(forTextStyle: .body).pointSize > 20
+    }
+    #else
+    private static var isLargeAccessibilityText: Bool { false }
+    #endif
+
     private var useCompactStyle: Bool { compact }
+    private var largeTextPhoneMode: Bool {
+        horizontalSizeClass != .regular
+            && (sizeCategory.isAccessibilityCategory || sizeCategory >= .extraExtraLarge || Self.isLargeAccessibilityText)
+    }
     private var answerFont: Font {
         if twoColumnLargeText { return .system(size: 40, weight: .medium) }
         if useCompactStyle { return compactLarge ? .title3 : .subheadline }
+        if largeTextPhoneMode {
+            return .system(size: 19, weight: .semibold)
+        }
+        #if os(iOS)
+        if Self.isLargeAccessibilityText {
+            let bodySize = UIFont.preferredFont(forTextStyle: .body).pointSize
+            return .system(size: min(22, bodySize + 2), weight: .medium)
+        }
+        #endif
         return horizontalSizeClass == .regular ? .title2 : .body
     }
     private var answerPadding: CGFloat {
         if twoColumnLargeText { return 16 }
         if useCompactStyle { return compactLarge ? 10 : 6 }
+        if largeTextPhoneMode { return 12 }
         return horizontalSizeClass == .regular ? 20 : 16
     }
     private var compactIconSize: CGFloat { compactLarge ? 20 : 14 }

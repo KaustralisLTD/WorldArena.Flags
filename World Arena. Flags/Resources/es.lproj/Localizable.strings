@@ -635,6 +635,7 @@
 "Go Premium" = "Ir a Premium";
 "Out of lives" = "Sin vidas";
 "Get Free Lives" = "Gratis +5 vidas";
+"Watch video for +3 lives" = "Ver vídeo: +3 vidas";
 "Unfortunately you ran out of lives this time. Try again or come back later." = "Lamentablemente te has quedado sin vidas esta vez. Inténtalo de nuevo o vuelve más tarde.";
 
 /* Premium */
@@ -925,3 +926,30 @@
 "Time is up" = "Se acabó el tiempo";
 "Search" = "Buscar";
 "3x XP for 10 min!" = "¡3x XP durante 10 min!";
+"КАРТА ПРОГРЕССА" = "MAPA DE PROGRESO";
+"Карта прогресса мира" = "Mapa de progreso mundial";
+"World Progress Map" = "Mapa de progreso mundial";
+"Tap a country to see your correct and wrong answers" = "Toca un país para ver aciertos y fallos";
+"Greener country means better mastery" = "Más verde = mayor dominio";
+"Continent Mastery" = "Dominio de continentes";
+"Answered %d of %d countries" = "%d de %d países respondidos";
+"Mastered %d of %d countries" = "%d de %d países dominados";
+"Total" = "Total";
+"Map" = "Mapa";
+"Weak countries" = "Países débiles";
+"All countries" = "Todos los países";
+"Only weak" = "Solo débiles";
+"Only mastered" = "Solo dominados";
+"TOP weak countries for review" = "Top países débiles para repasar";
+"No weak countries yet" = "Aún no hay países débiles";
+"%@ Master" = "%@ Maestro";
+"%@ Master unlocked" = "%@ Maestro desbloqueado";
+"Continent mastered! Keep going." = "¡Continente dominado! Sigue así.";
+"Weekly challenge" = "Desafío semanal";
+"Weak country sessions this week" = "Sesiones de países débiles esta semana";
+"Start Weak Countries Training" = "Empezar entrenamiento países débiles";
+"Progress map subtitle" = "Sigue tu progreso por país y continente";
+"How is Mastered calculated?" = "¿Cómo se calcula «Dominado»?";
+"Mastered explanation" = "Un país cuenta como dominado con al menos 3 respuestas y al menos 80%% de aciertos.";
+"Name" = "Nombre";
+"Current Streak" = "Racha actual";

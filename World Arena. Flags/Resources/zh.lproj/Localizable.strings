@@ -561,6 +561,7 @@
 "Go Premium" = "升级到高级版";
 "Out of lives" = "生命已用尽";
 "Get Free Lives" = "免费 +5 生命";
+"Watch video for +3 lives" = "观看视频：+3 生命";
 "Unfortunately you ran out of lives this time. Try again or come back later." = "很遗憾，这次你的生命用完了。请再试一次或稍后再来。";
 
 /* 高级版页面 */
@@ -821,3 +822,31 @@
 "Time is up" = "时间到";
 "Search" = "搜索";
 "3x XP for 10 min!" = "10分钟内3倍XP！";
+"КАРТА ПРОГРЕССА" = "进度地图";
+"Карта прогресса мира" = "世界进度地图";
+"World Progress Map" = "世界进度地图";
+"Tap a country to see your correct and wrong answers" = "点击国家查看正确与错误答题";
+"Greener country means better mastery" = "颜色越绿表示掌握越好";
+"Continent Mastery" = "大陆掌握";
+"Answered %d of %d countries" = "已答 %d/%d 国家";
+"Mastered %d of %d countries" = "已掌握 %d/%d 国家";
+"Total" = "总计";
+"Map" = "地图";
+"Weak countries" = "薄弱国家";
+"All countries" = "全部国家";
+"Only weak" = "仅薄弱";
+"Only mastered" = "仅已掌握";
+"TOP weak countries for review" = "需复习的薄弱国家排行";
+"No weak countries yet" = "暂无薄弱国家";
+"%@ Master" = "%@ 大师";
+"%@ Master unlocked" = "%@ 大师已解锁";
+"Continent mastered! Keep going." = "大陆已掌握！继续加油。";
+"Weekly challenge" = "每周挑战";
+"Weak country sessions this week" = "本周弱国训练次数";
+"Start Weak Countries Training" = "开始弱国训练";
+"Progress map subtitle" = "按国家和大陆查看您的进度";
+"How is Mastered calculated?" = "「已掌握」如何计算？";
+"Mastered explanation" = "当您对某国至少回答3次且正确率至少80%%时，该国计为已掌握。";
+"Name" = "名字";
+"Current Streak" = "当前连续";
+"days" = "天";

@@ -11,6 +11,7 @@ struct ProfileView: View {
     @EnvironmentObject var gameState: GameState
     @State private var showingSettings = false
     @State private var showingShareSheet = false
+    @State private var showFullNameAlert = false
     #if os(iOS)
     @State private var profileCardImage: UIImage?
     @Environment(\.horizontalSizeClass) private var horizontalSizeClass
@@ -19,6 +20,7 @@ struct ProfileView: View {
     #endif
     @ObservedObject private var localizationManager = LocalizationManager.shared
     @State private var safeTopInset: CGFloat = 0
+    @Environment(\.sizeCategory) private var sizeCategory
     @State private var containerSize: CGSize = .zero
     @Binding var selectedTab: Int
     #if os(iOS)
@@ -72,7 +74,12 @@ struct ProfileView: View {
         return Color(NSColor.textBackgroundColor)
         #endif
     }
-    
+
+    private var profileUsernameFontSize: CGFloat {
+        if sizeCategory >= .accessibilityMedium, !isIPad { return 18 }
+        return isIPad ? 26 : 22
+    }
+
     var body: some View {
         ZStack(alignment: .top) {
             // Базовый фон
@@ -200,8 +207,13 @@ struct ProfileView: View {
                 ShareSheet(activityItems: profileShareActivityItems)
             }
             #endif
+            .alert(localizationManager.localizedString("Name"), isPresented: $showFullNameAlert) {
+                Button(localizationManager.localizedString("Close"), role: .cancel) { }
+            } message: {
+                Text(userProfile.username)
+            }
     }
-    
+
     // Старый блок хедера больше не используется
     
     private var statisticsSection: some View {
@@ -263,7 +275,7 @@ struct ProfileView: View {
                         .foregroundColor(.secondary)
                     Button(action: { showingCountryPicker = true }) {
                         HStack(spacing: 8) {
-                            Text(countryRankLine(code: userProfile.selectedCountryCode ?? "US", seed: 11))
+                            Text(countryRankLine(code: userProfile.selectedCountryCode ?? "US"))
                                 .font(.system(size: isIPad ? 16 : 14, weight: .bold))
                                 .foregroundColor(.primary)
                             Image(systemName: "chevron.down.circle.fill")
@@ -272,11 +284,73 @@ struct ProfileView: View {
                         }
                     }
                     .buttonStyle(.plain)
-                    Text(worldRankLine(seed: 29))
+                    Text(worldRankLine())
                         .font(.system(size: isIPad ? 16 : 14, weight: .bold))
                 }
                 .frame(maxWidth: .infinity, alignment: .leading)
                 .padding(.top, 2)
+
+                NavigationLink(destination: WorldProgressMapView().environmentObject(gameState)) {
+                    HStack(spacing: 14) {
+                        ZStack {
+                            RoundedRectangle(cornerRadius: 12, style: .continuous)
+                                .fill(
+                                    LinearGradient(
+                                        colors: [Color.green.opacity(0.35), Color.mint.opacity(0.4)],
+                                        startPoint: .topLeading,
+                                        endPoint: .bottomTrailing
+                                    )
+                                )
+                                .frame(width: isIPad ? 52 : 46, height: isIPad ? 52 : 46)
+                            Image(systemName: "map.fill")
+                                .font(.system(size: isIPad ? 24 : 20, weight: .semibold))
+                                .foregroundStyle(
+                                    LinearGradient(
+                                        colors: [.green, .mint],
+                                        startPoint: .topLeading,
+                                        endPoint: .bottomTrailing
+                                    )
+                                )
+                        }
+                        VStack(alignment: .leading, spacing: 4) {
+                            Text(LocalizationManager.shared.localizedString("Карта прогресса мира"))
+                                .font(.system(size: isIPad ? 18 : 16, weight: .bold))
+                                .foregroundColor(.primary)
+                            Text(LocalizationManager.shared.localizedString("Progress map subtitle"))
+                                .font(.system(size: isIPad ? 14 : 12, weight: .medium))
+                                .foregroundColor(.secondary)
+                        }
+                        Spacer()
+                        Image(systemName: "chevron.right.circle.fill")
+                            .font(.system(size: isIPad ? 22 : 20))
+                            .foregroundStyle(
+                                LinearGradient(
+                                    colors: [.green.opacity(0.9), .mint.opacity(0.9)],
+                                    startPoint: .topLeading,
+                                    endPoint: .bottomTrailing
+                                )
+                            )
+                    }
+                    .padding(isIPad ? 16 : 14)
+                    .frame(maxWidth: .infinity, alignment: .leading)
+                    .background(
+                        RoundedRectangle(cornerRadius: 16, style: .continuous)
+                            .fill(secondarySystemGroupedBackground)
+                            .overlay(
+                                RoundedRectangle(cornerRadius: 16, style: .continuous)
+                                    .stroke(
+                                        LinearGradient(
+                                            colors: [Color.green.opacity(0.5), Color.mint.opacity(0.4)],
+                                            startPoint: .topLeading,
+                                            endPoint: .bottomTrailing
+                                        ),
+                                        lineWidth: 1.5
+                                    )
+                            )
+                            .shadow(color: Color.green.opacity(0.15), radius: 8, x: 0, y: 4)
+                    )
+                }
+                .buttonStyle(.plain)
 
                 NavigationLink {
                     DuelSummaryView()
@@ -567,8 +641,13 @@ extension ProfileView {
             VStack(alignment: .leading, spacing: 4) {
                 HStack(spacing: 8) {
                     Text(userProfile.username)
-                        .font(.system(size: 32, weight: .bold))
+                        .font(.system(size: sizeCategory >= .accessibilityMedium ? 24 : 32, weight: .bold))
                         .foregroundColor(.white)
+                        .lineLimit(1)
+                        .truncationMode(.tail)
+                        .frame(maxWidth: .infinity, alignment: .leading)
+                        .contentShape(Rectangle())
+                        .onTapGesture { showFullNameAlert = true }
                     Image(systemName: userProfile.currentLeague.icon)
                         .font(.system(size: 17, weight: .bold))
                         .foregroundColor(.white)
@@ -794,8 +873,13 @@ extension ProfileView {
                 VStack(alignment: .leading, spacing: 2) {
                     HStack(spacing: 8) {
                         Text(userProfile.username)
-                            .font(.system(size: isIPad ? 26 : 22, weight: .bold))
+                            .font(.system(size: profileUsernameFontSize, weight: .bold))
                             .foregroundColor(.white)
+                            .lineLimit(1)
+                            .truncationMode(.tail)
+                            .frame(maxWidth: .infinity, alignment: .leading)
+                            .contentShape(Rectangle())
+                            .onTapGesture { showFullNameAlert = true }
                         Image(systemName: userProfile.currentLeague.icon)
                             .font(.system(size: isIPad ? 14 : 13, weight: .bold))
                             .foregroundColor(.white)
@@ -804,7 +888,8 @@ extension ProfileView {
                         .font(.system(size: isIPad ? 14 : 12, weight: .medium))
                         .foregroundColor(.white.opacity(0.9))
                 }
-                .padding(.leading, isIPad ? 12 : 8) // Добавляем отступ для выравнивания с кнопкой
+                .padding(.leading, isIPad ? 12 : 8)
+                .padding(.trailing, isIPad ? 0 : 72)
 
                 Spacer()
             }
@@ -902,25 +987,157 @@ extension ProfileView {
 
 // MARK: - Share Profile Functions
 extension ProfileView {
-    fileprivate func pseudoRank(seed: Int, scope: Int) -> Int {
-        let base = max(1, (2_000_000 - (userProfile.xp * 73 + userProfile.streak * 31)))
-        let mixed = abs((base + seed * 997) % max(scope, 1))
-        return max(1, mixed + 1)
-    }
-
-    fileprivate func countryRankLine(code: String, seed: Int) -> String {
+    // MARK: - Professional ranking model (country + world)
+    // Позиция зависит от качества профиля и оценочного размера активной аудитории:
+    // население страны * смартфоны * доля мобильных игроков * доля онлайн-игроков.
+    fileprivate func countryRankLine(code: String) -> String {
         let upper = code.uppercased()
         let flag = FriendsService.countryCodeToFlagEmoji(upper)
-        let rank = pseudoRank(seed: seed, scope: 12_000)
+        let rank = computedCountryRank(for: upper)
         let format = LocalizationManager.shared.localizedString("Country rank line")
         return String(format: format, flag, rank, LocalizationManager.shared.localizedString(countryNameByCode(upper)))
     }
 
-    fileprivate func worldRankLine(seed: Int) -> String {
-        let rank = pseudoRank(seed: seed, scope: 150_000)
+    fileprivate func worldRankLine() -> String {
+        let rank = computedWorldRank()
         let format = LocalizationManager.shared.localizedString("World rank line")
         return String(format: format, rank)
     }
+
+    private func computedCountryRank(for countryCode: String) -> Int {
+        let pool = max(5_000, estimatedActivePlayers(for: countryCode))
+        let p = adjustedPercentile(seedSalt: "COUNTRY_\(countryCode)")
+        return max(1, Int((1.0 - p) * Double(pool)) + 1)
+    }
+
+    private func computedWorldRank() -> Int {
+        let worldPool = max(2_000_000, Self.estimatedWorldActivePlayers)
+        let p = adjustedPercentile(seedSalt: "WORLD")
+        return max(1, Int((1.0 - p) * Double(worldPool)) + 1)
+    }
+
+    private func adjustedPercentile(seedSalt: String) -> Double {
+        let base = basePerformancePercentile()
+        // Небольшой стабильный сдвиг, чтобы игроки с одинаковыми метриками не имели один и тот же rank.
+        let jitter = (Double(stableSeed(seedSalt) % 1000) / 1000.0 - 0.5) * 0.028
+        return min(0.995, max(0.01, base + jitter))
+    }
+
+    private func basePerformancePercentile() -> Double {
+        let accuracy = min(1.0, max(0.0, userProfile.accuracy / 100.0))
+        let xpNorm = min(1.0, log1p(Double(max(0, userProfile.xp))) / log1p(120_000.0))
+        let gamesNorm = min(1.0, log1p(Double(max(0, userProfile.totalGamesPlayed))) / log1p(4_000.0))
+        let streakNorm = min(1.0, log1p(Double(max(0, userProfile.streak))) / log1p(365.0))
+        let leagueNorm = min(1.0, max(0.0, Double(leagueTierIndex(userProfile.currentLeague)) / 5.0))
+        let consistency = min(1.0, accuracy * (0.62 + 0.38 * gamesNorm))
+
+        var skill =
+            0.34 * accuracy +
+            0.24 * xpNorm +
+            0.14 * gamesNorm +
+            0.12 * streakNorm +
+            0.16 * leagueNorm
+
+        // За регулярную игру добавляем мягкий буст.
+        skill += min(0.08, Double(userProfile.totalGamesPlayed) / 5_000.0) * consistency
+        skill = min(1.0, max(0.0, skill))
+
+        // Нелинейная кривая приближена к поведению популярных leaderboard-аппов.
+        return 0.02 + pow(skill, 1.35) * 0.965
+    }
+
+    private func leagueTierIndex(_ league: League) -> Int {
+        switch league {
+        case .bronze: return 0
+        case .silver: return 1
+        case .gold: return 2
+        case .platinum: return 3
+        case .diamond: return 4
+        case .master: return 5
+        }
+    }
+
+    private func stableSeed(_ salt: String) -> Int {
+        let raw = "\(userProfile.username)|\(Int(userProfile.joinDate.timeIntervalSince1970))|\(salt)"
+        return raw.unicodeScalars.reduce(17) { ($0 &* 31) &+ Int($1.value) } & Int.max
+    }
+
+    private func estimatedActivePlayers(for countryCode: String) -> Int {
+        let profile = digitalProfile(for: countryCode)
+        let population = estimatedPopulation(for: countryCode)
+        // App-interest factor: какая доля mobile аудитории играет именно в квиз/edutainment.
+        let appInterest = 0.0022
+        let estimated = Double(population) * profile.smartphone * profile.mobileGamers * profile.onlineGamers * appInterest
+        return max(5_000, Int(estimated.rounded()))
+    }
+
+    private func estimatedPopulation(for countryCode: String) -> Int {
+        if let predefined = countryPopulationOverrides[countryCode] {
+            return predefined
+        }
+        guard let country = CountryDatabase.getCountryData(for: countryCode) else {
+            return 12_000_000
+        }
+        let digits = country.en.population.filter { $0.isNumber }
+        if let parsed = Int(digits), parsed > 100_000 {
+            return parsed
+        }
+        return 12_000_000
+    }
+
+    private func digitalProfile(for countryCode: String) -> (smartphone: Double, mobileGamers: Double, onlineGamers: Double) {
+        if let value = Self.countryDigitalOverrides[countryCode] {
+            return value
+        }
+        // Базовый мировой профиль для стран без точного коэффициента.
+        return (0.69, 0.56, 0.74)
+    }
+
+    private static let estimatedWorldActivePlayers: Int = {
+        let appInterest = 0.0022
+        var uniqueCodes = Set<String>()
+        var total = 0.0
+
+        for country in CountryDatabase.allCountries {
+            let code = country.en.code.uppercased()
+            guard !uniqueCodes.contains(code) else { continue }
+            uniqueCodes.insert(code)
+
+            let digits = country.en.population.filter { $0.isNumber }
+            let population = Int(digits) ?? 12_000_000
+            let profile = countryDigitalOverrides[code] ?? (0.69, 0.56, 0.74)
+            total += Double(population) * profile.smartphone * profile.mobileGamers * profile.onlineGamers * appInterest
+        }
+        return max(2_000_000, Int(total.rounded()))
+    }()
+
+    private var countryPopulationOverrides: [String: Int] {
+        [
+            "US": 334_000_000, "CN": 1_410_000_000, "IN": 1_430_000_000, "BR": 203_000_000,
+            "ID": 278_000_000, "PK": 241_000_000, "NG": 223_000_000, "BD": 173_000_000,
+            "RU": 146_000_000, "JP": 123_000_000, "MX": 129_000_000, "PH": 117_000_000,
+            "VN": 100_000_000, "TR": 86_000_000, "DE": 84_000_000, "FR": 68_000_000,
+            "GB": 68_000_000, "IT": 59_000_000, "ES": 48_000_000, "UA": 37_000_000,
+            "PL": 38_000_000, "NL": 18_000_000, "CA": 40_000_000, "AU": 27_000_000,
+            "SE": 10_500_000, "NO": 5_500_000, "CH": 8_900_000, "BE": 11_700_000
+        ]
+    }
+
+    private static let countryDigitalOverrides: [String: (smartphone: Double, mobileGamers: Double, onlineGamers: Double)] = [
+        "US": (0.90, 0.62, 0.86), "CA": (0.89, 0.61, 0.85), "GB": (0.91, 0.60, 0.87),
+        "DE": (0.89, 0.58, 0.84), "FR": (0.87, 0.57, 0.83), "IT": (0.85, 0.56, 0.82),
+        "ES": (0.88, 0.57, 0.83), "NL": (0.92, 0.60, 0.88), "PL": (0.82, 0.55, 0.79),
+        "SE": (0.93, 0.59, 0.89), "NO": (0.94, 0.58, 0.90), "CH": (0.92, 0.57, 0.88),
+        "BE": (0.90, 0.57, 0.85), "UA": (0.75, 0.53, 0.71), "RU": (0.79, 0.55, 0.73),
+        "TR": (0.79, 0.57, 0.75), "CN": (0.77, 0.64, 0.74), "JP": (0.88, 0.53, 0.86),
+        "KR": (0.95, 0.64, 0.93), "IN": (0.54, 0.62, 0.60), "ID": (0.69, 0.66, 0.71),
+        "PH": (0.71, 0.67, 0.73), "VN": (0.74, 0.65, 0.74), "TH": (0.77, 0.64, 0.76),
+        "MY": (0.84, 0.62, 0.82), "SG": (0.94, 0.61, 0.91), "BR": (0.81, 0.63, 0.77),
+        "MX": (0.76, 0.61, 0.73), "AR": (0.80, 0.58, 0.76), "CL": (0.83, 0.57, 0.79),
+        "CO": (0.74, 0.60, 0.72), "SA": (0.91, 0.58, 0.88), "AE": (0.96, 0.60, 0.93),
+        "EG": (0.65, 0.58, 0.63), "NG": (0.45, 0.55, 0.50), "ZA": (0.69, 0.56, 0.68),
+        "AU": (0.91, 0.60, 0.86)
+    ]
 
     private func countryNameByCode(_ code: String) -> String {
         let upper = code.uppercased()
@@ -1411,6 +1628,12 @@ private var flagForSelectedLanguage: String {
     case "uk": return "🇺🇦"
     case "ca": return "🇪🇸" // Catalan uses Spanish flag
     case "zh": return "🇨🇳"
+    case "de": return "🇩🇪"
+    case "fr": return "🇫🇷"
+    case "it": return "🇮🇹"
+    case "pt": return "🇧🇷"
+    case "pl": return "🇵🇱"
+    case "nl": return "🇳🇱"
     default: return "🇺🇸"
     }
 }

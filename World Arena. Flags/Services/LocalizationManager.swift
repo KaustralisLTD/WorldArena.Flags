@@ -48,22 +48,30 @@ class LocalizationManager: ObservableObject {
     }
     
     // Поддерживаемые языки приложения
-    private static let supportedLanguageCodes: [String] = ["en", "ru", "uk", "es", "ca", "zh"]
+    private static let supportedLanguageCodes: [String] = ["en", "ru", "uk", "es", "ca", "zh", "de", "fr", "it", "pt-BR", "pl", "nl"]
     
     // Разрешение старта языка при выборе «Система»
     private static func resolveLanguageCode(saved: String?) -> String {
         // Если сохранён пользовательский выбор и он не "system"
         if let saved, saved != "system" { return saved }
         // Сначала — основной язык устройства (Locale.current), чтобы при испанской системе не подставлять украинский
-        if let current = Locale.current.languageCode?.lowercased(),
-           supportedLanguageCodes.contains(current) {
-            return current
+        if let current = Locale.current.languageCode?.lowercased() {
+            if current == "pt" {
+                return "pt-BR"
+            }
+            if supportedLanguageCodes.contains(current) {
+                return current
+            }
         }
         // Иначе — первая из preferredLanguages, которую поддерживаем
         let preferred = Locale.preferredLanguages
             .compactMap { langId -> String? in
-                if let code = Locale(identifier: langId).languageCode?.lowercased() { return code }
+                if let code = Locale(identifier: langId).languageCode?.lowercased() {
+                    if code == "pt" { return "pt-BR" }
+                    return code
+                }
                 let two = langId.split(separator: "-").first.map(String.init)?.lowercased()
+                if two == "pt" { return "pt-BR" }
                 return two
             }
         if let match = preferred.first(where: { supportedLanguageCodes.contains($0) }) {
@@ -73,13 +81,28 @@ class LocalizationManager: ObservableObject {
     }
     
     private func updateBundle(for locale: Locale) {
-        guard let languageCode = locale.languageCode,
-              let path = Bundle.main.path(forResource: languageCode, ofType: "lproj"),
+        let bundleLanguageCode = preferredBundleLanguageCode(for: locale)
+        guard let path = Bundle.main.path(forResource: bundleLanguageCode, ofType: "lproj"),
               let bundle = Bundle(path: path) else {
-            self.bundle = Bundle.main
+            // Для языков без своего lproj пока используем английский fallback.
+            if let enPath = Bundle.main.path(forResource: "en", ofType: "lproj"),
+               let enBundle = Bundle(path: enPath) {
+                self.bundle = enBundle
+            } else {
+                self.bundle = Bundle.main
+            }
             return
         }
         self.bundle = bundle
+    }
+    
+    private func preferredBundleLanguageCode(for locale: Locale) -> String {
+        let identifier = locale.identifier.lowercased()
+        if identifier.hasPrefix("pt") { return "pt-BR" }
+        if let code = locale.languageCode?.lowercased() {
+            return code
+        }
+        return "en"
     }
     
     func localizedString(_ key: String) -> String {

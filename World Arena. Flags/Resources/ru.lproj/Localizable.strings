@@ -417,6 +417,7 @@
 "Go Premium" = "Перейти на Премиум";
 "Out of lives" = "Закончились жизни";
 "Get Free Lives" = "Бесплатно +5 жизней";
+"Watch video for +3 lives" = "Смотреть видео: +3 жизни";
 "Unfortunately you ran out of lives this time. Try again or come back later." = "К сожалению, на этот раз у вас закончились жизни. Попробуйте ещё раз или вернитесь позже.";
 
 /* Premium screen */
@@ -1015,3 +1016,31 @@
 "Time is up" = "Время вышло";
 "Search" = "Поиск";
 "3x XP for 10 min!" = "3x XP на 10 мин!";
+"КАРТА ПРОГРЕССА" = "КАРТА ПРОГРЕССА";
+"Карта прогресса мира" = "Карта прогресса мира";
+"World Progress Map" = "Карта прогресса мира";
+"Tap a country to see your correct and wrong answers" = "Нажмите на страну, чтобы увидеть правильные и неправильные ответы";
+"Greener country means better mastery" = "Чем зеленее страна, тем лучше результат";
+"Continent Mastery" = "Освоение континентов";
+"Mastered %d of %d countries" = "Освоено %d из %d стран";
+"Total" = "Всего";
+"Map" = "Карта";
+"Weak countries" = "Слабые страны";
+"All countries" = "Все страны";
+"Only weak" = "Только слабые";
+"Only mastered" = "Только освоенные";
+"TOP weak countries for review" = "ТОП слабых стран для повторения";
+"No weak countries yet" = "Пока нет слабых стран";
+"%@ Master" = "%@ Мастер";
+"%@ Master unlocked" = "%@ Master открыт";
+"Continent mastered! Keep going." = "Континент освоен! Так держать.";
+"Current Streak" = "Текущая серия";
+"Weekly challenge" = "Недельный челлендж";
+"Weak country sessions this week" = "Тренировок по слабым странам на этой неделе";
+"Start Weak Countries Training" = "Начать тренировку по слабым странам";
+"Progress map subtitle" = "Отслеживайте прогресс по странам и континентам";
+"How is Mastered calculated?" = "Как считается «Освоено»?";
+"Mastered explanation" = "Страна считается освоенной, если вы ответили по ней не менее 3 раз и дали не менее 80%% правильных ответов.";
+"Name" = "Имя";
+
+"Answered %d of %d countries" = "Отвечено по %d из %d стран";

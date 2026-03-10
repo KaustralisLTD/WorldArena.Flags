@@ -4,7 +4,16 @@ import UIKit
 #endif
 
 #if os(iOS)
+#if canImport(GoogleMobileAds)
+import GoogleMobileAds
+#endif
 final class AppDelegate: NSObject, UIApplicationDelegate {
+    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]? = nil) -> Bool {
+        #if canImport(GoogleMobileAds)
+        GADMobileAds.sharedInstance().start(completionHandler: nil)
+        #endif
+        return true
+    }
     func application(
         _ application: UIApplication,
         supportedInterfaceOrientationsFor window: UIWindow?
@@ -54,6 +63,8 @@ struct FlagsWorldApp: App {
                     
                     // Инициализируем StoreManager
                     gameState.initializeStoreManager()
+                    // Предзагрузка награждаемой рекламы (видео за жизни)
+                    Task { await RewardedAdService.shared.loadAd() }
                 }
                 .onReceive(NotificationCenter.default.publisher(for: Notification.Name("showPremiumFromHome"))) { _ in
                     showPremiumFromNotif = true

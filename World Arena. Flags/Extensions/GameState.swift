@@ -43,6 +43,17 @@ struct GameQuestionResult: Identifiable, Codable {
     let timedOut: Bool
 }
 
+struct CountryLearningProgress: Codable, Hashable {
+    var correct: Int
+    var wrong: Int
+
+    var total: Int { correct + wrong }
+    var accuracy: Double {
+        guard total > 0 else { return 0 }
+        return Double(correct) / Double(total)
+    }
+}
+
 @MainActor
 class GameState: ObservableObject {
     @Published var score = 0
@@ -112,6 +123,7 @@ class GameState: ObservableObject {
     @Published var duelHistory: [DuelHistoryEntry] = []
     @Published var currentGameResults: [GameQuestionResult] = []
     @Published var lastGameResults: [GameQuestionResult] = []
+    @Published private(set) var countryLearningProgress: [String: CountryLearningProgress] = [:]
     
     var questionsPerGame: Int {
         switch selectedPlayMode {
@@ -203,6 +215,14 @@ class GameState: ObservableObject {
     private var loadedCountriesCache: [Region: [Country]] = [:]
     
     private var gameStartTime: Date?
+
+    /// Если задано, игра стартует только по этим странам (слабые для тренировки). Очищается после начала игры.
+    var weakCountryIdsForTraining: Set<String>?
+
+    private let weeklyChallengeWeekKey = "learning.weeklyChallenge.weekStart"
+    private let weeklyChallengeCountKey = "learning.weeklyChallenge.weakSessionsCount"
+    static let weeklyChallengeGoal = 5
+    @Published var weeklyChallengeSessionsThisWeek: Int = 0
     
     private var lastGameStartAttempt: Date?
     private let minimumTimeBetweenStarts: TimeInterval = 2.0
@@ -210,6 +230,7 @@ class GameState: ObservableObject {
     // Добавим проверку, чтобы не загружать ошибки повторно
     private var mistakesLoaded = false
     private let duelHistoryStorageKey = "duel.history.v1"
+    private let countryLearningProgressStorageKey = "learning.countryProgress.v1"
     
     // Добавляем флаг для отслеживания загрузки статистики
     private var statisticsLoaded = false
@@ -475,6 +496,14 @@ class GameState: ObservableObject {
         UserDefaults.standard.set(now, forKey: lastRefillStorageKey)
         print("❤️ Free lives refilled to: \(lives)")
     }
+
+    /// Добавить жизни за просмотр награждаемой рекламы (видео).
+    func addLivesFromRewardedAd(amount: Int) {
+        guard !isPremium else { return }
+        lives = min(maxLives, lives + amount)
+        saveLivesState()
+        print("❤️ +\(amount) lives from rewarded ad. Lives: \(lives)")
+    }
     
     struct Statistics: Codable {
         var totalGames = 0
@@ -503,6 +532,12 @@ class GameState: ObservableObject {
         case ukrainian = "uk"
         case catalan = "ca"
         case chinese = "zh"
+        case german = "de"
+        case french = "fr"
+        case italian = "it"
+        case portugueseBrazil = "pt-BR"
+        case polish = "pl"
+        case dutch = "nl"
     }
     
     // Восстанавливаем оригинальный GameMode для количества флагов
@@ -670,6 +705,7 @@ class GameState: ObservableObject {
         statistics = StatisticsService.shared.loadStatistics()
         loadMistakes()
         loadDuelHistory()
+        loadCountryLearningProgress()
     }
 
     private func loadDuelHistory() {
@@ -684,6 +720,80 @@ class GameState: ObservableObject {
     private func saveDuelHistory() {
         guard let data = try? JSONEncoder().encode(duelHistory) else { return }
         UserDefaults.standard.set(data, forKey: duelHistoryStorageKey)
+    }
+
+    private func loadCountryLearningProgress() {
+        guard let data = UserDefaults.standard.data(forKey: countryLearningProgressStorageKey),
+              let decoded = try? JSONDecoder().decode([String: CountryLearningProgress].self, from: data) else {
+            countryLearningProgress = [:]
+            return
+        }
+        countryLearningProgress = decoded
+    }
+
+    private func saveCountryLearningProgress() {
+        guard let data = try? JSONEncoder().encode(countryLearningProgress) else { return }
+        UserDefaults.standard.set(data, forKey: countryLearningProgressStorageKey)
+    }
+
+    private func startOfWeek(_ date: Date = Date()) -> TimeInterval {
+        let cal = Calendar.current
+        guard let start = cal.date(from: cal.dateComponents([.yearForWeekOfYear, .weekOfYear], from: date)) else {
+            return date.timeIntervalSince1970
+        }
+        return start.timeIntervalSince1970
+    }
+
+    /// Обновить отображаемый счётчик weekly challenge (вызывать при появлении экрана карты/weak).
+    func refreshWeeklyChallengeCount() {
+        let now = Date()
+        let currentWeek = startOfWeek(now)
+        let defaults = UserDefaults.standard
+        let storedWeek = defaults.double(forKey: weeklyChallengeWeekKey)
+        if storedWeek == 0 || storedWeek != currentWeek {
+            defaults.set(currentWeek, forKey: weeklyChallengeWeekKey)
+            defaults.set(0, forKey: weeklyChallengeCountKey)
+            weeklyChallengeSessionsThisWeek = 0
+            return
+        }
+        weeklyChallengeSessionsThisWeek = defaults.integer(forKey: weeklyChallengeCountKey)
+    }
+
+    /// Увеличить счётчик сессий «слабые страны» за текущую неделю (вызывать при старте такой игры).
+    func recordWeeklyWeakSession() {
+        let now = Date()
+        let currentWeek = startOfWeek(now)
+        let defaults = UserDefaults.standard
+        let storedWeek = defaults.double(forKey: weeklyChallengeWeekKey)
+        var count = weeklyChallengeSessionsThisWeek
+        if storedWeek == 0 || storedWeek != currentWeek {
+            defaults.set(currentWeek, forKey: weeklyChallengeWeekKey)
+            count = 0
+        }
+        count += 1
+        defaults.set(count, forKey: weeklyChallengeCountKey)
+        weeklyChallengeSessionsThisWeek = count
+    }
+
+    func recordCountryAnswerProgress(countryCode3: String, isCorrect: Bool) {
+        let code = countryCode3.uppercased()
+        var progress = countryLearningProgress[code] ?? CountryLearningProgress(correct: 0, wrong: 0)
+        if isCorrect {
+            progress.correct += 1
+        } else {
+            progress.wrong += 1
+        }
+        countryLearningProgress[code] = progress
+        saveCountryLearningProgress()
+    }
+
+    func progressForCountry(code3: String) -> CountryLearningProgress {
+        countryLearningProgress[code3.uppercased()] ?? CountryLearningProgress(correct: 0, wrong: 0)
+    }
+
+    /// Перезагрузить прогресс по странам из UserDefaults (вызывать при открытии карты прогресса).
+    func reloadCountryLearningProgressFromStorage() {
+        loadCountryLearningProgress()
     }
 
     private func addDuelHistory(opponentName: String, myScore: Int, opponentScore: Int, iWon: Bool) {
@@ -950,6 +1060,7 @@ class GameState: ObservableObject {
         print("Correct answer: \(currentFlag.name.common)")
         
         let isCorrect = country.id == currentFlag.id
+        recordCountryAnswerProgress(countryCode3: currentFlag.id, isCorrect: isCorrect)
         
         if isCorrect {
             print("✅ CORRECT ANSWER!")
@@ -1377,8 +1488,16 @@ class GameState: ObservableObject {
         correctlyAnsweredMistakes.removeAll()
         
         do {
-            // Загружаем страны только для выбранных регионов
-            let loadedCountries = try await fetchCountries(for: Array(selectedRegions))
+            let weakIds = weakCountryIdsForTraining
+            weakCountryIdsForTraining = nil
+            let regionsToLoad: [Region] = weakIds != nil ? [.all] : Array(selectedRegions)
+            var loadedCountries = try await fetchCountries(for: regionsToLoad)
+            if let ids = weakIds, !ids.isEmpty {
+                loadedCountries = loadedCountries.filter { ids.contains($0.id) }
+                if !loadedCountries.isEmpty {
+                    recordWeeklyWeakSession()
+                }
+            }
             print("Total unique countries loaded: \(loadedCountries.count)")
             
             guard !loadedCountries.isEmpty else {
@@ -2215,6 +2334,9 @@ class GameState: ObservableObject {
         
         // Засчитываем как неправильный ответ
         updateStatistics(isCorrect: false)
+        if let currentFlag = currentFlag {
+            recordCountryAnswerProgress(countryCode3: currentFlag.id, isCorrect: false)
+        }
         if let currentFlag = currentFlag {
             recordQuestionResult(
                 correctCountry: currentFlag,

@@ -375,6 +375,7 @@
 "Go Premium" = "Go Premium";
 "Out of lives" = "Out of lives";
 "Get Free Lives" = "Get Free Lives";
+"Watch video for +3 lives" = "Watch video for +3 lives";
 "Unfortunately you ran out of lives this time. Try again or come back later." = "Unfortunately you ran out of lives this time. Try again or come back later.";
 
 /* Premium screen */
@@ -384,6 +385,7 @@
 "Explain My Answer" = "Explain My Answer";
 "Roleplay Scenarios" = "Roleplay Scenarios";
 "Access 'My Mistakes'" = "Access 'My Mistakes'";
+"My Mistakes" = "My Mistakes";
 "Erudite Difficulty" = "Erudite Difficulty";
 "Learning Section" = "Learning Section";
 "UPGRADE TO PREMIUM" = "UPGRADE TO PREMIUM";
@@ -960,3 +962,29 @@
 "Time is up" = "Time is up";
 "Search" = "Search";
 "3x XP for 10 min!" = "3x XP for 10 min!";
+"КАРТА ПРОГРЕССА" = "PROGRESS MAP";
+"Карта прогресса мира" = "World Progress Map";
+"World Progress Map" = "World Progress Map";
+"Tap a country to see your correct and wrong answers" = "Tap a country to see your correct and wrong answers";
+"Greener country means better mastery" = "Greener country means better mastery";
+"Continent Mastery" = "Continent Mastery";
+"Mastered %d of %d countries" = "Mastered %d of %d countries";
+"Answered %d of %d countries" = "Answered %d of %d countries";
+"Total" = "Total";
+"Map" = "Map";
+"Weak countries" = "Weak countries";
+"All countries" = "All countries";
+"Only weak" = "Only weak";
+"Only mastered" = "Only mastered";
+"TOP weak countries for review" = "TOP weak countries for review";
+"No weak countries yet" = "No weak countries yet";
+"%@ Master" = "%@ Master";
+"%@ Master unlocked" = "%@ Master unlocked";
+"Continent mastered! Keep going." = "Continent mastered! Keep going.";
+"Weekly challenge" = "Weekly challenge";
+"Weak country sessions this week" = "Weak country sessions this week";
+"Start Weak Countries Training" = "Start Weak Countries Training";
+"Progress map subtitle" = "Track your progress by country and continent";
+"How is Mastered calculated?" = "How is Mastered calculated?";
+"Mastered explanation" = "A country counts as mastered when you have answered it at least 3 times and have at least 80%% correct answers.";
+"Name" = "Name";

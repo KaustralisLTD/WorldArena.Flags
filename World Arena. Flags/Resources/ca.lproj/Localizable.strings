@@ -520,6 +520,7 @@
 "Go Premium" = "Anar a Premium";
 "Out of lives" = "Sense vides";
 "Get Free Lives" = "Gratuït +5 vides";
+"Watch video for +3 lives" = "Mira el vídeo: +3 vides";
 "Unfortunately you ran out of lives this time. Try again or come back later." = "Malauradament, aquesta vegada t'has quedat sense vides. Torna-ho a provar o torna més tard.";
 
 /* Premium */
@@ -796,3 +797,30 @@
 "Time is up" = "S'ha acabat el temps";
 "Search" = "Cercar";
 "3x XP for 10 min!" = "3x XP durant 10 min!";
+"КАРТА ПРОГРЕССА" = "MAPA DE PROGRÉS";
+"Карта прогресса мира" = "Mapa de progrés mundial";
+"World Progress Map" = "Mapa de progrés mundial";
+"Tap a country to see your correct and wrong answers" = "Toca un país per veure encerts i errors";
+"Greener country means better mastery" = "Més verd = millor domini";
+"Continent Mastery" = "Domini de continents";
+"Answered %d of %d countries" = "%d de %d països amb resposta";
+"Mastered %d of %d countries" = "%d de %d països dominats";
+"Total" = "Total";
+"Map" = "Mapa";
+"Weak countries" = "Països febles";
+"All countries" = "Tots els països";
+"Only weak" = "Només febles";
+"Only mastered" = "Només dominats";
+"TOP weak countries for review" = "Top països febles per repassar";
+"No weak countries yet" = "Encara no hi ha països febles";
+"%@ Master" = "%@ Mestre";
+"%@ Master unlocked" = "%@ Mestre desbloquejat";
+"Continent mastered! Keep going." = "Continent dominat! Continua així.";
+"Weekly challenge" = "Repte setmanal";
+"Weak country sessions this week" = "Sessions països dèbils aquesta setmana";
+"Start Weak Countries Training" = "Iniciar entrenament països dèbils";
+"Progress map subtitle" = "Segueix el teu progrés per país i continent";
+"How is Mastered calculated?" = "Com es calcula «Dominat»?";
+"Mastered explanation" = "Un país compta com dominat amb almenys 3 respostes i almenys 80%% d'encerts.";
+"Name" = "Nom";
+"Current Streak" = "Ratxa actual";

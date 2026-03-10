@@ -10,6 +10,7 @@ struct ContentView: View {
     @ObservedObject private var localizationManager = LocalizationManager.shared
     @Environment(\.horizontalSizeClass) private var horizontalSizeClass
     @Environment(\.colorScheme) private var systemColorScheme
+    @Environment(\.sizeCategory) private var sizeCategory
     
     private var isIPad: Bool {
         #if os(iOS)
@@ -212,7 +213,11 @@ struct ContentView: View {
                                     .foregroundColor(.primary)
                                     .padding(.horizontal, 20)
                                 
-                                GameModeSelectionView(gameState: gameState, largeFontForLandscape: isIPad)
+                                GameModeSelectionView(
+                                    gameState: gameState,
+                                    largeFontForLandscape: isIPad,
+                                    compactForAccessibility: sizeCategory.isAccessibilityCategory || sizeCategory >= .extraExtraLarge
+                                )
                             }
                             .padding(.vertical, compactPhone ? 4 : 8)
                             .background(

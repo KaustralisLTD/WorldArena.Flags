@@ -1,14 +1,48 @@
 import SwiftUI
+#if os(iOS)
+import UIKit
+#endif
 
 struct GameModeSelectionView: View {
     @ObservedObject var gameState: GameState
     /// Крупный шрифт для iPad landscape
     var largeFontForLandscape: Bool = false
+    /// Компактный вид при увеличенном тексте (accessibility): только заголовок + (?) с описанием по тапу
+    var compactForAccessibility: Bool = false
     @Environment(\.horizontalSizeClass) private var horizontalSizeClass
-    
+    @Environment(\.sizeCategory) private var sizeCategory
+    @State private var descriptionAlertMode: GameState.PlayMode? = nil
+
+    #if os(iOS)
+    private static var isLargeAccessibilityText: Bool {
+        UIFont.preferredFont(forTextStyle: .body).pointSize > 20
+    }
+    #else
+    private static var isLargeAccessibilityText: Bool { false }
+    #endif
+
+    private var compactModeEnabled: Bool {
+        compactForAccessibility
+            || sizeCategory.isAccessibilityCategory
+            || sizeCategory >= .extraExtraLarge
+            || Self.isLargeAccessibilityText
+    }
+
     var body: some View {
         gameModeSelectionView
             .padding(.horizontal, 20)
+            .alert(descriptionAlertMode?.displayName ?? LocalizationManager.shared.localizedString("Game Mode"), isPresented: Binding(
+                get: { descriptionAlertMode != nil },
+                set: { if !$0 { descriptionAlertMode = nil } }
+            )) {
+                Button(LocalizationManager.shared.localizedString("Close"), role: .cancel) {
+                    descriptionAlertMode = nil
+                }
+            } message: {
+                if let mode = descriptionAlertMode {
+                    Text(mode.description)
+                }
+            }
     }
     
     private var difficultySelectionView: some View {
@@ -111,13 +145,26 @@ struct GameModeSelectionView: View {
                     .foregroundColor(textColor)
                     .lineLimit(1)
                     .minimumScaleFactor(0.8)
+                if compactModeEnabled {
+                    Button {
+                        descriptionAlertMode = playMode
+                    } label: {
+                        Image(systemName: "questionmark.circle")
+                            .font(.system(size: iconSize))
+                            .foregroundColor(secondaryColor)
+                    }
+                    .buttonStyle(.plain)
+                }
+                Spacer(minLength: 0)
             }
             
-            Text(playMode.description)
-                .font(.system(size: descSize))
-                .foregroundColor(secondaryColor)
-                .lineLimit(2)
-                .minimumScaleFactor(0.8)
+            if !compactModeEnabled {
+                Text(playMode.description)
+                    .font(.system(size: descSize))
+                    .foregroundColor(secondaryColor)
+                    .lineLimit(2)
+                    .minimumScaleFactor(0.8)
+            }
         }
         .padding(.horizontal, 10)
         .padding(.vertical, 8)

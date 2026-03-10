@@ -1,0 +1,993 @@
+"Заработай %d XP" = "Verdien %d XP";
+"F-BUCKS EARNED" = "F-BUCKS VERDIENEN";
+"Дай %d правильных ответов" = "Ontvang de juiste antwoorden van %d";
+"Наберите %d правильных ответов за месяц" = "Ontvang deze maand de juiste antwoorden van %d";
+"Сыграй %d идеальных игр" = "Speel %d perfecte spellen";
+"Завершите %d игр без ошибок" = "Voltooi %d-spellen zonder fouten";
+/* Settings screen */
+"Настройки" = "Instellingen";
+"Аккаунт" = "Rekening";
+"Профиль пользователя" = "Gebruikersprofiel";
+"Поддержка" = "Steun";
+"Настройки приложения" = "App-instellingen";
+"Обратная связь" = "Terugkoppeling";
+"World Arena Premium" = "World Arena Premium";
+"Обратная связь по World Arena Flags" = "Feedback over World Arena-vlaggen";
+
+/* Achievements */
+"Достижения" = "Achievements";
+"Достижение" = "Achievement";
+"ЛИЧНЫЕ РЕКОРДЫ" = "PERSONAL BESTS";
+"НАГРАДЫ" = "AWARDS";
+"Лучшая серия" = "Best Streak";
+"Макс. лига" = "Max League";
+"Макс. XP" = "Max XP";
+"Открыто" = "Unlocked";
+
+/* Profile */
+"League" = "League";
+"Following" = "Friends";
+"Days in a row" = "Days in a row";
+"Текущая серия" = "Current Streak";
+"дней" = "days";
+"Joined in %@" = "Joined in %@";
+"Level %d • %d XP • %d-day streak" = "Niveau %d • %d XP • %d-dagreeks";
+"SUPER" = "SUPER";
+
+/* Leagues medals & labels */
+"1st" = "1e";
+"2nd" = "2e";
+"3rd" = "3e";
+"XP" = "XP";
+
+/* Monthly badges sample titles */
+"Алмазная лига" = "Diamond League";
+"Серия мастера" = "Master Streak";
+"Чемпион месяца" = "Champion of the Month";
+"Идеальная неделя" = "Perfect Week";
+"Бронзовая лига" = "Bronzen Liga";
+"Лига Мастеров" = "Master Liga";
+// General
+"World Flags" = "Wereld vlaggen";
+"Learn flags of the world" = "Leer vlaggen van de wereld";
+"Score" = "Scoren";
+"Exit" = "Uitgang";
+"Error loading countries" = "Fout bij het laden van landen";
+"Retry" = "Opnieuw proberen";
+"System" = "System";
+
+// Start Screen
+"Select Language" = "Selecteer Taal";
+"Select Region" = "Selecteer Regio";
+"Select Regions" = "Selecteer Regio's";
+"Multiple Regions" = "Meerdere regio's";
+"START GAME" = "START SPEL";
+"All Regions" = "Alle regio's";
+"Europe" = "Europa";
+"Asia" = "Azië";
+"Americas" = "Amerika";
+"Africa" = "Afrika";
+"Oceania" = "Oceanië";
+"North America" = "Noord-Amerika";
+"South America" = "Zuid-Amerika";
+
+// Game Over
+"Game Over!" = "Spel voorbij!";
+"points" = "punten";
+"Play Again" = "Play Again";
+"Home" = "Home";
+
+// Statistics
+"Statistics" = "Statistics";
+"Total Games" = "Totaal spellen";
+"Best Score" = "Beste score";
+"Correct Answers" = "Juiste antwoorden";
+"Accuracy" = "Accuracy";
+"Best Time" = "Beste tijd";
+"Time" = "Tijd";
+"Clear" = "Duidelijk";
+"Close" = "Dichtbij";
+
+// Game Results
+"Excellent game!" = "ð Uitstekend!";
+"Great result!" = "ð¯ Geweldig resultaat!";
+"Good game!" = "ð Goed spel!";
+"Keep practicing!" = "ðª Blijf oefenen!";
+// English (default)
+"Play Again" = "Play Again";
+
+// Share
+"Share Result" = "Deel";
+"Share" = "Deel";
+"ACCURACY" = "Nauwkeurigheid";
+"TOTAL XP" = "Total XP";
+"CONTINUE" = "Continue";
+"Perfect! You're unstoppable!" = "Perfect! You're unstoppable!";
+"Excellent performance!" = "Excellent performance!";
+"Well done! Keep practicing!" = "Well done! Keep practicing!";
+"Don't give up! Practice makes perfect!" = "Don't give up! Practice makes perfect!";
+"PERFECT" = "Perfect";
+"AMAZING" = "Amazing";
+"GOOD" = "Good";
+"KEEP GOING" = "Keep Going";
+"Play Again" = "Speel opnieuw";
+"Home" = "Thuis";
+"Quest Update!" = "Quest Update!";
+"Check your progress" = "Check your progress";
+"2x XP for 10 min!" = "2x XP gedurende 10 minuten!";
+"3x XP for 15 min!" = "3x XP gedurende 15 minuten!";
+"Подарок за квесты" = "Dagelijks zoektochtcadeau";
+"Share Message" = "Ik heb %d-punten gescoord in het spel World Flags! ð®ð\nDownload en probeer mijn score te verbeteren!";
+"Statistics Share Promo" = "Ik speel World Arena Flags... leer wereldvlaggen, duelleer met vrienden en beklim competities! ð®ð\nMijn statistieken: Beste score %d, Nauwkeurigheid %.1f%%, %d gespeelde games.\nWil je vlaggen leren en je vaardigheden testen? Sluit je aan bij onze gemeenschap!\n%@";
+
+// Post-Game Flow
+"CLAIM XP" = "CLAIM JE XP";
+"TOTAL XP" = "TOTAAL XP";
+"PERFECT" = "PERFECT";
+"AMAZING" = "VERBAZINGWEKKEND";
+"GOOD" = "GOED";
+"KEEP GOING" = "BLIJF GAAN";
+"Perfect! You're unstoppable!" = "Perfect! Je bent niet te stoppen!";
+"Excellent performance!" = "Uitstekende prestatie!";
+"Well done! Keep practicing!" = "Goed gedaan! Blijf oefenen!";
+"Don't give up! Practice makes perfect!" = "Geef niet op! Oefening baart kunst!";
+"day streak" = "dagstreep";
+"This Week" = "Deze week";
+"Incredible streak! You're on fire!" = "Ongelooflijke streak! Je staat in brand!";
+"Great job! Keep the momentum going!" = "Geweldig werk! Houd de vaart erin!";
+"Nice start! Build your streak day by day!" = "Leuk begin! Bouw je streak dag na dag op!";
+"Your Friend Streaks" = "Je vriendenstrepen";
+"See how your friends are doing" = "Kijk hoe het met je vrienden gaat";
+"No friends yet" = "Nog geen vrienden";
+"Add friends to see their streaks and compete together!" = "Voeg vrienden toe om hun prestaties te zien en samen te strijden!";
+"NUDGE" = "POR";
+"Remind" = "Herinneren";
+"Reminder sent to %@" = "Herinnering verzonden naar %@";
+"%@ reminds you" = "%@ herinnert u eraan";
+"nudge_phrase_1" = "Geef niet op! Je hebt dit!";
+"nudge_phrase_2" = "Je streak wacht op je. Speel vandaag nog!";
+"nudge_phrase_3" = "Eén wedstrijd per dag houdt de streak levend!";
+"nudge_phrase_4" = "Kom terug en laat die vlaggen zien wie de baas is!";
+"nudge_phrase_5" = "Wij missen je! Tijd voor een snel spelletje?";
+"nudge_phrase_6" = "Je vrienden zijn aan het spelen. Sluit je bij hen aan!";
+"nudge_phrase_7" = "Vandaag een kleine stap, morgen een grote stap!";
+"nudge_phrase_8" = "Je bent zo dichtbij! Breek de streak niet!";
+"nudge_phrase_9" = "Vlaggen roepen. Beantwoord de oproep!";
+"nudge_phrase_10" = "Sta op en schitter - het is vlaggentijd!";
+"nudge_phrase_11" = "Met een beetje oefenen kom je al een heel eind!";
+"nudge_phrase_12" = "Vandaag is de dag om je streak te behouden!";
+"nudge_phrase_13" = "Ga terug in het spel! Wij geloven in jou!";
+"nudge_phrase_14" = "Nog één wedstrijd en je zult je geweldig voelen!";
+"nudge_phrase_15" = "Je streak mist je. Kom terug!";
+"CONTINUE" = "DOORGAAN";
+"streak" = "streep";
+"days" = "dagen";
+"Quest Update!" = "Quest-update!";
+"Check your progress" = "Controleer uw voortgang";
+"Заблокировано" = "Vergrendeld";
+"Базовый пакет" = "Basispakket";
+"Обучение" = "Leren";
+"Изучай флаги и страны мира" = "Leer vlaggen en landen van de wereld";
+"Континенты" = "Continenten";
+"Европа" = "Europe";
+"Азия" = "Asia";
+"Африка" = "Africa";
+"Северная Америка" = "North America";
+"Южная Америка" = "South America";
+"Океания" = "Oceania";
+"стран" = "countries";
+"Самый маленький континент" = "The smallest continent";
+"Самый большой континент" = "The largest continent";
+"Колыбель человечества" = "The cradle of humanity";
+"Новый свет" = "The New World";
+"Земля контрастов" = "Land of contrasts";
+"Острова Тихого океана" = "Pacific Ocean islands";
+"Статистика флагов" = "Vlagstatistieken";
+"Всего стран" = "Totaal landen";
+"Цветов на флагах" = "Kleuren op vlaggen";
+"Самый популярный цвет" = "Meest populaire kleur";
+"Красный" = "Rood";
+"Флагов с крестом" = "Vlaggen met kruis";
+"Интересные факты" = "Interessante feiten";
+"Самый старый флаг" = "Oudste vlag";
+"Флаг Дании используется с 1219 года" = "De Deense vlag wordt sinds 1219 gebruikt";
+"Единственный квадратный флаг" = "Alleen vierkante vlag";
+"У Швейцарии единственный квадратный флаг в мире" = "Zwitserland heeft de enige vierkante vlag ter wereld";
+"Самый сложный флаг" = "Meest complexe vlag";
+"У Бутана на флаге изображен дракон" = "Op de vlag van Bhutan staat een draak afgebeeld";
+"Go Premium" = "Go Premium";
+"Мой профиль в World Arena Flags" = "Mijn World Arena Flags-profiel";
+"My Profile Share Title" = "Mijn World Arena Flags-profiel";
+"Не удалось добавить друга. Проверьте код." = "Kan vriend niet toevoegen. Controleer de code.";
+"Daily Quests" = "Dagelijkse zoektochten";
+"Monthly Quest" = "Maandelijkse zoektocht";
+
+// Learning Section
+"More facts" = "Meer feiten";
+"стран" = "countries";
+"фактов о флагах и странах" = "feiten over vlaggen en landen";
+"Столица" = "Capital";
+
+// Continent names
+"Европа" = "Europa";
+"Азия" = "Azië";
+"Африка" = "Afrika";
+"Северная Америка" = "Noord-Amerika";
+"Южная Америка" = "Zuid-Amerika";
+"Океания" = "Oceanië";
+
+// Continent descriptions
+"Самый маленький континент" = "Het kleinste continent";
+"Самый большой континент" = "Het grootste continent";
+"Колыбель человечества" = "Wieg van de mensheid";
+"Новый свет" = "Nieuwe Wereld";
+"Земля контрастов" = "Land van contrasten";
+"Острова Тихого океана" = "Eilanden in de Stille Oceaan";
+
+// Network Errors
+"No Internet Connection" = "Geen internetverbinding";
+"Request Timeout" = "Time-out aanvragen";
+"Server Not Found" = "Server niet gevonden";
+"Too Many Requests" = "Te veel verzoeken";
+"Server Error" = "Serverfout";
+"HTTP Error: %d" = "HTTP-fout: %d";
+"Try Again" = "Probeer het opnieuw";
+"Not enough countries in selected regions (found %d, need at least 4)" = "Niet genoeg landen in geselecteerde regio's (%d gevonden, minimaal 4 nodig)";
+"Empty response from server" = "Lege reactie van server";
+
+// New additions
+"Capital" = "Hoofdstad";
+"Population" = "Bevolking";
+"Area" = "Gebied";
+"Region" = "Regio";
+"Subregion" = "Subregio";
+
+// Language additions
+"system_language" = "Systeem";
+"ru_language" = "Russisch";
+"uk_language" = "Oekraïens";
+"es_language" = "Spaans";
+"ca_language" = "Catalaans";
+"zh_language" = "ä¸æ";
+
+// Exit confirmation
+"Exit Confirmation" = "Weet u zeker dat u wilt afsluiten?";
+"Yes" = "Ja";
+"No" = "Nee";
+
+// New additions
+"Tap to continue" = "Tik om door te gaan";
+"Loading flag..." = "Vlag laden...";
+"Select Difficulty" = "Selecteer Moeilijkheidsgraad";
+"Game Mode" = "Spelmodus";
+
+// Game Modes
+"Game Mode" = "Spelmodus";
+"Classic" = "Klassiek";
+"Time Challenge" = "Tijd-uitdaging";
+"Survival" = "Overleving";
+"Duel" = "Duel";
+"Challenge a friend to the same game, compare results" = "Daag een vriend uit voor hetzelfde spel, vergelijk de resultaten";
+"Challenge to Duel" = "Uitdaging voor een duel";
+"You won the duel!" = "Jij hebt het duel gewonnen!";
+"Duel challenge from %@" = "%@ daagde je uit voor een duel";
+"Duel result" = "Duel resultaat";
+"You won!" = "Jij hebt gewonnen!";
+"won" = "gewonnen";
+"You" = "Jij";
+"24h to accept" = "24 uur om te accepteren";
+"Accept" = "Accepteren";
+"Random opponent" = "Willekeurige tegenstander";
+"No friends yet. Add friends in Profile." = "Nog geen vrienden. Voeg vrienden toe in Profiel.";
+"Standard multiple choice game" = "Standaard meerkeuze spel";
+"Answer quickly, time is limited" = "Antwoord snel, de tijd is beperkt";
+"Game until first mistake" = "Spel tot de eerste fout";
+
+// Difficulty
+"Difficulty" = "Moeilijkheid";
+"Easy" = "Makkelijk";
+"Medium" = "Gemiddeld";
+"Hard" = "Moeilijk";
+"Expert" = "Deskundige";
+"Erudite" = "Erudiet";
+"10 questions, 45 sec per answer" = "10 vragen, 45 sec per antwoord";
+"15 questions, 30 sec per answer" = "15 vragen, 30 sec per antwoord";
+"20 questions, 15 sec per answer" = "20 vragen, 15 sec per antwoord";
+"25 questions, 10 sec per answer" = "25 vragen, 10 sec per antwoord";
+"30 questions, 5 sec per answer" = "30 vragen, 5 sec per antwoord";
+"All %d countries of selected regions, 5 sec per answer" = "Alle %d-landen van geselecteerde regio's, 5 sec per antwoord";
+"All 238 countries of the world, 5 sec per answer" = "Alle 238 landen van de wereld, 5 sec per antwoord";
+
+"of" = "van";
+"flags" = "vlaggen";
+
+// Theme
+"App Theme" = "Verschijning";
+"System" = "System";
+"Light" = "Light";
+"Dark" = "Dark";
+
+// iPad Main Screen
+"Challenge Yourself, Learn the World" = "Daag jezelf uit, leer de wereld";
+"WorldArena Description" = "WorldArena is een wereldwijde kennisgameserie die leren omzet in plezier. Raad vlaggen, hoofdletters, randen en nog veel meer in een dynamisch quizformaat dat is ontworpen voor alle leeftijden.";
+
+/* Lives & Premium */
+"Lives" = "Levens";
+"Next +%d in %02d:%02d" = "Volgende +%d in %02d:%02d";
+"Lives refill info" = "Informatie over het bijvullen van levens";
+"You will receive +%d new lives in %02d:%02d" = "Je ontvangt +%d nieuwe levens in %02d:%02d";
+"Unlimited hearts enabled" = "Onbeperkt aantal harten ingeschakeld";
+"Unlimited Hearts" = "Unlimited Hearts";
+"Your Premium benefits" = "Uw Premium-voordelen";
+"F-Bucks" = "F-Bucks";
+"Flags Bucks" = "Vlaggen Bucks";
+
+/* F-Bucks Info Page */
+"О F-Bucks" = "Over F-Bucks";
+"Как заработать" = "Hoe te verdienen";
+"История" = "History";
+"Магазин" = "Winkel";
+"Что такое F-Bucks?" = "Wat zijn F-Bucks?";
+"F-Bucks (Flags Bucks) — это внутриигровая валюта, которую можно заработать, играя в World Arena Flags. Используйте F-Bucks для покупки уникальных элементов аватара, скинов и других эксклюзивных предметов." = "F-Bucks (Flags Bucks) is een in-game valuta die je kunt verdienen door World Arena Flags te spelen. Gebruik F-Bucks om unieke avataritems, skins en andere exclusieve items te kopen.";
+"Особенности:" = "Functies:";
+"Зарабатывайте за идеальные результаты в играх" = "Verdien voor perfecte spelresultaten";
+"Получайте бонусы за длинные серии дней" = "Ontvang bonussen voor lange dagen";
+"Покупайте эксклюзивные элементы для аватара" = "Koop exclusieve avataritems";
+"Создавайте уникальный стиль" = "Creëer een unieke stijl";
+"Как заработать F-Bucks" = "Hoe u F-Bucks kunt verdienen";
+"Идеальный результат" = "Perfect resultaat";
+"Идеальный результат игры" = "Perfect spelresultaat";
+"Получите идеальный результат в игре (10/10 или 15/15)" = "Behaal een perfect resultaat in het spel (10/10 of 15/15)";
+"Серия 10 дней" = "10 Day Streak";
+"Играйте 10 дней подряд" = "Speel 10 dagen achter elkaar";
+"Серия 20 дней" = "20 dagen reeks";
+"Играйте 20 дней подряд" = "Speel 20 dagen achter elkaar";
+"Серия 50 дней" = "50 dagenreeks";
+"Играйте 50 дней подряд" = "Speel 50 dagen achter elkaar";
+"Серия 100 дней" = "100 dagenreeks";
+"Играйте 100 дней подряд" = "Speel 100 dagen achter elkaar";
+"История начислений" = "Transactiegeschiedenis";
+"История пуста" = "De geschiedenis is leeg";
+"Начните играть и зарабатывать F-Bucks!" = "Begin met spelen en verdien F-Bucks!";
+"Магазин F-Bucks" = "F-Bucks-winkel";
+"Потратьте F-Bucks на эксклюзивные элементы для вашего аватара" = "Geef F-Bucks uit aan exclusieve items voor je avatar";
+"Одежда" = "Kleding";
+"Уникальные наряды и аксессуары" = "Unieke outfits en accessoires";
+"Скины" = "Huiden";
+"Особые визуальные эффекты" = "Speciale visuele effecten";
+"Эффекты" = "Effecten";
+"Анимации и спецэффекты" = "Animaties en speciale effecten";
+"Футболка чемпиона" = "Kampioen T-shirt";
+"Кепка путешественника" = "Reizigerspet";
+"Куртка исследователя" = "Explorer's jas";
+"Золотой скин" = "Gouden huid";
+"Радужный скин" = "Regenboog huid";
+"Неоновый скин" = "Neon-huid";
+"Эффект блёсток" = "Sparkle-effect";
+"Огненный эффект" = "Vuureffect";
+"Звёздный эффект" = "Stereffect";
+"Купить" = "Kopen";
+"Покупка" = "Aankoop";
+"Текст гимна" = "Anthem tekst";
+"Continue playing with unlimited hearts!" = "Blijf spelen met een onbeperkt aantal harten!";
+"No lives available" = "Geen levens beschikbaar";
+"Unfortunately, the game is not available now: you have no lives. You can buy lives or go Premium." = "Helaas is de game nu niet beschikbaar: je hebt geen levens. Je kunt levens kopen of Premium gaan.";
+"Go Premium" = "Ga voor Premium";
+"Out of lives" = "Uit levens";
+"Get Free Lives" = "Ontvang gratis levens";
+"Watch video for +3 lives" = "Bekijk video: +3 levens";
+"Unfortunately you ran out of lives this time. Try again or come back later." = "Helaas heb je deze keer geen levens meer. Probeer het opnieuw of kom later terug.";
+
+/* Premium screen */
+"Learn all countries and flags in ~2 months with Premium" = "Leer alle landen en vlaggen in ~2 maanden met Premium";
+"Unlimited Hearts" = "Onbeperkte harten";
+"Personalized Practice" = "Gepersonaliseerde praktijk";
+"Explain My Answer" = "Leg mijn antwoord uit";
+"Roleplay Scenarios" = "Rollenspelscenario's";
+"Access 'My Mistakes'" = "Toegang tot 'Mijn fouten'";
+"My Mistakes" = "Mijn fouten";
+"Erudite Difficulty" = "Erudiete moeilijkheid";
+"Learning Section" = "Sectie Leren";
+"UPGRADE TO PREMIUM" = "UPGRADE NAAR PREMIUM";
+"NO THANKS" = "NEE DANK";
+
+/* Game header popovers */
+"Total game time since start" = "Totale speeltijd sinds start";
+"Time limit per question depending on difficulty" = "Tijdslimiet per vraag afhankelijk van de moeilijkheidsgraad";
+"Total Game Time" = "Totale speeltijd";
+"Time Per Question" = "Tijd per vraag";
+
+/* Game header motivation (iPad) */
+"Game motivation 1" = "Je hebt dit!";
+"Game motivation 2" = "Blijf doorgaan!";
+"Game motivation 3" = "Elke vlag telt!";
+"Game motivation 4" = "Je staat in brand!";
+"Game motivation 5" = "Blijf gefocust!";
+"Game motivation 6" = "Nog één!";
+"Game motivation 7" = "Geweldig tempo!";
+"Game motivation 8" = "Bijna daar!";
+"%d min %d sec" = "%d min. %d sec";
+"%d sec" = "%d sec.";
+
+// Push Notifications
+"Push Notification Title" = "Tijd om te oefenen!";
+"Push Notification Body" = "Test je vlaggenkennis en verbeter je vaardigheden! ðð¯";
+
+// Profile Page
+"League" = "Competitie";
+"Following" = "Volgende";
+"Days in a row" = "Dagen achter elkaar";
+"Joined in %@" = "Aangesloten bij %@";
+"Statistics" = "Statistieken";
+"Total XP" = "Totaal XP";
+"Current streak" = "Huidige reeks";
+"Best streak" = "Beste reeks";
+"Total games" = "Totaal spellen";
+"Accuracy" = "Nauwkeurigheid";
+"Add Friends" = "Vrienden toevoegen";
+"Overview" = "Overzicht";
+"Friend Streaks" = "Vriendenstrepen";
+"Monthly Badges" = "Maandelijkse badges";
+
+/* Avatar Editor */
+"Edit Avatar" = "Edit Avatar";
+"Cancel" = "Annuleren";
+"Upload Photo" = "Foto uploaden";
+"Create Avatar" = "Avatar maken";
+"Photo" = "Photo";
+"Create" = "Create";
+"Select Photo" = "Selecteer Foto";
+"Upload your photo from gallery or take a new one" = "Upload your photo from gallery or take a new one";
+"Remove Photo" = "Foto verwijderen";
+"Save Avatar" = "Save Avatar";
+"Gender" = "Geslacht";
+"Skin Tone" = "Huidskleur";
+"Face Shape" = "Gezichtsvorm";
+"Hair Style" = "Haarstijl";
+"Hair Color" = "Haarkleur";
+"Eye Shape" = "Oogvorm";
+"Eye Color" = "Oogkleur";
+"Eyebrows" = "Wenkbrauwen";
+"Nose" = "Neus";
+"Mouth" = "Mond";
+"Facial Hair" = "Gezichtshaar";
+"Glasses" = "Bril";
+"Outfit" = "Outfit";
+"Accessories" = "Accessoires";
+
+/* Game Loading */
+"Loading flags..." = "Vlaggen laden...";
+"Starting..." = "Beginnen...";
+
+/* Main Tab Navigation */
+"Главная" = "Thuis";
+"Игра" = "Play";
+"Квесты" = "Zoektochten";
+"Лиги" = "Leagues";
+"До конца лиги: %02dч %02dм (GMT)" = "Competitie eindigt over %02dh %02dm (GMT)";
+"До конца лиги: %@ (GMT)" = "Competitie eindigt over %@ (GMT)";
+"д" = "D";
+"ч" = "H";
+"м" = "M";
+"Статистика" = "Statistics";
+"Профиль" = "Profile";
+
+/* Profile Page */
+"ОБЗОР" = "OVERZICHT";
+"ДОБАВИТЬ ДРУЗЕЙ" = "ADD FRIENDS";
+"СЕРИИ ДРУЗЕЙ" = "FRIEND STREAKS";
+"МЕСЯЧНЫЕ ДОСТИЖЕНИЯ" = "MONTHLY ACHIEVEMENTS";
+
+/* Settings */
+"Выберите аватар" = "Kies avatar";
+"Редактировать аватар" = "Avatar bewerken";
+"Имя пользователя" = "Gebruikersnaam";
+"Статистика" = "Statistics";
+"Премиум подписка активна" = "Premium subscription active";
+"ВОССТАНОВИТЬ ПОДПИСКУ" = "RESTORE SUBSCRIPTION";
+"ВЫЙТИ" = "UITLOGGEN";
+"Удалить аккаунт" = "Account verwijderen";
+"Это действие нельзя отменить. Все ваши данные будут удалены навсегда." = "Deze actie kan niet ongedaan worden gemaakt. Al uw gegevens worden definitief verwijderd.";
+
+/* Language Selection */
+"Выберите язык игры" = "Kies speltaal";
+"Язык интерфейса игры и заданий" = "Spelinterface en takentaal";
+
+/* Leagues */
+"Вы занимаете #%d место" = "U bent gerangschikt op #%d";
+"Зона повышения - переход в следующую лигу!" = "Promotiezone - ga door naar de volgende competitie!";
+"Зона вылета - риск понижения лиги" = "Degradatiezone - risico op degradatie van de competitie";
+"Безопасная зона - остаетесь в текущей лиге" = "Veilige zone - blijf in de huidige competitie";
+"Конец недели через %d часов" = "De week eindigt over %d uur";
+"ЗОНА ВЫЛЕТА" = "DEgradatiezone";
+"ЗОНА ПОВЫШЕНИЯ" = "PROMOTIEZONE";
+
+/* Monthly Quests */
+"Августовский Квест" = "Augustus zoektocht";
+"Mision de Agosto" = "Augustus missie";
+"21 ДЕНЬ" = "21 DAGEN";
+"Заработай 40 очков квеста" = "Verdien 40 missiepunten";
+"ЕЖЕДНЕВНЫЕ КВЕСТЫ" = "DAGELIJKSE VRAGEN";
+
+/* Help Center */
+"Популярные темы" = "Populaire onderwerpen";
+"Категории" = "Categorieën";
+/* Help Center Categories */
+"Игра" = "Spel";
+"Прогресс" = "Voortgang";
+"Лиги" = "Liga's";
+"Профиль" = "Profiel";
+"Социальные функции" = "Sociale kenmerken";
+"Технические вопросы" = "Technische problemen";
+"Нужна дополнительная помощь?" = "Extra hulp nodig?";
+"Связаться с поддержкой" = "Neem contact op met ondersteuning";
+"Результаты поиска" = "Zoekresultaten";
+"Ничего не найдено" = "Niets gevonden";
+"Попробуйте другие ключевые слова" = "Probeer verschillende zoekwoorden";
+"%d тем" = "%d-onderwerpen";
+
+/* Daily Quests */
+"Продли свою серию" = "Verleng je streak";
+"Сыграй 3 игры подряд" = "Speel 3 spellen achter elkaar";
+"Достигни точности 80%" = "Bereik een nauwkeurigheid van 80%";
+"МЕСЯЧНЫЕ ЦЕЛИ" = "MAANDELIJKSE DOELEN";
+"Месячные цели" = "MONTHLY GOALS";
+
+/* Profile Statistics */
+"дней" = "days";
+"Текущая серия" = "Current streak";
+"Всего изучено флагов" = "Total flags learned";
+"Текущая лига" = "Current league";
+"Общий опыт" = "Total experience";
+
+/* League Names */
+"Бронза" = "Bronzen";
+"Серебро" = "Zilver";
+"Золото" = "Goud";
+"Платина" = "Platina";
+"Алмаз" = "Diamant";
+"Мастер" = "Meester";
+
+/* Profile Edit */
+"Введите имя" = "Voer naam in";
+"Отмена" = "Cancel";
+"Сохранить" = "Save";
+"Уровень" = "Level";
+"Опыт" = "Experience";
+"Серия дней" = "Day streak";
+"Всего игр" = "Total games";
+"Точность" = "Accuracy";
+
+/* Theme Settings */
+"Тема" = "Thema";
+"System" = "Systeem";
+"Light" = "Licht";
+"Dark" = "Donker";
+
+/* Monthly Quests - Additional */
+"Сыграй %d игр" = "Speel %d-spellen";
+"Завершите %d игр в этом месяце" = "Voltooi %d-games deze maand";
+"Точность %d%%" = "Nauwkeurigheid %d%%";
+"Достигните точности %d%% в играх" = "Bereik %d%%-nauwkeurigheid in games";
+"Серия %d дней" = "%d dagreeks";
+"Поддерживайте серию %d дней подряд" = "Behoud een %d-dagreeks";
+"10Ч" = "10U";
+
+/* Friends */
+"Ваш код друга" = "Your friend code";
+"Добавить по коду" = "Add by code";
+"Введите код друга" = "Enter friend code";
+"Добавить" = "Add";
+"Добавить друзей" = "Add Friends";
+"Готово" = "Done";
+"Скопировано" = "Copied";
+"Мой код друга" = "My friend code";
+"Добавить по имени (логину)" = "Add by username";
+"Введите имя пользователя" = "Enter username";
+"Пользователь не найден или уже в друзьях. Проверьте имя." = "User not found or already in friends. Check the name.";
+"Ваша страна (флаг в профиле)" = "Your country (flag in profile)";
+"Выберите страну — её флаг будет отображаться у вас в профиле у друзей." = "Select a country — its flag will be shown in your profile to friends.";
+"Не выбрано" = "Not selected";
+"Ваша страна" = "Your country";
+
+/* Help Center topics */
+"Как играть в World Arena Flags?" = "Hoe speel je World Arena Flags?";
+"Основы игры и правила" = "Basisprincipes en regels";
+"HELP_GAME_RULES" = "World Arena Flags is een leuk spel om wereldvlaggen te leren!\n\nRegels:\n1. Je ziet de vlag van een land\n2. Kies de juiste naam uit de opties\n3. Verdien XP voor de juiste antwoorden\n4. Houd je dagelijkse streak vast\n5. Een niveau omhoog gaan en competities beklimmen\n\nHoe meer je speelt, hoe meer vlaggen je leert!";
+"Что такое серия дней?" = "Wat is een streep?";
+"Как работает система серий" = "Hoe het streak-systeem werkt";
+"HELP_STREAK_TEXT" = "Een streak laat zien hoeveel dagen achter elkaar je hebt gespeeld.\n\nHoe bewaar je het:\n• Speel elke dag minstens één spel\n• De streak wordt gereset als u een dag overslaat\n• Langere streaks geven meer bonus-XP\n\nStreak helpt bij het opbouwen van een leergewoonte!";
+"Как работают лиги?" = "Hoe werken competities?";
+"Система рейтингов и соревнований" = "Beoordelings- en competitiesysteem";
+"HELP_LEAGUES_TEXT" = "Competities zijn competities met andere spelers.\n\nCompetities (van lager naar hoger):\n• Brons\n• Zilver\n• Goud\n• Platina\n• Diamant\n• Meester\n\nWekelijkse updates:\n• Top 3 spelers krijgen beloningen\n• Spelers in 16-20 kunnen worden gedegradeerd\n• Anderen blijven in dezelfde klasse";
+
+/* Achievements */
+"Достижения" = "Prestaties";
+"Достижение" = "Prestatie";
+"ЛИЧНЫЕ РЕКОРДЫ" = "Persoonlijke gegevens";
+"НАГРАДЫ" = "Onderscheidingen";
+"Лучшая серия" = "Langste reeks";
+"Макс. лига" = "Hoogste Liga";
+"Макс. XP" = "De meeste XP";
+"Открыто" = "Ontgrendeld";
+
+/* Achievement titles/descriptions */
+"Ранняя птица" = "Early Bird";
+"Достигните серии 5 дней" = "Bereik een streak van 5 dagen";
+"Стабильность" = "Samenhang";
+"Серия 10 дней" = "10-daagse reeks";
+"Железная воля" = "Iron Will";
+"Серия 30 дней" = "30-dagenreeks";
+"Новичок XP" = "XP-beginner";
+"Наберите 1000 XP" = "Verdien 1000 XP";
+"Олимпиец XP" = "XP Olympiër";
+"Наберите 5000 XP" = "Verdien 5000 XP";
+"Легенда XP" = "XP-legende";
+"Наберите 10000 XP" = "Verdien 10.000 XP";
+"Исследователь" = "Zoektochtverkenner";
+"Сыграйте 20 игр" = "Speel 20 spellen";
+"Ветеран" = "Veteraan";
+"Сыграйте 100 игр" = "Speel 100 spellen";
+"Меткий стрелок" = "Scherpschutter";
+"Точность 70%" = "Bereik een nauwkeurigheid van 70%";
+"Снайпер" = "Sluipschutter";
+"Точность 85%" = "Bereik een nauwkeurigheid van 85%";
+"Серебряная лига" = "Zilveren Liga";
+"Золотая лига" = "Gouden Liga";
+"Платиновая лига" = "Platina Liga";
+"Алмазная лига" = "Diamond League";
+"Мастер лиг" = "Liga Meester";
+"Первый друг" = "Eerste vriend";
+"Добавьте друга" = "Voeg een vriend toe";
+"Своя команда" = "Jouw team";
+"Добавьте 5 друзей" = "Voeg 5 vrienden toe";
+"Расскажите друзьям" = "Verspreid het woord";
+"Поделитесь профилем" = "Deel uw profiel";
+"Спринтер" = "Snelheidsracer";
+"Сыграйте 10 игр за день" = "Speel 10 spellen op een dag";
+"XP Олимпиец" = "XP Olympiër";
+"Наберите 30000 XP" = "Verdien 30.000 XP";
+ 
+/* Settings - Added */
+"Уведомления" = "Meldingen";
+"Приватность" = "Privacy";
+"Центр помощи" = "Helpcentrum";
+"Язык игры" = "Speltaal";
+"Звуковые эффекты" = "Geluidseffecten";
+"Вибрация" = "Trillingen";
+
+/* Notification Settings - Sections */
+"Основные уведомления" = "Belangrijkste meldingen";
+"Напоминания об игре" = "Spelherinneringen";
+"Ежедневные напоминания" = "Dagelijkse herinneringen";
+"Напоминания о серии" = "Streepjesherinneringen";
+"Время напоминания" = "Herinneringstijd";
+"Время" = "Tijd";
+"Достижения и прогресс" = "Prestaties en vooruitgang";
+"Социальные уведомления" = "Sociale meldingen";
+"Друзья" = "Vrienden";
+
+/* Privacy Settings */
+"Приватность профиля" = "Profielprivacy";
+"Публичный профиль" = "Openbaar profiel";
+"Показывать статистику" = "Statistieken weergeven";
+"Заявки в друзья" = "Vriendschapsverzoeken";
+"Сбор данных" = "Gegevensverzameling";
+"Аналитика использования" = "Gebruiksanalyse";
+"Отчеты о сбоях" = "Crashrapporten";
+"Управление данными" = "Gegevensbeheer";
+"Политика конфиденциальности" = "Privacybeleid";
+"Ознакомьтесь с нашей политикой конфиденциальности" = "Lees ons privacybeleid";
+"Условия использования" = "Servicevoorwaarden";
+"Прочитайте наши условия использования" = "Lees onze servicevoorwaarden";
+"Экспорт данных" = "Gegevens exporteren";
+"Скачать копию ваших данных" = "Download een kopie van uw gegevens";
+"Удалить все данные" = "Verwijder alle gegevens";
+"Безвозвратно удалить все ваши данные" = "Verwijder al uw gegevens definitief";
+
+// Profile page
+"Всего изучено флагов" = "Totaal aantal geleerde vlaggen";
+"Текущая лига" = "Huidige competitie";
+"Общий опыт" = "Totale ervaring";
+"дней" = "days";
+"Текущая серия" = "Current streak";
+"XP" = "XP";
+"ДОБАВИТЬ ДРУЗЕЙ" = "VRIENDEN TOEVOEGEN";
+"СЕРИИ ДРУЗЕЙ" = "VRIEND STREPEN";
+"МЕСЯЧНЫЕ ДОСТИЖЕНИЯ" = "MAANDELIJKSE RESULTATEN";
+
+// Add Friends page
+"Ваш код друга" = "Je vriendencode";
+"Добавить по коду" = "Voeg toe via code";
+"Введите код друга" = "Vriendcode invoeren";
+"Добавить" = "Toevoegen";
+"Добавить друзей" = "Vrienden toevoegen";
+"Готово" = "Klaar";
+"Скопировано" = "Gekopieerd";
+"Мой код друга" = "Mijn vriendencode";
+"Добавить по имени (логину)" = "Toevoegen via gebruikersnaam";
+"Введите имя пользователя" = "Voer gebruikersnaam in";
+"Пользователь не найден или уже в друзьях. Проверьте имя." = "Gebruiker niet gevonden of al in vrienden. Controleer de naam.";
+"Ваша страна (флаг в профиле)" = "Jouw land (vlag in profiel)";
+"Выберите страну — её флаг будет отображаться у вас в профиле у друзей." = "Selecteer een land. De vlag ervan wordt in uw profiel aan vrienden getoond.";
+"Не выбрано" = "Niet geselecteerd";
+"Ваша страна" = "Jouw land";
+
+// Settings page
+"Премиум" = "Premie";
+"World Arena Premium" = "Wereld Arena Premium";
+"Премиум подписка активна" = "Premium-abonnement actief";
+"ВОССТАНОВИТЬ ПОДПИСКУ" = "HERSTEL ABONNEMENT";
+
+// Achievements
+"Ранняя птица" = "Vroege vogel";
+"Железная воля" = "Ijzeren wil";
+"Алмазная лига" = "Diamant Liga";
+"Серия мастера" = "Meester Streak";
+"Чемпион месяца" = "Maandelijkse kampioen";
+"Идеальная неделя" = "Perfecte week";
+
+// Friends messages
+"У вас пока нет друзей" = "Je hebt nog geen vrienden";
+"Добавьте друзей, чтобы видеть их серии" = "Voeg vrienden toe om hun strepen te zien";
+
+// Quests page
+"Щоденні квести" = "Dagelijkse zoektochten";
+"Сыграй 3 игры" = "Speel 3 spellen";
+"Дай 10 правильных ответов" = "Geef 10 juiste antwoorden";
+"Заработай 500 XP" = "Verdien 500 XP";
+"%d/7 дней активности" = "%d/7 actieve dagen";
+"Месячные цели" = "Maandelijkse doelen";
+"Сыграй 10 игр" = "Speel 10 spellen";
+"Завершите 10 игр в этом месяце" = "Voltooi deze maand 10 spellen";
+"Точность 62%" = "Nauwkeurigheid 62%";
+"Достигните точности 62% в играх" = "Bereik een nauwkeurigheid van 62% in games";
+"Серия 3 дней" = "Streef 3 dagen";
+"Поддерживайте серию 3 дней подряд" = "Houd een streak van 3 dagen aan";
+
+// Profile page buttons
+"Отмена" = "Cancel";
+"Сохранить" = "Redden";
+
+// Profile statistics
+"Статистика" = "Statistieken";
+"Уровень" = "Niveau";
+"Опыт" = "Ervaring";
+"Серия дней" = "Dag Streak";
+"Всего игр" = "Totaal spellen";
+"Точность" = "Accuracy";
+
+// Avatar Editor
+"Edit Avatar" = "Avatar bewerken";
+"Upload photo" = "Foto uploaden";
+"Photo" = "Foto";
+"Create" = "Creëren";
+"Select photo" = "Selecteer Foto";
+"Upload your photo from gallery or take a new one" = "Upload uw foto vanuit de galerij of maak een nieuwe";
+"Save Avatar" = "Avatar opslaan";
+
+// Mission title
+"August Mission" = "Augustus missie";
+
+/* Subscription Management */
+"Управление подпиской" = "Abonnementenbeheer";
+"Ваша премиум подписка активна" = "Uw premiumabonnement is actief";
+"Текущий план" = "Huidig ​​abonnement";
+"Цена" = "Prijs";
+"месяц" = "maand";
+"Информация о платежах" = "Factureringsinformatie";
+"Дата начала" = "Startdatum";
+"Следующий платеж" = "Volgende betaling";
+"Статус" = "Status";
+"Активна" = "Actief";
+"Премиум преимущества" = "Premium-voordelen";
+"Безлимитные жизни" = "Onbeperkte levens";
+"Играйте без ожидания" = "Speel zonder te wachten";
+"Раздел Обучения" = "Sectie Leren";
+"Изучайте флаги и страны" = "Leer vlaggen en landen";
+"Сложность Эрудит" = "Erudiete moeilijkheid";
+"Продвинутые вопросы" = "Geavanceerde vragen";
+"Мои ошибки" = "Mijn fouten";
+"Анализ ваших ошибок" = "Analyse van uw fouten";
+"Отменить подписку" = "Abonnement opzeggen";
+"Закрыть" = "Dichtbij";
+"Отмена" = "Annuleren";
+"Вы уверены, что хотите отменить премиум подписку? Вы потеряете доступ ко всем премиум функциям." = "Weet u zeker dat u uw premium-abonnement wilt opzeggen? Je verliest de toegang tot alle premiumfuncties.";
+
+/* Friend Management */
+"Удалить из друзей" = "Verwijderen uit Vrienden";
+"Удалить друга" = "Vriend verwijderen";
+"Вы уверены, что хотите удалить %@ из друзей и перестать следить за его успехами?" = "Weet je zeker dat je %@ van vrienden wilt verwijderen en hun voortgang niet meer wilt volgen?";
+
+/* Subscription Cancellation */
+"Нам очень жаль, что вы отменили премиум подписку" = "Het spijt ons dat u uw premiumabonnement heeft opgezegd";
+"Ваши результаты за период премиум подписки:" = "Uw resultaten tijdens de premium abonnementsperiode:";
+"Изучено флагов" = "Vlaggen bestudeerd";
+"Лучший результат" = "Beste score";
+"очков" = "punten";
+"Текущая серия" = "Huidige reeks";
+"дней" = "dagen";
+"Точность" = "Nauwkeurigheid";
+"Теперь вы можете без единой ошибки отвечать на все наши вопросы с точностью в %d%%" = "";
+"Мы будем рады, если вы захотите снова вернуться к нам!" = "Wij zouden het fijn vinden als u nog een keer bij ons terug wilt komen!";
+"Продолжить" = "Doorgaan";
+
+/* Learning Section New Strings */
+"ВСЕ СТРАНЫ" = "ALLE LANDEN";
+"Все страны" = "Alle landen";
+"стран" = "landen";
+"Столица" = "Hoofdstad";
+
+// Country Detail View
+"Галерея" = "Galerij";
+"Информация о стране" = "Landinformatie";
+"Описание флага" = "Vlagbeschrijving";
+"Гимн страны" = "Volkslied";
+"Национальный гимн" = "Volkslied";
+"Значение гимна" = "Anthem betekenis";
+"Официальный язык" = "Officiële taal";
+"Правительство" = "Regering";
+"Глава государства" = "Staatshoofd";
+"Телефонный код" = "Belcode";
+"Население" = "Bevolking";
+"Валюта" = "Munteenheid";
+"Независимость" = "Onafhankelijkheid";
+"Площадь" = "Gebied";
+"Описание" = "Beschrijving";
+"История" = "Geschiedenis";
+"Музыка" = "Muziek";
+"Природа" = "Natuur";
+"Историческая информация о стране" = "Historische informatie over het land";
+"Музыкальная культура страны" = "Muzikale cultuur van het land";
+"Уникальная природа и ландшафты этой страны" = "Unieke natuur en landschappen van dit land";
+
+/* Premium restrictions */
+"Premium Feature" = "Premium-functie";
+"Erudite Level - Premium Only" = "Erudiet niveau - alleen Premium";
+"My Mistakes - Premium Only" = "Mijn fouten - Alleen Premium";
+"This feature is available only for Premium users" = "Deze functie is alleen beschikbaar voor Premium-gebruikers";
+"Continue with Premium" = "Ga verder met Premium";
+"Get Premium access to unlock:" = "Krijg Premium-toegang om te ontgrendelen:";
+"• Erudite difficulty level" = "• Erudiete moeilijkheidsgraad";
+"• My Mistakes section" = "• Mijn foutensectie";
+"• Unlimited lives" = "• Onbeperkte levens";
+"• All premium features" = "• Alle premiumfuncties";
+
+/* Enhanced Game Results */
+"PERFECT!" = "PERFECT!";
+"EXCELLENT!" = "UITSTEKEND!";
+"GREAT JOB!" = "GEWELDIG BAAN!";
+"GOOD EFFORT!" = "GOEDE INSPANNING!";
+"KEEP TRYING!" = "BLIJF PROBEREN!";
+"Absolutely incredible! You're a true champion! 🎉" = "Absoluut ongelooflijk! Je bent een echte kampioen! ð";
+"Outstanding performance! You're almost perfect! ✨" = "Uitstekende prestaties! Je bent bijna perfect! ✨";
+"Fantastic work! You're doing amazing! 🚀" = "Fantastisch werk! Je doet het geweldig! ð";
+"Nice job! Keep up the great work! 💫" = "Leuk werk! Ga zo door met het geweldige werk! ð«";
+"Don't give up! Every expert was once a beginner! 🌱" = "Geef niet op! Elke expert was ooit een beginner! ð±";
+"XP EARNED" = "XP VERDIENEN";
+
+/* Enhanced Streak View */
+"Don't break the chain! Come back tomorrow!" = "Breek de ketting niet! Kom morgen terug!";
+"Time to restart your streak! You can do it!" = "Tijd om je streak opnieuw te starten! Je kunt het!";
+
+/* Monthly XP Quest */
+"Заработай %d XP за месяц" = "Verdien deze maand %d XP";
+"Заработайте %d XP играя минимум 7 дней в месяц" = "Verdien %d XP door deze maand minimaal 7 dagen te spelen";
+
+/* League end popup */
+"Итоги лиги" = "Competitie resultaten";
+"Вы заняли %d место." = "Je hebt %d geplaatst.";
+"Вы поднялись в лигу: %@" = "Je bent gepromoveerd tot %@.";
+"Вы остались в текущей лиге." = "Je bent in je huidige competitie gebleven.";
+"Вы понижены в лигу: %@" = "Je bent gedegradeerd naar %@.";
+
+/* Premium placeholders when products not loaded */
+"Loading..." = "Laden...";
+"Unable to load products" = "Producten konden niet worden geladen";
+"Tap to load price" = "Tik om prijs te laden";
+"Sign in with Apple ID in Settings → App Store to see prices. Tap an option or Retry to try again." = "Log in met je Apple ID in Instellingen -> App Store om prijzen te zien. Tik op een optie of Opnieuw proberen.";
+
+/* Home Lives Promo */
+"Unlock your full progress" = "Ontgrendel je volledige voortgang";
+"Get Premium tools for faster learning and better game results" = "Krijg Premium-tools om sneller te leren en betere resultaten te behalen";
+"Learning section" = "Leer-sectie";
+"Train flags and countries in a structured mode" = "Train vlaggen en landen in een gestructureerde modus";
+"Erudite difficulty" = "Moeilijkheidsgraad Erudiet";
+"Advanced challenge with deeper knowledge checks" = "Geavanceerde uitdaging met diepere kennischecks";
+"My mistakes" = "Mijn fouten";
+"Focus on weak topics and improve accuracy" = "Focus op zwakke punten en verbeter je nauwkeurigheid";
+"Personalized practice" = "Persoonlijke training";
+"Adaptive sessions based on your progress" = "Adaptieve sessies op basis van je voortgang";
+"Explain my answer" = "Leg mijn antwoord uit";
+"Understand every mistake and learn faster" = "Begrijp elke fout en leer sneller";
+"Up to +750% faster flag learning with Premium" = "Tot +750% sneller vlaggen leren met Premium";
+"Play without waiting and keep your learning momentum" = "Speel zonder te wachten en behoud je leermomentum";
+"Train flags, listen to anthems, and explore detailed country profiles" = "Train vlaggen, luister naar volksliederen en bekijk gedetailleerde landprofielen";
+"Restore Purchases" = "Aankopen herstellen";
+"Have a promo code?" = "Heb je een promotiecode?";
+"Redeem Offer Code" = "Wissel aanbiedingscode in";
+"Auto-renewable subscription" = "Automatisch verlengbaar abonnement";
+"Monthly Premium Title" = "Premium maandelijks: maximale waarde";
+"Yearly Premium Title" = "Premium JAAR. Vlaggen en landen";
+"Duration: 1 month (auto-renewable)" = "Duur: 1 maand (automatisch verlengbaar)";
+"Duration: 1 year (auto-renewable)" = "Duur: 1 jaar (automatisch verlengbaar)";
+"Premium Monthly" = "Premium maandelijks";
+"Yearly Premium" = "Premium jaarlijks";
+"Save %d%%" = "Bespaar %d%%";
+"Learn flags and countries of the World" = "Leer vlaggen en landen van de wereld";
+"Select Level" = "Selecteer niveau";
+"Level - %@" = "Niveau - %@";
+"Exclusive tournaments with cash F-Bucks prizes" = "Exclusieve toernooien met F-Bucks geldprijzen";
+"Survival Mode" = "Overlevingsmodus";
+"One mistake = Game Over" = "Eén fout = Game Over";
+"Duel result push format" = "%@: %d - Jij: %d.";
+"Duel motivation win" = "Geweldig! Houd je reeks vast.";
+"Duel motivation lose" = "Tijd voor een rematch! Jij kunt dit.";
+"Opponent" = "Tegenstander";
+"vs %@" = "tegen %@";
+"Combo x%d" = "Combinatie x%d";
+"Combo x%d bonus" = "Combo x%d-bonus +1";
+"Speed bonus +1" = "Snelheidsbonus +1";
+"Global ranking by countries" = "Wereldwijde ranglijst per land";
+"Country rank line" = "%@ Je staat op #%d in %@";
+"World rank line" = "🌎 Je staat op #%d in de wereld";
+"Spain" = "Spanje";
+"Poland" = "Polen";
+"Ukraine" = "Oekraïne";
+"Russia" = "Rusland";
+"USA" = "VS";
+"Лига Чемпионов Мира" = "Wereldkampioen Liga";
+"Price is loaded from the App Store on this screen" = "De prijs wordt op dit scherm vanuit de App Store geladen";
+"Connecting to App Store..." = "Verbinding maken met de App Store...";
+"Version" = "Versie";
+"Update" = "Bijwerken";
+"Login without @" = "login zonder @";
+"Duel Summary" = "Duel-overzicht";
+"No duel history yet" = "Nog geen duelgeschiedenis";
+"You already outranked %d%% of players in your city" = "Je bent al beter dan %d%% van de spelers in jouw stad";
+"Goal: keep 90% accuracy in first challenge" = "Doel: de nauwkeurigheid van 90%% behouden in de eerste uitdaging";
+"Challenge ends in %d sec" = "Uitdaging eindigt over %d sec";
+"Defeat" = "Verlies";
+"Victory" = "Overwinning";
+"All" = "Alle";
+"Wins" = "Overwinningen";
+"Losses" = "Verliezen";
+"Duel Summary Share Header" = "Mijn duel resulteert in World Arena Flags";
+"View Detailed Results" = "Bekijk gedetailleerde resultaten";
+"Detailed Results" = "Gedetailleerde resultaten";
+"Correct" = "Juist";
+"Wrong" = "Fout";
+"Flag" = "Vlag";
+"Your answer" = "Jouw antwoord";
+"Time is up" = "De tijd is om";
+"Search" = "Zoeken";
+"3x XP for 10 min!" = "3x XP gedurende 10 minuten!";
+;
+"КАРТА ПРОГРЕССА" = "PROGRESSKAART";
+"Карта прогресса мира" = "Wereldvoortgangskaart";
+"World Progress Map" = "Wereldvoortgangskaart";
+"Tap a country to see your correct and wrong answers" = "Tik op een land voor goede en foute antwoorden";
+"Greener country means better mastery" = "Groener land = betere beheersing";
+"Continent Mastery" = "Continentbeheersing";
+"Answered %d of %d countries" = "%d van %d landen beantwoord";
+"Mastered %d of %d countries" = "%d van %d landen beheerst";
+"Total" = "Totaal";
+"Map" = "Kaart";
+"Weak countries" = "Zwakke landen";
+"All countries" = "Alle landen";
+"Only weak" = "Alleen zwakke";
+"Only mastered" = "Alleen beheerst";
+"TOP weak countries for review" = "Top zwakke landen om te herhalen";
+"No weak countries yet" = "Nog geen zwakke landen";
+"%@ Master" = "%@ Meester";
+"%@ Master unlocked" = "%@ Meester ontgrendeld";
+"Continent mastered! Keep going." = "Continent beheerst! Ga zo door.";
+"Weekly challenge" = "Wekelijkse uitdaging";
+"Weak country sessions this week" = "Sessies zwakke landen deze week";
+"Start Weak Countries Training" = "Start training zwakke landen";
+"Progress map subtitle" = "Volg je voortgang per land en continent";
+"How is Mastered calculated?" = "Hoe wordt 'Beheerst' berekend?";
+"Mastered explanation" = "Een land telt als beheerst wanneer je er minstens 3 keer op hebt geantwoord met minstens 80%% goede antwoorden.";
+"Name" = "Naam";
+"Current Streak" = "Huidige reeks";
+"дней" = "dagen";

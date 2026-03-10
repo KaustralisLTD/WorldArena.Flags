@@ -4,6 +4,7 @@ import UIKit
 #endif
 
 struct LearningView: View {
+    @EnvironmentObject var gameState: GameState
     @ObservedObject private var localizationManager = LocalizationManager.shared
     @ObservedObject private var themeManager = AppThemeManager.shared
     @Environment(\.horizontalSizeClass) private var horizontalSizeClass
@@ -162,23 +163,40 @@ struct LearningView: View {
                     .foregroundColor(.primary)
                 
                 Spacer()
-                
-                // Кнопка "ВСЕ СТРАНЫ"
-                NavigationLink(destination: AllCountriesView()) {
-                    HStack(spacing: 6) {
-                        Text(localizationManager.localizedString("ВСЕ СТРАНЫ"))
-                            .font(.system(size: isIPad ? 16 : 14, weight: .semibold))
-                            .foregroundColor(.blue)
-                        Image(systemName: "arrow.right")
-                            .font(.system(size: isIPad ? 14 : 12, weight: .semibold))
-                            .foregroundColor(.blue)
+
+                HStack(spacing: 8) {
+                    NavigationLink(destination: WorldProgressMapView().environmentObject(gameState)) {
+                        HStack(spacing: 6) {
+                            Image(systemName: "globe.europe.africa.fill")
+                                .font(.system(size: isIPad ? 14 : 12, weight: .semibold))
+                            Text(localizationManager.localizedString("КАРТА ПРОГРЕССА"))
+                                .font(.system(size: isIPad ? 15 : 13, weight: .bold))
+                        }
+                        .foregroundColor(.green)
+                        .padding(.horizontal, isIPad ? 14 : 10)
+                        .padding(.vertical, isIPad ? 10 : 6)
+                        .background(Color.green.opacity(0.14))
+                        .cornerRadius(10)
                     }
-                    .padding(.horizontal, isIPad ? 16 : 12)
-                    .padding(.vertical, isIPad ? 10 : 6)
-                    .background(Color.blue.opacity(0.1))
-                    .cornerRadius(10)
+                    .buttonStyle(PlainButtonStyle())
+
+                    // Кнопка "ВСЕ СТРАНЫ"
+                    NavigationLink(destination: AllCountriesView()) {
+                        HStack(spacing: 6) {
+                            Text(localizationManager.localizedString("ВСЕ СТРАНЫ"))
+                                .font(.system(size: isIPad ? 16 : 14, weight: .semibold))
+                                .foregroundColor(.blue)
+                            Image(systemName: "arrow.right")
+                                .font(.system(size: isIPad ? 14 : 12, weight: .semibold))
+                                .foregroundColor(.blue)
+                        }
+                        .padding(.horizontal, isIPad ? 16 : 12)
+                        .padding(.vertical, isIPad ? 10 : 6)
+                        .background(Color.blue.opacity(0.1))
+                        .cornerRadius(10)
+                    }
+                    .buttonStyle(PlainButtonStyle())
                 }
-                .buttonStyle(PlainButtonStyle())
             }
             
             LazyVGrid(columns: Array(repeating: GridItem(.flexible()), count: isIPad ? 4 : (horizontalSizeClass == .regular ? 3 : 2)), spacing: isIPad ? 20 : 16) {
@@ -419,4 +437,5 @@ private struct SafeTopInsetKey: PreferenceKey {
 // MARK: - Preview
 #Preview {
     LearningView()
+        .environmentObject(GameState())
 }

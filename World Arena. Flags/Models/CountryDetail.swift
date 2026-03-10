@@ -109,6 +109,8 @@ class CountryDetailsService {
             return name
         }
         switch language {
+        case "ru":
+            return getRussianName(for: code)
         case "en":
             return getEnglishName(for: code)
         case "es":
@@ -120,7 +122,8 @@ class CountryDetailsService {
         case "zh":
             return getChineseName(for: code)
         default:
-            return getRussianName(for: code)
+            // Для новых языков без отдельного словаря используем английский fallback.
+            return getEnglishName(for: code)
         }
     }
     

@@ -6,6 +6,8 @@ import AppKit
 #endif
 
 struct ProfileEditView: View {
+    static let maxUsernameLength = 25
+
     @Environment(\.presentationMode) var presentationMode
     @EnvironmentObject var userProfile: UserProfile
     @State private var tempUsername: String = ""
@@ -114,6 +116,14 @@ struct ProfileEditView: View {
                         TextField(LocalizationManager.shared.localizedString("Введите имя"), text: $tempUsername)
                             .textFieldStyle(RoundedBorderTextFieldStyle())
                             .font(.system(size: 16))
+                            .onChange(of: tempUsername) { newValue in
+                                if newValue.count > Self.maxUsernameLength {
+                                    tempUsername = String(newValue.prefix(Self.maxUsernameLength))
+                                }
+                            }
+                        Text("\(tempUsername.count)/\(Self.maxUsernameLength)")
+                            .font(.caption)
+                            .foregroundColor(.secondary)
                     }
                     .padding(.horizontal, 20)
                     
@@ -191,7 +201,8 @@ struct ProfileEditView: View {
     }
     
     private func saveProfile() {
-        let newName = tempUsername.isEmpty ? LocalizationManager.shared.localizedString("Player") : tempUsername
+        let trimmed = String(tempUsername.prefix(Self.maxUsernameLength)).trimmingCharacters(in: .whitespacesAndNewlines)
+        let newName = trimmed.isEmpty ? LocalizationManager.shared.localizedString("Player") : trimmed
         userProfile.username = newName
         // сохраняем только если выбран системный значок; кастомное фото оставляем
         if userProfile.avatar != "custom_photo" {

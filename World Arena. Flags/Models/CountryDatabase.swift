@@ -49,6 +49,8 @@ struct CountryDatabase {
         guard let localizedData = getCountryData(for: code) else { return nil }
         
         switch language {
+        case "ru":
+            return localizedData.ru
         case "en":
             return localizedData.en
         case "es":
@@ -59,8 +61,9 @@ struct CountryDatabase {
             return localizedData.ca
         case "zh":
             return localizedData.zh
-        default: // "ru"
-            return localizedData.ru
+        default:
+            // Для новых языков, которые еще не добавлены в БД стран, используем английский.
+            return localizedData.en
         }
     }
 }

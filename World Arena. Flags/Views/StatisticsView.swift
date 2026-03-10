@@ -68,8 +68,8 @@ struct StatisticsView: View {
                 StatisticCard(icon: "🎮", title: LocalizationManager.shared.localizedString("Total Games"), value: "\(userProfile.totalGamesPlayed)", color: .blue, isLarge: false, compactForLandscape: true)
                 StatisticCard(icon: "🏆", title: LocalizationManager.shared.localizedString("Best Score"), value: "\(userProfile.bestScore)", color: .orange, isLarge: false, compactForLandscape: true)
                 StatisticCard(icon: "✅", title: LocalizationManager.shared.localizedString("Correct Answers"), value: "\(userProfile.correctAnswers)", color: .green, isLarge: false, compactForLandscape: true)
-                StatisticCard(icon: "🎯", title: LocalizationManager.shared.localizedString("Accuracy"), value: String(format: "%.1f%%", min(100.0, max(0.0, userProfile.accuracy))), color: .purple, isLarge: false, compactForLandscape: true)
-                StatisticCard(icon: "🔥", title: LocalizationManager.shared.localizedString("Current Streak"), value: "\(userProfile.streak) days", color: .red, isLarge: false, compactForLandscape: true)
+                StatisticCard(icon: "🎯", title: LocalizationManager.shared.localizedString("Accuracy"), value: String(format: "%.1f%%", min(100.0, max(0.0, userProfile.accuracy))), color: .purple, isLarge: false, compactForLandscape: true, reduceValueForLargeText: true)
+                StatisticCard(icon: "🔥", title: LocalizationManager.shared.localizedString("Current Streak"), value: "\(userProfile.streak) \(localizationManager.localizedString("days"))", color: .red, isLarge: false, compactForLandscape: true, reduceValueForLargeText: true)
                 StatisticCard(icon: "💰", title: LocalizationManager.shared.localizedString("F-Bucks"), value: "\(userProfile.fBucks)", color: .yellow, isLarge: false, compactForLandscape: true)
             }
             .padding(.top, 0)
@@ -176,16 +176,18 @@ struct StatisticsView: View {
                             color: .purple,
                             isLarge: horizontalSizeClass == .regular && !compact,
                             compactForLandscape: compact,
-                            compactHeightMultiplier: compactHeightMultiplier
+                            compactHeightMultiplier: compactHeightMultiplier,
+                            reduceValueForLargeText: true
                         )
                         StatisticCard(
                             icon: "🔥",
                             title: LocalizationManager.shared.localizedString("Current Streak"),
-                            value: "\(userProfile.streak) days",
+                            value: "\(userProfile.streak) \(localizationManager.localizedString("days"))",
                             color: .red,
                             isLarge: horizontalSizeClass == .regular && !compact,
                             compactForLandscape: compact,
-                            compactHeightMultiplier: compactHeightMultiplier
+                            compactHeightMultiplier: compactHeightMultiplier,
+                            reduceValueForLargeText: true
                         )
                         StatisticCard(
                             icon: "💰",
@@ -568,8 +570,14 @@ struct StatisticCard: View {
     let isLarge: Bool
     var compactForLandscape: Bool = false
     var compactHeightMultiplier: CGFloat = 1.0
+    var reduceValueForLargeText: Bool = false
     @State private var animateValue = false
-    
+    @Environment(\.sizeCategory) private var sizeCategory
+
+    private var isAccessibilityLargeText: Bool {
+        sizeCategory.isAccessibilityCategory || sizeCategory >= .extraExtraLarge
+    }
+
     private var iconSize: CGFloat {
         if compactForLandscape { return 32 }
         return isLarge ? 50 : 35
@@ -579,8 +587,10 @@ struct StatisticCard: View {
         return isLarge ? 18 : 12
     }
     private var valueSize: CGFloat {
-        if compactForLandscape { return 32 }
-        return isLarge ? 28 : 22
+        var base: CGFloat
+        if compactForLandscape { base = 32 }
+        else { base = isLarge ? 28 : 22 }
+        return (isAccessibilityLargeText && reduceValueForLargeText) ? base * 0.5 : base
     }
     private var cardPadding: CGFloat {
         if compactForLandscape { return 14 }

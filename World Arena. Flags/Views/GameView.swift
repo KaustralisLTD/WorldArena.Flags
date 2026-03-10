@@ -583,7 +583,7 @@ struct GameView: View {
             
             if isIPad {
                 // iPad макет (работает в любой ориентации)
-                iPadGameLayout()
+                iPadGameLayout(gameState: gameState)
                     .environmentObject(gameState)
             } else {
                 // iPhone макет
@@ -754,10 +754,8 @@ private struct iPadGameLayout: View {
     @Environment(\.horizontalSizeClass) private var horizontalSizeClass
     @Environment(\.verticalSizeClass) private var verticalSizeClass
     
-    init() {
-        // Создаем временный GameState для инициализации
-        // Реальный gameState будет передан через @EnvironmentObject
-        _viewModel = StateObject(wrappedValue: GameViewModel(gameState: GameState()))
+    init(gameState: GameState) {
+        _viewModel = StateObject(wrappedValue: GameViewModel(gameState: gameState))
     }
     
     private var isIPad: Bool {
@@ -891,6 +889,15 @@ private struct iPadGameLayout: View {
             .sheet(isPresented: $viewModel.showingGameOver, content: gameOverSheet)
             .alert(LocalizationManager.shared.localizedString("Out of lives"), isPresented: $viewModel.showingOutOfLives) {
                 if !gameState.isPremium {
+                    if RewardedAdService.isRewardedAdEnabled {
+                        Button(LocalizationManager.shared.localizedString("Watch video for +3 lives")) {
+                            RewardedAdService.shared.showIfAvailable(from: nil) {
+                                gameState.addLivesFromRewardedAd(amount: RewardedAdService.livesRewardAmount)
+                                viewModel.showingOutOfLives = false
+                                Task { await viewModel.goToNextQuestion() }
+                            }
+                        }
+                    }
                     Button(LocalizationManager.shared.localizedString("Get Free Lives")) {
                         Task { @MainActor in
                             gameState.refillLivesFree()
@@ -1267,6 +1274,15 @@ private struct phoneGameLayout: View {
         #endif
         .alert("\(LocalizationManager.shared.localizedString("Out of lives"))", isPresented: $viewModel.showingOutOfLives) {
             if !gameState.isPremium {
+                if RewardedAdService.isRewardedAdEnabled {
+                    Button(LocalizationManager.shared.localizedString("Watch video for +3 lives")) {
+                        RewardedAdService.shared.showIfAvailable(from: nil) {
+                            gameState.addLivesFromRewardedAd(amount: RewardedAdService.livesRewardAmount)
+                            viewModel.showingOutOfLives = false
+                            Task { await viewModel.goToNextQuestion() }
+                        }
+                    }
+                }
                 Button(LocalizationManager.shared.localizedString("Get Free Lives")) {
                     Task { @MainActor in
                         gameState.refillLivesFree()
@@ -1788,6 +1804,7 @@ class GameViewModel: ObservableObject {
         isShowingResult = true
         
         let isCorrect = country.id == currentFlag.id
+        gameState.recordCountryAnswerProgress(countryCode3: currentFlag.id, isCorrect: isCorrect)
         gameState.recordQuestionResult(
             correctCountry: currentFlag,
             selectedCountry: country,

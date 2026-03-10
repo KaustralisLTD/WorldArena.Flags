@@ -54,10 +54,16 @@ struct TermsOfServiceView: View {
     }
     
     private func getTitle() -> String {
-        let languageCode = Locale.current.languageCode ?? "en"
+        let languageCode = LocalizationManager.shared.currentLocale.languageCode ?? "en"
         
         switch languageCode {
         case "ru": return "Условия использования"
+        case "de": return "Nutzungsbedingungen"
+        case "fr": return "Conditions d'utilisation"
+        case "it": return "Termini di servizio"
+        case "pt": return "Termos de Uso"
+        case "pl": return "Warunki korzystania"
+        case "nl": return "Gebruiksvoorwaarden"
         case "es": return "Términos de Servicio"
         case "uk": return "Умови використання"
         case "ca": return "Condicions de Servei"
@@ -67,7 +73,7 @@ struct TermsOfServiceView: View {
     }
     
     private func getTermsContent() -> String {
-        let languageCode = Locale.current.languageCode ?? "en"
+        let languageCode = LocalizationManager.shared.currentLocale.languageCode ?? "en"
         
         switch languageCode {
         case "ru":
@@ -81,6 +87,7 @@ struct TermsOfServiceView: View {
         case "zh":
             return chineseTerms
         default:
+            // Для новых языков, где юридический текст пока не переведен, используем английскую версию.
             return englishTerms
         }
     }
@@ -550,7 +557,7 @@ struct TermsOfServiceView: View {
     private func getCurrentDate() -> String {
         let formatter = DateFormatter()
         formatter.dateStyle = .long
-        formatter.locale = Locale.current
+        formatter.locale = LocalizationManager.shared.currentLocale
         return formatter.string(from: Date())
     }
 }

@@ -203,6 +203,12 @@
 				es,
 				ca,
 				zh,
+				de,
+				fr,
+				it,
+				"pt-BR",
+				pl,
+				nl,
 			);
 			mainGroup = 3A7379212D6F36E60075C1D9;
 			minimizedProjectReferenceProxies = 1;
@@ -437,7 +443,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "@executable_path/Frameworks";
 				"LD_RUNPATH_SEARCH_PATHS[sdk=macosx*]" = "@executable_path/../Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 12.4;
-				MARKETING_VERSION = 2.08;
+				MARKETING_VERSION = 2.10;
 				PRODUCT_BUNDLE_IDENTIFIER = Kaustralis.WorldArena.Flags;
 				"PRODUCT_BUNDLE_IDENTIFIER[sdk=iphoneos*]" = "World-Arena.-Flags";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -484,7 +490,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "@executable_path/Frameworks";
 				"LD_RUNPATH_SEARCH_PATHS[sdk=macosx*]" = "@executable_path/../Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 12.4;
-				MARKETING_VERSION = 2.08;
+				MARKETING_VERSION = 2.10;
 				PRODUCT_BUNDLE_IDENTIFIER = Kaustralis.WorldArena.Flags;
 				"PRODUCT_BUNDLE_IDENTIFIER[sdk=iphoneos*]" = "World-Arena.-Flags";
 				PRODUCT_NAME = "$(TARGET_NAME)";
