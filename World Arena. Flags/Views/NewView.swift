@@ -99,9 +99,9 @@ struct PostGameFlowContainer: View {
                         onRemind: { friend in
                             let me = UserProfile.shared.username
                             guard !me.isEmpty else { return nil }
-                            let phraseId = Int.random(in: 0..<15)
+                            // phraseId 15 = «не выполнен ежедневный урок на пути в изучении Флагов»
                             do {
-                                try await DuelAPIService.shared.sendNudge(fromUsername: me, toUsername: friend.username, phraseId: phraseId)
+                                try await DuelAPIService.shared.sendNudge(fromUsername: me, toUsername: friend.username, phraseId: 15)
                             } catch {
                                 // Бэкенд может ещё не иметь /nudge — всё равно показываем тост
                             }
@@ -295,87 +295,129 @@ struct FriendProfileView: View {
     @ObservedObject private var localizationManager = LocalizationManager.shared
     @State private var showDeleteAlert = false
     @State private var isStartingDuel = false
+    @State private var isSendingBirthdayGift = false
+    @State private var birthdayGiftSentThisSession = false
+    @State private var birthdayGiftError: String?
     
     var body: some View {
-        VStack(spacing: 20) {
-            // Аватар (флаг страны или первая буква)
-            ZStack {
-                Circle().fill(Color.blue.opacity(0.15)).frame(width: 100, height: 100)
-                Text(friend.displayAvatar)
-                    .font(.system(size: friend.countryCode != nil ? 56 : 48, weight: .bold))
-            }
-            
-            Text(friend.displayNameOrUsername)
-                .font(.system(size: 24, weight: .bold))
-            
-            HStack(spacing: 16) {
-                stat("🔥", String(format: "%d", friend.streak), LocalizationManager.shared.localizedString("days"))
-                stat("⚡", String(format: "%d", friend.xp), "XP")
-                stat("🏆", LocalizationManager.shared.localizedString("Diamond"), LocalizationManager.shared.localizedString("League"))
-            }
-            .padding()
-            .background(.ultraThinMaterial)
-            .cornerRadius(16)
-            .padding(.horizontal, 20)
+        ScrollView {
+            VStack(spacing: 24) {
+                // Аватар (миниатюра как у друга: флаг или эмодзи)
+                ZStack {
+                    Circle().fill(Color.blue.opacity(0.15)).frame(width: 100, height: 100)
+                    Text(friend.displayAvatar)
+                        .font(.system(size: friend.countryCode != nil ? 56 : 48, weight: .bold))
+                }
+                Text(friend.displayNameOrUsername)
+                    .font(.system(size: 24, weight: .bold))
 
-            VStack(alignment: .leading, spacing: 8) {
-                Text(localizationManager.localizedString("Global ranking by countries"))
-                    .font(.system(size: 14, weight: .semibold))
-                    .foregroundColor(.secondary)
-                Text(friendCountryRankLine(code: friend.countryCode ?? "US", seed: 31))
-                    .font(.system(size: 15, weight: .bold))
-                Text(friendWorldRankLine(seed: 43))
-                    .font(.system(size: 15, weight: .bold))
-            }
-            .frame(maxWidth: .infinity, alignment: .leading)
-            .padding(.horizontal, 20)
-            .padding(.vertical, 12)
-            .background(.ultraThinMaterial)
-            .cornerRadius(16)
-            .padding(.horizontal, 20)
-            
-            // Кнопка «Вызвать на дуэль»
-            Button(action: { startDuel() }) {
-                HStack {
-                    Text("⚔️")
-                    Text(localizationManager.localizedString("Challenge to Duel"))
-                        .fontWeight(.semibold)
+                // Серия дней и прогресс
+                VStack(alignment: .leading, spacing: 8) {
+                    Text(localizationManager.localizedString("СЕРИЯ И ПРОГРЕСС"))
+                        .font(.system(size: 12, weight: .bold))
+                        .foregroundColor(.secondary)
+                    HStack(spacing: 16) {
+                        stat("🔥", String(format: "%d", friend.streak), localizationManager.localizedString("days"))
+                        stat("⚡", String(format: "%d", friend.xp), "XP")
+                        stat("📊", String(format: "%d", friend.level), localizationManager.localizedString("Level"))
+                    }
+                    .padding()
+                    .frame(maxWidth: .infinity)
+                    .background(.ultraThinMaterial)
+                    .cornerRadius(16)
                 }
-                .foregroundColor(.white)
-                .frame(maxWidth: .infinity)
-                .padding()
-                .background(Color.blue)
-                .cornerRadius(12)
-            }
-            .padding(.horizontal, 20)
-            .disabled(isStartingDuel || !gameState.canStartGameWithLives())
-            
-            Spacer()
-            
-            // Кнопка удаления друга
-            Button(action: {
-                showDeleteAlert = true
-            }) {
-                HStack {
-                    Image(systemName: "person.badge.minus")
-                        .foregroundColor(.red)
-                    Text(localizationManager.localizedString("Удалить из друзей"))
-                        .fontWeight(.semibold)
+                .padding(.horizontal, 20)
+
+                // Рейтинг
+                VStack(alignment: .leading, spacing: 8) {
+                    Text(localizationManager.localizedString("Global ranking by countries"))
+                        .font(.system(size: 14, weight: .semibold))
+                        .foregroundColor(.secondary)
+                    Text(friendCountryRankLine(code: friend.countryCode ?? "US", seed: 31))
+                        .font(.system(size: 15, weight: .bold))
+                    Text(friendWorldRankLine(seed: 43))
+                        .font(.system(size: 15, weight: .bold))
                 }
-                .foregroundColor(.red)
-                .frame(maxWidth: .infinity)
-                .padding()
-                .background(Color.red.opacity(0.1))
-                .cornerRadius(12)
-                .overlay(
-                    RoundedRectangle(cornerRadius: 12)
-                        .stroke(Color.red.opacity(0.3), lineWidth: 1)
-                )
+                .frame(maxWidth: .infinity, alignment: .leading)
+                .padding(.horizontal, 20)
+                .padding(.vertical, 12)
+                .background(.ultraThinMaterial)
+                .cornerRadius(16)
+                .padding(.horizontal, 20)
+
+                // Достижения (заглушка: по API достижений друга пока нет)
+                VStack(alignment: .leading, spacing: 8) {
+                    Text(localizationManager.localizedString("МЕСЯЧНЫЕ ДОСТИЖЕНИЯ"))
+                        .font(.system(size: 12, weight: .bold))
+                        .foregroundColor(.secondary)
+                    Text(localizationManager.localizedString("Достижения друга отображаются по мере их открытия"))
+                        .font(.system(size: 14))
+                        .foregroundColor(.secondary)
+                        .frame(maxWidth: .infinity, alignment: .leading)
+                }
+                .padding(.horizontal, 20)
+                .padding(.vertical, 12)
+                .background(.ultraThinMaterial)
+                .cornerRadius(16)
+                .padding(.horizontal, 20)
+
+                // Подарок на день рождения (если сегодня ДР друга)
+                if let bday = friend.birthday, userProfile.isTodayBirthday(bday), !birthdayGiftSentThisSession {
+                    Button(action: { Task { await sendBirthdayGift() } }) {
+                        HStack(spacing: 8) {
+                            Text("🎁")
+                            Text(localizationManager.localizedString("Поздравить друга"))
+                                .fontWeight(.semibold)
+                        }
+                        .foregroundColor(.white)
+                        .frame(maxWidth: .infinity)
+                        .padding()
+                        .background(Color.pink)
+                        .cornerRadius(12)
+                    }
+                    .padding(.horizontal, 20)
+                    .disabled(isSendingBirthdayGift)
+                }
+
+                // Кнопка «Вызвать на дуэль»
+                Button(action: { startDuel() }) {
+                    HStack {
+                        Text("⚔️")
+                        Text(localizationManager.localizedString("Challenge to Duel"))
+                            .fontWeight(.semibold)
+                    }
+                    .foregroundColor(.white)
+                    .frame(maxWidth: .infinity)
+                    .padding()
+                    .background(Color.blue)
+                    .cornerRadius(12)
+                }
+                .padding(.horizontal, 20)
+                .disabled(isStartingDuel || !gameState.canStartGameWithLives())
+
+                // Кнопка удаления друга
+                Button(action: { showDeleteAlert = true }) {
+                    HStack {
+                        Image(systemName: "person.badge.minus")
+                            .foregroundColor(.red)
+                        Text(localizationManager.localizedString("Удалить из друзей"))
+                            .fontWeight(.semibold)
+                    }
+                    .foregroundColor(.red)
+                    .frame(maxWidth: .infinity)
+                    .padding()
+                    .background(Color.red.opacity(0.1))
+                    .cornerRadius(12)
+                    .overlay(
+                        RoundedRectangle(cornerRadius: 12)
+                            .stroke(Color.red.opacity(0.3), lineWidth: 1)
+                    )
+                }
+                .padding(.horizontal, 20)
+                .padding(.bottom, 20)
             }
-            .padding(.horizontal, 20)
-            .padding(.bottom, 20)
         }
-        .padding(.top, 40)
+        .padding(.top, 24)
         .navigationTitle(friend.displayNameOrUsername)
         .navigationBarTitleDisplayMode(.inline)
         #if os(iOS)
@@ -389,6 +431,34 @@ struct FriendProfileView: View {
             }
         } message: {
             Text(localizationManager.localizedString("Вы уверены, что хотите удалить \(friend.displayNameOrUsername) из друзей и перестать следить за его успехами?"))
+        }
+        .alert(isPresented: Binding(
+            get: { birthdayGiftError != nil },
+            set: { if !$0 { birthdayGiftError = nil } }
+        )) {
+            Alert(
+                title: Text(localizationManager.localizedString("Ошибка")),
+                message: Text(birthdayGiftError ?? ""),
+                dismissButton: .default(Text(localizationManager.localizedString("OK")))
+            )
+        }
+    }
+
+    @MainActor
+    private func sendBirthdayGift() async {
+        guard !isSendingBirthdayGift else { return }
+        isSendingBirthdayGift = true
+        defer { isSendingBirthdayGift = false }
+        let me = userProfile.username.trimmingCharacters(in: .whitespacesAndNewlines)
+        guard !me.isEmpty else {
+            birthdayGiftError = localizationManager.localizedString("Укажите имя профиля перед отправкой подарка")
+            return
+        }
+        do {
+            try await DuelAPIService.shared.sendBirthdayGift(fromUsername: me, toUsername: friend.username, type: "xpBoost")
+            birthdayGiftSentThisSession = true
+        } catch {
+            birthdayGiftError = error.localizedDescription
         }
     }
     
@@ -479,6 +549,157 @@ struct FriendProfileView: View {
         return CountryDatabase.getLocalizedCountryData(for: upper, language: lang)?.name
             ?? CountryDatabase.getCountryData(for: upper)?.ru.name
             ?? upper
+    }
+}
+
+// MARK: - Профиль по ссылке (deep link: worldarena.games/profile/CODE)
+struct ProfileByLinkView: View {
+    let friendCode: String
+    @Environment(\.dismiss) private var dismiss
+    @EnvironmentObject var userProfile: UserProfile
+    @ObservedObject var gameState: GameState
+    @ObservedObject private var lm = LocalizationManager.shared
+    @State private var loadedFriend: Friend?
+    @State private var isLoading = true
+    @State private var errorMessage: String?
+    @State private var isAdding = false
+    @State private var addedFriend: Friend?
+
+    private var existingFriend: Friend? {
+        guard let f = loadedFriend else { return nil }
+        return userProfile.friends.first { $0.username.lowercased() == f.username.lowercased() }
+    }
+
+    var body: some View {
+        NavigationView {
+            Group {
+                if isLoading {
+                    VStack(spacing: 16) {
+                        ProgressView()
+                        Text(lm.localizedString("Загрузка..."))
+                            .font(.subheadline)
+                            .foregroundColor(.secondary)
+                    }
+                    .frame(maxWidth: .infinity, maxHeight: .infinity)
+                } else if let err = errorMessage {
+                    VStack(spacing: 16) {
+                        Image(systemName: "person.crop.circle.badge.questionmark")
+                            .font(.system(size: 48))
+                            .foregroundColor(.secondary)
+                        Text(err)
+                            .font(.body)
+                            .foregroundColor(.secondary)
+                            .multilineTextAlignment(.center)
+                            .padding(.horizontal)
+                    }
+                    .frame(maxWidth: .infinity, maxHeight: .infinity)
+                } else if let friend = existingFriend ?? addedFriend {
+                    FriendProfileView(friend: friend, gameState: gameState)
+                        .environmentObject(userProfile)
+                } else if let friend = loadedFriend {
+                    profileCardWithAddButton(friend: friend)
+                } else {
+                    EmptyView()
+                }
+            }
+            .navigationTitle(loadedFriend?.displayNameOrUsername ?? lm.localizedString("Профиль"))
+            .navigationBarTitleDisplayMode(.inline)
+            .toolbar {
+                ToolbarItem(placement: .cancellationAction) {
+                    Button(lm.localizedString("Готово")) { dismiss() }
+                }
+            }
+        }
+        .task { await loadUser() }
+    }
+
+    private func profileCardWithAddButton(friend: Friend) -> some View {
+        ScrollView {
+            VStack(spacing: 24) {
+                ZStack {
+                    Circle().fill(Color.blue.opacity(0.15)).frame(width: 100, height: 100)
+                    Text(friend.displayAvatar)
+                        .font(.system(size: friend.countryCode != nil ? 56 : 48, weight: .bold))
+                }
+                Text(friend.displayNameOrUsername)
+                    .font(.system(size: 24, weight: .bold))
+                VStack(alignment: .leading, spacing: 8) {
+                    Text(lm.localizedString("СЕРИЯ И ПРОГРЕСС"))
+                        .font(.system(size: 12, weight: .bold))
+                        .foregroundColor(.secondary)
+                    HStack(spacing: 16) {
+                        statRow("🔥", "\(friend.streak)", lm.localizedString("days"))
+                        statRow("⚡", "\(friend.xp)", "XP")
+                        statRow("📊", "\(friend.level)", lm.localizedString("Level"))
+                    }
+                    .padding()
+                    .frame(maxWidth: .infinity)
+                    .background(.ultraThinMaterial)
+                    .cornerRadius(16)
+                }
+                .padding(.horizontal, 20)
+                Button(action: { Task { await addFriend() } }) {
+                    HStack {
+                        if isAdding { ProgressView().tint(.white) }
+                        Text(isAdding ? lm.localizedString("Добавляем...") : lm.localizedString("Добавить в друзья"))
+                            .fontWeight(.semibold)
+                    }
+                    .foregroundColor(.white)
+                    .frame(maxWidth: .infinity)
+                    .padding()
+                    .background(Color.blue)
+                    .cornerRadius(12)
+                }
+                .padding(.horizontal, 20)
+                .disabled(isAdding)
+            }
+            .padding(.top, 24)
+        }
+    }
+
+    private func statRow(_ icon: String, _ value: String, _ title: String) -> some View {
+        VStack(spacing: 4) {
+            Text(icon).font(.title2)
+            Text(value).font(.headline)
+            Text(title).font(.caption).foregroundColor(.secondary)
+        }
+        .frame(maxWidth: .infinity)
+    }
+
+    @MainActor
+    private func loadUser() async {
+        isLoading = true
+        errorMessage = nil
+        defer { isLoading = false }
+        do {
+            guard let api = try await DuelAPIService.shared.fetchUserByCode(friendCode) else {
+                errorMessage = lm.localizedString("Пользователь не найден")
+                return
+            }
+            loadedFriend = api.toFriend()
+        } catch {
+            errorMessage = error.localizedDescription
+        }
+    }
+
+    @MainActor
+    private func addFriend() async {
+        guard !isAdding, let _ = loadedFriend else { return }
+        isAdding = true
+        defer { isAdding = false }
+        let result = await FriendsService.shared.addFriend(by: friendCode, to: userProfile)
+        switch result {
+        case .success:
+            if let f = userProfile.friends.first(where: { $0.username.lowercased() == loadedFriend?.username.lowercased() }) {
+                addedFriend = f
+            }
+        case .alreadyFriends:
+            if let f = userProfile.friends.first(where: { $0.username.lowercased() == loadedFriend?.username.lowercased() }) {
+                addedFriend = f
+            }
+        default:
+            errorMessage = lm.localizedString("Не удалось добавить друга")
+        }
     }
 }
 
@@ -1001,6 +1222,7 @@ struct ManageSubscriptionView: View {
                                 title: localizationManager.localizedString("Безлимитные жизни"),
                                 description: localizationManager.localizedString("Играйте без ожидания"),
                                 icon: "heart.fill",
+                                iconImageName: localizationManager.lifeHeartAssetName,
                                 color: Color.red
                             )
                             
@@ -1307,14 +1529,23 @@ struct PremiumFeatureRow: View {
     let title: String
     let description: String
     let icon: String
+    var iconImageName: String? = nil
     let color: Color
-    
+
     var body: some View {
         HStack(spacing: 12) {
-            Image(systemName: icon)
-                .font(.title2)
-                .foregroundColor(color)
-                .frame(width: 30)
+            Group {
+                if let name = iconImageName {
+                    Image(name)
+                        .resizable()
+                        .scaledToFit()
+                } else {
+                    Image(systemName: icon)
+                        .font(.title2)
+                        .foregroundColor(color)
+                }
+            }
+            .frame(width: 30, height: 30)
             
             VStack(alignment: .leading, spacing: 4) {
                 Text(title)

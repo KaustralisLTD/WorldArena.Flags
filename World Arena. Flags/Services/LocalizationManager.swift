@@ -1,4 +1,5 @@
 import Foundation
+import SwiftUI
 
 @MainActor
 class LocalizationManager: ObservableObject {
@@ -110,6 +111,49 @@ class LocalizationManager: ObservableObject {
         let id = currentLocale.identifier
         if id.lowercased().hasPrefix("pt") { return "pt-BR" }
         return currentLocale.languageCode ?? "en"
+    }
+
+    /// Код языка для бандла (.lproj), совпадает с папками локализации.
+    var currentBundleLanguageCode: String {
+        let id = currentLocale.identifier.lowercased()
+        if id.hasPrefix("pt") { return "pt-BR" }
+        return currentLocale.languageCode?.lowercased() ?? "en"
+    }
+
+    /// Имя изображения «жизни» (сердце) в Assets по выбранному языку приложения.
+    var lifeHeartAssetName: String {
+        switch currentBundleLanguageCode {
+        case "ru": return "HeartRU"
+        case "uk": return "HeartUK"
+        case "de": return "HeartDE"
+        case "fr": return "HeartFR"
+        case "es": return "HeartES"
+        case "it": return "HeartIT"
+        case "pt-BR": return "HeartPTBR"
+        case "pl": return "HeartPL"
+        case "nl": return "HeartNL"
+        case "ca": return "HeartCA"
+        case "zh": return "HeartZH"
+        default: return "HeartEN"
+        }
+    }
+
+    /// 2–3 основных цвета флага языка для частиц анимации потери жизни (glass/premium style).
+    var lifeLossParticleColors: [Color] {
+        switch currentBundleLanguageCode {
+        case "ru": return [Color(red: 1, green: 1, blue: 1), Color(red: 0.9, green: 0.2, blue: 0.2), Color(red: 0.2, green: 0.35, blue: 0.85)]
+        case "uk": return [Color(red: 0.2, green: 0.45, blue: 0.95), Color(red: 1, green: 0.85, blue: 0.2)]
+        case "de": return [Color(red: 0.1, green: 0.1, blue: 0.12), Color(red: 0.85, green: 0.2, blue: 0.15), Color(red: 0.95, green: 0.78, blue: 0.2)]
+        case "fr": return [Color(red: 0.15, green: 0.25, blue: 0.65), Color(red: 1, green: 1, blue: 1), Color(red: 0.9, green: 0.2, blue: 0.25)]
+        case "es": return [Color(red: 0.9, green: 0.2, blue: 0.2), Color(red: 1, green: 0.85, blue: 0.2)]
+        case "it": return [Color(red: 0.1, green: 0.55, blue: 0.3), Color(red: 1, green: 1, blue: 1), Color(red: 0.85, green: 0.2, blue: 0.2)]
+        case "pt-BR": return [Color(red: 0.1, green: 0.55, blue: 0.3), Color(red: 1, green: 0.85, blue: 0.2)]
+        case "pl": return [Color(red: 0.9, green: 0.2, blue: 0.2), Color(red: 1, green: 1, blue: 1)]
+        case "nl": return [Color(red: 0.75, green: 0.2, blue: 0.2), Color(red: 0.15, green: 0.15, blue: 0.2), Color(red: 1, green: 0.82, blue: 0.2)]
+        case "ca": return [Color(red: 0.9, green: 0.2, blue: 0.2), Color(red: 1, green: 0.9, blue: 0.2)]
+        case "zh": return [Color(red: 0.95, green: 0.25, blue: 0.2), Color(red: 1, green: 0.85, blue: 0.2), Color(red: 0.95, green: 0.78, blue: 0.2)]
+        default: return [Color(red: 0.9, green: 0.25, blue: 0.25), Color(red: 1, green: 1, blue: 1), Color(red: 0.2, green: 0.4, blue: 0.9)]
+        }
     }
 
     func localizedString(_ key: String) -> String {

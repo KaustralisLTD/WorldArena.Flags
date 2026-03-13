@@ -563,6 +563,10 @@
 "System" = "Sistema";
 "Light" = "Leggero";
 "Dark" = "Buio";
+"Выберите тему оформления приложения" = "Scegli il tema dell'app";
+"Следует системным настройкам" = "Segue le impostazioni di sistema";
+"Светлое оформление" = "Aspetto chiaro";
+"Темное оформление" = "Aspetto scuro";
 
 /* Monthly Quests - Additional */
 "Сыграй %d игр" = "Gioca ai giochi %d";
@@ -601,6 +605,52 @@
 "Система рейтингов и соревнований" = "Sistema di rating e competizione";
 "HELP_LEAGUES_TEXT" = "I campionati sono competizioni con altri giocatori.\n\nLeghe (dal più basso al più alto):\n• Bronzo\n• Argento\n• Oro\n• Platino\n• Diamante\n• Maestro\n\nAggiornamenti settimanali:\n• I primi 3 giocatori ricevono premi\n• I giocatori nella fascia 16-20 potrebbero essere retrocessi\n• Gli altri rimangono nella stessa lega";
 
+/* Birthday */
+"День рождения" = "Compleanno";
+"Birthday description F-bucks" = "Permettici di farti gli auguri di compleanno con +10 F-bucks";
+"Очистить" = "Cancella";
+"День рождения друга" = "Compleanno di un amico";
+"Friend birthday push body" = "Oggi %@ festeggia il compleanno — fagli gli auguri! (regala +10 min di Triplo XP o +1 F-bucks)";
+"С днём рождения!" = "Buon compleanno!";
+"Birthday bonus already claimed" = "Il bonus per quest’anno è già stato assegnato";
+"Birthday bonus F-bucks message" = "Hai ricevuto +10 F-bucks";
+"Friend birthday today" = "Oggi è il compleanno di %@";
+"Friends birthday today count" = "%d amici compiono gli anni oggi";
+"Friend birthday congratulate hint" = "Fai gli auguri: regala +10 min di Triplo XP o +1 F-bucks";
+"Подарок на ДР от друга" = "Regalo di compleanno da un amico";
+
+/* Help Center – profile & skin */
+"Как изменить аватар?" = "Come cambiare avatar?";
+"Персонализация профиля" = "Personalizzazione del profilo";
+"HELP_PROFILE_AVATAR" = "Per cambiare avatar:\n1. Apri la scheda Profilo\n2. Tocca l’icona dell’ingranaggio (Impostazioni)\n3. Seleziona \"Profilo utente\"\n4. Scegli un nuovo avatar o carica una foto\n5. Tocca \"Salva\"";
+"Как работает создание скина?" = "Come funziona l’editor di skin?";
+"Редактор аватара и элементы" = "Editor avatar ed elementi";
+"HELP_PROFILE_SKIN_EDITOR" = "Nell’editor di skin crei il tuo look partendo da diverse categorie:\n• Abbigliamento (Clothing)\n• Accessori (Accessories)\n• Occhiali (Glasses)\n• Tono della pelle (Skin Tone)\n• Capelli (Hair)\n• Viso (Face: occhi, bocca, ecc.)\n\nCome usarlo:\n1. Apri Profilo → Impostazioni → Profilo utente → Modifica avatar\n2. Passa alla scheda \"Create skin\"\n3. Scegli una categoria nella barra superiore (icone di cappello, maglietta, occhiali, tavolozza, ecc.)\n4. In basso seleziona un elemento specifico: apparirà subito nell’anteprima\n5. Tocca \"Save Avatar\" per applicare lo skin al profilo\n\nAlcuni elementi possono essere bloccati (icona lucchetto): si sbloccano con il progresso o con gli F‑bucks.";
+
+/* Help Center – friends & social */
+"Как добавить друзей?" = "Come aggiungere amici?";
+"Социальные функции" = "Funzioni social";
+"HELP_SOCIAL_ADD_FRIENDS" = "Per aggiungere amici:\n1. Apri la scheda Profilo\n2. Tocca \"Aggiungi amici\"\n3. Condividi il tuo codice amico o inserisci il codice / login di un altro giocatore\n4. Invia la richiesta di amicizia\n\nCon gli amici puoi:\n• Confrontare le statistiche\n• Vedere i loro progressi\n• Competere nelle leghe e nei duelli";
+"Как работают напоминания друзьям?" = "Come funzionano i promemoria agli amici?";
+"Пуш-уведомления о ежедневном уроке" = "Notifiche push sulla lezione giornaliera";
+"HELP_SOCIAL_REMINDERS" = "Dopo la partita vedrai una schermata con i tuoi amici e le loro serie:\n• Chi ha già giocato oggi mostra una fiamma e il numero di giorni di serie\n• Chi non ha ancora giocato oggi mostra il pulsante \"Ricorda\"\n\nCome inviare un promemoria:\n1. Dopo la partita vai alla schermata \"Ricorda agli amici\"\n2. Tocca \"Ricorda\" accanto all’amico desiderato\n3. Se ha le notifiche attive, riceverà un push che la lezione giornaliera non è ancora completata\n\nI promemoria aiutano gli amici a non perdere la serie e a studiare con regolarità.";
+
+/* Help Center – duel & progress */
+"Что такое дуэль и как её начать?" = "Che cos’è un duello e come iniziarlo?";
+"Режим соревнований 1 на 1" = "Modalità di competizione 1 contro 1";
+"HELP_GAME_DUEL" = "Il duello è una modalità in cui tu e il tuo amico rispondete alle stesse domande per confrontare i risultati.\n\nCome avviare un duello:\n1. Apri il profilo dell’amico (da Amici, Leghe o promemoria)\n2. Tocca il pulsante \"Challenge to Duel\"\n3. Conferma: il duello utilizzerà un set condiviso di domande\n\nAlla fine:\n• Vedi chi ha totalizzato più punti\n• Il duello motiva e migliora il progresso, ma NON azzera la tua serie giornaliera";
+"Как зарабатывать и тратить F-bucks?" = "Come guadagnare e spendere F‑bucks?";
+"Внутриигровая валюта" = "Valuta di gioco";
+"HELP_PROGRESS_FBUCKS" = "I F‑bucks (Flags Bucks) sono la valuta interna di World Arena Flags.\n\nCome guadagnare F‑bucks:\n• Per partite perfette (tutte le risposte corrette)\n• Per lunghe serie giornaliere\n• Per il completamento di missioni e obiettivi\n\nSu cosa spenderli:\n• Acquisto di elementi esclusivi per skin e avatar\n• Sblocco di accessori ed effetti rari\n\nImportante: i F‑bucks non sono denaro reale. Non possono essere prelevati o convertiti in valuta reale.";
+"Как работают квесты и достижения?" = "Come funzionano missioni e obiettivi?";
+"Месячные задания и артефакты" = "Missioni mensili e artefatti";
+"HELP_PROGRESS_QUESTS" = "Nella scheda \"Missioni\" vedi:\n• Missioni giornaliere (se disponibili)\n• Missioni mensili e progresso totale 0–40\n\nCome funziona:\n1. Completa le attività: gioca il numero richiesto di partite, indovina bandiere di determinate regioni, ecc.\n2. Ogni missione completata fornisce progresso e ricompense\n3. Il progresso mensile totale è mostrato nell’intestazione colorata come una barra\n\nGli obiettivi (artefatti) si sbloccano con condizioni speciali:\n• Serie lunghe\n• Alta precisione\n• Buone posizioni nelle leghe\nGli obiettivi sbloccati compaiono nel profilo.";
+
+/* Help Center – notifications */
+"Уведомления: какие бывают и как их настроить?" = "Notifiche: quali tipi esistono e come impostarle?";
+"Ежедневный урок, дуэли и напоминания" = "Lezione giornaliera, duelli e promemoria";
+"HELP_NOTIFICATIONS_TYPES" = "L’app può inviare diversi tipi di notifiche:\n• Promemoria sulla lezione giornaliera e sulla serie\n• Promemoria agli amici e risposte ai tuoi promemoria\n• Sfide in duello e risultati dei duelli\n\nCome gestirle:\n1. Apri le impostazioni del dispositivo\n2. Trova World Arena Flags\n3. Attiva o disattiva i tipi di notifica che preferisci\n\nConsigliamo di lasciare attivi i promemoria della lezione giornaliera per non perdere la serie.";
+
 /* Achievements */
 "Достижения" = "Risultati";
 "Достижение" = "Risultato";
@@ -633,10 +683,15 @@
 "Снайпер" = "Cecchino";
 "Точность 85%" = "Raggiungi l'85% di precisione";
 "Серебряная лига" = "Lega d'Argento";
+"Достигните Серебра" = "Raggiungi l'Argento";
 "Золотая лига" = "Lega d'Oro";
+"Достигните Золота" = "Raggiungi l'Oro";
 "Платиновая лига" = "Lega di platino";
-"Алмазная лига" = "Diamond League";
+"Достигните Платины" = "Raggiungi il Platino";
+"Алмазная лига" = "Lega Diamante";
+"Достигните Алмаза" = "Raggiungi il Diamante";
 "Мастер лиг" = "Maestro della Lega";
+"Достигните Мастера" = "Raggiungi il Maestro";
 "Первый друг" = "Primo amico";
 "Добавьте друга" = "Aggiungi un amico";
 "Своя команда" = "La tua squadra";
@@ -646,6 +701,7 @@
 "Спринтер" = "Corridore di velocità";
 "Сыграйте 10 игр за день" = "Gioca 10 partite in un giorno";
 "XP Олимпиец" = "XP olimpico";
+"Мастер Олимпиец XP" = "Maestro Olimpico XP";
 "Наберите 30000 XP" = "Guadagna 30000 XP";
  
 /* Settings - Added */
@@ -942,6 +998,7 @@
 "Version" = "Versione";
 "Update" = "Aggiorna";
 "Login without @" = "login senza @";
+"Add by username" = "Aggiungi per nome utente";
 "Duel Summary" = "Riepilogo duelli";
 "No duel history yet" = "Nessuna cronologia duelli";
 "You already outranked %d%% of players in your city" = "Hai già superato %d%% dei giocatori nella tua città";

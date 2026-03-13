@@ -47,8 +47,8 @@ struct ProfileView: View {
     }
     
     private var headerHeightLandscape: CGFloat {
-        // Высота под аватар 88pt, отступы и кнопки в одной строке
-        124 + safeTopInset
+        // Под большой аватар 264pt в одной строке
+        288 + safeTopInset
     }
     
     private var systemGroupedBackground: Color {
@@ -116,42 +116,30 @@ struct ProfileView: View {
                     }
                 }
             } else {
-                if !isIPadLandscape { headerBackground }
                 ScrollView {
-                VStack(spacing: isIPad ? 24 : 20) {
-                    statisticsSection
-                    NavigationLink(destination: StatisticsView(isPushedFromProfile: true)) {
-                        HStack {
-                            Image(systemName: "chart.bar.fill")
-                                .font(.system(size: isIPad ? 24 : 22))
-                                .foregroundColor(.green)
-                            Text(localizationManager.localizedString("Статистика"))
-                                .font(.system(size: isIPad ? 20 : 17, weight: .semibold))
-                                .foregroundColor(.primary)
-                            Spacer()
-                            Image(systemName: "chevron.right")
-                                .foregroundColor(.secondary)
-                                .font(.system(size: isIPad ? 18 : 16))
-                        }
-                        .padding(isIPad ? 16 : 14)
-                        .background(systemGray6)
-                        .cornerRadius(isIPad ? 16 : 12)
-                        .contentShape(Rectangle())
+                    VStack(spacing: isIPad ? 24 : 20) {
+                        statisticsSection
+                        addFriendsButton
+                        overviewSection
+                        friendStreaksSection
+                        monthlyBadgesSection
                     }
-                    .buttonStyle(PlainButtonStyle())
-                    .padding(.horizontal, isIPad ? 40 : 20)
-                    addFriendsButton
-                    overviewSection.padding(.top, 8)
-                    friendStreaksSection
-                    monthlyBadgesSection
+                    .padding(.bottom, 100)
+                    .padding(.top, headerHeight - 24)
                 }
-                .padding(.bottom, 100)
-            }
-            .refreshable {
-                await refreshProfileData()
-            }
-            .padding(.top, contentTopInset)
-            headerContent
+                .refreshable {
+                    await refreshProfileData()
+                }
+                .modifier(ProfileHideScrollContentBackgroundModifier())
+                .background(
+                    RoundedRectangle(cornerRadius: 25, style: .continuous)
+                        .fill(systemGroupedBackground)
+                        .ignoresSafeArea(.container, edges: .bottom)
+                )
+                .clipShape(RoundedRectangle(cornerRadius: 25, style: .continuous))
+                .padding(.top, -16)
+                if !isIPadLandscape { headerBackground }
+                headerContent
             }
         }
         .background(
@@ -226,6 +214,7 @@ struct ProfileView: View {
             VStack(spacing: isIPad ? 16 : 12) {
                 StatisticRow(
                     icon: "🔥",
+                    iconImageName: "StatDayStreak",
                     title: "\(userProfile.streak) " + LocalizationManager.shared.localizedString("дней"),
                     subtitle: LocalizationManager.shared.localizedString("Текущая серия"),
                     isIPad: isIPad
@@ -240,6 +229,7 @@ struct ProfileView: View {
                 
                 StatisticRow(
                     icon: "💎",
+                    iconImageName: userProfile.currentLeague.imageAssetName,
                     title: userProfile.currentLeague.localizedFullName,
                     subtitle: LocalizationManager.shared.localizedString("Текущая лига"),
                     isIPad: isIPad
@@ -252,22 +242,6 @@ struct ProfileView: View {
                     isIPad: isIPad
                 )
                 
-                Button(action: {
-                    showingFBucksInfo = true
-                }) {
-                    HStack(spacing: isIPad ? 20 : 16) {
-                        FBucksChipView(count: userProfile.fBucks, size: .regular)
-                        Spacer()
-                        VStack(alignment: .trailing, spacing: isIPad ? 4 : 2) {
-                            Text(LocalizationManager.shared.localizedString("F-Bucks"))
-                                .font(.system(size: isIPad ? 16 : 14))
-                                .foregroundColor(.secondary)
-                        }
-                    }
-                    .padding(.vertical, isIPad ? 12 : 8)
-                }
-                .buttonStyle(PlainButtonStyle())
-
                 // Глобальный рейтинг по странам и миру (мотивационный блок)
                 VStack(alignment: .leading, spacing: 8) {
                     Text(LocalizationManager.shared.localizedString("Global ranking by countries"))
@@ -290,90 +264,112 @@ struct ProfileView: View {
                 .frame(maxWidth: .infinity, alignment: .leading)
                 .padding(.top, 2)
 
-                NavigationLink(destination: WorldProgressMapView().environmentObject(gameState)) {
-                    HStack(spacing: 14) {
-                        ZStack {
-                            RoundedRectangle(cornerRadius: 12, style: .continuous)
-                                .fill(
-                                    LinearGradient(
-                                        colors: [Color.green.opacity(0.35), Color.mint.opacity(0.4)],
-                                        startPoint: .topLeading,
-                                        endPoint: .bottomTrailing
-                                    )
-                                )
-                                .frame(width: isIPad ? 52 : 46, height: isIPad ? 52 : 46)
-                            Image(systemName: "map.fill")
-                                .font(.system(size: isIPad ? 24 : 20, weight: .semibold))
-                                .foregroundStyle(
-                                    LinearGradient(
-                                        colors: [.green, .mint],
-                                        startPoint: .topLeading,
-                                        endPoint: .bottomTrailing
-                                    )
-                                )
-                        }
-                        VStack(alignment: .leading, spacing: 4) {
-                            Text(LocalizationManager.shared.localizedString("Карта прогресса мира"))
-                                .font(.system(size: isIPad ? 18 : 16, weight: .bold))
-                                .foregroundColor(.primary)
-                            Text(LocalizationManager.shared.localizedString("Progress map subtitle"))
-                                .font(.system(size: isIPad ? 14 : 12, weight: .medium))
-                                .foregroundColor(.secondary)
-                        }
-                        Spacer()
-                        Image(systemName: "chevron.right.circle.fill")
-                            .font(.system(size: isIPad ? 22 : 20))
-                            .foregroundStyle(
-                                LinearGradient(
-                                    colors: [.green.opacity(0.9), .mint.opacity(0.9)],
-                                    startPoint: .topLeading,
-                                    endPoint: .bottomTrailing
-                                )
-                            )
-                    }
-                    .padding(isIPad ? 16 : 14)
-                    .frame(maxWidth: .infinity, alignment: .leading)
-                    .background(
-                        RoundedRectangle(cornerRadius: 16, style: .continuous)
-                            .fill(secondarySystemGroupedBackground)
-                            .overlay(
-                                RoundedRectangle(cornerRadius: 16, style: .continuous)
-                                    .stroke(
-                                        LinearGradient(
-                                            colors: [Color.green.opacity(0.5), Color.mint.opacity(0.4)],
-                                            startPoint: .topLeading,
-                                            endPoint: .bottomTrailing
-                                        ),
-                                        lineWidth: 1.5
-                                    )
-                            )
-                            .shadow(color: Color.green.opacity(0.15), radius: 8, x: 0, y: 4)
-                    )
-                }
-                .buttonStyle(.plain)
-
-                NavigationLink {
-                    DuelSummaryView()
-                        .environmentObject(gameState)
-                } label: {
-                    HStack(spacing: 12) {
-                        Image(systemName: "list.bullet.rectangle.portrait")
-                            .font(.system(size: isIPad ? 18 : 16, weight: .semibold))
-                        Text(LocalizationManager.shared.localizedString("Duel Summary"))
-                            .font(.system(size: isIPad ? 18 : 16, weight: .semibold))
-                        Spacer()
-                        Image(systemName: "chevron.right")
-                            .font(.system(size: isIPad ? 14 : 12, weight: .bold))
-                            .foregroundColor(.secondary)
-                    }
-                    .foregroundColor(.primary)
-                    .padding(.vertical, isIPad ? 12 : 10)
-                }
+                // Три карточки одного размера: World Progress Map, Duel Summary, Statistics
+                profileOverviewCard(
+                    iconName: "IconWorldProgressMap",
+                    title: LocalizationManager.shared.localizedString("Карта прогресса мира"),
+                    subtitle: LocalizationManager.shared.localizedString("Progress map subtitle"),
+                    destination: { WorldProgressMapView().environmentObject(gameState) }
+                )
+                profileOverviewCard(
+                    iconName: "IconDuelSummary",
+                    title: LocalizationManager.shared.localizedString("Duel Summary"),
+                    subtitle: LocalizationManager.shared.localizedString("Duel Summary subtitle"),
+                    destination: { DuelSummaryView().environmentObject(gameState) }
+                )
+                profileOverviewCard(
+                    iconName: "IconStatistics",
+                    title: LocalizationManager.shared.localizedString("Статистика"),
+                    subtitle: LocalizationManager.shared.localizedString("Progress map subtitle"),
+                    destination: { StatisticsView(isPushedFromProfile: true) }
+                )
+                // F-Bucks в том же формате карточки, по тапу — страница о F-Bucks
+                profileOverviewCardFBucks()
             }
             .padding(.horizontal, isIPad ? 40 : 20)
         }
     }
-    
+
+    /// Размер миниатюры в карточках (увеличен в 2 раза)
+    private var profileCardIconSize: (w: CGFloat, h: CGFloat) { isIPad ? (104, 104) : (92, 92) }
+
+    /// Карточка одного размера для World Progress Map / Duel Summary / Statistics
+    private func profileOverviewCard<Destination: View>(
+        iconName: String,
+        title: String,
+        subtitle: String,
+        @ViewBuilder destination: @escaping () -> Destination
+    ) -> some View {
+        NavigationLink(destination: destination()) {
+            HStack(spacing: 14) {
+                Image(iconName)
+                    .resizable()
+                    .scaledToFit()
+                    .frame(width: profileCardIconSize.w, height: profileCardIconSize.h)
+                VStack(alignment: .leading, spacing: 4) {
+                    Text(title)
+                        .font(.system(size: isIPad ? 18 : 16, weight: .bold))
+                        .foregroundColor(.primary)
+                    Text(subtitle)
+                        .font(.system(size: isIPad ? 14 : 12, weight: .medium))
+                        .foregroundColor(.secondary)
+                }
+                Spacer()
+                Image(systemName: "chevron.right.circle.fill")
+                    .font(.system(size: isIPad ? 22 : 20))
+                    .foregroundColor(.secondary)
+            }
+            .padding(isIPad ? 16 : 14)
+            .frame(maxWidth: .infinity, alignment: .leading)
+            .frame(minHeight: isIPad ? 84 : 74)
+            .background(
+                RoundedRectangle(cornerRadius: 16, style: .continuous)
+                    .fill(secondarySystemGroupedBackground)
+                    .overlay(
+                        RoundedRectangle(cornerRadius: 16, style: .continuous)
+                            .stroke(Color.gray.opacity(0.25), lineWidth: 1)
+                    )
+            )
+        }
+        .buttonStyle(.plain)
+    }
+
+    /// Карточка F-Bucks в том же формате, по тапу — sheet о F-Bucks
+    private func profileOverviewCardFBucks() -> some View {
+        Button(action: { showingFBucksInfo = true }) {
+            HStack(spacing: 14) {
+                Image("FBucksLogo")
+                    .resizable()
+                    .scaledToFit()
+                    .frame(width: profileCardIconSize.w, height: profileCardIconSize.h)
+                VStack(alignment: .leading, spacing: 4) {
+                    Text(LocalizationManager.shared.localizedString("F-Bucks"))
+                        .font(.system(size: isIPad ? 18 : 16, weight: .bold))
+                        .foregroundColor(.primary)
+                    Text(LocalizationManager.shared.localizedString("F-Bucks subtitle"))
+                        .font(.system(size: isIPad ? 14 : 12, weight: .medium))
+                        .foregroundColor(.secondary)
+                }
+                Spacer()
+                Image(systemName: "chevron.right.circle.fill")
+                    .font(.system(size: isIPad ? 22 : 20))
+                    .foregroundColor(.secondary)
+            }
+            .padding(isIPad ? 16 : 14)
+            .frame(maxWidth: .infinity, alignment: .leading)
+            .frame(minHeight: isIPad ? 84 : 74)
+            .background(
+                RoundedRectangle(cornerRadius: 16, style: .continuous)
+                    .fill(secondarySystemGroupedBackground)
+                    .overlay(
+                        RoundedRectangle(cornerRadius: 16, style: .continuous)
+                            .stroke(Color.gray.opacity(0.25), lineWidth: 1)
+                    )
+            )
+        }
+        .buttonStyle(.plain)
+    }
+
     @State private var showingAddFriends = false
     @State private var showingFBucksInfo = false
     @State private var showingCountryPicker = false
@@ -382,10 +378,11 @@ struct ProfileView: View {
         Button(action: {
             showingAddFriends = true
         }) {
-            HStack {
-                Image(systemName: "person.badge.plus")
-                    .font(.system(size: isIPad ? 18 : 16, weight: .semibold))
-                
+            HStack(spacing: 12) {
+                Image("IconAddFriends")
+                    .resizable()
+                    .scaledToFit()
+                    .frame(width: isIPad ? 56 : 48, height: isIPad ? 56 : 48)
                 Text(LocalizationManager.shared.localizedString("ДОБАВИТЬ ДРУЗЕЙ"))
                     .font(.system(size: isIPad ? 18 : 16, weight: .semibold))
             }
@@ -445,11 +442,7 @@ struct ProfileView: View {
                     HStack(spacing: 16) {
                         ForEach(userProfile.friends.prefix(5), id: \.id) { friend in
                             NavigationLink(destination: FriendProfileView(friend: friend, gameState: gameState)) {
-                                FriendStreakCard(
-                                    avatar: friend.displayAvatar,
-                                    streak: friend.streak,
-                                    isPlaceholder: false
-                                )
+                                FriendStreakCard(friend: friend, isPlaceholder: false)
                             }
                             .buttonStyle(PlainButtonStyle())
                         }
@@ -479,14 +472,13 @@ struct ProfileView: View {
             .padding(.horizontal, 20)
             
             ScrollView(.horizontal, showsIndicators: false) {
-                HStack(spacing: 16) {
-                    // Отображаем первые 4 достижения из списка всех достижений
-                    ForEach(Array(userProfile.allAchievementDefinitions.prefix(4).enumerated()), id: \.element.id) { index, achievementDef in
-                        let isUnlocked = userProfile.isAchievementUnlocked(id: achievementDef.id)
+                HStack(alignment: .top, spacing: 16) {
+                    // Только открытые достижения (до 4 шт.), цветные
+                    ForEach(Array(userProfile.allAchievementDefinitions.filter { userProfile.isAchievementUnlocked(id: $0.id) }.prefix(4)), id: \.id) { achievementDef in
                         MonthlyBadge(
-                            icon: achievementDef.icon,
+                            definition: achievementDef,
                             title: LocalizationManager.shared.localizedString(achievementDef.titleKey),
-                            isUnlocked: isUnlocked
+                            isUnlocked: true
                         )
                     }
                 }
@@ -497,10 +489,51 @@ struct ProfileView: View {
 }
 
 extension ProfileView {
+    /// Аватар с бейджем лиги в правом верхнем углу. Квадрат с закруглением.
+    private func profileAvatarWithLeagueBadge(size: CGFloat, innerSize: CGFloat) -> some View {
+        let cornerRadius = size * 0.22
+        return ZStack(alignment: .topTrailing) {
+            ZStack {
+                RoundedRectangle(cornerRadius: cornerRadius)
+                    .fill(Color.white.opacity(0.2))
+                    .frame(width: size, height: size)
+                RoundedRectangle(cornerRadius: cornerRadius - 2)
+                    .fill(Color.white)
+                    .frame(width: size - 4, height: size - 4)
+                #if os(iOS)
+                if userProfile.avatar == "custom_photo", let data = userProfile.customAvatarImageData, let ui = UIImage(data: data) {
+                    Image(uiImage: ui)
+                        .resizable()
+                        .scaledToFill()
+                        .frame(width: innerSize, height: innerSize)
+                        .clipShape(RoundedRectangle(cornerRadius: cornerRadius - 4))
+                } else if userProfile.avatar.starts(with: "custom_") {
+                    Text("👤")
+                        .font(.system(size: size * 0.45))
+                } else {
+                    Image(systemName: userProfile.avatar)
+                        .font(.system(size: size * 0.4))
+                        .foregroundColor(.blue)
+                }
+                #else
+                Text("👤")
+                    .font(.system(size: size * 0.45))
+                #endif
+            }
+            Image(userProfile.currentLeague.imageAssetName)
+                .resizable()
+                .scaledToFit()
+                .frame(width: max(32, size * 0.22), height: max(32, size * 0.22))
+                .background(Circle().fill(Color.blue))
+                .overlay(Circle().stroke(Color.white, lineWidth: 1.5))
+                .offset(x: 4, y: -4)
+        }
+    }
+
     // MARK: - Закреплённая шапка (фон)
     private var headerBackground: some View {
         LinearGradient(
-            colors: [Color.cyan.opacity(0.85), Color.blue.opacity(0.7)],
+            colors: [Color.cyan.opacity(1), Color.blue.opacity(1)],
             startPoint: .topLeading,
             endPoint: .bottomTrailing
         )
@@ -510,43 +543,24 @@ extension ProfileView {
     }
 
     private var headerHeight: CGFloat {
-        // На iPad увеличиваем высоту шапки для лучшего отображения
+        // Под большой квадратный аватар (≈3×): телефон 138pt, iPad 168pt + отступы
         if isIPad {
-            return 160 + safeTopInset
+            return 168 + safeTopInset + 50
         }
-        return 140 + safeTopInset
+        return 138 + safeTopInset + 44
     }
     
+    /// Отступ контента скролла: строго под шапкой + небольшой зазор, чтобы «Огляд» не наплывал на шапку.
     private var contentTopInset: CGFloat {
-        headerHeight
+        headerHeight + 12
     }
 
     /// Контент скролла для iPad (общий для альбомной и портретной).
     private var ipadScrollContent: some View {
         VStack(spacing: isIPad ? 24 : 20) {
             statisticsSection
-            NavigationLink(destination: StatisticsView(isPushedFromProfile: true)) {
-                HStack {
-                    Image(systemName: "chart.bar.fill")
-                        .font(.system(size: isIPad ? 24 : 22))
-                        .foregroundColor(.green)
-                    Text(localizationManager.localizedString("Статистика"))
-                        .font(.system(size: isIPad ? 20 : 17, weight: .semibold))
-                        .foregroundColor(.primary)
-                    Spacer()
-                    Image(systemName: "chevron.right")
-                        .foregroundColor(.secondary)
-                        .font(.system(size: isIPad ? 18 : 16))
-                }
-                .padding(isIPad ? 16 : 14)
-                .background(systemGray6)
-                .cornerRadius(isIPad ? 16 : 12)
-                .contentShape(Rectangle())
-            }
-            .buttonStyle(PlainButtonStyle())
-            .padding(.horizontal, isIPad ? 40 : 20)
             addFriendsButton
-            overviewSection.padding(.top, 8)
+            overviewSection
             friendStreaksSection
             monthlyBadgesSection
         }
@@ -608,80 +622,53 @@ extension ProfileView {
         .frame(height: headerHeight)
     }
 
-    /// Шапка для iPad альбомная: одна строка — аватар (2x), имя (2x), лига (2x), справа кнопки Поделиться и Настройки.
+    /// Шапка для iPad альбомная: аватар, справа — имя, логин, лига, друзья, серия, joined в одну строку.
     private var headerContentCompact: some View {
-        HStack(alignment: .center, spacing: 20) {
-            ZStack {
-                Circle()
-                    .fill(Color.white.opacity(0.2))
-                    .frame(width: 88, height: 88)
-                Circle()
-                    .fill(Color.white)
-                    .frame(width: 84, height: 84)
-                #if os(iOS)
-                if userProfile.avatar == "custom_photo", let data = userProfile.customAvatarImageData, let ui = UIImage(data: data) {
-                    Image(uiImage: ui)
-                        .resizable()
-                        .scaledToFill()
-                        .frame(width: 76, height: 76)
-                        .clipShape(Circle())
-                } else if userProfile.avatar.starts(with: "custom_") {
-                    Text("👤")
-                        .font(.system(size: 40))
-                } else {
-                    Image(systemName: userProfile.avatar)
-                        .font(.system(size: 36))
-                        .foregroundColor(.blue)
-                }
-                #else
-                Text("👤")
-                    .font(.system(size: 40))
-                #endif
-            }
-            VStack(alignment: .leading, spacing: 4) {
-                HStack(spacing: 8) {
-                    Text(userProfile.username)
-                        .font(.system(size: sizeCategory >= .accessibilityMedium ? 24 : 32, weight: .bold))
-                        .foregroundColor(.white)
-                        .lineLimit(1)
-                        .truncationMode(.tail)
-                        .frame(maxWidth: .infinity, alignment: .leading)
-                        .contentShape(Rectangle())
-                        .onTapGesture { showFullNameAlert = true }
-                    Image(systemName: userProfile.currentLeague.icon)
-                        .font(.system(size: 17, weight: .bold))
-                        .foregroundColor(.white)
-                }
-                Text("@\(userProfile.username.uppercased()) • \(profileJoinDateText)")
+        HStack(alignment: .top, spacing: 20) {
+            profileAvatarWithLeagueBadge(size: 264, innerSize: 228)
+                .padding(.leading, 24)
+            VStack(alignment: .leading, spacing: 6) {
+                Text(userProfile.username)
+                    .font(.system(size: sizeCategory >= .accessibilityMedium ? 24 : 32, weight: .bold))
+                    .foregroundColor(.white)
+                    .lineLimit(1)
+                    .truncationMode(.tail)
+                    .contentShape(Rectangle())
+                    .onTapGesture { showFullNameAlert = true }
+                Text("@\(userProfile.username.uppercased())")
                     .font(.system(size: 14, weight: .medium))
                     .foregroundColor(.white.opacity(0.9))
-                HStack(spacing: 14) {
-                    HStack(spacing: 6) {
-                        Image(systemName: userProfile.currentLeague.icon)
-                            .font(.system(size: 17))
-                            .foregroundColor(.white)
-                        Text(userProfile.currentLeague.localizedFullName)
-                            .font(.system(size: 17, weight: .semibold))
-                            .foregroundColor(.white.opacity(0.95))
-                    }
-                    HStack(spacing: 6) {
-                        Image(systemName: "person.2.fill")
-                            .font(.system(size: 17))
-                            .foregroundColor(.white)
-                        Text("\(userProfile.friends.count)")
-                            .font(.system(size: 17, weight: .semibold))
-                            .foregroundColor(.white.opacity(0.95))
-                    }
-                    HStack(spacing: 6) {
-                        Image(systemName: "flame.fill")
-                            .font(.system(size: 17))
-                            .foregroundColor(.orange)
-                        Text("\(userProfile.streak)")
-                            .font(.system(size: 17, weight: .semibold))
-                            .foregroundColor(.white.opacity(0.95))
-                    }
+                HStack(spacing: 8) {
+                    Image(userProfile.currentLeague.imageAssetName)
+                        .resizable()
+                        .scaledToFit()
+                        .frame(width: 22, height: 22)
+                    Text(userProfile.currentLeague.localizedFullName)
+                        .font(.system(size: 17, weight: .semibold))
+                        .foregroundColor(.white.opacity(0.95))
                 }
+                HStack(spacing: 8) {
+                    Image(systemName: "person.2.fill")
+                        .font(.system(size: 17))
+                        .foregroundColor(.white)
+                    Text("\(userProfile.friends.count) " + LocalizationManager.shared.localizedString("Following"))
+                        .font(.system(size: 17, weight: .semibold))
+                        .foregroundColor(.white.opacity(0.95))
+                }
+                HStack(spacing: 8) {
+                    Image(systemName: "flame.fill")
+                        .font(.system(size: 17))
+                        .foregroundColor(.orange)
+                    Text("\(userProfile.streak) " + LocalizationManager.shared.localizedString("дней"))
+                        .font(.system(size: 17, weight: .semibold))
+                        .foregroundColor(.white.opacity(0.95))
+                }
+                Text(profileJoinDateText)
+                    .font(.system(size: 13, weight: .medium))
+                    .foregroundColor(.white.opacity(0.85))
+                    .lineLimit(1)
             }
+            .frame(maxWidth: .infinity, alignment: .leading)
             Spacer(minLength: 16)
             Color.clear.frame(width: 100, height: 44)
         }
@@ -751,80 +738,53 @@ extension ProfileView {
 
     // MARK: - Закреплённая шапка (контент, без кнопок — для iPad портрет)
     private var headerContentNoButtons: some View {
-        VStack(spacing: 8) {
-            HStack(alignment: .center) {
-                ZStack {
-                    Circle()
-                        .fill(Color.white.opacity(0.2))
-                        .frame(width: 56, height: 56)
-                    Circle()
-                        .fill(Color.white)
-                        .frame(width: 54, height: 54)
-                    #if os(iOS)
-                    if userProfile.avatar == "custom_photo", let data = userProfile.customAvatarImageData, let ui = UIImage(data: data) {
-                        Image(uiImage: ui)
-                            .resizable()
-                            .scaledToFill()
-                            .frame(width: 50, height: 50)
-                            .clipShape(Circle())
-                    } else if userProfile.avatar.starts(with: "custom_") {
-                        Text("👤")
-                            .font(.system(size: 26))
-                    } else {
-                        Image(systemName: userProfile.avatar)
-                            .font(.system(size: 24))
-                            .foregroundColor(.blue)
-                    }
-                    #else
-                    Text("👤")
-                        .font(.system(size: 22))
-                    #endif
-                }
-                VStack(alignment: .leading, spacing: 2) {
-                    HStack(spacing: 8) {
-                        Text(userProfile.username)
-                            .font(.system(size: 26, weight: .bold))
-                            .foregroundColor(.white)
-                        Image(systemName: userProfile.currentLeague.icon)
-                            .font(.system(size: 14, weight: .bold))
-                            .foregroundColor(.white)
-                    }
-                    Text("@\(userProfile.username.uppercased()) • \(formatJoinDate(userProfile.joinDate))")
+        VStack(spacing: 0) {
+            HStack(alignment: .top) {
+                profileAvatarWithLeagueBadge(size: 168, innerSize: 150)
+                    .padding(.leading, 8)
+                VStack(alignment: .leading, spacing: 6) {
+                    Text(userProfile.username)
+                        .font(.system(size: 28, weight: .bold))
+                        .foregroundColor(.white)
+                    Text("@\(userProfile.username.uppercased())")
                         .font(.system(size: 14, weight: .medium))
                         .foregroundColor(.white.opacity(0.9))
+                    HStack(spacing: 8) {
+                        Image(userProfile.currentLeague.imageAssetName)
+                            .resizable()
+                            .scaledToFit()
+                            .frame(width: 18, height: 18)
+                        Text(userProfile.currentLeague.localizedFullName)
+                            .foregroundColor(.white.opacity(0.95))
+                            .font(.system(size: 14, weight: .semibold))
+                    }
+                    HStack(spacing: 8) {
+                        Image(systemName: "person.2.fill")
+                            .foregroundColor(.white)
+                            .font(.system(size: 14))
+                        Text("\(userProfile.friends.count) " + LocalizationManager.shared.localizedString("Following"))
+                            .foregroundColor(.white.opacity(0.95))
+                            .font(.system(size: 14, weight: .semibold))
+                    }
+                    HStack(spacing: 8) {
+                        Image(systemName: "flame.fill")
+                            .foregroundColor(.orange)
+                            .font(.system(size: 14))
+                        Text("\(userProfile.streak) " + LocalizationManager.shared.localizedString("дней"))
+                            .foregroundColor(.white.opacity(0.95))
+                            .font(.system(size: 14, weight: .semibold))
+                    }
+                    Text(profileJoinDateText)
+                        .font(.system(size: 13, weight: .medium))
+                        .foregroundColor(.white.opacity(0.85))
+                        .lineLimit(1)
                 }
-                .padding(.leading, 12)
+                .padding(.leading, 10)
+                .frame(maxWidth: .infinity, alignment: .leading)
                 Spacer()
             }
-            .padding(.horizontal, 40)
+            .padding(.horizontal, 32)
             .padding(.top, max(0, safeTopInset - 52))
-            HStack(spacing: 40) {
-                HStack(spacing: 10) {
-                    Image(systemName: userProfile.currentLeague.icon)
-                        .foregroundColor(.white)
-                        .font(.system(size: 14))
-                    Text(userProfile.currentLeague.localizedFullName)
-                        .foregroundColor(.white.opacity(0.95))
-                        .font(.system(size: 14, weight: .semibold))
-                }
-                HStack(spacing: 10) {
-                    Image(systemName: "person.2.fill")
-                        .foregroundColor(.white)
-                        .font(.system(size: 14))
-                    Text("\(userProfile.friends.count) " + LocalizationManager.shared.localizedString("Following"))
-                        .foregroundColor(.white.opacity(0.95))
-                        .font(.system(size: 14, weight: .semibold))
-                }
-                HStack(spacing: 10) {
-                    Image(systemName: "flame.fill")
-                        .foregroundColor(.orange)
-                        .font(.system(size: 14))
-                    Text("\(userProfile.streak) " + LocalizationManager.shared.localizedString("дней"))
-                        .foregroundColor(.white.opacity(0.95))
-                        .font(.system(size: 14, weight: .semibold))
-                }
-            }
-            .padding(.horizontal, 40)
             .padding(.bottom, 20)
         }
         .frame(height: headerHeight, alignment: .top)
@@ -834,97 +794,59 @@ extension ProfileView {
     // MARK: - Закреплённая шапка (контент, с оверлеем кнопок — только для телефона)
     private var headerContent: some View {
         VStack(spacing: 8) {
-            HStack(alignment: .center) {
-                // Аватар
-                ZStack {
-                    Circle()
-                        .fill(Color.white.opacity(0.2))
-                        .frame(width: isIPad ? 56 : 46, height: isIPad ? 56 : 46)
-                    Circle()
-                        .fill(Color.white)
-                        .frame(width: isIPad ? 54 : 44, height: isIPad ? 54 : 44)
-                    #if os(iOS)
-                    if userProfile.avatar == "custom_photo", let data = userProfile.customAvatarImageData, let ui = UIImage(data: data) {
-                        Image(uiImage: ui)
-                            .resizable()
-                            .scaledToFill()
-                            .frame(width: isIPad ? 50 : 40, height: isIPad ? 50 : 40)
-                            .clipShape(Circle())
-                    } else if userProfile.avatar.starts(with: "custom_") {
-                        Text("👤")
-                            .font(.system(size: isIPad ? 26 : 22))
-                    } else {
-                        Image(systemName: userProfile.avatar)
-                            .font(.system(size: isIPad ? 24 : 20))
-                            .foregroundColor(.blue)
-                    }
-                    #else
-                    if userProfile.avatar.starts(with: "custom_") {
-                        Text("👤")
-                            .font(.system(size: 22))
-                    } else {
-                        Image(systemName: userProfile.avatar)
-                            .font(.system(size: 20))
-                            .foregroundColor(.blue)
-                    }
-                    #endif
-                }
+            HStack(alignment: .top) {
+                profileAvatarWithLeagueBadge(size: isIPad ? 168 : 138, innerSize: isIPad ? 150 : 120)
+                    .padding(.leading, isIPad ? 8 : 4)
 
-                VStack(alignment: .leading, spacing: 2) {
-                    HStack(spacing: 8) {
-                        Text(userProfile.username)
-                            .font(.system(size: profileUsernameFontSize, weight: .bold))
-                            .foregroundColor(.white)
-                            .lineLimit(1)
-                            .truncationMode(.tail)
-                            .frame(maxWidth: .infinity, alignment: .leading)
-                            .contentShape(Rectangle())
-                            .onTapGesture { showFullNameAlert = true }
-                        Image(systemName: userProfile.currentLeague.icon)
-                            .font(.system(size: isIPad ? 14 : 13, weight: .bold))
-                            .foregroundColor(.white)
-                    }
-                    Text("@\(userProfile.username.uppercased()) • \(formatJoinDate(userProfile.joinDate))")
+                VStack(alignment: .leading, spacing: isIPad ? 6 : 4) {
+                    Text(userProfile.username)
+                        .font(.system(size: profileUsernameFontSize, weight: .bold))
+                        .foregroundColor(.white)
+                        .lineLimit(1)
+                        .truncationMode(.tail)
+                        .contentShape(Rectangle())
+                        .onTapGesture { showFullNameAlert = true }
+                    Text("@\(userProfile.username.uppercased())")
                         .font(.system(size: isIPad ? 14 : 12, weight: .medium))
                         .foregroundColor(.white.opacity(0.9))
+                    HStack(spacing: isIPad ? 8 : 6) {
+                        Image(userProfile.currentLeague.imageAssetName)
+                            .resizable()
+                            .scaledToFit()
+                            .frame(width: isIPad ? 18 : 16, height: isIPad ? 18 : 16)
+                        Text(userProfile.currentLeague.localizedFullName)
+                            .foregroundColor(.white.opacity(0.95))
+                            .font(.system(size: isIPad ? 14 : 12, weight: .semibold))
+                    }
+                    HStack(spacing: isIPad ? 8 : 6) {
+                        Image(systemName: "person.2.fill")
+                            .foregroundColor(.white)
+                            .font(.system(size: isIPad ? 14 : 12))
+                        Text("\(userProfile.friends.count) " + LocalizationManager.shared.localizedString("Following"))
+                            .foregroundColor(.white.opacity(0.95))
+                            .font(.system(size: isIPad ? 14 : 12, weight: .semibold))
+                    }
+                    HStack(spacing: isIPad ? 8 : 6) {
+                        Image(systemName: "flame.fill")
+                            .foregroundColor(.orange)
+                            .font(.system(size: isIPad ? 14 : 12))
+                        Text("\(userProfile.streak) " + LocalizationManager.shared.localizedString("дней"))
+                            .foregroundColor(.white.opacity(0.95))
+                            .font(.system(size: isIPad ? 14 : 12, weight: .semibold))
+                    }
+                    Text(profileJoinDateText)
+                        .font(.system(size: isIPad ? 13 : 11, weight: .medium))
+                        .foregroundColor(.white.opacity(0.85))
+                        .lineLimit(1)
                 }
-                .padding(.leading, isIPad ? 12 : 8)
+                .padding(.leading, isIPad ? 10 : 6)
+                .frame(maxWidth: .infinity, alignment: .leading)
                 .padding(.trailing, isIPad ? 0 : 72)
 
                 Spacer()
             }
-            .padding(.horizontal, isIPad ? 40 : 20)
+            .padding(.horizontal, isIPad ? 32 : 14)
             .padding(.top, max(0, safeTopInset - (isIPad ? 52 : 20)))
-            .allowsHitTesting(false)
-
-            // Нижняя карточка статов из хедера (лига, друзья, серия)
-            HStack(spacing: isIPad ? 40 : 30) {
-                HStack(spacing: isIPad ? 10 : 8) {
-                    Image(systemName: userProfile.currentLeague.icon)
-                        .foregroundColor(.white)
-                        .font(.system(size: isIPad ? 14 : 12))
-                    Text(userProfile.currentLeague.localizedFullName)
-                        .foregroundColor(.white.opacity(0.95))
-                        .font(.system(size: isIPad ? 14 : 12, weight: .semibold))
-                }
-                HStack(spacing: isIPad ? 10 : 8) {
-                    Image(systemName: "person.2.fill")
-                        .foregroundColor(.white)
-                        .font(.system(size: isIPad ? 14 : 12))
-                    Text("\(userProfile.friends.count) " + LocalizationManager.shared.localizedString("Following"))
-                        .foregroundColor(.white.opacity(0.95))
-                        .font(.system(size: isIPad ? 14 : 12, weight: .semibold))
-                }
-                HStack(spacing: isIPad ? 10 : 8) {
-                    Image(systemName: "flame.fill")
-                        .foregroundColor(.orange)
-                        .font(.system(size: isIPad ? 14 : 12))
-                    Text("\(userProfile.streak) " + LocalizationManager.shared.localizedString("дней"))
-                        .foregroundColor(.white.opacity(0.95))
-                        .font(.system(size: isIPad ? 14 : 12, weight: .semibold))
-                }
-            }
-            .padding(.horizontal, isIPad ? 40 : 20)
             .padding(.bottom, isIPad ? 20 : 12)
             .allowsHitTesting(false)
         }
@@ -1167,7 +1089,8 @@ extension ProfileView {
                         xp: mapped.xp,
                         streak: mapped.streak,
                         isOnline: old.isOnline,
-                        joinDate: old.joinDate
+                        joinDate: old.joinDate,
+                        playedToday: mapped.playedToday
                     )
                 }
                 return mapped
@@ -1367,26 +1290,40 @@ extension ProfileView {
 
 struct StatisticRow: View {
     let icon: String
+    /// Миниатюра из Assets (если задана — показывается вместо emoji)
+    var iconImageName: String? = nil
     let title: String
     let subtitle: String
     var isIPad: Bool = false
-    
+
+    private var iconSize: CGFloat { isIPad ? 28 : 24 }
+    private var iconFrame: CGFloat { isIPad ? 48 : 40 }
+
     var body: some View {
         HStack(spacing: isIPad ? 20 : 16) {
-            Text(icon)
-                .font(.system(size: isIPad ? 28 : 24))
-                .frame(width: isIPad ? 48 : 40)
-            
+            Group {
+                if let name = iconImageName {
+                    Image(name)
+                        .resizable()
+                        .scaledToFit()
+                        .frame(width: iconFrame, height: iconFrame)
+                } else {
+                    Text(icon)
+                        .font(.system(size: iconSize))
+                        .frame(width: iconFrame, height: iconFrame)
+                }
+            }
+
             VStack(alignment: .leading, spacing: isIPad ? 4 : 2) {
                 Text(title)
                     .font(.system(size: isIPad ? 20 : 18, weight: .semibold))
                     .foregroundColor(.primary)
-                
+
                 Text(subtitle)
                     .font(.system(size: isIPad ? 16 : 14))
                     .foregroundColor(.secondary)
             }
-            
+
             Spacer()
         }
         .padding(.vertical, isIPad ? 12 : 8)
@@ -1394,10 +1331,10 @@ struct StatisticRow: View {
 }
 
 struct FriendStreakCard: View {
-    let avatar: String
-    let streak: Int
+    let friend: Friend?
     let isPlaceholder: Bool
-    
+
+    /// Миниатюра аватара друга: в круге флаг (по countryCode) или эмодзи; при отсутствии аватара — флаг.
     var body: some View {
         VStack(spacing: 8) {
             if isPlaceholder {
@@ -1405,7 +1342,6 @@ struct FriendStreakCard: View {
                     Circle()
                         .fill(Color.gray.opacity(0.2))
                         .frame(width: 50, height: 50)
-                    
                     Image(systemName: "plus")
                         .foregroundColor(.gray)
                         .font(.system(size: 20))
@@ -1414,22 +1350,25 @@ struct FriendStreakCard: View {
                     Circle()
                         .stroke(Color.gray.opacity(0.3), style: StrokeStyle(lineWidth: 2, dash: [5]))
                 )
-            } else {
+            } else if let f = friend {
                 ZStack {
                     Circle()
                         .fill(Color.blue.opacity(0.1))
                         .frame(width: 50, height: 50)
-                    
-                    Text(avatar)
+                    Text(f.displayAvatar)
                         .font(.system(size: 24))
                 }
-                
+                Text(f.displayNameOrUsername)
+                    .font(.system(size: 12, weight: .medium))
+                    .foregroundColor(.primary)
+                    .lineLimit(1)
+                    .truncationMode(.tail)
+                    .frame(maxWidth: 70)
                 HStack(spacing: 2) {
                     Image(systemName: "flame.fill")
                         .foregroundColor(.orange)
                         .font(.system(size: 10))
-                    
-                    Text("\(streak)")
+                    Text("\(f.streak)")
                         .font(.system(size: 12, weight: .semibold))
                         .foregroundColor(.primary)
                 }
@@ -1439,37 +1378,60 @@ struct FriendStreakCard: View {
 }
 
 struct MonthlyBadge: View {
-    let icon: String
+    private let definition: AchievementDefinition?
+    private let icon: String
     let title: String
     let isUnlocked: Bool
-    
+
+    init(definition: AchievementDefinition? = nil, icon: String = "star.fill", title: String, isUnlocked: Bool) {
+        self.definition = definition
+        self.icon = icon
+        self.title = title
+        self.isUnlocked = isUnlocked
+    }
+
+    private var secondarySystemGroupedBackground: Color {
+        #if os(iOS)
+        return Color(UIColor.secondarySystemGroupedBackground)
+        #else
+        return Color(NSColor.textBackgroundColor)
+        #endif
+    }
+
     var body: some View {
         VStack(spacing: 8) {
             ZStack {
-                Circle()
-                    .fill(isUnlocked ? Color.blue : Color.gray.opacity(0.3))
-                    .frame(width: 60, height: 60)
-                
-                if isUnlocked {
-                    if icon.contains(".") {
-                        // Если иконка содержит точку, это системная иконка SF Symbols
-                        Image(systemName: icon)
-                            .foregroundColor(.white)
-                            .font(.system(size: 24))
-                    } else {
-                        // Эмодзи или текст
-                        Text(icon)
-                            .font(.system(size: 24))
-                    }
+                if let def = definition, let asset = def.imageAssetName, isUnlocked {
+                    Image(asset)
+                        .resizable()
+                        .scaledToFit()
+                        .frame(width: 60, height: 60)
+                        .saturation(1)
+                        .background(Circle().fill(secondarySystemGroupedBackground))
+                        .clipShape(Circle())
                 } else {
-                    // Для заблокированных ачивментов всегда показываем замочек
-                    Image(systemName: "lock.fill")
-                        .foregroundColor(.gray)
-                        .font(.system(size: 20))
+                    Circle()
+                        .fill(isUnlocked ? Color.blue : Color.gray.opacity(0.3))
+                        .frame(width: 60, height: 60)
+
+                    if isUnlocked {
+                        if icon.contains(".") {
+                            Image(systemName: icon)
+                                .foregroundColor(.white)
+                                .font(.system(size: 24))
+                        } else {
+                            Text(icon)
+                                .font(.system(size: 24))
+                        }
+                    } else {
+                        Image(systemName: "lock.fill")
+                            .foregroundColor(.gray)
+                            .font(.system(size: 20))
+                    }
                 }
             }
             .shadow(color: isUnlocked ? .blue.opacity(0.3) : .clear, radius: 8, x: 0, y: 4)
-            
+
             Text(title)
                 .font(.system(size: 12, weight: .medium))
                 .foregroundColor(isUnlocked ? .primary : .secondary)

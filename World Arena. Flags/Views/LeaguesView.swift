@@ -91,11 +91,19 @@ struct LeaguesView: View {
                         headerSection
                         ScrollViewReader { proxy in
                             ScrollView {
-                                leaderboardSection
-                                    .padding(.top, contentTopInset)
+                                VStack(spacing: 0) {
+                                    leaderboardSection
+                                }
+                                .padding(.top, 12)
                             }
-                            .background(systemGroupedBackground)
                             .refreshable { await refreshLeaguesContent() }
+                            .background(
+                                RoundedRectangle(cornerRadius: 25, style: .continuous)
+                                    .fill(systemGroupedBackground)
+                                    .ignoresSafeArea(.container, edges: .bottom)
+                            )
+                            .clipShape(RoundedRectangle(cornerRadius: 25, style: .continuous))
+                            .padding(.top, -16)
                             .onAppear { scrollToUserIfNeeded(proxy: proxy) }
                             .onChange(of: leaderboardData.count) { _ in scrollToUserIfNeeded(proxy: proxy) }
                         }
@@ -184,47 +192,50 @@ struct LeaguesView: View {
                         .foregroundColor(.white.opacity(0.85))
                 }
                 Spacer()
-                Text("🏆")
-                    .font(.system(size: 36))
+                // Большой лого текущей лиги (всегда цветной)
+                Image(userProfile.currentLeague.imageAssetName)
+                    .resizable()
+                    .scaledToFit()
+                    .frame(width: 56, height: 56)
                     .padding(.trailing, 8)
             }
             .padding(.leading, 24)
             .padding(.trailing, 12)
             .padding(.top, max(0, safeTopInset - 60))
 
-            // Горизонтальный скролл по всем лигам с выделением текущей
+            // Горизонтальный скролл: миниатюры лиг — цветные только достигнутые, остальные ч/б
             ScrollView(.horizontal, showsIndicators: false) {
                 HStack(spacing: 10) {
                     ForEach(League.allCases, id: \.self) { league in
                         let isCurrent = league == userProfile.currentLeague
+                        let achieved = league.isReached(by: userProfile.currentLeague)
                         VStack(spacing: 6) {
-                            // Убрал лого над текстом активной лиги
                             HStack(spacing: 6) {
-                                Image(systemName: league.icon)
-                                    .font(.system(size: isCurrent ? 16 : 14, weight: .semibold)) // Разные размеры для активной и неактивной
+                                Image(league.imageAssetName)
+                                    .resizable()
+                                    .scaledToFit()
+                                    .frame(width: isCurrent ? 28 : 24, height: isCurrent ? 28 : 24)
+                                    .grayscale(achieved ? 0 : 1)
                                 Text(league.localizedFullName)
-                                    .font(.system(size: isCurrent ? 14 : 13, weight: .semibold)) // Разные размеры для активной и неактивной
+                                    .font(.system(size: isCurrent ? 14 : 13, weight: .semibold))
                                     .multilineTextAlignment(.center)
                                     .lineLimit(2)
                                     .frame(maxWidth: 120)
                             }
-                            .padding(.horizontal, isCurrent ? 14 : 12) // Больше отступы для активной
-                            .padding(.vertical, isCurrent ? 10 : 8) // Больше отступы для активной
+                            .padding(.horizontal, isCurrent ? 14 : 12)
+                            .padding(.vertical, isCurrent ? 10 : 8)
                             .background(
                                 Capsule()
-                                    .fill(isCurrent ? Color.white.opacity(0.25) : Color.white.opacity(0.08)) // Более яркий фон для активной
+                                    .fill(isCurrent ? Color.white.opacity(0.25) : Color.white.opacity(0.08))
                             )
                             .overlay(
                                 Capsule()
-                                    .stroke(isCurrent ? Color.white.opacity(0.9) : Color.white.opacity(0.2), lineWidth: isCurrent ? 2 : 1) // Толще граница для активной
+                                    .stroke(isCurrent ? Color.white.opacity(0.9) : Color.white.opacity(0.2), lineWidth: isCurrent ? 2 : 1)
                             )
                             .foregroundColor(.white)
                         }
                         .onTapGesture {
-                            // Только текущая лига кликабельна
-                            if isCurrent {
-                                // Можно добавить анимацию или другой эффект
-                            }
+                            if isCurrent { }
                         }
                     }
                 }
@@ -251,17 +262,23 @@ struct LeaguesView: View {
                         .foregroundColor(.white.opacity(0.85))
                 }
                 Spacer()
-                Text("🏆")
-                    .font(.system(size: 28))
+                Image(userProfile.currentLeague.imageAssetName)
+                    .resizable()
+                    .scaledToFit()
+                    .frame(width: 44, height: 44)
             }
             .padding(.horizontal, 20)
             ScrollView(.horizontal, showsIndicators: false) {
                 HStack(spacing: 8) {
                     ForEach(League.allCases, id: \.self) { league in
                         let isCurrent = league == userProfile.currentLeague
+                        let achieved = league.isReached(by: userProfile.currentLeague)
                         HStack(spacing: 4) {
-                            Image(systemName: league.icon)
-                                .font(.system(size: isCurrent ? 14 : 12, weight: .semibold))
+                            Image(league.imageAssetName)
+                                .resizable()
+                                .scaledToFit()
+                                .frame(width: isCurrent ? 22 : 20, height: isCurrent ? 22 : 20)
+                                .grayscale(achieved ? 0 : 1)
                             Text(league.localizedFullName)
                                 .font(.system(size: isCurrent ? 12 : 11, weight: .semibold))
                                 .lineLimit(1)
@@ -295,8 +312,8 @@ struct LeaguesView: View {
     }
     
     private var contentTopInset: CGFloat {
-        // Минимальный отступ, чтобы не было большого зазора при оттягивании списка
-        return 12
+        // Небольшой отступ, как на странице Квестов (тонкая серая полоска ~3 мм)
+        return 4
     }
 
     private var headerBackground: some View {
@@ -305,14 +322,8 @@ struct LeaguesView: View {
             startPoint: .topLeading,
             endPoint: .bottomTrailing
         )
-        .frame(height: 180 + safeTopInset)
-        .clipShape(
-            RoundedRectangle(cornerRadius: 20)
-        )
-        .mask(
-            Rectangle()
-                .padding(.top, -20)
-        )
+        .frame(height: 185 + safeTopInset)
+        .clipShape(RoundedRectangle(cornerRadius: 25, style: .continuous))
         .ignoresSafeArea(.container, edges: .top)
     }
     

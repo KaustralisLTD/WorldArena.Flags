@@ -563,6 +563,10 @@
 "System" = "System";
 "Light" = "Light";
 "Dark" = "Dark";
+"Выберите тему оформления приложения" = "Choose the app appearance theme";
+"Следует системным настройкам" = "Follows system settings";
+"Светлое оформление" = "Light appearance";
+"Темное оформление" = "Dark appearance";
 
 /* Monthly Quests - Additional */
 "Сыграй %d игр" = "Play %d games";
@@ -601,6 +605,60 @@
 "Система рейтингов и соревнований" = "Rating and competition system";
 "HELP_LEAGUES_TEXT" = "Leagues are competitions with other players.\n\nLeagues (from lower to higher):\n• Bronze\n• Silver\n• Gold\n• Platinum\n• Diamond\n• Master\n\nWeekly updates:\n• Top 3 players get rewards\n• Players in 16–20 may be demoted\n• Others stay in the same league";
 
+/* Birthday */
+"День рождения" = "Birthday";
+"Birthday description F-bucks" = "Allow us to congratulate you on your birthday with +10 F-bucks";
+"Очистить" = "Clear";
+"День рождения друга" = "Friend's birthday";
+"Friend birthday push body" = "Today %@ celebrates their birthday — congratulate them! (give +10 min Triple XP or +1 F-bucks)";
+"С днём рождения!" = "Happy birthday!";
+"Birthday bonus already claimed" = "Bonus for this year already claimed";
+"Birthday bonus F-bucks message" = "You received +10 F-bucks";
+"Friend birthday today" = "Today is %@'s birthday";
+"Friends birthday today count" = "%d friends have their birthday today";
+"Friend birthday congratulate hint" = "Congratulate: give +10 min Triple XP or +1 F-bucks";
+"Подарок на ДР от друга" = "Birthday gift from friend";
+
+/* Help Center – profile & skin */
+"Как изменить аватар?" = "How to change avatar?";
+"Персонализация профиля" = "Profile customization";
+"HELP_PROFILE_AVATAR" = "To change your avatar:\n1. Open the Profile tab\n2. Tap the gear icon (Settings)\n3. Choose \"User profile\"\n4. Pick a new avatar or upload a photo\n5. Tap \"Save\"";
+"Как работает создание скина?" = "How does skin editor work?";
+"Редактор аватара и элементы" = "Avatar editor and items";
+"HELP_PROFILE_SKIN_EDITOR" = "In the skin editor you build your look from several categories:\n• Clothing\n• Accessories\n• Glasses\n• Skin Tone\n• Hair\n• Face (eyes, mouth, etc.)\n\nHow to use it:\n1. Open Profile → Settings → User profile → Edit avatar\n2. Switch to the \"Create skin\" tab\n3. Pick a category in the top bar (hat, shirt, glasses, palette icons, etc.)\n4. Select a specific item in the grid below – it will instantly appear in the preview\n5. Tap \"Save Avatar\" to apply the skin to your profile\n\nSome items may be locked (lock icon) – they unlock as you progress or for F-bucks.";
+
+/* Help Center – friends & social */
+"Как добавить друзей?" = "How to add friends?";
+"Социальные функции" = "Social features";
+"HELP_SOCIAL_ADD_FRIENDS" = "To add friends:\n1. Open the Profile tab\n2. Tap \"Add Friends\"\n3. Share your friend code or enter another player's code / login\n4. Send a friend request\n\nWith friends you can:\n• Compare stats\n• See their progress\n• Compete in leagues and duels";
+"Как работают напоминания друзьям?" = "How do reminders to friends work?";
+"Пуш-уведомления о ежедневном уроке" = "Push notifications about daily lesson";
+"HELP_SOCIAL_REMINDERS" = "After finishing a game you see a screen with your friends and their streaks:\n• Friends who have already played today show a flame and number of days in streak\n• Friends who haven't played today show a \"Remind\" button\n\nHow to send a reminder:\n1. After your game, go to the \"Remind friends\" screen\n2. Tap \"Remind\" next to a specific friend\n3. If they have notifications enabled, they will get a push that today's lesson is not completed yet\n\nReminders help friends keep their streak and study regularly.";
+
+/* Help Center – duel & progress */
+"Что такое дуэль и как её начать?" = "What is a duel and how to start it?";
+"Режим соревнований 1 на 1" = "1‑on‑1 competition mode";
+"HELP_GAME_DUEL" = "Duel is a mode where you and your friend answer the same questions to compare results.\n\nHow to start a duel:\n1. Open your friend's profile (from Friends list, Leagues or reminders)\n2. Tap the \"Challenge to Duel\" button\n3. Confirm – the duel will use a shared set of questions\n\nAt the end:\n• You see who scored more points\n• Duel motivates and boosts progress but does NOT reset your daily streak";
+"Как зарабатывать и тратить F-bucks?" = "How to earn and spend F-bucks?";
+"Внутриигровая валюта" = "In‑game currency";
+"HELP_PROGRESS_FBUCKS" = "F-bucks (Flags Bucks) are the in‑game currency of World Arena Flags.\n\nHow to earn F-bucks:\n• For perfect games (all answers correct)\n• For long daily streaks\n• For completing quests and achievements\n\nWhat to spend them on:\n• Buying exclusive skin and avatar elements\n• Unlocking rare accessories and effects\n\nImportant: F-bucks are not real money. They cannot be withdrawn or exchanged for real currency.";
+"Как работают квесты и достижения?" = "How do quests and achievements work?";
+"Месячные задания и артефакты" = "Monthly quests and artifacts";
+"HELP_PROGRESS_QUESTS" = "In the \"Quests\" tab you see:\n• Daily quests (if available)\n• Monthly quests and total progress 0–40\n\nHow it works:\n1. Complete tasks: play required number of games, guess flags of specific regions, etc.\n2. Each completed quest gives progress and rewards\n3. Total monthly progress is shown in the colored header as a bar\n\nAchievements (artifacts) unlock for special conditions:\n• Long streaks\n• High accuracy\n• High places in leagues\nUnlocked achievements are shown in your profile.";
+
+/* Help Center – notifications */
+"Уведомления: какие бывают и как их настроить?" = "Notifications: types and how to manage them?";
+"Ежедневный урок, дуэли и напоминания" = "Daily lesson, duels and reminders";
+"HELP_NOTIFICATIONS_TYPES" = "The app can send several types of notifications:\n• Daily lesson and streak reminders\n• Reminders to friends and responses to your reminders\n• Duel challenges and duel results\n\nHow to manage notifications:\n1. Open your device settings\n2. Find World Arena Flags\n3. Enable or disable notification types as you prefer\n\nWe recommend leaving daily lesson reminders enabled so you don't lose your streak.";
+
+/* Help Center – technical issues */
+"Проблемы с загрузкой флагов" = "Flags are not loading";
+"Что делать если флаги не загружаются" = "What to do if flags do not load";
+"HELP_TECH_FLAGS_NOT_LOADING" = "If flags are not loading:\n1. Check your internet connection\n2. Restart the app\n3. Clear cache in the app settings (if available)\n4. Update the app to the latest version\n5. Contact support if the problem persists";
+"Синхронизация данных" = "Data sync";
+"Как сохранить прогресс" = "How to keep your progress safe";
+"HELP_TECH_DATA_SYNC" = "Your progress is saved automatically on the device.\n\nTo back it up:\n• Use iCloud or your device backup\n• Export data through privacy settings (if available)\n• Regularly create backups of your device\n\nIf you change devices, restore the backup before launching the game so you don't lose your progress.";
+
 /* Achievements */
 "Достижения" = "Achievements";
 "Достижение" = "Achievement";
@@ -633,10 +691,15 @@
 "Снайпер" = "Sniper";
 "Точность 85%" = "Reach 85% accuracy";
 "Серебряная лига" = "Silver League";
+"Достигните Серебра" = "Reach Silver";
 "Золотая лига" = "Gold League";
+"Достигните Золота" = "Reach Gold";
 "Платиновая лига" = "Platinum League";
+"Достигните Платины" = "Reach Platinum";
 "Алмазная лига" = "Diamond League";
+"Достигните Алмаза" = "Reach Diamond";
 "Мастер лиг" = "League Master";
+"Достигните Мастера" = "Reach Master";
 "Первый друг" = "First Friend";
 "Добавьте друга" = "Add a friend";
 "Своя команда" = "Your Team";
@@ -646,6 +709,7 @@
 "Спринтер" = "Speed Racer";
 "Сыграйте 10 игр за день" = "Play 10 games in a day";
 "XP Олимпиец" = "XP Olympian";
+"Мастер Олимпиец XP" = "Master XP Olympian";
 "Наберите 30000 XP" = "Earn 30000 XP";
  
 /* Settings - Added */
@@ -942,6 +1006,7 @@
 "Version" = "Version";
 "Update" = "Update";
 "Login without @" = "login without @";
+"Add by username" = "Add by username";
 "Duel Summary" = "Duel Summary";
 "No duel history yet" = "No duel history yet";
 "You already outranked %d%% of players in your city" = "You already outranked %d%% of players in your city";
@@ -986,6 +1051,8 @@
 "Start Weak Countries Training" = "Start Weak Countries Training";
 "Progress map subtitle" = "Track your progress by country and continent";
 "How is Mastered calculated?" = "How is Mastered calculated?";
+"Duel Summary subtitle" = "See your duel history and detailed results";
+"F-Bucks subtitle" = "Earn and spend F-Bucks, the in‑game currency";
 "Mastered explanation" = "A country counts as mastered when you have answered it at least 3 times and have at least 80%% correct answers.";
 "Name" = "Name";
 "Account login title" = "Create your account";

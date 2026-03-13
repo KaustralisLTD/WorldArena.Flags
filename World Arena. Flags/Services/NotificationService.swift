@@ -104,6 +104,52 @@ class NotificationService: NSObject, ObservableObject {
         UNUserNotificationCenter.current().add(request, withCompletionHandler: nil)
     }
 
+    private static let birthdayFriendPrefix = "birthday_friend_"
+
+    /// Планирует локальные пуши на 9:00 в день рождения каждого друга (если у друга указан birthday).
+    @MainActor
+    func scheduleFriendBirthdayNotificationsIfNeeded(friends: [Friend]) {
+        let cal = Calendar.current
+        let now = Date()
+        let year = cal.component(.year, from: now)
+        UNUserNotificationCenter.current().getPendingNotificationRequests { [weak self] requests in
+            let toRemove = requests.filter { $0.identifier.hasPrefix(Self.birthdayFriendPrefix) }.map(\.identifier)
+            UNUserNotificationCenter.current().removePendingNotificationRequests(withIdentifiers: toRemove)
+            for friend in friends {
+                guard let bday = friend.birthday else { continue }
+                var comps = DateComponents()
+                comps.month = cal.component(.month, from: bday)
+                comps.day = cal.component(.day, from: bday)
+                comps.hour = 9
+                comps.minute = 0
+                comps.year = year
+                if let nextDate = cal.date(from: comps), nextDate >= now {
+                    self?.addBirthdayNotification(friend: friend, triggerDate: nextDate)
+                } else {
+                    comps.year = year + 1
+                    if let nextYear = cal.date(from: comps) {
+                        self?.addBirthdayNotification(friend: friend, triggerDate: nextYear)
+                    }
+                }
+            }
+        }
+    }
+
+    private func addBirthdayNotification(friend: Friend, triggerDate: Date) {
+        Task { @MainActor in
+            let content = UNMutableNotificationContent()
+            content.title = LocalizationManager.shared.localizedString("День рождения друга")
+            let bodyTemplate = LocalizationManager.shared.localizedString("Friend birthday push body")
+            content.body = String(format: bodyTemplate, friend.displayNameOrUsername)
+            content.sound = .default
+            let comps = Calendar.current.dateComponents([.year, .month, .day, .hour, .minute], from: triggerDate)
+            let trigger = UNCalendarNotificationTrigger(dateMatching: comps, repeats: false)
+            let id = Self.birthdayFriendPrefix + friend.username.filter { $0.isLetter || $0.isNumber }
+            let request = UNNotificationRequest(identifier: id, content: content, trigger: trigger)
+            UNUserNotificationCenter.current().add(request, withCompletionHandler: nil)
+        }
+    }
+
     /// Push c результатом дуэли и мотивационным текстом.
     @MainActor
     func scheduleDuelResultNotification(challengerName: String, challengerScore: Int, myScore: Int, iWon: Bool) {

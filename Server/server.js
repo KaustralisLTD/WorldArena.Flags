@@ -230,7 +230,16 @@ app.get('/api/v1/users/by-code/:code', (req, res) => {
   });
 });
 
-// GET /api/v1/users/me/friends — список друзей текущего пользователя (displayName — имя для отображения у друзей)
+function isPlayedToday(updatedAt) {
+  if (!updatedAt) return false;
+  const d = new Date(updatedAt);
+  const now = new Date();
+  return d.getUTCFullYear() === now.getUTCFullYear() &&
+    d.getUTCMonth() === now.getUTCMonth() &&
+    d.getUTCDate() === now.getUTCDate();
+}
+
+// GET /api/v1/users/me/friends — список друзей текущего пользователя (displayName, playedToday, birthday)
 app.get('/api/v1/users/me/friends', (req, res) => {
   const userId = req.headers['x-user-id'] || req.query.userId;
   if (!userId) return res.status(400).json({ error: 'userId required' });
@@ -243,6 +252,8 @@ app.get('/api/v1/users/me/friends', (req, res) => {
       level: f.level || 1,
       xp: f.xp || 0,
       streak: f.streak || 0,
+      playedToday: isPlayedToday(f.updated_at),
+      birthday: f.birthday || null,
     })),
   });
 });
@@ -273,6 +284,7 @@ app.post('/api/v1/friends/add', (req, res) => {
       level: friend.level || 1,
       xp: friend.xp || 0,
       streak: friend.streak || 0,
+      birthday: friend.birthday || null,
     },
   });
 });
@@ -384,6 +396,7 @@ const NUDGE_PHRASES_EN = [
   "Get back in the game! We believe in you!",
   "One more game and you'll feel great!",
   "Your streak misses you. Come back!",
+  "You haven't completed your daily lesson on the path to learning Flags!",
 ];
 
 let sendNudgePush;
@@ -399,7 +412,7 @@ app.post('/api/v1/nudge', (req, res) => {
   const fromUsername = (req.headers['x-user-id'] || '').trim();
   const { toUsername, phraseId } = req.body || {};
   if (!fromUsername || !toUsername) return res.status(400).json({ error: 'X-User-Id and toUsername required' });
-  const phrase = Math.max(0, Math.min(14, parseInt(phraseId, 10) || 0));
+  const phrase = Math.max(0, Math.min(15, parseInt(phraseId, 10) || 0));
   if (!db.areFriends(fromUsername, toUsername)) return res.status(400).json({ error: 'Can only nudge friends' });
   const toUser = db.getUserByUsername(toUsername);
   if (!toUser) return res.status(404).json({ error: 'Recipient not found' });
@@ -428,6 +441,46 @@ app.post('/api/v1/nudge/read', (req, res) => {
   const userId = (req.headers['x-user-id'] || req.body?.userId || '').trim();
   if (!userId) return res.status(400).json({ error: 'userId required' });
   db.markNudgesRead(userId);
+  res.json({ ok: true });
+});
+
+// POST /api/v1/friends/:username/birthday-gift — подарок другу на день рождения
+// type: 'xpBoost' | 'fBucks'
+app.post('/api/v1/friends/:username/birthday-gift', (req, res) => {
+  const fromUsername = (req.headers['x-user-id'] || '').trim();
+  const toUsername = (req.params.username || '').trim();
+  const { type } = req.body || {};
+  if (!fromUsername || !toUsername) return res.status(400).json({ error: 'X-User-Id and username required' });
+  if (fromUsername === toUsername) return res.status(400).json({ error: 'Cannot send gift to yourself' });
+  if (type !== 'xpBoost' && type !== 'fBucks') {
+    return res.status(400).json({ error: 'Invalid gift type' });
+  }
+  if (!db.areFriends(fromUsername, toUsername)) {
+    return res.status(400).json({ error: 'Can only send birthday gifts to friends' });
+  }
+  const now = new Date();
+  const year = now.getUTCFullYear();
+  if (db.hasSentBirthdayGiftThisYear(fromUsername, toUsername, year)) {
+    return res.status(400).json({ error: 'Gift already sent this year' });
+  }
+  db.createBirthdayGift({ giverUsername: fromUsername, receiverUsername: toUsername, year, type });
+  console.log('Birthday gift created:', fromUsername, '->', toUsername, 'type:', type, 'year:', year);
+  res.json({ ok: true });
+});
+
+// GET /api/v1/birthday-gifts/inbox — входящие подарки ко дню рождения (для получателя)
+app.get('/api/v1/birthday-gifts/inbox', (req, res) => {
+  const userId = (req.headers['x-user-id'] || req.query.userId || '').trim();
+  if (!userId) return res.status(400).json({ error: 'userId required' });
+  const gifts = db.getBirthdayGiftsForUser(userId);
+  res.json({ gifts });
+});
+
+// POST /api/v1/birthday-gifts/consume — пометить все входящие подарки как обработанные
+app.post('/api/v1/birthday-gifts/consume', (req, res) => {
+  const userId = (req.headers['x-user-id'] || req.body?.userId || '').trim();
+  if (!userId) return res.status(400).json({ error: 'userId required' });
+  db.clearBirthdayGiftsForUser(userId);
   res.json({ ok: true });
 });
 

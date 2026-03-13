@@ -563,6 +563,10 @@
 "System" = "Systeem";
 "Light" = "Licht";
 "Dark" = "Donker";
+"Выберите тему оформления приложения" = "Kies het app-thema";
+"Следует системным настройкам" = "Volgt systeeminstellingen";
+"Светлое оформление" = "Lichte weergave";
+"Темное оформление" = "Donkere weergave";
 
 /* Monthly Quests - Additional */
 "Сыграй %d игр" = "Speel %d-spellen";
@@ -601,6 +605,52 @@
 "Система рейтингов и соревнований" = "Beoordelings- en competitiesysteem";
 "HELP_LEAGUES_TEXT" = "Competities zijn competities met andere spelers.\n\nCompetities (van lager naar hoger):\n• Brons\n• Zilver\n• Goud\n• Platina\n• Diamant\n• Meester\n\nWekelijkse updates:\n• Top 3 spelers krijgen beloningen\n• Spelers in 16-20 kunnen worden gedegradeerd\n• Anderen blijven in dezelfde klasse";
 
+/* Birthday */
+"День рождения" = "Verjaardag";
+"Birthday description F-bucks" = "Laat ons je op je verjaardag feliciteren met +10 F-bucks";
+"Очистить" = "Wissen";
+"День рождения друга" = "Verjaardag van een vriend";
+"Friend birthday push body" = "Vandaag is %@ jarig — feliciteer hem/haar! (geef +10 min Triple XP of +1 F-bucks)";
+"С днём рождения!" = "Gefeliciteerd met je verjaardag!";
+"Birthday bonus already claimed" = "De bonus voor dit jaar is al toegekend";
+"Birthday bonus F-bucks message" = "Je hebt +10 F-bucks ontvangen";
+"Friend birthday today" = "Vandaag is %@ jarig";
+"Friends birthday today count" = "%d vrienden zijn vandaag jarig";
+"Friend birthday congratulate hint" = "Feliciteer: geef +10 min Triple XP of +1 F-bucks";
+"Подарок на ДР от друга" = "Verjaardagscadeau van een vriend";
+
+/* Help Center – profile & skin */
+"Как изменить аватар?" = "Hoe verander ik mijn avatar?";
+"Персонализация профиля" = "Profielpersonalisatie";
+"HELP_PROFILE_AVATAR" = "Zo wijzig je je avatar:\n1. Open het tabblad Profiel\n2. Tik op het tandwielpictogram (Instellingen)\n3. Kies \"Gebruikersprofiel\"\n4. Kies een nieuwe avatar of upload een foto\n5. Tik op \"Opslaan\"";
+"Как работает создание скина?" = "Hoe werkt de skin‑editor?";
+"Редактор аватара и элементы" = "Avatareditor en items";
+"HELP_PROFILE_SKIN_EDITOR" = "In de skin‑editor bouw je je uiterlijk uit meerdere categorieën:\n• Kleding (Clothing)\n• Accessoires (Accessories)\n• Brillen (Glasses)\n• Huidskleur (Skin Tone)\n• Haar (Hair)\n• Gezicht (Face: ogen, mond, enz.)\n\nZo gebruik je hem:\n1. Open Profiel → Instellingen → Gebruikersprofiel → Avatar bewerken\n2. Schakel over naar het tabblad \"Create skin\"\n3. Kies een categorie in de bovenste balk (iconen van hoed, shirt, bril, palet, enz.)\n4. Kies onderaan een specifiek item – dit verschijnt direct in de preview\n5. Tik op \"Save Avatar\" om de skin op je profiel toe te passen\n\nSommige items kunnen vergrendeld zijn (slot‑icoon) – ze worden ontgrendeld door voortgang of met F‑bucks.";
+
+/* Help Center – friends & social */
+"Как добавить друзей?" = "Hoe voeg ik vrienden toe?";
+"Социальные функции" = "Sociale functies";
+"HELP_SOCIAL_ADD_FRIENDS" = "Zo voeg je vrienden toe:\n1. Open het tabblad Profiel\n2. Tik op \"Vrienden toevoegen\"\n3. Deel je vriendencode of voer de code / login van een andere speler in\n4. Verstuur een vriendschapsverzoek\n\nMet vrienden kun je:\n• Statistieken vergelijken\n• Hun voortgang zien\n• Strijden in competities en duels";
+"Как работают напоминания друзьям?" = "Hoe werken herinneringen aan vrienden?";
+"Пуш-уведомления о ежедневном уроке" = "Push‑meldingen over de dagelijkse les";
+"HELP_SOCIAL_REMINDERS" = "Na een spel zie je een scherm met je vrienden en hun reeksen:\n• Wie vandaag al gespeeld heeft, toont een vlam en het aantal dagen in de reeks\n• Wie vandaag nog niet heeft gespeeld, toont de knop \"Herinneren\"\n\nZo stuur je een herinnering:\n1. Ga na het spel naar het scherm \"Vrienden herinneren\"\n2. Tik op \"Herinneren\" naast een specifieke vriend\n3. Als hij meldingen heeft ingeschakeld, ontvangt hij een push dat de dagelijkse les nog niet is voltooid\n\nHerinneringen helpen vrienden hun reeks niet te verliezen en regelmatig te leren.";
+
+/* Help Center – duel & progress */
+"Что такое дуэль и как её начать?" = "Wat is een duel en hoe start je het?";
+"Режим соревнований 1 на 1" = "1‑tegen‑1‑competitiemodus";
+"HELP_GAME_DUEL" = "Een duel is een modus waarin jij en je vriend dezelfde vragen beantwoorden om de resultaten te vergelijken.\n\nZo start je een duel:\n1. Open het profiel van je vriend (via Vrienden, Competities of herinneringen)\n2. Tik op de knop \"Challenge to Duel\"\n3. Bevestig – het duel gebruikt een gedeelde set vragen\n\nAan het einde:\n• Zie je wie de meeste punten heeft gescoord\n• Het duel motiveert en stimuleert je voortgang, maar zet je dagelijkse reeks NIET terug";
+"Как зарабатывать и тратить F-bucks?" = "Hoe verdien en besteed je F‑bucks?";
+"Внутриигровая валюта" = "In‑game valuta";
+"HELP_PROGRESS_FBUCKS" = "F‑bucks (Flags Bucks) zijn de in‑game valuta van World Arena Flags.\n\nZo verdien je F‑bucks:\n• Voor perfecte spellen (alle antwoorden goed)\n• Voor lange dagelijkse reeksen\n• Voor voltooide quests en achievements\n\nWaar je ze aan uitgeeft:\n• Aankoop van exclusieve skin‑ en avatarelementen\n• Ontgrendelen van zeldzame accessoires en effecten\n\nBelangrijk: F‑bucks zijn geen echt geld. Ze kunnen niet worden opgenomen of omgewisseld voor echt geld.";
+"Как работают квесты и достижения?" = "Hoe werken quests en achievements?";
+"Месячные задания и артефакты" = "Maandelijkse opdrachten en artefacten";
+"HELP_PROGRESS_QUESTS" = "In het tabblad \"Quests\" zie je:\n• Dagelijkse quests (indien beschikbaar)\n• Maandelijkse quests en totale voortgang 0–40\n\nHoe het werkt:\n1. Voltooi taken: speel het vereiste aantal spellen, raad vlaggen van bepaalde regio’s, enz.\n2. Elke voltooide quest geeft voortgang en beloningen\n3. De totale maandelijkse voortgang wordt in de gekleurde kop als balk weergegeven\n\nAchievements (artefacten) worden ontgrendeld onder speciale voorwaarden:\n• Lange reeksen\n• Hoge nauwkeurigheid\n• Hoge plaatsen in de competities\nOntgrendelde achievements worden in je profiel weergegeven.";
+
+/* Help Center – notifications */
+"Уведомления: какие бывают и как их настроить?" = "Meldingen: welke typen zijn er en hoe stel je ze in?";
+"Ежедневный урок, дуэли и напоминания" = "Dagelijkse les, duels en herinneringen";
+"HELP_NOTIFICATIONS_TYPES" = "De app kan verschillende soorten meldingen sturen:\n• Herinneringen aan de dagelijkse les en je reeks\n• Herinneringen aan vrienden en antwoorden op jouw herinneringen\n• Dueluitdagingen en duelresultaten\n\nZo beheer je meldingen:\n1. Open de instellingen van je apparaat\n2. Zoek naar World Arena Flags\n3. Schakel de gewenste meldingstypen in of uit\n\nWe raden aan herinneringen voor de dagelijkse les ingeschakeld te laten, zodat je je reeks niet verliest.";
+
 /* Achievements */
 "Достижения" = "Prestaties";
 "Достижение" = "Prestatie";
@@ -633,10 +683,15 @@
 "Снайпер" = "Sluipschutter";
 "Точность 85%" = "Bereik een nauwkeurigheid van 85%";
 "Серебряная лига" = "Zilveren Liga";
+"Достигните Серебра" = "Bereik Zilver";
 "Золотая лига" = "Gouden Liga";
+"Достигните Золота" = "Bereik Goud";
 "Платиновая лига" = "Platina Liga";
-"Алмазная лига" = "Diamond League";
+"Достигните Платины" = "Bereik Platina";
+"Алмазная лига" = "Diamanten Liga";
+"Достигните Алмаза" = "Bereik Diamant";
 "Мастер лиг" = "Liga Meester";
+"Достигните Мастера" = "Bereik Meester";
 "Первый друг" = "Eerste vriend";
 "Добавьте друга" = "Voeg een vriend toe";
 "Своя команда" = "Jouw team";
@@ -646,6 +701,7 @@
 "Спринтер" = "Snelheidsracer";
 "Сыграйте 10 игр за день" = "Speel 10 spellen op een dag";
 "XP Олимпиец" = "XP Olympiër";
+"Мастер Олимпиец XP" = "Meester XP Olympiër";
 "Наберите 30000 XP" = "Verdien 30.000 XP";
  
 /* Settings - Added */
@@ -942,6 +998,7 @@
 "Version" = "Versie";
 "Update" = "Bijwerken";
 "Login without @" = "login zonder @";
+"Add by username" = "Toevoegen op gebruikersnaam";
 "Duel Summary" = "Duel-overzicht";
 "No duel history yet" = "Nog geen duelgeschiedenis";
 "You already outranked %d%% of players in your city" = "Je bent al beter dan %d%% van de spelers in jouw stad";
@@ -987,6 +1044,8 @@
 "Start Weak Countries Training" = "Start training zwakke landen";
 "Progress map subtitle" = "Volg je voortgang per land en continent";
 "How is Mastered calculated?" = "Hoe wordt 'Beheerst' berekend?";
+"Duel Summary subtitle" = "Je duelgeschiedenis en gedetailleerde resultaten";
+"F-Bucks subtitle" = "Hoe je F-bucks, de in‑game valuta, verdient en gebruikt";
 "Mastered explanation" = "Een land telt als beheerst wanneer je er minstens 3 keer op hebt geantwoord met minstens 80%% goede antwoorden.";
 "Name" = "Naam";
 "Account login title" = "Maak je account";

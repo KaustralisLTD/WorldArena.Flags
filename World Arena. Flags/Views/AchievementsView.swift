@@ -90,23 +90,26 @@ private struct AchievementCell: View {
     var body: some View {
         VStack(spacing: 8) {
             ZStack {
-                Circle()
-                    .fill(levelAccent)
-                    .frame(width: 72, height: 72)
-                    .overlay(
-                        Circle()
-                            .stroke(levelAccent.opacity(0.45), lineWidth: visualLevel > 0 ? CGFloat(visualLevel) + 1 : 1)
-                    )
-                    .shadow(color: levelAccent.opacity(visualLevel > 0 ? 0.28 : 0), radius: 8, x: 0, y: 4)
-                
-                if isUnlocked {
-                    Image(systemName: definition.icon)
-                        .foregroundColor(.white)
-                        .font(.system(size: 28, weight: .bold))
+                if let asset = definition.imageAssetName {
+                    Image(asset)
+                        .resizable()
+                        .scaledToFit()
+                        .frame(width: 72, height: 72)
+                        .saturation(isUnlocked ? 1 : 0)
+                        .background(Circle().fill(secondarySystemGroupedBackground))
+                        .clipShape(Circle())
                 } else {
-                    Image(systemName: "lock.fill")
-                        .foregroundColor(.gray)
-                        .font(.system(size: 20))
+                    Circle()
+                        .fill(levelAccent)
+                        .frame(width: 72, height: 72)
+                        .overlay(
+                            Circle()
+                                .stroke(levelAccent.opacity(0.45), lineWidth: visualLevel > 0 ? CGFloat(visualLevel) + 1 : 1)
+                        )
+                        .shadow(color: levelAccent.opacity(visualLevel > 0 ? 0.28 : 0), radius: 8, x: 0, y: 4)
+                    Image(systemName: isUnlocked ? definition.icon : "lock.fill")
+                        .foregroundColor(isUnlocked ? .white : .gray)
+                        .font(.system(size: isUnlocked ? 28 : 20, weight: .bold))
                 }
 
                 if visualLevel > 0 {
@@ -179,8 +182,18 @@ struct AchievementDetailView: View {
     var body: some View {
         VStack(spacing: 16) {
             ZStack {
-                Circle().fill(definition.color).frame(width: 120, height: 120)
-                Image(systemName: definition.icon).foregroundColor(.white).font(.system(size: 44, weight: .bold))
+                if let asset = definition.imageAssetName {
+                    Image(asset)
+                        .resizable()
+                        .scaledToFit()
+                        .frame(width: 140, height: 140)
+                        .saturation(isUnlocked ? 1 : 0)
+                        .background(Circle().fill(Color(UIColor.secondarySystemGroupedBackground)))
+                        .clipShape(Circle())
+                } else {
+                    Circle().fill(definition.color).frame(width: 120, height: 120)
+                    Image(systemName: definition.icon).foregroundColor(.white).font(.system(size: 44, weight: .bold))
+                }
             }
             
             Text(LocalizationManager.shared.localizedString(definition.titleKey))

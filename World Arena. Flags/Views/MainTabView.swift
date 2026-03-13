@@ -69,11 +69,18 @@ struct MainTabView: View {
                 .environmentObject(userProfile)
         }
         .onAppear {
+            userProfile.checkAndAwardBirthdayBonusIfNeeded()
             Task {
                 await fetchIncomingDuelChallenges()
                 await registerAndSaveFriendCodeIfNeeded()
                 await refreshFriendsDisplayNames()
                 await checkNudgeInbox()
+                await checkBirthdayGiftsInbox()
+                #if os(iOS)
+                await MainActor.run {
+                    NotificationService.shared.scheduleFriendBirthdayNotificationsIfNeeded(friends: userProfile.friends)
+                }
+                #endif
             }
         }
         .onChange(of: userProfile.selectedCountryCode) { _ in
@@ -106,6 +113,25 @@ struct MainTabView: View {
         guard !userId.isEmpty else { return }
         guard let inbox = try? await DuelAPIService.shared.fetchNudgeInbox(userId: userId), let first = inbox.first else { return }
         await MainActor.run { pendingNudgeAlert = first }
+    }
+
+    private func checkBirthdayGiftsInbox() async {
+        let userId = userProfile.username
+        guard !userId.isEmpty else { return }
+        guard let gifts = try? await DuelAPIService.shared.fetchBirthdayGiftsInbox(userId: userId), !gifts.isEmpty else { return }
+        await MainActor.run {
+            for gift in gifts {
+                switch gift.type {
+                case "xpBoost":
+                    userProfile.activateXPBoost(multiplier: 3, durationMinutes: 10)
+                case "fBucks":
+                    userProfile.addFBucks(1, reason: .birthdayGiftFromFriend)
+                default:
+                    break
+                }
+            }
+        }
+        _ = try? await DuelAPIService.shared.consumeBirthdayGifts(userId: userId)
     }
 
     private func registerAndSaveFriendCodeIfNeeded() async {
@@ -154,7 +180,9 @@ struct MainTabView: View {
                         xp: apiFriend.xp,
                         streak: apiFriend.streak,
                         isOnline: old.isOnline,
-                        joinDate: old.joinDate
+                        joinDate: old.joinDate,
+                        playedToday: apiFriend.playedToday,
+                        birthday: fromAPI.birthday ?? old.birthday
                     )
                 } else {
                     userProfile.friends.append(apiFriend.toFriend())

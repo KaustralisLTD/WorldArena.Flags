@@ -154,6 +154,11 @@ struct ContentView: View {
 
                         ScrollView {
                             VStack(spacing: compactPhone ? 10 : 14) {
+                                if (userProfile.birthday != nil && userProfile.isTodayBirthday(userProfile.birthday!)) || !userProfile.friendsWithBirthdayToday.isEmpty {
+                                    BirthdayBannerView(userProfile: userProfile)
+                                        .padding(.horizontal, 20)
+                                }
+
                                 if shouldShowFirstRunMotivation {
                                     FirstRunMotivationCardView(
                                         percentile: cityLeaderboardPercentile,
@@ -582,44 +587,14 @@ struct FBucksChipView: View {
     var size: Size = .compact
     
     private var chipDiameter: CGFloat { size == .compact ? 44 : 64 }
-    private var fontSize: CGFloat { size == .compact ? 18 : 28 }
     private var countFontSize: CGFloat { size == .compact ? 14 : 20 }
     
     var body: some View {
         HStack(spacing: size == .compact ? 6 : 10) {
-            ZStack {
-                Circle()
-                    .fill(
-                        LinearGradient(
-                            colors: [
-                                Color(red: 0.85, green: 0.65, blue: 0.2),
-                                Color(red: 0.7, green: 0.5, blue: 0.15)
-                            ],
-                            startPoint: .topLeading,
-                            endPoint: .bottomTrailing
-                        )
-                    )
-                    .frame(width: chipDiameter, height: chipDiameter)
-                    .overlay(
-                        Circle()
-                            .stroke(
-                                LinearGradient(
-                                    colors: [
-                                        Color(red: 0.95, green: 0.8, blue: 0.35),
-                                        Color(red: 0.55, green: 0.4, blue: 0.1)
-                                    ],
-                                    startPoint: .topLeading,
-                                    endPoint: .bottomTrailing
-                                ),
-                                lineWidth: size == .compact ? 2.5 : 3
-                            )
-                    )
-                    .shadow(color: .black.opacity(0.35), radius: 2, x: 0, y: 2)
-                Text("F")
-                    .font(.system(size: fontSize, weight: .black, design: .rounded))
-                    .foregroundColor(.white)
-                    .shadow(color: .black.opacity(0.4), radius: 0.5, x: 0, y: 1)
-            }
+            Image("FBucksLogo")
+                .resizable()
+                .scaledToFit()
+                .frame(width: chipDiameter, height: chipDiameter)
             Text("\(count)")
                 .font(.system(size: countFontSize, weight: .bold, design: .rounded))
                 .foregroundColor(.primary)
@@ -634,6 +609,7 @@ struct FBucksChipView: View {
 // MARK: - Lives info bar on Home
 struct LivesInfoBar: View {
     @ObservedObject var gameState: GameState
+    @ObservedObject private var localizationManager = LocalizationManager.shared
     @Environment(\.scenePhase) private var scenePhase
     var largeText: Bool = false
     @State private var showTooltip = false
@@ -660,11 +636,12 @@ struct LivesInfoBar: View {
         HStack(spacing: 12) {
             if gameState.isPremium {
                 ZStack {
-                    Image(systemName: "heart.circle.fill")
-                        .font(.system(size: largeText ? 24 : 20, weight: .semibold))
-                        .foregroundColor(.pink)
+                    Image(localizationManager.lifeHeartAssetName)
+                        .resizable()
+                        .scaledToFit()
+                        .frame(width: largeText ? 72 : 60, height: largeText ? 72 : 60)
                     Image(systemName: "infinity")
-                        .font(.system(size: largeText ? 13 : 11, weight: .bold))
+                        .font(.system(size: largeText ? 20 : 16, weight: .bold))
                         .foregroundColor(.white)
                         .offset(y: 0.5)
                 }
@@ -675,10 +652,10 @@ struct LivesInfoBar: View {
                     .foregroundColor(.primary)
                 Spacer()
             } else {
-                // Для обычных пользователей: ограничиваем размер шрифта, чтобы при увеличенном тексте шапка не занимала весь экран и кнопка «ПОЧАТИ ГРУ» помещалась
-                Image(systemName: "heart.fill")
-                    .font(.system(size: largeText ? 20 : 16, weight: .semibold))
-                    .foregroundColor(.red)
+                Image(localizationManager.lifeHeartAssetName)
+                    .resizable()
+                    .scaledToFit()
+                    .frame(width: largeText ? 60 : 48, height: largeText ? 60 : 48)
                 Text("\(LocalizationManager.shared.localizedString("Lives")): \(String(gameState.lives))")
                     .font(.system(size: largeText ? 20 : 16, weight: .semibold))
                     .lineLimit(1)
@@ -710,7 +687,7 @@ struct LivesInfoBar: View {
                     Text(LocalizationManager.shared.localizedString("Your Premium benefits"))
                         .font(.headline)
                     VStack(alignment: .leading, spacing: 6) {
-                        Label(LocalizationManager.shared.localizedString("Unlimited Hearts"), systemImage: "heart.fill")
+                        Label(LocalizationManager.shared.localizedString("Unlimited Hearts"), image: LocalizationManager.shared.lifeHeartAssetName)
                             .font(.subheadline)
                         Label(LocalizationManager.shared.localizedString("Personalized Practice"), systemImage: "star.fill")
                             .font(.subheadline)
@@ -821,6 +798,7 @@ private struct LivesUpgradePromoView: View {
                         VStack(spacing: 12) {
                             PromoFeatureRow(
                                 icon: "heart.fill",
+                                iconImageName: localizationManager.lifeHeartAssetName,
                                 color: .red,
                                 title: localizationManager.localizedString("Unlimited Hearts"),
                                 subtitle: localizationManager.localizedString("Play without waiting and keep your learning momentum")
@@ -903,18 +881,27 @@ private struct LivesUpgradePromoView: View {
 
 private struct PromoFeatureRow: View {
     let icon: String
+    var iconImageName: String? = nil
     let color: Color
     let title: String
     let subtitle: String
 
     var body: some View {
         HStack(alignment: .top, spacing: 12) {
-            Image(systemName: icon)
-                .font(.system(size: 17, weight: .semibold))
-                .foregroundColor(.white)
-                .frame(width: 34, height: 34)
-                .background(color)
-                .clipShape(RoundedRectangle(cornerRadius: 10, style: .continuous))
+            Group {
+                if let name = iconImageName {
+                    Image(name)
+                        .resizable()
+                        .scaledToFit()
+                } else {
+                    Image(systemName: icon)
+                        .font(.system(size: 17, weight: .semibold))
+                        .foregroundColor(.white)
+                }
+            }
+            .frame(width: 34, height: 34)
+            .background(iconImageName != nil ? Color.clear : color)
+            .clipShape(RoundedRectangle(cornerRadius: 10, style: .continuous))
 
             VStack(alignment: .leading, spacing: 2) {
                 Text(title)
@@ -1218,6 +1205,108 @@ struct DifficultySelectionView: View {
         } else {
             return difficulty.description
         }
+    }
+}
+
+// MARK: - Birthday banner (главный экран: свой ДР или день рождения друга)
+private struct BirthdayBannerView: View {
+    @ObservedObject var userProfile: UserProfile
+    @ObservedObject private var localizationManager = LocalizationManager.shared
+    @State private var isHidden: Bool = false
+
+    var body: some View {
+        Group {
+            if !isHidden {
+                if userProfile.birthday != nil && userProfile.isTodayBirthday(userProfile.birthday!) {
+                    myBirthdayBanner
+                } else if let first = userProfile.friendsWithBirthdayToday.first {
+                    friendBirthdayBanner(friend: first, total: userProfile.friendsWithBirthdayToday.count)
+                }
+            }
+        }
+        .animation(.easeInOut(duration: 0.2), value: isHidden)
+    }
+
+    private var myBirthdayBanner: some View {
+        let currentYear = Calendar.current.component(.year, from: Date())
+        let claimedThisYear = userProfile.birthdayBonusClaimedYear == currentYear
+        let justAwarded = userProfile.birthdayBonusJustAwarded && claimedThisYear
+
+        return HStack(spacing: 12) {
+            Image(systemName: "gift.fill")
+                .font(.system(size: 24))
+                .foregroundColor(.orange)
+            VStack(alignment: .leading, spacing: 2) {
+                Text(localizationManager.localizedString("С днём рождения!"))
+                    .font(.system(size: 16, weight: .semibold))
+                    .foregroundColor(.primary)
+                Text(justAwarded
+                     ? localizationManager.localizedString("Birthday bonus F-bucks message")
+                     : localizationManager.localizedString("Birthday bonus already claimed"))
+                    .font(.system(size: 13))
+                    .foregroundColor(.secondary)
+            }
+            Spacer(minLength: 0)
+            Button(action: { isHidden = true }) {
+                Image(systemName: "xmark.circle.fill")
+                    .font(.system(size: 18, weight: .semibold))
+                    .foregroundColor(.secondary.opacity(0.8))
+            }
+            .buttonStyle(.plain)
+        }
+        .padding(14)
+        .background(
+            RoundedRectangle(cornerRadius: 14, style: .continuous)
+                .fill(Color.orange.opacity(0.12))
+                .overlay(
+                    RoundedRectangle(cornerRadius: 14, style: .continuous)
+                        .stroke(Color.orange.opacity(0.3), lineWidth: 1)
+                )
+        )
+        .contentShape(Rectangle())
+        .gesture(
+            DragGesture(minimumDistance: 10)
+                .onEnded { value in
+                    if value.translation.width < -40 {
+                        isHidden = true
+                    }
+                }
+        )
+        .onAppear {
+            // После показа считаем, что «только что начислено» уже донесли до пользователя
+            if userProfile.birthdayBonusJustAwarded {
+                userProfile.birthdayBonusJustAwarded = false
+            }
+        }
+    }
+
+    private func friendBirthdayBanner(friend: Friend, total: Int) -> some View {
+        let title = total > 1
+            ? String(format: localizationManager.localizedString("Friends birthday today count"), total)
+            : String(format: localizationManager.localizedString("Friend birthday today"), friend.displayNameOrUsername)
+        return HStack(spacing: 12) {
+            Image(systemName: "birthday.cake.fill")
+                .font(.system(size: 24))
+                .foregroundColor(.pink)
+            VStack(alignment: .leading, spacing: 2) {
+                Text(title)
+                    .font(.system(size: 16, weight: .semibold))
+                    .foregroundColor(.primary)
+                Text(localizationManager.localizedString("Friend birthday congratulate hint"))
+                    .font(.system(size: 13))
+                    .foregroundColor(.secondary)
+            }
+            Spacer(minLength: 0)
+        }
+        .padding(14)
+        .background(
+            RoundedRectangle(cornerRadius: 14, style: .continuous)
+                .fill(Color.pink.opacity(0.12))
+                .overlay(
+                    RoundedRectangle(cornerRadius: 14, style: .continuous)
+                        .stroke(Color.pink.opacity(0.3), lineWidth: 1)
+                )
+        )
     }
 }
 

@@ -173,6 +173,7 @@ struct GameResultView: View {
                         oldValue: appliedXPBoostMultiplier > 1 ? "\(baseXP)" : nil,
                         boostMultiplier: appliedXPBoostMultiplier,
                         icon: "⚡",
+                        iconImageName: "ResultXP",
                         color: .orange,
                         isVisible: showStats,
                         delay: 0
@@ -182,6 +183,7 @@ struct GameResultView: View {
                         title: localizationManager.localizedString("ACCURACY"),
                         value: accuracyValue,
                         icon: "🎯",
+                        iconImageName: "ResultAccuracy",
                         color: .green,
                         isVisible: showStats,
                         delay: 0.1
@@ -191,17 +193,17 @@ struct GameResultView: View {
                         title: localizationManager.localizedString("TIME"),
                         value: formattedTime,
                         icon: "⏱️",
+                        iconImageName: "ResultTime",
                         color: .blue,
                         isVisible: showStats,
                         delay: 0.2
                     )
 
                     if earnedFBucks > 0 {
-                        EnhancedStatCard(
+                        FBucksEarnedCard(
                             title: localizationManager.localizedString("F-BUCKS EARNED"),
-                            value: "+\(earnedFBucks)",
-                            icon: "💰",
-                            color: .yellow,
+                            earned: earnedFBucks,
+                            iconImageName: "ResultFBucks",
                             isVisible: showStats,
                             delay: 0.3
                         )
@@ -520,6 +522,8 @@ struct EnhancedStatCard: View {
     var oldValue: String? = nil
     var boostMultiplier: Int = 1
     let icon: String
+    /// Имя изображения в Assets для иконки (если задано — показывается вместо emoji).
+    var iconImageName: String? = nil
     let color: Color
     let isVisible: Bool
     let delay: Double
@@ -565,10 +569,19 @@ struct EnhancedStatCard: View {
                             )
                     )
                 
-            Text(icon)
-                    .font(.system(size: 20, weight: .bold))
-                    .scaleEffect(iconBounce ? 1.2 : 1.0)
-                    .animation(.spring(response: 0.4, dampingFraction: 0.6), value: iconBounce)
+                if let name = iconImageName {
+                    Image(name)
+                        .resizable()
+                        .scaledToFit()
+                        .frame(width: 36, height: 36)
+                        .scaleEffect(iconBounce ? 1.1 : 1.0)
+                        .animation(.spring(response: 0.4, dampingFraction: 0.6), value: iconBounce)
+                } else {
+                    Text(icon)
+                        .font(.system(size: 20, weight: .bold))
+                        .scaleEffect(iconBounce ? 1.2 : 1.0)
+                        .animation(.spring(response: 0.4, dampingFraction: 0.6), value: iconBounce)
+                }
             }
             
             VStack(spacing: 1) {
@@ -785,6 +798,80 @@ struct EnhancedStatCard: View {
             .replacingOccurrences(of: "min", with: "")
             .replacingOccurrences(of: " ", with: "")
         return Double(cleanValue)
+    }
+}
+
+// Карточка награды F-Bucks с миниатюрой (чип)
+private struct FBucksEarnedCard: View {
+    let title: String
+    let earned: Int
+    var iconImageName: String? = "ResultFBucks"
+    let isVisible: Bool
+    let delay: Double
+    private let color: Color = .yellow
+    @State private var cardScale: CGFloat = 0.8
+
+    var body: some View {
+        VStack(spacing: 8) {
+            ZStack {
+                Circle()
+                    .fill(color.opacity(0.15))
+                    .frame(width: 50, height: 50)
+                if let name = iconImageName {
+                    Image(name)
+                        .resizable()
+                        .scaledToFit()
+                        .frame(width: 44, height: 44)
+                } else {
+                    FBucksChipView(count: earned, size: .compact)
+                }
+            }
+            Text("+\(earned)")
+                .font(.system(size: 20, weight: .heavy, design: .rounded))
+                .foregroundStyle(
+                    LinearGradient(
+                        colors: [color, color.opacity(0.8)],
+                        startPoint: .leading,
+                        endPoint: .trailing
+                    )
+                )
+            Text(title)
+                .font(.system(size: 9, weight: .semibold, design: .rounded))
+                .foregroundColor(.secondary)
+                .textCase(.uppercase)
+                .multilineTextAlignment(.center)
+                .lineLimit(2)
+        }
+        .frame(maxWidth: .infinity)
+        .frame(height: 120)
+        .background(
+            RoundedRectangle(cornerRadius: 20)
+                .fill(.ultraThinMaterial, style: FillStyle())
+                .overlay(
+                    RoundedRectangle(cornerRadius: 20)
+                        .fill(
+                            LinearGradient(
+                                colors: [color.opacity(0.05), Color.clear, color.opacity(0.03)],
+                                startPoint: .topLeading,
+                                endPoint: .bottomTrailing
+                            )
+                        )
+                )
+                .overlay(
+                    RoundedRectangle(cornerRadius: 20)
+                        .stroke(color.opacity(0.3), lineWidth: 1)
+                )
+        )
+        .shadow(color: color.opacity(0.15), radius: 8, x: 0, y: 4)
+        .scaleEffect(cardScale)
+        .opacity(isVisible ? 1 : 0)
+        .onAppear {
+            if isVisible {
+                withAnimation(.spring(response: 0.8, dampingFraction: 0.8).delay(delay)) {
+                    cardScale = 1.0
+                }
+            }
+        }
     }
 }
 

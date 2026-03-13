@@ -17,6 +17,8 @@ struct FBucksTransaction: Identifiable, Codable {
         case dailyGift = "daily_gift" // Подарок за ежедневные квесты
         case leagueReward = "league_reward" // Награда за повышение в лиге
         case registrationBonus = "registration_bonus" // Бонус за регистрацию
+        case birthday = "birthday" // Поздравление с днём рождения (+10 F-bucks)
+        case birthdayGiftFromFriend = "birthday_gift_from_friend" // Подарок от друга на ДР
 
         nonisolated(unsafe) var localizedDescription: String {
             return MainActor.assumeIsolated {
@@ -31,6 +33,8 @@ struct FBucksTransaction: Identifiable, Codable {
                 case .dailyGift: return L.localizedString("Подарок за квесты")
                 case .leagueReward: return L.localizedString("Награда за лигу")
                 case .registrationBonus: return L.localizedString("Бонус за регистрацию")
+                case .birthday: return L.localizedString("День рождения")
+                case .birthdayGiftFromFriend: return L.localizedString("Подарок на ДР от друга")
                 }
             }
         }
@@ -126,7 +130,13 @@ class UserProfile: ObservableObject {
     @Published var outgoingDuelChallenges: [DuelChallenge] = [] { didSet { saveDuelChallenges() } }
     /// Входящие вызовы на дуэль (мне бросили; заполняется с push/сервера)
     @Published var incomingDuelChallenges: [DuelChallenge] = [] { didSet { saveDuelChallenges() } }
-    
+    /// День рождения (опционально); используется для поздравления +10 F-bucks раз в год
+    @Published var birthday: Date? = nil { didSet { saveIfReady() } }
+    /// Год, в котором уже начислен бонус за ДР (чтобы не давать повторно при смене даты)
+    @Published var birthdayBonusClaimedYear: Int? = nil { didSet { saveIfReady() } }
+    /// Флаг «бонус за ДР только что начислен в этом сеансе» — для текста баннера
+    @Published var birthdayBonusJustAwarded: Bool = false
+
     // Computed properties
     /// Точность: доля правильных ответов от всех данных ответов (вопросов)
     var accuracy: Double {
@@ -233,6 +243,36 @@ class UserProfile: ObservableObject {
         addFBucks(amount, reason: .perfectGame)
     }
     
+    /// Проверяет, совпадает ли сегодня с днём рождения (только месяц и день).
+    func isTodayBirthday(_ date: Date) -> Bool {
+        let cal = Calendar.current
+        return cal.component(.month, from: date) == cal.component(.month, from: Date())
+            && cal.component(.day, from: date) == cal.component(.day, from: Date())
+    }
+
+    /// Начислить бонус за ДР (+10 F-bucks) не более одного раза в год; при смене даты повторно не начисляем.
+    func checkAndAwardBirthdayBonusIfNeeded() {
+        guard let bday = birthday else { return }
+        let year = Calendar.current.component(.year, from: Date())
+        if birthdayBonusClaimedYear == year { return }
+        if !isTodayBirthday(bday) { return }
+        addFBucks(10, reason: .birthday)
+        birthdayBonusClaimedYear = year
+        birthdayBonusJustAwarded = true
+    }
+
+    /// Друзья, у которых сегодня день рождения (по месяцу и дню).
+    var friendsWithBirthdayToday: [Friend] {
+        let today = Date()
+        let cal = Calendar.current
+        let month = cal.component(.month, from: today)
+        let day = cal.component(.day, from: today)
+        return friends.filter { friend in
+            guard let b = friend.birthday else { return false }
+            return cal.component(.month, from: b) == month && cal.component(.day, from: b) == day
+        }
+    }
+
     /// Проверка и начисление F-bucks за серии дней (10, 20, 50, 100)
     func checkAndAwardStreakFBucks() {
         let milestones: [(days: Int, reward: Int, reason: FBucksTransaction.FBucksReason)] = [
@@ -396,6 +436,8 @@ class UserProfile: ObservableObject {
         let dailyXP: [String: Int]
         let fBucks: Int?
         let fBucksHistory: [FBucksTransaction]?
+        let birthday: Date?
+        let birthdayBonusClaimedYear: Int?
     }
 
     private func saveIfReady() {
@@ -426,7 +468,9 @@ class UserProfile: ObservableObject {
             playedDates: playedDates,
             dailyXP: dailyXP,
             fBucks: fBucks,
-            fBucksHistory: fBucksHistory
+            fBucksHistory: fBucksHistory,
+            birthday: birthday,
+            birthdayBonusClaimedYear: birthdayBonusClaimedYear
         )
         do {
             let data = try JSONEncoder().encode(toSave)
@@ -469,6 +513,8 @@ class UserProfile: ObservableObject {
             self.dailyXP = obj.dailyXP
             self.fBucks = obj.fBucks ?? 0
             self.fBucksHistory = obj.fBucksHistory ?? []
+            self.birthday = obj.birthday
+            self.birthdayBonusClaimedYear = obj.birthdayBonusClaimedYear
             ensureNonNegativeCriticalFields()
         } catch {
             print("❌ Failed to load user profile:", error)
@@ -855,7 +901,27 @@ enum League: String, CaseIterable {
         case .master: return "star.fill"
         }
     }
-    
+
+    /// Имя изображения в Assets для миниатюры лиги (цветная — когда достигнута)
+    var imageAssetName: String {
+        switch self {
+        case .bronze: return "LeagueBronze"
+        case .silver: return "LeagueSilver"
+        case .gold: return "LeagueGold"
+        case .platinum: return "LeaguePlatinum"
+        case .diamond: return "LeagueDiamond"
+        case .master: return "LeagueMaster"
+        }
+    }
+
+    /// Лига достигнута пользователем (текущая лига >= этой)
+    func isReached(by current: League) -> Bool {
+        let all = League.allCases
+        guard let myIndex = all.firstIndex(of: self),
+              let currentIndex = all.firstIndex(of: current) else { return false }
+        return currentIndex >= myIndex
+    }
+
     var xpRequirement: Int {
         switch self {
         case .bronze: return 0
@@ -923,12 +989,53 @@ enum QuestType {
 // MARK: - Achievement
 struct Achievement: Identifiable, Codable {
     let id: UUID
+    /// Идентификатор из AchievementDefinition (например "xp_5000") для проверки разблокировки.
+    let definitionId: String?
     let title: String
     let description: String
     let icon: String
     let color: Color
     let unlockedDate: Date
     let rarity: AchievementRarity
+
+    init(id: UUID, definitionId: String? = nil, title: String, description: String, icon: String, color: Color, unlockedDate: Date, rarity: AchievementRarity) {
+        self.id = id
+        self.definitionId = definitionId
+        self.title = title
+        self.description = description
+        self.icon = icon
+        self.color = color
+        self.unlockedDate = unlockedDate
+        self.rarity = rarity
+    }
+
+    enum CodingKeys: String, CodingKey {
+        case id, definitionId, title, description, icon, color, unlockedDate, rarity
+    }
+
+    init(from decoder: Decoder) throws {
+        let c = try decoder.container(keyedBy: CodingKeys.self)
+        id = try c.decode(UUID.self, forKey: .id)
+        definitionId = try c.decodeIfPresent(String.self, forKey: .definitionId)
+        title = try c.decode(String.self, forKey: .title)
+        description = try c.decode(String.self, forKey: .description)
+        icon = try c.decode(String.self, forKey: .icon)
+        color = try c.decode(Color.self, forKey: .color)
+        unlockedDate = try c.decode(Date.self, forKey: .unlockedDate)
+        rarity = try c.decode(AchievementRarity.self, forKey: .rarity)
+    }
+
+    func encode(to encoder: Encoder) throws {
+        var c = encoder.container(keyedBy: CodingKeys.self)
+        try c.encode(id, forKey: .id)
+        try c.encodeIfPresent(definitionId, forKey: .definitionId)
+        try c.encode(title, forKey: .title)
+        try c.encode(description, forKey: .description)
+        try c.encode(icon, forKey: .icon)
+        try c.encode(color, forKey: .color)
+        try c.encode(unlockedDate, forKey: .unlockedDate)
+        try c.encode(rarity, forKey: .rarity)
+    }
 }
 
 enum AchievementRarity: Codable {
@@ -957,16 +1064,20 @@ struct Friend: Identifiable, Codable {
     let streak: Int
     let isOnline: Bool
     let joinDate: Date
+    /// true если друг уже играл сегодня (показываем огонёк и дни, иначе кнопку «Напомнить»).
+    var playedToday: Bool
+    /// День рождения (опционально; с сервера или локально) — для уведомления «Поздравьте друга».
+    var birthday: Date?
 
     /// Имя, которое показываем в UI (у друзей — актуальное с сервера).
     var displayNameOrUsername: String { displayName ?? username }
 
     enum CodingKeys: String, CodingKey {
         case id, username, displayName, avatar, level, xp, streak, isOnline, joinDate
-        case countryCode
+        case countryCode, playedToday, birthday
     }
 
-    init(id: UUID, username: String, displayName: String? = nil, avatar: String, countryCode: String? = nil, level: Int, xp: Int, streak: Int, isOnline: Bool, joinDate: Date) {
+    init(id: UUID, username: String, displayName: String? = nil, avatar: String, countryCode: String? = nil, level: Int, xp: Int, streak: Int, isOnline: Bool, joinDate: Date, playedToday: Bool = false, birthday: Date? = nil) {
         self.id = id
         self.username = username
         self.displayName = displayName
@@ -977,6 +1088,8 @@ struct Friend: Identifiable, Codable {
         self.streak = streak
         self.isOnline = isOnline
         self.joinDate = joinDate
+        self.playedToday = playedToday
+        self.birthday = birthday
     }
 
     init(from decoder: Decoder) throws {
@@ -991,6 +1104,8 @@ struct Friend: Identifiable, Codable {
         streak = try c.decode(Int.self, forKey: .streak)
         isOnline = try c.decode(Bool.self, forKey: .isOnline)
         joinDate = try c.decode(Date.self, forKey: .joinDate)
+        playedToday = try c.decodeIfPresent(Bool.self, forKey: .playedToday) ?? false
+        birthday = try c.decodeIfPresent(Date.self, forKey: .birthday)
     }
 
     func encode(to encoder: Encoder) throws {
@@ -1005,6 +1120,8 @@ struct Friend: Identifiable, Codable {
         try c.encode(streak, forKey: .streak)
         try c.encode(isOnline, forKey: .isOnline)
         try c.encode(joinDate, forKey: .joinDate)
+        try c.encode(playedToday, forKey: .playedToday)
+        try c.encodeIfPresent(birthday, forKey: .birthday)
     }
 }
 

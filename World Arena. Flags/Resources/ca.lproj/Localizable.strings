@@ -37,6 +37,49 @@
 "Макс. XP" = "XP màx.";
 "Открыто" = "Desblocat";
 
+/* Achievement titles/descriptions */
+"Ранняя птица" = "Ocella matiner";
+"Достигните серии 5 дней" = "Assoleix una ratxa de 5 dies";
+"Стабильность" = "Constància";
+"Серия 10 дней" = "Ratxa de 10 dies";
+"Железная воля" = "Voluntat de ferro";
+"Серия 30 дней" = "Ratxa de 30 dies";
+"Новичок XP" = "Principiant XP";
+"Наберите 1000 XP" = "Guanya 1000 XP";
+"Олимпиец XP" = "Olimpic XP";
+"Наберите 5000 XP" = "Guanya 5000 XP";
+"Легенда XP" = "Llegenda XP";
+"Наберите 10000 XP" = "Guanya 10000 XP";
+"Исследователь" = "Explorador";
+"Сыграйте 20 игр" = "Juga 20 partides";
+"Ветеран" = "Veterà";
+"Сыграйте 100 игр" = "Juga 100 partides";
+"Меткий стрелок" = "Bon tirador";
+"Точность 70%" = "Assoleix 70% de precisió";
+"Снайпер" = "Franctirador";
+"Точность 85%" = "Assoleix 85% de precisió";
+"Серебряная лига" = "Lliga de plata";
+"Достигните Серебра" = "Assoleix la Plata";
+"Золотая лига" = "Lliga d'or";
+"Достигните Золота" = "Assoleix l'Or";
+"Платиновая лига" = "Lliga de platí";
+"Достигните Платины" = "Assoleix el Platí";
+"Алмазная лига" = "Lliga de diamant";
+"Достигните Алмаза" = "Assoleix el Diamant";
+"Мастер лиг" = "Mestre de la Lliga";
+"Достигните Мастера" = "Assoleix el Mestre";
+"Первый друг" = "Primer amic";
+"Добавьте друга" = "Afegeix un amic";
+"Своя команда" = "El teu equip";
+"Добавьте 5 друзей" = "Afegeix 5 amics";
+"Расскажите друзьям" = "Corre la veu";
+"Поделитесь профилем" = "Comparteix el perfil";
+"Спринтер" = "Esprintador";
+"Сыграйте 10 игр за день" = "Juga 10 partides en un dia";
+"XP Олимпиец" = "Olimpic XP";
+"Мастер Олимпиец XP" = "Mestre Olímpic XP";
+"Наберите 30000 XP" = "Guanya 30000 XP";
+
 /* Profile */
 "League" = "Lliga";
 "Following" = "Amics";
@@ -332,6 +375,11 @@
 "System" = "Sistema";
 "Light" = "Clara";
 "Dark" = "Fosca";
+"Тема" = "Tema";
+"Выберите тему оформления приложения" = "Trieu el tema de l'aplicació";
+"Следует системным настройкам" = "Segueix la configuració del sistema";
+"Светлое оформление" = "Aparença clara";
+"Темное оформление" = "Aparença fosca";
 
 // Caribbean capitals
 "Philipsburg" = "Philipsburg";
@@ -396,6 +444,52 @@
 "Как работают лиги?" = "Com funcionen les lligues?";
 "Система рейтингов и соревнований" = "Sistema de classificació i competició";
 "HELP_LEAGUES_TEXT" = "Les lligues són competicions amb altres jugadors.\n\nLligues (de menor a major):\n• Bronze\n• Plata\n• Or\n• Platí\n• Diamant\n• Mestre\n\nActualització setmanal:\n• Els 3 primers reben recompenses\n• Els llocs 16–20 poden baixar\n• La resta es mantenen a la mateixa lliga";
+
+/* Birthday */
+"День рождения" = "Aniversari";
+"Birthday description F-bucks" = "Permeteu-nos felicitar-vos l’aniversari amb +10 F-bucks";
+"Очистить" = "Netejar";
+"День рождения друга" = "Aniversari d’un amic";
+"Friend birthday push body" = "Avui %@ celebra l’aniversari — felicita’l! (regala +10 min de Triple XP o +1 F-bucks)";
+"С днём рождения!" = "Feliç aniversari!";
+"Birthday bonus already claimed" = "El bonus d’aquest any ja s’ha atorgat";
+"Birthday bonus F-bucks message" = "Has rebut +10 F-bucks";
+"Friend birthday today" = "Avui és l’aniversari de %@";
+"Friends birthday today count" = "%d amics fan anys avui";
+"Friend birthday congratulate hint" = "Felicita’ls: regala +10 min de Triple XP o +1 F-bucks";
+"Подарок на ДР от друга" = "Regal d’aniversari d’un amic";
+
+/* Help Center – profile & skin */
+"Как изменить аватар?" = "Com canviar l’avatar?";
+"Персонализация профиля" = "Personalització del perfil";
+"HELP_PROFILE_AVATAR" = "Per canviar l’avatar:\n1. Obre la pestanya Perfil\n2. Toca la icona d’engranatge (Ajustos)\n3. Tria \"Perfil d’usuari\"\n4. Selecciona un nou avatar o puja una foto\n5. Toca \"Desar\"";
+"Как работает создание скина?" = "Com funciona l’editor de skin?";
+"Редактор аватара и элементы" = "Editor d’avatar i elements";
+"HELP_PROFILE_SKIN_EDITOR" = "A l’editor de skin crees el teu aspecte a partir de diverses categories:\n• Roba (Clothing)\n• Accessoris (Accessories)\n• Ulleres (Glasses)\n• To de pell (Skin Tone)\n• Cabell (Hair)\n• Cara (Face: ulls, boca, etc.)\n\nCom utilitzar‑lo:\n1. Obre Perfil → Ajustos → Perfil d’usuari → Editar avatar\n2. Ves a la pestanya \"Create skin\"\n3. Tria una categoria a la barra superior (icones de barret, samarreta, ulleres, paleta, etc.)\n4. A baix selecciona un element concret: apareixerà immediatament a la previsualització\n5. Toca \"Save Avatar\" per aplicar el skin al perfil\n\nAlguns elements poden estar bloquejats (icona de cadenat): es desbloquegen amb el progrés o amb F‑bucks.";
+
+/* Help Center – friends & social */
+"Как добавить друзей?" = "Com afegir amics?";
+"Социальные функции" = "Funcions socials";
+"HELP_SOCIAL_ADD_FRIENDS" = "Per afegir amics:\n1. Obre la pestanya Perfil\n2. Toca \"Afegir amics\"\n3. Comparteix el teu codi d’amic o introdueix el codi / login d’un altre jugador\n4. Envia la sol·licitud d’amistat\n\nAmb els amics pots:\n• Comparar estadístiques\n• Veure el seu progrés\n• Competir en lligues i duels";
+"Как работают напоминания друзьям?" = "Com funcionen els recordatoris als amics?";
+"Пуш-уведомления о ежедневном уроке" = "Notificacions push sobre la lliçó diària";
+"HELP_SOCIAL_REMINDERS" = "Després d’una partida veuràs una pantalla amb els teus amics i les seves sèries:\n• Els que ja han jugat avui mostren una flama i el nombre de dies en sèrie\n• Els que encara no han jugat avui mostren el botó \"Recordar\"\n\nCom enviar un recordatori:\n1. Després de la partida, ves a la pantalla \"Recordar amics\"\n2. Toca \"Recordar\" al costat de l’amic corresponent\n3. Si té les notificacions activades, rebrà un push indicant que la lliçó diària encara no està feta\n\nEls recordatoris ajuden els amics a no perdre la sèrie i a estudiar de manera regular.";
+
+/* Help Center – duel & progress */
+"Что такое дуэль и как её начать?" = "Què és un duel i com començar‑lo?";
+"Режим соревнований 1 на 1" = "Mode de competició 1 contra 1";
+"HELP_GAME_DUEL" = "El duel és un mode en què tu i el teu amic responeu a les mateixes preguntes per comparar resultats.\n\nCom iniciar un duel:\n1. Obre el perfil de l’amic (des d’Amics, Lligues o recordatoris)\n2. Toca el botó \"Challenge to Duel\"\n3. Confirma: el duel utilitzarà un conjunt compartit de preguntes\n\nAl final:\n• Veuràs qui ha aconseguit més punts\n• El duel motiva i impulsa el progrés, però NO restableix la teva sèrie diària";
+"Как зарабатывать и тратить F-bucks?" = "Com guanyar i gastar F‑bucks?";
+"Внутриигровая валюта" = "Moneda del joc";
+"HELP_PROGRESS_FBUCKS" = "Els F‑bucks (Flags Bucks) són la moneda interna de World Arena Flags.\n\nCom guanyar F‑bucks:\n• Per partides perfectes (totes les respostes correctes)\n• Per sèries diàries llargues\n• Per completar missions i assoliments\n\nEn què gastar‑los:\n• Compra d’elements exclusius de skin i avatar\n• Desbloqueig d’accessoris i efectes rars\n\nImportant: els F‑bucks no són diners reals. No es poden retirar ni canviar per moneda real.";
+"Как работают квесты и достижения?" = "Com funcionen les missions i els assoliments?";
+"Месячные задания и артефакты" = "Missions mensuals i artefactes";
+"HELP_PROGRESS_QUESTS" = "A la pestanya \"Missions\" veuràs:\n• Missions diàries (si n’hi ha)\n• Missions mensuals i progrés total 0–40\n\nCom funciona:\n1. Completa tasques: juga el nombre requerit de partides, endevina banderes de regions concretes, etc.\n2. Cada missió completada dóna progrés i recompenses\n3. El progrés mensual total es mostra al capçalera de color com una barra\n\nEls assoliments (artefactes) es desbloquegen amb condicions especials:\n• Sèries llargues\n• Alta precisió\n• Bones posicions a les lligues\nEls assoliments desbloquejats es mostren al perfil.";
+
+/* Help Center – notifications */
+"Уведомления: какие бывают и как их настроить?" = "Notificacions: quins tipus hi ha i com configurar‑les?";
+"Ежедневный урок, дуэли и напоминания" = "Lliçó diària, duels i recordatoris";
+"HELP_NOTIFICATIONS_TYPES" = "L’aplicació pot enviar diversos tipus de notificacions:\n• Recordatoris de la lliçó diària i de la sèrie\n• Recordatoris als amics i respostes als teus recordatoris\n• Reptes de duel i resultats dels duels\n\nCom gestionar‑les:\n1. Obre els ajustos del dispositiu\n2. Cerca World Arena Flags\n3. Activa o desactiva els tipus de notificació que prefereixis\n\nRecomanem deixar actius els recordatoris de la lliçó diària per no perdre la sèrie.";
 
 // iPad Main Screen
 "Challenge Yourself, Learn the World" = "Desafia't a tu mateix, aprèn el món";
@@ -777,6 +871,7 @@
 "Version" = "Versió";
 "Update" = "Actualitzar";
 "Login without @" = "usuari sense @";
+"Add by username" = "Afegir per nom d'usuari";
 "Duel Summary" = "Resum de duels";
 "No duel history yet" = "Encara no hi ha historial de duels";
 "You already outranked %d%% of players in your city" = "Ja has superat el %d%% dels jugadors de la teva ciutat";
@@ -821,6 +916,8 @@
 "Start Weak Countries Training" = "Iniciar entrenament països dèbils";
 "Progress map subtitle" = "Segueix el teu progrés per país i continent";
 "How is Mastered calculated?" = "Com es calcula «Dominat»?";
+"Duel Summary subtitle" = "El teu historial de duels i resultats detallats";
+"F-Bucks subtitle" = "Com guanyar i utilitzar F-bucks, la moneda del joc";
 "Mastered explanation" = "Un país compta com dominat amb almenys 3 respostes i almenys 80%% d'encerts.";
 "Name" = "Nom";
 "Account login title" = "Crea el teu compte";

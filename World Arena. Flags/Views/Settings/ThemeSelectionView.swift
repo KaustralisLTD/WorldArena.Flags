@@ -40,7 +40,7 @@ struct ThemeSelectionView: View {
                             .foregroundColor(.primary)
                             .multilineTextAlignment(.center)
                         
-                        Text("Выберите тему оформления приложения")
+                        Text(LocalizationManager.shared.localizedString("Выберите тему оформления приложения"))
                             .font(.system(size: 16))
                             .foregroundColor(.secondary)
                             .multilineTextAlignment(.center)
@@ -126,11 +126,11 @@ struct ThemeRow: View {
                 
                 // Theme name
                 VStack(alignment: .leading, spacing: 2) {
-                    Text(NSLocalizedString(theme.localizationKey, comment: ""))
+                    Text(LocalizationManager.shared.localizedString(theme.localizationKey))
                         .font(.system(size: 17, weight: .medium))
                         .foregroundColor(.primary)
                     
-                    Text(themeDescription)
+                    Text(themeDescriptionKey)
                         .font(.system(size: 14))
                         .foregroundColor(.secondary)
                 }
@@ -160,14 +160,14 @@ struct ThemeRow: View {
         }
     }
     
-    private var themeDescription: String {
+    private var themeDescriptionKey: String {
         switch theme {
         case .system:
-            return "Следует системным настройкам"
+            return LocalizationManager.shared.localizedString("Следует системным настройкам")
         case .light:
-            return "Светлое оформление"
+            return LocalizationManager.shared.localizedString("Светлое оформление")
         case .dark:
-            return "Темное оформление"
+            return LocalizationManager.shared.localizedString("Темное оформление")
         }
     }
 }

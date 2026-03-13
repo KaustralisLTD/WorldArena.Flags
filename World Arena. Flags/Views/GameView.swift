@@ -145,12 +145,317 @@ struct HeaderView: View {
     }
 }
 
+// MARK: - life_loss_premium (0.62s): Impact → Crack → Break → Dissolve
+private struct LifeLossCrackShape: Shape {
+    func path(in rect: CGRect) -> Path {
+        let cx = rect.midX
+        let cy = rect.midY
+        var p = Path()
+        p.move(to: CGPoint(x: cx, y: cy))
+        p.addLine(to: CGPoint(x: cx - rect.width * 0.35, y: cy - rect.height * 0.2))
+        p.move(to: CGPoint(x: cx, y: cy))
+        p.addLine(to: CGPoint(x: cx + rect.width * 0.3, y: cy + rect.height * 0.15))
+        p.move(to: CGPoint(x: cx, y: cy))
+        p.addLine(to: CGPoint(x: cx - rect.width * 0.15, y: cy + rect.height * 0.4))
+        p.move(to: CGPoint(x: cx, y: cy))
+        p.addLine(to: CGPoint(x: cx + rect.width * 0.25, y: cy - rect.height * 0.25))
+        return p
+    }
+}
+
+private struct HeartLoseAnimationView: View {
+    let heartAsset: String
+    let size: CGFloat
+    let onComplete: () -> Void
+    private let duration: Double = 0.62
+    @State private var startDate = Date()
+    @State private var hasCompleted = false
+    @ObservedObject private var localizationManager = LocalizationManager.shared
+
+    private var particleColors: [Color] { localizationManager.lifeLossParticleColors }
+
+    private static let particleCount = 8
+    private static let particleAngles: [Double] = [45, 70, 90, 120, 180, 240, 270, 315].map { $0 * .pi / 180 }
+
+    var body: some View {
+        TimelineView(.animation(minimumInterval: 1/60)) { context in
+            let elapsed = context.date.timeIntervalSince(startDate)
+            let p = min(1, elapsed / duration)
+            let impactEnd = 0.12 / duration
+            let crackEnd = 0.28 / duration
+            let breakEnd = 0.48 / duration
+
+            ZStack {
+                if p >= 1 {
+                    Color.clear
+                        .onAppear {
+                            if !hasCompleted { hasCompleted = true; onComplete() }
+                        }
+                }
+
+                if p < crackEnd {
+                    let impactScale = p <= impactEnd ? 1.0 + (0.92 - 1.0) * (p / impactEnd) : 0.92
+                    let impactRotation: Double = {
+                        if p <= impactEnd * 0.4 { return -8 * (p / (impactEnd * 0.4)) }
+                        if p <= impactEnd { return -8 + (5 - (-8)) * ((p - impactEnd * 0.4) / (impactEnd * 0.6)) }
+                        return 5
+                    }()
+                    let redFlash: Double = p <= impactEnd ? (p <= impactEnd * 0.5 ? 0.2 * (p / (impactEnd * 0.5)) : 0.2 * (1 - (p - impactEnd * 0.5) / (impactEnd * 0.5))) : 0
+                    let shakeX: CGFloat = p <= impactEnd ? 0 : crackShakeX(p, impactEnd: impactEnd, crackEnd: crackEnd)
+                    let crackOpacity: Double = p <= impactEnd ? 0 : (p - impactEnd) / (crackEnd - impactEnd)
+                    Image(heartAsset)
+                        .resizable()
+                        .scaledToFit()
+                        .frame(width: size, height: size)
+                        .scaleEffect(impactScale)
+                        .rotationEffect(.degrees(impactRotation))
+                        .overlay(Color.red.opacity(redFlash))
+                        .overlay(
+                            LifeLossCrackShape()
+                                .stroke(Color.white.opacity(0.7), lineWidth: max(1, size * 0.02))
+                                .opacity(crackOpacity)
+                        )
+                        .offset(x: shakeX, y: 0)
+                }
+
+                if p >= crackEnd {
+                    let pieceProgress = p <= breakEnd ? (p - crackEnd) / (breakEnd - crackEnd) : 1
+                    let pieceScale: CGFloat = p <= breakEnd ? 1.0 - (1.0 - 0.86) * pieceProgress : 0.86
+                    let leftX: CGFloat = -10 * pieceProgress
+                    let leftY: CGFloat = 6 * pieceProgress
+                    let rightX: CGFloat = 10 * pieceProgress
+                    let rightY: CGFloat = 6 * pieceProgress
+                    let bottomY: CGFloat = 14 * pieceProgress
+                    Image(heartAsset)
+                        .resizable()
+                        .scaledToFit()
+                        .frame(width: size, height: size)
+                        .scaleEffect(pieceScale)
+                        .rotationEffect(.degrees(-12 * pieceProgress))
+                        .offset(x: leftX, y: leftY)
+                        .opacity(dissolveOpacity(p))
+                        .blur(radius: dissolveBlur(p))
+                    Image(heartAsset)
+                        .resizable()
+                        .scaledToFit()
+                        .frame(width: size, height: size)
+                        .scaleEffect(pieceScale)
+                        .rotationEffect(.degrees(12 * pieceProgress))
+                        .offset(x: rightX, y: rightY)
+                        .opacity(dissolveOpacity(p))
+                        .blur(radius: dissolveBlur(p))
+                    Image(heartAsset)
+                        .resizable()
+                        .scaledToFit()
+                        .frame(width: size, height: size)
+                        .scaleEffect(pieceScale)
+                        .offset(y: bottomY)
+                        .opacity(dissolveOpacity(p))
+                        .blur(radius: dissolveBlur(p))
+                }
+
+                if p >= breakEnd {
+                    let dissolveProgress = (p - breakEnd) / (1 - breakEnd)
+                    ForEach(0..<Self.particleCount, id: \.self) { i in
+                        Circle()
+                            .fill(particleColors[i % particleColors.count].opacity(0.85))
+                            .frame(width: 5, height: 5)
+                            .opacity(1 - dissolveProgress)
+                            .offset(
+                                x: cos(Self.particleAngles[i]) * 30 * dissolveProgress,
+                                y: 18 * dissolveProgress + 8 * sin(Self.particleAngles[i]) * dissolveProgress
+                            )
+                    }
+                }
+            }
+            .allowsHitTesting(false)
+        }
+        .onAppear { startDate = Date() }
+    }
+
+    private func crackShakeX(_ p: Double, impactEnd: Double, crackEnd: Double) -> CGFloat {
+        guard p > impactEnd else { return 0 }
+        let t = (p - impactEnd) / (crackEnd - impactEnd)
+        if t <= 0.25 { return -2 + (2 - (-2)) * (t / 0.25) }
+        if t <= 0.5 { return 2 + (-1 - 2) * ((t - 0.25) / 0.25) }
+        if t <= 0.75 { return -1 + (0 - (-1)) * ((t - 0.5) / 0.25) }
+        return 0
+    }
+
+    private func dissolveOpacity(_ p: Double) -> Double {
+        let breakEnd = 0.48 / duration
+        guard p >= breakEnd else { return 1 }
+        return 1 - (p - breakEnd) / (1 - breakEnd)
+    }
+
+    private func dissolveBlur(_ p: Double) -> CGFloat {
+        let breakEnd = 0.48 / duration
+        guard p >= breakEnd else { return 0 }
+        return 6 * (p - breakEnd) / (1 - breakEnd)
+    }
+}
+
+// MARK: - life_gain_premium (1.05s): Energy spawn → Materialize → Pulse → Shine → Fly to HUD + snap
+private struct HeartGainAnimationView: View {
+    let heartAsset: String
+    let size: CGFloat
+    let onComplete: () -> Void
+    private let duration: Double = 1.05
+    @State private var startDate = Date()
+    @State private var hasCompleted = false
+    @ObservedObject private var localizationManager = LocalizationManager.shared
+
+    private var particleColors: [Color] { localizationManager.lifeLossParticleColors }
+
+    private static let spawnParticleCount = 12
+    private static let spawnAngles: [Double] = (0..<spawnParticleCount).map { Double($0) * (360.0 / Double(spawnParticleCount)) * .pi / 180 }
+    private static let snapParticleCount = 6
+    private static let snapAngles: [Double] = [0, 60, 120, 180, 240, 300].map { $0 * .pi / 180 }
+
+    private var spawnEnd: Double { 0.18 / duration }
+    private var materializeEnd: Double { 0.42 / duration }
+    private var pulseEnd: Double { 0.58 / duration }
+    private var shineEnd: Double { 0.70 / duration }
+
+    var body: some View {
+        TimelineView(.animation(minimumInterval: 1/60)) { context in
+            let elapsed = context.date.timeIntervalSince(startDate)
+            let p = min(1, elapsed / duration)
+
+            ZStack {
+                if p >= 1 {
+                    Color.clear
+                        .onAppear {
+                            if !hasCompleted { hasCompleted = true; onComplete() }
+                        }
+                }
+
+                if p < spawnEnd {
+                    let t = p / spawnEnd
+                    let radius: CGFloat = 24 * (1 - t)
+                    ForEach(0..<Self.spawnParticleCount, id: \.self) { i in
+                        Circle()
+                            .fill(particleColors[i % particleColors.count])
+                            .frame(width: 6, height: 6)
+                            .scaleEffect(0.4 + 0.6 * t)
+                            .opacity(t)
+                            .blur(radius: 6 * (1 - t))
+                            .offset(x: radius * CGFloat(cos(Self.spawnAngles[i])), y: radius * CGFloat(sin(Self.spawnAngles[i])))
+                    }
+                }
+
+                if p >= spawnEnd {
+                    let matT = min(1, (p - spawnEnd) / (materializeEnd - spawnEnd))
+                    let scaleVal = 0.45 + (1.12 - 0.45) * easeOutBack(matT)
+                    let rotationVal = -7 * (1 - matT)
+                    let heartOpacity = matT <= 0.3 ? matT / 0.3 : 1
+                    Image(heartAsset)
+                        .resizable()
+                        .scaledToFit()
+                        .frame(width: size, height: size)
+                        .scaleEffect(p >= pulseEnd ? flyScale(p) : (p >= materializeEnd ? pulseScale(p) : scaleVal))
+                        .rotationEffect(.degrees(p >= materializeEnd ? 0 : rotationVal))
+                        .opacity(p >= shineEnd ? 1 : heartOpacity)
+                        .shadow(color: .white.opacity(0.35), radius: glowRadius(p))
+                        .overlay(shineOverlay(p))
+                        .offset(x: flyOffsetX(p), y: flyOffsetY(p))
+                }
+
+                if p >= shineEnd {
+                    let snapT = (p - shineEnd) / (1 - shineEnd)
+                    let showSnapBurst = snapT >= 0.85
+                    if showSnapBurst {
+                        ForEach(0..<Self.snapParticleCount, id: \.self) { i in
+                            let burstProgress = min(1, (p - (shineEnd + 0.85 * (1 - shineEnd))) / (0.15 * (1 - shineEnd)))
+                            Circle()
+                                .fill(particleColors[i % particleColors.count].opacity(0.9))
+                                .frame(width: 4, height: 4)
+                                .opacity(1 - burstProgress)
+                                .offset(
+                                    x: cos(Self.snapAngles[i]) * 20 * burstProgress,
+                                    y: sin(Self.snapAngles[i]) * 20 * burstProgress
+                                )
+                        }
+                    }
+                }
+            }
+            .allowsHitTesting(false)
+        }
+        .onAppear { startDate = Date() }
+    }
+
+    private func easeOutBack(_ t: Double) -> Double {
+        let s = 1.70158
+        guard t < 1 else { return 1 }
+        let u = t - 1
+        return 1 + (s + 1) * u * u + s * u * u * u
+    }
+
+    private func pulseScale(_ p: Double) -> CGFloat {
+        let t = (p - materializeEnd) / (pulseEnd - materializeEnd)
+        if t <= 0.12 { return 1.12 - 0.12 * (t / 0.12) }
+        if t <= 0.45 { return 1.0 + 0.08 * ((t - 0.12) / 0.33) }
+        return 1.08 - 0.08 * ((t - 0.45) / 0.55)
+    }
+
+    private func glowRadius(_ p: Double) -> CGFloat {
+        guard p >= materializeEnd, p < pulseEnd else { return 0 }
+        let t = (p - materializeEnd) / (pulseEnd - materializeEnd)
+        if t <= 0.5 { return 6 + 8 * (t / 0.5) }
+        return 14 - 6 * ((t - 0.5) / 0.5)
+    }
+
+    @ViewBuilder
+    private func shineOverlay(_ p: Double) -> some View {
+        if p >= pulseEnd, p < shineEnd {
+            let t = (p - pulseEnd) / (shineEnd - pulseEnd)
+            LinearGradient(
+                colors: [.clear, .white.opacity(0.5), .clear],
+                startPoint: .leading,
+                endPoint: .trailing
+            )
+            .frame(width: size * 0.5, height: size)
+            .offset(x: -size * 0.5 + size * t)
+            .blendMode(.screen)
+        }
+    }
+
+    private func flyScale(_ p: Double) -> CGFloat {
+        if p < pulseEnd { return pulseScale(p) }
+        if p < shineEnd { return 1.0 }
+        let t = (p - shineEnd) / (1 - shineEnd)
+        let base: CGFloat = 1.0 - 0.45 * t
+        if t >= 0.9 {
+            let snap = (t - 0.9) / 0.1
+            if snap <= 0.5 { return base + 0.05 * (snap / 0.5) }
+            return base + 0.05 - 0.05 * ((snap - 0.5) / 0.5)
+        }
+        return base
+    }
+
+    private func flyOffsetX(_ p: Double) -> CGFloat {
+        guard p >= shineEnd else { return 0 }
+        let t = (p - shineEnd) / (1 - shineEnd)
+        return 4 * sin(t * .pi)
+    }
+
+    private func flyOffsetY(_ p: Double) -> CGFloat {
+        guard p >= shineEnd else { return 0 }
+        let t = (p - shineEnd) / (1 - shineEnd)
+        return -3 * (1 - cos(t * .pi))
+    }
+}
+
 // Общая шапка игры (телефон + iPad): подписи к таймерам, анимации, минуты/секунды без дробной части
 private struct GameHeaderSectionView: View {
     @ObservedObject var gameState: GameState
     var safeTopInset: CGFloat
     var onExitTap: () -> Void
     @Environment(\.horizontalSizeClass) private var horizontalSizeClass
+    @State private var previousLives: Int = -1
+    @State private var showLoseAnimation = false
+    @State private var showGainAnimation = false
+    @State private var livesCountPop = false
 
     private var isIPad: Bool { horizontalSizeClass == .regular }
     private var isCompactPhone: Bool {
@@ -286,10 +591,13 @@ private struct GameHeaderSectionView: View {
                 }
 
                 Spacer()
-                HStack(spacing: 10) {
-                    Image(systemName: "heart.fill")
-                        .foregroundColor(.white)
-                        .font(.system(size: fontSize(18, iPad: 24)))
+                HStack(spacing: 8) {
+                    let heartAsset = LocalizationManager.shared.lifeHeartAssetName
+                    let heartSize = fontSize(48, iPad: 64)
+                    Image(heartAsset)
+                        .resizable()
+                        .scaledToFit()
+                        .frame(width: heartSize, height: heartSize)
                         .shadow(color: .black.opacity(0.2), radius: 1, x: 0, y: 1)
                     if gameState.isPremium {
                         Image(systemName: "infinity")
@@ -301,15 +609,41 @@ private struct GameHeaderSectionView: View {
                             .font(.system(size: fontSize(18, iPad: 24), weight: .bold))
                             .foregroundColor(.white)
                             .shadow(color: .black.opacity(0.2), radius: 1, x: 0, y: 1)
+                            .scaleEffect(livesCountPop ? 1.2 : 1.0)
+                            .animation(.easeOut(duration: 0.15), value: livesCountPop)
                     }
                 }
-                .padding(.horizontal, isIPad ? 20 : 16)
-                .padding(.vertical, isIPad ? 12 : 10)
+                .padding(.horizontal, isIPad ? 10 : 8)
+                .padding(.vertical, isIPad ? 6 : 5)
                 .background(
                     Capsule()
                         .fill(.ultraThinMaterial)
                         .shadow(color: .black.opacity(0.15), radius: 3, x: 0, y: 2)
                 )
+                .overlay(alignment: .leading) {
+                    let heartSize = fontSize(54, iPad: 72)
+                    ZStack {
+                        if showLoseAnimation, !gameState.isPremium {
+                            HeartLoseAnimationView(
+                                heartAsset: LocalizationManager.shared.lifeHeartAssetName,
+                                size: heartSize
+                            ) { showLoseAnimation = false }
+                        }
+                        if showGainAnimation, !gameState.isPremium {
+                            HeartGainAnimationView(
+                                heartAsset: LocalizationManager.shared.lifeHeartAssetName,
+                                size: heartSize
+                            ) {
+                                showGainAnimation = false
+                                livesCountPop = true
+                                DispatchQueue.main.asyncAfter(deadline: .now() + 0.2) { livesCountPop = false }
+                            }
+                        }
+                    }
+                    .frame(width: heartSize, height: heartSize)
+                    .padding(.leading, isIPad ? 20 : 16)
+                    .allowsHitTesting(false)
+                }
                 VStack(alignment: .trailing, spacing: isIPad ? 6 : 4) {
                     Text(LocalizationManager.shared.localizedString("Flags"))
                         .font(.system(size: fontSize(12, iPad: 16), weight: .medium))
@@ -351,6 +685,14 @@ private struct GameHeaderSectionView: View {
                 endPoint: .bottomTrailing
             )
         )
+        .onAppear { if previousLives < 0 { previousLives = gameState.lives } }
+        .onChange(of: gameState.lives) { newValue in
+            if previousLives >= 0 {
+                if newValue < previousLives { showLoseAnimation = true }
+                else if newValue > previousLives { showGainAnimation = true }
+            }
+            previousLives = newValue
+        }
     }
 }
 
@@ -485,30 +827,36 @@ struct LivesView: View {
     @Binding var lives: Int
     var isPremium: Bool
     @Environment(\.sizeCategory) private var sizeCategory
-    
+    @ObservedObject private var localizationManager = LocalizationManager.shared
+    private var heartAsset: String { localizationManager.lifeHeartAssetName }
+
     var body: some View {
         HStack(spacing: 6) {
             if isPremium {
                 ZStack {
-                    Image(systemName: "heart.circle.fill")
-                        .font(.title3)
-                        .foregroundColor(.pink)
+                    Image(heartAsset)
+                        .resizable()
+                        .scaledToFit()
+                        .frame(width: 72, height: 72)
                     Image(systemName: "infinity")
-                        .font(.caption)
+                        .font(.title2)
                         .foregroundColor(.white)
                         .offset(y: 0.5)
                 }
             } else if sizeCategory.isAccessibilityCategory {
-                // Один значок сердца + числовой счётчик для доступности
-                Image(systemName: "heart.fill")
-                    .foregroundColor(.red)
+                Image(heartAsset)
+                    .resizable()
+                    .scaledToFit()
+                    .frame(width: 72, height: 72)
                 Text("\(lives)")
                     .font(.headline)
                     .foregroundColor(.primary)
             } else {
                 ForEach(0..<min(lives, 5), id: \.self) { _ in
-                    Image(systemName: "heart.fill")
-                        .foregroundColor(.red)
+                    Image(heartAsset)
+                        .resizable()
+                        .scaledToFit()
+                        .frame(width: 66, height: 66)
                 }
                 if lives > 5 {
                     Text("+\(lives - 5)").font(.subheadline).foregroundColor(.secondary)

@@ -21,14 +21,17 @@ struct FBucksInfoView: View {
                 .padding(.top, 20)
                 .padding(.bottom, 16)
                 
-                // Табы
-                Picker("", selection: $selectedTab) {
-                    Text(localizationManager.localizedString("О F-Bucks")).tag(0)
-                    Text(localizationManager.localizedString("Как заработать")).tag(1)
-                    Text(localizationManager.localizedString("История")).tag(2)
-                    Text(localizationManager.localizedString("Магазин")).tag(3)
+                // Табы: две строки по 2, названия влезают, значения по центру по высоте
+                VStack(spacing: 10) {
+                    HStack(spacing: 10) {
+                        fbucksTabButton(title: localizationManager.localizedString("О F-Bucks"), tag: 0)
+                        fbucksTabButton(title: localizationManager.localizedString("Как заработать"), tag: 1)
+                    }
+                    HStack(spacing: 10) {
+                        fbucksTabButton(title: localizationManager.localizedString("История"), tag: 2)
+                        fbucksTabButton(title: localizationManager.localizedString("Магазин"), tag: 3)
+                    }
                 }
-                .pickerStyle(SegmentedPickerStyle())
                 .padding(.horizontal, 20)
                 .padding(.bottom, 16)
                 
@@ -51,6 +54,24 @@ struct FBucksInfoView: View {
                 }
             }
         }
+    }
+
+    private func fbucksTabButton(title: String, tag: Int) -> some View {
+        Button(action: { selectedTab = tag }) {
+            Text(title)
+                .font(.system(size: 15, weight: .semibold))
+                .multilineTextAlignment(.center)
+                .lineLimit(2)
+                .minimumScaleFactor(0.8)
+                .foregroundColor(selectedTab == tag ? .white : .primary)
+                .frame(maxWidth: .infinity, minHeight: 52)
+                .contentShape(Rectangle())
+        }
+        .buttonStyle(.plain)
+        .padding(.vertical, 12)
+        .padding(.horizontal, 8)
+        .background(selectedTab == tag ? Color.blue : Color(UIColor.secondarySystemGroupedBackground))
+        .cornerRadius(12)
     }
     
     // MARK: - About Tab

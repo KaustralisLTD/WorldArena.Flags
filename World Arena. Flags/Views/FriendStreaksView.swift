@@ -74,34 +74,47 @@ struct FriendStreaksView: View {
                                         FriendStreakRow(
                                             friend: friend,
                                             delay: Double(index) * 0.1,
-                                            isVisible: showFriends
+                                            isVisible: showFriends,
+                                            showPlayedTodayBadge: friend.playedToday
                                         )
                                     }
                                     .buttonStyle(PlainButtonStyle())
                                     .disabled(isSendingNudge)
-                                    Button(action: {
-                                        Task {
-                                            isSendingNudge = true
-                                            defer { isSendingNudge = false }
-                                            if let msg = await onRemind(friend) {
-                                                nudgeToastMessage = msg
-                                                DispatchQueue.main.asyncAfter(deadline: .now() + 2.0) {
-                                                    nudgeToastMessage = nil
+                                    if friend.playedToday {
+                                        HStack(spacing: 6) {
+                                            Image(systemName: "flame.fill")
+                                                .font(.system(size: 16))
+                                                .foregroundColor(.orange)
+                                            Text("\(friend.streak) \(localizationManager.localizedString("days"))")
+                                                .font(.system(size: 14, weight: .semibold))
+                                                .foregroundColor(.secondary)
+                                        }
+                                        .padding(.leading, 12)
+                                    } else {
+                                        Button(action: {
+                                            Task {
+                                                isSendingNudge = true
+                                                defer { isSendingNudge = false }
+                                                if let msg = await onRemind(friend) {
+                                                    nudgeToastMessage = msg
+                                                    DispatchQueue.main.asyncAfter(deadline: .now() + 2.0) {
+                                                        nudgeToastMessage = nil
+                                                    }
                                                 }
                                             }
+                                        }) {
+                                            Text(localizationManager.localizedString("Remind"))
+                                                .font(.system(size: 14, weight: .semibold))
+                                                .foregroundColor(.white)
+                                                .padding(.horizontal, 12)
+                                                .padding(.vertical, 8)
+                                                .background(Color.blue)
+                                                .cornerRadius(8)
                                         }
-                                    }) {
-                                        Text(localizationManager.localizedString("Remind"))
-                                            .font(.system(size: 14, weight: .semibold))
-                                            .foregroundColor(.white)
-                                            .padding(.horizontal, 12)
-                                            .padding(.vertical, 8)
-                                            .background(Color.blue)
-                                            .cornerRadius(8)
+                                        .buttonStyle(BorderlessButtonStyle())
+                                        .disabled(isSendingNudge)
+                                        .padding(.leading, 8)
                                     }
-                                    .buttonStyle(BorderlessButtonStyle())
-                                    .disabled(isSendingNudge)
-                                    .padding(.leading, 8)
                                 }
                             }
                         }
@@ -188,6 +201,7 @@ struct FriendStreakRow: View {
     let friend: Friend
     let delay: Double
     let isVisible: Bool
+    var showPlayedTodayBadge: Bool = false
     
     @ObservedObject private var localizationManager = LocalizationManager.shared
     
@@ -221,15 +235,16 @@ struct FriendStreakRow: View {
             
             Spacer()
             
-            // Streak status
-            VStack(alignment: .trailing, spacing: 4) {
-                Text("\(friend.streak)")
-                    .font(.system(size: 18, weight: .bold))
-                    .foregroundColor(.orange)
-                
-                Text(localizationManager.localizedString("streak"))
-                    .font(.system(size: 12, weight: .medium))
-                    .foregroundColor(.secondary)
+            if !showPlayedTodayBadge {
+                // Streak number справа (для тех, кому показываем кнопку «Напомнить»)
+                VStack(alignment: .trailing, spacing: 4) {
+                    Text("\(friend.streak)")
+                        .font(.system(size: 18, weight: .bold))
+                        .foregroundColor(.orange)
+                    Text(localizationManager.localizedString("streak"))
+                        .font(.system(size: 12, weight: .medium))
+                        .foregroundColor(.secondary)
+                }
             }
         }
         .padding(16)
@@ -254,8 +269,8 @@ struct FriendStreakRow: View {
 #Preview {
     FriendStreaksView(
         friends: [
-            Friend(id: UUID(), username: "Anton", avatar: "person.circle.fill", level: 5, xp: 2500, streak: 14, isOnline: true, joinDate: Date().addingTimeInterval(-86400 * 30)),
-            Friend(id: UUID(), username: "Alex", avatar: "person.circle.fill", level: 3, xp: 1200, streak: 11, isOnline: false, joinDate: Date().addingTimeInterval(-86400 * 15))
+            Friend(id: UUID(), username: "Anton", avatar: "person.circle.fill", level: 5, xp: 2500, streak: 14, isOnline: true, joinDate: Date().addingTimeInterval(-86400 * 30), playedToday: true),
+            Friend(id: UUID(), username: "Alex", avatar: "person.circle.fill", level: 3, xp: 1200, streak: 11, isOnline: false, joinDate: Date().addingTimeInterval(-86400 * 15), playedToday: false)
         ],
         gameState: GameState(),
         onRemind: { _ async in "Reminder sent" },

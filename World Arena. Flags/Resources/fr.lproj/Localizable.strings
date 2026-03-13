@@ -563,6 +563,10 @@
 "System" = "Système";
 "Light" = "Lumière";
 "Dark" = "Sombre";
+"Выберите тему оформления приложения" = "Choisissez le thème de l'application";
+"Следует системным настройкам" = "Suit les réglages système";
+"Светлое оформление" = "Apparence claire";
+"Темное оформление" = "Apparence sombre";
 
 /* Monthly Quests - Additional */
 "Сыграй %d игр" = "Jouer à des jeux %d";
@@ -601,6 +605,52 @@
 "Система рейтингов и соревнований" = "Système de notation et de compétition";
 "HELP_LEAGUES_TEXT" = "Les ligues sont des compétitions avec d'autres joueurs.\n\nLigues (du plus bas au plus haut) :\n· Bronze\n· Argent\n· Or\n· Platine\n· Diamant\n· Maître\n\nMises à jour hebdomadaires :\n• Les 3 meilleurs joueurs reçoivent des récompenses\n• Les joueurs en 16-20 peuvent être rétrogradés\n• D’autres restent dans la même ligue";
 
+/* Birthday */
+"День рождения" = "Anniversaire";
+"Birthday description F-bucks" = "Autorisez‑nous à vous féliciter le jour de votre anniversaire avec +10 F-bucks";
+"Очистить" = "Effacer";
+"День рождения друга" = "Anniversaire d’un ami";
+"Friend birthday push body" = "Aujourd’hui %@ fête son anniversaire — félicitez‑le ! (offrez +10 min de Triple XP ou +1 F-bucks)";
+"С днём рождения!" = "Joyeux anniversaire !";
+"Birthday bonus already claimed" = "Le bonus pour cette année a déjà été accordé";
+"Birthday bonus F-bucks message" = "Vous avez reçu +10 F-bucks";
+"Friend birthday today" = "Aujourd’hui, c’est l’anniversaire de %@";
+"Friends birthday today count" = "%d amis fêtent leur anniversaire aujourd’hui";
+"Friend birthday congratulate hint" = "Félicitez‑les : offrez +10 min de Triple XP ou +1 F-bucks";
+"Подарок на ДР от друга" = "Cadeau d’anniversaire d’un ami";
+
+/* Help Center – profile & skin */
+"Как изменить аватар?" = "Comment changer d’avatar ?";
+"Персонализация профиля" = "Personnalisation du profil";
+"HELP_PROFILE_AVATAR" = "Pour changer votre avatar :\n1. Ouvrez l’onglet Profil\n2. Touchez l’icône d’engrenage (Réglages)\n3. Choisissez « Profil utilisateur »\n4. Sélectionnez un nouvel avatar ou importez une photo\n5. Touchez « Enregistrer »";
+"Как работает создание скина?" = "Comment fonctionne l’éditeur de skin ?";
+"Редактор аватара и элементы" = "Éditeur d’avatar et éléments";
+"HELP_PROFILE_SKIN_EDITOR" = "Dans l’éditeur de skin, vous composez votre apparence à partir de plusieurs catégories :\n• Vêtements (Clothing)\n• Accessoires (Accessories)\n• Lunettes (Glasses)\n• Teint de peau (Skin Tone)\n• Cheveux (Hair)\n• Visage (Face : yeux, bouche, etc.)\n\nComment l’utiliser :\n1. Ouvrez Profil → Réglages → Profil utilisateur → Modifier l’avatar\n2. Passez à l’onglet « Create skin »\n3. Choisissez une catégorie dans la barre du haut (icônes de chapeau, t‑shirt, lunettes, palette, etc.)\n4. En bas, sélectionnez un élément précis : il apparaît immédiatement dans l’aperçu\n5. Touchez « Save Avatar » pour appliquer le skin à votre profil\n\nCertains éléments peuvent être verrouillés (icône de cadenas) : ils se débloquent avec la progression ou contre des F‑bucks.";
+
+/* Help Center – friends & social */
+"Как добавить друзей?" = "Comment ajouter des amis ?";
+"Социальные функции" = "Fonctions sociales";
+"HELP_SOCIAL_ADD_FRIENDS" = "Pour ajouter des amis :\n1. Ouvrez l’onglet Profil\n2. Touchez « Ajouter des amis »\n3. Partagez votre code d’ami ou saisissez le code / login d’un autre joueur\n4. Envoyez une demande d’ami\n\nAvec des amis, vous pouvez :\n• Comparer vos statistiques\n• Voir leur progression\n• Rivaliser dans les ligues et en duel";
+"Как работают напоминания друзьям?" = "Comment fonctionnent les rappels aux amis ?";
+"Пуш-уведомления о ежедневном уроке" = "Notifications push sur la leçon quotidienne";
+"HELP_SOCIAL_REMINDERS" = "Après une partie, vous voyez un écran avec vos amis et leurs séries :\n• Ceux qui ont déjà joué aujourd’hui affichent une flamme et le nombre de jours de série\n• Ceux qui n’ont pas encore joué aujourd’hui affichent un bouton « Rappeler »\n\nComment envoyer un rappel :\n1. Après la partie, ouvrez l’écran « Rappeler les amis »\n2. Touchez « Rappeler » en face de l’ami choisi\n3. S’il a activé les notifications, il reçoit un push indiquant que la leçon quotidienne n’est pas encore terminée\n\nLes rappels aident vos amis à ne pas perdre leur série et à apprendre régulièrement.";
+
+/* Help Center – duel & progress */
+"Что такое дуэль и как её начать?" = "Qu’est‑ce qu’un duel et comment le lancer ?";
+"Режим соревнований 1 на 1" = "Mode de compétition 1 contre 1";
+"HELP_GAME_DUEL" = "Le duel est un mode dans lequel vous et votre ami répondez aux mêmes questions pour comparer vos résultats.\n\nComment lancer un duel :\n1. Ouvrez le profil de votre ami (depuis Amis, Ligues ou les rappels)\n2. Touchez le bouton « Challenge to Duel »\n3. Confirmez : le duel utilise un ensemble commun de questions\n\nÀ la fin :\n• Vous voyez qui a marqué le plus de points\n• Le duel motive et renforce la progression, mais NE réinitialise PAS votre série quotidienne";
+"Как зарабатывать и тратить F-bucks?" = "Comment gagner et dépenser des F‑bucks ?";
+"Внутриигровая валюта" = "Monnaie du jeu";
+"HELP_PROGRESS_FBUCKS" = "Les F‑bucks (Flags Bucks) sont la monnaie interne de World Arena Flags.\n\nComment gagner des F‑bucks :\n• Pour les parties parfaites (toutes les réponses correctes)\n• Pour les longues séries de jours\n• Pour les quêtes et succès terminés\n\nÀ quoi les dépenser :\n• Achat d’éléments de skin et d’avatar exclusifs\n• Déblocage d’accessoires et d’effets rares\n\nImportant : les F‑bucks ne sont pas de l’argent réel. Ils ne peuvent pas être retirés ni échangés contre une devise réelle.";
+"Как работают квесты и достижения?" = "Comment fonctionnent quêtes et succès ?";
+"Месячные задания и артефакты" = "Quêtes mensuelles et artefacts";
+"HELP_PROGRESS_QUESTS" = "Dans l’onglet « Quêtes » vous voyez :\n• Les quêtes quotidiennes (si disponibles)\n• Les quêtes mensuelles et la progression totale 0–40\n\nFonctionnement :\n1. Réalisez les tâches : jouer un nombre de parties, deviner des drapeaux de certaines régions, etc.\n2. Chaque quête terminée donne de la progression et des récompenses\n3. La progression mensuelle totale est affichée dans l’en‑tête coloré sous forme de barre\n\nLes succès (artefacts) se débloquent sous certaines conditions :\n• Longues séries\n• Grande précision\n• Bons classements dans les ligues\nLes succès débloqués apparaissent dans votre profil.";
+
+/* Help Center – notifications */
+"Уведомления: какие бывают и как их настроить?" = "Notifications : types et réglages";
+"Ежедневный урок, дуэли и напоминания" = "Leçon quotidienne, duels et rappels";
+"HELP_NOTIFICATIONS_TYPES" = "L’application peut envoyer plusieurs types de notifications :\n• Rappels de la leçon quotidienne et de la série\n• Rappels aux amis et réponses à vos rappels\n• Défis en duel et résultats des duels\n\nComment les gérer :\n1. Ouvrez les réglages de votre appareil\n2. Recherchez World Arena Flags\n3. Activez ou désactivez les types de notifications souhaités\n\nNous recommandons de laisser activés les rappels de la leçon quotidienne pour ne pas perdre votre série.";
+
 /* Achievements */
 "Достижения" = "Réalisations";
 "Достижение" = "Réalisation";
@@ -633,10 +683,15 @@
 "Снайпер" = "Tireur isolé";
 "Точность 85%" = "Atteignez une précision de 85 %";
 "Серебряная лига" = "Ligue d'argent";
+"Достигните Серебра" = "Atteignez l'Argent";
 "Золотая лига" = "Ligue d'Or";
+"Достигните Золота" = "Atteignez l'Or";
 "Платиновая лига" = "Ligue Platine";
-"Алмазная лига" = "Diamond League";
+"Достигните Платины" = "Atteignez le Platine";
+"Алмазная лига" = "Ligue Diamant";
+"Достигните Алмаза" = "Atteignez le Diamant";
 "Мастер лиг" = "Maître de la Ligue";
+"Достигните Мастера" = "Atteignez le Maître";
 "Первый друг" = "Premier ami";
 "Добавьте друга" = "Ajouter un ami";
 "Своя команда" = "Votre équipe";
@@ -646,6 +701,7 @@
 "Спринтер" = "Coureur de vitesse";
 "Сыграйте 10 игр за день" = "Jouez à 10 jeux par jour";
 "XP Олимпиец" = "Olympien XP";
+"Мастер Олимпиец XP" = "Maître Olympien XP";
 "Наберите 30000 XP" = "Gagnez 30 000 XP";
  
 /* Settings - Added */
@@ -942,6 +998,7 @@
 "Version" = "Version";
 "Update" = "Mettre a jour";
 "Login without @" = "login sans @";
+"Add by username" = "Ajouter par nom d'utilisateur";
 "Duel Summary" = "Resume des duels";
 "No duel history yet" = "Aucun historique de duel";
 "You already outranked %d%% of players in your city" = "Vous avez déjà surclassé %d%% des joueurs de votre ville";
@@ -986,6 +1043,8 @@
 "Start Weak Countries Training" = "Commencer l'entraînement pays faibles";
 "Progress map subtitle" = "Suivez vos progrès par pays et continent";
 "How is Mastered calculated?" = "Comment « Maîtrisé » est-il calculé ?";
+"Duel Summary subtitle" = "Votre historique de duels et des résultats détaillés";
+"F-Bucks subtitle" = "Comment gagner et utiliser les F-bucks, la monnaie du jeu";
 "Mastered explanation" = "Un pays compte comme maîtrisé après au moins 3 réponses et au moins 80%% de bonnes réponses.";
 "Name" = "Nom";
 "Account login title" = "Créez votre compte";

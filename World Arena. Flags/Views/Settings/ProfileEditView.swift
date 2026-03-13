@@ -12,6 +12,7 @@ struct ProfileEditView: View {
     @EnvironmentObject var userProfile: UserProfile
     @State private var tempUsername: String = ""
     @State private var selectedAvatar: String = "person.circle.fill"
+    @State private var tempBirthday: Date? = nil
     @State private var showingAvatarEditor = false
     @ObservedObject private var localizationManager = LocalizationManager.shared
     
@@ -130,6 +131,38 @@ struct ProfileEditView: View {
                     Divider()
                         .padding(.horizontal, 20)
                     
+                    // День рождения (необязательно)
+                    VStack(alignment: .leading, spacing: 12) {
+                        Text(LocalizationManager.shared.localizedString("День рождения"))
+                            .font(.system(size: 18, weight: .semibold))
+                            .foregroundColor(.primary)
+                        Text(LocalizationManager.shared.localizedString("Birthday description F-bucks"))
+                            .font(.system(size: 14))
+                            .foregroundColor(.secondary)
+                        HStack(spacing: 12) {
+                            DatePicker(
+                                "",
+                                selection: Binding(
+                                    get: { tempBirthday ?? Calendar.current.date(bySetting: .day, value: 1, of: Date()) ?? Date() },
+                                    set: { tempBirthday = $0 }
+                                ),
+                                displayedComponents: .date
+                            )
+                            .labelsHidden()
+                            if tempBirthday != nil {
+                                Button(LocalizationManager.shared.localizedString("Очистить")) {
+                                    tempBirthday = nil
+                                }
+                                .font(.system(size: 14))
+                                .foregroundColor(.secondary)
+                            }
+                        }
+                    }
+                    .padding(.horizontal, 20)
+                    
+                    Divider()
+                        .padding(.horizontal, 20)
+                    
                     // Stats (read-only)
                     VStack(alignment: .leading, spacing: 16) {
                         Text(LocalizationManager.shared.localizedString("Статистика"))
@@ -193,6 +226,7 @@ struct ProfileEditView: View {
         .onAppear {
             tempUsername = userProfile.username
             selectedAvatar = userProfile.avatar
+            tempBirthday = userProfile.birthday
         }
         .sheet(isPresented: $showingAvatarEditor) {
             AvatarEditorView()
@@ -208,7 +242,9 @@ struct ProfileEditView: View {
         if userProfile.avatar != "custom_photo" {
             userProfile.avatar = selectedAvatar
         }
+        userProfile.birthday = tempBirthday
         userProfile.saveToStorage()
+        userProfile.checkAndAwardBirthdayBonusIfNeeded()
         // Обновить отображаемое имя на сервере — у друзей при следующей загрузке списка будет новое имя
         Task {
             _ = try? await DuelAPIService.shared.updateMyDisplayName(userId: userProfile.username, displayName: newName)

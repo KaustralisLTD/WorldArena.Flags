@@ -251,6 +251,88 @@ final class DuelAPIService {
         }
     }
 
+    // MARK: - Birthday gift
+
+    struct BirthdayGiftFromAPI {
+        let giverUsername: String
+        let type: String
+        let year: Int
+
+        init?(from json: [String: Any]) {
+            guard
+                let giver = json["giverUsername"] as? String,
+                let type = json["type"] as? String,
+                let year = json["year"] as? Int
+            else { return nil }
+            self.giverUsername = giver
+            self.type = type
+            self.year = year
+        }
+    }
+
+    /// Отправить подарок ко дню рождения другу.
+    /// type: "xpBoost" или "fBucks" (сервер валидирует строку).
+    func sendBirthdayGift(fromUsername: String, toUsername: String, type: String) async throws {
+        let trimmedFrom = fromUsername.trimmingCharacters(in: .whitespacesAndNewlines)
+        let trimmedTo = toUsername.trimmingCharacters(in: .whitespacesAndNewlines)
+        guard !trimmedFrom.isEmpty, !trimmedTo.isEmpty else { return }
+        let url = URL(string: "\(baseURL)/friends/\(trimmedTo)/birthday-gift")!
+        var request = URLRequest(url: url)
+        request.httpMethod = "POST"
+        request.setValue("application/json", forHTTPHeaderField: "Content-Type")
+        request.setValue(trimmedFrom, forHTTPHeaderField: "X-User-Id")
+        let body: [String: Any] = ["type": type]
+        request.httpBody = try JSONSerialization.data(withJSONObject: body)
+
+        let (data, response) = try await session.data(for: request)
+        guard let http = response as? HTTPURLResponse else {
+            throw DuelAPIError.invalidResponse
+        }
+        if (200...299).contains(http.statusCode) { return }
+        if http.statusCode == 400 || http.statusCode == 409 {
+            if
+                let json = try? JSONSerialization.jsonObject(with: data) as? [String: Any],
+                let errorMessage = json["error"] as? String
+            {
+                throw DuelAPIError.serverError(errorMessage)
+            }
+            throw DuelAPIError.serverError("birthday_gift_bad_request")
+        }
+        if http.statusCode == 404 {
+            throw DuelAPIError.serverError("birthday_friend_not_found")
+        }
+        throw DuelAPIError.serverError("HTTP \(http.statusCode)")
+    }
+
+    /// Получить входящие подарки ко дню рождения (для текущего пользователя).
+    func fetchBirthdayGiftsInbox(userId: String) async throws -> [BirthdayGiftFromAPI] {
+        var components = URLComponents(string: "\(baseURL)/birthday-gifts/inbox")!
+        components.queryItems = [URLQueryItem(name: "userId", value: userId)]
+        var request = URLRequest(url: components.url!)
+        request.setValue(userId, forHTTPHeaderField: "X-User-Id")
+        let (data, response) = try await session.data(for: request)
+        guard let http = response as? HTTPURLResponse, http.statusCode == 200 else {
+            throw DuelAPIError.serverError(String(data: data, encoding: .utf8) ?? "")
+        }
+        let json = try JSONSerialization.jsonObject(with: data) as? [String: Any]
+        let list = json?["gifts"] as? [[String: Any]] ?? []
+        return list.compactMap { BirthdayGiftFromAPI(from: $0) }
+    }
+
+    /// Пометить входящие подарки как обработанные (чтобы не применить повторно).
+    func consumeBirthdayGifts(userId: String) async throws {
+        let url = URL(string: "\(baseURL)/birthday-gifts/consume")!
+        var request = URLRequest(url: url)
+        request.httpMethod = "POST"
+        request.setValue("application/json", forHTTPHeaderField: "Content-Type")
+        request.setValue(userId, forHTTPHeaderField: "X-User-Id")
+        request.httpBody = try JSONSerialization.data(withJSONObject: ["userId": userId])
+        let (data, response) = try await session.data(for: request)
+        guard let http = response as? HTTPURLResponse, (200...299).contains(http.statusCode) else {
+            throw DuelAPIError.serverError(String(data: data, encoding: .utf8) ?? "")
+        }
+    }
+
     // MARK: - Auth
     func authRegister(email: String, password: String, username: String?, localeCode: String? = nil) async throws -> AuthResponse {
         let url = URL(string: "\(baseURL)/auth/register")!
@@ -420,6 +502,10 @@ struct FriendFromAPI {
     let level: Int
     let xp: Int
     let streak: Int
+    /// true если друг уже играл сегодня (тогда показываем огонёк и дни, а не кнопку «Напомнить»).
+    let playedToday: Bool
+    /// День рождения (если сервер отдаёт; для пушей и баннера «Поздравьте друга»).
+    let birthday: Date?
 
     init?(from json: [String: Any]) {
         guard let username = json["username"] as? String else { return nil }
@@ -430,6 +516,16 @@ struct FriendFromAPI {
         self.level = json["level"] as? Int ?? 1
         self.xp = json["xp"] as? Int ?? 0
         self.streak = json["streak"] as? Int ?? 0
+        self.playedToday = json["playedToday"] as? Bool ?? false
+        if let ms = json["birthday"] as? Double {
+            self.birthday = Date(timeIntervalSince1970: ms / 1000)
+        } else if let iso = json["birthday"] as? String {
+            let formatter = ISO8601DateFormatter()
+            formatter.formatOptions = [.withFullDate, .withDashSeparatorInDate]
+            self.birthday = formatter.date(from: iso)
+        } else {
+            self.birthday = nil
+        }
     }
 
     /// Приводит код страны к 2 буквам (API может вернуть alpha-3, напр. UKR).
@@ -474,7 +570,9 @@ struct FriendFromAPI {
             xp: xp,
             streak: streak,
             isOnline: false,
-            joinDate: Date()
+            joinDate: Date(),
+            playedToday: playedToday,
+            birthday: birthday
         )
     }
 

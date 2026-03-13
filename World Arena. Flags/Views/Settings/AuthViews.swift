@@ -66,6 +66,7 @@ struct AuthGatewayView: View {
                                 .keyboardType(.emailAddress)
                                 .textInputAutocapitalization(.never)
                                 .disableAutocorrection(true)
+                                .textContentType(mode == .login ? .username : .emailAddress)
                                 .padding(12)
                                 .background(Color.white.opacity(0.85))
                                 .cornerRadius(12)
@@ -81,6 +82,7 @@ struct AuthGatewayView: View {
                                             .textInputAutocapitalization(.never)
                                     }
                                 }
+                                .textContentType(mode == .login ? .password : .newPassword)
                                 .padding(12)
                                 Button {
                                     passwordVisible.toggle()
@@ -159,7 +161,7 @@ struct AuthGatewayView: View {
                             .cornerRadius(12)
                         }
 
-                        if auth.biometricEnabled {
+                        if auth.biometricEnabled || auth.hasBiometricRestoreAvailable {
                             Button {
                                 Task {
                                     let unlocked = await auth.unlockWithBiometrics()

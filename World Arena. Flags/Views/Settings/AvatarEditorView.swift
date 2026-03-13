@@ -44,6 +44,16 @@ struct AvatarEditorView: View {
     @State private var selectedOutfit = 0
     @State private var selectedAccessory = 0
     @State private var selectedGlasses = 0
+    @State private var skinShopCategory: SkinShopCategory = .body
+
+    private enum SkinShopCategory: Int, CaseIterable {
+        case headwear = 0
+        case body = 1
+        case glasses = 2
+        case skin = 3
+        case hair = 4
+        case face = 5
+    }
     
     var body: some View {
         NavigationView {
@@ -71,7 +81,7 @@ struct AvatarEditorView: View {
                 // Save button
                 saveButton
             }
-            .background(systemGroupedBackground)
+            .background(selectedTab == 1 ? Self.skinEditorDark : systemGroupedBackground)
             .navigationTitle(LocalizationManager.shared.localizedString("Edit Avatar"))
             #if os(iOS)
             .navigationBarTitleDisplayMode(.inline)
@@ -102,15 +112,19 @@ struct AvatarEditorView: View {
     }
     
     private var avatarPreview: some View {
-        VStack(spacing: 16) {
+        VStack(spacing: 14) {
             ZStack {
                 Circle()
                     .fill(LinearGradient(
-                        colors: [Color.blue.opacity(0.3), Color.cyan.opacity(0.2)],
+                        colors: [
+                            Color(red: 0.2, green: 0.35, blue: 0.6),
+                            Color(red: 0.1, green: 0.18, blue: 0.35)
+                        ],
                         startPoint: .topLeading,
                         endPoint: .bottomTrailing
                     ))
                     .frame(width: 140, height: 140)
+                    .overlay(Circle().stroke(Color.white.opacity(0.2), lineWidth: 1))
                 
                 #if os(iOS)
                 if selectedTab == 0, let image = selectedImage {
@@ -120,67 +134,64 @@ struct AvatarEditorView: View {
                         .frame(width: 130, height: 130)
                         .clipShape(Circle())
                 } else if selectedTab == 1 {
-                    // Custom avatar preview
                     customAvatarView
                         .frame(width: 130, height: 130)
                 } else {
                     Image(systemName: "person.circle.fill")
                         .font(.system(size: 70))
-                        .foregroundColor(.blue)
+                        .foregroundColor(.white.opacity(0.9))
                 }
                 #else
                 if selectedTab == 1 {
-                    // Custom avatar preview
                     customAvatarView
                         .frame(width: 130, height: 130)
                 } else {
                     Image(systemName: "person.circle.fill")
                         .font(.system(size: 70))
-                        .foregroundColor(.blue)
+                        .foregroundColor(.white.opacity(0.9))
                 }
                 #endif
             }
-            .shadow(color: .black.opacity(0.2), radius: 10, x: 0, y: 5)
+            .shadow(color: .black.opacity(0.25), radius: 12, x: 0, y: 6)
             
-            Text(selectedTab == 0 ? LocalizationManager.shared.localizedString("Upload Photo") : LocalizationManager.shared.localizedString("Create Avatar"))
-                .font(.system(size: 18, weight: .semibold))
+            Text(selectedTab == 0 ? LocalizationManager.shared.localizedString("Upload Photo") : LocalizationManager.shared.localizedString("Create skin"))
+                .font(.system(size: 16, weight: .bold))
                 .foregroundColor(.primary)
         }
         .padding(.top, 20)
     }
     
     private var tabSelector: some View {
-        HStack(spacing: 0) {
+        HStack(spacing: 12) {
             Button(action: { selectedTab = 0 }) {
-                VStack(spacing: 8) {
-                    Image(systemName: "photo")
-                        .font(.system(size: 20))
-                    Text(LocalizationManager.shared.localizedString("Photo"))
-                        .font(.system(size: 14, weight: .medium))
+                HStack(spacing: 8) {
+                    Image(systemName: "arrow.triangle.2.circlepath.camera")
+                        .font(.system(size: 16))
+                    Text(LocalizationManager.shared.localizedString("Replace photo"))
+                        .font(.system(size: 14, weight: .semibold))
                 }
-                .foregroundColor(selectedTab == 0 ? .blue : .secondary)
+                .foregroundColor(selectedTab == 0 ? .primary : .secondary)
                 .frame(maxWidth: .infinity)
-                .padding(.vertical, 12)
-                .background(selectedTab == 0 ? Color.blue.opacity(0.1) : Color.clear)
+                .padding(.vertical, 14)
+                .background(selectedTab == 0 ? Color.blue.opacity(0.12) : secondarySystemGroupedBackground)
+                .cornerRadius(14)
             }
-            
             Button(action: { selectedTab = 1 }) {
-                VStack(spacing: 8) {
-                    Image(systemName: "paintbrush")
-                        .font(.system(size: 20))
-                    Text(LocalizationManager.shared.localizedString("Create"))
-                        .font(.system(size: 14, weight: .medium))
+                HStack(spacing: 8) {
+                    Image(systemName: "square.and.arrow.down")
+                        .font(.system(size: 16))
+                    Text(LocalizationManager.shared.localizedString("Create skin"))
+                        .font(.system(size: 14, weight: .semibold))
                 }
-                .foregroundColor(selectedTab == 1 ? .blue : .secondary)
+                .foregroundColor(selectedTab == 1 ? .primary : .secondary)
                 .frame(maxWidth: .infinity)
-                .padding(.vertical, 12)
-                .background(selectedTab == 1 ? Color.blue.opacity(0.1) : Color.clear)
+                .padding(.vertical, 14)
+                .background(selectedTab == 1 ? Color.blue.opacity(0.12) : secondarySystemGroupedBackground)
+                .cornerRadius(14)
             }
         }
-        .background(secondarySystemGroupedBackground)
-        .cornerRadius(12)
         .padding(.horizontal, 20)
-        .padding(.top, 20)
+        .padding(.top, 16)
     }
     
     private var photoUploadTab: some View {
@@ -231,112 +242,296 @@ struct AvatarEditorView: View {
         }
     }
     
+    private static let skinEditorDark = Color(red: 0.10, green: 0.10, blue: 0.12)
+    private static let skinEditorCard = Color(red: 0.15, green: 0.15, blue: 0.18)
+    private static let skinEditorCategorySelected = Color.white
+    private static let skinEditorCategoryUnselected = Color.white.opacity(0.5)
+    
     private var avatarCreatorTab: some View {
-        ScrollView {
-            VStack(alignment: .leading, spacing: 20) {
-                // MARK: - Лицо
-                sectionHeader(LocalizationManager.shared.localizedString("Face"))
-                customizationSection(
-                    title: LocalizationManager.shared.localizedString("Gender"),
-                    selectedIndex: $selectedGender,
-                    items: genderOptions,
-                    itemIcons: genderOptions,
-                    isIconPicker: true
-                )
-                customizationSection(
-                    title: LocalizationManager.shared.localizedString("Skin Tone"),
-                    selectedIndex: $selectedSkinTone,
-                    items: skinTones,
-                    isColorPicker: true
-                )
-                customizationSection(
-                    title: LocalizationManager.shared.localizedString("Face Shape"),
-                    selectedIndex: $selectedFaceShape,
-                    items: faceShapes,
-                    itemIcons: faceShapeIcons
-                )
-                customizationSection(
-                    title: LocalizationManager.shared.localizedString("Eye Shape"),
-                    selectedIndex: $selectedEyeShape,
-                    items: eyeShapes,
-                    itemIcons: eyeShapeIcons
-                )
-                customizationSection(
-                    title: LocalizationManager.shared.localizedString("Eye Color"),
-                    selectedIndex: $selectedEyeColor,
-                    items: eyeColors,
-                    isColorPicker: true
-                )
-                customizationSection(
-                    title: LocalizationManager.shared.localizedString("Eyebrows"),
-                    selectedIndex: $selectedEyebrows,
-                    items: eyebrowStyles,
-                    itemIcons: eyebrowIcons
-                )
-                customizationSection(
-                    title: LocalizationManager.shared.localizedString("Nose"),
-                    selectedIndex: $selectedNose,
-                    items: noseStyles,
-                    itemIcons: noseStyleIcons
-                )
-                customizationSection(
-                    title: LocalizationManager.shared.localizedString("Mouth"),
-                    selectedIndex: $selectedMouth,
-                    items: mouthStyles,
-                    itemIcons: mouthStyleIcons
-                )
-                if selectedGender == 0 {
-                    customizationSection(
-                        title: LocalizationManager.shared.localizedString("Facial Hair"),
-                        selectedIndex: $selectedFacialHair,
-                        items: facialHairStyles,
-                        itemIcons: facialHairIcons
+        GeometryReader { geo in
+            let topHeight = geo.size.height * 0.38
+            VStack(spacing: 0) {
+                // Превью скина — стильный градиент
+                ZStack {
+                    LinearGradient(
+                        colors: [
+                            Color(red: 0.15, green: 0.25, blue: 0.45),
+                            Color(red: 0.08, green: 0.12, blue: 0.22)
+                        ],
+                        startPoint: .topLeading,
+                        endPoint: .bottomTrailing
                     )
+                    customAvatarView
+                        .scaleEffect(min(1.8, (topHeight - 24) / 160))
                 }
+                .frame(height: topHeight)
 
-                // MARK: - Волосы
-                sectionHeader(LocalizationManager.shared.localizedString("Hair"))
-                customizationSection(
-                    title: LocalizationManager.shared.localizedString("Hair Style"),
-                    selectedIndex: $selectedHairStyle,
-                    items: hairStyles,
-                    itemIcons: hairStyleIcons
-                )
-                customizationSection(
-                    title: LocalizationManager.shared.localizedString("Hair Color"),
-                    selectedIndex: $selectedHairColor,
-                    items: hairColors,
-                    isColorPicker: true
-                )
+                // Категории в стиле премиум-приложений: иконки, выбранная — белый фон
+                ScrollView(.horizontal, showsIndicators: false) {
+                    HStack(spacing: 10) {
+                        ForEach(SkinShopCategory.allCases, id: \.rawValue) { cat in
+                            skinCategoryButton(cat, isSelected: skinShopCategory == cat)
+                        }
+                    }
+                    .padding(.horizontal, 16)
+                    .padding(.vertical, 14)
+                }
+                .background(Self.skinEditorDark)
 
-                // MARK: - Головной убор и очки
-                sectionHeader(LocalizationManager.shared.localizedString("Headwear & Glasses"))
-                customizationSection(
-                    title: LocalizationManager.shared.localizedString("Glasses"),
-                    selectedIndex: $selectedGlasses,
-                    items: glassesStyles,
-                    itemIcons: glassesStyleIcons
-                )
-                customizationSection(
-                    title: LocalizationManager.shared.localizedString("Accessories"),
-                    selectedIndex: $selectedAccessory,
-                    items: accessoryStyles,
-                    itemIcons: accessoryStyleIcons
-                )
-
-                // MARK: - Одежда
-                sectionHeader(LocalizationManager.shared.localizedString("Outfit"))
-                customizationSection(
-                    title: LocalizationManager.shared.localizedString("Clothing"),
-                    selectedIndex: $selectedOutfit,
-                    items: outfitStyles,
-                    itemIcons: outfitStyleIcons
-                )
+                // Сетка элементов на тёмном фоне
+                ScrollView {
+                    skinShopGrid
+                        .padding(16)
+                }
+                .background(Self.skinEditorDark)
             }
-            .padding(.horizontal, 20)
-            .padding(.top, 16)
-            .padding(.bottom, 24)
         }
+    }
+
+    private func skinCategoryButton(_ category: SkinShopCategory, isSelected: Bool) -> some View {
+        let (icon, label) = skinCategoryInfo(category)
+        return Button {
+            skinShopCategory = category
+        } label: {
+            VStack(spacing: 6) {
+                Image(systemName: icon)
+                    .font(.system(size: 20, weight: .medium))
+                Text(label)
+                    .font(.system(size: 10, weight: .semibold))
+                    .lineLimit(1)
+            }
+            .foregroundColor(isSelected ? Self.skinEditorDark : Self.skinEditorCategoryUnselected)
+            .frame(minWidth: 64, minHeight: 52)
+            .padding(.horizontal, 12)
+            .background(isSelected ? Self.skinEditorCategorySelected : Color.clear)
+            .cornerRadius(14)
+        }
+        .buttonStyle(.plain)
+    }
+
+    private func skinCategoryInfo(_ category: SkinShopCategory) -> (String, String) {
+        switch category {
+        case .headwear: return ("cap.fill", LocalizationManager.shared.localizedString("Accessories"))
+        case .body: return ("tshirt.fill", LocalizationManager.shared.localizedString("Clothing"))
+        case .glasses: return ("eyeglasses", LocalizationManager.shared.localizedString("Glasses"))
+        case .skin: return ("paintpalette.fill", LocalizationManager.shared.localizedString("Skin Tone"))
+        case .hair: return ("scissors", LocalizationManager.shared.localizedString("Hair"))
+        case .face: return ("face.smiling", LocalizationManager.shared.localizedString("Face"))
+        }
+    }
+
+    private func isItemLocked(category: SkinShopCategory, index: Int) -> Bool {
+        switch category {
+        case .headwear: return index >= 3
+        case .body: return index >= 3
+        case .glasses: return index >= 3
+        case .skin: return false
+        case .hair: return false
+        case .face: return false
+        }
+    }
+
+    private var skinShopGrid: some View {
+        let columns = [GridItem(.adaptive(minimum: 88), spacing: 14)]
+        return Group {
+            switch skinShopCategory {
+            case .headwear:
+                LazyVGrid(columns: columns, spacing: 14) {
+                    ForEach(Array(accessoryStyles.enumerated()), id: \.offset) { index, _ in
+                        skinShopItem(
+                            icon: accessoryStyleIcons[index],
+                            title: LocalizationManager.shared.localizedString(accessoryStyles[index]),
+                            isSelected: selectedAccessory == index,
+                            isLocked: isItemLocked(category: .headwear, index: index),
+                            action: { if !isItemLocked(category: .headwear, index: index) { selectedAccessory = index } }
+                        )
+                    }
+                }
+            case .body:
+                LazyVGrid(columns: columns, spacing: 14) {
+                    ForEach(Array(outfitStyles.enumerated()), id: \.offset) { index, _ in
+                        skinShopItem(
+                            icon: outfitStyleIcons[index],
+                            title: LocalizationManager.shared.localizedString(outfitStyles[index]),
+                            isSelected: selectedOutfit == index,
+                            isLocked: isItemLocked(category: .body, index: index),
+                            action: { if !isItemLocked(category: .body, index: index) { selectedOutfit = index } }
+                        )
+                    }
+                }
+            case .glasses:
+                LazyVGrid(columns: columns, spacing: 14) {
+                    ForEach(Array(glassesStyles.enumerated()), id: \.offset) { index, _ in
+                        skinShopItem(
+                            icon: glassesStyleIcons[index],
+                            title: LocalizationManager.shared.localizedString(glassesStyles[index]),
+                            isSelected: selectedGlasses == index,
+                            isLocked: isItemLocked(category: .glasses, index: index),
+                            action: { if !isItemLocked(category: .glasses, index: index) { selectedGlasses = index } }
+                        )
+                    }
+                }
+            case .skin:
+                LazyVGrid(columns: columns, spacing: 14) {
+                    ForEach(Array(skinTones.enumerated()), id: \.offset) { index, _ in
+                        skinShopColorItem(
+                            color: skinToneColors[index],
+                            isSelected: selectedSkinTone == index,
+                            action: { selectedSkinTone = index }
+                        )
+                    }
+                }
+            case .hair:
+                VStack(alignment: .leading, spacing: 14) {
+                    premiumSubsectionTitle(LocalizationManager.shared.localizedString("Hair style"))
+                    LazyVGrid(columns: columns, spacing: 14) {
+                        ForEach(Array(hairStyles.enumerated()), id: \.offset) { index, title in
+                            skinShopItem(
+                                icon: hairStyleIcons[index],
+                                title: LocalizationManager.shared.localizedString(title),
+                                isSelected: selectedHairStyle == index,
+                                isLocked: false,
+                                action: { selectedHairStyle = index }
+                            )
+                        }
+                    }
+                    premiumSubsectionTitle(LocalizationManager.shared.localizedString("Hair Color"))
+                    ScrollView(.horizontal, showsIndicators: false) {
+                        HStack(spacing: 10) {
+                            ForEach(Array(hairColors.enumerated()), id: \.offset) { index, title in
+                                premiumColorChip(
+                                    color: hairColorValues[index],
+                                    title: LocalizationManager.shared.localizedString(title),
+                                    isSelected: selectedHairColor == index,
+                                    action: { selectedHairColor = index }
+                                )
+                            }
+                        }
+                    }
+                }
+            case .face:
+                VStack(alignment: .leading, spacing: 14) {
+                    premiumSubsectionTitle(LocalizationManager.shared.localizedString("Eyes"))
+                    ScrollView(.horizontal, showsIndicators: false) {
+                        HStack(spacing: 10) {
+                            ForEach(Array(eyeShapes.enumerated()), id: \.offset) { index, title in
+                                premiumIconChip(
+                                    icon: eyeShapeIcons[index],
+                                    title: LocalizationManager.shared.localizedString(title),
+                                    isSelected: selectedEyeShape == index,
+                                    action: { selectedEyeShape = index }
+                                )
+                            }
+                        }
+                    }
+                    premiumSubsectionTitle(LocalizationManager.shared.localizedString("Mouth"))
+                    ScrollView(.horizontal, showsIndicators: false) {
+                        HStack(spacing: 10) {
+                            ForEach(Array(mouthStyles.enumerated()), id: \.offset) { index, title in
+                                premiumIconChip(
+                                    icon: mouthStyleIcons[index],
+                                    title: LocalizationManager.shared.localizedString(title),
+                                    isSelected: selectedMouth == index,
+                                    action: { selectedMouth = index }
+                                )
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    private func skinShopItem(icon: String, title: String, isSelected: Bool, isLocked: Bool, action: @escaping () -> Void) -> some View {
+        Button(action: action) {
+            ZStack(alignment: .topTrailing) {
+                VStack(spacing: 8) {
+                    Image(systemName: icon)
+                        .font(.system(size: 28))
+                        .foregroundColor(isLocked ? Color.white.opacity(0.4) : (isSelected ? .white : Color.white.opacity(0.9)))
+                    Text(title)
+                        .font(.system(size: 10, weight: .semibold))
+                        .foregroundColor(isLocked ? Color.white.opacity(0.35) : (isSelected ? .white : Color.white.opacity(0.7)))
+                        .lineLimit(2)
+                        .multilineTextAlignment(.center)
+                }
+                .frame(maxWidth: .infinity)
+                .padding(.vertical, 14)
+                .background(Self.skinEditorCard)
+                .cornerRadius(14)
+                .overlay(
+                    RoundedRectangle(cornerRadius: 14)
+                        .stroke(isSelected ? Color.white : Color.clear, lineWidth: 2.5)
+                )
+                .opacity(isLocked ? 0.7 : 1)
+                if isLocked {
+                    Image(systemName: "lock.fill")
+                        .font(.system(size: 14))
+                        .foregroundColor(Color.white.opacity(0.6))
+                        .padding(8)
+                }
+            }
+        }
+        .buttonStyle(.plain)
+        .disabled(isLocked)
+    }
+
+    private func skinShopColorItem(color: Color, isSelected: Bool, action: @escaping () -> Void) -> some View {
+        Button(action: action) {
+            Circle()
+                .fill(color)
+                .frame(width: 54, height: 54)
+                .overlay(
+                    Circle()
+                        .stroke(isSelected ? Color.white : Color.white.opacity(0.25), lineWidth: isSelected ? 3 : 1)
+                )
+        }
+        .buttonStyle(.plain)
+    }
+
+    private func premiumSubsectionTitle(_ title: String) -> some View {
+        Text(title)
+            .font(.system(size: 12, weight: .bold))
+            .foregroundColor(.white.opacity(0.78))
+            .textCase(.uppercase)
+    }
+
+    private func premiumIconChip(icon: String, title: String, isSelected: Bool, action: @escaping () -> Void) -> some View {
+        Button(action: action) {
+            VStack(spacing: 6) {
+                Image(systemName: icon)
+                    .font(.system(size: 18, weight: .medium))
+                    .foregroundColor(isSelected ? .black : .white.opacity(0.9))
+                Text(title)
+                    .font(.system(size: 10, weight: .semibold))
+                    .foregroundColor(isSelected ? .black : .white.opacity(0.7))
+                    .lineLimit(1)
+            }
+            .padding(.horizontal, 12)
+            .padding(.vertical, 10)
+            .background(isSelected ? Color.white : Self.skinEditorCard)
+            .cornerRadius(12)
+        }
+        .buttonStyle(.plain)
+    }
+
+    private func premiumColorChip(color: Color, title: String, isSelected: Bool, action: @escaping () -> Void) -> some View {
+        Button(action: action) {
+            HStack(spacing: 8) {
+                Circle()
+                    .fill(color)
+                    .frame(width: 18, height: 18)
+                    .overlay(Circle().stroke(Color.white.opacity(0.3), lineWidth: 1))
+                Text(title)
+                    .font(.system(size: 11, weight: .semibold))
+                    .foregroundColor(isSelected ? .black : .white.opacity(0.8))
+            }
+            .padding(.horizontal, 12)
+            .padding(.vertical, 9)
+            .background(isSelected ? Color.white : Self.skinEditorCard)
+            .cornerRadius(12)
+        }
+        .buttonStyle(.plain)
     }
 
     private func sectionHeader(_ title: String) -> some View {
@@ -349,7 +544,7 @@ struct AvatarEditorView: View {
     }
     
     // MARK: - Custom Avatar View (Improved)
-
+    
     private var customAvatarView: some View {
         avatarFigure(
             skinTone: getSkinToneColor(),
@@ -414,7 +609,7 @@ struct AvatarEditorView: View {
                     .frame(width: 12, height: 8)
             }
             .offset(y: headH * 0.28)
-
+            
             // Брови
             HStack(spacing: headW * 0.28) {
                 getEyebrowStyle()
@@ -425,7 +620,7 @@ struct AvatarEditorView: View {
                     .frame(width: 14, height: 5)
             }
             .offset(y: headH * 0.18)
-
+            
             // Нос
             getNoseStyle()
                 .fill(skinTone.opacity(0.85))
@@ -445,7 +640,7 @@ struct AvatarEditorView: View {
                     .frame(width: 28, height: 16)
                     .offset(y: headH * 0.82)
             }
-
+            
             // Очки
             if selectedGlasses > 0 {
                 getGlassesStyle()
@@ -869,7 +1064,7 @@ struct AvatarEditorView: View {
     }
     
     // MARK: - UI Components
-
+    
     private func customizationSection(
         title: String,
         selectedIndex: Binding<Int>,
@@ -882,7 +1077,7 @@ struct AvatarEditorView: View {
             Text(title)
                 .font(.system(size: 16, weight: .semibold))
                 .foregroundColor(.primary)
-
+            
             ScrollView(.horizontal, showsIndicators: false) {
                 HStack(spacing: 12) {
                     ForEach(0..<items.count, id: \.self) { index in
@@ -917,13 +1112,13 @@ struct AvatarEditorView: View {
                                             .minimumScaleFactor(0.7)
                                     }
                                 }
-                                .frame(width: 50, height: 50)
+                                    .frame(width: 50, height: 50)
                                 .background(selected ? Color.blue.opacity(0.15) : secondarySystemGroupedBackground)
-                                .cornerRadius(12)
-                                .overlay(
-                                    RoundedRectangle(cornerRadius: 12)
+                                    .cornerRadius(12)
+                                    .overlay(
+                                        RoundedRectangle(cornerRadius: 12)
                                         .stroke(selected ? Color.blue : Color.clear, lineWidth: 2)
-                                )
+                                    )
                             }
                         }
                         .buttonStyle(PlainButtonStyle())
@@ -970,7 +1165,7 @@ struct AvatarEditorView: View {
                 userProfile.avatar = "custom_photo"
             }
         }
-
+        
         let impactFeedback = UIImpactFeedbackGenerator(style: .medium)
         impactFeedback.impactOccurred()
         #else
@@ -979,7 +1174,7 @@ struct AvatarEditorView: View {
             userProfile.avatar = "custom_photo"
         }
         #endif
-
+        
         presentationMode.wrappedValue.dismiss()
     }
 
@@ -1032,9 +1227,9 @@ struct AvatarEditorView: View {
     }
     
     // MARK: - Avatar Customization Data
-
+    
     private let genderOptions = ["person.fill", "person.crop.circle.fill"]
-
+    
     private let skinTones = ["Very Light", "Light", "Medium", "Tan", "Dark", "Very Dark"]
     private let faceShapeIcons = ["oval", "circle.fill", "square.fill", "heart.fill"]
     private let eyeShapeIcons = ["eye.fill", "eye", "eye.trianglebadge.exclamationmark", "eye.circle", "eye.slash"]

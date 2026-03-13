@@ -65,12 +65,12 @@ struct StatisticsView: View {
         let gridCols: [GridItem] = [GridItem(.flexible()), GridItem(.flexible()), GridItem(.flexible())]
         return VStack(spacing: 20) {
             LazyVGrid(columns: gridCols, spacing: 14) {
-                StatisticCard(icon: "🎮", title: LocalizationManager.shared.localizedString("Total Games"), value: "\(userProfile.totalGamesPlayed)", color: .blue, isLarge: false, compactForLandscape: true)
-                StatisticCard(icon: "🏆", title: LocalizationManager.shared.localizedString("Best Score"), value: "\(userProfile.bestScore)", color: .orange, isLarge: false, compactForLandscape: true)
-                StatisticCard(icon: "✅", title: LocalizationManager.shared.localizedString("Correct Answers"), value: "\(userProfile.correctAnswers)", color: .green, isLarge: false, compactForLandscape: true)
-                StatisticCard(icon: "🎯", title: LocalizationManager.shared.localizedString("Accuracy"), value: String(format: "%.1f%%", min(100.0, max(0.0, userProfile.accuracy))), color: .purple, isLarge: false, compactForLandscape: true, reduceValueForLargeText: true)
-                StatisticCard(icon: "🔥", title: LocalizationManager.shared.localizedString("Current Streak"), value: "\(userProfile.streak) \(localizationManager.localizedString("days"))", color: .red, isLarge: false, compactForLandscape: true, reduceValueForLargeText: true)
-                StatisticCard(icon: "💰", title: LocalizationManager.shared.localizedString("F-Bucks"), value: "\(userProfile.fBucks)", color: .yellow, isLarge: false, compactForLandscape: true)
+                StatisticCard(icon: "🎮", iconImageName: "StatTotalGames", title: LocalizationManager.shared.localizedString("Total Games"), value: "\(userProfile.totalGamesPlayed)", color: .blue, isLarge: false, compactForLandscape: true)
+                StatisticCard(icon: "🏆", iconImageName: "StatBestScore", title: LocalizationManager.shared.localizedString("Best Score"), value: "\(userProfile.bestScore)", color: .orange, isLarge: false, compactForLandscape: true)
+                StatisticCard(icon: "✅", iconImageName: "StatCorrectAnswer", title: LocalizationManager.shared.localizedString("Correct Answers"), value: "\(userProfile.correctAnswers)", color: .green, isLarge: false, compactForLandscape: true)
+                StatisticCard(icon: "🎯", iconImageName: "StatAccuracy", title: LocalizationManager.shared.localizedString("Accuracy"), value: String(format: "%.1f%%", min(100.0, max(0.0, userProfile.accuracy))), color: .purple, isLarge: false, compactForLandscape: true, reduceValueForLargeText: true)
+                StatisticCard(icon: "🔥", iconImageName: "StatDayStreak", title: LocalizationManager.shared.localizedString("Current Streak"), value: "\(userProfile.streak) \(localizationManager.localizedString("days"))", color: .red, isLarge: false, compactForLandscape: true, reduceValueForLargeText: true)
+                FBucksStatCard(count: userProfile.fBucks, isLarge: false, compactForLandscape: true)
             }
             .padding(.top, 0)
             .padding(.horizontal, 24)
@@ -144,6 +144,7 @@ struct StatisticsView: View {
                         LazyVGrid(columns: gridCols, spacing: gridSpacing) {
                         StatisticCard(
                             icon: "🎮",
+                            iconImageName: "StatTotalGames",
                             title: LocalizationManager.shared.localizedString("Total Games"),
                             value: "\(userProfile.totalGamesPlayed)",
                             color: .blue,
@@ -153,6 +154,7 @@ struct StatisticsView: View {
                         )
                         StatisticCard(
                             icon: "🏆",
+                            iconImageName: "StatBestScore",
                             title: LocalizationManager.shared.localizedString("Best Score"),
                             value: "\(userProfile.bestScore)",
                             color: .orange,
@@ -162,6 +164,7 @@ struct StatisticsView: View {
                         )
                         StatisticCard(
                             icon: "✅",
+                            iconImageName: "StatCorrectAnswer",
                             title: LocalizationManager.shared.localizedString("Correct Answers"),
                             value: "\(userProfile.correctAnswers)",
                             color: .green,
@@ -171,6 +174,7 @@ struct StatisticsView: View {
                         )
                         StatisticCard(
                             icon: "🎯",
+                            iconImageName: "StatAccuracy",
                             title: LocalizationManager.shared.localizedString("Accuracy"),
                             value: String(format: "%.1f%%", min(100.0, max(0.0, userProfile.accuracy))),
                             color: .purple,
@@ -181,6 +185,7 @@ struct StatisticsView: View {
                         )
                         StatisticCard(
                             icon: "🔥",
+                            iconImageName: "StatDayStreak",
                             title: LocalizationManager.shared.localizedString("Current Streak"),
                             value: "\(userProfile.streak) \(localizationManager.localizedString("days"))",
                             color: .red,
@@ -189,11 +194,9 @@ struct StatisticsView: View {
                             compactHeightMultiplier: compactHeightMultiplier,
                             reduceValueForLargeText: true
                         )
-                        StatisticCard(
-                            icon: "💰",
-                            title: LocalizationManager.shared.localizedString("F-Bucks"),
-                            value: "\(userProfile.fBucks)",
-                            color: .yellow,
+                        // F-Bucks — используем миниатюру (чип) как в профиле
+                        FBucksStatCard(
+                            count: userProfile.fBucks,
                             isLarge: horizontalSizeClass == .regular && !compact,
                             compactForLandscape: compact,
                             compactHeightMultiplier: compactHeightMultiplier
@@ -355,18 +358,20 @@ private extension StatisticsView {
         return max(0, headerHeight - 60)
     }
 
-    /// Шапка для iPad альбомная: градиент и контент (📊 + «Статистика») по центру
+    /// Шапка для iPad альбомная: градиент и контент (лого статистики + «Статистика») по центру
     var headerSectionCompact: some View {
         ZStack(alignment: .topLeading) {
             VStack(spacing: 8) {
-                Text("📊")
-                    .font(.system(size: 48))
+                Image("IconStatistics")
+                    .resizable()
+                    .scaledToFit()
+                    .frame(width: 120, height: 120)
                 Text(localizationManager.localizedString("Statistics"))
                     .font(.system(size: 28, weight: .bold))
                     .foregroundColor(.white)
             }
             .frame(maxWidth: .infinity)
-            .padding(.top, max(0, safeTopInset - 24))
+            .padding(.top, max(0, safeTopInset - 36))
         }
         .padding(.bottom, 12)
         .frame(height: 92 + safeTopInset, alignment: .top)
@@ -383,15 +388,19 @@ private extension StatisticsView {
 
     var headerContent: some View {
         let compact = isIPadLandscape
+        let logoSize: CGFloat = compact ? 64 : (horizontalSizeClass == .regular ? 112 : 88)
+        let titleSize: CGFloat = compact ? 15 : (horizontalSizeClass == .regular ? 24 : 20)
         return VStack(spacing: compact ? 2 : 2) {
             VStack(spacing: compact ? 4 : 4) {
-                Text("📊")
-                    .font(.system(size: compact ? 26 : (horizontalSizeClass == .regular ? 48 : 36)))
+                Image("IconStatistics")
+                    .resizable()
+                    .scaledToFit()
+                    .frame(width: logoSize, height: logoSize)
                 Text(localizationManager.localizedString("Statistics"))
-                    .font(.system(size: compact ? 15 : (horizontalSizeClass == .regular ? 24 : 20), weight: .bold))
+                    .font(.system(size: titleSize, weight: .bold))
                     .foregroundColor(.white)
             }
-            .padding(.top, compact ? max(0, safeTopInset - 6) : max(0, safeTopInset + 2))
+            .padding(.top, max(0, safeTopInset - 24))
             .frame(height: headerHeight, alignment: .top)
         }
         .frame(height: headerHeight)
@@ -564,6 +573,8 @@ private extension StatisticsView {
 
 struct StatisticCard: View {
     let icon: String
+    /// Имя изображения в Assets для миниатюры (если задано — показывается вместо emoji)
+    var iconImageName: String? = nil
     let title: String
     let value: String
     let color: Color
@@ -579,8 +590,8 @@ struct StatisticCard: View {
     }
 
     private var iconSize: CGFloat {
-        if compactForLandscape { return 32 }
-        return isLarge ? 50 : 35
+        if compactForLandscape { return 48 }
+        return isLarge ? 75 : 52.5
     }
     private var titleSize: CGFloat {
         if compactForLandscape { return 13 }
@@ -607,9 +618,18 @@ struct StatisticCard: View {
     
     var body: some View {
         VStack(spacing: compactForLandscape ? 6 : (isLarge ? 15 : 10)) {
-            Text(icon)
-                .font(.system(size: iconSize))
-                .scaleEffect(animateValue ? 1.2 : 1.0)
+            Group {
+                if let name = iconImageName {
+                    Image(name)
+                        .resizable()
+                        .scaledToFit()
+                        .frame(width: iconSize, height: iconSize)
+                } else {
+                    Text(icon)
+                        .font(.system(size: iconSize))
+                }
+            }
+            .scaleEffect(animateValue ? 1.2 : 1.0)
             Text(title)
                 .font(.system(size: titleSize, weight: .medium, design: .default))
                 .foregroundColor(.secondary)
@@ -644,4 +664,56 @@ struct StatisticCard: View {
             }
         }
     }
-} 
+}
+
+// Карточка F-Bucks в одном стиле с остальными: лого, название, значение (без серой подложки чипа)
+private struct FBucksStatCard: View {
+    let count: Int
+    let isLarge: Bool
+    var compactForLandscape: Bool = false
+    var compactHeightMultiplier: CGFloat = 1.0
+    private let color: Color = .yellow
+
+    private var iconSize: CGFloat { compactForLandscape ? 48 : (isLarge ? 75 : 52.5) }
+    private var titleSize: CGFloat { compactForLandscape ? 13 : (isLarge ? 18 : 12) }
+    private var valueSize: CGFloat { compactForLandscape ? 32 : (isLarge ? 28 : 22) }
+    private var cardPadding: CGFloat { compactForLandscape ? 14 : (isLarge ? 25 : 20) }
+    private var cardHeight: CGFloat { compactForLandscape ? 112 * compactHeightMultiplier : (isLarge ? 180 : 140) }
+    private var cornerRadius: CGFloat { compactForLandscape ? 16 : (isLarge ? 20 : 15) }
+
+    var body: some View {
+        VStack(spacing: compactForLandscape ? 6 : (isLarge ? 15 : 10)) {
+            Image("FBucksLogo")
+                .resizable()
+                .scaledToFit()
+                .frame(width: iconSize, height: iconSize)
+            Text(LocalizationManager.shared.localizedString("F-Bucks"))
+                .font(.system(size: titleSize, weight: .medium, design: .default))
+                .foregroundColor(.secondary)
+                .multilineTextAlignment(.center)
+                .lineLimit(2)
+            Text("\(count)")
+                .font(.system(size: valueSize, weight: .bold, design: .default))
+                .foregroundColor(color)
+        }
+        .padding(cardPadding)
+        .frame(maxWidth: .infinity)
+        .frame(height: cardHeight)
+        .background(
+            RoundedRectangle(cornerRadius: cornerRadius)
+                .fill(.ultraThinMaterial)
+                .shadow(color: color.opacity(0.35), radius: compactForLandscape ? 8 : 10, x: 0, y: compactForLandscape ? 4 : 5)
+        )
+        .overlay(
+            RoundedRectangle(cornerRadius: cornerRadius)
+                .stroke(
+                    LinearGradient(
+                        colors: [color.opacity(0.5), color.opacity(0.1)],
+                        startPoint: .topLeading,
+                        endPoint: .bottomTrailing
+                    ),
+                    lineWidth: 2
+                )
+        )
+    }
+}

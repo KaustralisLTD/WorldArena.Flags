@@ -83,7 +83,22 @@ try { db.exec(`ALTER TABLE users ADD COLUMN password_salt TEXT`); } catch (_) {}
 try { db.exec(`ALTER TABLE users ADD COLUMN auth_provider TEXT DEFAULT 'guest'`); } catch (_) {}
 try { db.exec(`ALTER TABLE users ADD COLUMN is_registered INTEGER DEFAULT 0`); } catch (_) {}
 try { db.exec(`ALTER TABLE users ADD COLUMN registration_reward_granted INTEGER DEFAULT 0`); } catch (_) {}
+try { db.exec(`ALTER TABLE users ADD COLUMN birthday TEXT`); } catch (_) {}
 try { db.exec(`CREATE UNIQUE INDEX IF NOT EXISTS idx_users_email_unique ON users(email)`); } catch (_) {}
+try {
+  db.exec(`
+    CREATE TABLE IF NOT EXISTS birthday_gifts (
+      giver_username TEXT NOT NULL,
+      receiver_username TEXT NOT NULL,
+      year INTEGER NOT NULL,
+      type TEXT NOT NULL,
+      created_at TEXT DEFAULT (datetime('now')),
+      PRIMARY KEY (giver_username, receiver_username, year),
+      FOREIGN KEY (giver_username) REFERENCES users(username),
+      FOREIGN KEY (receiver_username) REFERENCES users(username)
+    );
+  `);
+} catch (_) {}
 
 function randomFriendCode() {
   const chars = 'ABCDEFGHJKLMNPQRSTUVWXYZ23456789';
@@ -93,14 +108,17 @@ function randomFriendCode() {
 }
 
 const insertUser = db.prepare(`
-  INSERT INTO users (username, friend_code, device_token, level, xp, streak, total_games_played, correct_answers, best_time, display_name)
-  VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+  INSERT INTO users (username, friend_code, device_token, level, xp, streak, total_games_played, correct_answers, best_time, display_name, birthday)
+  VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
 `);
 const updateUserToken = db.prepare(`
   UPDATE users SET device_token = ?, updated_at = datetime('now') WHERE username = ?
 `);
 const updateUserStats = db.prepare(`
   UPDATE users SET level = ?, xp = ?, streak = ?, total_games_played = ?, correct_answers = ?, best_time = ?, updated_at = datetime('now') WHERE username = ?
+`);
+const updateUserBirthday = db.prepare(`
+  UPDATE users SET birthday = ?, updated_at = datetime('now') WHERE username = ?
 `);
 const updateDisplayName = db.prepare(`
   UPDATE users SET display_name = ?, updated_at = datetime('now') WHERE username = ?
@@ -304,11 +322,34 @@ function registerUser({ userId, username, deviceToken = null, stats = {} }) {
         stats.bestTime ?? null,
         name
       );
+    if (stats.birthday != null) {
+      // birthday приходит как миллисекунды Unix или ISO‑строка — приводим к ISO‑датe
+      let stored = null;
+      if (typeof stats.birthday === 'number') {
+        stored = new Date(stats.birthday).toISOString();
+      } else if (typeof stats.birthday === 'string') {
+        const d = new Date(stats.birthday);
+        if (!Number.isNaN(d.getTime())) stored = d.toISOString();
+      }
+      if (stored) {
+        updateUserBirthday.run(stored, name);
+      }
+    }
     return { username: name, friendCode: existing.friend_code };
   }
   let friendCode = randomFriendCode().toUpperCase();
   while (db.prepare('SELECT 1 FROM users WHERE friend_code = ?').get(friendCode))
     friendCode = randomFriendCode().toUpperCase();
+  let birthdayISO = null;
+  if (stats.birthday != null) {
+    if (typeof stats.birthday === 'number') {
+      birthdayISO = new Date(stats.birthday).toISOString();
+    } else if (typeof stats.birthday === 'string') {
+      const d = new Date(stats.birthday);
+      if (!Number.isNaN(d.getTime())) birthdayISO = d.toISOString();
+    }
+  }
+
   insertUser.run(
     name,
     friendCode,
@@ -319,14 +360,15 @@ function registerUser({ userId, username, deviceToken = null, stats = {} }) {
     stats.totalGamesPlayed ?? 0,
     stats.correctAnswers ?? 0,
     stats.bestTime ?? null,
-    name
+    name,
+    birthdayISO
   );
   return { username: name, friendCode };
 }
 
 function getUserByUsername(username) {
   return db.prepare(
-    'SELECT username, friend_code, device_token, level, xp, streak, total_games_played, correct_answers, best_time FROM users WHERE username = ?'
+    'SELECT username, friend_code, device_token, level, xp, streak, total_games_played, correct_answers, best_time, birthday FROM users WHERE username = ?'
   ).get(username);
 }
 
@@ -334,7 +376,7 @@ function getUserByFriendCode(code) {
   if (!code || typeof code !== 'string') return null;
   const normalized = code.trim().toUpperCase();
   return db.prepare(
-    'SELECT username, friend_code, display_name, level, xp, streak FROM users WHERE friend_code = ?'
+    'SELECT username, friend_code, display_name, level, xp, streak, birthday FROM users WHERE friend_code = ?'
   ).get(normalized);
 }
 
@@ -355,12 +397,41 @@ function addFriend(myUsername, friendCode) {
 
 function getFriends(username) {
   const rows = db.prepare(`
-    SELECT u.username, u.friend_code, u.display_name, u.level, u.xp, u.streak
+    SELECT u.username, u.friend_code, u.display_name, u.level, u.xp, u.streak, u.updated_at AS updated_at, u.birthday AS birthday
     FROM friendships f
     JOIN users u ON u.username = f.friend_username
     WHERE f.user_username = ?
   `).all(username);
   return rows;
+}
+
+function hasSentBirthdayGiftThisYear(giverUsername, receiverUsername, year) {
+  const row = db
+    .prepare(
+      'SELECT 1 FROM birthday_gifts WHERE giver_username = ? AND receiver_username = ? AND year = ? LIMIT 1'
+    )
+    .get(giverUsername, receiverUsername, year);
+  return !!row;
+}
+
+function createBirthdayGift({ giverUsername, receiverUsername, year, type }) {
+  db.prepare(
+    'INSERT OR IGNORE INTO birthday_gifts (giver_username, receiver_username, year, type, created_at) VALUES (?, ?, ?, ?, datetime(\'now\'))'
+  ).run(giverUsername, receiverUsername, year, type);
+}
+
+function getBirthdayGiftsForUser(username) {
+  const year = new Date().getUTCFullYear();
+  return db
+    .prepare(
+      'SELECT giver_username AS giverUsername, receiver_username AS receiverUsername, year, type FROM birthday_gifts WHERE receiver_username = ? AND year = ?'
+    )
+    .all(username, year);
+}
+
+function clearBirthdayGiftsForUser(username) {
+  const year = new Date().getUTCFullYear();
+  db.prepare('DELETE FROM birthday_gifts WHERE receiver_username = ? AND year = ?').run(username, year);
 }
 
 function setDisplayName(username, displayName) {
@@ -484,4 +555,8 @@ module.exports = {
   requestPasswordReset,
   confirmPasswordReset,
   socialLogin,
+  hasSentBirthdayGiftThisYear,
+  createBirthdayGift,
+  getBirthdayGiftsForUser,
+  clearBirthdayGiftsForUser,
 };

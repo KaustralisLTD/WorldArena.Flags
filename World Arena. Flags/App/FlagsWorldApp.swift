@@ -1,14 +1,17 @@
 import SwiftUI
 #if os(iOS)
 import UIKit
+#if canImport(FirebaseCore)
+import FirebaseCore
 #endif
-
-#if os(iOS)
 #if canImport(GoogleMobileAds)
 import GoogleMobileAds
 #endif
 final class AppDelegate: NSObject, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]? = nil) -> Bool {
+        #if canImport(FirebaseCore)
+        FirebaseApp.configure()
+        #endif
         #if canImport(GoogleMobileAds)
         GADMobileAds.sharedInstance().start(completionHandler: nil)
         #endif
@@ -27,6 +30,22 @@ final class AppDelegate: NSObject, UIApplicationDelegate {
 }
 #endif
 
+/// Для deep link: открытие профиля по ссылке (worldarena.games/profile/CODE или worldarenaflags://profile/CODE).
+private struct PendingProfileLink: Identifiable {
+    let id = UUID()
+    let friendCode: String
+}
+
+private func parseProfileCode(from url: URL) -> String? {
+    if url.host == "worldarena.games", url.path.hasPrefix("/profile/") {
+        return url.path.replacingOccurrences(of: "/profile/", with: "").trimmingCharacters(in: CharacterSet(charactersIn: "/"))
+    }
+    if url.scheme == "worldarenaflags", url.host == "profile" {
+        return url.path.trimmingCharacters(in: CharacterSet(charactersIn: "/"))
+    }
+    return nil
+}
+
 @main
 struct FlagsWorldApp: App {
     #if os(iOS)
@@ -38,7 +57,8 @@ struct FlagsWorldApp: App {
     @StateObject private var themeManager = AppThemeManager.shared
     @State private var showPremiumFromNotif = false
     @State private var previousScenePhase: ScenePhase?
-    
+    @State private var pendingProfileLink: PendingProfileLink?
+
     var body: some Scene {
         WindowGroup {
             MainTabView()
@@ -47,6 +67,16 @@ struct FlagsWorldApp: App {
                 .environmentObject(themeManager)
                 .preferredColorScheme(themeManager.colorScheme)
                 .modifier(PremiumPresentationModifier(showPremium: $showPremiumFromNotif, gameState: gameState))
+                .onOpenURL { url in
+                    let code = parseProfileCode(from: url)
+                    if let code, !code.isEmpty {
+                        pendingProfileLink = PendingProfileLink(friendCode: code)
+                    }
+                }
+                .fullScreenCover(item: $pendingProfileLink) { link in
+                    ProfileByLinkView(friendCode: link.friendCode, gameState: gameState)
+                        .environmentObject(UserProfile.shared)
+                }
                 .onAppear {
                     // Настраиваем метрики запуска
                     #if DEBUG
