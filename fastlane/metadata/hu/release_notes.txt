@@ -1,0 +1,6 @@
+8.0
+
+• Megújult kvízképernyő áttekinthetőbb válaszokkal és animált életekkel.
+• Új megjelenést kapott a Statisztika, a Ligák és a Profil.
+• Jobb iPad-elrendezés, a tartalomhoz igazodó kártyákkal.
+• A régió és a nehézség a gyorsbeállítások bezárásakor mentésre kerül.

@@ -124,6 +124,12 @@ const emailLocale = {
       body: (days) => `Your World Arena Flags Premium subscription will expire in ${days} day(s). Renew to keep your benefits!`,
       cta: 'RENEW',
     },
+    nudgeReminder: {
+      subject: 'Your streak misses you. Come back!',
+      greetingName: (n) => `Hi ${n}!`,
+      intro: (from) => `${from} reminds you.`,
+      cta: 'CONTINUE',
+    },
   },
   ru: {
     footer: 'Это письмо отправлено сервисом World Arena Flags. Если вы не ожидали его — проигнорируйте.',
@@ -200,6 +206,12 @@ const emailLocale = {
       greetingName: (n) => `Привет, ${n}!`,
       body: (days) => `Подписка World Arena Flags Premium истечёт через ${days} дн. Продли, чтобы сохранить преимущества!`,
       cta: 'ПРОДЛИТЬ',
+    },
+    nudgeReminder: {
+      subject: 'Ваша серия скучает. Возвращайтесь!',
+      greetingName: (n) => `Привет, ${n}!`,
+      intro: (from) => `${from} напоминает о тренировке.`,
+      cta: 'ПРОДОЛЖИТЬ',
     },
   },
   de: {
@@ -278,6 +290,12 @@ const emailLocale = {
       body: (days) => `Dein World Arena Flags Premium-Abo läuft in ${days} Tag(en) ab. Verlängere, um deine Vorteile zu behalten!`,
       cta: 'VERLÄNGERN',
     },
+    nudgeReminder: {
+      subject: 'Deine Serie vermisst dich — komm zurück!',
+      greetingName: (n) => `Hallo ${n}!`,
+      intro: (from) => `${from} erinnert dich an deine Übung.`,
+      cta: 'WEITER',
+    },
   },
   es: {
     footer: 'Este correo fue enviado por World Arena Flags. Si no lo esperaba, ignórelo.',
@@ -354,6 +372,12 @@ const emailLocale = {
       greetingName: (n) => `¡Hola ${n}!`,
       body: (days) => `Tu suscripción Premium de World Arena Flags expira en ${days} día(s). ¡Renueva para mantener tus beneficios!`,
       cta: 'RENOVAR',
+    },
+    nudgeReminder: {
+      subject: '¡Tu racha te echa de menos! ¡Vuelve!',
+      greetingName: (n) => `¡Hola ${n}!`,
+      intro: (from) => `${from} te recuerda que entrenes.`,
+      cta: 'CONTINUAR',
     },
   },
   fr: {
@@ -432,6 +456,12 @@ const emailLocale = {
       body: (days) => `Votre abonnement World Arena Flags Premium expire dans ${days} jour(s). Renouvelez pour garder vos avantages !`,
       cta: 'RENOUVELER',
     },
+    nudgeReminder: {
+      subject: 'Votre série vous attend — revenez !',
+      greetingName: (n) => `Salut ${n} !`,
+      intro: (from) => `${from} vous rappelle de vous entraîner.`,
+      cta: 'CONTINUER',
+    },
   },
   it: {
     footer: 'Questa email è stata inviata da World Arena Flags. Se non te l\'aspettavi, ignorala.',
@@ -508,6 +538,12 @@ const emailLocale = {
       greetingName: (n) => `Ciao ${n}!`,
       body: (days) => `Il tuo abbonamento World Arena Flags Premium scade tra ${days} giorno/i. Rinnova per mantenere i vantaggi!`,
       cta: 'RINNOVA',
+    },
+    nudgeReminder: {
+      subject: 'La tua serie ti aspetta. Torna!',
+      greetingName: (n) => `Ciao ${n}!`,
+      intro: (from) => `${from} ti ricorda di allenarti.`,
+      cta: 'CONTINUA',
     },
   },
   nl: {
@@ -586,6 +622,12 @@ const emailLocale = {
       body: (days) => `Je World Arena Flags Premium-abonnement verloopt over ${days} dag(en). Verleng om je voordelen te behouden!`,
       cta: 'VERLENGEN',
     },
+    nudgeReminder: {
+      subject: 'Je serie mist je. Kom terug!',
+      greetingName: (n) => `Hallo ${n}!`,
+      intro: (from) => `${from} herinnert je aan je oefening.`,
+      cta: 'DOORGAAN',
+    },
   },
   pl: {
     footer: 'Ten e-mail został wysłany przez World Arena Flags. Jeśli go nie oczekiwałeś, zignoruj go.',
@@ -662,6 +704,12 @@ const emailLocale = {
       greetingName: (n) => `Cześć ${n}!`,
       body: (days) => `Twój abonament World Arena Flags Premium wygaśnie za ${days} dni. Odnów, żeby zachować korzyści!`,
       cta: 'ODNOW',
+    },
+    nudgeReminder: {
+      subject: 'Twoja seria tęskni. Wróć!',
+      greetingName: (n) => `Cześć ${n}!`,
+      intro: (from) => `${from} przypomina o treningu.`,
+      cta: 'KONTYNUUJ',
     },
   },
   pt: {
@@ -740,6 +788,12 @@ const emailLocale = {
       body: (days) => `Sua assinatura World Arena Flags Premium expira em ${days} dia(s). Renove para manter seus benefícios!`,
       cta: 'RENOVAR',
     },
+    nudgeReminder: {
+      subject: 'Sua sequência sente sua falta. Volte!',
+      greetingName: (n) => `Oi ${n}!`,
+      intro: (from) => `${from} lembra você de treinar.`,
+      cta: 'CONTINUAR',
+    },
   },
   zh: {
     footer: '此邮件由 World Arena Flags 发送。如非您本人操作，请忽略。',
@@ -816,6 +870,12 @@ const emailLocale = {
       greetingName: (n) => `你好${n}！`,
       body: (days) => `您的 World Arena Flags Premium 订阅将在 ${days} 天后到期。续订以保留权益！`,
       cta: '续订',
+    },
+    nudgeReminder: {
+      subject: '您的连续记录想您了，回来吧！',
+      greetingName: (n) => `你好${n}！`,
+      intro: (from) => `${from} 提醒您进行练习。`,
+      cta: '继续',
     },
   },
   ca: {
@@ -894,6 +954,12 @@ const emailLocale = {
       body: (days) => `La teva subscripció World Arena Flags Premium caduca en ${days} dia(s). Renova per mantenir els beneficis!`,
       cta: 'RENOVAR',
     },
+    nudgeReminder: {
+      subject: 'La teva ratxa et troba a faltar. Torna!',
+      greetingName: (n) => `Hola ${n}!`,
+      intro: (from) => `${from} et recorda d'entrenar.`,
+      cta: 'CONTINUAR',
+    },
   },
   uk: {
     footer: 'Цей лист надіслано сервісом World Arena Flags. Якщо ви його не очікували — проігноруйте.',
@@ -969,6 +1035,12 @@ const emailLocale = {
       subject: 'Підписка Premium скоро закінчиться',
       greetingName: (n) => `Привіт, ${n}!`,
       body: (days) => `Підписка World Arena Flags Premium закінчиться через ${days} дн. Продовж, щоб зберегти переваги!`,
+      cta: 'ПРОДОВЖИТИ',
+    },
+    nudgeReminder: {
+      subject: 'Твоя серія сумує. Повертайся!',
+      greetingName: (n) => `Привіт, ${n}!`,
+      intro: (from) => `${from} нагадує про тренування.`,
       cta: 'ПРОДОВЖИТИ',
     },
   },
@@ -1244,6 +1316,25 @@ function sendSubscriptionReminderEmail(toEmail, username, daysLeft, locale = 'en
   return sendMail(toEmail, subject, text, html);
 }
 
+function sendNudgeReminderEmail(toEmail, username, fromUsername, phraseText, locale = 'en', appUrl) {
+  const localePack = (emailLocale[locale] || emailLocale.en);
+  const L = localePack.nudgeReminder || emailLocale.en.nudgeReminder;
+  if (!L) return Promise.resolve();
+  const greeting = username ? L.greetingName(escapeHtml(username)) : '';
+  const intro = typeof L.intro === 'function' ? L.intro(escapeHtml(fromUsername || 'Friend')) : '';
+  const subject = L.subject;
+  const url = appUrl || defaultAppUrl;
+  const safePhrase = escapeHtml(phraseText || '');
+  const text = [greeting, '', intro, safePhrase, '', '— World Arena Flags'].filter(Boolean).join('\n');
+  const html = wrapHtml(L.subject, `
+    ${greeting ? `<p style="margin:0 0 16px;">${greeting}</p>` : ''}
+    <p style="margin:0 0 12px; font-size:16px; font-weight:600;">${intro}</p>
+    <p style="margin:0 0 24px;">${safePhrase}</p>
+    <p style="text-align:center;"><a href="${escapeHtml(url)}" style="display:inline-block; background:linear-gradient(135deg, #1a5fb4 0%, #3584e4 100%); color:#fff; padding:14px 28px; border-radius:8px; text-decoration:none; font-weight:600;">${escapeHtml(L.cta || 'CONTINUE')}</a></p>
+  `, locale);
+  return sendMail(toEmail, subject, text, html);
+}
+
 module.exports = {
   sendResetEmail,
   sendWelcomeEmail,
@@ -1255,5 +1346,6 @@ module.exports = {
   sendAchievementEmail,
   sendStreakRecoveryEmail,
   sendSubscriptionReminderEmail,
+  sendNudgeReminderEmail,
   localeFromAcceptLanguage
 };

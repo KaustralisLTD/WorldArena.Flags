@@ -8,6 +8,8 @@ import AppKit
 struct QuestResultsView: View {
     let dailyQuests: [DailyQuest]
     let monthlyQuests: [MonthlyQuest]
+    /// После партии в режиме «Дуэль» подпись кнопки — «Повторить дуэль» (локализовано).
+    var playAgainIsDuelRepeat: Bool = false
     let onContinue: () -> Void
     let onPlayAgain: () -> Void
     let onHome: () -> Void
@@ -123,7 +125,11 @@ struct QuestResultsView: View {
                 Button(action: onPlayAgain) {
                     HStack {
                         Image(systemName: "play.fill")
-                        Text(localizationManager.localizedString("Play Again"))
+                        Text(
+                            playAgainIsDuelRepeat
+                                ? localizationManager.localizedString("quest.play_again.duel")
+                                : localizationManager.localizedString("Play Again")
+                        )
                     }
                     .font(.system(size: 18, weight: .bold))
                     .foregroundColor(.white)
@@ -279,7 +285,7 @@ extension QuestResultsView {
             case .fBucks2: return "+2 F-Bucks"
             }
         }()
-        withAnimation(.easeInOut(duration: 0.3)) {
+        _ = withAnimation(.easeInOut(duration: 0.3)) {
             openedGiftIndices.insert(index)
         }
         lastRewardText = rewardText
@@ -332,13 +338,22 @@ private struct QuestResultRow: View {
         #endif
     }
 
+    private var questIconSystemName: String? { QuestService.questIconSystemName(for: quest.icon) }
+    
     var body: some View {
         HStack(spacing: 14) {
-            Text(quest.icon)
-                .font(.system(size: 22))
-                .frame(width: 40, height: 40)
-                .background(Color.orange.opacity(0.14))
-                .cornerRadius(10)
+            Group {
+                if let sys = questIconSystemName {
+                    Image(systemName: sys)
+                        .font(.system(size: 20))
+                } else {
+                    Text(quest.icon)
+                        .font(.system(size: 22))
+                }
+            }
+            .frame(width: 40, height: 40)
+            .background(Color.orange.opacity(0.14))
+            .cornerRadius(10)
 
             VStack(alignment: .leading, spacing: 6) {
                 Text(quest.title)
@@ -366,9 +381,17 @@ private struct QuestResultRow: View {
             if quest.isCompleted {
                 if let onGiftTap {
                     Button(action: onGiftTap) {
-                        Text(isGiftOpened ? "✅" : "🎁")
-                            .font(.system(size: 24))
-                            .scaleEffect(isGiftOpening ? 1.25 : 1.0)
+                        Group {
+                            if isGiftOpened {
+                                Image(systemName: "checkmark.circle.fill")
+                                    .foregroundColor(.green)
+                            } else {
+                                Image(systemName: "gift.fill")
+                                    .symbolRenderingMode(.multicolor)
+                            }
+                        }
+                        .font(.system(size: 24))
+                        .scaleEffect(isGiftOpening ? 1.25 : 1.0)
                     }
                     .buttonStyle(.plain)
                 } else {
@@ -400,9 +423,13 @@ private struct MonthlyQuestResultRow: View {
         #endif
     }
 
+    private var monthlyIconSystemName: String {
+        QuestService.questIconSystemName(for: quest.icon) ?? quest.icon
+    }
+
     var body: some View {
         HStack(spacing: 12) {
-            Image(systemName: quest.icon)
+            Image(systemName: monthlyIconSystemName.contains(".") ? monthlyIconSystemName : "star.fill")
                 .font(.system(size: 18, weight: .semibold))
                 .foregroundColor(.white)
                 .frame(width: 38, height: 38)

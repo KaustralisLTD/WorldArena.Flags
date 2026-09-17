@@ -92,12 +92,17 @@ struct GameModeSelectionView: View {
         let textColor = isSelected ? Color.white : Color.primary
         let secondaryColor = isSelected ? Color.white.opacity(0.8) : Color.secondary
         let backgroundColor = isSelected ? Color.accentColor : Color.secondary.opacity(0.15)
-        
+        let iconColor = isSelected ? Color.white : difficulty.iconColor
+
         return VStack(alignment: .leading, spacing: 4) {
-            Text(difficulty.displayName)
-                .font(.system(size: horizontalSizeClass == .regular ? 18 : 16, weight: .medium))
-                .foregroundColor(textColor)
-            
+            HStack(spacing: 6) {
+                Image(systemName: difficulty.systemImage)
+                    .font(.system(size: horizontalSizeClass == .regular ? 18 : 16))
+                    .foregroundColor(iconColor)
+                Text(difficulty.displayName)
+                    .font(.system(size: horizontalSizeClass == .regular ? 18 : 16, weight: .medium))
+                    .foregroundColor(textColor)
+            }
             Text(difficulty.description)
                 .font(.system(size: horizontalSizeClass == .regular ? 14 : 12))
                 .foregroundColor(secondaryColor)
@@ -128,6 +133,7 @@ struct GameModeSelectionView: View {
         let titleSize: CGFloat = largeFontForLandscape ? 22 : (horizontalSizeClass == .regular ? 18 : 16)
         let descSize: CGFloat = largeFontForLandscape ? 17 : (horizontalSizeClass == .regular ? 14 : 12)
         let iconSize: CGFloat = largeFontForLandscape ? 22 : 20
+        let iconColor = isSelected ? Color.white : playMode.iconColor
         return VStack(alignment: .leading, spacing: 4) {
             HStack {
                 Group {
@@ -139,8 +145,8 @@ struct GameModeSelectionView: View {
                             .font(.system(size: iconSize))
                     }
                 }
-                .foregroundColor(textColor)
-                Text(playMode.displayName)
+                .foregroundColor(iconColor)
+                Text(playMode.homeDisplayName)
                     .font(.system(size: titleSize, weight: .medium))
                     .foregroundColor(textColor)
                     .lineLimit(1)

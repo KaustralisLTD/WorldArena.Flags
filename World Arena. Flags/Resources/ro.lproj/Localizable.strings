@@ -1,0 +1,1739 @@
+"Open in Game Center" = "Deschide în Game Center";
+"Заработай %d XP" = "Câștigați %d XP";
+"F-BUCKS EARNED" = "F-BUCKS EARNED";
+"Дай %d правильных ответов" = "Obțineți %d răspunsuri corecte";
+"Наберите %d правильных ответов за месяц" = "Obțineți %d răspunsuri corecte luna aceasta";
+"Сыграй %d идеальных игр" = "Joacă %d jocuri perfecte";
+"Завершите %d игр без ошибок" = "Terminați %d jocuri fără greșeli";
+/* Settings screen */
+"Настройки" = "Setări";
+"Аккаунт" = "Cont";
+"Профиль пользователя" = "Profil utilizator";
+"Поддержка" = "Sprijin";
+"Настройки приложения" = "Setările aplicației";
+"Обратная связь" = "Feedback";
+"World Arena Premium" = "World Arena Premium";
+"Обратная связь по World Arena Flags" = "Feedback despre World Arena Flags";
+
+/* Achievements */
+"Достижения" = "Realizări";
+"Достижение" = "Realizare";
+"ЛИЧНЫЕ РЕКОРДЫ" = "BEST PERSONAL";
+"НАГРАДЫ" = "PREMII";
+"Лучшая серия" = "Cea mai bună serie";
+"Макс. лига" = "Liga Max";
+"Макс. XP" = "XP maxim";
+"Открыто" = "Deblocat";
+
+/* Profile */
+"League" = "Ligă";
+"Following" = "Prieteni";
+"Days in a row" = "Zile la rând";
+"Текущая серия" = "Serie curentă";
+"дней" = "zile";
+"Joined in %@" = "S-a înscris în %@";
+"Level %d • %d XP • %d-day streak" = "Nivel %d • %d XP • %d-zile";
+"SUPER" = "SUPER";
+
+/* Leagues medals & labels */
+"1st" = "1";
+"2nd" = "al 2-lea";
+"3rd" = "al 3-lea";
+"XP" = "XP";
+
+/* Monthly badges sample titles */
+"Алмазная лига" = "Liga Diamond";
+"Серия мастера" = "Master Streak";
+"Чемпион месяца" = "Campionul lunii";
+"Идеальная неделя" = "Săptămâna perfectă";
+"Бронзовая лига" = "Liga de bronz";
+"Лига Мастеров" = "Master League";
+// General
+"World Flags" = "Steaguri ale lumii";
+"Learn flags of the world" = "Învață steaguri ale lumii";
+"Score" = "Scor";
+"Exit" = "Ieșire";
+"Error loading countries" = "Eroare la încărcarea țărilor";
+"Retry" = "Reîncercați";
+"System" = "Sistem";
+
+// Start Screen
+"Select Language" = "Selectați Limbă";
+"Select Region" = "Selectați Regiune";
+"Select Regions" = "Selectați Regiuni";
+"Multiple Regions" = "Mai multe regiuni";
+"START GAME" = "ÎNCEPE JOCUL";
+"All Regions" = "Toate Regiunile";
+"Europe" = "Europa";
+"Asia" = "Asia";
+"Americas" = "Americi";
+"Africa" = "Africa";
+"Oceania" = "Oceania";
+"North America" = "America de Nord";
+"South America" = "America de Sud";
+
+// Game Over
+"Game Over!" = "Joc încheiat!";
+"points" = "puncte";
+"Play Again" = "Joacă din nou";
+"Repeat Duel" = "Repetă duelul";
+"Home" = "Acasă";
+
+// Statistics
+"Statistics" = "Statistici";
+"Total Games" = "Total jocuri";
+"Best Score" = "Cel mai bun scor";
+"Correct Answers" = "Răspunsuri corecte";
+"Accuracy" = "Precizie";
+"Best Time" = "Cel mai bun timp";
+"Time" = "Timp";
+"Clear" = "Clar";
+"Close" = "Aproape";
+
+// Game Results
+"Excellent game!" = "🏆 Excelent!";
+"Great result!" = "🎯 Un rezultat excelent!";
+"Good game!" = "👍 Bun joc!";
+"Keep practicing!" = "💪 Continuați să exersați!";
+// English (default)
+"Play Again" = "Joacă din nou";
+
+// Share
+"Share Result" = "Distribuie";
+"Share" = "Distribuie";
+"ACCURACY" = "Precizie";
+"TOTAL XP" = "XP total";
+"CONTINUE" = "Continua";
+"Perfect! You're unstoppable!" = "Perfect! Ești de neoprit!";
+"Excellent performance!" = "Performanță excelentă!";
+"Well done! Keep practicing!" = "Bine făcut! Continuă să exersezi!";
+"Don't give up! Practice makes perfect!" = "Nu renunţa! Practica face perfect!";
+"PERFECT" = "Perfect";
+"AMAZING" = "Uimitor";
+"GOOD" = "Bun";
+"KEEP GOING" = "Continuă";
+"Play Again" = "Joacă din nou";
+"Home" = "Acasă";
+"Quest Update!" = "Actualizare Quest!";
+"quest.play_again.duel" = "Repetă duelul";
+"Check your progress" = "Verificați-vă progresul";
+"2x XP for 10 min!" = "2x XP timp de 10 minute!";
+"3x XP for 15 min!" = "3x XP timp de 15 minute!";
+"Подарок за квесты" = "Cadou zilnic de căutare";
+"Share Message" = "Am obținut %d puncte în jocul World Flags! 🎮🌍\nDescărcați și încercați să-mi bateți scorul!";
+"Statistics Share Promo" = "Joc World Arena Flags — învață steaguri lumii, duelează-te cu prietenii și urcă în ligi! 🎮🌍\nStatisticile mele: Cel mai bun scor %d, Precizie %.1f%%, %d jocuri jucate.\nVrei să înveți steaguri și să-ți testezi abilitățile? Alătură-te comunității noastre!\n%@";
+
+// Post-Game Flow
+"CLAIM XP" = "REVENȚI XP";
+"TOTAL XP" = "TOTAL XP";
+"PERFECT" = "PERFECT";
+"AMAZING" = "UIMITOR";
+"GOOD" = "BUN";
+"KEEP GOING" = "CONTINUĂ";
+"Perfect! You're unstoppable!" = "Perfect! Ești de neoprit!";
+"Excellent performance!" = "Performanță excelentă!";
+"Well done! Keep practicing!" = "Bine făcut! Continuă să exersezi!";
+"Don't give up! Practice makes perfect!" = "Nu renunţa! Practica face perfect!";
+"day streak" = "sira zilei";
+"This Week" = "În această săptămână";
+"Incredible streak! You're on fire!" = "O serie incredibilă! Ești în flăcări!";
+"Great job! Keep the momentum going!" = "Mare treabă! Menține impulsul!";
+"Nice start! Build your streak day by day!" = "Bun început! Crește-ți șirul zi de zi!";
+"Your Friend Streaks" = "Prietenii tăi";
+"See how your friends are doing" = "Vezi cum se descurcă prietenii tăi";
+"No friends yet" = "Niciun prieten încă";
+"Add friends to see their streaks and compete together!" = "Adăugați prieteni pentru a le vedea șirurile și concurați împreună!";
+"NUDGE" = "GHIONT";
+"Remind" = "Reaminti";
+"Reminder sent to %@" = "Memento trimis la %@";
+"%@ reminds you" = "%@ îți amintește";
+"nudge_phrase_1" = "Nu renunţa! Ai asta!";
+"nudge_phrase_2" = "Drumul tău te așteaptă. Joacă azi!";
+"nudge_phrase_3" = "Un meci pe zi menține seria în viață!";
+"nudge_phrase_4" = "Întoarce-te și arată acelor steaguri cine este șeful!";
+"nudge_phrase_5" = "Ne e dor de tine! E timpul pentru un joc rapid?";
+"nudge_phrase_6" = "Prietenii tăi se joacă. Alătură-te lor!";
+"nudge_phrase_7" = "Un pas mic azi, mâine o serie mare!";
+"nudge_phrase_8" = "Ești atât de aproape! Nu rupe singul!";
+"nudge_phrase_9" = "Steaguri sună. Răspunde la apel!";
+"nudge_phrase_10" = "Ridică-te și strălucește - este timpul drapelului!";
+"nudge_phrase_11" = "Un pic de antrenament merge mult!";
+"nudge_phrase_12" = "Astăzi este ziua în care să-ți păstrezi șirul!";
+"nudge_phrase_13" = "Reveniți în joc! Credem în tine!";
+"nudge_phrase_14" = "Încă un joc și te vei simți grozav!";
+"nudge_phrase_15" = "Drumul tău este dor de tine. Întoarce-te!";
+"CONTINUE" = "CONTINUA";
+"streak" = "dâră";
+"days" = "zile";
+"Quest Update!" = "Actualizare Quest!";
+"Check your progress" = "Verificați-vă progresul";
+"Заблокировано" = "Blocat";
+"Базовый пакет" = "Pachetul de bază";
+"Обучение" = "Învăţare";
+"Изучай флаги и страны мира" = "Învață steaguri și țări ale lumii";
+"Континенты" = "Continentele";
+"Европа" = "Europa";
+"Азия" = "Asia";
+"Африка" = "Africa";
+"Северная Америка" = "America de Nord";
+"Южная Америка" = "America de Sud";
+"Океания" = "Oceania";
+"стран" = "ţări";
+"Самый маленький континент" = "Cel mai mic continent";
+"Самый большой континент" = "Cel mai mare continent";
+"Колыбель человечества" = "Leagănul umanității";
+"Новый свет" = "Lumea Nouă";
+"Земля контрастов" = "Tărâmul contrastelor";
+"Острова Тихого океана" = "Insule din Oceanul Pacific";
+"Статистика флагов" = "Statistici de semnalizare";
+"Всего стран" = "Total Țări";
+"Цветов на флагах" = "Culori pe steaguri";
+"Самый популярный цвет" = "Cea mai populară culoare";
+"Красный" = "Roşu";
+"Флагов с крестом" = "Steaguri cu cruce";
+"Интересные факты" = "Fapte interesante";
+"Interesting facts study slides" = "Studiază în slide-uri";
+"Interesting facts back to list" = "Înapoi la listă";
+"Самый старый флаг" = "Cel mai vechi steag";
+"Флаг Дании используется с 1219 года" = "Steagul Danemarcei este folosit din 1219";
+"Единственный квадратный флаг" = "Doar steag pătrat";
+"У Швейцарии единственный квадратный флаг в мире" = "Elveția are singurul steag pătrat din lume";
+"Самый сложный флаг" = "Cel mai complex steag";
+"У Бутана на флаге изображен дракон" = "Steagul Bhutanului prezintă un dragon";
+"Go Premium" = "Treci Premium";
+"Мой профиль в World Arena Flags" = "Profilul meu World Arena Flags";
+"My Profile Share Title" = "Profilul meu World Arena Flags";
+"Не удалось добавить друга. Проверьте код." = "Nu s-a putut adăuga prietenul. Verificați codul.";
+"Daily Quests" = "Misiuni zilnice";
+"Monthly Quest" = "Căutare lunară";
+
+// Learning Section
+"More facts" = "Mai multe fapte";
+"стран" = "ţări";
+"фактов о флагах и странах" = "fapte despre steaguri și țări";
+"Столица" = "Capital";
+
+// Continent names
+"Европа" = "Europa";
+"Азия" = "Asia";
+"Африка" = "Africa";
+"Северная Америка" = "America de Nord";
+"Южная Америка" = "America de Sud";
+"Океания" = "Oceania";
+
+// Continent descriptions
+"Самый маленький континент" = "Cel mai mic continent";
+"Самый большой континент" = "Cel mai mare continent";
+"Колыбель человечества" = "Leagăn al umanității";
+"Новый свет" = "Lumea Nouă";
+"Земля контрастов" = "Tărâmul contrastelor";
+"Острова Тихого океана" = "Insule din Oceanul Pacific";
+
+// Network Errors
+"No Internet Connection" = "Fără conexiune la internet";
+"Request Timeout" = "Solicitare Timeout";
+"Server Not Found" = "Serverul nu a fost găsit";
+"Too Many Requests" = "Prea Multe Cereri";
+"Server Error" = "Eroare de server";
+"HTTP Error: %d" = "Eroare HTTP: %d";
+"Try Again" = "Încearcă din nou";
+"Not enough countries in selected regions (found %d, need at least 4)" = "Nu sunt suficiente țări în regiunile selectate (găsit %d, au nevoie de cel puțin 4)";
+"Empty response from server" = "Răspuns gol de la server";
+
+// New additions
+"Capital" = "Capital";
+"Population" = "Populația";
+"Area" = "Zonă";
+"Region" = "Regiune";
+"Subregion" = "Subregiune";
+
+// Language additions
+"system_language" = "Sistem";
+"ru_language" = "Русский";
+"uk_language" = "Українська";
+"es_language" = "Español";
+"ca_language" = "Català";
+"zh_language" = "中文";
+
+// Exit confirmation
+"Exit Confirmation" = "Ești sigur că vrei să ieși?";
+"Yes" = "Da";
+"No" = "Nu";
+
+// New additions
+"Tap to continue" = "Atingeți pentru a continua";
+"Loading flag..." = "Se încarcă steag...";
+"Select Difficulty" = "Selectați Dificultate";
+"Game Mode" = "Modul de joc";
+
+// Game Modes
+"Game Mode" = "Modul de joc";
+"Classic" = "Clasic";
+"Time Challenge" = "Provocare contra timpului";
+"Time Challenge short" = "Timp";
+"Survival" = "Supravieţuire";
+"Duel" = "Duel";
+"Challenge a friend to the same game, compare results" = "Provocați un prieten la același joc, comparați rezultatele";
+"Challenge to Duel" = "Provocare la duel";
+"You won the duel!" = "Ai câștigat duelul!";
+"Duel challenge from %@" = "%@ te-a provocat la duel";
+"Duel result" = "Rezultatul duelului";
+"You won!" = "Ai câștigat!";
+"won" = "won";
+"You" = "Tu";
+"Duel announcement title" = "Duel";
+"vs" = "vs";
+"Friend add username not found" = "Utilizatorul „%@” nu a fost găsit. Verificați autentificarea.";
+"Start duel" = "Începe duelul";
+"24h to accept" = "24h pentru a accepta";
+"duel_invite_popup_title" = "Provocare la duel";
+"duel_invite_popup_body_format" = "%@ te provoacă la duel";
+"duel_invite_popup_accept" = "Acceptă";
+"duel_invite_popup_remind_1h" = "Reamintește · 1 h";
+"duel_invite_popup_decline" = "Refuză";
+
+"Accept" = "Accepta";
+"Random opponent" = "Adversar întâmplător";
+"Virtual opponent" = "Adversar virtual";
+"No friends yet. Add friends in Profile." = "Niciun prieten încă. Adăugați prieteni în profil.";
+"Standard multiple choice game" = "Joc standard cu alegeri multiple";
+"Answer quickly, time is limited" = "Răspunde repede, timpul este limitat";
+"Game until first mistake" = "Joc până la prima greșeală";
+
+// Difficulty
+"Difficulty" = "Dificultate";
+"Easy" = "Uşor";
+"Medium" = "Mediu";
+"Hard" = "Greu";
+"Expert" = "Expert";
+"Erudite" = "Erudit";
+"10 questions, 45 sec per answer" = "10 întrebări, 45 sec per răspuns";
+"15 questions, 30 sec per answer" = "15 întrebări, 30 sec per răspuns";
+"20 questions, 15 sec per answer" = "20 de întrebări, 15 secunde per răspuns";
+"25 questions, 10 sec per answer" = "25 de întrebări, 10 secunde per răspuns";
+"30 questions, 5 sec per answer" = "30 de întrebări, 5 secunde per răspuns";
+"All %d countries of selected regions, 5 sec per answer" = "Toate %d țările din regiunile selectate, 5 secunde per răspuns";
+"All 238 countries of the world, 5 sec per answer" = "Toate cele 238 de țări ale lumii, 5 secunde per răspuns";
+
+"of" = "de";
+"flags" = "steaguri";
+
+// Theme
+"App Theme" = "Aspect";
+"System" = "Sistem";
+"Light" = "Aprinde";
+"Dark" = "Întuneric";
+
+// iPad Main Screen
+"Challenge Yourself, Learn the World" = "Provocați-vă, învățați lumea";
+"WorldArena Description" = "WorldArena este o serie globală de jocuri de cunoștințe care transformă învățarea în distracție. Ghiciți steaguri, majuscule, chenare și multe altele într-un format de test dinamic conceput pentru toate vârstele.";
+
+/* Lives & Premium */
+"Lives" = "Vieți";
+"Next +%d in %02d:%02d" = "Următorul +%d în %02d:%02d";
+"Lives refill info" = "Informații despre reumplerea vieților";
+"You will receive +%d new lives in %02d:%02d" = "Veți primi +%d vieți noi în %02d:%02d";
+"Unlimited hearts enabled" = "Inimi nelimitate activate";
+"Unlimited Hearts" = "Inimi nelimitate";
+"Your Premium benefits" = "Beneficiile tale Premium";
+"Onboarding welcome message" = "Alegeți o regiune de mai jos și jucați primul joc!";
+"Onboarding first game done" = "Primul joc terminat! Jucați încă 4 jocuri cu o precizie de peste 70% pentru a vă debloca clasamentul orașului.";
+"F-Bucks" = "F-Bucks";
+"Flags Bucks" = "Flags Bucks";
+
+/* F-Bucks Info Page */
+"О F-Bucks" = "Despre F-Bucks";
+"Как заработать" = "Cum să câștigi";
+"История" = "Istorie";
+"Магазин" = "Magazin";
+"Что такое F-Bucks?" = "Ce sunt F-Bucks?";
+"F-Bucks (Flags Bucks) — это внутриигровая валюта, которую можно заработать, играя в World Arena Flags. Используйте F-Bucks для покупки уникальных элементов аватара, скинов и других эксклюзивных предметов." = "F-Bucks (Flags Bucks) este o monedă în joc pe care o poți câștiga jucând World Arena Flags. Folosiți F-Bucks pentru a cumpăra articole unice pentru avatar, skinuri și alte articole exclusive.";
+"Особенности:" = "Caracteristici:";
+"Зарабатывайте за идеальные результаты в играх" = "Câștigă pentru rezultate perfecte ale jocului";
+"Получайте бонусы за длинные серии дней" = "Obțineți bonusuri pentru zile lungi";
+"Покупайте эксклюзивные элементы для аватара" = "Cumpărați articole exclusive pentru avatar";
+"Создавайте уникальный стиль" = "Creați un stil unic";
+"Как заработать F-Bucks" = "Cum să câștigi F-Bucks";
+"Идеальный результат" = "Rezultat Perfect";
+"Идеальный результат игры" = "Rezultatul jocului perfect";
+"Получите идеальный результат в игре (10/10 или 15/15)" = "Obțineți un rezultat perfect în joc (10/10 sau 15/15)";
+"Серия 10 дней" = "Seria de 10 zile";
+"Играйте 10 дней подряд" = "Joacă 10 zile la rând";
+"Серия 20 дней" = "Seria de 20 de zile";
+"Играйте 20 дней подряд" = "Joacă 20 de zile la rând";
+"Серия 50 дней" = "Seria de 50 de zile";
+"Играйте 50 дней подряд" = "Joacă 50 de zile la rând";
+"Серия 100 дней" = "Seria de 100 de zile";
+"Играйте 100 дней подряд" = "Joacă 100 de zile la rând";
+"История начислений" = "Istoricul tranzacțiilor";
+"История пуста" = "Istoria este goală";
+"Начните играть и зарабатывать F-Bucks!" = "Începeți să jucați și să câștigați F-Bucks!";
+"Магазин F-Bucks" = "Magazinul F-Bucks";
+"Потратьте F-Bucks на эксклюзивные элементы для вашего аватара" = "Cheltuiește F-Bucks pe articole exclusive pentru avatarul tău";
+"Одежда" = "Îmbrăcăminte";
+"Уникальные наряды и аксессуары" = "Ținute și accesorii unice";
+"Скины" = "Piei";
+"Особые визуальные эффекты" = "Efecte vizuale speciale";
+"Эффекты" = "Efecte";
+"Анимации и спецэффекты" = "Animații și efecte speciale";
+"Футболка чемпиона" = "Tricou Champion";
+"Кепка путешественника" = "Șapcă de călător";
+"Куртка исследователя" = "Jacheta de explorator";
+"Золотой скин" = "Piele de aur";
+"Радужный скин" = "Piele Curcubeu";
+"Неоновый скин" = "Piele de neon";
+"Эффект блёсток" = "Efect de strălucire";
+"Огненный эффект" = "Efect de foc";
+"Звёздный эффект" = "Efect de stea";
+"Купить" = "Cumpăra";
+"Покупка" = "Cumpărare";
+"Текст гимна" = "Textul imnului";
+"Continue playing with unlimited hearts!" = "Continuați să jucați cu inimi nelimitate!";
+"No lives available" = "Nu există vieți disponibile";
+"Unfortunately, the game is not available now: you have no lives. You can buy lives or go Premium." = "Din păcate, jocul nu este disponibil acum: nu aveți vieți. Puteți cumpăra vieți sau puteți merge Premium.";
+"Go Premium" = "Treci Premium";
+"Out of lives" = "Din vieți";
+"Get Free Lives" = "Obțineți vieți gratuite";
+"Watch video for +3 lives" = "Urmăriți videoclipul pentru +3 vieți";
+"Unfortunately you ran out of lives this time. Try again or come back later." = "Din păcate, ai rămas fără vieți de data asta. Încercați din nou sau reveniți mai târziu.";
+"Out of lives headline 1" = "Aproape ai reușit! 🚀";
+"Out of lives headline 2" = "Continuăm?";
+"Out of lives headline 3" = "A mai rămas un pas!";
+"Out of lives headline 4" = "Atât de aproape!";
+"Out of lives headline 5" = "Nu te opri acum!";
+"Out of lives headline 6" = "Încă o rundă?";
+"Out of lives headline 7" = "Păstrează seria!";
+"Out of lives continue subtitle" = "Continuăm de aici?";
+"Continue with bonus lives" = "Continuă (+%d vieți)";
+"Out of lives perk resume" = "+%d vieți — continui exact de unde ai rămas";
+"Out of lives perk progress" = "Nu îți pierzi progresul";
+"Out of lives urgency" = "Repede — păstrează progresul!";
+"Ad-free with Premium" = "Fără reclame cu Premium";
+"Out of lives continue premium" = "Continuă cu Premium";
+"Ad unavailable" = "Anunț indisponibil";
+"Ad unavailable. Try again later." = "Anunț indisponibil. Încercați din nou mai târziu.";
+"OK" = "Bine";
+
+/* Premium screen */
+"Learn all countries and flags in ~2 months with Premium" = "Aflați toate țările și steaguri în aproximativ 2 luni cu Premium";
+"Unlimited Hearts" = "Inimi nelimitate";
+"Personalized Practice" = "Practica personalizata";
+"Explain My Answer" = "Explicați răspunsul meu";
+"Roleplay Scenarios" = "Scenarii de joc de rol";
+"Access 'My Mistakes'" = "Accesați „Greșelile mele”";
+"My Mistakes" = "Greșelile mele";
+"Erudite Difficulty" = "Dificultate erudită";
+"Learning Section" = "Sectiunea Invatare";
+"UPGRADE TO PREMIUM" = "UPGRADE LA PREMIUM";
+"NO THANKS" = "NU, MULȚUMESC";
+
+/* Game header popovers */
+"Total game time since start" = "Durata totală a jocului de la început";
+"Time limit per question depending on difficulty" = "Time limit per question depending on difficulty";
+"Total Game Time" = "Timp total de joc";
+"Time Per Question" = "Time Per Question";
+
+/* Game header motivation (iPad) */
+"Game motivation 1" = "Ai asta!";
+"Game motivation 2" = "Continuă!";
+"Game motivation 3" = "Fiecare steag contează!";
+"Game motivation 4" = "Ești în flăcări!";
+"Game motivation 5" = "Rămâi concentrat!";
+"Game motivation 6" = "Inca unul!";
+"Game motivation 7" = "Rit mare!";
+"Game motivation 8" = "Aproape acolo!";
+"%d min %d sec" = "%d min %d sec";
+"%d sec" = "%d sec";
+
+// Push Notifications
+"Push Notification Title" = "E timpul să exersezi!";
+"Push Notification Body" = "Testează-ți cunoștințele drapelului și îmbunătățește-ți abilitățile! 🌍🎯";
+
+// Profile Page
+"League" = "Ligă";
+"Following" = "Urmând";
+"Days in a row" = "Zile la rând";
+"Joined in %@" = "S-a înscris în %@";
+"Statistics" = "Statistici";
+"Total XP" = "XP total";
+"Current streak" = "Serie actuală";
+"Best streak" = "Cea mai bună serie";
+"Total games" = "Total jocuri";
+"Accuracy" = "Precizie";
+"Add Friends" = "Adăugați prieteni";
+"Overview" = "Prezentare generală";
+"Friend Streaks" = "Prieteni Streaks";
+"Monthly Badges" = "Insigne lunare";
+
+/* Avatar Editor */
+"Edit Avatar" = "Editați avatarul";
+"Cancel" = "Anula";
+"Upload Photo" = "Încărcați o fotografie";
+"Create Avatar" = "Creați un avatar";
+"Photo" = "Fotografie";
+"Create" = "Crea";
+"Select Photo" = "Selectați Fotografie";
+"Upload your photo from gallery or take a new one" = "Încărcați-vă fotografia din galerie sau luați una nouă";
+"Remove Photo" = "Eliminați fotografia";
+"Save Avatar" = "Salvați avatarul";
+"Gender" = "Gen";
+"Skin Tone" = "Tonul pielii";
+"Face Shape" = "Forma feței";
+"Hair Style" = "Stil de păr";
+"Hair Color" = "Culoarea părului";
+"Eye Shape" = "Forma ochiului";
+"Eye Color" = "Culoarea ochilor";
+"Eyebrows" = "Sprâncene";
+"Nose" = "Nas";
+"Mouth" = "Gură";
+"Facial Hair" = "Păr facial";
+"Glasses" = "Ochelari";
+"Outfit" = "Tinuta";
+"Accessories" = "Accesorii";
+
+/* Game Loading */
+"Loading flags..." = "Se încarcă steaguri...";
+"Starting..." = "Pornire...";
+
+/* Main Tab Navigation */
+"Главная" = "Acasă";
+"Игра" = "Juca";
+"Квесты" = "Misiuni";
+"Лиги" = "Ligi";
+"До конца лиги: %02dч %02dм (GMT)" = "Liga se încheie la %02dh %02dm (GMT)";
+"До конца лиги: %@ (GMT)" = "Liga se încheie în %@ (GMT)";
+"д" = "d";
+"ч" = "h";
+"м" = "m";
+"Статистика" = "Statistici";
+"Профиль" = "Profil";
+
+/* Profile Page */
+"ОБЗОР" = "PREZENTARE GENERALĂ";
+"ДОБАВИТЬ ДРУЗЕЙ" = "ADAUGĂ PRIETENI";
+"СЕРИИ ДРУЗЕЙ" = "PRIETENI STREETS";
+"МЕСЯЧНЫЕ ДОСТИЖЕНИЯ" = "REALIZĂRI LUNARE";
+
+/* Settings */
+"Выберите аватар" = "Alegeți avatarul";
+"Редактировать аватар" = "Editați avatarul";
+"profile_upload_photo" = "Încarcă fotografia";
+"profile_crop_photo_title" = "Ajustează fotografia";
+"profile_crop_photo_subtitle" = "Ciupiți pentru zoom · trageți pentru a muta";
+"profile_crop_zoom_label" = "Zoom";
+"profile_crop_cancel" = "Renunță";
+"profile_crop_done" = "Gata";
+"Имя пользователя" = "Nume de utilizator";
+"Статистика" = "Statistici";
+"Премиум подписка активна" = "Abonament premium activ";
+"ВОССТАНОВИТЬ ПОДПИСКУ" = "RESTAURĂ ABONAREA";
+"ВЫЙТИ" = "LOG OUT";
+"Удалить аккаунт" = "Ștergeți contul";
+"Это действие нельзя отменить. Все ваши данные будут удалены навсегда." = "Această acțiune nu poate fi anulată. Toate datele tale vor fi șterse definitiv.";
+
+/* Language Selection */
+"Выберите язык игры" = "Alege limba jocului";
+"Язык интерфейса игры и заданий" = "Interfața jocului și limbajul sarcinilor";
+
+/* Leagues */
+"Вы занимаете #%d место" = "Sunteți pe locul #%d";
+"Зона повышения - переход в следующую лигу!" = "Zona de promovare - avans în liga următoare!";
+"Зона вылета - риск понижения лиги" = "Zona retrogradării - risc de retrogradare în ligă";
+"Безопасная зона - остаетесь в текущей лиге" = "Zona de siguranță - rămâneți în liga actuală";
+"Конец недели через %d часов" = "Săptămâna se termină în %d ore";
+"ЗОНА ВЫЛЕТА" = "ZONA DE RELEGARE";
+"ЗОНА ПОВЫШЕНИЯ" = "ZONA DE PROMOȚIE";
+
+/* Monthly Quests */
+"Августовский Квест" = "August Quest";
+"Mision de Agosto" = "Misiunea august";
+"21 ДЕНЬ" = "21 de zile";
+"Заработай 40 очков квеста" = "Câștigă 40 de puncte de misiune";
+"ЕЖЕДНЕВНЫЕ КВЕСТЫ" = "ÎNTREBĂRI ZILNICE";
+
+/* Help Center */
+"Популярные темы" = "Subiecte populare";
+"Категории" = "Categorii";
+/* Help Center Categories */
+"Игра" = "Joc";
+"Прогресс" = "Progres";
+"Лиги" = "Ligi";
+"Профиль" = "Profil";
+"Социальные функции" = "Caracteristici sociale";
+"Технические вопросы" = "Probleme tehnice";
+"Нужна дополнительная помощь?" = "Ai nevoie de ajutor suplimentar?";
+"Связаться с поддержкой" = "Contactați asistența";
+"Результаты поиска" = "Rezultatele căutării";
+"Ничего не найдено" = "Nu s-a găsit nimic";
+"Попробуйте другие ключевые слова" = "Încercați diferite cuvinte cheie";
+"%d тем" = "%d subiecte";
+
+/* Daily Quests */
+"Продли свою серию" = "Extindeți-vă șirul";
+"Сыграй 3 игры подряд" = "Joacă 3 jocuri la rând";
+"Достигни точности 80%" = "Obțineți o precizie de 80%.";
+"МЕСЯЧНЫЕ ЦЕЛИ" = "OBIECTIVE LUNARE";
+"Месячные цели" = "OBIECTIVE LUNARE";
+
+/* Profile Statistics */
+"дней" = "zile";
+"Текущая серия" = "Serie actuală";
+"Всего изучено флагов" = "Total de steaguri învățate";
+"Текущая лига" = "Liga actuală";
+"Общий опыт" = "Experiență totală";
+
+/* League Names */
+"Бронза" = "Bronz";
+"Серебро" = "Argint";
+"Золото" = "Aur";
+"Платина" = "Platină";
+"Алмаз" = "Diamant";
+"Мастер" = "Maestru";
+
+/* Profile Edit */
+"Введите имя" = "Introduceți numele";
+"Отмена" = "Anula";
+"Сохранить" = "Salva";
+"Уровень" = "Nivel";
+"Опыт" = "Experienţă";
+"Серия дней" = "Urma zilei";
+"Всего игр" = "Total jocuri";
+"Точность" = "Precizie";
+
+/* Theme Settings */
+"Тема" = "Temă";
+"System" = "Sistem";
+"Light" = "Aprinde";
+"Dark" = "Întuneric";
+"Выберите тему оформления приложения" = "Alegeți tema aspectului aplicației";
+"Следует системным настройкам" = "Urmează setările sistemului";
+"Светлое оформление" = "Aspect ușor";
+"Темное оформление" = "Aspect întunecat";
+
+/* Monthly Quests - Additional */
+"Сыграй %d игр" = "Joacă %d jocuri";
+"Завершите %d игр в этом месяце" = "Finalizează %d jocuri luna aceasta";
+"Точность %d%%" = "Precizie %d%%";
+"Достигните точности %d%% в играх" = "Atinge %d%% acuratețe în jocuri";
+"Серия %d дней" = "%d zi serie";
+"Поддерживайте серию %d дней подряд" = "Mențineți o serie de %d zile";
+"10Ч" = "10H";
+
+/* Friends */
+"Ваш код друга" = "Codul de prieten";
+"Добавить по коду" = "Adăugați prin cod";
+"Введите код друга" = "Introdu codul prietenului";
+"Добавить" = "Adăuga";
+"Добавить друзей" = "Adăugați prieteni";
+"Готово" = "Făcut";
+"Скопировано" = "Copiat";
+"Мой код друга" = "Codul prietenului meu";
+"Добавить по имени (логину)" = "Adăugați după numele de utilizator";
+"Введите имя пользователя" = "Introduceți numele de utilizator";
+"Пользователь не найден или уже в друзьях. Проверьте имя." = "Utilizatorul nu a fost găsit sau deja în prieteni. Verificați numele.";
+"Ваша страна (флаг в профиле)" = "Țara dvs. (steagul în profil)";
+"Выберите страну — её флаг будет отображаться у вас в профиле у друзей." = "Selectați o țară — steagul său va fi afișat prietenilor în profilul dvs.";
+"Не выбрано" = "Neselectat";
+"Ваша страна" = "Țara ta";
+
+/* Help Center topics */
+"Как играть в World Arena Flags?" = "Cum să joci World Arena Flags?";
+"Основы игры и правила" = "Bazele și regulile";
+"HELP_GAME_RULES" = "World Arena Flags este un joc distractiv de a învăța steagurile lumii!\n\nReguli:\n1. Vezi steagul unei țări\n2. Alegeți numele corect din opțiuni\n3. Câștigați XP pentru răspunsuri corecte\n4. Păstrează-ți șirul zilnic\n5. Creșteți nivel și urcați ligi\n\nCu cât joci mai mult, cu atât înveți mai multe steaguri!";
+"Что такое серия дней?" = "Ce este un streak?";
+"Как работает система серий" = "Cum funcționează sistemul streak";
+"HELP_STREAK_TEXT" = "O serie arată câte zile la rând ai jucat.\n\nCum se păstrează:\n• Joacă cel puțin un joc în fiecare zi\n• Numarul se resetează dacă săriți peste o zi\n• Serii mai lungi oferă mai multe XP bonus\n\nStreak ajută la construirea unui obicei de învățare!";
+"Как работают лиги?" = "Cum funcționează ligile?";
+"Система рейтингов и соревнований" = "Sistem de rating și competiție";
+"HELP_LEAGUES_TEXT" = "Ligile sunt competiții cu alți jucători.\n\nLigi (de la mai jos la mai mare):\n• Bronz\n• Argint\n• Aur\n• Platină\n• Diamant\n• Maestru\n\nActualizări săptămânale:\n• Primii 3 jucători primesc recompense\n• Jucătorii din 16–20 pot fi retrogradați\n• Alții rămân în aceeași ligă";
+
+/* Birthday */
+"День рождения" = "Ziua de naștere";
+"Birthday description F-bucks" = "Permite-ne să te felicităm de ziua ta cu +10 F-bucks";
+"Очистить" = "Clar";
+"День рождения друга" = "Ziua de naștere a prietenului";
+"Friend birthday push body" = "Astăzi %@ își sărbătorește ziua de naștere — felicită-i! (oferă +10 min Triple XP sau +1 F-dolari)";
+"С днём рождения!" = "La mulți ani!";
+"Birthday bonus already claimed" = "Bonus pentru acest an deja solicitat";
+"Birthday bonus F-bucks message" = "Ai primit +10 F-dolari";
+"Friend birthday today" = "Astăzi este ziua lui %@";
+"Friends birthday today count" = "%d prieteni își au ziua de naștere astăzi";
+"Friend birthday congratulate hint" = "Felicitări: acordă +10 min Triple XP sau +1 F-dolari";
+"Подарок на ДР от друга" = "Cadou de ziua de nastere de la prieten";
+
+/* Help Center – profile & skin */
+"Как изменить аватар?" = "Cum se schimbă avatarul?";
+"Персонализация профиля" = "Personalizarea profilului";
+"HELP_PROFILE_AVATAR" = "Pentru a vă schimba avatarul:\n1. Deschideți fila Profil\n2. Atingeți pictograma roată (Setări)\n3. Alegeți „Profil de utilizator”\n4. Alegeți un nou avatar sau încărcați o fotografie\n5. Atingeți „Salvați”";
+"Как работает создание скина?" = "Cum funcționează editorul de piele?";
+"Редактор аватара и элементы" = "Editor de avatar și articole";
+"HELP_PROFILE_SKIN_EDITOR" = "În editorul de skin vă construiți aspectul din mai multe categorii:\n• Îmbrăcăminte\n• Accesorii\n• Ochelari\n• Tonul pielii\n• Păr\n• Față (ochi, gură etc.)\n\nCum se folosește:\n1. Deschideți Profil → Setări → Profil utilizator → Editați avatar\n2. Comutați la fila „Creare skin”.\n3. Alegeți o categorie din bara de sus (pălărie, cămașă, ochelari, pictograme din paletă etc.)\n4. Selectați un anumit articol din grila de mai jos – acesta va apărea instantaneu în previzualizare\n5. Atingeți „Salvați avatar” pentru a aplica pielea pe profilul dvs\n\nUnele articole pot fi blocate (pictograma de blocare) – se deblochează pe măsură ce progresezi sau pentru F-dolari.";
+
+/* Help Center – friends & social */
+"Как добавить друзей?" = "Cum să adaugi prieteni?";
+"Социальные функции" = "Caracteristici sociale";
+"HELP_SOCIAL_ADD_FRIENDS" = "Pentru a adăuga prieteni:\n1. Deschideți fila Profil\n2. Atingeți „Adăugați prieteni”\n3. Partajați codul de prieten sau introduceți codul/autentificarea altui jucător\n4. Trimite o cerere de prietenie\n\nCu prietenii poți:\n• Comparați statisticile\n• Vedeți progresul lor\n• Concurează în ligi și dueluri";
+"Как работают напоминания друзьям?" = "Cum funcționează mementourile pentru prieteni?";
+"Пуш-уведомления о ежедневном уроке" = "Notificări push despre lecția zilnică";
+"HELP_SOCIAL_REMINDERS" = "După ce ai terminat un joc, vezi un ecran cu prietenii tăi și sumele lor:\n• Prietenii care au jucat deja astăzi arată o flacără și un număr de zile în serie\n• Prietenii care nu au jucat astăzi arată un buton „Remind”.\n\nCum se trimite un memento:\n1. După joc, accesați ecranul „Amintiți-vă prietenilor”.\n2. Atingeți „Remind” de lângă un anumit prieten\n3. Dacă au notificările activate, vor primi un mesaj prin care lecția de astăzi nu este încă finalizată\n\nMementourile îi ajută pe prieteni să-și păstreze succesul și să studieze în mod regulat.";
+
+/* Help Center – duel & progress */
+"Что такое дуэль и как её начать?" = "Ce este un duel și cum să-l începi?";
+"Режим соревнований 1 на 1" = "Mod competiție 1 la 1";
+"HELP_GAME_DUEL" = "Duelul este un mod în care tu și prietenul tău răspundeți la aceleași întrebări pentru a compara rezultatele.\n\nCum să începi un duel:\n1. Deschide profilul prietenului tău (din lista de prieteni, ligi sau mementouri)\n2. Atingeți butonul „Provocare la duel”.\n3. Confirmați – duelul va folosi un set comun de întrebări\n\nLa final:\n• Vezi cine a marcat mai multe puncte\n• Duelul motivează și stimulează progresul, dar NU vă resetează seria zilnică";
+"Как зарабатывать и тратить F-bucks?" = "Cum să câștigi și să cheltuiești F-dolari?";
+"Внутриигровая валюта" = "Moneda în joc";
+"HELP_PROGRESS_FBUCKS" = "F-bucks (Flags Bucks) sunt moneda în joc a World Arena Flags.\n\nCum să câștigi F-dolari:\n• Pentru jocuri perfecte (toate răspunsurile corecte)\n• Pentru perioade lungi zilnice\n• Pentru finalizarea misiunilor și realizărilor\n\nPe ce să le cheltuiești:\n• Cumpărarea elementelor exclusive de skin și avatar\n• Deblocarea accesoriilor și efectelor rare\n\nImportant: F-dolarii nu sunt bani reali. Ele nu pot fi retrase sau schimbate în valută reală.";
+"Как работают квесты и достижения?" = "Cum funcționează misiunile și realizările?";
+"Месячные задания и артефакты" = "Misiuni lunare și artefacte";
+"HELP_PROGRESS_QUESTS" = "În fila „Misiuni” vezi:\n• Misiuni zilnice (dacă sunt disponibile)\n• Misiuni lunare și progres total 0–40\n\nCum funcționează:\n1. Completați sarcini: jucați numărul necesar de jocuri, ghiciți steaguri din anumite regiuni etc.\n2. Fiecare misiune finalizată oferă progres și recompense\n3. Progresul lunar total este afișat în antetul colorat sub formă de bară\n\nRealizări (artefacte) deblocate pentru condiții speciale:\n• Dâre lungi\n• Precizie ridicată\n• Locuri înalte în ligi\nRealizările deblocate sunt afișate în profilul tău.";
+
+/* Help Center – notifications */
+"Уведомления: какие бывают и как их настроить?" = "Notificări: tipuri și cum să le gestionezi?";
+"Ежедневный урок, дуэли и напоминания" = "Lecție zilnică, dueluri și mementouri";
+"HELP_NOTIFICATIONS_TYPES" = "Aplicația poate trimite mai multe tipuri de notificări:\n• Lecții zilnice și memento-uri\n• Mementouri pentru prieteni și răspunsuri la memento-urile dvs\n• Provocări de duel și rezultate de duel\n\nCum să gestionați notificările:\n1. Deschideți setările dispozitivului\n2. Găsiți steaguri World Arena\n3. Activați sau dezactivați tipurile de notificări după cum doriți\n\nVă recomandăm să lăsați activate mementourile zilnice pentru lecții, astfel încât să nu vă pierdeți succesul.";
+
+/* Help Center – technical issues */
+"Проблемы с загрузкой флагов" = "Steaguri nu se încarcă";
+"Что делать если флаги не загружаются" = "Ce trebuie făcut dacă steaguri nu se încarcă";
+"HELP_TECH_FLAGS_NOT_LOADING" = "Dacă steaguri nu se încarcă:\n1. Verificați-vă conexiunea la internet\n2. Reporniți aplicația\n3. Goliți memoria cache din setările aplicației (dacă este disponibilă)\n4. Actualizați aplicația la cea mai recentă versiune\n5. Contactați asistența dacă problema persistă";
+"Синхронизация данных" = "Sincronizarea datelor";
+"Как сохранить прогресс" = "Cum să vă păstrați progresul în siguranță";
+"HELP_TECH_DATA_SYNC" = "Progresul dvs. este salvat automat pe dispozitiv.\n\nPentru a face backup:\n• Utilizați iCloud sau backup-ul dispozitivului dvs\n• Exportați datele prin setările de confidențialitate (dacă sunt disponibile)\n• Creați în mod regulat copii de siguranță ale dispozitivului dvs\n\nDacă schimbați dispozitivele, restabiliți backup-ul înainte de a lansa jocul, astfel încât să nu vă pierdeți progresul.";
+
+/* Achievements */
+"Достижения" = "Realizări";
+"Достижение" = "Realizare";
+"ЛИЧНЫЕ РЕКОРДЫ" = "Înregistrările personale";
+"НАГРАДЫ" = "Premii";
+"Лучшая серия" = "Cea mai lungă serie";
+"Макс. лига" = "Cea mai înaltă ligă";
+"Макс. XP" = "Majoritatea XP";
+"Открыто" = "Deblocat";
+
+/* Achievement titles/descriptions */
+"Ранняя птица" = "Pasăre timpurie";
+"Достигните серии 5 дней" = "Atingeți o serie de 5 zile";
+"Стабильность" = "Consecvență";
+"Серия 10 дней" = "serie de 10 zile";
+"Железная воля" = "Voința de Fier";
+"Серия 30 дней" = "serie de 30 de zile";
+"Новичок XP" = "XP Începător";
+"Наберите 1000 XP" = "Câștigați 1000 XP";
+"Олимпиец XP" = "XP olimpic";
+"Наберите 5000 XP" = "Câștigați 5000 XP";
+"Легенда XP" = "Legenda XP";
+"Наберите 10000 XP" = "Câștigați 10000 XP";
+"Исследователь" = "Quest Explorer";
+"Сыграйте 20 игр" = "Joacă 20 de jocuri";
+"Ветеран" = "Veteran";
+"Сыграйте 100 игр" = "Joacă 100 de jocuri";
+"Меткий стрелок" = "Trăgător de elită";
+"Точность 70%" = "Atinge o precizie de 70%.";
+"Снайпер" = "Lunetist";
+"Точность 85%" = "Atinge o precizie de 85%.";
+"Серебряная лига" = "Liga de argint";
+"Достигните Серебра" = "Ajunge la Argint";
+"Золотая лига" = "Liga de aur";
+"Достигните Золота" = "Ajunge la aur";
+"Платиновая лига" = "Liga de platină";
+"Достигните Платины" = "Ajunge la platină";
+"Алмазная лига" = "Liga Diamond";
+"Достигните Алмаза" = "Ajunge la Diamond";
+"Мастер лиг" = "Master League";
+"Достигните Мастера" = "Ajunge la Maestru";
+"Первый друг" = "Primul Prieten";
+"Добавьте друга" = "Adaugă un prieten";
+"Своя команда" = "Echipa ta";
+"Добавьте 5 друзей" = "Adaugă 5 prieteni";
+"Расскажите друзьям" = "Răspândește cuvântul";
+"Поделитесь профилем" = "Distribuiți profilul dvs";
+"Спринтер" = "Speed ​​Racer";
+"Сыграйте 10 игр за день" = "Joacă 10 jocuri într-o zi";
+"XP Олимпиец" = "XP olimpic";
+"Мастер Олимпиец XP" = "Master XP olimpic";
+"Наберите 30000 XP" = "Câștigați 30000 XP";
+ 
+/* Settings - Added */
+"Уведомления" = "Notificări";
+"Приватность" = "Confidențialitate";
+"Центр помощи" = "Centrul de ajutor";
+"Язык игры" = "Limbajul jocului";
+"Звуковые эффекты" = "Efecte sonore";
+"Вибрация" = "Vibrație";
+
+/* Notification Settings - Sections */
+"Основные уведомления" = "Notificări principale";
+"Напоминания об игре" = "Memento-uri de joc";
+"Ежедневные напоминания" = "Memento-uri zilnice";
+"Напоминания о серии" = "Memento-uri streak";
+"Время напоминания" = "Ora de memento";
+"Время" = "Timp";
+"Достижения и прогресс" = "Realizări și progrese";
+"Социальные уведомления" = "Notificări sociale";
+"Друзья" = "Prieteni";
+
+/* Privacy Settings */
+"Приватность профиля" = "Confidențialitatea profilului";
+"Публичный профиль" = "Profil public";
+"Показывать статистику" = "Afișează statistici";
+"Заявки в друзья" = "Cereri de prietenie";
+"Сбор данных" = "Colectarea datelor";
+"Аналитика использования" = "Analiza utilizării";
+"Отчеты о сбоях" = "Rapoarte de avarie";
+"Управление данными" = "Gestionarea datelor";
+"Политика конфиденциальности" = "Politica de confidențialitate";
+"Ознакомьтесь с нашей политикой конфиденциальности" = "Citiți politica noastră de confidențialitate";
+"Условия использования" = "Termeni și condiții";
+"Прочитайте наши условия использования" = "Citiți termenii și condițiile noastre";
+"Экспорт данных" = "Exportați date";
+"Скачать копию ваших данных" = "Descărcați o copie a datelor dvs";
+"Удалить все данные" = "Ștergeți toate datele";
+"Безвозвратно удалить все ваши данные" = "Ștergeți definitiv toate datele dvs";
+
+// Profile page
+"Всего изучено флагов" = "Total de steaguri învățate";
+"Текущая лига" = "Liga actuală";
+"Общий опыт" = "Experiență totală";
+"дней" = "zile";
+"Текущая серия" = "Serie actuală";
+"XP" = "XP";
+"ДОБАВИТЬ ДРУЗЕЙ" = "ADAUGĂ PRIETENI";
+"СЕРИИ ДРУЗЕЙ" = "PRIETENI STREETS";
+"МЕСЯЧНЫЕ ДОСТИЖЕНИЯ" = "REALIZĂRI LUNARE";
+
+// Add Friends page
+"Ваш код друга" = "Codul de prieten";
+"Добавить по коду" = "Adăugați prin cod";
+"Введите код друга" = "Introdu codul prietenului";
+"Добавить" = "Adăuga";
+"Добавить друзей" = "Adăugați prieteni";
+"Готово" = "Făcut";
+"Скопировано" = "Copiat";
+"Мой код друга" = "Codul prietenului meu";
+"Добавить по имени (логину)" = "Adăugați după numele de utilizator";
+"Введите имя пользователя" = "Introduceți numele de utilizator";
+"Пользователь не найден или уже в друзьях. Проверьте имя." = "Utilizatorul nu a fost găsit sau deja în prieteni. Verificați numele.";
+"Ваша страна (флаг в профиле)" = "Țara dvs. (steagul în profil)";
+"Выберите страну — её флаг будет отображаться у вас в профиле у друзей." = "Selectați o țară — steagul său va fi afișat prietenilor în profilul dvs.";
+"Не выбрано" = "Neselectat";
+"Ваша страна" = "Țara ta";
+
+// Settings page
+"Премиум" = "Premium";
+"World Arena Premium" = "World Arena Premium";
+"Премиум подписка активна" = "Abonament premium activ";
+"ВОССТАНОВИТЬ ПОДПИСКУ" = "RESTAURĂ ABONAREA";
+
+// Achievements
+"Ранняя птица" = "Pasăre timpurie";
+"Железная воля" = "Voința de Fier";
+"Алмазная лига" = "Liga Diamond";
+"Серия мастера" = "Master Streak";
+"Чемпион месяца" = "Campion lunar";
+"Идеальная неделя" = "Săptămâna perfectă";
+
+// Friends messages
+"У вас пока нет друзей" = "Încă nu ai prieteni";
+"Добавьте друзей, чтобы видеть их серии" = "Adaugă prieteni pentru a le vedea liniile";
+
+// Quests page
+"Щоденні квести" = "Misiuni zilnice";
+"Сыграй 3 игры" = "Joacă 3 jocuri";
+"Дай 10 правильных ответов" = "Dați 10 răspunsuri corecte";
+"Заработай 500 XP" = "Câștigați 500 XP";
+"%d/7 дней активности" = "%d/7 zile active";
+"Месячные цели" = "Obiective lunare";
+"Сыграй 10 игр" = "Joacă 10 jocuri";
+"Завершите 10 игр в этом месяце" = "Finalizează 10 jocuri luna aceasta";
+"Точность 62%" = "Precizie 62%";
+"Достигните точности 62% в играх" = "Obțineți o precizie de 62% în jocuri";
+"Серия 3 дней" = "Stretch 3 zile";
+"Поддерживайте серию 3 дней подряд" = "Menține o serie de 3 zile";
+
+// Profile page buttons
+"Отмена" = "Anula";
+"Сохранить" = "Salva";
+
+// Profile statistics
+"Статистика" = "Statistici";
+"Уровень" = "Nivel";
+"Опыт" = "Experienţă";
+"Серия дней" = "Day Streak";
+"Всего игр" = "Total jocuri";
+"Точность" = "Precizie";
+
+// Avatar Editor
+"Edit Avatar" = "Editați avatarul";
+"Upload photo" = "Încărcați o fotografie";
+"Photo" = "Fotografie";
+"Create" = "Crea";
+"Select photo" = "Selectați Fotografie";
+"Upload your photo from gallery or take a new one" = "Încărcați-vă fotografia din galerie sau luați una nouă";
+"Save Avatar" = "Salvați avatarul";
+
+// Mission title
+"August Mission" = "Misiunea august";
+
+/* Subscription Management */
+"Управление подпиской" = "Gestionarea abonamentului";
+"Ваша премиум подписка активна" = "Abonamentul dvs. premium este activ";
+"Текущий план" = "Planul curent";
+"Цена" = "Preţ";
+"месяц" = "lună";
+"Информация о платежах" = "Informații de facturare";
+"Дата начала" = "Data de începere";
+"Следующий платеж" = "Următoarea plată";
+"Статус" = "Stare";
+"Активна" = "Activ";
+"Премиум преимущества" = "Beneficii Premium";
+"Безлимитные жизни" = "Vieți nelimitate";
+"Играйте без ожидания" = "Joacă fără să aștepți";
+"Раздел Обучения" = "Sectiunea Invatare";
+"Изучайте флаги и страны" = "Învață steaguri și țări";
+"Сложность Эрудит" = "Dificultate erudită";
+"Продвинутые вопросы" = "Întrebări avansate";
+"Мои ошибки" = "Greșelile mele";
+"Анализ ваших ошибок" = "Analiza greselilor tale";
+"Отменить подписку" = "Anulează abonamentul";
+"Закрыть" = "Aproape";
+"Отмена" = "Anula";
+"Вы уверены, что хотите отменить премиум подписку? Вы потеряете доступ ко всем премиум функциям." = "Sigur doriți să anulați abonamentul premium? Veți pierde accesul la toate funcțiile premium.";
+
+"Manage subscription" = "Gestionați abonamentul";
+"Your premium subscription is active" = "Abonamentul dvs. premium este activ";
+"Current plan" = "Planul actual";
+"Price" = "Preţ";
+"month" = "lună";
+"year" = "an";
+"Billing information" = "Informații de facturare";
+"Start date" = "Data de începere";
+"Next payment" = "Următoarea plată";
+"Status" = "Stare";
+"Active" = "Activ";
+"Premium benefits" = "Beneficii premium";
+"My mistakes" = "Greșelile mele";
+"Analysis of your mistakes" = "Analiza greselilor tale";
+"Premium tournaments" = "Turnee premium";
+"Exclusive tournaments with F-Bucks prizes" = "Turnee exclusive cu premii F-Bucks";
+"Cancel subscription" = "Anulați abonamentul";
+"Keep subscription" = "Păstrați abonamentul";
+"Yes, cancel" = "Da, anulează";
+"Are you sure you want to cancel premium? You will lose access to all premium features." = "Sigur doriți să anulați premium? Veți pierde accesul la toate funcțiile premium.";
+"Close" = "Aproape";
+"Red" = "Roşu";
+"Most popular color fact description" = "Roșul este prezent pe 75% din toate steagurile naționale din întreaga lume, ceea ce îl face cea mai populară culoare a steagului.";
+
+/* Friend Management */
+"Флаг в профиле" = "Semnal în profil";
+"Удалить из друзей" = "Eliminați din Prieteni";
+"Удалить друга" = "Eliminați prietenul";
+"Вы уверены, что хотите удалить %@ из друзей и перестать следить за его успехами?" = "Sigur doriți să eliminați %@ din prieteni și să nu mai urmăriți progresul lor?";
+
+/* Subscription Cancellation */
+"Нам очень жаль, что вы отменили премиум подписку" = "Ne pare rău că ți-ai anulat abonamentul premium";
+"Ваши результаты за период премиум подписки:" = "Rezultatele dvs. în perioada de abonament premium:";
+"Изучено флагов" = "Steaguri Studiate";
+"Лучший результат" = "Cel mai bun scor";
+"очков" = "puncte";
+"Текущая серия" = "Serie curentă";
+"дней" = "zile";
+"Точность" = "Precizie";
+"Теперь вы можете без единой ошибки отвечать на все наши вопросы с точностью в %d%%" = "Acum poți răspunde la toate întrebările noastre fără nici o greșeală, cu o acuratețe de %d%%";
+"Мы будем рады, если вы захотите снова вернуться к нам!" = "Ne-am bucura dacă vrei să te întorci din nou la noi!";
+"Продолжить" = "Continua";
+
+/* Learning Section New Strings */
+"ВСЕ СТРАНЫ" = "TOATE ȚĂRILE";
+"Все страны" = "Toate Țările";
+"стран" = "ţări";
+"Столица" = "Capital";
+
+// Country Detail View
+"Галерея" = "Galerie";
+"Информация о стране" = "Informații despre țară";
+"Описание флага" = "Descrierea steagului";
+"Гимн страны" = "Imn național";
+"Национальный гимн" = "Imn național";
+"Значение гимна" = "Semnificația imnului";
+"Официальный язык" = "Limba oficială";
+"Правительство" = "Guvern";
+"Глава государства" = "Şeful statului";
+"Телефонный код" = "Prefix de apelare";
+"Население" = "Populația";
+"Валюта" = "Valută";
+"Независимость" = "Independenţă";
+"Площадь" = "Zonă";
+"Описание" = "Descriere";
+"История" = "Istorie";
+"Музыка" = "Muzică";
+"Природа" = "Natură";
+"Историческая информация о стране" = "Informații istorice despre țară";
+"Музыкальная культура страны" = "Cultura muzicală a țării";
+"Уникальная природа и ландшафты этой страны" = "Natura și peisajele unice ale acestei țări";
+
+/* Premium restrictions */
+"Premium Feature" = "Funcție premium";
+"Erudite Level - Premium Only" = "Nivel erudit - Numai Premium";
+"My Mistakes - Premium Only" = "Greșelile mele - Numai Premium";
+"This feature is available only for Premium users" = "Această funcție este disponibilă numai pentru utilizatorii Premium";
+"Continue with Premium" = "Continuați cu Premium";
+"Get Premium access to unlock:" = "Obțineți acces Premium pentru a debloca:";
+"• Erudite difficulty level" = "• Nivel de dificultate erudit";
+"• My Mistakes section" = "• Secțiunea Greșelile mele";
+"• Unlimited lives" = "• Vieți nelimitate";
+"• All premium features" = "• Toate caracteristicile premium";
+
+/* Enhanced Game Results */
+"PERFECT!" = "PERFECT!";
+"EXCELLENT!" = "EXCELENT!";
+"GREAT JOB!" = "MARE MUNCĂ!";
+"GOOD EFFORT!" = "EFORT BUN!";
+"KEEP TRYING!" = "CONTINUĂ ÎNCERCAȚI!";
+"Absolutely incredible! You're a true champion! 🎉" = "Absolut incredibil! Ești un adevărat campion! 🎉";
+"Outstanding performance! You're almost perfect! ✨" = "Performanță remarcabilă! Ești aproape perfectă! ✨";
+"Fantastic work! You're doing amazing! 🚀" = "Lucru fantastic! Te descurci extraordinar! 🚀";
+"Nice job! Keep up the great work! 💫" = "Bună treabă! Continuați cu munca grozavă! 💫";
+"Don't give up! Every expert was once a beginner! 🌱" = "Nu renunţa! Fiecare expert a fost odată un începător! 🌱";
+"XP EARNED" = "XP CÂȘTIGAT";
+"XP boost time remaining" = "%d:%02d rămas — joacă din nou!";
+"XP boost you have remaining" = "Mai aveți %@ %@";
+"double XP" = "XP dublu";
+"triple XP" = "triplu XP";
+
+/* Enhanced Streak View */
+"Don't break the chain! Come back tomorrow!" = "Nu rupe lanțul! Întoarce-te mâine!";
+"Time to restart your streak! You can do it!" = "Time to restart your streak! You can do it!";
+
+/* Monthly XP Quest */
+"Заработай %d XP за месяц" = "Câștigați %d XP luna aceasta";
+"Заработайте %d XP играя минимум 7 дней в месяц" = "Câștigați %d XP jucând cel puțin 7 zile în această lună";
+
+/* League end popup */
+"Итоги лиги" = "Rezultatele ligii";
+"Вы заняли %d место." = "Ai plasat %d.";
+"Вы поднялись в лигу: %@" = "Ai fost promovat la %@.";
+"Вы остались в текущей лиге." = "Ai rămas în liga ta actuală.";
+"Вы понижены в лигу: %@" = "Ai fost retrogradat la %@.";
+
+/* Premium placeholders when products not loaded */
+"Loading..." = "Încărcare...";
+"Unable to load products" = "Nu se pot încărca produsele";
+"Tap to load price" = "Atingeți pentru a încărca prețul";
+"Sign in with Apple ID in Settings → App Store to see prices. Tap an option or Retry to try again." = "Conectați-vă cu Apple ID în Setări → App Store pentru a vedea prețurile. Atingeți o opțiune sau Reîncercați pentru a încerca din nou.";
+
+/* Home Lives Promo */
+"Unlock your full progress" = "Deblocați-vă progresul complet";
+"Get Premium tools for faster learning and better game results" = "Obțineți instrumente Premium pentru o învățare mai rapidă și rezultate mai bune la joc";
+"Learning section" = "Secțiunea de învățare";
+"Train flags and countries in a structured mode" = "Antrenează steaguri și țări într-un mod structurat";
+"Erudite difficulty" = "Dificultate erudită";
+"Advanced challenge with deeper knowledge checks" = "Provocare avansată cu verificări mai profunde ale cunoștințelor";
+"My mistakes" = "Greșelile mele";
+"Focus on weak topics and improve accuracy" = "Concentrați-vă pe subiecte slabe și îmbunătățiți acuratețea";
+"Personalized practice" = "Practica personalizata";
+"Adaptive sessions based on your progress" = "Sesiuni adaptative bazate pe progresul dvs";
+"Explain my answer" = "Explică-mi răspunsul";
+"Understand every mistake and learn faster" = "Înțelegeți fiecare greșeală și învățați mai repede";
+"Up to +750% faster flag learning with Premium" = "Învățare de semnalizare cu până la +750% mai rapidă cu Premium";
+"Play without waiting and keep your learning momentum" = "Joacă fără să aștepți și păstrează-ți impulsul de învățare";
+"Train flags, listen to anthems, and explore detailed country profiles" = "Antrenează steaguri, ascultă imnuri și explorează profiluri detaliate ale țărilor";
+"Restore Purchases" = "Restabiliți achizițiile";
+"Have a promo code?" = "Ai un cod promoțional?";
+"Redeem Offer Code" = "Valorificați codul ofertei";
+"Auto-renewable subscription" = "Abonament cu reînnoire automată";
+"Monthly Premium Title" = "Premium Monthly: valoare maximă";
+"Yearly Premium Title" = "AN Premium. Steaguri și țări";
+"Duration: 1 month (auto-renewable)" = "Durata: 1 lună (reînnoibil automat)";
+"Duration: 1 year (auto-renewable)" = "Durata: 1 an (reînnoibil automat)";
+"Premium Monthly" = "Premium lunar";
+"Yearly Premium" = "Premium anual";
+"Save %d%%" = "Salvați %d%%";
+"Learn flags and countries of the World" = "Învață steaguri și țări ale lumii";
+"Select Level" = "Selectați Nivel";
+"Level - %@" = "Nivel - %@";
+"Exclusive tournaments with cash F-Bucks prizes" = "Turnee exclusive cu premii F-Bucks în bani";
+"Survival Mode" = "Survival Mode";
+"One mistake = Game Over" = "O greșeală = Game Over";
+"Duel result push format" = "%@: %d — Tu: %d.";
+"Duel motivation win" = "Uimitor! Continuă șirul.";
+"Duel motivation lose" = "Timp de revanșă! O poți face.";
+"Opponent" = "Adversar";
+"vs %@" = "vs %@";
+"Combo x%d" = "Combo x%d";
+"Combo x%d bonus" = "Combo x%d bonus +1";
+"Combo x%d +10 XP" = "Combo x%d +10 XP";
+"Speed bonus +1" = "Bonus de viteză +1";
+"Speed bonus +10 XP" = "Bonus de viteză +10 XP";
+"Global ranking by countries" = "Clasament global pe țări";
+"Country rank line" = "%@ Sunteți #%d în %@";
+"World rank line" = "🌎 Sunteți #%d în lume";
+"World rank line no emoji" = "Sunteți #%d în lume";
+"Friend country rank line" = "%1$@ %2$@ #%3$d · %4$@";
+"Friend world rank line" = "%1$@ #%2$d";
+"Spain" = "Spania";
+"Poland" = "Polonia";
+"Ukraine" = "Ucraina";
+"Russia" = "Rusia";
+"USA" = "STATELE UNITE ALE AMERICII";
+"Лига Чемпионов Мира" = "Liga Campionilor Mondiali";
+"Price is loaded from the App Store on this screen" = "Prețul este încărcat din App Store pe acest ecran";
+"Connecting to App Store..." = "Se conectează la App Store...";
+"Version" = "Versiune";
+"Update" = "Actualizare";
+"Login without @" = "autentificare fără @";
+"Add by username" = "Adăugați după numele de utilizator";
+"Duel Summary" = "Rezumatul duelului";
+"No duel history yet" = "Încă nu există istoric de duel";
+"You already outranked %d%% of players in your city" = "Ai depășit deja %d%% dintre jucătorii din orașul tău";
+"Goal: keep 90% accuracy in first challenge" = "Obiectiv: menține o precizie de 90% în prima provocare";
+"Challenge ends in %d sec" = "Provocarea se încheie în %d sec";
+"Defeat" = "Învinge";
+"Victory" = "Victorie";
+"All" = "Toate";
+"Wins" = "Câștigă";
+"Losses" = "Pierderi";
+"Duel Summary Share Header" = "Duelul meu rezultă în World Arena Flags";
+"View Detailed Results" = "Vedeți rezultatele detaliate";
+"Detailed Results" = "Rezultate detaliate";
+"Correct" = "Corecta";
+"Wrong" = "Greşit";
+"Flag" = "Pavilion";
+"Your answer" = "Răspunsul dvs";
+"Time is up" = "Timpul a expirat";
+"Search" = "Căutare";
+"3x XP for 10 min!" = "3x XP timp de 10 minute!";
+"КАРТА ПРОГРЕССА" = "HARTA PROGRESULUI";
+"Карта прогресса мира" = "Harta progresului mondial";
+"World Progress Map" = "Harta progresului mondial";
+"Tap a country to see your correct and wrong answers" = "Atingeți o țară pentru a vedea răspunsurile corecte și greșite";
+"Greener country means better mastery" = "O țară mai verde înseamnă o mai bună stăpânire";
+"Continent Mastery" = "Stăpânirea continentului";
+"Mastered %d of %d countries" = "Stăpânește %d din %d țări";
+"Answered %d of %d countries" = "A răspuns la %d din %d țări";
+"Total" = "Total";
+"Map" = "Hartă";
+"Weak countries" = "Țări slabe";
+"All countries" = "Toate țările";
+"Only weak" = "Doar slab";
+"Only mastered" = "Doar stăpânit";
+"TOP weak countries for review" = "TOP țările slabe pentru revizuire";
+"No weak countries yet" = "Nu există încă țări slabe";
+"%@ Master" = "%@ Maestru";
+"%@ Master unlocked" = "%@ Master deblocat";
+"Continent mastered! Keep going." = "Continent stăpânit! Continuă.";
+"Weekly challenge" = "Provocare săptămânală";
+"Weak country sessions this week" = "Sesiuni de țară slabe săptămâna aceasta";
+"Start Weak Countries Training" = "Începeți antrenamentul pentru țările slabe";
+"Progress map subtitle" = "Urmăriți-vă progresul în funcție de țară și continent";
+"How is Mastered calculated?" = "Cum se calculează Mastered?";
+"Duel Summary subtitle" = "Vedeți istoricul duelurilor și rezultatele detaliate";
+"F-Bucks subtitle" = "Câștigați și cheltuiți F-Bucks, moneda din joc";
+"Mastered explanation" = "O țară este considerată stăpânită atunci când ai răspuns de cel puțin 3 ori și ai cel puțin 80%% răspunsuri corecte.";
+"Name" = "Nume";
+"Account login title" = "Creați-vă contul";
+"Account login subtitle" = "Păstrați modul invitat sau conectați-vă pentru a salva identitatea și funcțiile de securitate";
+"Login" = "Log in";
+"Register" = "Registru";
+"Sign in with Apple error 1000" = "Conectarea cu Apple nu este disponibilă aici. Încercați pe un dispozitiv real sau verificați Setări → ID Apple.";
+"Username" = "Nume de utilizator";
+"Password" = "Parolă";
+"Create account" = "Creează cont";
+"Forgot password?" = "Aţi uitat parola?";
+"Continue with Google" = "Continuați cu Google";
+"Google login" = "autentificare Google";
+"Continue" = "Continua";
+"Enter Google email" = "Introduceți adresa dvs. de e-mail Google";
+"Current password" = "Parola actuală";
+"New password" = "Parolă Nouă";
+"Repeat new password" = "Repetați parola nouă";
+"Change password" = "Schimbaţi parola";
+"Reset password" = "Resetează parola";
+"Reset code" = "Resetați codul";
+"Send reset code" = "Trimite codul de resetare";
+"No account with this email" = "Niciun cont cu acest e-mail";
+"reset_request_failed" = "Resetarea parolei a eșuat. Vă rugăm să încercați din nou mai târziu.";
+"registration_failed" = "Înregistrarea a eșuat. Vă rugăm să încercați din nou.";
+"Login / Register" = "Autentificare/Înregistrare";
+"Logged in" = "Autentificat";
+"Use Face ID / Touch ID" = "Utilizați Face ID / Touch ID";
+"Sign out" = "Sign out";
+"Active sessions" = "Sesiuni active";
+"My notifications" = "Notificările mele";
+"Other device" = "Alt dispozitiv";
+"Login with biometrics" = "Conectați-vă cu datele biometrice";
+"Biometric login prompt" = "Confirmați autentificarea biometrică";
+
+/* 68 interesting facts */
+"FACT_01_TITLE" = "Cel mai vechi steag folosit continuu";
+"FACT_01_DESC" = "Dannebrog al Danemarcei este considerat cel mai vechi steag național în uz continuu din 1219.";
+"FACT_02_TITLE" = "Doar steag național pătrat";
+"FACT_02_DESC" = "Elveția are singurul steag național pătrat din lume. Vaticanul are și un steag pătrat, dar este un oraș-stat.";
+"FACT_03_TITLE" = "Steagul nedreptunghiular";
+"FACT_03_DESC" = "Nepalul are singurul steag național din lume care nu este dreptunghiular.";
+"FACT_04_TITLE" = "Fără roșu, alb sau albastru";
+"FACT_04_DESC" = "Jamaica este singura țară cu un steag fără roșu, alb sau albastru.";
+"FACT_05_TITLE" = "Steagul care nu este niciodată coborât";
+"FACT_05_DESC" = "Steagul Arabiei Saudite nu este niciodată arborat în berb din cauza textului sacru de pe el.";
+"FACT_06_TITLE" = "Steagul național tânăr";
+"FACT_06_DESC" = "Steagul Sudanului de Sud a fost adoptat în 2011 după independență.";
+"FACT_07_TITLE" = "Steagul cu AK-47";
+"FACT_07_DESC" = "Mozambic este singura țară al cărei steag prezintă o armă modernă - pușca Kalașnikov.";
+"FACT_08_TITLE" = "Steaguri aproape identice";
+"FACT_08_DESC" = "Steagurile României și Ciadului sunt foarte asemănătoare; de obicei se disting prin nuanța de albastru.";
+"FACT_09_TITLE" = "Simbolismul Ucrainei";
+"FACT_09_DESC" = "Steagul albastru și galben al Ucrainei este interpretat în mod tradițional ca cerul deasupra unui câmp de grâu.";
+"FACT_10_TITLE" = "Cel mai simplu steag";
+"FACT_10_DESC" = "Steagul Libiei din 1977 până în 2011 a fost verde continuu, fără simboluri sau modele.";
+"FACT_11_TITLE" = "Steagul cu o hartă";
+"FACT_11_DESC" = "Steagul Ciprului arată conturul insulei - un caz rar printre steaguri naționale.";
+"FACT_12_TITLE" = "Steagul cu o Biblie";
+"FACT_12_DESC" = "Steagul Republicii Dominicane arată o Biblie deschisă, ceea ce îl face singurul steag național cu o carte religioasă.";
+"FACT_13_TITLE" = "Cea mai populară culoare";
+"FACT_13_DESC" = "Roșul este cea mai comună culoare pe steaguri naționale din întreaga lume.";
+"FACT_14_TITLE" = "Steagul cu text";
+"FACT_14_DESC" = "Textul de pe steaguri naționale este rar; un exemplu binecunoscut este Arabia Saudită.";
+"FACT_15_TITLE" = "Eticheta steagului";
+"FACT_15_DESC" = "Multe țări au reguli stricte cu privire la modul de tratare a drapelului național.";
+"FACT_16_TITLE" = "Steagul cu fețe diferite";
+"FACT_16_DESC" = "Paraguay are singurul steag național din lume cu diferite modele pe avers și revers.";
+"FACT_17_TITLE" = "Simbolismul olimpic";
+"FACT_17_DESC" = "Culorile inelului olimpic au fost alese astfel încât cel puțin o culoare să apară pe steagul fiecărei țări.";
+"FACT_18_TITLE" = "Steagul cu cea mai complexă stemă";
+"FACT_18_DESC" = "Steagul Mexicului arată un vultur cocoțat pe un cactus ținând un șarpe - una dintre cele mai detaliate steme de pe orice steag.";
+"FACT_19_TITLE" = "Steagul Copycat";
+"FACT_19_DESC" = "Steagulele Monaco și Indonezia sunt aproape identice - roșu deasupra, alb dedesubt. Singura diferență sunt proporțiile.";
+"FACT_20_TITLE" = "Steagul cu 50 de stele";
+"FACT_20_DESC" = "Steagul SUA are 50 de stele, câte una pentru fiecare stat. Designul a fost schimbat de 27 de ori din 1777.";
+"FACT_21_TITLE" = "Steaguri cele mai nordice";
+"FACT_21_DESC" = "Regiunile arctice folosesc atât steaguri naționale, cât și regionale cu simbolism unic.";
+"FACT_22_TITLE" = "Steagul cu cruce";
+"FACT_22_DESC" = "29 de țări au o cruce pe steagul lor, ceea ce îl face unul dintre cele mai populare simboluri de pe steaguri naționale.";
+"FACT_23_TITLE" = "Tricolore";
+"FACT_23_DESC" = "Multe țări folosesc un design simplu cu trei benzi ca formă de steag stabilă din punct de vedere istoric.";
+"FACT_24_TITLE" = "Steagul cu o semilună";
+"FACT_24_DESC" = "Semiluna apare pe steagurile a 12 țări, majoritatea musulmane, simbolizând credința islamică.";
+"FACT_25_TITLE" = "Simbolul soarelui";
+"FACT_25_DESC" = "Soarele este unul dintre cele mai comune simboluri pe steagurile din Asia și America de Sud.";
+"FACT_26_TITLE" = "Steagul cu un copac";
+"FACT_26_DESC" = "Libanul este singura țară cu un copac (cedrul libanez) pe steagul său, simbolizând eternitatea și pacea.";
+"FACT_27_TITLE" = "Cel mai îngust steag";
+"FACT_27_DESC" = "Steagul Qatarului are cel mai neobișnuit raport de aspect al oricărui steag național – 11:28.";
+"FACT_28_TITLE" = "Steme complexe";
+"FACT_28_DESC" = "Stemele de pe steagurile Americii Latine includ adesea multe detalii și simboluri istorice.";
+"FACT_29_TITLE" = "Steagul curcubeu";
+"FACT_29_DESC" = "Bolivia are două steaguri oficiale - tricolorul tradițional și steagul curcubeu indigen Wiphala.";
+"FACT_30_TITLE" = "Steagul cu o clădire";
+"FACT_30_DESC" = "Steagul Cambodgiei arată templul Angkor Wat, ceea ce îl face singurul steag național cu o clădire.";
+"FACT_31_TITLE" = "Dispute istorice";
+"FACT_31_DESC" = "Designul unor steaguri s-a schimbat din cauza disputelor istorice și politice dintre țări.";
+"FACT_32_TITLE" = "Steagul cu o sabie";
+"FACT_32_DESC" = "Steagul Sri Lanka arată un leu care ține o sabie, simbolizând curajul poporului sinhalez.";
+"FACT_33_TITLE" = "Steagul fără albastru";
+"FACT_33_DESC" = "Doar patru țări nu folosesc albastru pe steaguri: Jamaica, Mauritania, Sri Lanka și Vatican.";
+"FACT_34_TITLE" = "Păsări pe steaguri";
+"FACT_34_DESC" = "Vulturul și alte păsări de pe steaguri simbolizează puterea, independența și noblețea spiritului.";
+"FACT_35_TITLE" = "Simbol antarctic";
+"FACT_35_DESC" = "Antarctica nu are steag național oficial, dar sunt folosite mai multe modele neoficiale.";
+"FACT_36_TITLE" = "Stele pe steaguri";
+"FACT_36_DESC" = "Steaua este unul dintre cele mai răspândite simboluri pe steagurile din întreaga lume.";
+"FACT_37_TITLE" = "Scheme de culori similare";
+"FACT_37_DESC" = "Unele steaguri sunt asemănătoare ca culoare, dar diferă în ordinea dungilor și a emblemelor.";
+"FACT_38_TITLE" = "Steaguri ale uniunii internaționale";
+"FACT_38_DESC" = "Organizațiile supranaționale au, de asemenea, propriile lor steaguri care reflectă valorile comune.";
+"FACT_39_TITLE" = "Simbolismul insulei";
+"FACT_39_DESC" = "Steagurile națiunilor insulare prezintă adesea simboluri ale oceanului, soarelui și navigației.";
+"FACT_40_TITLE" = "Schimbări în timp";
+"FACT_40_DESC" = "Unele steaguri naționale s-au schimbat de zeci de ori odată cu istoria politică a țării lor.";
+"FACT_41_TITLE" = "Soarele Macedonia de Nord";
+"FACT_41_DESC" = "Steagul Macedoniei de Nord are un soare cu opt raze pentru un nou început.";
+"FACT_42_TITLE" = "Tăietorii de lemne din Belize";
+"FACT_42_DESC" = "Steagul Belizei este unul dintre puținii oameni care arată: tăietorii de lemne cu unelte.";
+"FACT_43_TITLE" = "condor ecuadorian";
+"FACT_43_DESC" = "Steagul Ecuadorului include condorul andin pentru putere și suveranitate.";
+"FACT_44_TITLE" = "Bolivia Wiphala";
+"FACT_44_DESC" = "Bolivia folosește Wiphala alături de tricolor ca simbol oficial.";
+"FACT_45_TITLE" = "Cele 27 de stele ale Braziliei";
+"FACT_45_DESC" = "Steagul brazilian are 27 de stele, câte una pentru fiecare stat și district federal.";
+"FACT_46_TITLE" = "Frunza de arțar";
+"FACT_46_DESC" = "Steagul Canadei prezintă o singură frunză de arțar cu 11 vârfuri, unică printre steaguri naționale.";
+"FACT_47_TITLE" = "Union Jack";
+"FACT_47_DESC" = "Steagul Regatului Unit combină crucile a trei sfinți: Anglia, Scoția și Irlanda.";
+"FACT_48_TITLE" = "Soarele răsare al Japoniei";
+"FACT_48_DESC" = "Cercul roșu pe alb reprezintă soarele răsărit și a fost folosit pe steagul Japoniei încă din secolul al VII-lea.";
+"FACT_49_TITLE" = "Ashoka Chakra";
+"FACT_49_DESC" = "Steagul Indiei prezintă o roată cu 24 de spițe, simbolizând legea și mișcarea.";
+"FACT_50_TITLE" = "Crucea de Sud a Australiei";
+"FACT_50_DESC" = "Steagul Australiei arată constelația Southern Cross, vizibilă doar în emisfera sudică.";
+"FACT_51_TITLE" = "Crucea de Sud a Noii Zeelande";
+"FACT_51_DESC" = "Steagul Noii Zeelande prezintă și Crucea de Sud, dar cu stele roșii tivite în alb.";
+"FACT_52_TITLE" = "taegeuk din Coreea de Sud";
+"FACT_52_DESC" = "Steagul Coreei de Sud prezintă simbolul tradițional taegeuk (yin-yang) și trigramele.";
+"FACT_53_TITLE" = "sfera armilară a Portugaliei";
+"FACT_53_DESC" = "Steagul Portugaliei prezintă o sferă armilară, un instrument antic de navigație.";
+"FACT_54_TITLE" = "Vulturul bicefal al Albaniei";
+"FACT_54_DESC" = "Steagul Albaniei arată un vultur negru cu două capete, un simbol al suveranității.";
+"FACT_55_TITLE" = "Scutul Keniei";
+"FACT_55_DESC" = "Steagul Keniei prezintă un scut Maasai și sulițe încrucișate.";
+"FACT_56_TITLE" = "dragonul Țării Galilor";
+"FACT_56_DESC" = "Dragonul roșu de pe steagul Țării Galilor este unul dintre cele mai vechi simboluri naționale din lume.";
+"FACT_57_TITLE" = "crucea Sfântului Andrei";
+"FACT_57_DESC" = "Steagul Scoției este o cruce diagonală albă pe albastru, crucea Sfântului Andrei.";
+"FACT_58_TITLE" = "Cercul Groenlandei";
+"FACT_58_DESC" = "Steagul Groenlandei are un cerc roșu și alb reprezentând soarele deasupra gheții.";
+"FACT_59_TITLE" = "Culorile panafricane";
+"FACT_59_DESC" = "Verde, galben și roșu sunt adesea numite culori panafricane și apar pe multe steaguri africane.";
+"FACT_60_TITLE" = "Cruci nordice";
+"FACT_60_DESC" = "Cinci țări folosesc crucea nordică: Danemarca, Norvegia, Suedia, Finlanda și Islanda.";
+"FACT_61_TITLE" = "tricolor francez";
+"FACT_61_DESC" = "Tricolorul francez albastru-alb-roșu a devenit un model pentru multe steaguri revoluționare și naționale.";
+"FACT_62_TITLE" = "Steagul ONU";
+"FACT_62_DESC" = "Steagul ONU arată lumea înconjurată de ramuri de măslin pe un fundal albastru.";
+"FACT_63_TITLE" = "Steagul UE";
+"FACT_63_DESC" = "Douăsprezece stele aurii într-un cerc pe albastru simbolizează unitatea Uniunii Europene.";
+"FACT_64_TITLE" = "Steagul olimpic";
+"FACT_64_DESC" = "Cele cinci inele pe alb reprezintă cele cinci continente locuite și natura globală a Jocurilor.";
+"FACT_65_TITLE" = "Piața Vaticanului";
+"FACT_65_DESC" = "Vaticanul are un steag național pătrat ca Elveția.";
+"FACT_66_TITLE" = "Nauru 12 puncte";
+"FACT_66_DESC" = "Steagul Nauru are o stea cu 12 colțuri pentru cele 12 triburi.";
+"FACT_67_TITLE" = "covor Turkmenistan";
+"FACT_67_DESC" = "Steagul Turkmenistanului are modele de covoare de-a lungul palanului.";
+"FACT_68_TITLE" = "Moscheea din Afganistan";
+"FACT_68_DESC" = "Steagul Afganistanului a prezentat o moschee în designul său.";
+
+/* Add friend & duel results */
+"Пользователь найден и добавлен" = "Utilizator găsit și adăugat";
+"Этот пользователь уже является вашим другом." = "Acest utilizator este deja prietenul tău.";
+"Waiting for result" = "În așteptarea rezultatului";
+"Duel time left format" = "Au rămas %d h %d min";
+"Duel time expired" = "Timpul a expirat";
+"Duel time left format" = "Au rămas %d h %d min";
+"Duel time expired" = "Timpul a expirat";
+"Waiting for opponent" = "În așteptarea adversarului";
+
+/* League weekly result */
+"league.weekly_result.title.win" = "Ai câștigat liga";
+"league.weekly_result.title.promotion" = "Ai fost promovat";
+"league.weekly_result.title.stayed" = "Ai rămas în ligă";
+"league.weekly_result.title.demotion" = "Ai fost retrogradat";
+"league.weekly_result.title.week_finished" = "Săptămâna ligii s-a încheiat";
+"league.weekly_result.body.win" = "Ai terminat #%d și ai încheiat săptămâna printre cei mai buni jucători.";
+"league.weekly_result.body.promotion" = "Ați terminat #%d și ați avansat la %@.";
+"league.weekly_result.body.stayed" = "Ați terminat #%d și rămâneți în %@.";
+"league.weekly_result.body.demotion" = "Ați terminat #%d și mutați în jos la %@.";
+"league.weekly_result.body.top3" = "Ai terminat în top 3 săptămâna aceasta.";
+"league.weekly_result.label.rank" = "Loc";
+"league.weekly_result.label.new_league" = "Liga noua";
+"league.weekly_result.label.reward" = "Răsplată";
+"league.weekly_result.label.week" = "Rezultatul saptamanii";
+"league.weekly_result.cta.view" = "Vedeți rezultatele";
+"league.weekly_result.cta.ok" = "Bine";
+"league.weekly_result.cta.claim" = "Revendicare";
+
+"league.weekly_result.promotion.tagline" = "🔥 Nivel nou!";
+"league.weekly_result.promotion.title" = "🚀 Ești în %@!";
+"league.weekly_result.promotion.subtitle.top3_a" = "#%d — rezultat puternic!";
+"league.weekly_result.promotion.subtitle.top3_b" = "Top 3 — nu e întâmplător.";
+"league.weekly_result.promotion.subtitle.other" = "#%d — urci nivelul!";
+"league.weekly_result.win.hero" = "🏆 Campion de ligă!";
+"league.weekly_result.nice.title" = "Top %d — săptămână grozavă!";
+"league.weekly_result.reward.fbucks" = "+%d F-Bucks 💰";
+"league.weekly_result.next_goal" = "Următorul țel — %@ 🏆";
+"league.weekly_result.next_goal.alt" = "Încă puțin — te așteaptă liga de top!";
+"league.weekly_result.next_goal.pinnacle" = "Ești printre cei mai buni din lume! ✨";
+"league.weekly_result.cta.keep_playing_arrow" = "Joacă în continuare →";
+"league.weekly_result.cta.toward_league_arrow" = "Spre %@ →";
+"league.weekly_result.demotion.cta" = "Am înțeles →";
+"league.weekly_result.stayed.cta" = "Înainte →";
+"home.league_banner.title" = "Săptămâna ligii s-a încheiat";
+"home.league_banner.body.win" = "Ai terminat #%d și ai câștigat liga.";
+"home.league_banner.body.promotion" = "Ați terminat #%d și ați avansat la %@.";
+"home.league_banner.body.stayed" = "Ați terminat #%d și ați rămas în %@.";
+"home.league_banner.body.demotion" = "Ai terminat #%d și te-ai mutat în jos la %@.";
+"home.league_banner.cta" = "Vedeți rezultatele";
+/* Home layout (variant 2 / A-B) */
+"home.layout.section" = "Ecran principal";
+"home.layout.classic" = "Clasic";
+"home.layout.variant2" = "Profesional";
+"home.continue" = "Continuă";
+"home.settings.change" = "Schimbă";
+"home.settings.promo.title" = "Meciul tău, regulile tale";
+"home.settings.promo.subtitle" = "Regiune, dificultate, duel sau clasic — atinge și joacă în felul tău.";
+"home.settings.apply" = "Aplică";
+"home.settings.sheet_title" = "Setări joc";
+"home.league.xp_to_next_fmt" = "Până la %@: %d XP";
+"home.league.max" = "Liga maximă atinsă";
+"home.header.lives_max" = "Max";
+"home.lives.refill_in_fmt" = "+%d în %02d:%02d";
+"home.next_goal.title" = "Următorul obiectiv";
+"home.quick_modes.title" = "Joacă rapid";
+"home.social.title" = "Prieteni";
+"home.social.friend_streak_fmt" = "%@ — serie de %lld zile";
+"home.social.catch_today" = "Depășește-i azi!";
+
+"home.goal.xp_left_fmt" = "Mai sunt %d XP";
+"home.daily.title" = "Recompensă zilnică";
+"home.daily.claim" = "Revendică +1";
+"home.daily.claimed" = "Revendicat";
+"home.daily.tomorrow" = "Revino mâine";
+"home.streak_nudge.solo_title" = "Serie de %d zile!";
+"home.streak_nudge.solo_sub" = "Nu o întrerupe — joacă acum.";
+"home.streak_nudge.friend_title" = "%@ are serie de %d zile";
+"home.streak_nudge.friend_sub" = "Tu: %d zile";
+"home.streak_nudge.play" = "Joacă";
+"home.streak_nudge.catch_up" = "Recuperează";
+"home.hero.play_bonus" = "+1 F-Bucks dacă joci acum";
+"home.hero.streak_continue_fmt" = "Ține seria — %d/%d";
+"home.hero.almost_perfect" = "Jocuri perfecte — aproape!";
+"home.hero.daily_ready" = "+1 F-Bucks zilnic e gata de revendicat";
+"home.hero.catch_friend_fmt" = "Recuperează-l pe %@ — serie %d zile";
+"home.earn.section" = "Astăzi";
+"home.earn.perfect.almost" = "Aproape gata — termină";
+"home.earn.perfect.start" = "Începe acum — fixează";
+"home.earn.perfect.going" = "Încheie puternic azi";
+"home.earn.streak.almost" = "Nu o pierde acum";
+"home.earn.streak.start" = "Joacă acum sau o pierzi";
+"home.earn.streak.going" = "Joacă acum sau o pierzi";
+"home.earn.league.hint" = "Luptă pentru top 3";
+"home.earn.league.almost" = "Ești aproape";
+"home.earn.done" = "Gata!";
+"home.daily.subtitle.claim" = "+1 F-Bucks disponibil astăzi";
+"home.daily.subtitle.claimed" = "Ai luat deja bonusul de azi";
+"home.goal.headline_almost_fmt" = "Aproape %@!";
+"home.goal.xp_remaining_detail" = "Rămas: %d XP";
+"home.goal.claim_reward_cta" = "Revendică recompense →";
+"home.goal.open_league" = "Deschide liga →";
+"home.pride.streak_fmt" = "%d zi(le) la rând — continuă!";
+"home.pride.league_place_fmt" = "Ești #%d în liga ta săptămâna asta";
+"home.pride.section_title" = "Progresul tău";
+"home.pride.streak_line_one" = "Serie: 1 zi";
+"home.pride.streak_line_fmt" = "Serie: %d zile";
+"home.pride.rank_line_fmt" = "Loc: #%d săptămâna asta";
+"home.pride.top10_hint" = "Continuă spre top 10";
+"home.pride.rank_headline_fmt" = "Ești #%d săptămâna asta";
+"home.hero.headline.streak_alive" = "Ține seria vie";
+"home.hero.headline.perfect_push" = "Jocuri perfecte — aproape";
+"home.hero.headline.daily_up" = "Bonus zilnic gata";
+"home.hero.headline.keep_playing" = "Următorul meci contează";
+"home.hero.headline.friend" = "Recuperează-l pe %@";
+"home.hero.detail.streak_fmt" = "%d/%d zile";
+"home.hero.detail.perfect_fmt" = "%d/%d perfecte";
+"home.hero.detail.day_fmt" = "Ziua %d la rând";
+"home.hero.detail.friend_streak" = "Seria lor: %d zile";
+"home.hero.detail.start_streak" = "Începe seria azi";
+"home.hero.hook.reward_play" = "+1 recompensă dacă joci acum";
+"home.hero.pressure" = "Nu pierde progres azi";
+"home.hero.wow.tip" = "🔥 +1 disponibil astăzi";
+"home.sticky.hook.reward" = "+1 recompensă dacă joci acum";
+"home.sticky.hook.streak" = "Continuă seria";
+"home.sticky.hook.play" = "Următorul meci contează";
+"home.pride.gap_top10_fmt" = "Doar %d locuri până la top 10";
+"home.pride.close_top10_short" = "Ești aproape de top 10 🔥";
+"home.pride.streak_full_one" = "Serie: 1 zi — continuă";
+"home.pride.streak_full_fmt" = "Serie: %d zile — continuă";"home.pride.streak_full_fmt" = "Serie: %d zile — continuă";"coins" = "monede";
+/* League motivation messages */
+"league_motivation_win_01" = "Ai fost printre cei mai buni săptămâna aceasta. Mare treabă - acum ține ritmul.";
+"league_motivation_win_02" = "Top 3 nu este un accident. Este rezultatul unui joc consistent și al concentrării bune.";
+"league_motivation_win_03" = "Săptămâna puternică. Continuați să împingeți în același ritm - următoarea ligă vă așteaptă.";
+"league_motivation_promotion_01" = "Promovarea înseamnă că creșteți. Următoarea ligă va fi mai grea, dar ești gata.";
+"league_motivation_promotion_02" = "Ai făcut un pas în sus. Acum obiectivul nu este doar să ajungem mai sus, ci să rămânem acolo.";
+"league_motivation_stayed_01" = "Ți-ai deținut funcția. O bază solidă – transformă acum stabilitatea în creștere.";
+"league_motivation_stayed_02" = "O săptămână fără un eșec este deja un rezultat. Următorul pas: ajungeți în zona de promovare.";
+"league_motivation_demotion_01" = "Nu este cea mai bună săptămână - se întâmplă. Principalul lucru este să nu te oprești: îl poți lua pe următorul mai puternic.";
+"league_motivation_demotion_02" = "Retrogradarea nu este sfârșitul. Este un punct de resetare, după care urmează deseori alergări mai bune.";
+"league_motivation_general_01" = "Fiecare săptămână este o nouă șansă de a crește mai sus. Continuați – progresul crește.";
+
+/* Onboarding (hook → reward → loop) */
+
+"onboarding_hook_title" = "Recunoști acest steag?";
+"onboarding_hook_subtitle" = "Majoritatea greșesc aici";
+"onboarding_reward_correct" = "Corect! 🎉";
+"onboarding_reward_almost" = "Aproape — este %@";
+"onboarding_reward_plus_one" = "+1 recompensă";
+"onboarding_reward_streak" = "Începe seria ta";
+"onboarding_loop_line1" = "Joacă 1 minut pe zi";
+"onboarding_loop_line2" = "Deblochează recompense";
+"onboarding_loop_line3" = "Uracă în ligă";
+"onboarding_start_playing" = "Joacă";
+"onboarding_swipe_hint" = "Glisează pentru a continua";
+"onboarding_search_language" = "Caută limba…";
+"onboarding_language_sheet_title" = "Limbă";
+"onboarding_switch_language_hint" = "Treci la %@?";
+/* Avatar constructor (AvatarEditorView) */
+"avatar_editor_edit_avatar" = "Editați avatarul";
+"avatar_editor_done" = "Făcut";
+"avatar_editor_discard_title" = "Renunțați la modificări?";
+"avatar_editor_discard_action" = "Aruncă";
+"avatar_editor_continue_editing" = "Continuați editarea";
+"avatar_editor_discard_message" = "Modificările avatarului dvs. nu vor fi salvate.";
+"avatar_editor_skin_tone" = "Tonul pielii";
+"avatar_editor_body" = "Corp";
+"avatar_editor_eye_color" = "Culoarea ochilor";
+"avatar_editor_expression" = "Expresie";
+"avatar_editor_main_hair_color" = "Culoarea părului";
+"avatar_editor_hairstyle" = "Coafura";
+"avatar_editor_glasses" = "Ochelari";
+"avatar_editor_glasses_color" = "Culoarea ochelarilor";
+"avatar_editor_facial_hair" = "Păr facial";
+"avatar_editor_facial_hair_color" = "Culoarea părului facial";
+"avatar_editor_headwear" = "Articole pentru cap";
+"avatar_editor_headwear_color" = "Culoarea căciuliului";
+"avatar_editor_clothing_color" = "Culoarea îmbrăcămintei";
+"avatar_editor_clothing_style" = "Stilul vestimentar";
+"avatar_editor_background_color" = "Culoare de fundal";
+"avatar_editor_none" = "Nici unul";
+"avatar_editor_round" = "Rundă";
+"avatar_editor_square" = "Pătrat";
+"avatar_editor_sunglasses" = "Ochelari de soare";
+"avatar_editor_slim" = "Slim (ochelari)";
+"avatar_editor_cap" = "Capac";
+"avatar_editor_beanie" = "Beanie";
+"avatar_editor_bandana" = "Bandană";
+"avatar_editor_sport_cap" = "Șapcă sport";
+"avatar_editor_hat_SilverLeague" = "Liga de argint";
+"avatar_editor_hat_10_day_streak" = "serie de 10 zile";
+"avatar_editor_hat_beginner" = "Începător";
+"avatar_editor_hat_Premium" = "Premium";
+"avatar_editor_editor_section_coming_soon" = "Această secțiune este temporar indisponibilă - va reveni în curând.";
+"avatar_editor_lock_item_title" = "Blocat";
+"avatar_editor_lock_item_ok" = "Bine";
+"avatar_editor_lock_headwear_premium_body" = "Această cască se deblochează cu Premium. Abonați-vă la Premium în setările aplicației.";
+"avatar_editor_lock_headwear_shop_body" = "Veți putea obține acest articol în magazinul de personalizare - în curând.";
+"avatar_editor_lock_headwear_generic_body" = "Acest articol nu este încă disponibil.";
+"avatar_editor_opt_slim" = "Subţire";
+"avatar_editor_opt_regular" = "Regulat";
+"avatar_editor_opt_hoodie" = "Hanorac cu gluga";
+"avatar_editor_opt_tshirt" = "Tricou";
+"avatar_editor_opt_sweater" = "Pulover";
+"avatar_editor_opt_wide" = "Lat";
+"avatar_editor_opt_bald" = "Chel";
+"avatar_editor_opt_side_part" = "Parte laterală";
+"avatar_editor_opt_short" = "Scurt";
+"avatar_editor_opt_curl" = "Răsuci";
+"avatar_editor_opt_modern" = "Modern";
+"avatar_editor_opt_buzz" = "Buzz";
+"avatar_editor_opt_hair_waves" = "Valuri";
+"avatar_editor_opt_hair_spiky" = "Ţepos";
+"avatar_editor_opt_hair_slick" = "Slick";
+"avatar_editor_opt_hair_pompadour" = "Pompadour";
+"avatar_editor_opt_moustache" = "Mustață";
+"avatar_editor_opt_trimmed" = "Tuns";
+"avatar_editor_opt_goatee" = "Cioc";
+"avatar_editor_opt_beard_full" = "Barba plina";
+"avatar_editor_opt_beard_light" = "Barbă deschisă";
+"avatar_editor_opt_beard_bushy" = "Barba stufoasa";
+"avatar_editor_opt_jacket" = "Sacou";
+
+"monthly_quest_mission_title" = "Misiunea %@";
+"Friend profile progress title" = "STREAK AND PROGRESS";
+"Friend achievements placeholder" = "Friend achievements are shown as they are unlocked";
+
+"Answer as many flags as possible before time runs out" = "Răspunde la cât mai multe steaguri înainte să se termine timpul";
+"Duration" = "Durată";
+"Best score" = "Best score";
+"Wrong answer penalty" = "Penalizare răspuns greșit";
+"5 correct in a row bonus" = "Bonus pentru 5 corecte la rând";
+"Best combo" = "Cel mai bun șir";
+"New record!" = "Record nou!";
+"Day leaderboard place" = "Loc în clasamentul zilei";
+"Week leaderboard place" = "Loc în clasamentul săptămânii";
+"Back to Modes" = "Back to Modes";
+"Start" = "Start";
+"TC correct answers headline" = "%d corecte";
+"Difficulty description TC" = "%1$d%2$@ rundă • +%3$d%2$@ la fiecare 5 corecte la rând • −%4$d%2$@ per greșeală";
+"Difficulty TC erudite all" = "Toate țările • %1$d%2$@ rundă • +%3$d%2$@ la fiecare 5 corecte la rând • −%4$d%2$@ per greșeală";
+"Difficulty TC erudite regions" = "%1$d țări • %2$d%3$@ rundă • +%4$d%3$@ la fiecare 5 corecte la rând • −%5$d%3$@ per greșeală";
+"TC best correct record" = "Cel mai bun scor: %d corecte";
+"TC intro best correct title" = "Cel mai bun (corecte)";
+"TC intro combo5 bonus title" = "Combo 5 corecte la rând";
+"TC detail time penalty fmt" = "Cronometru: −%1$d %2$@ (greșeală)";
+"TC detail time combo fmt" = "Cronometru: +%1$d %2$@ (5 corecte la rând)";
+"TC detail points earned" = "Points for this answer: +%d";
+"TC detail xp earned" = "XP for this answer: +%d";
+"TC detail time penalty" = "Timer: −10 s (wrong answer)";
+"TC detail time combo bonus" = "Timer: +10 s (5 correct in a row)";
+"Share TC headline" = "Time Challenge: %d correct out of %d";
+
+"Time seconds unit short" = "s";
+"TC stat best combo" = "Cel mai bun șir";
+"Time TC delta seconds fmt" = "%+d %@";
+"Time intro duration seconds fmt" = "%1$d%2$@";
+"Time intro penalty seconds fmt" = "−%1$d%2$@";
+"Time intro bonus seconds fmt" = "+%1$d%2$@";
+"Share Survival headline" = "Supraviețuire: %d steaguri • %d corecte • nivel max %d";
+"Survival mode short description" = "Vieți limitate, dificultate în creștere — cât de departe ajungi?";
+"Survival difficulty blurb fmt" = "Vieți sesiune • etape în creștere • +1 viață la fiecare 10 corecte la rând";
+"Survival depth header" = "Adâncime";
+"Survival stage fmt" = "Nivel %d";
+"Survival bonus life streak" = "+1 viață (10 corecte la rând)";
+"Survival milestone banner fmt" = "Reper %d! +30 XP • +1 F-Bucks";
+"Survival next milestone fmt" = "Încă %d corecte până la reperul %d";
+"Survival result best depth fmt" = "Record personal de adâncime: %d steaguri";
+"Survival result combo fmt" = "Cel mai bun șir în această rundă: %d";
+"Survival result survived fmt" = "Ai supraviețuit %d steaguri";
+"Survival result stage reached fmt" = "Nivel maxim atins: %d";
+"Survival stat correct" = "CORECT";
+"Survival intro description" = "Răspunde la steag după steag. Greșelile costă vieți. Dificultatea crește — depășește recordul de adâncime.";
+"Survival intro lives title" = "Vieți de start";
+"Survival intro best depth title" = "Cea mai bună adâncime";
+"Survival intro choices title" = "Variante";
+"Survival intro timer title" = "Cronometre";
+"Survival intro timer value" = "Ca în Clasic";
+"Survival weekly title" = "Provocare săptămânală Supraviețuire";
+"Survival weekly target fmt" = "Într-o rundă săptămâna aceasta supraviețuiește la %d steaguri.";
+"Survival weekly best fmt" = "Cel mai bun săptămâna aceasta: %d steaguri";
+"Survival weekly all milestones met body" = "You've reached every weekly depth goal — up to 200 flags in one run. Brilliant!";
+"Survival weekly reward all claimed" = "All weekly survival bonuses claimed (up to +4000 XP).";
+"Survival weekly reward claimed" = "Bonus săptămânal revendicat (+1000 XP)";
+"Survival weekly reward hint" = "Each milestone — 25, 50, 100, then 200 flags in one run — gives +1000 XP once per week.";
+
+"Survival result depth progress fmt" = "%1$d / %2$d";
+
+"Last login" = "Ultima autentificare";
+"Filter by name" = "Filtrare după nume";
+"Last played" = "Ultima dată jucat";
+
+"1 hour" = "1 oră";
+
+
+"Duel announcement subtitle" = "Same duel for both players. First to score wins!";
+"User 1" = "User 1";
+"User 2" = "User 2";
+"Number of Questions" = "Questions";
+
+
+/* F-Bucks screen */
+"fbucks.close" = "Aproape";
+"fbucks.currency.name" = "F-Bucks";
+"fbucks.hero.subtitle.enough" = "Suficient pentru aproximativ %d articole";
+"fbucks.hero.subtitle.rare" = "Puteți cumpăra un articol rar";
+"fbucks.hero.subtitle.save" = "Continuați să economisiți pentru ceva special";
+"fbucks.daily.title" = "Bonus zilnic";
+"fbucks.daily.subtitle" = "+1 F-Bucks";
+"fbucks.daily.claim" = "Revendicare";
+"fbucks.daily.claimed" = "Revendicat azi";
+"fbucks.daily.hint" = "+1 disponibil astăzi — atingeți Revendicați";
+"fbucks.earn.today.title" = "Câștigați astăzi";
+"fbucks.earn.today.subtitle" = "Până la %d F-Bucks posibil astăzi";
+"fbucks.earn.perfect.title" = "Joc perfect";
+"fbucks.earn.perfect.sub" = "+1 pentru 10/10 sau 15/15";
+"fbucks.earn.streak" = "Streak";
+"fbucks.earn.streak.sub" = "Seria (%d/10 zile)";
+"fbucks.earn.league" = "Topul săptămânii";
+"fbucks.earn.league.sub" = "Termină în primele 3 ale ligii tale";
+"fbucks.progress.title" = "Progresul la articolul următor";
+"fbucks.progress.percent" = "%d%%";
+"fbucks.progress.full" = "Vă puteți permite următoarele recompense — deschideți magazinul!";
+"fbucks.want.title" = "Următorul obiectiv";
+"fbucks.want.price" = "Preț: %d F-Bucks";
+"fbucks.want.you" = "Ai: %d";
+"fbucks.want.need" = "Mai trebuie %d";
+"fbucks.earn_more" = "Câștigă mai mult →";
+"fbucks.buy_for" = "Cumpărați cu %d";
+"fbucks.shop.title" = "Magazin";
+"fbucks.shop.subtitle" = "Cheltuiește F-Bucks pe articole exclusive pentru avatar";
+"fbucks.shop.tier.common" = "Comun";
+"fbucks.shop.tier.rare" = "Rar";
+"fbucks.shop.tier.legendary" = "Legendar";
+"fbucks.shop.limited" = "LIMITAT";
+"fbucks.perfect.badge" = "Perfect";
+"fbucks.tab.today" = "Astăzi";
+"fbucks.tab.about" = "Despre";
+"fbucks.tab.history" = "Istorie";
+"fbucks.tab.shop" = "Magazin";
+"fbucks.about.title" = "Ce sunt F-Bucks?";
+"fbucks.about.body" = "F-Bucks (Flags Bucks) sunt moneda în joc pe care o câștigi jucând World Arena Flags. Cheltuiește-le pe piese unice de avatar, skinuri și alte articole exclusive.";
+"fbucks.about.how" = "Cum să câștigi F-Bucks";
+"fbucks.about.perfect.title" = "Joc perfect";
+"fbucks.about.perfect.desc" = "Obțineți un scor perfect (10/10 sau 15/15)";
+"fbucks.about.streak10.title" = "serie de 10 zile";
+"fbucks.about.streak10.desc" = "Joacă 10 zile la rând";
+"fbucks.about.streak20.title" = "serie de 20 de zile";
+"fbucks.about.streak20.desc" = "Joacă 20 de zile la rând";
+"fbucks.about.streak50.title" = "serie de 50 de zile";
+"fbucks.about.streak50.desc" = "Joacă 50 de zile la rând";
+"fbucks.about.streak100.title" = "serie de 100 de zile";
+"fbucks.about.streak100.desc" = "Joacă 100 de zile la rând";
+"fbucks.reward.plus1" = "+1 F-Bucks";
+"fbucks.reward.plus2" = "+2 dolari F";
+"fbucks.reward.plus5" = "+5 dolari F";
+"fbucks.reward.plus10" = "+10 F-Bucks";
+"fbucks.history.title" = "Istoricul tranzacțiilor";
+"fbucks.history.empty" = "Nicio istorie încă";
+"fbucks.history.empty.hint" = "Joacă și câștigă F-Bucks!";
+"fbucks.item.traveler_cap" = "Șapcă de călător";
+"fbucks.item.champion_shirt" = "Tricou de campion";
+"fbucks.item.socks" = "Șosete";
+"fbucks.item.rainbow_skin" = "Piele curcubeu";
+"fbucks.item.gold_skin" = "Piele aurie";
+"fbucks.item.explorer_jacket" = "geaca Explorer";
+"fbucks.item.fire_effect" = "Efect de foc";
+"fbucks.item.neon_skin" = "Piele de neon";
+"fbucks.item.stars_effect" = "Efect de stea";
+"fbucks.item.champion_jacket" = "Jacheta Champion";
+"fbucks.tx.daily_bonus" = "Bonus zilnic";
+"friends.remind.status_sent" = "Memento trimis!";
+
+/* Duel prepare error */
+"duel.error.alert.title" = "Eroare";
+"duel.error.prepare_questions" = "Nu s-au putut pregăti întrebările duelului. Verifică regiunile sau conexiunea și încearcă din nou.";
+
+/* Duel tiebreaker */
+"duel.tiebreaker.title" = "Egalitate — timpul mai rapid câștigă";
+"duel.tiebreaker.history_line" = "Timp: %@ · %@";
+
+/* Learning country lists */
+"learning.progress.label" = "Învățate";
+"learning.search.placeholder" = "Caută țară sau capitală";
+"learning.filter.all" = "Toate";
+"learning.filter.unlearned" = "Neînvățate";
+"learning.filter.difficult" = "Dificile";
+"learning.filter.favorites" = "Favorite";
+"learning.empty.search.title" = "Nimic găsit";
+"learning.empty.search.subtitle" = "Încearcă alt nume de țară sau capitală";
+"learning.empty.search.reset" = "Șterge căutarea";
+"learning.empty.unlearned.title" = "Gata!";
+"learning.empty.unlearned.message" = "Toate țările din această listă sunt deja învățate 🎉";
+"learning.empty.difficult.title" = "Încă nu sunt țări dificile";
+"learning.empty.difficult.message" = "Țările cu care ai probleme vor apărea aici — joacă în continuare și vezi harta progresului mondial.";
+"learning.status.learned" = "Studiat";
+"learning.status.not_learned" = "Nestudiat";
+"learning.status.difficult" = "Dificil";
+"learning.status.favorite_short" = "Favorit";
+"learning.country.train_cta" = "Adaugă la următorul joc";
+"learning.country.playlist_status_added" = "Țară adăugată";
+"learning.country.playlist_play_cta" = "Joacă cu coada";
+"learning.country.playlist_added" = "Adăugat la următorul joc";
+"learning.country.playlist_duplicate" = "Deja în coadă";
+"learning.country.playlist_queue_fmt" = "%d țări în coadă";
+"learning.country.playlist_min_progress_fmt" = "%d / %d";
+"learning.country.study_selected_flags" = "Studiază steagurile alese";
+"learning.country.section.main" = "Prezentare";
+"learning.country.section.gov" = "Limbi și stat";
+"learning.country.section.more" = "Mai mult";
+"learning.country.region" = "Regiune";
+"learning.country.gallery.title" = "Galerie";
+"learning.country.gallery.tap_hint" = "Atinge o placă pentru a mări";
+"learning.country.a11y.favorite" = "Favorit";
+"learning.country.a11y.difficult" = "Marchează ca dificil";
+"learning.country.a11y.next" = "Țara următoare";
+"learning.country.a11y.previous" = "Țara anterioară";
+"learning.gallery.tile.flag" = "Steag național";
+"learning.gallery.tile.landmark" = "Reper";
+"learning.gallery.tile.nature" = "Natură";
+"learning.gallery.tile.culture" = "Cultură";
+"learning.gallery.tile.government" = "Guvern";
+"learning.gallery.tile.coat" = "Stemă";
+"learning.empty.favorites.title" = "Încă nu ai favorite";
+"learning.empty.favorites.message" = "Deschide o țară și atinge steaua pentru a o adăuga aici.";
+
+/* Quiz game screen */
+"Quiz identify flag" = "Cărei țări îi aparține acest drapel?";
+
+// Subscription introductory offer
+"premium.trial.start" = "Încearcă gratuit 7 zile";
+"premium.trial.monthly" = "7 zile gratuite, apoi %@ pe lună.";
+"premium.trial.yearly" = "7 zile gratuite, apoi %@ pe an.";
+"premium.renewal" = "Se reînnoiește automat până la anulare. Gestionează sau anulează din abonamentele App Store.";
+"premium.subscribe" = "Abonează-te";

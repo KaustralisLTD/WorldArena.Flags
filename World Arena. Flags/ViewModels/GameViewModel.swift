@@ -51,9 +51,10 @@ final class FlagGameViewModel: ObservableObject {
         impactFeedback.impactOccurred()
         #endif
         
-        // Останавливаем таймер вопроса при выборе ответа
+        // Таймер вопроса относится только к текущему заданию — останавливаем и отменяем отложенный переход по таймауту
         gameState.stopQuestionTimer()
-        
+        gameState.cancelQuestionTransition()
+
         nextQuestionTask?.cancel()
         selectedAnswer = country
         
@@ -77,8 +78,8 @@ final class FlagGameViewModel: ObservableObject {
             gameState.consumeLifeOnWrongAnswer()
             print("Lifes: \(gameState.isPremium ? Int.max : gameState.lives)")
             if !gameState.isPremium && gameState.lives <= 0 {
-                print("\n=== Out Of Lives ===\nLives depleted. Stopping game.\n=====================\n")
-                gameState.stopTimer()
+                print("\n=== Out Of Lives ===\nLives depleted. Pausing game (timer can resume after ad).\n=====================\n")
+                gameState.pauseTimer()
                 showingOutOfLives = true
                 return
             }
@@ -164,10 +165,23 @@ final class FlagGameViewModel: ObservableObject {
         }
     }
     
+    /// Сброс состояния ответа/UI перед рестартом (например «Играть снова» после окончания жизней). Исключает «уже выбран правильный ответ» на новом вопросе.
+    func resetAnswerState() {
+        nextQuestionTask?.cancel()
+        nextQuestionTask = nil
+        showingOutOfLives = false
+        selectedAnswer = nil
+        isShowingResult = false
+        isShowingInfo = false
+        flagScale = 1.0
+        flagRotation = 0
+        optionsOpacity = 1.0
+    }
+
     func goToNextQuestion() async {
         nextQuestionTask?.cancel()
         nextQuestionTask = nil
-        
+
         if gameState.currentQuestion + 1 >= gameState.initialQuestionsCount {
             gameState.stopTimer()
             gameState.finishGame()

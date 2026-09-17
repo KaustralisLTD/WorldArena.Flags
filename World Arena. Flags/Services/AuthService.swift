@@ -16,6 +16,7 @@ final class AuthService: ObservableObject {
     @Published private(set) var isGuestMode = true
     @Published private(set) var authEmail: String?
     @Published private(set) var authUsername: String?
+    @Published private(set) var lastLoginAt: Date?
     @Published var biometricEnabled = false {
         didSet {
             UserDefaults.standard.set(biometricEnabled, forKey: Self.biometricEnabledKey)
@@ -32,6 +33,7 @@ final class AuthService: ObservableObject {
     private static let tokenKey = "auth.token.v1"
     private static let emailKey = "auth.email.v1"
     private static let usernameKey = "auth.username.v1"
+    private static let lastLoginAtKey = "auth.lastLoginAt.v1"
     private static let biometricEnabledKey = "auth.biometric.enabled.v1"
     private static let biometricRestoreKey = "auth.biometric.restore.v1"
 
@@ -39,6 +41,7 @@ final class AuthService: ObservableObject {
         authToken = UserDefaults.standard.string(forKey: Self.tokenKey)
         authEmail = UserDefaults.standard.string(forKey: Self.emailKey)
         authUsername = UserDefaults.standard.string(forKey: Self.usernameKey)
+        lastLoginAt = UserDefaults.standard.object(forKey: Self.lastLoginAtKey) as? Date
         biometricEnabled = UserDefaults.standard.bool(forKey: Self.biometricEnabledKey)
         isAuthenticated = (authToken?.isEmpty == false)
         isGuestMode = !isAuthenticated
@@ -131,7 +134,9 @@ final class AuthService: ObservableObject {
         let reason = LocalizationManager.shared.localizedString("Biometric login prompt")
         let success = await withCheckedContinuation { (continuation: CheckedContinuation<Bool, Never>) in
             context.evaluatePolicy(.deviceOwnerAuthenticationWithBiometrics, localizedReason: reason) { ok, _ in
-                continuation.resume(returning: ok)
+                Task { @MainActor in
+                    continuation.resume(returning: ok)
+                }
             }
         }
         guard success else { return false }
@@ -142,11 +147,14 @@ final class AuthService: ObservableObject {
         authToken = restore.token
         authEmail = restore.email
         authUsername = restore.username
+        let now = Date()
+        lastLoginAt = now
         isAuthenticated = true
         isGuestMode = false
         UserDefaults.standard.set(restore.token, forKey: Self.tokenKey)
         UserDefaults.standard.set(restore.email, forKey: Self.emailKey)
         UserDefaults.standard.set(restore.username, forKey: Self.usernameKey)
+        UserDefaults.standard.set(now, forKey: Self.lastLoginAtKey)
         UserProfile.shared.username = restore.username
         UserProfile.shared.saveToStorage()
         return true
@@ -156,12 +164,15 @@ final class AuthService: ObservableObject {
         authToken = response.token
         authEmail = response.user.email
         authUsername = response.user.username
+        let now = Date()
+        lastLoginAt = now
         isAuthenticated = true
         isGuestMode = false
 
         UserDefaults.standard.set(response.token, forKey: Self.tokenKey)
         UserDefaults.standard.set(response.user.email, forKey: Self.emailKey)
         UserDefaults.standard.set(response.user.username, forKey: Self.usernameKey)
+        UserDefaults.standard.set(now, forKey: Self.lastLoginAtKey)
         if let friendCode = response.user.friendCode {
             UserDefaults.standard.set(friendCode, forKey: "user.serverFriendCode")
         }

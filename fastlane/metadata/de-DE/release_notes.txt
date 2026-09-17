@@ -1,0 +1,6 @@
+8.0
+
+• Überarbeiteter Quizbildschirm mit übersichtlichen Antworten und animierten Leben.
+• Neues Design für Statistik, Ligen und Profil.
+• Verbesserte iPad-Layouts und Karten, die sich ihrem Inhalt anpassen.
+• Region und Schwierigkeitsgrad werden beim Schließen der Schnelleinstellungen gespeichert.

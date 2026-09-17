@@ -92,6 +92,11 @@ extension UserProfile {
         if updated.count != achievements.count {
             achievements = updated
         }
+
+        // Game Center: репортим текущий прогресс (с троттлингом в сервисе).
+        #if os(iOS) && canImport(GameKit)
+        GameCenterAchievementsService.shared.reportAllAchievementsProgress(userProfile: self)
+        #endif
     }
 }
 

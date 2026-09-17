@@ -4,10 +4,13 @@ struct AddFriendsView: View {
     @Environment(\.presentationMode) private var presentationMode
     @EnvironmentObject var userProfile: UserProfile
     @StateObject private var friendsService = FriendsService.shared
+    @AppStorage("user.serverFriendCode") private var serverFriendCodeStored: String = ""
     @State private var friendCodeToAdd: String = ""
     @State private var friendUsernameToAdd: String = ""
     @State private var showCopyToast: Bool = false
     @State private var showErrorToast: Bool = false
+    @State private var showSuccessToast: Bool = false
+    @State private var successMessage: String = ""
     @State private var errorMessage: String = ""
     @State private var isAddingFriend: Bool = false
 
@@ -53,6 +56,9 @@ struct AddFriendsView: View {
                 .padding(.bottom, 40)
             }
             .background(systemBackground)
+            .task {
+                await friendsService.syncServerFriendCode(for: userProfile)
+            }
             .onChange(of: userProfile.selectedCountryCode) { newCode in
                 Task { await syncSelectedCountryToServer(newCode) }
             }
@@ -69,6 +75,9 @@ struct AddFriendsView: View {
             .overlay(alignment: .bottom) {
                 if showCopyToast {
                     toastView(text: lm.localizedString("Скопировано"), isError: false)
+                }
+                if showSuccessToast {
+                    toastView(text: successMessage, isError: false)
                 }
                 if showErrorToast {
                     toastView(text: errorMessage, isError: true)
@@ -315,10 +324,15 @@ struct AddFriendsView: View {
         await MainActor.run {
             switch result {
             case .success:
+                successMessage = lm.localizedString("Пользователь найден и добавлен")
+                showSuccessToast = true
                 friendCodeToAdd = ""
-                presentationMode.wrappedValue.dismiss()
+                DispatchQueue.main.asyncAfter(deadline: .now() + 1.5) {
+                    showSuccessToast = false
+                    presentationMode.wrappedValue.dismiss()
+                }
             case .alreadyFriends:
-                errorMessage = LocalizationManager.shared.localizedString("Этот пользователь уже в друзьях.")
+                errorMessage = lm.localizedString("Этот пользователь уже является вашим другом.")
                 showErrorToast = true
             case .cannotAddSelf:
                 errorMessage = LocalizationManager.shared.localizedString("Нельзя добавить себя.")
@@ -342,10 +356,18 @@ struct AddFriendsView: View {
         await MainActor.run {
             switch result {
             case .success:
+                successMessage = lm.localizedString("Пользователь найден и добавлен")
+                showSuccessToast = true
                 friendUsernameToAdd = ""
-                presentationMode.wrappedValue.dismiss()
+                DispatchQueue.main.asyncAfter(deadline: .now() + 1.5) {
+                    showSuccessToast = false
+                    presentationMode.wrappedValue.dismiss()
+                }
             case .userNotFound:
-                errorMessage = LocalizationManager.shared.localizedString("Пользователь «\(login)» не найден. Проверьте логин.")
+                errorMessage = String(
+                    format: LocalizationManager.shared.localizedString("Friend add username not found"),
+                    login
+                )
                 showErrorToast = true
             case .noFriendCode:
                 errorMessage = LocalizationManager.shared.localizedString("У пользователя нет кода друга. Пусть зайдёт в приложение.")
@@ -354,7 +376,7 @@ struct AddFriendsView: View {
                 errorMessage = LocalizationManager.shared.localizedString("Не удалось добавить в друзья. Попробуйте позже.")
                 showErrorToast = true
             case .alreadyFriends:
-                errorMessage = LocalizationManager.shared.localizedString("«\(login)» уже в друзьях.")
+                errorMessage = lm.localizedString("Этот пользователь уже является вашим другом.")
                 showErrorToast = true
             case .cannotAddSelf:
                 errorMessage = LocalizationManager.shared.localizedString("Нельзя добавить себя.")

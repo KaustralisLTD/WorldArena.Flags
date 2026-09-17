@@ -332,7 +332,23 @@ class StoreManager: ObservableObject {
     var yearlyProduct: Product? {
         products.first { yearlyProductIDCandidates.contains($0.id) }
     }
-    
+
+    /// Активная подписка — годовая, если куплен годовой продукт, иначе месячная.
+    var isCurrentPlanYearly: Bool {
+        purchasedProductIDs.contains { yearlyProductIDCandidates.contains($0) }
+    }
+
+    /// Продукт текущей подписки (годовой или месячный) для отображения на экране управления.
+    var currentSubscriptionProduct: Product? {
+        if isCurrentPlanYearly, let p = yearlyProduct { return p }
+        return monthlyProduct
+    }
+
+    var currentSubscriptionMockProduct: MockProduct? {
+        if isCurrentPlanYearly, let m = yearlyMockProduct { return m }
+        return monthlyMockProduct
+    }
+
     // MARK: - Mock Product Helpers
     
     func mockProduct(for id: String) -> MockProduct? {

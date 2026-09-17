@@ -1,436 +1,221 @@
 import SwiftUI
-#if os(iOS)
 import UIKit
-#elseif os(macOS)
-import AppKit
-#endif
 
 struct StatisticsView: View {
-    /// true при переходе из Profile по NavigationLink — показываем кнопку «Назад» и разрешаем свайп назад
     var isPushedFromProfile: Bool = false
-    
     @EnvironmentObject var gameState: GameState
     @EnvironmentObject var userProfile: UserProfile
-    @Environment(\.horizontalSizeClass) private var horizontalSizeClass
-    @Environment(\.verticalSizeClass) private var verticalSizeClass
-    @State private var containerSize: CGSize = .zero
-    @State private var showingClearAlert = false
     @Environment(\.dismiss) private var dismiss
-    
-    private var isIPad: Bool {
-        #if os(iOS)
-        return UIDevice.current.userInterfaceIdiom == .pad || horizontalSizeClass == .regular
-        #else
-        return horizontalSizeClass == .regular
-        #endif
-    }
-    
-    private var isIPadLandscape: Bool {
-        guard isIPad else { return false }
-        if verticalSizeClass == .compact { return true }
-        #if os(iOS)
-        let size = containerSize.width > 0 ? containerSize : UIScreen.main.bounds.size
-        #else
-        let size = containerSize
-        #endif
-        return size.width > size.height
-    }
-    
-    private var isCompactPhone: Bool {
-        #if os(iOS)
-        guard !isIPad else { return false }
-        let size = containerSize.width > 0 ? containerSize : UIScreen.main.bounds.size
-        return size.height <= 880
-        #else
-        return false
-        #endif
-    }
-    
-    @State private var animateCards = false
+    @Environment(\.sizeCategory) private var sizeCategory
     @ObservedObject private var localizationManager = LocalizationManager.shared
-    @State private var safeTopInset: CGFloat = 0
+    @State private var showingClearAlert = false
     @State private var showingShareSheet = false
     @State private var shareItems: [Any] = []
-    
-    private var systemGroupedBackground: Color {
-        #if os(iOS)
-        return Color(UIColor.systemGroupedBackground)
-        #else
-        return Color(NSColor.controlBackgroundColor)
-        #endif
-    }
 
-    /// Контент скролла для iPad альбомная (компактная сетка и кнопки)
-    private var statisticsScrollContentLandscape: some View {
-        let gridCols: [GridItem] = [GridItem(.flexible()), GridItem(.flexible()), GridItem(.flexible())]
-        return VStack(spacing: 20) {
-            LazyVGrid(columns: gridCols, spacing: 14) {
-                StatisticCard(icon: "🎮", iconImageName: "StatTotalGames", title: LocalizationManager.shared.localizedString("Total Games"), value: "\(userProfile.totalGamesPlayed)", color: .blue, isLarge: false, compactForLandscape: true)
-                StatisticCard(icon: "🏆", iconImageName: "StatBestScore", title: LocalizationManager.shared.localizedString("Best Score"), value: "\(userProfile.bestScore)", color: .orange, isLarge: false, compactForLandscape: true)
-                StatisticCard(icon: "✅", iconImageName: "StatCorrectAnswer", title: LocalizationManager.shared.localizedString("Correct Answers"), value: "\(userProfile.correctAnswers)", color: .green, isLarge: false, compactForLandscape: true)
-                StatisticCard(icon: "🎯", iconImageName: "StatAccuracy", title: LocalizationManager.shared.localizedString("Accuracy"), value: String(format: "%.1f%%", min(100.0, max(0.0, userProfile.accuracy))), color: .purple, isLarge: false, compactForLandscape: true, reduceValueForLargeText: true)
-                StatisticCard(icon: "🔥", iconImageName: "StatDayStreak", title: LocalizationManager.shared.localizedString("Current Streak"), value: "\(userProfile.streak) \(localizationManager.localizedString("days"))", color: .red, isLarge: false, compactForLandscape: true, reduceValueForLargeText: true)
-                FBucksStatCard(count: userProfile.fBucks, isLarge: false, compactForLandscape: true)
-            }
-            .padding(.top, 0)
-            .padding(.horizontal, 24)
-            VStack(spacing: 14) {
-                Button(action: shareStatistics) {
-                    HStack(spacing: 8) {
-                        Image(systemName: "square.and.arrow.up")
-                        Text(localizationManager.localizedString("Share Result"))
-                    }
-                    .font(.system(size: 16, weight: .semibold))
-                    .foregroundColor(.white)
-                    .padding(14)
-                    .frame(maxWidth: 260)
-                    .background(LinearGradient(colors: [.blue, .purple], startPoint: .leading, endPoint: .trailing))
-                    .cornerRadius(16)
-                    .shadow(color: .blue.opacity(0.3), radius: 8, x: 0, y: 4)
-                }
-                Button(action: { showingClearAlert = true }) {
-                    HStack(spacing: 8) {
-                        Image(systemName: "trash.fill")
-                        Text(LocalizationManager.shared.localizedString("Clear"))
-                    }
-                    .font(.system(size: 16, weight: .semibold))
-                    .foregroundColor(.white)
-                    .padding(14)
-                    .frame(maxWidth: 260)
-                    .background(LinearGradient(colors: [.red, .pink], startPoint: .leading, endPoint: .trailing))
-                    .cornerRadius(16)
-                    .shadow(color: .red.opacity(0.35), radius: 8, x: 0, y: 4)
-                }
-            }
-            .padding(.top, 20)
-            .scaleEffect(animateCards ? 1.0 : 0.8)
-            .opacity(animateCards ? 1.0 : 0.0)
-        }
-        .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .top)
-        .background(systemGroupedBackground.ignoresSafeArea(edges: .top))
-        .padding(.top, headerHeight)
-        .padding(.bottom, 28)
+    private func localized(_ key: String) -> String {
+        localizationManager.localizedString(key)
     }
 
     var body: some View {
-        ZStack(alignment: .top) {
-                systemGroupedBackground
-                    .ignoresSafeArea()
-
-                if !isIPadLandscape { headerBackground }
-
-                if isIPadLandscape {
-                    // iPad альбомная: ScrollView на весь экран, шапка оверлеем — нет белого слоя между шапкой и контентом
-                    ZStack(alignment: .top) {
-                        ScrollView {
-                            statisticsScrollContentLandscape
-                        }
-                        .modifier(HideScrollContentBackgroundModifier())
-                        .background(systemGroupedBackground.ignoresSafeArea())
-                        headerSectionCompact
+        GeometryReader { geometry in
+            let phone = UIDevice.current.userInterfaceIdiom == .phone
+            let wide = geometry.size.width >= 700
+            let columns = sizeCategory.isAccessibilityCategory ? 1 : (wide ? 3 : 2)
+            ScrollView {
+                VStack(spacing: wide ? 24 : 16) {
+                    header(wide: wide, topInset: phone ? geometry.safeAreaInsets.top : nil)
+                        .padding(.horizontal, phone ? -(wide ? 32 : 20) : 0)
+                    LazyVGrid(columns: Array(repeating: GridItem(.flexible(), spacing: 14), count: columns), spacing: 14) {
+                        metric("games", image: "StatTotalGames", title: "Total Games", value: "\(userProfile.totalGamesPlayed)", color: .blue)
+                        metric("best", image: "StatBestScore", title: "Best Score", value: "\(userProfile.bestScore)", color: .orange)
+                        metric("correct", image: "StatCorrectAnswer", title: "Correct Answers", value: "\(userProfile.correctAnswers)", color: .green)
+                        metric("accuracy", image: "StatAccuracy", title: "Accuracy", value: String(format: "%.1f%%", min(100, max(0, userProfile.accuracy))), color: .purple)
+                        metric("streak", image: "StatDayStreak", title: "Current Streak", value: "\(userProfile.streak)", unit: localized("days"), color: .red)
+                        metric("fbucks", image: "FBucksLogo", title: "F-Bucks", value: "\(userProfile.fBucks)", color: .blue)
                     }
-                } else {
-                    ZStack(alignment: .top) {
-                        ScrollView {
-                    let compact = isCompactPhone
-                    let compactHeightMultiplier: CGFloat = compact ? 1.5 : 1.0
-                    let gridCols: [GridItem] = compact
-                        ? [GridItem(.flexible()), GridItem(.flexible()), GridItem(.flexible())]
-                        : [GridItem(.flexible()), GridItem(.flexible())]
-                    let stackSpacing: CGFloat = compact ? 20 : (horizontalSizeClass == .regular ? 30 : 20)
-                    let gridSpacing: CGFloat = compact ? 14 : (horizontalSizeClass == .regular ? 20 : 15)
-                    VStack(spacing: stackSpacing) {
-                        // Статистические карточки
-                        LazyVGrid(columns: gridCols, spacing: gridSpacing) {
-                        StatisticCard(
-                            icon: "🎮",
-                            iconImageName: "StatTotalGames",
-                            title: LocalizationManager.shared.localizedString("Total Games"),
-                            value: "\(userProfile.totalGamesPlayed)",
-                            color: .blue,
-                            isLarge: horizontalSizeClass == .regular && !compact,
-                            compactForLandscape: compact,
-                            compactHeightMultiplier: compactHeightMultiplier
-                        )
-                        StatisticCard(
-                            icon: "🏆",
-                            iconImageName: "StatBestScore",
-                            title: LocalizationManager.shared.localizedString("Best Score"),
-                            value: "\(userProfile.bestScore)",
-                            color: .orange,
-                            isLarge: horizontalSizeClass == .regular && !compact,
-                            compactForLandscape: compact,
-                            compactHeightMultiplier: compactHeightMultiplier
-                        )
-                        StatisticCard(
-                            icon: "✅",
-                            iconImageName: "StatCorrectAnswer",
-                            title: LocalizationManager.shared.localizedString("Correct Answers"),
-                            value: "\(userProfile.correctAnswers)",
-                            color: .green,
-                            isLarge: horizontalSizeClass == .regular && !compact,
-                            compactForLandscape: compact,
-                            compactHeightMultiplier: compactHeightMultiplier
-                        )
-                        StatisticCard(
-                            icon: "🎯",
-                            iconImageName: "StatAccuracy",
-                            title: LocalizationManager.shared.localizedString("Accuracy"),
-                            value: String(format: "%.1f%%", min(100.0, max(0.0, userProfile.accuracy))),
-                            color: .purple,
-                            isLarge: horizontalSizeClass == .regular && !compact,
-                            compactForLandscape: compact,
-                            compactHeightMultiplier: compactHeightMultiplier,
-                            reduceValueForLargeText: true
-                        )
-                        StatisticCard(
-                            icon: "🔥",
-                            iconImageName: "StatDayStreak",
-                            title: LocalizationManager.shared.localizedString("Current Streak"),
-                            value: "\(userProfile.streak) \(localizationManager.localizedString("days"))",
-                            color: .red,
-                            isLarge: horizontalSizeClass == .regular && !compact,
-                            compactForLandscape: compact,
-                            compactHeightMultiplier: compactHeightMultiplier,
-                            reduceValueForLargeText: true
-                        )
-                        // F-Bucks — используем миниатюру (чип) как в профиле
-                        FBucksStatCard(
-                            count: userProfile.fBucks,
-                            isLarge: horizontalSizeClass == .regular && !compact,
-                            compactForLandscape: compact,
-                            compactHeightMultiplier: compactHeightMultiplier
-                        )
-                        Rectangle()
-                            .fill(Color.clear)
-                            .frame(height: 1)
-                        }
-                        .padding(.top, compact ? 8 : 4)
-                        .padding(.horizontal, compact ? 24 : (horizontalSizeClass == .regular ? 40 : 20))
-
-                    // Кнопки управления
-                    VStack(spacing: compact ? 14 : (horizontalSizeClass == .regular ? 20 : 15)) {
-                        Button(action: shareStatistics) {
-                            HStack(spacing: 8) {
-                                Image(systemName: "square.and.arrow.up")
-                                Text(localizationManager.localizedString("Share Result"))
-                            }
-                            .font(.system(size: compact ? 16 : (horizontalSizeClass == .regular ? 22 : 17), weight: .semibold))
-                            .foregroundColor(.white)
-                            .padding(compact ? 14 : (horizontalSizeClass == .regular ? 20 : 15))
-                            .frame(maxWidth: compact ? 260 : (horizontalSizeClass == .regular ? 300 : 200))
-                            .background(
-                                LinearGradient(
-                                    colors: [.blue, .purple],
-                                    startPoint: .leading,
-                                    endPoint: .trailing
-                                )
-                            )
-                            .cornerRadius(compact ? 16 : (horizontalSizeClass == .regular ? 20 : 15))
-                            .shadow(color: .blue.opacity(0.3), radius: compact ? 8 : 10, x: 0, y: compact ? 4 : 5)
-                        }
-                        Button(action: { showingClearAlert = true }) {
-                            HStack(spacing: 8) {
-                                Image(systemName: "trash.fill")
-                                Text(LocalizationManager.shared.localizedString("Clear"))
-                            }
-                            .font(.system(size: compact ? 16 : (horizontalSizeClass == .regular ? 22 : 17), weight: .semibold))
-                            .foregroundColor(.white)
-                            .padding(compact ? 14 : (horizontalSizeClass == .regular ? 20 : 15))
-                            .frame(maxWidth: compact ? 260 : (horizontalSizeClass == .regular ? 300 : 200))
-                            .background(
-                                LinearGradient(
-                                    colors: [.red, .pink],
-                                    startPoint: .leading,
-                                    endPoint: .trailing
-                                )
-                            )
-                            .cornerRadius(compact ? 16 : (horizontalSizeClass == .regular ? 20 : 15))
-                            .shadow(color: .red.opacity(0.35), radius: compact ? 8 : 10, x: 0, y: compact ? 4 : 5)
-                        }
-                    }
-                    .padding(.top, compact ? 20 : (horizontalSizeClass == .regular ? 30 : 20))
-                    .scaleEffect(animateCards ? 1.0 : 0.8)
-                    .opacity(animateCards ? 1.0 : 0.0)
-                    }
-                .padding(.bottom, compact ? 10 : (horizontalSizeClass == .regular ? 40 : 20))
+                    duelSummary
+                    actions
+                }
+                .frame(maxWidth: 1000)
+                .padding(.horizontal, wide ? 32 : 20)
+                .padding(.top, phone ? 0 : 16)
+                .padding(.bottom, 28)
+                .frame(maxWidth: .infinity)
             }
-            .padding(.top, contentTopInset)
-                        headerContent
-                    }
-                }
-                if isPushedFromProfile {
-                    backButtonOverlay
-                        .zIndex(20)
-                }
-            }
-            .background(
-                GeometryReader { geo in
-                    Color.clear
-                        .preference(key: SafeTopInsetKeyStats.self, value: geo.safeAreaInsets.top)
-                        .preference(key: ContainerSizeKeyStats.self, value: geo.size)
-                }
-            )
-            .onPreferenceChange(SafeTopInsetKeyStats.self) { safeTopInset = $0 }
-            .onPreferenceChange(ContainerSizeKeyStats.self) { containerSize = $0 }
-            #if os(iOS)
-            // Всегда скрываем системный nav bar: заголовок и «Назад» только в нашей шапке, без дублирования и без прыжка по высоте
-            .navigationBarHidden(true)
-            .navigationBarBackButtonHidden(true)
-            // При переходе из Профиля оставляем таб-бар видимым (API доступен с iOS 16)
-            .modifier(TabBarVisibleWhenPushedModifier(visible: isPushedFromProfile))
-            #endif
-            .onAppear {
-                #if os(iOS)
-                if !isPushedFromProfile {
-                    let appearance = UINavigationBarAppearance()
-                    appearance.configureWithTransparentBackground()
-                    appearance.backgroundEffect = nil
-                    appearance.backgroundColor = .clear
-                    appearance.shadowColor = .clear
-                    UINavigationBar.appearance().standardAppearance = appearance
-                    UINavigationBar.appearance().scrollEdgeAppearance = appearance
-                }
-                if isPushedFromProfile, let nav = findNavigationController() {
-                    nav.interactivePopGestureRecognizer?.isEnabled = true
-                    nav.interactivePopGestureRecognizer?.delegate = nil
-                }
-                #endif
-            }
-            .onDisappear {
-                #if os(iOS)
-                if !isPushedFromProfile {
-                    let appearance = UINavigationBarAppearance()
-                    appearance.configureWithDefaultBackground()
-                    UINavigationBar.appearance().standardAppearance = appearance
-                    UINavigationBar.appearance().scrollEdgeAppearance = appearance
-                }
-                #endif
-            }
-            .alert(isPresented: $showingClearAlert) {
-                Alert(
-                    title: Text(LocalizationManager.shared.localizedString("Clear Statistics")),
-                    message: Text(LocalizationManager.shared.localizedString("Are you sure you want to clear all statistics?")),
-                    primaryButton: .destructive(Text(LocalizationManager.shared.localizedString("Clear"))) {
-                        userProfile.totalGamesPlayed = 0
-                        userProfile.correctAnswers = 0
-                        userProfile.totalAnswers = 0
-                        userProfile.bestScore = 0
-                        userProfile.streak = 0
-                        userProfile.saveToStorage()
-                    },
-                    secondaryButton: .cancel(Text(LocalizationManager.shared.localizedString("Cancel")))
-                )
-            }
-            .onAppear {
-                // Анимация появления
-                withAnimation(.spring(response: 0.8, dampingFraction: 0.7).delay(0.2)) {
-                    animateCards = true
-                }
+            .ignoresSafeArea(.container, edges: phone ? .top : [])
+            .accessibilityIdentifier("statistics.scroll")
         }
-        .sheet(isPresented: $showingShareSheet) { ShareSheet(activityItems: shareItems) }
+        .background(Color(uiColor: .systemGroupedBackground).ignoresSafeArea())
+        .navigationBarHidden(true)
+        .navigationBarBackButtonHidden(true)
+        .onAppear {
+            if isPushedFromProfile, let nav = findNavigationController() {
+                nav.interactivePopGestureRecognizer?.isEnabled = true
+                nav.interactivePopGestureRecognizer?.delegate = nil
+            }
+        }
+        .alert(isPresented: $showingClearAlert) {
+            Alert(
+                title: Text(localized("Clear Statistics")),
+                message: Text(localized("Are you sure you want to clear all statistics?")),
+                primaryButton: .destructive(Text(localized("Clear"))) {
+                    userProfile.totalGamesPlayed = 0
+                    userProfile.correctAnswers = 0
+                    userProfile.totalAnswers = 0
+                    userProfile.bestScore = 0
+                    userProfile.streak = 0
+                    userProfile.saveToStorage()
+                },
+                secondaryButton: .cancel(Text(localized("Cancel")))
+            )
+        }
+        .sheetOrFullScreenOnIPad(isPresented: $showingShareSheet) {
+            ShareSheet(activityItems: shareItems)
+        }
     }
-    
 
+    private func header(wide: Bool, topInset: CGFloat?) -> some View {
+        VStack(alignment: .leading, spacing: 12) {
+            if isPushedFromProfile {
+                Button(action: { dismiss() }) {
+                    Label(localized("Back"), systemImage: "chevron.left")
+                        .font(.body.weight(.semibold))
+                        .frame(minHeight: 44)
+                }
+                .accessibilityIdentifier("statistics.back")
+            }
+            HStack(spacing: 16) {
+                Image("IconStatistics")
+                    .resizable().scaledToFit()
+                    .frame(width: wide ? 80 : 60, height: wide ? 80 : 60)
+                    .accessibilityHidden(true)
+                Text(localized("Statistics"))
+                    .font(.largeTitle.bold())
+                    .fixedSize(horizontal: false, vertical: true)
+                    .accessibilityAddTraits(.isHeader)
+                    .accessibilityIdentifier("statistics.title")
+                Spacer(minLength: 0)
+            }
+        }
+        .foregroundStyle(.white)
+        .padding(wide ? 28 : 20)
+        .padding(.horizontal, topInset != nil ? (wide ? 32 : 20) : 0)
+        .padding(.top, topInset.map { $0 + 16 } ?? 0)
+        .frame(maxWidth: .infinity, alignment: .leading)
+        .background(LinearGradient(colors: [Color(red: 0.18, green: 0.36, blue: 0.85), Color(red: 0.48, green: 0.30, blue: 0.78)], startPoint: .topLeading, endPoint: .bottomTrailing))
+        .clipShape(RoundedRectangle(cornerRadius: topInset == nil ? 24 : 0, style: .continuous))
+    }
+
+    private func metric(_ id: String, image: String, title: String, value: String, unit: String? = nil, color: Color) -> some View {
+        StatisticsMetricCard(image: image, title: localized(title), value: value, unit: unit, accent: color)
+            .accessibilityIdentifier("statistics.metric." + id)
+    }
+
+    private var duelSummary: some View {
+        NavigationLink {
+            DuelSummaryView()
+                .environmentObject(gameState)
+                .environmentObject(userProfile)
+        } label: {
+            HStack(spacing: 14) {
+                Image("IconDuelSummary")
+                    .resizable().scaledToFit().frame(width: 56, height: 56)
+                    .accessibilityHidden(true)
+                VStack(alignment: .leading, spacing: 6) {
+                    Text(localized("Duel Summary"))
+                        .font(.headline)
+                    Text("\(gameState.duelHistory.count) / \(gameState.duelHistory.filter(\.iWon).count)")
+                        .font(.title2.bold()).monospacedDigit()
+                }
+                .fixedSize(horizontal: false, vertical: true)
+                Spacer(minLength: 0)
+                Image(systemName: "chevron.right")
+                    .font(.body.weight(.semibold)).foregroundStyle(.secondary)
+            }
+            .padding(20)
+            .frame(maxWidth: .infinity, alignment: .leading)
+            .background(Color(uiColor: .secondarySystemGroupedBackground), in: RoundedRectangle(cornerRadius: 20))
+            .contentShape(RoundedRectangle(cornerRadius: 20))
+        }
+        .buttonStyle(.plain)
+        .accessibilityIdentifier("statistics.duels")
+    }
+
+    private var actions: some View {
+        VStack(spacing: 8) {
+            Button(action: shareStatistics) {
+                Label(localized("Share Result"), systemImage: "square.and.arrow.up")
+                    .font(.headline)
+                    .padding(16)
+                    .frame(maxWidth: .infinity, minHeight: 52)
+                    .foregroundStyle(.white)
+                    .background(Color.accentColor, in: RoundedRectangle(cornerRadius: 16))
+            }
+            .accessibilityIdentifier("statistics.share")
+            Button(role: .destructive, action: { showingClearAlert = true }) {
+                Label(localized("Clear Statistics"), systemImage: "trash")
+                    .font(.subheadline.weight(.medium))
+                    .padding(12)
+                    .frame(maxWidth: .infinity, minHeight: 44)
+            }
+            .accessibilityIdentifier("statistics.clear")
+        }
+        .buttonStyle(.plain)
+    }
 }
 
-// Градиентный фон шапки
-private extension StatisticsView {
-    var headerBackground: some View {
-        LinearGradient(
-            colors: [Color.blue.opacity(0.85), Color.purple.opacity(0.75)],
-            startPoint: .topLeading,
-            endPoint: .bottomTrailing
-        )
-        .frame(height: headerHeight)
-        .clipShape(RoundedRectangle(cornerRadius: 20, style: .continuous))
-        .ignoresSafeArea(.container, edges: .top)
-    }
+private struct StatisticsMetricCard: View {
+    let image: String
+    let title: String
+    let value: String
+    let unit: String?
+    let accent: Color
 
-    var headerHeight: CGFloat {
-        if isIPadLandscape { return 92 + safeTopInset }
-        if isCompactPhone { return 142 + safeTopInset }
-        return (horizontalSizeClass == .regular ? 200 : 160) + safeTopInset
-    }
+    private var compact: Bool { UIDevice.current.userInterfaceIdiom == .phone }
 
-    var contentTopInset: CGFloat {
-        if isIPadLandscape { return 0 }
-        return max(0, headerHeight - 60)
-    }
-
-    /// Шапка для iPad альбомная: градиент и контент (лого статистики + «Статистика») по центру
-    var headerSectionCompact: some View {
-        ZStack(alignment: .topLeading) {
-            VStack(spacing: 8) {
-                Image("IconStatistics")
-                    .resizable()
-                    .scaledToFit()
-                    .frame(width: 120, height: 120)
-                Text(localizationManager.localizedString("Statistics"))
-                    .font(.system(size: 28, weight: .bold))
-                    .foregroundColor(.white)
-            }
-            .frame(maxWidth: .infinity)
-            .padding(.top, max(0, safeTopInset - 36))
-        }
-        .padding(.bottom, 12)
-        .frame(height: 92 + safeTopInset, alignment: .top)
-        .background(
-            LinearGradient(
-                colors: [Color.blue.opacity(0.85), Color.purple.opacity(0.75)],
-                startPoint: .topLeading,
-                endPoint: .bottomTrailing
-            )
-        )
-        .clipShape(RoundedRectangle(cornerRadius: 20, style: .continuous))
-        .ignoresSafeArea(.container, edges: .top)
-    }
-
-    var headerContent: some View {
-        let compact = isIPadLandscape
-        let logoSize: CGFloat = compact ? 64 : (horizontalSizeClass == .regular ? 112 : 88)
-        let titleSize: CGFloat = compact ? 15 : (horizontalSizeClass == .regular ? 24 : 20)
-        return VStack(spacing: compact ? 2 : 2) {
-            VStack(spacing: compact ? 4 : 4) {
-                Image("IconStatistics")
-                    .resizable()
-                    .scaledToFit()
-                    .frame(width: logoSize, height: logoSize)
-                Text(localizationManager.localizedString("Statistics"))
-                    .font(.system(size: titleSize, weight: .bold))
-                    .foregroundColor(.white)
-            }
-            .padding(.top, max(0, safeTopInset - 24))
-            .frame(height: headerHeight, alignment: .top)
-        }
-        .frame(height: headerHeight)
-        .clipped()
-    }
-
-    @ViewBuilder
-    var backButtonOverlay: some View {
-        #if os(iOS)
-        VStack(spacing: 0) {
-            HStack {
-                Button(action: { dismiss() }) {
-                    Image(systemName: "chevron.left")
-                        .foregroundColor(.white)
-                        .font(.system(size: 18, weight: .semibold))
-                        .padding(8)
-                        .background(Color.white.opacity(0.15))
-                        .clipShape(Circle())
+    var body: some View {
+        VStack(alignment: compact ? .center : .leading, spacing: compact ? 6 : 10) {
+            Image(image)
+                .resizable().scaledToFit()
+                .frame(width: compact ? 42 : 48, height: compact ? 42 : 48)
+                .accessibilityHidden(true)
+            Text(title)
+                .font(.subheadline.weight(.medium))
+                .foregroundStyle(.secondary)
+                .multilineTextAlignment(compact ? .center : .leading)
+                .frame(minHeight: compact ? 34 : 40, alignment: compact ? .center : .topLeading)
+                .fixedSize(horizontal: false, vertical: true)
+            if compact {
+                (Text(value).font(.title.bold()) + Text(unit.map { " " + $0 } ?? "").font(.caption))
+                    .monospacedDigit()
+                    .multilineTextAlignment(.center)
+                    .lineLimit(2)
+                    .minimumScaleFactor(0.7)
+                    .fixedSize(horizontal: false, vertical: true)
+            } else {
+                VStack(alignment: .leading, spacing: 2) {
+                    Text(value)
+                        .font(.largeTitle.bold()).monospacedDigit()
+                        .lineLimit(1).minimumScaleFactor(0.5)
+                    Text(unit ?? " ")
+                        .font(.caption).foregroundStyle(.secondary)
+                        .fixedSize(horizontal: false, vertical: true)
+                        .accessibilityHidden(unit == nil)
                 }
-                Spacer()
             }
-            .padding(.leading, isIPadLandscape ? 12 : 20)
-            .padding(.top, isIPadLandscape ? max(0, safeTopInset - 8) : max(0, safeTopInset - 6))
-            Spacer(minLength: 0)
         }
-        .frame(height: isIPadLandscape ? (92 + safeTopInset) : headerHeight, alignment: .top)
-        .frame(maxWidth: .infinity, alignment: .topLeading)
-        #endif
+        .padding(compact ? 12 : 18)
+        .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: compact ? .center : .topLeading)
+        .background(Color(uiColor: .secondarySystemGroupedBackground), in: RoundedRectangle(cornerRadius: 20))
+        .overlay(alignment: .topTrailing) {
+            Circle().fill(accent.opacity(0.65)).frame(width: 6, height: 6).padding(compact ? 14 : 20)
+                .accessibilityHidden(true)
+        }
+        .accessibilityElement(children: .combine)
     }
+}
 
+private extension StatisticsView {
     #if os(iOS)
     func findNavigationController() -> UINavigationController? {
         guard let windowScene = UIApplication.shared.connectedScenes.first as? UIWindowScene else { return nil }
@@ -459,61 +244,6 @@ private extension StatisticsView {
     #endif
 }
 
-// Прямоугольник со скруглением только снизу (iOS 15)
-private struct BottomRoundedRect: Shape {
-    var radius: CGFloat
-    func path(in rect: CGRect) -> Path {
-        let r = min(radius, rect.height / 2, rect.width / 2)
-        var path = Path()
-        path.move(to: CGPoint(x: rect.minX, y: rect.minY))
-        path.addLine(to: CGPoint(x: rect.maxX, y: rect.minY))
-        path.addLine(to: CGPoint(x: rect.maxX, y: rect.maxY - r))
-        path.addArc(center: CGPoint(x: rect.maxX - r, y: rect.maxY - r), radius: r, startAngle: Angle(degrees: 0), endAngle: Angle(degrees: 90), clockwise: true)
-        path.addLine(to: CGPoint(x: rect.minX + r, y: rect.maxY))
-        path.addArc(center: CGPoint(x: rect.minX + r, y: rect.maxY - r), radius: r, startAngle: Angle(degrees: 90), endAngle: Angle(degrees: 180), clockwise: true)
-        path.closeSubpath()
-        return path
-    }
-}
-
-// Скрывает фон контента ScrollView на iOS 16+ (для устранения белой полосы)
-private struct HideScrollContentBackgroundModifier: ViewModifier {
-    func body(content: Content) -> some View {
-        if #available(iOS 16.0, *) {
-            content.scrollContentBackground(.hidden)
-        } else {
-            content
-        }
-    }
-}
-
-// Модификатор видимости таб-бара (API .toolbar(for: .tabBar) доступен с iOS 16)
-private struct TabBarVisibleWhenPushedModifier: ViewModifier {
-    let visible: Bool
-    func body(content: Content) -> some View {
-        if #available(iOS 16.0, *) {
-            content.toolbar(visible ? .visible : .automatic, for: .tabBar)
-        } else {
-            content
-        }
-    }
-}
-
-// Safe area inset key
-private struct SafeTopInsetKeyStats: PreferenceKey {
-    static var defaultValue: CGFloat = 0
-    static func reduce(value: inout CGFloat, nextValue: () -> CGFloat) {
-        value = max(value, nextValue())
-    }
-}
-
-// Container size for iPad landscape detection
-private struct ContainerSizeKeyStats: PreferenceKey {
-    static var defaultValue: CGSize = .zero
-    static func reduce(value: inout CGSize, nextValue: () -> CGSize) {
-        value = nextValue()
-    }
-}
 
 // Поделиться статистикой
 private extension StatisticsView {
@@ -569,151 +299,4 @@ private extension StatisticsView {
         return false
     }
     #endif
-}
-
-struct StatisticCard: View {
-    let icon: String
-    /// Имя изображения в Assets для миниатюры (если задано — показывается вместо emoji)
-    var iconImageName: String? = nil
-    let title: String
-    let value: String
-    let color: Color
-    let isLarge: Bool
-    var compactForLandscape: Bool = false
-    var compactHeightMultiplier: CGFloat = 1.0
-    var reduceValueForLargeText: Bool = false
-    @State private var animateValue = false
-    @Environment(\.sizeCategory) private var sizeCategory
-
-    private var isAccessibilityLargeText: Bool {
-        sizeCategory.isAccessibilityCategory || sizeCategory >= .extraExtraLarge
-    }
-
-    private var iconSize: CGFloat {
-        if compactForLandscape { return 48 }
-        return isLarge ? 75 : 52.5
-    }
-    private var titleSize: CGFloat {
-        if compactForLandscape { return 13 }
-        return isLarge ? 18 : 12
-    }
-    private var valueSize: CGFloat {
-        var base: CGFloat
-        if compactForLandscape { base = 32 }
-        else { base = isLarge ? 28 : 22 }
-        return (isAccessibilityLargeText && reduceValueForLargeText) ? base * 0.5 : base
-    }
-    private var cardPadding: CGFloat {
-        if compactForLandscape { return 14 }
-        return isLarge ? 25 : 20
-    }
-    private var cardHeight: CGFloat {
-        if compactForLandscape { return 112 * compactHeightMultiplier }
-        return isLarge ? 180 : 140
-    }
-    private var cornerRadius: CGFloat {
-        if compactForLandscape { return 16 }
-        return isLarge ? 20 : 15
-    }
-    
-    var body: some View {
-        VStack(spacing: compactForLandscape ? 6 : (isLarge ? 15 : 10)) {
-            Group {
-                if let name = iconImageName {
-                    Image(name)
-                        .resizable()
-                        .scaledToFit()
-                        .frame(width: iconSize, height: iconSize)
-                } else {
-                    Text(icon)
-                        .font(.system(size: iconSize))
-                }
-            }
-            .scaleEffect(animateValue ? 1.2 : 1.0)
-            Text(title)
-                .font(.system(size: titleSize, weight: .medium, design: .default))
-                .foregroundColor(.secondary)
-                .multilineTextAlignment(.center)
-                .lineLimit(2)
-            Text(value)
-                .font(.system(size: valueSize, weight: .bold, design: .default))
-                .foregroundColor(color)
-        }
-        .padding(cardPadding)
-        .frame(maxWidth: .infinity)
-        .frame(height: cardHeight)
-        .background(
-            RoundedRectangle(cornerRadius: cornerRadius)
-                .fill(.ultraThinMaterial)
-                .shadow(color: color.opacity(0.35), radius: compactForLandscape ? 8 : 10, x: 0, y: compactForLandscape ? 4 : 5)
-        )
-        .overlay(
-            RoundedRectangle(cornerRadius: cornerRadius)
-                .stroke(
-                    LinearGradient(
-                        colors: [color.opacity(0.5), color.opacity(0.1)],
-                        startPoint: .topLeading,
-                        endPoint: .bottomTrailing
-                    ),
-                    lineWidth: 2
-                )
-        )
-        .onAppear {
-            withAnimation(.easeInOut(duration: 1.0).repeatForever(autoreverses: true)) {
-                animateValue = true
-            }
-        }
-    }
-}
-
-// Карточка F-Bucks в одном стиле с остальными: лого, название, значение (без серой подложки чипа)
-private struct FBucksStatCard: View {
-    let count: Int
-    let isLarge: Bool
-    var compactForLandscape: Bool = false
-    var compactHeightMultiplier: CGFloat = 1.0
-    private let color: Color = .yellow
-
-    private var iconSize: CGFloat { compactForLandscape ? 48 : (isLarge ? 75 : 52.5) }
-    private var titleSize: CGFloat { compactForLandscape ? 13 : (isLarge ? 18 : 12) }
-    private var valueSize: CGFloat { compactForLandscape ? 32 : (isLarge ? 28 : 22) }
-    private var cardPadding: CGFloat { compactForLandscape ? 14 : (isLarge ? 25 : 20) }
-    private var cardHeight: CGFloat { compactForLandscape ? 112 * compactHeightMultiplier : (isLarge ? 180 : 140) }
-    private var cornerRadius: CGFloat { compactForLandscape ? 16 : (isLarge ? 20 : 15) }
-
-    var body: some View {
-        VStack(spacing: compactForLandscape ? 6 : (isLarge ? 15 : 10)) {
-            Image("FBucksLogo")
-                .resizable()
-                .scaledToFit()
-                .frame(width: iconSize, height: iconSize)
-            Text(LocalizationManager.shared.localizedString("F-Bucks"))
-                .font(.system(size: titleSize, weight: .medium, design: .default))
-                .foregroundColor(.secondary)
-                .multilineTextAlignment(.center)
-                .lineLimit(2)
-            Text("\(count)")
-                .font(.system(size: valueSize, weight: .bold, design: .default))
-                .foregroundColor(color)
-        }
-        .padding(cardPadding)
-        .frame(maxWidth: .infinity)
-        .frame(height: cardHeight)
-        .background(
-            RoundedRectangle(cornerRadius: cornerRadius)
-                .fill(.ultraThinMaterial)
-                .shadow(color: color.opacity(0.35), radius: compactForLandscape ? 8 : 10, x: 0, y: compactForLandscape ? 4 : 5)
-        )
-        .overlay(
-            RoundedRectangle(cornerRadius: cornerRadius)
-                .stroke(
-                    LinearGradient(
-                        colors: [color.opacity(0.5), color.opacity(0.1)],
-                        startPoint: .topLeading,
-                        endPoint: .bottomTrailing
-                    ),
-                    lineWidth: 2
-                )
-        )
-    }
 }

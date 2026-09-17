@@ -14,7 +14,9 @@ struct NotificationSettingsView: View {
     @State private var achievementNotifications = true
     @State private var leagueNotifications = true
     @State private var friendsNotifications = false
+    @State private var duelInvitesNotifications = (UserDefaults.standard.object(forKey: "duelInvitesNotifications") as? Bool) ?? true
     @State private var reminderTime = Date()
+    @State private var showMyNotifications = false
     
     private var systemGroupedBackground: Color {
         #if os(iOS)
@@ -43,6 +45,16 @@ struct NotificationSettingsView: View {
                             icon: "bell",
                             isOn: $notificationsEnabled
                         )
+                    }
+
+                    settingsSection(title: LocalizationManager.shared.localizedString("Уведомления")) {
+                        SettingsRow(
+                            title: LocalizationManager.shared.localizedString("My notifications"),
+                            icon: "tray.full",
+                            hasArrow: true
+                        ) {
+                            showMyNotifications = true
+                        }
                     }
                     
                     if notificationsEnabled {
@@ -99,7 +111,14 @@ struct NotificationSettingsView: View {
                                 icon: "person.2",
                                 isOn: $friendsNotifications
                             )
+
+                            SettingsToggleRow(
+                                title: "\(LocalizationManager.shared.localizedString("Duel")) \(LocalizationManager.shared.localizedString("Уведомления"))",
+                                icon: "bolt.fill",
+                                isOn: $duelInvitesNotifications
+                            )
                         }
+
                     }
                     
                     Spacer(minLength: 50)
@@ -133,6 +152,9 @@ struct NotificationSettingsView: View {
         .onAppear {
             loadCurrentSettings()
         }
+        .sheet(isPresented: $showMyNotifications) {
+            MyNotificationsView()
+        }
     }
     
     private func settingsSection<Content: View>(
@@ -161,6 +183,7 @@ struct NotificationSettingsView: View {
         UNUserNotificationCenter.current().getNotificationSettings { settings in
             DispatchQueue.main.async {
                 self.notificationsEnabled = settings.authorizationStatus == .authorized
+                self.duelInvitesNotifications = (UserDefaults.standard.object(forKey: "duelInvitesNotifications") as? Bool) ?? true
             }
         }
     }
@@ -177,6 +200,7 @@ struct NotificationSettingsView: View {
         UserDefaults.standard.set(achievementNotifications, forKey: "achievementNotifications")
         UserDefaults.standard.set(leagueNotifications, forKey: "leagueNotifications")
         UserDefaults.standard.set(friendsNotifications, forKey: "friendsNotifications")
+        UserDefaults.standard.set(duelInvitesNotifications, forKey: "duelInvitesNotifications")
         UserDefaults.standard.set(reminderTime, forKey: "reminderTime")
         
         presentationMode.wrappedValue.dismiss()
@@ -205,6 +229,46 @@ struct NotificationSettingsView: View {
             
             let request = UNNotificationRequest(identifier: "dailyReminder", content: content, trigger: trigger)
             UNUserNotificationCenter.current().add(request)
+        }
+    }
+}
+
+private struct MyNotificationsView: View {
+    @Environment(\.dismiss) private var dismiss
+    @State private var items: [AppNotificationLogItem] = []
+    @State private var loading = true
+
+    var body: some View {
+        NavigationView {
+            Group {
+                if loading {
+                    ProgressView()
+                } else if items.isEmpty {
+                    Text("—")
+                        .foregroundColor(.secondary)
+                } else {
+                    List(items) { item in
+                        VStack(alignment: .leading, spacing: 4) {
+                            Text(item.title).font(.system(size: 15, weight: .semibold))
+                            Text(item.body).font(.system(size: 13)).foregroundColor(.secondary)
+                            Text(item.date?.formatted(date: .abbreviated, time: .shortened) ?? item.source)
+                                .font(.system(size: 11))
+                                .foregroundColor(.secondary)
+                        }
+                        .padding(.vertical, 4)
+                    }
+                }
+            }
+            .navigationTitle(LocalizationManager.shared.localizedString("My notifications"))
+            .toolbar {
+                ToolbarItem(placement: .cancellationAction) {
+                    Button(LocalizationManager.shared.localizedString("Close")) { dismiss() }
+                }
+            }
+        }
+        .task {
+            items = await NotificationService.shared.fetchMyNotifications()
+            loading = false
         }
     }
 }

@@ -1,0 +1,4 @@
+metadata_path("./fastlane/metadata")
+skip_binary_upload(true)
+skip_screenshots(true)
+force(true)

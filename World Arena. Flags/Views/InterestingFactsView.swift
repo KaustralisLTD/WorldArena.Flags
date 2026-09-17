@@ -9,39 +9,43 @@ struct InterestingFactsView: View {
     @ObservedObject private var localizationManager = LocalizationManager.shared
     @ObservedObject private var themeManager = AppThemeManager.shared
     @Environment(\.dismiss) private var dismiss
+    @Environment(\.colorScheme) private var colorScheme
     @State private var safeTopInset: CGFloat = 0
-    
+    @State private var slidesMode = false
+    @State private var slideIndex = 0
+
+    private var listScrollBackgroundColor: Color {
+        #if os(iOS)
+        Color(UIColor.secondarySystemGroupedBackground)
+        #else
+        Color(NSColor.textBackgroundColor)
+        #endif
+    }
+
+    private var facts: [InterestingFact] {
+        (1...InterestingFactsData.factCount).map { index in
+            let key = String(format: "FACT_%02d", index)
+            return InterestingFact(
+                title: localizationManager.localizedString("\(key)_TITLE"),
+                description: localizationManager.localizedString("\(key)_DESC"),
+                emoji: InterestingFactsData.emoji(forFactIndex: index)
+            )
+        }
+    }
+
     var body: some View {
         ZStack {
-            // Фон
             LinearGradient(
                 colors: Color.appGradientColors(for: themeManager.colorScheme),
                 startPoint: .topLeading,
                 endPoint: .bottomTrailing
             )
             .ignoresSafeArea()
-            
-            VStack(spacing: 0) {
-                // Закреплённая шапка
-                headerBackground
-                
-                // Основной контент
-                ScrollView {
-                    LazyVStack(spacing: 16) {
-                        ForEach(Array(interestingFacts.enumerated()), id: \.offset) { index, fact in
-                            FactDetailCard(fact: fact, number: index + 1)
-                        }
-                    }
-                    .padding(.horizontal, 20)
-                                            .padding(.top, 20) // Убрали лишние отступы, оставили минимальный
-                    .padding(.bottom, 100)
-                }
-                .background(
-                    RoundedRectangle(cornerRadius: 20, style: .continuous)
-                        .fill(.background)
-                        .ignoresSafeArea(.container, edges: .bottom)
-                )
-                .clipShape(RoundedRectangle(cornerRadius: 20, style: .continuous))
+
+            if slidesMode {
+                slidesModeContent
+            } else {
+                listModeContent
             }
         }
         #if os(iOS)
@@ -55,71 +59,306 @@ struct InterestingFactsView: View {
             safeTopInset = value
         }
     }
-    
-    // MARK: - Header
-    private var headerBackground: some View {
-        ZStack {
-            // Градиентный фон
+
+    // MARK: - List mode
+
+    private var listModeContent: some View {
+        VStack(spacing: 0) {
+            listHeader
+
+            ScrollView {
+                LazyVStack(spacing: 16) {
+                    ForEach(Array(facts.enumerated()), id: \.offset) { index, fact in
+                        FactDetailCard(fact: fact, number: index + 1)
+                    }
+                }
+                .padding(.horizontal, 20)
+                .padding(.top, 8)
+                .padding(.bottom, 100)
+            }
+            .frame(maxWidth: .infinity, maxHeight: .infinity)
+            .background(
+                RoundedRectangle(cornerRadius: 20, style: .continuous)
+                    .fill(listScrollBackgroundColor)
+                    .shadow(color: .black.opacity(colorScheme == .dark ? 0.35 : 0.08), radius: 12, y: -4)
+            )
+            .clipShape(RoundedRectangle(cornerRadius: 20, style: .continuous))
+            .offset(y: -12)
+        }
+    }
+
+    private var listHeader: some View {
+        VStack(spacing: 12) {
+            HStack(alignment: .top, spacing: 10) {
+                Button(action: { dismiss() }) {
+                    Image(systemName: "chevron.left")
+                        .font(.system(size: 18, weight: .semibold))
+                        .foregroundColor(.white)
+                        .frame(width: 40, height: 40)
+                        .background(Color.black.opacity(0.22))
+                        .clipShape(Circle())
+                }
+                .padding(.top, 2)
+
+                VStack(spacing: 10) {
+                    Text(localizationManager.localizedString("Интересные факты"))
+                        .font(.system(size: 22, weight: .bold, design: .rounded))
+                        .foregroundColor(.white)
+                        .multilineTextAlignment(.center)
+                        .lineLimit(3)
+                        .minimumScaleFactor(0.72)
+                        .fixedSize(horizontal: false, vertical: true)
+                        .shadow(color: .black.opacity(0.25), radius: 3, x: 0, y: 1)
+
+                    Image(systemName: "sparkles")
+                        .font(.system(size: 36))
+                        .foregroundStyle(.white, .yellow.opacity(0.9))
+                        .symbolRenderingMode(.palette)
+
+                    Text("\(facts.count) \(localizationManager.localizedString("фактов о флагах и странах"))")
+                        .font(.system(size: 14, weight: .medium))
+                        .foregroundColor(.white.opacity(0.92))
+                        .multilineTextAlignment(.center)
+                        .lineLimit(2)
+                        .minimumScaleFactor(0.85)
+
+                    Button {
+                        slideIndex = 0
+                        withAnimation(.spring(response: 0.45, dampingFraction: 0.86)) {
+                            slidesMode = true
+                        }
+                    } label: {
+                        HStack(spacing: 8) {
+                            Image(systemName: "rectangle.stack.fill")
+                                .font(.system(size: 16, weight: .semibold))
+                            Text(localizationManager.localizedString("Interesting facts study slides"))
+                                .font(.system(size: 16, weight: .bold, design: .rounded))
+                        }
+                        .foregroundColor(.white)
+                        .padding(.horizontal, 20)
+                        .padding(.vertical, 12)
+                        .background(
+                            Capsule()
+                                .fill(Color.white.opacity(0.22))
+                                .overlay(Capsule().stroke(Color.white.opacity(0.35), lineWidth: 1))
+                        )
+                    }
+                    .buttonStyle(.plain)
+                    .padding(.top, 4)
+                }
+                .frame(maxWidth: .infinity)
+
+                Color.clear.frame(width: 40, height: 40)
+            }
+            .padding(.horizontal, 16)
+            .padding(.top, max(safeTopInset, 12))
+            .padding(.bottom, 18)
+        }
+        .frame(maxWidth: .infinity)
+        .background {
             LinearGradient(
-                colors: [Color.cyan.opacity(0.85), Color.blue.opacity(0.7)],
+                colors: [Color.cyan.opacity(0.88), Color.blue.opacity(0.72), Color.purple.opacity(0.55)],
                 startPoint: .topLeading,
                 endPoint: .bottomTrailing
             )
-            .frame(height: headerHeight)
-            .clipShape(RoundedRectangle(cornerRadius: 20, style: .continuous))
-            .ignoresSafeArea(.container, edges: .top)
-            
-            // Заголовок
-            VStack(spacing: 8) {
-                Spacer()
-                
-                HStack {
-                    Button(action: { dismiss() }) {
-                        Image(systemName: "chevron.left")
-                            .font(.system(size: 20, weight: .semibold))
-                            .foregroundColor(.white)
-                            .padding(8)
-                            .background(Color.black.opacity(0.2))
-                            .clipShape(Circle())
-                    }
-                    
-                    Spacer()
-                    
-                    Text(localizationManager.localizedString("Интересные факты"))
-                        .font(.system(size: 24, weight: .bold, design: .rounded))
-                        .foregroundColor(.white)
-                        .shadow(color: .black.opacity(0.3), radius: 4, x: 0, y: 2)
-                    
-                    Spacer()
-                }
-                .padding(.horizontal, 20)
-                
-                Text("🌟")
-                    .font(.system(size: 40))
-                
-                Text("\(interestingFacts.count) \(localizationManager.localizedString("фактов о флагах и странах"))")
-                    .font(.system(size: 14, weight: .medium))
-                    .foregroundColor(.white.opacity(0.8))
-                
-                Spacer()
-            }
-            .frame(height: headerHeight)
+            .ignoresSafeArea(edges: [.top, .horizontal])
         }
     }
-    
-    private var headerHeight: CGFloat { 240 + safeTopInset } // Увеличили высоту для полного перекрытия текста
-    
-    private var contentTopInset: CGFloat {
-        max(0, headerHeight - 40)
+
+    // MARK: - Slides mode
+
+    /// Верхняя панель вынесена из overlay ZStack — иначе на части устройств она визуально «плывёт» к центру.
+    private var slidesModeContent: some View {
+        VStack(spacing: 0) {
+            slidesHeaderChrome
+            ZStack {
+                TabView(selection: $slideIndex) {
+                    ForEach(0..<facts.count, id: \.self) { i in
+                        InterestingFactSlidePage(
+                            fact: facts[i],
+                            index: i + 1,
+                            total: facts.count,
+                            themeColors: Color.appGradientColors(for: themeManager.colorScheme)
+                        )
+                        .tag(i)
+                    }
+                }
+                .tabViewStyle(.page(indexDisplayMode: .never))
+
+                HStack(alignment: .center) {
+                    slideChevron(direction: -1)
+                    Spacer(minLength: 0)
+                    slideChevron(direction: 1)
+                }
+                .padding(.horizontal, 4)
+            }
+            .frame(maxWidth: .infinity, maxHeight: .infinity)
+        }
+        .transition(.opacity.combined(with: .scale(scale: 0.98)))
+    }
+
+    /// Полоса под статус-бар: материал + нижняя граница — панель всегда сверху, не наезжает на текст слайда.
+    private var slidesHeaderChrome: some View {
+        VStack(spacing: 0) {
+            slidesTopBar
+            Rectangle()
+                .fill(Color.primary.opacity(colorScheme == .dark ? 0.18 : 0.1))
+                .frame(height: 1)
+        }
+        .background {
+            Rectangle()
+                .fill(.ultraThinMaterial)
+                .ignoresSafeArea(edges: .top)
+        }
+    }
+
+    private var slidesTopBar: some View {
+        HStack(alignment: .center, spacing: 12) {
+            Button {
+                withAnimation(.spring(response: 0.4, dampingFraction: 0.88)) {
+                    slidesMode = false
+                }
+            } label: {
+                HStack(spacing: 6) {
+                    Image(systemName: "list.bullet")
+                        .font(.system(size: 15, weight: .semibold))
+                    Text(localizationManager.localizedString("Interesting facts back to list"))
+                        .font(.system(size: 14, weight: .semibold))
+                        .lineLimit(1)
+                        .minimumScaleFactor(0.78)
+                }
+                .foregroundStyle(.primary)
+                .padding(.horizontal, 14)
+                .padding(.vertical, 10)
+                .background(
+                    Capsule(style: .continuous)
+                        .fill(Color.primary.opacity(colorScheme == .dark ? 0.12 : 0.08))
+                )
+            }
+            .buttonStyle(.plain)
+
+            Spacer(minLength: 8)
+
+            Text("\(slideIndex + 1) / \(facts.count)")
+                .font(.system(size: 15, weight: .bold, design: .rounded))
+                .monospacedDigit()
+                .foregroundStyle(.primary)
+                .padding(.horizontal, 14)
+                .padding(.vertical, 10)
+                .background(
+                    Capsule(style: .continuous)
+                        .fill(Color.primary.opacity(colorScheme == .dark ? 0.12 : 0.08))
+                )
+        }
+        .padding(.horizontal, 16)
+        .padding(.top, max(safeTopInset, 12))
+        .padding(.bottom, 10)
+    }
+
+    private func slideChevron(direction: Int) -> some View {
+        let canGo = direction < 0 ? slideIndex > 0 : slideIndex < facts.count - 1
+        return Button {
+            guard canGo else { return }
+            withAnimation(.easeInOut(duration: 0.28)) {
+                slideIndex += direction
+            }
+        } label: {
+            Image(systemName: direction < 0 ? "chevron.left" : "chevron.right")
+                .font(.system(size: 22, weight: .bold))
+                .foregroundColor(.white)
+                .frame(width: 48, height: 56)
+                .background(
+                    RoundedRectangle(cornerRadius: 16, style: .continuous)
+                        .fill(Color.black.opacity(0.28))
+                        .overlay(RoundedRectangle(cornerRadius: 16).stroke(Color.white.opacity(0.2), lineWidth: 1))
+                )
+        }
+        .buttonStyle(.plain)
+        .disabled(!canGo)
+        .opacity(canGo ? 1 : 0.28)
+    }
+}
+
+// MARK: - Full-screen slide page
+
+private struct InterestingFactSlidePage: View {
+    let fact: InterestingFact
+    let index: Int
+    let total: Int
+    let themeColors: [Color]
+
+    var body: some View {
+        GeometryReader { geo in
+            ZStack {
+                LinearGradient(
+                    colors: [
+                        themeColors.first?.opacity(0.55) ?? .blue.opacity(0.5),
+                        Color.black.opacity(0.35),
+                        themeColors.last?.opacity(0.45) ?? .purple.opacity(0.45)
+                    ],
+                    startPoint: .topLeading,
+                    endPoint: .bottomTrailing
+                )
+
+                VStack(spacing: 0) {
+                    // Верхняя панель — снаружи TabView; здесь только отступ контента от области слайда
+                    Spacer(minLength: 12)
+
+                    Text(fact.emoji)
+                        .font(.system(size: min(geo.size.width * 0.18, 88)))
+                        .padding(.bottom, 16)
+
+                    Text(fact.title)
+                        .font(.system(size: min(geo.size.width * 0.055, 24), weight: .bold, design: .rounded))
+                        .foregroundColor(.white)
+                        .multilineTextAlignment(.center)
+                        .padding(.horizontal, 28)
+                        .shadow(color: .black.opacity(0.35), radius: 6, y: 2)
+
+                    ScrollView(showsIndicators: false) {
+                        Text(fact.description)
+                            .font(.system(size: 17, weight: .medium))
+                            .foregroundColor(.white.opacity(0.95))
+                            .multilineTextAlignment(.center)
+                            .lineSpacing(6)
+                            .padding(.horizontal, 28)
+                            .padding(.top, 20)
+                            .padding(.bottom, 32)
+                    }
+                    .frame(maxHeight: geo.size.height * 0.42)
+
+                    Spacer(minLength: geo.safeAreaInsets.bottom + 20)
+
+                    slideProgressBar(trackWidth: max(0, geo.size.width - 80), index: index, total: total)
+                        .padding(.bottom, geo.safeAreaInsets.bottom + 16)
+                }
+            }
+            .frame(width: geo.size.width, height: geo.size.height)
+        }
+        .ignoresSafeArea(edges: [.bottom])
+    }
+
+    private func slideProgressBar(trackWidth: CGFloat, index: Int, total: Int) -> some View {
+        let progress = CGFloat(index) / CGFloat(max(total, 1))
+        let fillW = max(10, trackWidth * progress)
+        return ZStack(alignment: .leading) {
+            Capsule()
+                .fill(Color.white.opacity(0.22))
+                .frame(width: trackWidth, height: 5)
+            Capsule()
+                .fill(Color.white)
+                .frame(width: fillW, height: 5)
+        }
+        .frame(width: trackWidth, height: 5)
     }
 }
 
 // MARK: - FactDetailCard
+
 struct FactDetailCard: View {
     let fact: InterestingFact
     let number: Int
-    @ObservedObject private var localizationManager = LocalizationManager.shared
-    
+
     private var secondarySystemGroupedBackground: Color {
         #if os(iOS)
         return Color(UIColor.secondarySystemGroupedBackground)
@@ -127,7 +366,7 @@ struct FactDetailCard: View {
         return Color(NSColor.textBackgroundColor)
         #endif
     }
-    
+
     var body: some View {
         VStack(alignment: .leading, spacing: 12) {
             HStack {
@@ -138,18 +377,18 @@ struct FactDetailCard: View {
                     .padding(.vertical, 6)
                     .background(Color.blue.opacity(0.1))
                     .cornerRadius(12)
-                
+
                 Spacer()
-                
+
                 Text(fact.emoji)
                     .font(.system(size: 30))
             }
-            
-            Text(localizationManager.localizedString(fact.title))
+
+            Text(fact.title)
                 .font(.system(size: 18, weight: .bold))
                 .foregroundColor(.primary)
-            
-            Text(localizationManager.localizedString(fact.description))
+
+            Text(fact.description)
                 .font(.system(size: 15))
                 .foregroundColor(.secondary)
                 .lineLimit(nil)
@@ -163,257 +402,44 @@ struct FactDetailCard: View {
 }
 
 // MARK: - InterestingFact Model
+
 struct InterestingFact {
     let title: String
     let description: String
     let emoji: String
 }
 
-// MARK: - Facts Data
-private let interestingFacts: [InterestingFact] = [
-    InterestingFact(
-        title: "Самый старый флаг",
-        description: "Флаг Дании (Данеброг) считается самым старым государственным флагом в мире, который используется непрерывно с 1219 года.",
-        emoji: "🇩🇰"
-    ),
-    InterestingFact(
-        title: "Единственный квадратный флаг",
-        description: "Швейцария имеет единственный квадратный национальный флаг в мире. Ватикан также имеет квадратный флаг, но это город-государство.",
-        emoji: "🇨🇭"
-    ),
-    InterestingFact(
-        title: "Самый сложный флаг",
-        description: "Флаг Бутана изображает дракона Друк, держащего драгоценности в лапах, что символизирует богатство и безопасность страны.",
-        emoji: "🇧🇹"
-    ),
-    InterestingFact(
-        title: "Флаг без красного, белого или синего",
-        description: "Ямайка - единственная страна в мире, чей флаг не содержит красного, белого или синего цвета. Он состоит из зеленого, желтого и черного.",
-        emoji: "🇯🇲"
-    ),
-    InterestingFact(
-        title: "Флаг, который меняется",
-        description: "У Саудовской Аравии флаг никогда не приспускается до половины мачты, так как на нем написано священное исламское изречение.",
-        emoji: "🇸🇦"
-    ),
-    InterestingFact(
-        title: "Самый молодой флаг",
-        description: "Флаг Южного Судана был принят в 2011 году, когда страна обрела независимость, что делает его самым молодым национальным флагом.",
-        emoji: "🇸🇸"
-    ),
-    InterestingFact(
-        title: "Флаг с AK-47",
-        description: "Мозамбик - единственная страна в мире, на флаге которой изображено современное оружие - автомат Калашникова.",
-        emoji: "🇲🇿"
-    ),
-    InterestingFact(
-        title: "Одинаковые флаги",
-        description: "Румыния и Чад имеют практически идентичные флаги. Различие только в оттенке синего цвета, который у Чада немного темнее.",
-        emoji: "🇷🇴"
-    ),
-    InterestingFact(
-        title: "Флаг-палиндром",
-        description: "Флаг Украины читается одинаково сверху и снизу - это синяя полоса над желтой, символизирующая небо над пшеничным полем.",
-        emoji: "🇺🇦"
-    ),
-    InterestingFact(
-        title: "Самый простой флаг",
-        description: "Флаг Ливии с 1977 по 2011 год состоял только из зеленого цвета без каких-либо символов или узоров.",
-        emoji: "🏳️"
-    ),
-    InterestingFact(
-        title: "Флаг с картой",
-        description: "Кипр - одна из двух стран (вместе с Косово), на флаге которой изображена карта самой страны.",
-        emoji: "🇨🇾"
-    ),
-    InterestingFact(
-        title: "Флаг с Библией",
-        description: "На флаге Доминиканской Республики изображена открытая Библия, что делает его единственным национальным флагом с религиозной книгой.",
-        emoji: "🇩🇴"
-    ),
-    InterestingFact(
-        title: "Самый популярный цвет",
-        description: "Красный цвет присутствует на 75% всех национальных флагов мира, что делает его самым популярным цветом флагов.",
-        emoji: "🔴"
-    ),
-    InterestingFact(
-        title: "Флаг с надписью",
-        description: "Саудовская Аравия - одна из немногих стран, на флаге которой есть текст. Надпись сделана на арабском языке.",
-        emoji: "🇸🇦"
-    ),
-    InterestingFact(
-        title: "Флаг, который нельзя носить",
-        description: "В Таиланде незаконно носить одежду с изображением национального флага, так как это считается неуважением к королевской семье.",
-        emoji: "🇹🇭"
-    ),
-    InterestingFact(
-        title: "Флаг с разными сторонами",
-        description: "Парагвай имеет единственный в мире национальный флаг с разными изображениями на лицевой и обратной сторонах.",
-        emoji: "🇵🇾"
-    ),
-    InterestingFact(
-        title: "Самый большой флаг",
-        description: "Самый большой флаг в мире находится в Иордании. Его размеры составляют 60 на 30 метров, а вес - около 3 тонн.",
-        emoji: "🇯🇴"
-    ),
-    InterestingFact(
-        title: "Флаг с изменяющимся дизайном",
-        description: "Флаг Непала - единственный в мире национальный флаг, который не является прямоугольным. Он состоит из двух треугольников.",
-        emoji: "🇳🇵"
-    ),
-    InterestingFact(
-        title: "Флаг Олимпиады",
-        description: "Пять олимпийских колец на флаге Олимпийских игр представляют пять континентов, а их цвета присутствуют на всех флагах мира.",
-        emoji: "🏅"
-    ),
-    InterestingFact(
-        title: "Флаг с самым сложным гербом",
-        description: "На флаге Мексики изображен орел, сидящий на кактусе и держащий в клюве змею - один из самых детализированных гербов на флагах.",
-        emoji: "🇲🇽"
-    ),
-    InterestingFact(
-        title: "Флаг-копия",
-        description: "Флаг Монако и Индонезии почти идентичны - красная полоса сверху, белая снизу. Различие только в пропорциях.",
-        emoji: "🇲🇨"
-    ),
-    InterestingFact(
-        title: "Флаг с 50 звездами",
-        description: "На флаге США 50 звезд, по одной на каждый штат. Дизайн флага менялся 27 раз с момента принятия в 1777 году.",
-        emoji: "🇺🇸"
-    ),
-    InterestingFact(
-        title: "Самый северный флаг",
-        description: "Флаг Гренландии развевается в самой северной точке земли среди всех национальных и региональных флагов.",
-        emoji: "🇬🇱"
-    ),
-    InterestingFact(
-        title: "Флаг с крестом",
-        description: "29 стран мира имеют крест на своем флаге, что делает его одним из самых популярных символов на национальных флагах.",
-        emoji: "✝️"
-    ),
-    InterestingFact(
-        title: "Флаг без изображений",
-        description: "Нидерланды имеют один из самых простых флагов - три горизонтальные полосы: красная, белая и синяя, без каких-либо символов.",
-        emoji: "🇳🇱"
-    ),
-    InterestingFact(
-        title: "Флаг с полумесяцем",
-        description: "Полумесяц присутствует на флагах 12 стран, в основном мусульманских, символизируя исламскую веру.",
-        emoji: "☪️"
-    ),
-    InterestingFact(
-        title: "Самый яркий флаг",
-        description: "Флаг Бангладеш считается одним из самых ярких в мире - красный круг на зеленом фоне символизирует восходящее солнце.",
-        emoji: "🇧🇩"
-    ),
-    InterestingFact(
-        title: "Флаг с деревом",
-        description: "Ливан - единственная страна, на флаге которой изображено дерево (ливанский кедр), символизирующее вечность и мир.",
-        emoji: "🇱🇧"
-    ),
-    InterestingFact(
-        title: "Флаг с солнцем",
-        description: "На флагах 23 стран мира изображено солнце в различных формах - от простых кругов до сложных лучистых символов.",
-        emoji: "☀️"
-    ),
-    InterestingFact(
-        title: "Самый узкий флаг",
-        description: "Флаг Катара имеет самое необычное соотношение сторон среди всех национальных флагов - 11:28.",
-        emoji: "🇶🇦"
-    ),
-    InterestingFact(
-        title: "Флаг с щитом",
-        description: "Эквадор имеет один из самых детализированных гербов на флаге, включающий кондора, щит и множество других символов.",
-        emoji: "🇪🇨"
-    ),
-    InterestingFact(
-        title: "Флаг-радуга",
-        description: "Боливия имеет два официальных флага - традиционный трехцветный и радужный флаг коренных народов Випала.",
-        emoji: "🇧🇴"
-    ),
-    InterestingFact(
-        title: "Флаг с королевским символом",
-        description: "На флаге Камбоджи изображен храм Ангкор-Ват, что делает его единственным национальным флагом со зданием.",
-        emoji: "🇰🇭"
-    ),
-    InterestingFact(
-        title: "Самый спорный флаг",
-        description: "Флаг Македонии был изменен в 1995 году из-за протестов Греции, которая считала первоначальный дизайн своим историческим символом.",
-        emoji: "🇲🇰"
-    ),
-    InterestingFact(
-        title: "Флаг с мечом",
-        description: "На флаге Шри-Ланки изображен лев, держащий меч, что символизирует храбрость сингальского народа.",
-        emoji: "🇱🇰"
-    ),
-    InterestingFact(
-        title: "Флаг без синего",
-        description: "Только 4 страны в мире не используют синий цвет на своих флагах: Ямайка, Мавритания, Шри-Ланка и Ватикан.",
-        emoji: "🌈"
-    ),
-    InterestingFact(
-        title: "Флаг с птицей",
-        description: "На флагах 25 стран мира изображены птицы - от простых силуэтов до детализированных изображений орлов и других птиц.",
-        emoji: "🦅"
-    ),
-    InterestingFact(
-        title: "Самый мирный флаг",
-        description: "Флаг Антарктиды неофициально представляет континент мира и науки - белый континент на синем фоне.",
-        emoji: "🇦🇶"
-    ),
-    InterestingFact(
-        title: "Флаг с звездой",
-        description: "196 стран и территорий имеют звезды на своих флагах, что делает звезду самым популярным символом после креста.",
-        emoji: "⭐"
-    ),
-    InterestingFact(
-        title: "Флаг-близнец",
-        description: "Сингапур и Польша имеют флаги с одинаковыми цветами (красный и белый), но расположенными в обратном порядке.",
-        emoji: "🇸🇬"
-    ),
-    InterestingFact(
-        title: "Самый молодой континентальный флаг",
-        description: "Флаг Африканского союза был принят в 2010 году и включает карту Африки на зеленом фоне с золотыми звездами.",
-        emoji: "🌍"
-    ),
-    InterestingFact(
-        title: "Флаг с алмазом",
-        description: "На флаге Ботсваны изображена черная полоса, символизирующая единство народов, окруженная белыми полосами мира.",
-        emoji: "🇧🇼"
-    ),
-    InterestingFact(
-        title: "Флаг морского дна",
-        description: "Науру - самая маленькая островная нация в мире, и ее флаг символизирует остров (желтая полоса) в океане (синий фон).",
-        emoji: "🇳🇷"
-    ),
-    InterestingFact(
-        title: "Флаг с самой длинной историей изменений",
-        description: "Флаг США изменялся 27 раз с 1777 года, каждый раз при присоединении нового штата добавлялась новая звезда.",
-        emoji: "🇺🇸"
-    ),
-    InterestingFact(
-        title: "Флаг пустыни",
-        description: "Флаг Нигера символизирует пустыню Сахара (оранжевая полоса сверху) и реку Нигер (синяя полоса снизу).",
-        emoji: "🇳🇪"
-    ),
-    InterestingFact(
-        title: "Самый космический флаг",
-        description: "Флаг Малайзии имеет 14 полос и полумесяц со звездой, символизирующие единство 13 штатов и федерального правительства.",
-        emoji: "🇲🇾"
-    ),
-    InterestingFact(
-        title: "Флаг вулкана",
-        description: "На флаге Никарагуа изображены два океана и вулканы, что отражает географическое положение страны между Тихим и Атлантическим океанами.",
-        emoji: "🇳🇮"
-    ),
-    InterestingFact(
-        title: "Флаг-загадка",
-        description: "Флаг Бутана можно интерпретировать по-разному в зависимости от того, как его повесить - дракон может смотреть в разные стороны.",
-        emoji: "🇧🇹"
-    )
-]
+// MARK: - Facts Data (68 facts, key-based localization)
+
+enum InterestingFactsData {
+    static let factCount = 68
+    /// Подрегиональные флаги GB (iOS отображает как 🏴󠁧󠁢󠁷󠁬󠁳󠁿 / 🏴󠁧󠁢󠁳󠁣󠁴󠁿).
+    private static let flagWales = "\u{1F3F4}\u{E0067}\u{E0062}\u{E0077}\u{E006C}\u{E0073}\u{E007F}"
+    private static let flagScotland = "\u{1F3F4}\u{E0067}\u{E0062}\u{E0073}\u{E0063}\u{E0074}\u{E007F}"
+
+    /// Ровно по одному символу на факт FACT_01…FACT_68 (содержание строк локализации в ru/en).
+    private static let factEmojis: [String] = [
+        "🇩🇰", "🇨🇭", "🇳🇵", "🇯🇲", "🇸🇦", "🇸🇸", "🇲🇿", "🇷🇴", "🇺🇦", "🇱🇾",
+        "🇨🇾", "🇩🇴", "🔴", "🇸🇦", "🇹🇭", "🇵🇾", "🏅", "🇲🇽", "🇲🇨", "🇺🇸",
+        "🇬🇱", "✝️", "🇫🇷", "☪️", "☀️", "🇱🇧", "🇶🇦", "🌎", "🌈", "🇰🇭",
+        "⚔️", "🇱🇰", "🇯🇲", "🦅", "🇦🇶", "⭐", "🇸🇬", "🌍", "🏝️", "🕰️",
+        "🇲🇰", "🇧🇿", "🇪🇨", "🇧🇴", "🇧🇷", "🇨🇦", "🇬🇧", "🇯🇵", "🇮🇳", "🇦🇺",
+        "🇳🇿", "🇰🇷", "🇵🇹", "🇦🇱", "🇰🇪", flagWales, flagScotland, "🇬🇱", "🇪🇹", "🇸🇪",
+        "🇫🇷", "🇺🇳", "🇪🇺", "🏅", "🇻🇦", "🇳🇷", "🇹🇲", "🇦🇫"
+    ]
+
+    static func emoji(forFactIndex index: Int) -> String {
+        let i = index - 1
+        guard i >= 0, i < factEmojis.count, factEmojis.count == factCount else { return "🏳️" }
+        return factEmojis[i]
+    }
+
+    static func factTitleKey(_ index: Int) -> String { "FACT_\(String(format: "%02d", index))_TITLE" }
+    static func factDescKey(_ index: Int) -> String { "FACT_\(String(format: "%02d", index))_DESC" }
+}
 
 // MARK: - SafeTopInsetKey
+
 private struct SafeTopInsetKey: PreferenceKey {
     static let defaultValue: CGFloat = 0
     static func reduce(value: inout CGFloat, nextValue: () -> CGFloat) {
@@ -422,6 +448,7 @@ private struct SafeTopInsetKey: PreferenceKey {
 }
 
 // MARK: - Preview
+
 #Preview {
     InterestingFactsView()
 }

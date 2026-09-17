@@ -1,0 +1,1467 @@
+{
+  "schema_version": 1,
+  "source_markdown": "/Volumes/spilberg/3.Work/9.iOS/Flags.World 06.04.2025/World Arena. Flags/Docs/GameCenter_Achievements_Table.md",
+  "achievements_count": 20,
+  "achievements": [
+    {
+      "id": "streak_5",
+      "reference_name": "Early Bird",
+      "title_key": "Ранняя птица",
+      "description_key": "Достигните серии 5 дней",
+      "points": 10,
+      "hidden": false,
+      "reusable": true,
+      "asset_name": "Ach_streak_5",
+      "asset_imageset_path": "World Arena. Flags/Assets.xcassets/Ach_streak_5.imageset",
+      "localizations": {
+        "en": {
+          "title": "Early Bird",
+          "before_earned_description": "Reach a 5-day streak",
+          "after_earned_description": "Unlocked • Early Bird"
+        },
+        "ru": {
+          "title": "Ранняя птица",
+          "before_earned_description": "Достигните серии 5 дней",
+          "after_earned_description": "Открыто • Ранняя птица"
+        },
+        "uk": {
+          "title": "Рання пташка",
+          "before_earned_description": "Досягніть серії 5 днів",
+          "after_earned_description": "Відкрито • Рання пташка"
+        },
+        "es": {
+          "title": "Madrugador",
+          "before_earned_description": "Alcanza una racha de 5 días",
+          "after_earned_description": "Desbloqueado • Madrugador"
+        },
+        "ca": {
+          "title": "Ocella matiner",
+          "before_earned_description": "Assoleix una ratxa de 5 dies",
+          "after_earned_description": "Desblocat • Ocella matiner"
+        },
+        "zh": {
+          "title": "早起的鸟儿",
+          "before_earned_description": "达到5天连续",
+          "after_earned_description": "已解锁 • 早起的鸟儿"
+        },
+        "de": {
+          "title": "Frühaufsteher",
+          "before_earned_description": "Erreichen Sie eine 5-Tage-Strecke",
+          "after_earned_description": "Entsperrt • Frühaufsteher"
+        },
+        "fr": {
+          "title": "Lève-tôt",
+          "before_earned_description": "Atteignez une séquence de 5 jours",
+          "after_earned_description": "Débloqué • Lève-tôt"
+        },
+        "it": {
+          "title": "Mattiniero",
+          "before_earned_description": "Raggiungi una serie di 5 giorni",
+          "after_earned_description": "Sbloccato • Mattiniero"
+        },
+        "pt-BR": {
+          "title": "Madrugador",
+          "before_earned_description": "Alcance uma sequência de 5 dias",
+          "after_earned_description": "Desbloqueado • Madrugador"
+        },
+        "pl": {
+          "title": "Wczesny ptak",
+          "before_earned_description": "Osiągnij 5-dniową passę",
+          "after_earned_description": "Odblokowany • Wczesny ptak"
+        },
+        "nl": {
+          "title": "Vroege vogel",
+          "before_earned_description": "Bereik een streak van 5 dagen",
+          "after_earned_description": "Ontgrendeld • Vroege vogel"
+        }
+      }
+    },
+    {
+      "id": "streak_10",
+      "reference_name": "Consistency",
+      "title_key": "Стабильность",
+      "description_key": "Серия 10 дней",
+      "points": 20,
+      "hidden": false,
+      "reusable": true,
+      "asset_name": "Ach_streak_10",
+      "asset_imageset_path": "World Arena. Flags/Assets.xcassets/Ach_streak_10.imageset",
+      "localizations": {
+        "en": {
+          "title": "Consistency",
+          "before_earned_description": "10-day streak",
+          "after_earned_description": "Unlocked • Consistency"
+        },
+        "ru": {
+          "title": "Стабильность",
+          "before_earned_description": "Серия 10 дней",
+          "after_earned_description": "Открыто • Стабильность"
+        },
+        "uk": {
+          "title": "Стабільність",
+          "before_earned_description": "Серия 10 днів",
+          "after_earned_description": "Відкрито • Стабільність"
+        },
+        "es": {
+          "title": "Constancia",
+          "before_earned_description": "Racha de 10 días",
+          "after_earned_description": "Desbloqueado • Constancia"
+        },
+        "ca": {
+          "title": "Constància",
+          "before_earned_description": "Ratxa de 10 dies",
+          "after_earned_description": "Desblocat • Constància"
+        },
+        "zh": {
+          "title": "持之以恒",
+          "before_earned_description": "10 天连续",
+          "after_earned_description": "已解锁 • 持之以恒"
+        },
+        "de": {
+          "title": "Konsistenz",
+          "before_earned_description": "10-Tage-Serie",
+          "after_earned_description": "Entsperrt • Konsistenz"
+        },
+        "fr": {
+          "title": "Cohérence",
+          "before_earned_description": "séquence de 10 jours",
+          "after_earned_description": "Débloqué • Cohérence"
+        },
+        "it": {
+          "title": "Coerenza",
+          "before_earned_description": "Serie di 10 giorni",
+          "after_earned_description": "Sbloccato • Coerenza"
+        },
+        "pt-BR": {
+          "title": "Consistência",
+          "before_earned_description": "Sequência de 10 dias",
+          "after_earned_description": "Desbloqueado • Consistência"
+        },
+        "pl": {
+          "title": "Konsystencja",
+          "before_earned_description": "Seria 10 dni",
+          "after_earned_description": "Odblokowany • Konsystencja"
+        },
+        "nl": {
+          "title": "Samenhang",
+          "before_earned_description": "10-daagse reeks",
+          "after_earned_description": "Ontgrendeld • Samenhang"
+        }
+      }
+    },
+    {
+      "id": "streak_30",
+      "reference_name": "Iron Will",
+      "title_key": "Железная воля",
+      "description_key": "Серия 30 дней",
+      "points": 30,
+      "hidden": false,
+      "reusable": true,
+      "asset_name": "Ach_streak_30",
+      "asset_imageset_path": "World Arena. Flags/Assets.xcassets/Ach_streak_30.imageset",
+      "localizations": {
+        "en": {
+          "title": "Iron Will",
+          "before_earned_description": "30-day streak",
+          "after_earned_description": "Unlocked • Iron Will"
+        },
+        "ru": {
+          "title": "Железная воля",
+          "before_earned_description": "Серия 30 дней",
+          "after_earned_description": "Открыто • Железная воля"
+        },
+        "uk": {
+          "title": "Залізна воля",
+          "before_earned_description": "Серія 30 днів",
+          "after_earned_description": "Відкрито • Залізна воля"
+        },
+        "es": {
+          "title": "Voluntad de hierro",
+          "before_earned_description": "Racha de 30 días",
+          "after_earned_description": "Desbloqueado • Voluntad de hierro"
+        },
+        "ca": {
+          "title": "Voluntat de ferro",
+          "before_earned_description": "Ratxa de 30 dies",
+          "after_earned_description": "Desblocat • Voluntat de ferro"
+        },
+        "zh": {
+          "title": "钢铁意志",
+          "before_earned_description": "30天连续",
+          "after_earned_description": "已解锁 • 钢铁意志"
+        },
+        "de": {
+          "title": "Eiserner Wille",
+          "before_earned_description": "30-Tage-Serie",
+          "after_earned_description": "Entsperrt • Eiserner Wille"
+        },
+        "fr": {
+          "title": "Volonté de fer",
+          "before_earned_description": "30 jours consécutifs",
+          "after_earned_description": "Débloqué • Volonté de fer"
+        },
+        "it": {
+          "title": "Volontà di ferro",
+          "before_earned_description": "Serie di 30 giorni",
+          "after_earned_description": "Sbloccato • Volontà di ferro"
+        },
+        "pt-BR": {
+          "title": "Vontade de Ferro",
+          "before_earned_description": "Sequência de 30 dias",
+          "after_earned_description": "Desbloqueado • Vontade de Ferro"
+        },
+        "pl": {
+          "title": "Żelazna Wola",
+          "before_earned_description": "Seria 30 dni",
+          "after_earned_description": "Odblokowany • Żelazna Wola"
+        },
+        "nl": {
+          "title": "Ijzeren wil",
+          "before_earned_description": "30-dagenreeks",
+          "after_earned_description": "Ontgrendeld • Ijzeren wil"
+        }
+      }
+    },
+    {
+      "id": "xp_1000",
+      "reference_name": "XP Beginner",
+      "title_key": "Новичок XP",
+      "description_key": "Наберите 1000 XP",
+      "points": 10,
+      "hidden": false,
+      "reusable": true,
+      "asset_name": "Ach_xp_1000",
+      "asset_imageset_path": "World Arena. Flags/Assets.xcassets/Ach_xp_1000.imageset",
+      "localizations": {
+        "en": {
+          "title": "XP Beginner",
+          "before_earned_description": "Earn 1000 XP",
+          "after_earned_description": "Unlocked • XP Beginner"
+        },
+        "ru": {
+          "title": "Новичок XP",
+          "before_earned_description": "Наберите 1000 XP",
+          "after_earned_description": "Открыто • Новичок XP"
+        },
+        "uk": {
+          "title": "Новачок XP",
+          "before_earned_description": "Наберіть 1000 XP",
+          "after_earned_description": "Відкрито • Новачок XP"
+        },
+        "es": {
+          "title": "Principiante XP",
+          "before_earned_description": "Consigue 1000 XP",
+          "after_earned_description": "Desbloqueado • Principiante XP"
+        },
+        "ca": {
+          "title": "Principiant XP",
+          "before_earned_description": "Guanya 1000 XP",
+          "after_earned_description": "Desblocat • Principiant XP"
+        },
+        "zh": {
+          "title": "XP新手",
+          "before_earned_description": "获得1000 XP",
+          "after_earned_description": "已解锁 • XP新手"
+        },
+        "de": {
+          "title": "XP-Anfänger",
+          "before_earned_description": "Verdiene 1000 XP",
+          "after_earned_description": "Entsperrt • XP-Anfänger"
+        },
+        "fr": {
+          "title": "XP Débutant",
+          "before_earned_description": "Gagnez 1000 XP",
+          "after_earned_description": "Débloqué • XP Débutant"
+        },
+        "it": {
+          "title": "Principiante XP",
+          "before_earned_description": "Guadagna 1000 XP",
+          "after_earned_description": "Sbloccato • Principiante XP"
+        },
+        "pt-BR": {
+          "title": "XP Iniciante",
+          "before_earned_description": "Ganhe 1000 XP",
+          "after_earned_description": "Desbloqueado • XP Iniciante"
+        },
+        "pl": {
+          "title": "Początkujący XP",
+          "before_earned_description": "Zdobądź 1000 PD",
+          "after_earned_description": "Odblokowany • Początkujący XP"
+        },
+        "nl": {
+          "title": "XP-beginner",
+          "before_earned_description": "Verdien 1000 XP",
+          "after_earned_description": "Ontgrendeld • XP-beginner"
+        }
+      }
+    },
+    {
+      "id": "xp_5000",
+      "reference_name": "XP Olympian",
+      "title_key": "Олимпиец XP",
+      "description_key": "Наберите 5000 XP",
+      "points": 20,
+      "hidden": false,
+      "reusable": true,
+      "asset_name": "Ach_xp_5000",
+      "asset_imageset_path": "World Arena. Flags/Assets.xcassets/Ach_xp_5000.imageset",
+      "localizations": {
+        "en": {
+          "title": "XP Olympian",
+          "before_earned_description": "Earn 5000 XP",
+          "after_earned_description": "Unlocked • XP Olympian"
+        },
+        "ru": {
+          "title": "Олимпиец XP",
+          "before_earned_description": "Наберите 5000 XP",
+          "after_earned_description": "Открыто • Олимпиец XP"
+        },
+        "uk": {
+          "title": "Олімпієць XP",
+          "before_earned_description": "Наберіть 5000 XP",
+          "after_earned_description": "Відкрито • Олімпієць XP"
+        },
+        "es": {
+          "title": "Olimpico de XP",
+          "before_earned_description": "Consigue 5000 XP",
+          "after_earned_description": "Desbloqueado • Olimpico de XP"
+        },
+        "ca": {
+          "title": "Olimpic XP",
+          "before_earned_description": "Guanya 5000 XP",
+          "after_earned_description": "Desblocat • Olimpic XP"
+        },
+        "zh": {
+          "title": "XP奥运",
+          "before_earned_description": "获得5000 XP",
+          "after_earned_description": "已解锁 • XP奥运"
+        },
+        "de": {
+          "title": "XP-Olympiasieger",
+          "before_earned_description": "Verdiene 5000 XP",
+          "after_earned_description": "Entsperrt • XP-Olympiasieger"
+        },
+        "fr": {
+          "title": "Olympien XP",
+          "before_earned_description": "Gagnez 5 000 XP",
+          "after_earned_description": "Débloqué • Olympien XP"
+        },
+        "it": {
+          "title": "XP olimpico",
+          "before_earned_description": "Guadagna 5000 XP",
+          "after_earned_description": "Sbloccato • XP olimpico"
+        },
+        "pt-BR": {
+          "title": "XP Olímpico",
+          "before_earned_description": "Ganhe 5.000 XP",
+          "after_earned_description": "Desbloqueado • XP Olímpico"
+        },
+        "pl": {
+          "title": "Olimpijczyk XP",
+          "before_earned_description": "Zdobądź 5000 PD",
+          "after_earned_description": "Odblokowany • Olimpijczyk XP"
+        },
+        "nl": {
+          "title": "XP Olympiër",
+          "before_earned_description": "Verdien 5000 XP",
+          "after_earned_description": "Ontgrendeld • XP Olympiër"
+        }
+      }
+    },
+    {
+      "id": "xp_10000",
+      "reference_name": "XP Legend",
+      "title_key": "Легенда XP",
+      "description_key": "Наберите 10000 XP",
+      "points": 10,
+      "hidden": false,
+      "reusable": true,
+      "asset_name": "Ach_xp_10000",
+      "asset_imageset_path": "World Arena. Flags/Assets.xcassets/Ach_xp_10000.imageset",
+      "localizations": {
+        "en": {
+          "title": "XP Legend",
+          "before_earned_description": "Earn 10000 XP",
+          "after_earned_description": "Unlocked • XP Legend"
+        },
+        "ru": {
+          "title": "Легенда XP",
+          "before_earned_description": "Наберите 10000 XP",
+          "after_earned_description": "Открыто • Легенда XP"
+        },
+        "uk": {
+          "title": "Легенда XP",
+          "before_earned_description": "Наберіть 10000 XP",
+          "after_earned_description": "Відкрито • Легенда XP"
+        },
+        "es": {
+          "title": "Leyenda de XP",
+          "before_earned_description": "Consigue 10000 XP",
+          "after_earned_description": "Desbloqueado • Leyenda de XP"
+        },
+        "ca": {
+          "title": "Llegenda XP",
+          "before_earned_description": "Guanya 10000 XP",
+          "after_earned_description": "Desblocat • Llegenda XP"
+        },
+        "zh": {
+          "title": "XP传奇",
+          "before_earned_description": "获得10000 XP",
+          "after_earned_description": "已解锁 • XP传奇"
+        },
+        "de": {
+          "title": "XP-Legende",
+          "before_earned_description": "Verdiene 10.000 XP",
+          "after_earned_description": "Entsperrt • XP-Legende"
+        },
+        "fr": {
+          "title": "Légende XP",
+          "before_earned_description": "Gagnez 10 000 XP",
+          "after_earned_description": "Débloqué • Légende XP"
+        },
+        "it": {
+          "title": "Leggenda XP",
+          "before_earned_description": "Guadagna 10.000 XP",
+          "after_earned_description": "Sbloccato • Leggenda XP"
+        },
+        "pt-BR": {
+          "title": "Lenda XP",
+          "before_earned_description": "Ganhe 10.000 XP",
+          "after_earned_description": "Desbloqueado • Lenda XP"
+        },
+        "pl": {
+          "title": "Legenda XP",
+          "before_earned_description": "Zdobądź 10000 PD",
+          "after_earned_description": "Odblokowany • Legenda XP"
+        },
+        "nl": {
+          "title": "XP-legende",
+          "before_earned_description": "Verdien 10.000 XP",
+          "after_earned_description": "Ontgrendeld • XP-legende"
+        }
+      }
+    },
+    {
+      "id": "games_20",
+      "reference_name": "Quest Explorer",
+      "title_key": "Исследователь",
+      "description_key": "Сыграйте 20 игр",
+      "points": 10,
+      "hidden": false,
+      "reusable": false,
+      "asset_name": "Ach_games_20",
+      "asset_imageset_path": "World Arena. Flags/Assets.xcassets/Ach_games_20.imageset",
+      "localizations": {
+        "en": {
+          "title": "Quest Explorer",
+          "before_earned_description": "Play 20 games",
+          "after_earned_description": "Unlocked • Quest Explorer"
+        },
+        "ru": {
+          "title": "Исследователь",
+          "before_earned_description": "Сыграйте 20 игр",
+          "after_earned_description": "Открыто • Исследователь"
+        },
+        "uk": {
+          "title": "Дослідник",
+          "before_earned_description": "Зіграйте 20 ігор",
+          "after_earned_description": "Відкрито • Дослідник"
+        },
+        "es": {
+          "title": "Explorador",
+          "before_earned_description": "Juega 20 partidas",
+          "after_earned_description": "Desbloqueado • Explorador"
+        },
+        "ca": {
+          "title": "Explorador",
+          "before_earned_description": "Juga 20 partides",
+          "after_earned_description": "Desblocat • Explorador"
+        },
+        "zh": {
+          "title": "探索者",
+          "before_earned_description": "进行20局游戏",
+          "after_earned_description": "已解锁 • 探索者"
+        },
+        "de": {
+          "title": "Quest-Explorer",
+          "before_earned_description": "Spielen Sie 20 Spiele",
+          "after_earned_description": "Entsperrt • Quest-Explorer"
+        },
+        "fr": {
+          "title": "Explorateur de quête",
+          "before_earned_description": "Jouez à 20 jeux",
+          "after_earned_description": "Débloqué • Explorateur de quête"
+        },
+        "it": {
+          "title": "Esploratore di missioni",
+          "before_earned_description": "Gioca 20 partite",
+          "after_earned_description": "Sbloccato • Esploratore di missioni"
+        },
+        "pt-BR": {
+          "title": "Explorador de Missões",
+          "before_earned_description": "Jogue 20 partidas",
+          "after_earned_description": "Desbloqueado • Explorador de Missões"
+        },
+        "pl": {
+          "title": "Eksplorator Zadań",
+          "before_earned_description": "Zagraj w 20 gier",
+          "after_earned_description": "Odblokowany • Eksplorator Zadań"
+        },
+        "nl": {
+          "title": "Zoektochtverkenner",
+          "before_earned_description": "Speel 20 spellen",
+          "after_earned_description": "Ontgrendeld • Zoektochtverkenner"
+        }
+      }
+    },
+    {
+      "id": "games_100",
+      "reference_name": "Veteran",
+      "title_key": "Ветеран",
+      "description_key": "Сыграйте 100 игр",
+      "points": 20,
+      "hidden": false,
+      "reusable": false,
+      "asset_name": "Ach_games_100",
+      "asset_imageset_path": "World Arena. Flags/Assets.xcassets/Ach_games_100.imageset",
+      "localizations": {
+        "en": {
+          "title": "Veteran",
+          "before_earned_description": "Play 100 games",
+          "after_earned_description": "Unlocked • Veteran"
+        },
+        "ru": {
+          "title": "Ветеран",
+          "before_earned_description": "Сыграйте 100 игр",
+          "after_earned_description": "Открыто • Ветеран"
+        },
+        "uk": {
+          "title": "Ветеран",
+          "before_earned_description": "Зіграйте 100 ігор",
+          "after_earned_description": "Відкрито • Ветеран"
+        },
+        "es": {
+          "title": "Veterano",
+          "before_earned_description": "Juega 100 partidas",
+          "after_earned_description": "Desbloqueado • Veterano"
+        },
+        "ca": {
+          "title": "Veterà",
+          "before_earned_description": "Juga 100 partides",
+          "after_earned_description": "Desblocat • Veterà"
+        },
+        "zh": {
+          "title": "老将",
+          "before_earned_description": "进行100局游戏",
+          "after_earned_description": "已解锁 • 老将"
+        },
+        "de": {
+          "title": "Veteran",
+          "before_earned_description": "Spielen Sie 100 Spiele",
+          "after_earned_description": "Entsperrt • Veteran"
+        },
+        "fr": {
+          "title": "Vétéran",
+          "before_earned_description": "Jouez à 100 jeux",
+          "after_earned_description": "Débloqué • Vétéran"
+        },
+        "it": {
+          "title": "Veterano",
+          "before_earned_description": "Gioca a 100 giochi",
+          "after_earned_description": "Sbloccato • Veterano"
+        },
+        "pt-BR": {
+          "title": "Veterano",
+          "before_earned_description": "Jogue 100 jogos",
+          "after_earned_description": "Desbloqueado • Veterano"
+        },
+        "pl": {
+          "title": "Weteran",
+          "before_earned_description": "Graj 100 gier",
+          "after_earned_description": "Odblokowany • Weteran"
+        },
+        "nl": {
+          "title": "Veteraan",
+          "before_earned_description": "Speel 100 spellen",
+          "after_earned_description": "Ontgrendeld • Veteraan"
+        }
+      }
+    },
+    {
+      "id": "acc_70",
+      "reference_name": "Sharpshooter",
+      "title_key": "Меткий стрелок",
+      "description_key": "Точность 70%",
+      "points": 10,
+      "hidden": false,
+      "reusable": false,
+      "asset_name": "Ach_acc_70",
+      "asset_imageset_path": "World Arena. Flags/Assets.xcassets/Ach_acc_70.imageset",
+      "localizations": {
+        "en": {
+          "title": "Sharpshooter",
+          "before_earned_description": "Reach 70% accuracy",
+          "after_earned_description": "Unlocked • Sharpshooter"
+        },
+        "ru": {
+          "title": "Меткий стрелок",
+          "before_earned_description": "Точность 70%",
+          "after_earned_description": "Открыто • Меткий стрелок"
+        },
+        "uk": {
+          "title": "Влучний стрілець",
+          "before_earned_description": "Точність 70%",
+          "after_earned_description": "Відкрито • Влучний стрілець"
+        },
+        "es": {
+          "title": "Tirador",
+          "before_earned_description": "Precisión del 70%",
+          "after_earned_description": "Desbloqueado • Tirador"
+        },
+        "ca": {
+          "title": "Bon tirador",
+          "before_earned_description": "Assoleix 70% de precisió",
+          "after_earned_description": "Desblocat • Bon tirador"
+        },
+        "zh": {
+          "title": "神枪手",
+          "before_earned_description": "达到70%准确率",
+          "after_earned_description": "已解锁 • 神枪手"
+        },
+        "de": {
+          "title": "Scharfschütze",
+          "before_earned_description": "Erreichen Sie eine Genauigkeit von 70 %",
+          "after_earned_description": "Entsperrt • Scharfschütze"
+        },
+        "fr": {
+          "title": "Tireur d'élite",
+          "before_earned_description": "Atteindre 70 % de précision",
+          "after_earned_description": "Débloqué • Tireur d'élite"
+        },
+        "it": {
+          "title": "Tiratore scelto",
+          "before_earned_description": "Raggiungi una precisione del 70%.",
+          "after_earned_description": "Sbloccato • Tiratore scelto"
+        },
+        "pt-BR": {
+          "title": "Atirador de elite",
+          "before_earned_description": "Alcance 70% de precisão",
+          "after_earned_description": "Desbloqueado • Atirador de elite"
+        },
+        "pl": {
+          "title": "Strzelec wyborowy",
+          "before_earned_description": "Osiągnij 70% dokładności",
+          "after_earned_description": "Odblokowany • Strzelec wyborowy"
+        },
+        "nl": {
+          "title": "Scherpschutter",
+          "before_earned_description": "Bereik een nauwkeurigheid van 70%",
+          "after_earned_description": "Ontgrendeld • Scherpschutter"
+        }
+      }
+    },
+    {
+      "id": "acc_85",
+      "reference_name": "Sniper",
+      "title_key": "Снайпер",
+      "description_key": "Точность 85%",
+      "points": 20,
+      "hidden": false,
+      "reusable": false,
+      "asset_name": "Ach_acc_85",
+      "asset_imageset_path": "World Arena. Flags/Assets.xcassets/Ach_acc_85.imageset",
+      "localizations": {
+        "en": {
+          "title": "Sniper",
+          "before_earned_description": "Reach 85% accuracy",
+          "after_earned_description": "Unlocked • Sniper"
+        },
+        "ru": {
+          "title": "Снайпер",
+          "before_earned_description": "Точность 85%",
+          "after_earned_description": "Открыто • Снайпер"
+        },
+        "uk": {
+          "title": "Снайпер",
+          "before_earned_description": "Точність 85%",
+          "after_earned_description": "Відкрито • Снайпер"
+        },
+        "es": {
+          "title": "Francotirador",
+          "before_earned_description": "Precisión del 85%",
+          "after_earned_description": "Desbloqueado • Francotirador"
+        },
+        "ca": {
+          "title": "Franctirador",
+          "before_earned_description": "Assoleix 85% de precisió",
+          "after_earned_description": "Desblocat • Franctirador"
+        },
+        "zh": {
+          "title": "狙击手",
+          "before_earned_description": "达到85%准确率",
+          "after_earned_description": "已解锁 • 狙击手"
+        },
+        "de": {
+          "title": "Scharfschütze",
+          "before_earned_description": "Erreichen Sie eine Genauigkeit von 85 %",
+          "after_earned_description": "Entsperrt • Scharfschütze"
+        },
+        "fr": {
+          "title": "Tireur isolé",
+          "before_earned_description": "Atteignez une précision de 85 %",
+          "after_earned_description": "Débloqué • Tireur isolé"
+        },
+        "it": {
+          "title": "Cecchino",
+          "before_earned_description": "Raggiungi l'85% di precisione",
+          "after_earned_description": "Sbloccato • Cecchino"
+        },
+        "pt-BR": {
+          "title": "Atirador",
+          "before_earned_description": "Alcance 85% de precisão",
+          "after_earned_description": "Desbloqueado • Atirador"
+        },
+        "pl": {
+          "title": "Snajper",
+          "before_earned_description": "Osiągnij 85% dokładności",
+          "after_earned_description": "Odblokowany • Snajper"
+        },
+        "nl": {
+          "title": "Sluipschutter",
+          "before_earned_description": "Bereik een nauwkeurigheid van 85%",
+          "after_earned_description": "Ontgrendeld • Sluipschutter"
+        }
+      }
+    },
+    {
+      "id": "league_silver",
+      "reference_name": "Silver League",
+      "title_key": "Серебряная лига",
+      "description_key": "Достигните Серебра",
+      "points": 10,
+      "hidden": false,
+      "reusable": false,
+      "asset_name": "Ach_league_silver",
+      "asset_imageset_path": "World Arena. Flags/Assets.xcassets/Ach_league_silver.imageset",
+      "localizations": {
+        "en": {
+          "title": "Silver League",
+          "before_earned_description": "Reach Silver",
+          "after_earned_description": "Unlocked • Silver League"
+        },
+        "ru": {
+          "title": "Серебряная лига",
+          "before_earned_description": "Достигните Серебра",
+          "after_earned_description": "Открыто • Серебряная лига"
+        },
+        "uk": {
+          "title": "Срібна ліга",
+          "before_earned_description": "Досягніть Срібла",
+          "after_earned_description": "Відкрито • Срібна ліга"
+        },
+        "es": {
+          "title": "Liga de plata",
+          "before_earned_description": "Alcanza la Plata",
+          "after_earned_description": "Desbloqueado • Liga de plata"
+        },
+        "ca": {
+          "title": "Lliga de plata",
+          "before_earned_description": "Assoleix la Plata",
+          "after_earned_description": "Desblocat • Lliga de plata"
+        },
+        "zh": {
+          "title": "白银联赛",
+          "before_earned_description": "达到白银",
+          "after_earned_description": "已解锁 • 白银联赛"
+        },
+        "de": {
+          "title": "Silberliga",
+          "before_earned_description": "Erreiche Silber",
+          "after_earned_description": "Entsperrt • Silberliga"
+        },
+        "fr": {
+          "title": "Ligue d'argent",
+          "before_earned_description": "Atteignez l'Argent",
+          "after_earned_description": "Débloqué • Ligue d'argent"
+        },
+        "it": {
+          "title": "Lega d'Argento",
+          "before_earned_description": "Raggiungi l'Argento",
+          "after_earned_description": "Sbloccato • Lega d'Argento"
+        },
+        "pt-BR": {
+          "title": "Liga de Prata",
+          "before_earned_description": "Alcance a Prata",
+          "after_earned_description": "Desbloqueado • Liga de Prata"
+        },
+        "pl": {
+          "title": "Srebrna Liga",
+          "before_earned_description": "Osiągnij Srebro",
+          "after_earned_description": "Odblokowany • Srebrna Liga"
+        },
+        "nl": {
+          "title": "Zilveren Liga",
+          "before_earned_description": "Bereik Zilver",
+          "after_earned_description": "Ontgrendeld • Zilveren Liga"
+        }
+      }
+    },
+    {
+      "id": "league_gold",
+      "reference_name": "Gold League",
+      "title_key": "Золотая лига",
+      "description_key": "Достигните Золота",
+      "points": 20,
+      "hidden": false,
+      "reusable": false,
+      "asset_name": "Ach_league_gold",
+      "asset_imageset_path": "World Arena. Flags/Assets.xcassets/Ach_league_gold.imageset",
+      "localizations": {
+        "en": {
+          "title": "Gold League",
+          "before_earned_description": "Reach Gold",
+          "after_earned_description": "Unlocked • Gold League"
+        },
+        "ru": {
+          "title": "Золотая лига",
+          "before_earned_description": "Достигните Золота",
+          "after_earned_description": "Открыто • Золотая лига"
+        },
+        "uk": {
+          "title": "Золота ліга",
+          "before_earned_description": "Досягніть Золота",
+          "after_earned_description": "Відкрито • Золота ліга"
+        },
+        "es": {
+          "title": "Liga de oro",
+          "before_earned_description": "Alcanza el Oro",
+          "after_earned_description": "Desbloqueado • Liga de oro"
+        },
+        "ca": {
+          "title": "Lliga d'or",
+          "before_earned_description": "Assoleix l'Or",
+          "after_earned_description": "Desblocat • Lliga d'or"
+        },
+        "zh": {
+          "title": "黄金联赛",
+          "before_earned_description": "达到黄金",
+          "after_earned_description": "已解锁 • 黄金联赛"
+        },
+        "de": {
+          "title": "Goldliga",
+          "before_earned_description": "Erreiche Gold",
+          "after_earned_description": "Entsperrt • Goldliga"
+        },
+        "fr": {
+          "title": "Ligue d'Or",
+          "before_earned_description": "Atteignez l'Or",
+          "after_earned_description": "Débloqué • Ligue d'Or"
+        },
+        "it": {
+          "title": "Lega d'Oro",
+          "before_earned_description": "Raggiungi l'Oro",
+          "after_earned_description": "Sbloccato • Lega d'Oro"
+        },
+        "pt-BR": {
+          "title": "Liga de Ouro",
+          "before_earned_description": "Alcance o Ouro",
+          "after_earned_description": "Desbloqueado • Liga de Ouro"
+        },
+        "pl": {
+          "title": "Złota Liga",
+          "before_earned_description": "Osiągnij Złoto",
+          "after_earned_description": "Odblokowany • Złota Liga"
+        },
+        "nl": {
+          "title": "Gouden Liga",
+          "before_earned_description": "Bereik Goud",
+          "after_earned_description": "Ontgrendeld • Gouden Liga"
+        }
+      }
+    },
+    {
+      "id": "league_platinum",
+      "reference_name": "Platinum League",
+      "title_key": "Платиновая лига",
+      "description_key": "Достигните Платины",
+      "points": 30,
+      "hidden": false,
+      "reusable": false,
+      "asset_name": "Ach_league_platinum",
+      "asset_imageset_path": "World Arena. Flags/Assets.xcassets/Ach_league_platinum.imageset",
+      "localizations": {
+        "en": {
+          "title": "Platinum League",
+          "before_earned_description": "Reach Platinum",
+          "after_earned_description": "Unlocked • Platinum League"
+        },
+        "ru": {
+          "title": "Платиновая лига",
+          "before_earned_description": "Достигните Платины",
+          "after_earned_description": "Открыто • Платиновая лига"
+        },
+        "uk": {
+          "title": "Платинова ліга",
+          "before_earned_description": "Досягніть Платини",
+          "after_earned_description": "Відкрито • Платинова ліга"
+        },
+        "es": {
+          "title": "Liga de platino",
+          "before_earned_description": "Alcanza el Platino",
+          "after_earned_description": "Desbloqueado • Liga de platino"
+        },
+        "ca": {
+          "title": "Lliga de platí",
+          "before_earned_description": "Assoleix el Platí",
+          "after_earned_description": "Desblocat • Lliga de platí"
+        },
+        "zh": {
+          "title": "铂金联赛",
+          "before_earned_description": "达到铂金",
+          "after_earned_description": "已解锁 • 铂金联赛"
+        },
+        "de": {
+          "title": "Platin-Liga",
+          "before_earned_description": "Erreiche Platin",
+          "after_earned_description": "Entsperrt • Platin-Liga"
+        },
+        "fr": {
+          "title": "Ligue Platine",
+          "before_earned_description": "Atteignez le Platine",
+          "after_earned_description": "Débloqué • Ligue Platine"
+        },
+        "it": {
+          "title": "Lega di platino",
+          "before_earned_description": "Raggiungi il Platino",
+          "after_earned_description": "Sbloccato • Lega di platino"
+        },
+        "pt-BR": {
+          "title": "Liga Platina",
+          "before_earned_description": "Alcance a Platina",
+          "after_earned_description": "Desbloqueado • Liga Platina"
+        },
+        "pl": {
+          "title": "Platynowa Liga",
+          "before_earned_description": "Osiągnij Platynę",
+          "after_earned_description": "Odblokowany • Platynowa Liga"
+        },
+        "nl": {
+          "title": "Platina Liga",
+          "before_earned_description": "Bereik Platina",
+          "after_earned_description": "Ontgrendeld • Platina Liga"
+        }
+      }
+    },
+    {
+      "id": "league_diamond",
+      "reference_name": "Diamond League",
+      "title_key": "Алмазная лига",
+      "description_key": "Достигните Алмаза",
+      "points": 40,
+      "hidden": false,
+      "reusable": false,
+      "asset_name": "Ach_league_diamond",
+      "asset_imageset_path": "World Arena. Flags/Assets.xcassets/Ach_league_diamond.imageset",
+      "localizations": {
+        "en": {
+          "title": "Diamond League",
+          "before_earned_description": "Reach Diamond",
+          "after_earned_description": "Unlocked • Diamond League"
+        },
+        "ru": {
+          "title": "Алмазная лига",
+          "before_earned_description": "Достигните Алмаза",
+          "after_earned_description": "Открыто • Алмазная лига"
+        },
+        "uk": {
+          "title": "Алмазна ліга",
+          "before_earned_description": "Досягніть Алмазу",
+          "after_earned_description": "Відкрито • Алмазна ліга"
+        },
+        "es": {
+          "title": "Liga de diamante",
+          "before_earned_description": "Alcanza el Diamante",
+          "after_earned_description": "Desbloqueado • Liga de diamante"
+        },
+        "ca": {
+          "title": "Lliga Diamant",
+          "before_earned_description": "Assoleix el Diamant",
+          "after_earned_description": "Desblocat • Lliga Diamant"
+        },
+        "zh": {
+          "title": "钻石联赛",
+          "before_earned_description": "达到钻石",
+          "after_earned_description": "已解锁 • 钻石联赛"
+        },
+        "de": {
+          "title": "Diamantliga",
+          "before_earned_description": "Erreiche Diamant",
+          "after_earned_description": "Entsperrt • Diamantliga"
+        },
+        "fr": {
+          "title": "Ligue de Diamant",
+          "before_earned_description": "Atteignez le Diamant",
+          "after_earned_description": "Débloqué • Ligue de Diamant"
+        },
+        "it": {
+          "title": "Lega dei Diamanti",
+          "before_earned_description": "Raggiungi il Diamante",
+          "after_earned_description": "Sbloccato • Lega dei Diamanti"
+        },
+        "pt-BR": {
+          "title": "Liga Diamante",
+          "before_earned_description": "Alcance o Diamante",
+          "after_earned_description": "Desbloqueado • Liga Diamante"
+        },
+        "pl": {
+          "title": "Diamentowa Liga",
+          "before_earned_description": "Osiągnij Diament",
+          "after_earned_description": "Odblokowany • Diamentowa Liga"
+        },
+        "nl": {
+          "title": "Diamant Liga",
+          "before_earned_description": "Bereik Diamant",
+          "after_earned_description": "Ontgrendeld • Diamant Liga"
+        }
+      }
+    },
+    {
+      "id": "league_master",
+      "reference_name": "League Master",
+      "title_key": "Мастер лиг",
+      "description_key": "Достигните Мастера",
+      "points": 50,
+      "hidden": false,
+      "reusable": false,
+      "asset_name": "Ach_league_master",
+      "asset_imageset_path": "World Arena. Flags/Assets.xcassets/Ach_league_master.imageset",
+      "localizations": {
+        "en": {
+          "title": "League Master",
+          "before_earned_description": "Reach Master",
+          "after_earned_description": "Unlocked • League Master"
+        },
+        "ru": {
+          "title": "Мастер лиг",
+          "before_earned_description": "Достигните Мастера",
+          "after_earned_description": "Открыто • Мастер лиг"
+        },
+        "uk": {
+          "title": "Майстер ліг",
+          "before_earned_description": "Досягніть Майстра",
+          "after_earned_description": "Відкрито • Майстер ліг"
+        },
+        "es": {
+          "title": "Maestro de liga",
+          "before_earned_description": "Alcanza el Maestro",
+          "after_earned_description": "Desbloqueado • Maestro de liga"
+        },
+        "ca": {
+          "title": "Mestre de la Lliga",
+          "before_earned_description": "Assoleix el Mestre",
+          "after_earned_description": "Desblocat • Mestre de la Lliga"
+        },
+        "zh": {
+          "title": "大师联赛",
+          "before_earned_description": "达到大师",
+          "after_earned_description": "已解锁 • 大师联赛"
+        },
+        "de": {
+          "title": "Ligameister",
+          "before_earned_description": "Erreiche Meister",
+          "after_earned_description": "Entsperrt • Ligameister"
+        },
+        "fr": {
+          "title": "Maître de la Ligue",
+          "before_earned_description": "Atteignez le Maître",
+          "after_earned_description": "Débloqué • Maître de la Ligue"
+        },
+        "it": {
+          "title": "Maestro della Lega",
+          "before_earned_description": "Raggiungi il Maestro",
+          "after_earned_description": "Sbloccato • Maestro della Lega"
+        },
+        "pt-BR": {
+          "title": "Mestre da Liga",
+          "before_earned_description": "Alcance o Mestre",
+          "after_earned_description": "Desbloqueado • Mestre da Liga"
+        },
+        "pl": {
+          "title": "Mistrz ligi",
+          "before_earned_description": "Osiągnij Mistrza",
+          "after_earned_description": "Odblokowany • Mistrz ligi"
+        },
+        "nl": {
+          "title": "Liga Meester",
+          "before_earned_description": "Bereik Meester",
+          "after_earned_description": "Ontgrendeld • Liga Meester"
+        }
+      }
+    },
+    {
+      "id": "friends_1",
+      "reference_name": "First Friend",
+      "title_key": "Первый друг",
+      "description_key": "Добавьте друга",
+      "points": 10,
+      "hidden": false,
+      "reusable": false,
+      "asset_name": "Ach_friends_1",
+      "asset_imageset_path": "World Arena. Flags/Assets.xcassets/Ach_friends_1.imageset",
+      "localizations": {
+        "en": {
+          "title": "First Friend",
+          "before_earned_description": "Add a friend",
+          "after_earned_description": "Unlocked • First Friend"
+        },
+        "ru": {
+          "title": "Первый друг",
+          "before_earned_description": "Добавьте друга",
+          "after_earned_description": "Открыто • Первый друг"
+        },
+        "uk": {
+          "title": "Перший друг",
+          "before_earned_description": "Додайте друга",
+          "after_earned_description": "Відкрито • Перший друг"
+        },
+        "es": {
+          "title": "Primer amigo",
+          "before_earned_description": "Añade un amigo",
+          "after_earned_description": "Desbloqueado • Primer amigo"
+        },
+        "ca": {
+          "title": "Primer amic",
+          "before_earned_description": "Afegeix un amic",
+          "after_earned_description": "Desblocat • Primer amic"
+        },
+        "zh": {
+          "title": "第一个好友",
+          "before_earned_description": "添加一位好友",
+          "after_earned_description": "已解锁 • 第一个好友"
+        },
+        "de": {
+          "title": "Erster Freund",
+          "before_earned_description": "Fügen Sie einen Freund hinzu",
+          "after_earned_description": "Entsperrt • Erster Freund"
+        },
+        "fr": {
+          "title": "Premier ami",
+          "before_earned_description": "Ajouter un ami",
+          "after_earned_description": "Débloqué • Premier ami"
+        },
+        "it": {
+          "title": "Primo amico",
+          "before_earned_description": "Aggiungi un amico",
+          "after_earned_description": "Sbloccato • Primo amico"
+        },
+        "pt-BR": {
+          "title": "Primeiro amigo",
+          "before_earned_description": "Adicione um amigo",
+          "after_earned_description": "Desbloqueado • Primeiro amigo"
+        },
+        "pl": {
+          "title": "Pierwszy Przyjaciel",
+          "before_earned_description": "Dodaj znajomego",
+          "after_earned_description": "Odblokowany • Pierwszy Przyjaciel"
+        },
+        "nl": {
+          "title": "Eerste vriend",
+          "before_earned_description": "Voeg een vriend toe",
+          "after_earned_description": "Ontgrendeld • Eerste vriend"
+        }
+      }
+    },
+    {
+      "id": "friends_5",
+      "reference_name": "Your Team",
+      "title_key": "Своя команда",
+      "description_key": "Добавьте 5 друзей",
+      "points": 20,
+      "hidden": false,
+      "reusable": true,
+      "asset_name": "Ach_friends_5",
+      "asset_imageset_path": "World Arena. Flags/Assets.xcassets/Ach_friends_5.imageset",
+      "localizations": {
+        "en": {
+          "title": "Your Team",
+          "before_earned_description": "Add 5 friends",
+          "after_earned_description": "Unlocked • Your Team"
+        },
+        "ru": {
+          "title": "Своя команда",
+          "before_earned_description": "Добавьте 5 друзей",
+          "after_earned_description": "Открыто • Своя команда"
+        },
+        "uk": {
+          "title": "Власна команда",
+          "before_earned_description": "Додайте 5 друзів",
+          "after_earned_description": "Відкрито • Власна команда"
+        },
+        "es": {
+          "title": "Tu equipo",
+          "before_earned_description": "Añade 5 amigos",
+          "after_earned_description": "Desbloqueado • Tu equipo"
+        },
+        "ca": {
+          "title": "El teu equip",
+          "before_earned_description": "Afegeix 5 amics",
+          "after_earned_description": "Desblocat • El teu equip"
+        },
+        "zh": {
+          "title": "自己的队伍",
+          "before_earned_description": "添加5位好友",
+          "after_earned_description": "已解锁 • 自己的队伍"
+        },
+        "de": {
+          "title": "Ihr Team",
+          "before_earned_description": "Füge 5 Freunde hinzu",
+          "after_earned_description": "Entsperrt • Ihr Team"
+        },
+        "fr": {
+          "title": "Votre équipe",
+          "before_earned_description": "Ajouter 5 amis",
+          "after_earned_description": "Débloqué • Votre équipe"
+        },
+        "it": {
+          "title": "La tua squadra",
+          "before_earned_description": "Aggiungi 5 amici",
+          "after_earned_description": "Sbloccato • La tua squadra"
+        },
+        "pt-BR": {
+          "title": "Sua equipe",
+          "before_earned_description": "Adicione 5 amigos",
+          "after_earned_description": "Desbloqueado • Sua equipe"
+        },
+        "pl": {
+          "title": "Twój zespół",
+          "before_earned_description": "Dodaj 5 znajomych",
+          "after_earned_description": "Odblokowany • Twój zespół"
+        },
+        "nl": {
+          "title": "Jouw team",
+          "before_earned_description": "Voeg 5 vrienden toe",
+          "after_earned_description": "Ontgrendeld • Jouw team"
+        }
+      }
+    },
+    {
+      "id": "share_1",
+      "reference_name": "Spread the word",
+      "title_key": "Расскажите друзьям",
+      "description_key": "Поделитесь профилем",
+      "points": 10,
+      "hidden": false,
+      "reusable": true,
+      "asset_name": "Ach_share_1",
+      "asset_imageset_path": "World Arena. Flags/Assets.xcassets/Ach_share_1.imageset",
+      "localizations": {
+        "en": {
+          "title": "Spread the word",
+          "before_earned_description": "Share your profile",
+          "after_earned_description": "Unlocked • Spread the word"
+        },
+        "ru": {
+          "title": "Расскажите друзьям",
+          "before_earned_description": "Поделитесь профилем",
+          "after_earned_description": "Открыто • Расскажите друзьям"
+        },
+        "uk": {
+          "title": "Розкажіть друзям",
+          "before_earned_description": "Поділіться профілем",
+          "after_earned_description": "Відкрито • Розкажіть друзям"
+        },
+        "es": {
+          "title": "Comparte con amigos",
+          "before_earned_description": "Comparte tu perfil",
+          "after_earned_description": "Desbloqueado • Comparte con amigos"
+        },
+        "ca": {
+          "title": "Corre la veu",
+          "before_earned_description": "Comparteix el perfil",
+          "after_earned_description": "Desblocat • Corre la veu"
+        },
+        "zh": {
+          "title": "告诉朋友们",
+          "before_earned_description": "分享个人资料",
+          "after_earned_description": "已解锁 • 告诉朋友们"
+        },
+        "de": {
+          "title": "Verbreiten Sie es weiter",
+          "before_earned_description": "Teilen Sie Ihr Profil",
+          "after_earned_description": "Entsperrt • Verbreiten Sie es weiter"
+        },
+        "fr": {
+          "title": "Faites passer le mot",
+          "before_earned_description": "Partagez votre profil",
+          "after_earned_description": "Débloqué • Faites passer le mot"
+        },
+        "it": {
+          "title": "Spargi la voce",
+          "before_earned_description": "Condividi il tuo profilo",
+          "after_earned_description": "Sbloccato • Spargi la voce"
+        },
+        "pt-BR": {
+          "title": "Espalhe a palavra",
+          "before_earned_description": "Compartilhe seu perfil",
+          "after_earned_description": "Desbloqueado • Espalhe a palavra"
+        },
+        "pl": {
+          "title": "Rozpowszechniaj informacje",
+          "before_earned_description": "Udostępnij swój profil",
+          "after_earned_description": "Odblokowany • Rozpowszechniaj informacje"
+        },
+        "nl": {
+          "title": "Verspreid het woord",
+          "before_earned_description": "Deel uw profiel",
+          "after_earned_description": "Ontgrendeld • Verspreid het woord"
+        }
+      }
+    },
+    {
+      "id": "games_10_day",
+      "reference_name": "Speed Racer",
+      "title_key": "Спринтер",
+      "description_key": "Сыграйте 10 игр за день",
+      "points": 10,
+      "hidden": false,
+      "reusable": true,
+      "asset_name": "Ach_games_10_day",
+      "asset_imageset_path": "World Arena. Flags/Assets.xcassets/Ach_games_10_day.imageset",
+      "localizations": {
+        "en": {
+          "title": "Speed Racer",
+          "before_earned_description": "Play 10 games in a day",
+          "after_earned_description": "Unlocked • Speed Racer"
+        },
+        "ru": {
+          "title": "Спринтер",
+          "before_earned_description": "Сыграйте 10 игр за день",
+          "after_earned_description": "Открыто • Спринтер"
+        },
+        "uk": {
+          "title": "Спринтер",
+          "before_earned_description": "Зіграйте 10 ігор за день",
+          "after_earned_description": "Відкрито • Спринтер"
+        },
+        "es": {
+          "title": "Velocista",
+          "before_earned_description": "Juega 10 partidas en un día",
+          "after_earned_description": "Desbloqueado • Velocista"
+        },
+        "ca": {
+          "title": "Esprintador",
+          "before_earned_description": "Juga 10 partides en un dia",
+          "after_earned_description": "Desblocat • Esprintador"
+        },
+        "zh": {
+          "title": "冲刺者",
+          "before_earned_description": "一天内进行10局游戏",
+          "after_earned_description": "已解锁 • 冲刺者"
+        },
+        "de": {
+          "title": "Speed-Racer",
+          "before_earned_description": "Spielen Sie 10 Spiele an einem Tag",
+          "after_earned_description": "Entsperrt • Speed-Racer"
+        },
+        "fr": {
+          "title": "Coureur de vitesse",
+          "before_earned_description": "Jouez à 10 jeux par jour",
+          "after_earned_description": "Débloqué • Coureur de vitesse"
+        },
+        "it": {
+          "title": "Corridore di velocità",
+          "before_earned_description": "Gioca 10 partite in un giorno",
+          "after_earned_description": "Sbloccato • Corridore di velocità"
+        },
+        "pt-BR": {
+          "title": "Corredor de velocidade",
+          "before_earned_description": "Jogue 10 partidas por dia",
+          "after_earned_description": "Desbloqueado • Corredor de velocidade"
+        },
+        "pl": {
+          "title": "Szybki wyścigowiec",
+          "before_earned_description": "Graj 10 gier dziennie",
+          "after_earned_description": "Odblokowany • Szybki wyścigowiec"
+        },
+        "nl": {
+          "title": "Snelheidsracer",
+          "before_earned_description": "Speel 10 spellen op een dag",
+          "after_earned_description": "Ontgrendeld • Snelheidsracer"
+        }
+      }
+    },
+    {
+      "id": "xp_30000",
+      "reference_name": "Master XP Olympian",
+      "title_key": "Мастер Олимпиец XP",
+      "description_key": "Наберите 30000 XP",
+      "points": 30,
+      "hidden": false,
+      "reusable": true,
+      "asset_name": "Ach_xp_30000",
+      "asset_imageset_path": "World Arena. Flags/Assets.xcassets/Ach_xp_30000.imageset",
+      "localizations": {
+        "en": {
+          "title": "Master XP Olympian",
+          "before_earned_description": "Earn 30000 XP",
+          "after_earned_description": "Unlocked • Master XP Olympian"
+        },
+        "ru": {
+          "title": "Мастер Олимпиец XP",
+          "before_earned_description": "Наберите 30000 XP",
+          "after_earned_description": "Открыто • Мастер Олимпиец XP"
+        },
+        "uk": {
+          "title": "Майстер Олімпієць XP",
+          "before_earned_description": "Наберіть 30000 XP",
+          "after_earned_description": "Відкрито • Майстер Олімпієць XP"
+        },
+        "es": {
+          "title": "Maestro Olimpico XP",
+          "before_earned_description": "Consigue 30000 XP",
+          "after_earned_description": "Desbloqueado • Maestro Olimpico XP"
+        },
+        "ca": {
+          "title": "Mestre Olímpic XP",
+          "before_earned_description": "Guanya 30000 XP",
+          "after_earned_description": "Desblocat • Mestre Olímpic XP"
+        },
+        "zh": {
+          "title": "XP奥运大师",
+          "before_earned_description": "获得30000 XP",
+          "after_earned_description": "已解锁 • XP奥运大师"
+        },
+        "de": {
+          "title": "Meister-XP-Olympiasieger",
+          "before_earned_description": "Verdiene 30.000 XP",
+          "after_earned_description": "Entsperrt • Meister-XP-Olympiasieger"
+        },
+        "fr": {
+          "title": "Maître Olympien XP",
+          "before_earned_description": "Gagnez 30 000 XP",
+          "after_earned_description": "Débloqué • Maître Olympien XP"
+        },
+        "it": {
+          "title": "Maestro Olimpico XP",
+          "before_earned_description": "Guadagna 30000 XP",
+          "after_earned_description": "Sbloccato • Maestro Olimpico XP"
+        },
+        "pt-BR": {
+          "title": "Mestre Olímpico XP",
+          "before_earned_description": "Ganhe 30.000 XP",
+          "after_earned_description": "Desbloqueado • Mestre Olímpico XP"
+        },
+        "pl": {
+          "title": "Mistrz Olimpijczyk XP",
+          "before_earned_description": "Zdobądź 30000 PD",
+          "after_earned_description": "Odblokowany • Mistrz Olimpijczyk XP"
+        },
+        "nl": {
+          "title": "Meester XP Olympiër",
+          "before_earned_description": "Verdien 30.000 XP",
+          "after_earned_description": "Ontgrendeld • Meester XP Olympiër"
+        }
+      }
+    }
+  ]
+}

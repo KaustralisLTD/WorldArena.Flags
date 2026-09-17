@@ -1,0 +1,6806 @@
+[
+  {
+    "cca3": "ABW",
+    "name": {
+      "common": "Aruba",
+      "official": "Aruba",
+      "nativeName": {
+        "eng": {
+          "official": "Aruba",
+          "common": "Aruba"
+        }
+      }
+    },
+    "flags": {
+      "png": "https://flagcdn.com/w320/aw.png"
+    },
+    "region": "Americas",
+    "subregion": "Caribbean",
+    "capital": [
+      "Oranjestad"
+    ],
+    "population": 1,
+    "area": null,
+    "translations": null,
+    "latlng": [
+      12.5,
+      -69.96666666
+    ]
+  },
+  {
+    "cca3": "AFG",
+    "name": {
+      "common": "Afghanistan",
+      "official": "Afghanistan",
+      "nativeName": {
+        "eng": {
+          "official": "Afghanistan",
+          "common": "Afghanistan"
+        }
+      }
+    },
+    "flags": {
+      "png": "https://flagcdn.com/w320/af.png"
+    },
+    "region": "Asia",
+    "subregion": "Asia",
+    "capital": [
+      "Kabul"
+    ],
+    "population": 40000000,
+    "area": 652230.0,
+    "translations": null,
+    "latlng": [
+      33,
+      65
+    ]
+  },
+  {
+    "cca3": "AGO",
+    "name": {
+      "common": "Angola",
+      "official": "Angola",
+      "nativeName": {
+        "eng": {
+          "official": "Angola",
+          "common": "Angola"
+        }
+      }
+    },
+    "flags": {
+      "png": "https://flagcdn.com/w320/ao.png"
+    },
+    "region": "Africa",
+    "subregion": "Africa",
+    "capital": [
+      "Luanda"
+    ],
+    "population": 34000000,
+    "area": 1246700.0,
+    "translations": null,
+    "latlng": [
+      -12.5,
+      18.5
+    ]
+  },
+  {
+    "cca3": "AIA",
+    "name": {
+      "common": "Anguilla",
+      "official": "Anguilla",
+      "nativeName": {
+        "eng": {
+          "official": "Anguilla",
+          "common": "Anguilla"
+        }
+      }
+    },
+    "flags": {
+      "png": "https://flagcdn.com/w320/ai.png"
+    },
+    "region": "Americas",
+    "subregion": "Caribbean",
+    "capital": [
+      "The Valley"
+    ],
+    "population": 1,
+    "area": null,
+    "translations": null,
+    "latlng": [
+      18.25,
+      -63.16666666
+    ]
+  },
+  {
+    "cca3": "ALB",
+    "name": {
+      "common": "Albania",
+      "official": "Albania",
+      "nativeName": {
+        "eng": {
+          "official": "Albania",
+          "common": "Albania"
+        }
+      }
+    },
+    "flags": {
+      "png": "https://flagcdn.com/w320/al.png"
+    },
+    "region": "Europe",
+    "subregion": "Europe",
+    "capital": [
+      "Tirana"
+    ],
+    "population": 2800000,
+    "area": 28748.0,
+    "translations": null,
+    "latlng": [
+      41,
+      20
+    ]
+  },
+  {
+    "cca3": "AND",
+    "name": {
+      "common": "Andorra",
+      "official": "Andorra",
+      "nativeName": {
+        "eng": {
+          "official": "Andorra",
+          "common": "Andorra"
+        }
+      }
+    },
+    "flags": {
+      "png": "https://flagcdn.com/w320/ad.png"
+    },
+    "region": "Europe",
+    "subregion": "Europe",
+    "capital": [
+      "Andorra la Vella"
+    ],
+    "population": 77000,
+    "area": 468.0,
+    "translations": null,
+    "latlng": [
+      42.5,
+      1.5
+    ]
+  },
+  {
+    "cca3": "ARE",
+    "name": {
+      "common": "United Arab Emirates",
+      "official": "United Arab Emirates",
+      "nativeName": {
+        "eng": {
+          "official": "United Arab Emirates",
+          "common": "United Arab Emirates"
+        }
+      }
+    },
+    "flags": {
+      "png": "https://flagcdn.com/w320/ae.png"
+    },
+    "region": "Asia",
+    "subregion": "Asia",
+    "capital": [
+      "Abu Dhabi"
+    ],
+    "population": 10000000,
+    "area": 83600.0,
+    "translations": null,
+    "latlng": [
+      24,
+      54
+    ]
+  },
+  {
+    "cca3": "ARG",
+    "name": {
+      "common": "Argentina",
+      "official": "Argentina",
+      "nativeName": {
+        "eng": {
+          "official": "Argentina",
+          "common": "Argentina"
+        }
+      }
+    },
+    "flags": {
+      "png": "https://flagcdn.com/w320/ar.png"
+    },
+    "region": "Americas",
+    "subregion": "South America",
+    "capital": [
+      "Buenos Aires"
+    ],
+    "population": 46000000,
+    "area": 2780400.0,
+    "translations": null,
+    "latlng": [
+      -34,
+      -64
+    ]
+  },
+  {
+    "cca3": "ARM",
+    "name": {
+      "common": "Armenia",
+      "official": "Armenia",
+      "nativeName": {
+        "eng": {
+          "official": "Armenia",
+          "common": "Armenia"
+        }
+      }
+    },
+    "flags": {
+      "png": "https://flagcdn.com/w320/am.png"
+    },
+    "region": "Asia",
+    "subregion": "Asia",
+    "capital": [
+      "Yerevan"
+    ],
+    "population": 2800000,
+    "area": 29743.0,
+    "translations": null,
+    "latlng": [
+      40,
+      45
+    ]
+  },
+  {
+    "cca3": "ASM",
+    "name": {
+      "common": "American Samoa",
+      "official": "American Samoa",
+      "nativeName": {
+        "eng": {
+          "official": "American Samoa",
+          "common": "American Samoa"
+        }
+      }
+    },
+    "flags": {
+      "png": "https://flagcdn.com/w320/as.png"
+    },
+    "region": "Oceania",
+    "subregion": "Oceania",
+    "capital": [
+      "Pago Pago"
+    ],
+    "population": 1,
+    "area": null,
+    "translations": null,
+    "latlng": [
+      -14.33333333,
+      -170
+    ]
+  },
+  {
+    "cca3": "ATG",
+    "name": {
+      "common": "Antigua and Barbuda",
+      "official": "Antigua and Barbuda",
+      "nativeName": {
+        "eng": {
+          "official": "Antigua and Barbuda",
+          "common": "Antigua and Barbuda"
+        }
+      }
+    },
+    "flags": {
+      "png": "https://flagcdn.com/w320/ag.png"
+    },
+    "region": "Americas",
+    "subregion": "Caribbean",
+    "capital": [
+      "St. John's"
+    ],
+    "population": 100000,
+    "area": 442.0,
+    "translations": null,
+    "latlng": [
+      17.05,
+      -61.8
+    ]
+  },
+  {
+    "cca3": "AUS",
+    "name": {
+      "common": "Australia",
+      "official": "Australia",
+      "nativeName": {
+        "eng": {
+          "official": "Australia",
+          "common": "Australia"
+        }
+      }
+    },
+    "flags": {
+      "png": "https://flagcdn.com/w320/au.png"
+    },
+    "region": "Oceania",
+    "subregion": "Oceania",
+    "capital": [
+      "Canberra"
+    ],
+    "population": 26000000,
+    "area": 7692024.0,
+    "translations": null,
+    "latlng": [
+      -27,
+      133
+    ]
+  },
+  {
+    "cca3": "AUT",
+    "name": {
+      "common": "Austria",
+      "official": "Austria",
+      "nativeName": {
+        "eng": {
+          "official": "Austria",
+          "common": "Austria"
+        }
+      }
+    },
+    "flags": {
+      "png": "https://flagcdn.com/w320/at.png"
+    },
+    "region": "Europe",
+    "subregion": "Europe",
+    "capital": [
+      "Vienna"
+    ],
+    "population": 9000000,
+    "area": 83871.0,
+    "translations": null,
+    "latlng": [
+      47.33333333,
+      13.33333333
+    ]
+  },
+  {
+    "cca3": "AZE",
+    "name": {
+      "common": "Azerbaijan",
+      "official": "Azerbaijan",
+      "nativeName": {
+        "eng": {
+          "official": "Azerbaijan",
+          "common": "Azerbaijan"
+        }
+      }
+    },
+    "flags": {
+      "png": "https://flagcdn.com/w320/az.png"
+    },
+    "region": "Asia",
+    "subregion": "Asia",
+    "capital": [
+      "Baku"
+    ],
+    "population": 10200000,
+    "area": 86600.0,
+    "translations": null,
+    "latlng": [
+      40.5,
+      47.5
+    ]
+  },
+  {
+    "cca3": "BDI",
+    "name": {
+      "common": "Burundi",
+      "official": "Burundi",
+      "nativeName": {
+        "eng": {
+          "official": "Burundi",
+          "common": "Burundi"
+        }
+      }
+    },
+    "flags": {
+      "png": "https://flagcdn.com/w320/bi.png"
+    },
+    "region": "Africa",
+    "subregion": "Africa",
+    "capital": [
+      "Gitega"
+    ],
+    "population": 12000000,
+    "area": 27834.0,
+    "translations": null,
+    "latlng": [
+      -3.5,
+      30
+    ]
+  },
+  {
+    "cca3": "BEL",
+    "name": {
+      "common": "Belgium",
+      "official": "Belgium",
+      "nativeName": {
+        "eng": {
+          "official": "Belgium",
+          "common": "Belgium"
+        }
+      }
+    },
+    "flags": {
+      "png": "https://flagcdn.com/w320/be.png"
+    },
+    "region": "Europe",
+    "subregion": "Europe",
+    "capital": [
+      "Brussels"
+    ],
+    "population": 11600000,
+    "area": 30528.0,
+    "translations": null,
+    "latlng": [
+      50.83333333,
+      4
+    ]
+  },
+  {
+    "cca3": "BEN",
+    "name": {
+      "common": "Benin",
+      "official": "Benin",
+      "nativeName": {
+        "eng": {
+          "official": "Benin",
+          "common": "Benin"
+        }
+      }
+    },
+    "flags": {
+      "png": "https://flagcdn.com/w320/bj.png"
+    },
+    "region": "Africa",
+    "subregion": "Africa",
+    "capital": [
+      "Porto-Novo"
+    ],
+    "population": 13000000,
+    "area": 114763.0,
+    "translations": null,
+    "latlng": [
+      9.5,
+      2.25
+    ]
+  },
+  {
+    "cca3": "BES",
+    "name": {
+      "common": "Caribbean Netherlands",
+      "official": "Caribbean Netherlands",
+      "nativeName": {
+        "eng": {
+          "official": "Caribbean Netherlands",
+          "common": "Caribbean Netherlands"
+        }
+      }
+    },
+    "flags": {
+      "png": "https://flagcdn.com/w320/bq.png"
+    },
+    "region": "Americas",
+    "subregion": "Caribbean",
+    "capital": [
+      "Kralendijk"
+    ],
+    "population": 1,
+    "area": null,
+    "translations": null,
+    "latlng": [
+      12.18,
+      -68.25
+    ]
+  },
+  {
+    "cca3": "BFA",
+    "name": {
+      "common": "Burkina Faso",
+      "official": "Burkina Faso",
+      "nativeName": {
+        "eng": {
+          "official": "Burkina Faso",
+          "common": "Burkina Faso"
+        }
+      }
+    },
+    "flags": {
+      "png": "https://flagcdn.com/w320/bf.png"
+    },
+    "region": "Africa",
+    "subregion": "Africa",
+    "capital": [
+      "Ouagadougou"
+    ],
+    "population": 22000000,
+    "area": 274200.0,
+    "translations": null,
+    "latlng": [
+      13,
+      -2
+    ]
+  },
+  {
+    "cca3": "BGD",
+    "name": {
+      "common": "Bangladesh",
+      "official": "Bangladesh",
+      "nativeName": {
+        "eng": {
+          "official": "Bangladesh",
+          "common": "Bangladesh"
+        }
+      }
+    },
+    "flags": {
+      "png": "https://flagcdn.com/w320/bd.png"
+    },
+    "region": "Asia",
+    "subregion": "Asia",
+    "capital": [
+      "Dhaka"
+    ],
+    "population": 170000000,
+    "area": 147570.0,
+    "translations": null,
+    "latlng": [
+      24,
+      90
+    ]
+  },
+  {
+    "cca3": "BGR",
+    "name": {
+      "common": "Bulgaria",
+      "official": "Bulgaria",
+      "nativeName": {
+        "eng": {
+          "official": "Bulgaria",
+          "common": "Bulgaria"
+        }
+      }
+    },
+    "flags": {
+      "png": "https://flagcdn.com/w320/bg.png"
+    },
+    "region": "Europe",
+    "subregion": "Europe",
+    "capital": [
+      "Sofia"
+    ],
+    "population": 6900000,
+    "area": 110879.0,
+    "translations": null,
+    "latlng": [
+      43,
+      25
+    ]
+  },
+  {
+    "cca3": "BHR",
+    "name": {
+      "common": "Bahrain",
+      "official": "Bahrain",
+      "nativeName": {
+        "eng": {
+          "official": "Bahrain",
+          "common": "Bahrain"
+        }
+      }
+    },
+    "flags": {
+      "png": "https://flagcdn.com/w320/bh.png"
+    },
+    "region": "Asia",
+    "subregion": "Asia",
+    "capital": [
+      "Manama"
+    ],
+    "population": 1800000,
+    "area": 765.0,
+    "translations": null,
+    "latlng": [
+      26,
+      50.55
+    ]
+  },
+  {
+    "cca3": "BHS",
+    "name": {
+      "common": "Bahamas",
+      "official": "Bahamas",
+      "nativeName": {
+        "eng": {
+          "official": "Bahamas",
+          "common": "Bahamas"
+        }
+      }
+    },
+    "flags": {
+      "png": "https://flagcdn.com/w320/bs.png"
+    },
+    "region": "Americas",
+    "subregion": "Caribbean",
+    "capital": [
+      "Nassau"
+    ],
+    "population": 400000,
+    "area": 13878.0,
+    "translations": null,
+    "latlng": [
+      24.25,
+      -76
+    ]
+  },
+  {
+    "cca3": "BIH",
+    "name": {
+      "common": "Bosnia and Herzegovina",
+      "official": "Bosnia and Herzegovina",
+      "nativeName": {
+        "eng": {
+          "official": "Bosnia and Herzegovina",
+          "common": "Bosnia and Herzegovina"
+        }
+      }
+    },
+    "flags": {
+      "png": "https://flagcdn.com/w320/ba.png"
+    },
+    "region": "Europe",
+    "subregion": "Europe",
+    "capital": [
+      "Sarajevo"
+    ],
+    "population": 3300000,
+    "area": 51209.0,
+    "translations": null,
+    "latlng": [
+      44,
+      18
+    ]
+  },
+  {
+    "cca3": "BLM",
+    "name": {
+      "common": "Saint Barthélemy",
+      "official": "Saint Barthélemy",
+      "nativeName": {
+        "eng": {
+          "official": "Saint Barthélemy",
+          "common": "Saint Barthélemy"
+        }
+      }
+    },
+    "flags": {
+      "png": "https://flagcdn.com/w320/bl.png"
+    },
+    "region": "Americas",
+    "subregion": "Caribbean",
+    "capital": [
+      "Gustavia"
+    ],
+    "population": 1,
+    "area": null,
+    "translations": null,
+    "latlng": [
+      18.5,
+      -63.41666666
+    ]
+  },
+  {
+    "cca3": "BLR",
+    "name": {
+      "common": "Belarus",
+      "official": "Belarus",
+      "nativeName": {
+        "eng": {
+          "official": "Belarus",
+          "common": "Belarus"
+        }
+      }
+    },
+    "flags": {
+      "png": "https://flagcdn.com/w320/by.png"
+    },
+    "region": "Europe",
+    "subregion": "Europe",
+    "capital": [
+      "Minsk"
+    ],
+    "population": 9400000,
+    "area": 207600.0,
+    "translations": null,
+    "latlng": [
+      53,
+      28
+    ]
+  },
+  {
+    "cca3": "BLZ",
+    "name": {
+      "common": "Belize",
+      "official": "Belize",
+      "nativeName": {
+        "eng": {
+          "official": "Belize",
+          "common": "Belize"
+        }
+      }
+    },
+    "flags": {
+      "png": "https://flagcdn.com/w320/bz.png"
+    },
+    "region": "Americas",
+    "subregion": "Central America",
+    "capital": [
+      "Belmopan"
+    ],
+    "population": 400000,
+    "area": 22966.0,
+    "translations": null,
+    "latlng": [
+      17.25,
+      -88.75
+    ]
+  },
+  {
+    "cca3": "BMU",
+    "name": {
+      "common": "Bermuda",
+      "official": "Bermuda",
+      "nativeName": {
+        "eng": {
+          "official": "Bermuda",
+          "common": "Bermuda"
+        }
+      }
+    },
+    "flags": {
+      "png": "https://flagcdn.com/w320/bm.png"
+    },
+    "region": "Americas",
+    "subregion": "Northern America",
+    "capital": [
+      "Hamilton"
+    ],
+    "population": 1,
+    "area": null,
+    "translations": null,
+    "latlng": [
+      32.33333333,
+      -64.75
+    ]
+  },
+  {
+    "cca3": "BOL",
+    "name": {
+      "common": "Bolivia",
+      "official": "Bolivia",
+      "nativeName": {
+        "eng": {
+          "official": "Bolivia",
+          "common": "Bolivia"
+        }
+      }
+    },
+    "flags": {
+      "png": "https://flagcdn.com/w320/bo.png"
+    },
+    "region": "Americas",
+    "subregion": "South America",
+    "capital": [
+      "Sucre"
+    ],
+    "population": 12000000,
+    "area": 1098581.0,
+    "translations": null,
+    "latlng": [
+      -17,
+      -65
+    ]
+  },
+  {
+    "cca3": "BRA",
+    "name": {
+      "common": "Brazil",
+      "official": "Brazil",
+      "nativeName": {
+        "eng": {
+          "official": "Brazil",
+          "common": "Brazil"
+        }
+      }
+    },
+    "flags": {
+      "png": "https://flagcdn.com/w320/br.png"
+    },
+    "region": "Americas",
+    "subregion": "South America",
+    "capital": [
+      "Brasília"
+    ],
+    "population": 215000000,
+    "area": 8515767.0,
+    "translations": null,
+    "latlng": [
+      -10,
+      -55
+    ]
+  },
+  {
+    "cca3": "BRB",
+    "name": {
+      "common": "Barbados",
+      "official": "Barbados",
+      "nativeName": {
+        "eng": {
+          "official": "Barbados",
+          "common": "Barbados"
+        }
+      }
+    },
+    "flags": {
+      "png": "https://flagcdn.com/w320/bb.png"
+    },
+    "region": "Americas",
+    "subregion": "Caribbean",
+    "capital": [
+      "Bridgetown"
+    ],
+    "population": 300000,
+    "area": 430.0,
+    "translations": null,
+    "latlng": [
+      13.16666666,
+      -59.53333333
+    ]
+  },
+  {
+    "cca3": "BRN",
+    "name": {
+      "common": "Brunei",
+      "official": "Brunei",
+      "nativeName": {
+        "eng": {
+          "official": "Brunei",
+          "common": "Brunei"
+        }
+      }
+    },
+    "flags": {
+      "png": "https://flagcdn.com/w320/bn.png"
+    },
+    "region": "Asia",
+    "subregion": "Asia",
+    "capital": [
+      "Bandar Seri Begawan"
+    ],
+    "population": 450000,
+    "area": 5765.0,
+    "translations": null,
+    "latlng": [
+      4.5,
+      114.66666666
+    ]
+  },
+  {
+    "cca3": "BTN",
+    "name": {
+      "common": "Bhutan",
+      "official": "Bhutan",
+      "nativeName": {
+        "eng": {
+          "official": "Bhutan",
+          "common": "Bhutan"
+        }
+      }
+    },
+    "flags": {
+      "png": "https://flagcdn.com/w320/bt.png"
+    },
+    "region": "Asia",
+    "subregion": "Asia",
+    "capital": [
+      "Thimphu"
+    ],
+    "population": 800000,
+    "area": 38394.0,
+    "translations": null,
+    "latlng": [
+      27.5,
+      90.5
+    ]
+  },
+  {
+    "cca3": "BWA",
+    "name": {
+      "common": "Botswana",
+      "official": "Botswana",
+      "nativeName": {
+        "eng": {
+          "official": "Botswana",
+          "common": "Botswana"
+        }
+      }
+    },
+    "flags": {
+      "png": "https://flagcdn.com/w320/bw.png"
+    },
+    "region": "Africa",
+    "subregion": "Africa",
+    "capital": [
+      "Gaborone"
+    ],
+    "population": 2400000,
+    "area": 581730.0,
+    "translations": null,
+    "latlng": [
+      -22,
+      24
+    ]
+  },
+  {
+    "cca3": "CAF",
+    "name": {
+      "common": "Central African Republic",
+      "official": "Central African Republic",
+      "nativeName": {
+        "eng": {
+          "official": "Central African Republic",
+          "common": "Central African Republic"
+        }
+      }
+    },
+    "flags": {
+      "png": "https://flagcdn.com/w320/cf.png"
+    },
+    "region": "Africa",
+    "subregion": "Africa",
+    "capital": [
+      "Bangui"
+    ],
+    "population": 5000000,
+    "area": 622984.0,
+    "translations": null,
+    "latlng": [
+      7,
+      21
+    ]
+  },
+  {
+    "cca3": "CAN",
+    "name": {
+      "common": "Canada",
+      "official": "Canada",
+      "nativeName": {
+        "eng": {
+          "official": "Canada",
+          "common": "Canada"
+        }
+      }
+    },
+    "flags": {
+      "png": "https://flagcdn.com/w320/ca.png"
+    },
+    "region": "Americas",
+    "subregion": "Northern America",
+    "capital": [
+      "Ottawa"
+    ],
+    "population": 38000000,
+    "area": 9984670.0,
+    "translations": null,
+    "latlng": [
+      60,
+      -95
+    ]
+  },
+  {
+    "cca3": "CCK",
+    "name": {
+      "common": "Cocos Islands",
+      "official": "Cocos Islands",
+      "nativeName": {
+        "eng": {
+          "official": "Cocos Islands",
+          "common": "Cocos Islands"
+        }
+      }
+    },
+    "flags": {
+      "png": "https://flagcdn.com/w320/cc.png"
+    },
+    "region": "Asia",
+    "subregion": "Asia",
+    "capital": [
+      "West Island"
+    ],
+    "population": 1,
+    "area": null,
+    "translations": null,
+    "latlng": [
+      -12.5,
+      96.83333333
+    ]
+  },
+  {
+    "cca3": "CHE",
+    "name": {
+      "common": "Switzerland",
+      "official": "Switzerland",
+      "nativeName": {
+        "eng": {
+          "official": "Switzerland",
+          "common": "Switzerland"
+        }
+      }
+    },
+    "flags": {
+      "png": "https://flagcdn.com/w320/ch.png"
+    },
+    "region": "Europe",
+    "subregion": "Europe",
+    "capital": [
+      "Bern"
+    ],
+    "population": 8700000,
+    "area": 41277.0,
+    "translations": null,
+    "latlng": [
+      47,
+      8
+    ]
+  },
+  {
+    "cca3": "CHL",
+    "name": {
+      "common": "Chile",
+      "official": "Chile",
+      "nativeName": {
+        "eng": {
+          "official": "Chile",
+          "common": "Chile"
+        }
+      }
+    },
+    "flags": {
+      "png": "https://flagcdn.com/w320/cl.png"
+    },
+    "region": "Americas",
+    "subregion": "South America",
+    "capital": [
+      "Santiago"
+    ],
+    "population": 19000000,
+    "area": 756102.0,
+    "translations": null,
+    "latlng": [
+      -30,
+      -71
+    ]
+  },
+  {
+    "cca3": "CHN",
+    "name": {
+      "common": "China",
+      "official": "China",
+      "nativeName": {
+        "eng": {
+          "official": "China",
+          "common": "China"
+        }
+      }
+    },
+    "flags": {
+      "png": "https://flagcdn.com/w320/cn.png"
+    },
+    "region": "Asia",
+    "subregion": "Asia",
+    "capital": [
+      "Beijing"
+    ],
+    "population": 1400000000,
+    "area": 9596961.0,
+    "translations": null,
+    "latlng": [
+      35,
+      105
+    ]
+  },
+  {
+    "cca3": "CIV",
+    "name": {
+      "common": "Ivory Coast",
+      "official": "Ivory Coast",
+      "nativeName": {
+        "eng": {
+          "official": "Ivory Coast",
+          "common": "Ivory Coast"
+        }
+      }
+    },
+    "flags": {
+      "png": "https://flagcdn.com/w320/ci.png"
+    },
+    "region": "Africa",
+    "subregion": "Africa",
+    "capital": [
+      "Yamoussoukro"
+    ],
+    "population": 27000000,
+    "area": 322463.0,
+    "translations": null,
+    "latlng": [
+      8,
+      -5
+    ]
+  },
+  {
+    "cca3": "CMR",
+    "name": {
+      "common": "Cameroon",
+      "official": "Cameroon",
+      "nativeName": {
+        "eng": {
+          "official": "Cameroon",
+          "common": "Cameroon"
+        }
+      }
+    },
+    "flags": {
+      "png": "https://flagcdn.com/w320/cm.png"
+    },
+    "region": "Africa",
+    "subregion": "Africa",
+    "capital": [
+      "Yaoundé"
+    ],
+    "population": 27000000,
+    "area": 475442.0,
+    "translations": null,
+    "latlng": [
+      6,
+      12
+    ]
+  },
+  {
+    "cca3": "COD",
+    "name": {
+      "common": "DR Congo",
+      "official": "DR Congo",
+      "nativeName": {
+        "eng": {
+          "official": "DR Congo",
+          "common": "DR Congo"
+        }
+      }
+    },
+    "flags": {
+      "png": "https://flagcdn.com/w320/cd.png"
+    },
+    "region": "Africa",
+    "subregion": "Africa",
+    "capital": [
+      "Kinshasa"
+    ],
+    "population": 95000000,
+    "area": 2345409.0,
+    "translations": null,
+    "latlng": [
+      0,
+      25
+    ]
+  },
+  {
+    "cca3": "COG",
+    "name": {
+      "common": "Republic of the Congo",
+      "official": "Republic of the Congo",
+      "nativeName": {
+        "eng": {
+          "official": "Republic of the Congo",
+          "common": "Republic of the Congo"
+        }
+      }
+    },
+    "flags": {
+      "png": "https://flagcdn.com/w320/cg.png"
+    },
+    "region": "Africa",
+    "subregion": "Africa",
+    "capital": [
+      "Brazzaville"
+    ],
+    "population": 5800000,
+    "area": 342000.0,
+    "translations": null,
+    "latlng": [
+      -1,
+      15
+    ]
+  },
+  {
+    "cca3": "COK",
+    "name": {
+      "common": "Cook Islands",
+      "official": "Cook Islands",
+      "nativeName": {
+        "eng": {
+          "official": "Cook Islands",
+          "common": "Cook Islands"
+        }
+      }
+    },
+    "flags": {
+      "png": "https://flagcdn.com/w320/ck.png"
+    },
+    "region": "Oceania",
+    "subregion": "Oceania",
+    "capital": [
+      "Avarua"
+    ],
+    "population": 1,
+    "area": null,
+    "translations": null,
+    "latlng": [
+      -21.23333333,
+      -159.76666666
+    ]
+  },
+  {
+    "cca3": "COL",
+    "name": {
+      "common": "Colombia",
+      "official": "Colombia",
+      "nativeName": {
+        "eng": {
+          "official": "Colombia",
+          "common": "Colombia"
+        }
+      }
+    },
+    "flags": {
+      "png": "https://flagcdn.com/w320/co.png"
+    },
+    "region": "Americas",
+    "subregion": "South America",
+    "capital": [
+      "Bogotá"
+    ],
+    "population": 52000000,
+    "area": 1141748.0,
+    "translations": null,
+    "latlng": [
+      4,
+      -72
+    ]
+  },
+  {
+    "cca3": "COM",
+    "name": {
+      "common": "Comoros",
+      "official": "Comoros",
+      "nativeName": {
+        "eng": {
+          "official": "Comoros",
+          "common": "Comoros"
+        }
+      }
+    },
+    "flags": {
+      "png": "https://flagcdn.com/w320/km.png"
+    },
+    "region": "Africa",
+    "subregion": "Africa",
+    "capital": [
+      "Moroni"
+    ],
+    "population": 900000,
+    "area": 1861.0,
+    "translations": null,
+    "latlng": [
+      -12.16666666,
+      44.25
+    ]
+  },
+  {
+    "cca3": "CPV",
+    "name": {
+      "common": "Cape Verde",
+      "official": "Cape Verde",
+      "nativeName": {
+        "eng": {
+          "official": "Cape Verde",
+          "common": "Cape Verde"
+        }
+      }
+    },
+    "flags": {
+      "png": "https://flagcdn.com/w320/cv.png"
+    },
+    "region": "Africa",
+    "subregion": "Africa",
+    "capital": [
+      "Praia"
+    ],
+    "population": 600000,
+    "area": 4033.0,
+    "translations": null,
+    "latlng": [
+      16,
+      -24
+    ]
+  },
+  {
+    "cca3": "CRI",
+    "name": {
+      "common": "Costa Rica",
+      "official": "Costa Rica",
+      "nativeName": {
+        "eng": {
+          "official": "Costa Rica",
+          "common": "Costa Rica"
+        }
+      }
+    },
+    "flags": {
+      "png": "https://flagcdn.com/w320/cr.png"
+    },
+    "region": "Americas",
+    "subregion": "Central America",
+    "capital": [
+      "San José"
+    ],
+    "population": 5200000,
+    "area": 51100.0,
+    "translations": null,
+    "latlng": [
+      10,
+      -84
+    ]
+  },
+  {
+    "cca3": "CUB",
+    "name": {
+      "common": "Cuba",
+      "official": "Cuba",
+      "nativeName": {
+        "eng": {
+          "official": "Cuba",
+          "common": "Cuba"
+        }
+      }
+    },
+    "flags": {
+      "png": "https://flagcdn.com/w320/cu.png"
+    },
+    "region": "Americas",
+    "subregion": "Caribbean",
+    "capital": [
+      "Havana"
+    ],
+    "population": 11000000,
+    "area": 109884.0,
+    "translations": null,
+    "latlng": [
+      21.5,
+      -80
+    ]
+  },
+  {
+    "cca3": "CUW",
+    "name": {
+      "common": "Curaçao",
+      "official": "Curaçao",
+      "nativeName": {
+        "eng": {
+          "official": "Curaçao",
+          "common": "Curaçao"
+        }
+      }
+    },
+    "flags": {
+      "png": "https://flagcdn.com/w320/cw.png"
+    },
+    "region": "Americas",
+    "subregion": "Caribbean",
+    "capital": [
+      "Willemstad"
+    ],
+    "population": 1,
+    "area": null,
+    "translations": null,
+    "latlng": [
+      12.116667,
+      -68.933333
+    ]
+  },
+  {
+    "cca3": "CXR",
+    "name": {
+      "common": "Christmas Island",
+      "official": "Christmas Island",
+      "nativeName": {
+        "eng": {
+          "official": "Christmas Island",
+          "common": "Christmas Island"
+        }
+      }
+    },
+    "flags": {
+      "png": "https://flagcdn.com/w320/cx.png"
+    },
+    "region": "Asia",
+    "subregion": "Asia",
+    "capital": [
+      "Flying Fish Cove"
+    ],
+    "population": 1,
+    "area": null,
+    "translations": null,
+    "latlng": [
+      -10.5,
+      105.66666666
+    ]
+  },
+  {
+    "cca3": "CYM",
+    "name": {
+      "common": "Cayman Islands",
+      "official": "Cayman Islands",
+      "nativeName": {
+        "eng": {
+          "official": "Cayman Islands",
+          "common": "Cayman Islands"
+        }
+      }
+    },
+    "flags": {
+      "png": "https://flagcdn.com/w320/ky.png"
+    },
+    "region": "Americas",
+    "subregion": "Caribbean",
+    "capital": [
+      "George Town"
+    ],
+    "population": 1,
+    "area": null,
+    "translations": null,
+    "latlng": [
+      19.5,
+      -80.5
+    ]
+  },
+  {
+    "cca3": "CYP",
+    "name": {
+      "common": "Cyprus",
+      "official": "Cyprus",
+      "nativeName": {
+        "eng": {
+          "official": "Cyprus",
+          "common": "Cyprus"
+        }
+      }
+    },
+    "flags": {
+      "png": "https://flagcdn.com/w320/cy.png"
+    },
+    "region": "Europe",
+    "subregion": "Europe",
+    "capital": [
+      "Nicosia"
+    ],
+    "population": 1200000,
+    "area": 9251.0,
+    "translations": null,
+    "latlng": [
+      35,
+      33
+    ]
+  },
+  {
+    "cca3": "CZE",
+    "name": {
+      "common": "Czechia",
+      "official": "Czechia",
+      "nativeName": {
+        "eng": {
+          "official": "Czechia",
+          "common": "Czechia"
+        }
+      }
+    },
+    "flags": {
+      "png": "https://flagcdn.com/w320/cz.png"
+    },
+    "region": "Europe",
+    "subregion": "Europe",
+    "capital": [
+      "Prague"
+    ],
+    "population": 10500000,
+    "area": 78871.0,
+    "translations": null,
+    "latlng": [
+      49.75,
+      15.5
+    ]
+  },
+  {
+    "cca3": "DEU",
+    "name": {
+      "common": "Germany",
+      "official": "Germany",
+      "nativeName": {
+        "eng": {
+          "official": "Germany",
+          "common": "Germany"
+        }
+      }
+    },
+    "flags": {
+      "png": "https://flagcdn.com/w320/de.png"
+    },
+    "region": "Europe",
+    "subregion": "Europe",
+    "capital": [
+      "Berlin"
+    ],
+    "population": 83200000,
+    "area": 357022.0,
+    "translations": null,
+    "latlng": [
+      51,
+      9
+    ]
+  },
+  {
+    "cca3": "DJI",
+    "name": {
+      "common": "Djibouti",
+      "official": "Djibouti",
+      "nativeName": {
+        "eng": {
+          "official": "Djibouti",
+          "common": "Djibouti"
+        }
+      }
+    },
+    "flags": {
+      "png": "https://flagcdn.com/w320/dj.png"
+    },
+    "region": "Africa",
+    "subregion": "Africa",
+    "capital": [
+      "Djibouti"
+    ],
+    "population": 1000000,
+    "area": 23200.0,
+    "translations": null,
+    "latlng": [
+      11.5,
+      43
+    ]
+  },
+  {
+    "cca3": "DMA",
+    "name": {
+      "common": "Dominica",
+      "official": "Dominica",
+      "nativeName": {
+        "eng": {
+          "official": "Dominica",
+          "common": "Dominica"
+        }
+      }
+    },
+    "flags": {
+      "png": "https://flagcdn.com/w320/dm.png"
+    },
+    "region": "Americas",
+    "subregion": "Caribbean",
+    "capital": [
+      "Roseau"
+    ],
+    "population": 70000,
+    "area": 751.0,
+    "translations": null,
+    "latlng": [
+      15.41666666,
+      -61.33333333
+    ]
+  },
+  {
+    "cca3": "DNK",
+    "name": {
+      "common": "Denmark",
+      "official": "Denmark",
+      "nativeName": {
+        "eng": {
+          "official": "Denmark",
+          "common": "Denmark"
+        }
+      }
+    },
+    "flags": {
+      "png": "https://flagcdn.com/w320/dk.png"
+    },
+    "region": "Europe",
+    "subregion": "Europe",
+    "capital": [
+      "Copenhagen"
+    ],
+    "population": 5800000,
+    "area": 42951.0,
+    "translations": null,
+    "latlng": [
+      56,
+      10
+    ]
+  },
+  {
+    "cca3": "DOM",
+    "name": {
+      "common": "Dominican Republic",
+      "official": "Dominican Republic",
+      "nativeName": {
+        "eng": {
+          "official": "Dominican Republic",
+          "common": "Dominican Republic"
+        }
+      }
+    },
+    "flags": {
+      "png": "https://flagcdn.com/w320/do.png"
+    },
+    "region": "Americas",
+    "subregion": "Caribbean",
+    "capital": [
+      "Santo Domingo"
+    ],
+    "population": 11000000,
+    "area": 48671.0,
+    "translations": null,
+    "latlng": [
+      19,
+      -70.66666666
+    ]
+  },
+  {
+    "cca3": "DZA",
+    "name": {
+      "common": "Algeria",
+      "official": "Algeria",
+      "nativeName": {
+        "eng": {
+          "official": "Algeria",
+          "common": "Algeria"
+        }
+      }
+    },
+    "flags": {
+      "png": "https://flagcdn.com/w320/dz.png"
+    },
+    "region": "Africa",
+    "subregion": "Africa",
+    "capital": [
+      "Algiers"
+    ],
+    "population": 45000000,
+    "area": 2381741.0,
+    "translations": null,
+    "latlng": [
+      28,
+      3
+    ]
+  },
+  {
+    "cca3": "ECU",
+    "name": {
+      "common": "Ecuador",
+      "official": "Ecuador",
+      "nativeName": {
+        "eng": {
+          "official": "Ecuador",
+          "common": "Ecuador"
+        }
+      }
+    },
+    "flags": {
+      "png": "https://flagcdn.com/w320/ec.png"
+    },
+    "region": "Americas",
+    "subregion": "South America",
+    "capital": [
+      "Quito"
+    ],
+    "population": 18000000,
+    "area": 283561.0,
+    "translations": null,
+    "latlng": [
+      -2,
+      -77.5
+    ]
+  },
+  {
+    "cca3": "EGY",
+    "name": {
+      "common": "Egypt",
+      "official": "Egypt",
+      "nativeName": {
+        "eng": {
+          "official": "Egypt",
+          "common": "Egypt"
+        }
+      }
+    },
+    "flags": {
+      "png": "https://flagcdn.com/w320/eg.png"
+    },
+    "region": "Africa",
+    "subregion": "Africa",
+    "capital": [
+      "Cairo"
+    ],
+    "population": 110000000,
+    "area": 1001450.0,
+    "translations": null,
+    "latlng": [
+      27,
+      30
+    ]
+  },
+  {
+    "cca3": "ERI",
+    "name": {
+      "common": "Eritrea",
+      "official": "Eritrea",
+      "nativeName": {
+        "eng": {
+          "official": "Eritrea",
+          "common": "Eritrea"
+        }
+      }
+    },
+    "flags": {
+      "png": "https://flagcdn.com/w320/er.png"
+    },
+    "region": "Africa",
+    "subregion": "Africa",
+    "capital": [
+      "Asmara"
+    ],
+    "population": 6000000,
+    "area": 117600.0,
+    "translations": null,
+    "latlng": [
+      15,
+      39
+    ]
+  },
+  {
+    "cca3": "ESH",
+    "name": {
+      "common": "Western Sahara",
+      "official": "Western Sahara",
+      "nativeName": {
+        "eng": {
+          "official": "Western Sahara",
+          "common": "Western Sahara"
+        }
+      }
+    },
+    "flags": {
+      "png": "https://flagcdn.com/w320/eh.png"
+    },
+    "region": "Africa",
+    "subregion": "Africa",
+    "capital": [
+      "Laayoune"
+    ],
+    "population": 1,
+    "area": null,
+    "translations": null,
+    "latlng": [
+      24.5,
+      -13
+    ]
+  },
+  {
+    "cca3": "ESP",
+    "name": {
+      "common": "Spain",
+      "official": "Spain",
+      "nativeName": {
+        "eng": {
+          "official": "Spain",
+          "common": "Spain"
+        }
+      }
+    },
+    "flags": {
+      "png": "https://flagcdn.com/w320/es.png"
+    },
+    "region": "Europe",
+    "subregion": "Europe",
+    "capital": [
+      "Madrid"
+    ],
+    "population": 47400000,
+    "area": 505990.0,
+    "translations": null,
+    "latlng": [
+      40,
+      -4
+    ]
+  },
+  {
+    "cca3": "EST",
+    "name": {
+      "common": "Estonia",
+      "official": "Estonia",
+      "nativeName": {
+        "eng": {
+          "official": "Estonia",
+          "common": "Estonia"
+        }
+      }
+    },
+    "flags": {
+      "png": "https://flagcdn.com/w320/ee.png"
+    },
+    "region": "Europe",
+    "subregion": "Europe",
+    "capital": [
+      "Tallinn"
+    ],
+    "population": 1330000,
+    "area": 45227.0,
+    "translations": null,
+    "latlng": [
+      59,
+      26
+    ]
+  },
+  {
+    "cca3": "ETH",
+    "name": {
+      "common": "Ethiopia",
+      "official": "Ethiopia",
+      "nativeName": {
+        "eng": {
+          "official": "Ethiopia",
+          "common": "Ethiopia"
+        }
+      }
+    },
+    "flags": {
+      "png": "https://flagcdn.com/w320/et.png"
+    },
+    "region": "Africa",
+    "subregion": "Africa",
+    "capital": [
+      "Addis Ababa"
+    ],
+    "population": 120000000,
+    "area": 1104300.0,
+    "translations": null,
+    "latlng": [
+      8,
+      38
+    ]
+  },
+  {
+    "cca3": "FIN",
+    "name": {
+      "common": "Finland",
+      "official": "Finland",
+      "nativeName": {
+        "eng": {
+          "official": "Finland",
+          "common": "Finland"
+        }
+      }
+    },
+    "flags": {
+      "png": "https://flagcdn.com/w320/fi.png"
+    },
+    "region": "Europe",
+    "subregion": "Europe",
+    "capital": [
+      "Helsinki"
+    ],
+    "population": 5500000,
+    "area": 338424.0,
+    "translations": null,
+    "latlng": [
+      64,
+      26
+    ]
+  },
+  {
+    "cca3": "FJI",
+    "name": {
+      "common": "Fiji",
+      "official": "Fiji",
+      "nativeName": {
+        "eng": {
+          "official": "Fiji",
+          "common": "Fiji"
+        }
+      }
+    },
+    "flags": {
+      "png": "https://flagcdn.com/w320/fj.png"
+    },
+    "region": "Oceania",
+    "subregion": "Oceania",
+    "capital": [
+      "Suva"
+    ],
+    "population": 900000,
+    "area": 18274.0,
+    "translations": null,
+    "latlng": [
+      -18,
+      175
+    ]
+  },
+  {
+    "cca3": "FLK",
+    "name": {
+      "common": "Falkland Islands",
+      "official": "Falkland Islands",
+      "nativeName": {
+        "eng": {
+          "official": "Falkland Islands",
+          "common": "Falkland Islands"
+        }
+      }
+    },
+    "flags": {
+      "png": "https://flagcdn.com/w320/fk.png"
+    },
+    "region": "Americas",
+    "subregion": "South America",
+    "capital": [
+      "Stanley"
+    ],
+    "population": 1,
+    "area": null,
+    "translations": null,
+    "latlng": [
+      -51.75,
+      -59
+    ]
+  },
+  {
+    "cca3": "FRA",
+    "name": {
+      "common": "France",
+      "official": "France",
+      "nativeName": {
+        "eng": {
+          "official": "France",
+          "common": "France"
+        }
+      }
+    },
+    "flags": {
+      "png": "https://flagcdn.com/w320/fr.png"
+    },
+    "region": "Europe",
+    "subregion": "Europe",
+    "capital": [
+      "Paris"
+    ],
+    "population": 67400000,
+    "area": 551695.0,
+    "translations": null,
+    "latlng": [
+      46,
+      2
+    ]
+  },
+  {
+    "cca3": "FRO",
+    "name": {
+      "common": "Faroe Islands",
+      "official": "Faroe Islands",
+      "nativeName": {
+        "eng": {
+          "official": "Faroe Islands",
+          "common": "Faroe Islands"
+        }
+      }
+    },
+    "flags": {
+      "png": "https://flagcdn.com/w320/fo.png"
+    },
+    "region": "Europe",
+    "subregion": "Europe",
+    "capital": [
+      "Tórshavn"
+    ],
+    "population": 1,
+    "area": null,
+    "translations": null,
+    "latlng": [
+      62,
+      -7
+    ]
+  },
+  {
+    "cca3": "FSM",
+    "name": {
+      "common": "Micronesia",
+      "official": "Micronesia",
+      "nativeName": {
+        "eng": {
+          "official": "Micronesia",
+          "common": "Micronesia"
+        }
+      }
+    },
+    "flags": {
+      "png": "https://flagcdn.com/w320/fm.png"
+    },
+    "region": "Oceania",
+    "subregion": "Oceania",
+    "capital": [
+      "Palikir"
+    ],
+    "population": 115000,
+    "area": 702.0,
+    "translations": null,
+    "latlng": [
+      6.91666666,
+      158.25
+    ]
+  },
+  {
+    "cca3": "GAB",
+    "name": {
+      "common": "Gabon",
+      "official": "Gabon",
+      "nativeName": {
+        "eng": {
+          "official": "Gabon",
+          "common": "Gabon"
+        }
+      }
+    },
+    "flags": {
+      "png": "https://flagcdn.com/w320/ga.png"
+    },
+    "region": "Africa",
+    "subregion": "Africa",
+    "capital": [
+      "Libreville"
+    ],
+    "population": 2300000,
+    "area": 267668.0,
+    "translations": null,
+    "latlng": [
+      -1,
+      11.75
+    ]
+  },
+  {
+    "cca3": "GBR",
+    "name": {
+      "common": "United Kingdom",
+      "official": "United Kingdom",
+      "nativeName": {
+        "eng": {
+          "official": "United Kingdom",
+          "common": "United Kingdom"
+        }
+      }
+    },
+    "flags": {
+      "png": "https://flagcdn.com/w320/gb.png"
+    },
+    "region": "Europe",
+    "subregion": "Europe",
+    "capital": [
+      "London"
+    ],
+    "population": 67200000,
+    "area": 242495.0,
+    "translations": null,
+    "latlng": [
+      54,
+      -2
+    ]
+  },
+  {
+    "cca3": "GEO",
+    "name": {
+      "common": "Georgia",
+      "official": "Georgia",
+      "nativeName": {
+        "eng": {
+          "official": "Georgia",
+          "common": "Georgia"
+        }
+      }
+    },
+    "flags": {
+      "png": "https://flagcdn.com/w320/ge.png"
+    },
+    "region": "Asia",
+    "subregion": "Asia",
+    "capital": [
+      "Tbilisi"
+    ],
+    "population": 3700000,
+    "area": 69700.0,
+    "translations": null,
+    "latlng": [
+      42,
+      43.5
+    ]
+  },
+  {
+    "cca3": "GGY",
+    "name": {
+      "common": "Guernsey",
+      "official": "Guernsey",
+      "nativeName": {
+        "eng": {
+          "official": "Guernsey",
+          "common": "Guernsey"
+        }
+      }
+    },
+    "flags": {
+      "png": "https://flagcdn.com/w320/gg.png"
+    },
+    "region": "Europe",
+    "subregion": "Europe",
+    "capital": [
+      "Saint Peter Port"
+    ],
+    "population": 1,
+    "area": null,
+    "translations": null,
+    "latlng": [
+      49.46666666,
+      -2.58333333
+    ]
+  },
+  {
+    "cca3": "GHA",
+    "name": {
+      "common": "Ghana",
+      "official": "Ghana",
+      "nativeName": {
+        "eng": {
+          "official": "Ghana",
+          "common": "Ghana"
+        }
+      }
+    },
+    "flags": {
+      "png": "https://flagcdn.com/w320/gh.png"
+    },
+    "region": "Africa",
+    "subregion": "Africa",
+    "capital": [
+      "Accra"
+    ],
+    "population": 32000000,
+    "area": 238535.0,
+    "translations": null,
+    "latlng": [
+      8,
+      -2
+    ]
+  },
+  {
+    "cca3": "GIB",
+    "name": {
+      "common": "Gibraltar",
+      "official": "Gibraltar",
+      "nativeName": {
+        "eng": {
+          "official": "Gibraltar",
+          "common": "Gibraltar"
+        }
+      }
+    },
+    "flags": {
+      "png": "https://flagcdn.com/w320/gi.png"
+    },
+    "region": "Europe",
+    "subregion": "Europe",
+    "capital": [
+      "Gibraltar"
+    ],
+    "population": 1,
+    "area": null,
+    "translations": null,
+    "latlng": [
+      36.13333333,
+      -5.35
+    ]
+  },
+  {
+    "cca3": "GIN",
+    "name": {
+      "common": "Guinea",
+      "official": "Guinea",
+      "nativeName": {
+        "eng": {
+          "official": "Guinea",
+          "common": "Guinea"
+        }
+      }
+    },
+    "flags": {
+      "png": "https://flagcdn.com/w320/gn.png"
+    },
+    "region": "Africa",
+    "subregion": "Africa",
+    "capital": [
+      "Conakry"
+    ],
+    "population": 13500000,
+    "area": 245857.0,
+    "translations": null,
+    "latlng": [
+      11,
+      -10
+    ]
+  },
+  {
+    "cca3": "GLP",
+    "name": {
+      "common": "Guadeloupe",
+      "official": "Guadeloupe",
+      "nativeName": {
+        "eng": {
+          "official": "Guadeloupe",
+          "common": "Guadeloupe"
+        }
+      }
+    },
+    "flags": {
+      "png": "https://flagcdn.com/w320/gp.png"
+    },
+    "region": "Americas",
+    "subregion": "Caribbean",
+    "capital": [
+      "Basse-Terre"
+    ],
+    "population": 1,
+    "area": null,
+    "translations": null,
+    "latlng": [
+      16.25,
+      -61.583333
+    ]
+  },
+  {
+    "cca3": "GMB",
+    "name": {
+      "common": "Gambia",
+      "official": "Gambia",
+      "nativeName": {
+        "eng": {
+          "official": "Gambia",
+          "common": "Gambia"
+        }
+      }
+    },
+    "flags": {
+      "png": "https://flagcdn.com/w320/gm.png"
+    },
+    "region": "Africa",
+    "subregion": "Africa",
+    "capital": [
+      "Banjul"
+    ],
+    "population": 2500000,
+    "area": 10689.0,
+    "translations": null,
+    "latlng": [
+      13.46666666,
+      -16.56666666
+    ]
+  },
+  {
+    "cca3": "GNB",
+    "name": {
+      "common": "Guinea-Bissau",
+      "official": "Guinea-Bissau",
+      "nativeName": {
+        "eng": {
+          "official": "Guinea-Bissau",
+          "common": "Guinea-Bissau"
+        }
+      }
+    },
+    "flags": {
+      "png": "https://flagcdn.com/w320/gw.png"
+    },
+    "region": "Africa",
+    "subregion": "Africa",
+    "capital": [
+      "Bissau"
+    ],
+    "population": 2000000,
+    "area": 36125.0,
+    "translations": null,
+    "latlng": [
+      12,
+      -15
+    ]
+  },
+  {
+    "cca3": "GNQ",
+    "name": {
+      "common": "Equatorial Guinea",
+      "official": "Equatorial Guinea",
+      "nativeName": {
+        "eng": {
+          "official": "Equatorial Guinea",
+          "common": "Equatorial Guinea"
+        }
+      }
+    },
+    "flags": {
+      "png": "https://flagcdn.com/w320/gq.png"
+    },
+    "region": "Africa",
+    "subregion": "Africa",
+    "capital": [
+      "Malabo"
+    ],
+    "population": 1500000,
+    "area": 28051.0,
+    "translations": null,
+    "latlng": [
+      2,
+      10
+    ]
+  },
+  {
+    "cca3": "GRC",
+    "name": {
+      "common": "Greece",
+      "official": "Greece",
+      "nativeName": {
+        "eng": {
+          "official": "Greece",
+          "common": "Greece"
+        }
+      }
+    },
+    "flags": {
+      "png": "https://flagcdn.com/w320/gr.png"
+    },
+    "region": "Europe",
+    "subregion": "Europe",
+    "capital": [
+      "Athens"
+    ],
+    "population": 10700000,
+    "area": 131957.0,
+    "translations": null,
+    "latlng": [
+      39,
+      22
+    ]
+  },
+  {
+    "cca3": "GRD",
+    "name": {
+      "common": "Grenada",
+      "official": "Grenada",
+      "nativeName": {
+        "eng": {
+          "official": "Grenada",
+          "common": "Grenada"
+        }
+      }
+    },
+    "flags": {
+      "png": "https://flagcdn.com/w320/gd.png"
+    },
+    "region": "Americas",
+    "subregion": "Caribbean",
+    "capital": [
+      "St. George's"
+    ],
+    "population": 110000,
+    "area": 344.0,
+    "translations": null,
+    "latlng": [
+      12.11666666,
+      -61.66666666
+    ]
+  },
+  {
+    "cca3": "GRL",
+    "name": {
+      "common": "Greenland",
+      "official": "Greenland",
+      "nativeName": {
+        "eng": {
+          "official": "Greenland",
+          "common": "Greenland"
+        }
+      }
+    },
+    "flags": {
+      "png": "https://flagcdn.com/w320/gl.png"
+    },
+    "region": "Americas",
+    "subregion": "Northern America",
+    "capital": [
+      "Nuuk"
+    ],
+    "population": 56000,
+    "area": 2166086.0,
+    "translations": null,
+    "latlng": [
+      72,
+      -40
+    ]
+  },
+  {
+    "cca3": "GTM",
+    "name": {
+      "common": "Guatemala",
+      "official": "Guatemala",
+      "nativeName": {
+        "eng": {
+          "official": "Guatemala",
+          "common": "Guatemala"
+        }
+      }
+    },
+    "flags": {
+      "png": "https://flagcdn.com/w320/gt.png"
+    },
+    "region": "Americas",
+    "subregion": "Central America",
+    "capital": [
+      "Guatemala City"
+    ],
+    "population": 18000000,
+    "area": 108889.0,
+    "translations": null,
+    "latlng": [
+      15.5,
+      -90.25
+    ]
+  },
+  {
+    "cca3": "GUF",
+    "name": {
+      "common": "French Guiana",
+      "official": "French Guiana",
+      "nativeName": {
+        "eng": {
+          "official": "French Guiana",
+          "common": "French Guiana"
+        }
+      }
+    },
+    "flags": {
+      "png": "https://flagcdn.com/w320/gf.png"
+    },
+    "region": "Americas",
+    "subregion": "South America",
+    "capital": [
+      "Cayenne"
+    ],
+    "population": 1,
+    "area": null,
+    "translations": null,
+    "latlng": [
+      4,
+      -53
+    ]
+  },
+  {
+    "cca3": "GUM",
+    "name": {
+      "common": "Guam",
+      "official": "Guam",
+      "nativeName": {
+        "eng": {
+          "official": "Guam",
+          "common": "Guam"
+        }
+      }
+    },
+    "flags": {
+      "png": "https://flagcdn.com/w320/gu.png"
+    },
+    "region": "Oceania",
+    "subregion": "Oceania",
+    "capital": [
+      "Hagåtña"
+    ],
+    "population": 1,
+    "area": null,
+    "translations": null,
+    "latlng": [
+      13.46666666,
+      144.78333333
+    ]
+  },
+  {
+    "cca3": "GUY",
+    "name": {
+      "common": "Guyana",
+      "official": "Guyana",
+      "nativeName": {
+        "eng": {
+          "official": "Guyana",
+          "common": "Guyana"
+        }
+      }
+    },
+    "flags": {
+      "png": "https://flagcdn.com/w320/gy.png"
+    },
+    "region": "Americas",
+    "subregion": "South America",
+    "capital": [
+      "Georgetown"
+    ],
+    "population": 800000,
+    "area": 214969.0,
+    "translations": null,
+    "latlng": [
+      5,
+      -59
+    ]
+  },
+  {
+    "cca3": "HKG",
+    "name": {
+      "common": "Hong Kong",
+      "official": "Hong Kong",
+      "nativeName": {
+        "eng": {
+          "official": "Hong Kong",
+          "common": "Hong Kong"
+        }
+      }
+    },
+    "flags": {
+      "png": "https://flagcdn.com/w320/hk.png"
+    },
+    "region": "Asia",
+    "subregion": "Asia",
+    "capital": [
+      "Hong Kong"
+    ],
+    "population": 7500000,
+    "area": 1106.0,
+    "translations": null,
+    "latlng": [
+      22.267,
+      114.188
+    ]
+  },
+  {
+    "cca3": "HND",
+    "name": {
+      "common": "Honduras",
+      "official": "Honduras",
+      "nativeName": {
+        "eng": {
+          "official": "Honduras",
+          "common": "Honduras"
+        }
+      }
+    },
+    "flags": {
+      "png": "https://flagcdn.com/w320/hn.png"
+    },
+    "region": "Americas",
+    "subregion": "Central America",
+    "capital": [
+      "Tegucigalpa"
+    ],
+    "population": 10000000,
+    "area": 112492.0,
+    "translations": null,
+    "latlng": [
+      15,
+      -86.5
+    ]
+  },
+  {
+    "cca3": "HRV",
+    "name": {
+      "common": "Croatia",
+      "official": "Croatia",
+      "nativeName": {
+        "eng": {
+          "official": "Croatia",
+          "common": "Croatia"
+        }
+      }
+    },
+    "flags": {
+      "png": "https://flagcdn.com/w320/hr.png"
+    },
+    "region": "Europe",
+    "subregion": "Europe",
+    "capital": [
+      "Zagreb"
+    ],
+    "population": 4050000,
+    "area": 56594.0,
+    "translations": null,
+    "latlng": [
+      45.16666666,
+      15.5
+    ]
+  },
+  {
+    "cca3": "HTI",
+    "name": {
+      "common": "Haiti",
+      "official": "Haiti",
+      "nativeName": {
+        "eng": {
+          "official": "Haiti",
+          "common": "Haiti"
+        }
+      }
+    },
+    "flags": {
+      "png": "https://flagcdn.com/w320/ht.png"
+    },
+    "region": "Americas",
+    "subregion": "Caribbean",
+    "capital": [
+      "Port-au-Prince"
+    ],
+    "population": 11500000,
+    "area": 27750.0,
+    "translations": null,
+    "latlng": [
+      19,
+      -72.41666666
+    ]
+  },
+  {
+    "cca3": "HUN",
+    "name": {
+      "common": "Hungary",
+      "official": "Hungary",
+      "nativeName": {
+        "eng": {
+          "official": "Hungary",
+          "common": "Hungary"
+        }
+      }
+    },
+    "flags": {
+      "png": "https://flagcdn.com/w320/hu.png"
+    },
+    "region": "Europe",
+    "subregion": "Europe",
+    "capital": [
+      "Budapest"
+    ],
+    "population": 9750000,
+    "area": 93028.0,
+    "translations": null,
+    "latlng": [
+      47,
+      20
+    ]
+  },
+  {
+    "cca3": "IDN",
+    "name": {
+      "common": "Indonesia",
+      "official": "Indonesia",
+      "nativeName": {
+        "eng": {
+          "official": "Indonesia",
+          "common": "Indonesia"
+        }
+      }
+    },
+    "flags": {
+      "png": "https://flagcdn.com/w320/id.png"
+    },
+    "region": "Asia",
+    "subregion": "Asia",
+    "capital": [
+      "Jakarta"
+    ],
+    "population": 275000000,
+    "area": 1904569.0,
+    "translations": null,
+    "latlng": [
+      -5,
+      120
+    ]
+  },
+  {
+    "cca3": "IMN",
+    "name": {
+      "common": "Isle of Man",
+      "official": "Isle of Man",
+      "nativeName": {
+        "eng": {
+          "official": "Isle of Man",
+          "common": "Isle of Man"
+        }
+      }
+    },
+    "flags": {
+      "png": "https://flagcdn.com/w320/im.png"
+    },
+    "region": "Europe",
+    "subregion": "Europe",
+    "capital": [
+      "Douglas"
+    ],
+    "population": 1,
+    "area": null,
+    "translations": null,
+    "latlng": [
+      54.25,
+      -4.5
+    ]
+  },
+  {
+    "cca3": "IND",
+    "name": {
+      "common": "India",
+      "official": "India",
+      "nativeName": {
+        "eng": {
+          "official": "India",
+          "common": "India"
+        }
+      }
+    },
+    "flags": {
+      "png": "https://flagcdn.com/w320/in.png"
+    },
+    "region": "Asia",
+    "subregion": "Asia",
+    "capital": [
+      "New Delhi"
+    ],
+    "population": 1400000000,
+    "area": 3287263.0,
+    "translations": null,
+    "latlng": [
+      20,
+      77
+    ]
+  },
+  {
+    "cca3": "IOT",
+    "name": {
+      "common": "British Indian Ocean Territory",
+      "official": "British Indian Ocean Territory",
+      "nativeName": {
+        "eng": {
+          "official": "British Indian Ocean Territory",
+          "common": "British Indian Ocean Territory"
+        }
+      }
+    },
+    "flags": {
+      "png": "https://flagcdn.com/w320/io.png"
+    },
+    "region": "Asia",
+    "subregion": "Asia",
+    "capital": [
+      "Diego Garcia"
+    ],
+    "population": 1,
+    "area": null,
+    "translations": null,
+    "latlng": [
+      -6,
+      71.5
+    ]
+  },
+  {
+    "cca3": "IRL",
+    "name": {
+      "common": "Ireland",
+      "official": "Ireland",
+      "nativeName": {
+        "eng": {
+          "official": "Ireland",
+          "common": "Ireland"
+        }
+      }
+    },
+    "flags": {
+      "png": "https://flagcdn.com/w320/ie.png"
+    },
+    "region": "Europe",
+    "subregion": "Europe",
+    "capital": [
+      "Dublin"
+    ],
+    "population": 5000000,
+    "area": 70273.0,
+    "translations": null,
+    "latlng": [
+      53,
+      -8
+    ]
+  },
+  {
+    "cca3": "IRN",
+    "name": {
+      "common": "Iran",
+      "official": "Iran",
+      "nativeName": {
+        "eng": {
+          "official": "Iran",
+          "common": "Iran"
+        }
+      }
+    },
+    "flags": {
+      "png": "https://flagcdn.com/w320/ir.png"
+    },
+    "region": "Asia",
+    "subregion": "Asia",
+    "capital": [
+      "Tehran"
+    ],
+    "population": 85000000,
+    "area": 1648195.0,
+    "translations": null,
+    "latlng": [
+      32,
+      53
+    ]
+  },
+  {
+    "cca3": "IRQ",
+    "name": {
+      "common": "Iraq",
+      "official": "Iraq",
+      "nativeName": {
+        "eng": {
+          "official": "Iraq",
+          "common": "Iraq"
+        }
+      }
+    },
+    "flags": {
+      "png": "https://flagcdn.com/w320/iq.png"
+    },
+    "region": "Asia",
+    "subregion": "Asia",
+    "capital": [
+      "Baghdad"
+    ],
+    "population": 43000000,
+    "area": 438317.0,
+    "translations": null,
+    "latlng": [
+      33,
+      44
+    ]
+  },
+  {
+    "cca3": "ISL",
+    "name": {
+      "common": "Iceland",
+      "official": "Iceland",
+      "nativeName": {
+        "eng": {
+          "official": "Iceland",
+          "common": "Iceland"
+        }
+      }
+    },
+    "flags": {
+      "png": "https://flagcdn.com/w320/is.png"
+    },
+    "region": "Europe",
+    "subregion": "Europe",
+    "capital": [
+      "Reykjavik"
+    ],
+    "population": 370000,
+    "area": 103000.0,
+    "translations": null,
+    "latlng": [
+      65,
+      -18
+    ]
+  },
+  {
+    "cca3": "ISR",
+    "name": {
+      "common": "Israel",
+      "official": "Israel",
+      "nativeName": {
+        "eng": {
+          "official": "Israel",
+          "common": "Israel"
+        }
+      }
+    },
+    "flags": {
+      "png": "https://flagcdn.com/w320/il.png"
+    },
+    "region": "Asia",
+    "subregion": "Asia",
+    "capital": [
+      "Jerusalem"
+    ],
+    "population": 9700000,
+    "area": 22072.0,
+    "translations": null,
+    "latlng": [
+      31.47,
+      35.13
+    ]
+  },
+  {
+    "cca3": "ITA",
+    "name": {
+      "common": "Italy",
+      "official": "Italy",
+      "nativeName": {
+        "eng": {
+          "official": "Italy",
+          "common": "Italy"
+        }
+      }
+    },
+    "flags": {
+      "png": "https://flagcdn.com/w320/it.png"
+    },
+    "region": "Europe",
+    "subregion": "Europe",
+    "capital": [
+      "Rome"
+    ],
+    "population": 60400000,
+    "area": 301340.0,
+    "translations": null,
+    "latlng": [
+      42.83333333,
+      12.83333333
+    ]
+  },
+  {
+    "cca3": "JAM",
+    "name": {
+      "common": "Jamaica",
+      "official": "Jamaica",
+      "nativeName": {
+        "eng": {
+          "official": "Jamaica",
+          "common": "Jamaica"
+        }
+      }
+    },
+    "flags": {
+      "png": "https://flagcdn.com/w320/jm.png"
+    },
+    "region": "Americas",
+    "subregion": "Caribbean",
+    "capital": [
+      "Kingston"
+    ],
+    "population": 3000000,
+    "area": 10991.0,
+    "translations": null,
+    "latlng": [
+      18.25,
+      -77.5
+    ]
+  },
+  {
+    "cca3": "JEY",
+    "name": {
+      "common": "Jersey",
+      "official": "Jersey",
+      "nativeName": {
+        "eng": {
+          "official": "Jersey",
+          "common": "Jersey"
+        }
+      }
+    },
+    "flags": {
+      "png": "https://flagcdn.com/w320/je.png"
+    },
+    "region": "Europe",
+    "subregion": "Europe",
+    "capital": [
+      "Saint Helier"
+    ],
+    "population": 1,
+    "area": null,
+    "translations": null,
+    "latlng": [
+      49.25,
+      -2.16666666
+    ]
+  },
+  {
+    "cca3": "JOR",
+    "name": {
+      "common": "Jordan",
+      "official": "Jordan",
+      "nativeName": {
+        "eng": {
+          "official": "Jordan",
+          "common": "Jordan"
+        }
+      }
+    },
+    "flags": {
+      "png": "https://flagcdn.com/w320/jo.png"
+    },
+    "region": "Asia",
+    "subregion": "Asia",
+    "capital": [
+      "Amman"
+    ],
+    "population": 11000000,
+    "area": 89342.0,
+    "translations": null,
+    "latlng": [
+      31,
+      36
+    ]
+  },
+  {
+    "cca3": "JPN",
+    "name": {
+      "common": "Japan",
+      "official": "Japan",
+      "nativeName": {
+        "eng": {
+          "official": "Japan",
+          "common": "Japan"
+        }
+      }
+    },
+    "flags": {
+      "png": "https://flagcdn.com/w320/jp.png"
+    },
+    "region": "Asia",
+    "subregion": "Asia",
+    "capital": [
+      "Tokyo"
+    ],
+    "population": 125000000,
+    "area": 377975.0,
+    "translations": null,
+    "latlng": [
+      36,
+      138
+    ]
+  },
+  {
+    "cca3": "KAZ",
+    "name": {
+      "common": "Kazakhstan",
+      "official": "Kazakhstan",
+      "nativeName": {
+        "eng": {
+          "official": "Kazakhstan",
+          "common": "Kazakhstan"
+        }
+      }
+    },
+    "flags": {
+      "png": "https://flagcdn.com/w320/kz.png"
+    },
+    "region": "Asia",
+    "subregion": "Asia",
+    "capital": [
+      "Astana"
+    ],
+    "population": 19000000,
+    "area": 2724900.0,
+    "translations": null,
+    "latlng": [
+      48,
+      68
+    ]
+  },
+  {
+    "cca3": "KEN",
+    "name": {
+      "common": "Kenya",
+      "official": "Kenya",
+      "nativeName": {
+        "eng": {
+          "official": "Kenya",
+          "common": "Kenya"
+        }
+      }
+    },
+    "flags": {
+      "png": "https://flagcdn.com/w320/ke.png"
+    },
+    "region": "Africa",
+    "subregion": "Africa",
+    "capital": [
+      "Nairobi"
+    ],
+    "population": 55000000,
+    "area": 580367.0,
+    "translations": null,
+    "latlng": [
+      1,
+      38
+    ]
+  },
+  {
+    "cca3": "KGZ",
+    "name": {
+      "common": "Kyrgyzstan",
+      "official": "Kyrgyzstan",
+      "nativeName": {
+        "eng": {
+          "official": "Kyrgyzstan",
+          "common": "Kyrgyzstan"
+        }
+      }
+    },
+    "flags": {
+      "png": "https://flagcdn.com/w320/kg.png"
+    },
+    "region": "Asia",
+    "subregion": "Asia",
+    "capital": [
+      "Bishkek"
+    ],
+    "population": 6700000,
+    "area": 199951.0,
+    "translations": null,
+    "latlng": [
+      41,
+      75
+    ]
+  },
+  {
+    "cca3": "KHM",
+    "name": {
+      "common": "Cambodia",
+      "official": "Cambodia",
+      "nativeName": {
+        "eng": {
+          "official": "Cambodia",
+          "common": "Cambodia"
+        }
+      }
+    },
+    "flags": {
+      "png": "https://flagcdn.com/w320/kh.png"
+    },
+    "region": "Asia",
+    "subregion": "Asia",
+    "capital": [
+      "Phnom Penh"
+    ],
+    "population": 17000000,
+    "area": 181035.0,
+    "translations": null,
+    "latlng": [
+      13,
+      105
+    ]
+  },
+  {
+    "cca3": "KIR",
+    "name": {
+      "common": "Kiribati",
+      "official": "Kiribati",
+      "nativeName": {
+        "eng": {
+          "official": "Kiribati",
+          "common": "Kiribati"
+        }
+      }
+    },
+    "flags": {
+      "png": "https://flagcdn.com/w320/ki.png"
+    },
+    "region": "Oceania",
+    "subregion": "Oceania",
+    "capital": [
+      "Tarawa"
+    ],
+    "population": 120000,
+    "area": 811.0,
+    "translations": null,
+    "latlng": [
+      1.41666666,
+      173
+    ]
+  },
+  {
+    "cca3": "KNA",
+    "name": {
+      "common": "Saint Kitts and Nevis",
+      "official": "Saint Kitts and Nevis",
+      "nativeName": {
+        "eng": {
+          "official": "Saint Kitts and Nevis",
+          "common": "Saint Kitts and Nevis"
+        }
+      }
+    },
+    "flags": {
+      "png": "https://flagcdn.com/w320/kn.png"
+    },
+    "region": "Americas",
+    "subregion": "Caribbean",
+    "capital": [
+      "Basseterre"
+    ],
+    "population": 50000,
+    "area": 261.0,
+    "translations": null,
+    "latlng": [
+      17.33333333,
+      -62.75
+    ]
+  },
+  {
+    "cca3": "KOR",
+    "name": {
+      "common": "South Korea",
+      "official": "South Korea",
+      "nativeName": {
+        "eng": {
+          "official": "South Korea",
+          "common": "South Korea"
+        }
+      }
+    },
+    "flags": {
+      "png": "https://flagcdn.com/w320/kr.png"
+    },
+    "region": "Asia",
+    "subregion": "Asia",
+    "capital": [
+      "Seoul"
+    ],
+    "population": 51700000,
+    "area": 100210.0,
+    "translations": null,
+    "latlng": [
+      37,
+      127.5
+    ]
+  },
+  {
+    "cca3": "KWT",
+    "name": {
+      "common": "Kuwait",
+      "official": "Kuwait",
+      "nativeName": {
+        "eng": {
+          "official": "Kuwait",
+          "common": "Kuwait"
+        }
+      }
+    },
+    "flags": {
+      "png": "https://flagcdn.com/w320/kw.png"
+    },
+    "region": "Asia",
+    "subregion": "Asia",
+    "capital": [
+      "Kuwait City"
+    ],
+    "population": 4500000,
+    "area": 17818.0,
+    "translations": null,
+    "latlng": [
+      29.5,
+      45.75
+    ]
+  },
+  {
+    "cca3": "LAO",
+    "name": {
+      "common": "Laos",
+      "official": "Laos",
+      "nativeName": {
+        "eng": {
+          "official": "Laos",
+          "common": "Laos"
+        }
+      }
+    },
+    "flags": {
+      "png": "https://flagcdn.com/w320/la.png"
+    },
+    "region": "Asia",
+    "subregion": "Asia",
+    "capital": [
+      "Vientiane"
+    ],
+    "population": 7500000,
+    "area": 236800.0,
+    "translations": null,
+    "latlng": [
+      18,
+      105
+    ]
+  },
+  {
+    "cca3": "LBN",
+    "name": {
+      "common": "Lebanon",
+      "official": "Lebanon",
+      "nativeName": {
+        "eng": {
+          "official": "Lebanon",
+          "common": "Lebanon"
+        }
+      }
+    },
+    "flags": {
+      "png": "https://flagcdn.com/w320/lb.png"
+    },
+    "region": "Asia",
+    "subregion": "Asia",
+    "capital": [
+      "Beirut"
+    ],
+    "population": 6800000,
+    "area": 10452.0,
+    "translations": null,
+    "latlng": [
+      33.83333333,
+      35.83333333
+    ]
+  },
+  {
+    "cca3": "LBR",
+    "name": {
+      "common": "Liberia",
+      "official": "Liberia",
+      "nativeName": {
+        "eng": {
+          "official": "Liberia",
+          "common": "Liberia"
+        }
+      }
+    },
+    "flags": {
+      "png": "https://flagcdn.com/w320/lr.png"
+    },
+    "region": "Africa",
+    "subregion": "Africa",
+    "capital": [
+      "Monrovia"
+    ],
+    "population": 5200000,
+    "area": 111369.0,
+    "translations": null,
+    "latlng": [
+      6.5,
+      -9.5
+    ]
+  },
+  {
+    "cca3": "LBY",
+    "name": {
+      "common": "Libya",
+      "official": "Libya",
+      "nativeName": {
+        "eng": {
+          "official": "Libya",
+          "common": "Libya"
+        }
+      }
+    },
+    "flags": {
+      "png": "https://flagcdn.com/w320/ly.png"
+    },
+    "region": "Africa",
+    "subregion": "Africa",
+    "capital": [
+      "Tripoli"
+    ],
+    "population": 7000000,
+    "area": 1759540.0,
+    "translations": null,
+    "latlng": [
+      25,
+      17
+    ]
+  },
+  {
+    "cca3": "LCA",
+    "name": {
+      "common": "Saint Lucia",
+      "official": "Saint Lucia",
+      "nativeName": {
+        "eng": {
+          "official": "Saint Lucia",
+          "common": "Saint Lucia"
+        }
+      }
+    },
+    "flags": {
+      "png": "https://flagcdn.com/w320/lc.png"
+    },
+    "region": "Americas",
+    "subregion": "Caribbean",
+    "capital": [
+      "Castries"
+    ],
+    "population": 180000,
+    "area": 616.0,
+    "translations": null,
+    "latlng": [
+      13.88333333,
+      -60.96666666
+    ]
+  },
+  {
+    "cca3": "LIE",
+    "name": {
+      "common": "Liechtenstein",
+      "official": "Liechtenstein",
+      "nativeName": {
+        "eng": {
+          "official": "Liechtenstein",
+          "common": "Liechtenstein"
+        }
+      }
+    },
+    "flags": {
+      "png": "https://flagcdn.com/w320/li.png"
+    },
+    "region": "Europe",
+    "subregion": "Europe",
+    "capital": [
+      "Vaduz"
+    ],
+    "population": 39000,
+    "area": 160.0,
+    "translations": null,
+    "latlng": [
+      47.26666666,
+      9.53333333
+    ]
+  },
+  {
+    "cca3": "LKA",
+    "name": {
+      "common": "Sri Lanka",
+      "official": "Sri Lanka",
+      "nativeName": {
+        "eng": {
+          "official": "Sri Lanka",
+          "common": "Sri Lanka"
+        }
+      }
+    },
+    "flags": {
+      "png": "https://flagcdn.com/w320/lk.png"
+    },
+    "region": "Asia",
+    "subregion": "Asia",
+    "capital": [
+      "Colombo"
+    ],
+    "population": 22000000,
+    "area": 65610.0,
+    "translations": null,
+    "latlng": [
+      7,
+      81
+    ]
+  },
+  {
+    "cca3": "LSO",
+    "name": {
+      "common": "Lesotho",
+      "official": "Lesotho",
+      "nativeName": {
+        "eng": {
+          "official": "Lesotho",
+          "common": "Lesotho"
+        }
+      }
+    },
+    "flags": {
+      "png": "https://flagcdn.com/w320/ls.png"
+    },
+    "region": "Africa",
+    "subregion": "Africa",
+    "capital": [
+      "Maseru"
+    ],
+    "population": 2200000,
+    "area": 30355.0,
+    "translations": null,
+    "latlng": [
+      -29.5,
+      28.5
+    ]
+  },
+  {
+    "cca3": "LTU",
+    "name": {
+      "common": "Lithuania",
+      "official": "Lithuania",
+      "nativeName": {
+        "eng": {
+          "official": "Lithuania",
+          "common": "Lithuania"
+        }
+      }
+    },
+    "flags": {
+      "png": "https://flagcdn.com/w320/lt.png"
+    },
+    "region": "Europe",
+    "subregion": "Europe",
+    "capital": [
+      "Vilnius"
+    ],
+    "population": 2800000,
+    "area": 65300.0,
+    "translations": null,
+    "latlng": [
+      56,
+      24
+    ]
+  },
+  {
+    "cca3": "LUX",
+    "name": {
+      "common": "Luxembourg",
+      "official": "Luxembourg",
+      "nativeName": {
+        "eng": {
+          "official": "Luxembourg",
+          "common": "Luxembourg"
+        }
+      }
+    },
+    "flags": {
+      "png": "https://flagcdn.com/w320/lu.png"
+    },
+    "region": "Europe",
+    "subregion": "Europe",
+    "capital": [
+      "Luxembourg"
+    ],
+    "population": 640000,
+    "area": 2586.0,
+    "translations": null,
+    "latlng": [
+      49.75,
+      6.16666666
+    ]
+  },
+  {
+    "cca3": "LVA",
+    "name": {
+      "common": "Latvia",
+      "official": "Latvia",
+      "nativeName": {
+        "eng": {
+          "official": "Latvia",
+          "common": "Latvia"
+        }
+      }
+    },
+    "flags": {
+      "png": "https://flagcdn.com/w320/lv.png"
+    },
+    "region": "Europe",
+    "subregion": "Europe",
+    "capital": [
+      "Riga"
+    ],
+    "population": 1900000,
+    "area": 64559.0,
+    "translations": null,
+    "latlng": [
+      57,
+      25
+    ]
+  },
+  {
+    "cca3": "MAC",
+    "name": {
+      "common": "Macau",
+      "official": "Macau",
+      "nativeName": {
+        "eng": {
+          "official": "Macau",
+          "common": "Macau"
+        }
+      }
+    },
+    "flags": {
+      "png": "https://flagcdn.com/w320/mo.png"
+    },
+    "region": "Asia",
+    "subregion": "Asia",
+    "capital": [
+      "Macau"
+    ],
+    "population": 680000,
+    "area": 115.0,
+    "translations": null,
+    "latlng": [
+      22.16666666,
+      113.55
+    ]
+  },
+  {
+    "cca3": "MAF",
+    "name": {
+      "common": "Saint Martin",
+      "official": "Saint Martin",
+      "nativeName": {
+        "eng": {
+          "official": "Saint Martin",
+          "common": "Saint Martin"
+        }
+      }
+    },
+    "flags": {
+      "png": "https://flagcdn.com/w320/mf.png"
+    },
+    "region": "Americas",
+    "subregion": "Caribbean",
+    "capital": [
+      "Marigot"
+    ],
+    "population": 1,
+    "area": null,
+    "translations": null,
+    "latlng": [
+      18.08333333,
+      -63.95
+    ]
+  },
+  {
+    "cca3": "MAR",
+    "name": {
+      "common": "Morocco",
+      "official": "Morocco",
+      "nativeName": {
+        "eng": {
+          "official": "Morocco",
+          "common": "Morocco"
+        }
+      }
+    },
+    "flags": {
+      "png": "https://flagcdn.com/w320/ma.png"
+    },
+    "region": "Africa",
+    "subregion": "Africa",
+    "capital": [
+      "Rabat"
+    ],
+    "population": 37000000,
+    "area": 446550.0,
+    "translations": null,
+    "latlng": [
+      32,
+      -5
+    ]
+  },
+  {
+    "cca3": "MCO",
+    "name": {
+      "common": "Monaco",
+      "official": "Monaco",
+      "nativeName": {
+        "eng": {
+          "official": "Monaco",
+          "common": "Monaco"
+        }
+      }
+    },
+    "flags": {
+      "png": "https://flagcdn.com/w320/mc.png"
+    },
+    "region": "Europe",
+    "subregion": "Europe",
+    "capital": [
+      "Monaco"
+    ],
+    "population": 39000,
+    "area": 2.02,
+    "translations": null,
+    "latlng": [
+      43.73333333,
+      7.4
+    ]
+  },
+  {
+    "cca3": "MDA",
+    "name": {
+      "common": "Moldova",
+      "official": "Moldova",
+      "nativeName": {
+        "eng": {
+          "official": "Moldova",
+          "common": "Moldova"
+        }
+      }
+    },
+    "flags": {
+      "png": "https://flagcdn.com/w320/md.png"
+    },
+    "region": "Europe",
+    "subregion": "Europe",
+    "capital": [
+      "Chișinău"
+    ],
+    "population": 2600000,
+    "area": 33846.0,
+    "translations": null,
+    "latlng": [
+      47,
+      29
+    ]
+  },
+  {
+    "cca3": "MDG",
+    "name": {
+      "common": "Madagascar",
+      "official": "Madagascar",
+      "nativeName": {
+        "eng": {
+          "official": "Madagascar",
+          "common": "Madagascar"
+        }
+      }
+    },
+    "flags": {
+      "png": "https://flagcdn.com/w320/mg.png"
+    },
+    "region": "Africa",
+    "subregion": "Africa",
+    "capital": [
+      "Antananarivo"
+    ],
+    "population": 28000000,
+    "area": 587041.0,
+    "translations": null,
+    "latlng": [
+      -20,
+      47
+    ]
+  },
+  {
+    "cca3": "MDV",
+    "name": {
+      "common": "Maldives",
+      "official": "Maldives",
+      "nativeName": {
+        "eng": {
+          "official": "Maldives",
+          "common": "Maldives"
+        }
+      }
+    },
+    "flags": {
+      "png": "https://flagcdn.com/w320/mv.png"
+    },
+    "region": "Asia",
+    "subregion": "Asia",
+    "capital": [
+      "Malé"
+    ],
+    "population": 550000,
+    "area": 298.0,
+    "translations": null,
+    "latlng": [
+      3.25,
+      73
+    ]
+  },
+  {
+    "cca3": "MEX",
+    "name": {
+      "common": "Mexico",
+      "official": "Mexico",
+      "nativeName": {
+        "eng": {
+          "official": "Mexico",
+          "common": "Mexico"
+        }
+      }
+    },
+    "flags": {
+      "png": "https://flagcdn.com/w320/mx.png"
+    },
+    "region": "Americas",
+    "subregion": "Central America",
+    "capital": [
+      "Mexico City"
+    ],
+    "population": 126000000,
+    "area": 1964375.0,
+    "translations": null,
+    "latlng": [
+      23,
+      -102
+    ]
+  },
+  {
+    "cca3": "MHL",
+    "name": {
+      "common": "Marshall Islands",
+      "official": "Marshall Islands",
+      "nativeName": {
+        "eng": {
+          "official": "Marshall Islands",
+          "common": "Marshall Islands"
+        }
+      }
+    },
+    "flags": {
+      "png": "https://flagcdn.com/w320/mh.png"
+    },
+    "region": "Oceania",
+    "subregion": "Oceania",
+    "capital": [
+      "Majuro"
+    ],
+    "population": 60000,
+    "area": 181.0,
+    "translations": null,
+    "latlng": [
+      9,
+      168
+    ]
+  },
+  {
+    "cca3": "MKD",
+    "name": {
+      "common": "North Macedonia",
+      "official": "North Macedonia",
+      "nativeName": {
+        "eng": {
+          "official": "North Macedonia",
+          "common": "North Macedonia"
+        }
+      }
+    },
+    "flags": {
+      "png": "https://flagcdn.com/w320/mk.png"
+    },
+    "region": "Europe",
+    "subregion": "Europe",
+    "capital": [
+      "Skopje"
+    ],
+    "population": 2100000,
+    "area": 25713.0,
+    "translations": null,
+    "latlng": [
+      41.83333333,
+      22
+    ]
+  },
+  {
+    "cca3": "MLI",
+    "name": {
+      "common": "Mali",
+      "official": "Mali",
+      "nativeName": {
+        "eng": {
+          "official": "Mali",
+          "common": "Mali"
+        }
+      }
+    },
+    "flags": {
+      "png": "https://flagcdn.com/w320/ml.png"
+    },
+    "region": "Africa",
+    "subregion": "Africa",
+    "capital": [
+      "Bamako"
+    ],
+    "population": 21000000,
+    "area": 1240192.0,
+    "translations": null,
+    "latlng": [
+      17,
+      -4
+    ]
+  },
+  {
+    "cca3": "MLT",
+    "name": {
+      "common": "Malta",
+      "official": "Malta",
+      "nativeName": {
+        "eng": {
+          "official": "Malta",
+          "common": "Malta"
+        }
+      }
+    },
+    "flags": {
+      "png": "https://flagcdn.com/w320/mt.png"
+    },
+    "region": "Europe",
+    "subregion": "Europe",
+    "capital": [
+      "Valletta"
+    ],
+    "population": 520000,
+    "area": 316.0,
+    "translations": null,
+    "latlng": [
+      35.83333333,
+      14.58333333
+    ]
+  },
+  {
+    "cca3": "MMR",
+    "name": {
+      "common": "Myanmar",
+      "official": "Myanmar",
+      "nativeName": {
+        "eng": {
+          "official": "Myanmar",
+          "common": "Myanmar"
+        }
+      }
+    },
+    "flags": {
+      "png": "https://flagcdn.com/w320/mm.png"
+    },
+    "region": "Asia",
+    "subregion": "Asia",
+    "capital": [
+      "Naypyidaw"
+    ],
+    "population": 54000000,
+    "area": 676578.0,
+    "translations": null,
+    "latlng": [
+      22,
+      98
+    ]
+  },
+  {
+    "cca3": "MNE",
+    "name": {
+      "common": "Montenegro",
+      "official": "Montenegro",
+      "nativeName": {
+        "eng": {
+          "official": "Montenegro",
+          "common": "Montenegro"
+        }
+      }
+    },
+    "flags": {
+      "png": "https://flagcdn.com/w320/me.png"
+    },
+    "region": "Europe",
+    "subregion": "Europe",
+    "capital": [
+      "Podgorica"
+    ],
+    "population": 620000,
+    "area": 13812.0,
+    "translations": null,
+    "latlng": [
+      42.5,
+      19.3
+    ]
+  },
+  {
+    "cca3": "MNG",
+    "name": {
+      "common": "Mongolia",
+      "official": "Mongolia",
+      "nativeName": {
+        "eng": {
+          "official": "Mongolia",
+          "common": "Mongolia"
+        }
+      }
+    },
+    "flags": {
+      "png": "https://flagcdn.com/w320/mn.png"
+    },
+    "region": "Asia",
+    "subregion": "Asia",
+    "capital": [
+      "Ulaanbaatar"
+    ],
+    "population": 3400000,
+    "area": 1564116.0,
+    "translations": null,
+    "latlng": [
+      46,
+      105
+    ]
+  },
+  {
+    "cca3": "MNP",
+    "name": {
+      "common": "Northern Mariana Islands",
+      "official": "Northern Mariana Islands",
+      "nativeName": {
+        "eng": {
+          "official": "Northern Mariana Islands",
+          "common": "Northern Mariana Islands"
+        }
+      }
+    },
+    "flags": {
+      "png": "https://flagcdn.com/w320/mp.png"
+    },
+    "region": "Oceania",
+    "subregion": "Oceania",
+    "capital": [
+      "Saipan"
+    ],
+    "population": 1,
+    "area": null,
+    "translations": null,
+    "latlng": [
+      15.2,
+      145.75
+    ]
+  },
+  {
+    "cca3": "MOZ",
+    "name": {
+      "common": "Mozambique",
+      "official": "Mozambique",
+      "nativeName": {
+        "eng": {
+          "official": "Mozambique",
+          "common": "Mozambique"
+        }
+      }
+    },
+    "flags": {
+      "png": "https://flagcdn.com/w320/mz.png"
+    },
+    "region": "Africa",
+    "subregion": "Africa",
+    "capital": [
+      "Maputo"
+    ],
+    "population": 32000000,
+    "area": 801590.0,
+    "translations": null,
+    "latlng": [
+      -18.25,
+      35
+    ]
+  },
+  {
+    "cca3": "MRT",
+    "name": {
+      "common": "Mauritania",
+      "official": "Mauritania",
+      "nativeName": {
+        "eng": {
+          "official": "Mauritania",
+          "common": "Mauritania"
+        }
+      }
+    },
+    "flags": {
+      "png": "https://flagcdn.com/w320/mr.png"
+    },
+    "region": "Africa",
+    "subregion": "Africa",
+    "capital": [
+      "Nouakchott"
+    ],
+    "population": 4800000,
+    "area": 1030700.0,
+    "translations": null,
+    "latlng": [
+      20,
+      -12
+    ]
+  },
+  {
+    "cca3": "MSR",
+    "name": {
+      "common": "Montserrat",
+      "official": "Montserrat",
+      "nativeName": {
+        "eng": {
+          "official": "Montserrat",
+          "common": "Montserrat"
+        }
+      }
+    },
+    "flags": {
+      "png": "https://flagcdn.com/w320/ms.png"
+    },
+    "region": "Americas",
+    "subregion": "Caribbean",
+    "capital": [
+      "Plymouth"
+    ],
+    "population": 1,
+    "area": null,
+    "translations": null,
+    "latlng": [
+      16.75,
+      -62.2
+    ]
+  },
+  {
+    "cca3": "MTQ",
+    "name": {
+      "common": "Martinique",
+      "official": "Martinique",
+      "nativeName": {
+        "eng": {
+          "official": "Martinique",
+          "common": "Martinique"
+        }
+      }
+    },
+    "flags": {
+      "png": "https://flagcdn.com/w320/mq.png"
+    },
+    "region": "Americas",
+    "subregion": "Caribbean",
+    "capital": [
+      "Fort-de-France"
+    ],
+    "population": 1,
+    "area": null,
+    "translations": null,
+    "latlng": [
+      14.666667,
+      -61
+    ]
+  },
+  {
+    "cca3": "MUS",
+    "name": {
+      "common": "Mauritius",
+      "official": "Mauritius",
+      "nativeName": {
+        "eng": {
+          "official": "Mauritius",
+          "common": "Mauritius"
+        }
+      }
+    },
+    "flags": {
+      "png": "https://flagcdn.com/w320/mu.png"
+    },
+    "region": "Africa",
+    "subregion": "Africa",
+    "capital": [
+      "Port Louis"
+    ],
+    "population": 1300000,
+    "area": 2040.0,
+    "translations": null,
+    "latlng": [
+      -20.28333333,
+      57.55
+    ]
+  },
+  {
+    "cca3": "MWI",
+    "name": {
+      "common": "Malawi",
+      "official": "Malawi",
+      "nativeName": {
+        "eng": {
+          "official": "Malawi",
+          "common": "Malawi"
+        }
+      }
+    },
+    "flags": {
+      "png": "https://flagcdn.com/w320/mw.png"
+    },
+    "region": "Africa",
+    "subregion": "Africa",
+    "capital": [
+      "Lilongwe"
+    ],
+    "population": 20000000,
+    "area": 118484.0,
+    "translations": null,
+    "latlng": [
+      -13.5,
+      34
+    ]
+  },
+  {
+    "cca3": "MYS",
+    "name": {
+      "common": "Malaysia",
+      "official": "Malaysia",
+      "nativeName": {
+        "eng": {
+          "official": "Malaysia",
+          "common": "Malaysia"
+        }
+      }
+    },
+    "flags": {
+      "png": "https://flagcdn.com/w320/my.png"
+    },
+    "region": "Asia",
+    "subregion": "Asia",
+    "capital": [
+      "Kuala Lumpur"
+    ],
+    "population": 33000000,
+    "area": 330803.0,
+    "translations": null,
+    "latlng": [
+      2.5,
+      112.5
+    ]
+  },
+  {
+    "cca3": "MYT",
+    "name": {
+      "common": "Mayotte",
+      "official": "Mayotte",
+      "nativeName": {
+        "eng": {
+          "official": "Mayotte",
+          "common": "Mayotte"
+        }
+      }
+    },
+    "flags": {
+      "png": "https://flagcdn.com/w320/yt.png"
+    },
+    "region": "Africa",
+    "subregion": "Africa",
+    "capital": [
+      "Mamoudzou"
+    ],
+    "population": 1,
+    "area": null,
+    "translations": null,
+    "latlng": [
+      -12.83333333,
+      45.16666666
+    ]
+  },
+  {
+    "cca3": "NAM",
+    "name": {
+      "common": "Namibia",
+      "official": "Namibia",
+      "nativeName": {
+        "eng": {
+          "official": "Namibia",
+          "common": "Namibia"
+        }
+      }
+    },
+    "flags": {
+      "png": "https://flagcdn.com/w320/na.png"
+    },
+    "region": "Africa",
+    "subregion": "Africa",
+    "capital": [
+      "Windhoek"
+    ],
+    "population": 2600000,
+    "area": 825615.0,
+    "translations": null,
+    "latlng": [
+      -22,
+      17
+    ]
+  },
+  {
+    "cca3": "NCL",
+    "name": {
+      "common": "New Caledonia",
+      "official": "New Caledonia",
+      "nativeName": {
+        "eng": {
+          "official": "New Caledonia",
+          "common": "New Caledonia"
+        }
+      }
+    },
+    "flags": {
+      "png": "https://flagcdn.com/w320/nc.png"
+    },
+    "region": "Oceania",
+    "subregion": "Oceania",
+    "capital": [
+      "Nouméa"
+    ],
+    "population": 1,
+    "area": null,
+    "translations": null,
+    "latlng": [
+      -21.5,
+      165.5
+    ]
+  },
+  {
+    "cca3": "NER",
+    "name": {
+      "common": "Niger",
+      "official": "Niger",
+      "nativeName": {
+        "eng": {
+          "official": "Niger",
+          "common": "Niger"
+        }
+      }
+    },
+    "flags": {
+      "png": "https://flagcdn.com/w320/ne.png"
+    },
+    "region": "Africa",
+    "subregion": "Africa",
+    "capital": [
+      "Niamey"
+    ],
+    "population": 25000000,
+    "area": 1267000.0,
+    "translations": null,
+    "latlng": [
+      16,
+      8
+    ]
+  },
+  {
+    "cca3": "NFK",
+    "name": {
+      "common": "Norfolk Island",
+      "official": "Norfolk Island",
+      "nativeName": {
+        "eng": {
+          "official": "Norfolk Island",
+          "common": "Norfolk Island"
+        }
+      }
+    },
+    "flags": {
+      "png": "https://flagcdn.com/w320/nf.png"
+    },
+    "region": "Oceania",
+    "subregion": "Oceania",
+    "capital": [
+      "Kingston"
+    ],
+    "population": 1,
+    "area": null,
+    "translations": null,
+    "latlng": [
+      -29.03333333,
+      167.95
+    ]
+  },
+  {
+    "cca3": "NGA",
+    "name": {
+      "common": "Nigeria",
+      "official": "Nigeria",
+      "nativeName": {
+        "eng": {
+          "official": "Nigeria",
+          "common": "Nigeria"
+        }
+      }
+    },
+    "flags": {
+      "png": "https://flagcdn.com/w320/ng.png"
+    },
+    "region": "Africa",
+    "subregion": "Africa",
+    "capital": [
+      "Abuja"
+    ],
+    "population": 220000000,
+    "area": 923768.0,
+    "translations": null,
+    "latlng": [
+      10,
+      8
+    ]
+  },
+  {
+    "cca3": "NIC",
+    "name": {
+      "common": "Nicaragua",
+      "official": "Nicaragua",
+      "nativeName": {
+        "eng": {
+          "official": "Nicaragua",
+          "common": "Nicaragua"
+        }
+      }
+    },
+    "flags": {
+      "png": "https://flagcdn.com/w320/ni.png"
+    },
+    "region": "Americas",
+    "subregion": "Central America",
+    "capital": [
+      "Managua"
+    ],
+    "population": 6800000,
+    "area": 130373.0,
+    "translations": null,
+    "latlng": [
+      13,
+      -85
+    ]
+  },
+  {
+    "cca3": "NIU",
+    "name": {
+      "common": "Niue",
+      "official": "Niue",
+      "nativeName": {
+        "eng": {
+          "official": "Niue",
+          "common": "Niue"
+        }
+      }
+    },
+    "flags": {
+      "png": "https://flagcdn.com/w320/nu.png"
+    },
+    "region": "Oceania",
+    "subregion": "Oceania",
+    "capital": [
+      "Alofi"
+    ],
+    "population": 1,
+    "area": null,
+    "translations": null,
+    "latlng": [
+      -19.03333333,
+      -169.86666666
+    ]
+  },
+  {
+    "cca3": "NLD",
+    "name": {
+      "common": "Netherlands",
+      "official": "Netherlands",
+      "nativeName": {
+        "eng": {
+          "official": "Netherlands",
+          "common": "Netherlands"
+        }
+      }
+    },
+    "flags": {
+      "png": "https://flagcdn.com/w320/nl.png"
+    },
+    "region": "Europe",
+    "subregion": "Europe",
+    "capital": [
+      "Amsterdam"
+    ],
+    "population": 17500000,
+    "area": 41543.0,
+    "translations": null,
+    "latlng": [
+      52.5,
+      5.75
+    ]
+  },
+  {
+    "cca3": "NOR",
+    "name": {
+      "common": "Norway",
+      "official": "Norway",
+      "nativeName": {
+        "eng": {
+          "official": "Norway",
+          "common": "Norway"
+        }
+      }
+    },
+    "flags": {
+      "png": "https://flagcdn.com/w320/no.png"
+    },
+    "region": "Europe",
+    "subregion": "Europe",
+    "capital": [
+      "Oslo"
+    ],
+    "population": 5400000,
+    "area": 385207.0,
+    "translations": null,
+    "latlng": [
+      62,
+      10
+    ]
+  },
+  {
+    "cca3": "NPL",
+    "name": {
+      "common": "Nepal",
+      "official": "Nepal",
+      "nativeName": {
+        "eng": {
+          "official": "Nepal",
+          "common": "Nepal"
+        }
+      }
+    },
+    "flags": {
+      "png": "https://flagcdn.com/w320/np.png"
+    },
+    "region": "Asia",
+    "subregion": "Asia",
+    "capital": [
+      "Kathmandu"
+    ],
+    "population": 30000000,
+    "area": 147181.0,
+    "translations": null,
+    "latlng": [
+      28,
+      84
+    ]
+  },
+  {
+    "cca3": "NRU",
+    "name": {
+      "common": "Nauru",
+      "official": "Nauru",
+      "nativeName": {
+        "eng": {
+          "official": "Nauru",
+          "common": "Nauru"
+        }
+      }
+    },
+    "flags": {
+      "png": "https://flagcdn.com/w320/nr.png"
+    },
+    "region": "Oceania",
+    "subregion": "Oceania",
+    "capital": [
+      "Yaren"
+    ],
+    "population": 10000,
+    "area": 21.0,
+    "translations": null,
+    "latlng": [
+      -0.53333333,
+      166.91666666
+    ]
+  },
+  {
+    "cca3": "NZL",
+    "name": {
+      "common": "New Zealand",
+      "official": "New Zealand",
+      "nativeName": {
+        "eng": {
+          "official": "New Zealand",
+          "common": "New Zealand"
+        }
+      }
+    },
+    "flags": {
+      "png": "https://flagcdn.com/w320/nz.png"
+    },
+    "region": "Oceania",
+    "subregion": "Oceania",
+    "capital": [
+      "Wellington"
+    ],
+    "population": 5200000,
+    "area": 268021.0,
+    "translations": null,
+    "latlng": [
+      -41,
+      174
+    ]
+  },
+  {
+    "cca3": "OMN",
+    "name": {
+      "common": "Oman",
+      "official": "Oman",
+      "nativeName": {
+        "eng": {
+          "official": "Oman",
+          "common": "Oman"
+        }
+      }
+    },
+    "flags": {
+      "png": "https://flagcdn.com/w320/om.png"
+    },
+    "region": "Asia",
+    "subregion": "Asia",
+    "capital": [
+      "Muscat"
+    ],
+    "population": 5100000,
+    "area": 309500.0,
+    "translations": null,
+    "latlng": [
+      21,
+      57
+    ]
+  },
+  {
+    "cca3": "PAK",
+    "name": {
+      "common": "Pakistan",
+      "official": "Pakistan",
+      "nativeName": {
+        "eng": {
+          "official": "Pakistan",
+          "common": "Pakistan"
+        }
+      }
+    },
+    "flags": {
+      "png": "https://flagcdn.com/w320/pk.png"
+    },
+    "region": "Asia",
+    "subregion": "Asia",
+    "capital": [
+      "Islamabad"
+    ],
+    "population": 240000000,
+    "area": 881913.0,
+    "translations": null,
+    "latlng": [
+      30,
+      70
+    ]
+  },
+  {
+    "cca3": "PAN",
+    "name": {
+      "common": "Panama",
+      "official": "Panama",
+      "nativeName": {
+        "eng": {
+          "official": "Panama",
+          "common": "Panama"
+        }
+      }
+    },
+    "flags": {
+      "png": "https://flagcdn.com/w320/pa.png"
+    },
+    "region": "Americas",
+    "subregion": "Central America",
+    "capital": [
+      "Panama City"
+    ],
+    "population": 4400000,
+    "area": 75417.0,
+    "translations": null,
+    "latlng": [
+      9,
+      -80
+    ]
+  },
+  {
+    "cca3": "PCN",
+    "name": {
+      "common": "Pitcairn Islands",
+      "official": "Pitcairn Islands",
+      "nativeName": {
+        "eng": {
+          "official": "Pitcairn Islands",
+          "common": "Pitcairn Islands"
+        }
+      }
+    },
+    "flags": {
+      "png": "https://flagcdn.com/w320/pn.png"
+    },
+    "region": "Oceania",
+    "subregion": "Oceania",
+    "capital": [
+      "Adamstown"
+    ],
+    "population": 1,
+    "area": null,
+    "translations": null,
+    "latlng": [
+      -25.06666666,
+      -130.1
+    ]
+  },
+  {
+    "cca3": "PER",
+    "name": {
+      "common": "Peru",
+      "official": "Peru",
+      "nativeName": {
+        "eng": {
+          "official": "Peru",
+          "common": "Peru"
+        }
+      }
+    },
+    "flags": {
+      "png": "https://flagcdn.com/w320/pe.png"
+    },
+    "region": "Americas",
+    "subregion": "South America",
+    "capital": [
+      "Lima"
+    ],
+    "population": 33000000,
+    "area": 1285216.0,
+    "translations": null,
+    "latlng": [
+      -10,
+      -76
+    ]
+  },
+  {
+    "cca3": "PHL",
+    "name": {
+      "common": "Philippines",
+      "official": "Philippines",
+      "nativeName": {
+        "eng": {
+          "official": "Philippines",
+          "common": "Philippines"
+        }
+      }
+    },
+    "flags": {
+      "png": "https://flagcdn.com/w320/ph.png"
+    },
+    "region": "Asia",
+    "subregion": "Asia",
+    "capital": [
+      "Manila"
+    ],
+    "population": 115000000,
+    "area": 300000.0,
+    "translations": null,
+    "latlng": [
+      13,
+      122
+    ]
+  },
+  {
+    "cca3": "PLW",
+    "name": {
+      "common": "Palau",
+      "official": "Palau",
+      "nativeName": {
+        "eng": {
+          "official": "Palau",
+          "common": "Palau"
+        }
+      }
+    },
+    "flags": {
+      "png": "https://flagcdn.com/w320/pw.png"
+    },
+    "region": "Oceania",
+    "subregion": "Oceania",
+    "capital": [
+      "Ngerulmud"
+    ],
+    "population": 18000,
+    "area": 459.0,
+    "translations": null,
+    "latlng": [
+      7.5,
+      134.5
+    ]
+  },
+  {
+    "cca3": "PNG",
+    "name": {
+      "common": "Papua New Guinea",
+      "official": "Papua New Guinea",
+      "nativeName": {
+        "eng": {
+          "official": "Papua New Guinea",
+          "common": "Papua New Guinea"
+        }
+      }
+    },
+    "flags": {
+      "png": "https://flagcdn.com/w320/pg.png"
+    },
+    "region": "Oceania",
+    "subregion": "Oceania",
+    "capital": [
+      "Port Moresby"
+    ],
+    "population": 9000000,
+    "area": 462840.0,
+    "translations": null,
+    "latlng": [
+      -6,
+      147
+    ]
+  },
+  {
+    "cca3": "POL",
+    "name": {
+      "common": "Poland",
+      "official": "Poland",
+      "nativeName": {
+        "eng": {
+          "official": "Poland",
+          "common": "Poland"
+        }
+      }
+    },
+    "flags": {
+      "png": "https://flagcdn.com/w320/pl.png"
+    },
+    "region": "Europe",
+    "subregion": "Europe",
+    "capital": [
+      "Warsaw"
+    ],
+    "population": 38000000,
+    "area": 312696.0,
+    "translations": null,
+    "latlng": [
+      52,
+      20
+    ]
+  },
+  {
+    "cca3": "PRI",
+    "name": {
+      "common": "Puerto Rico",
+      "official": "Puerto Rico",
+      "nativeName": {
+        "eng": {
+          "official": "Puerto Rico",
+          "common": "Puerto Rico"
+        }
+      }
+    },
+    "flags": {
+      "png": "https://flagcdn.com/w320/pr.png"
+    },
+    "region": "Americas",
+    "subregion": "Caribbean",
+    "capital": [
+      "San Juan"
+    ],
+    "population": 3200000,
+    "area": 9104.0,
+    "translations": null,
+    "latlng": [
+      18.25,
+      -66.5
+    ]
+  },
+  {
+    "cca3": "PRK",
+    "name": {
+      "common": "North Korea",
+      "official": "North Korea",
+      "nativeName": {
+        "eng": {
+          "official": "North Korea",
+          "common": "North Korea"
+        }
+      }
+    },
+    "flags": {
+      "png": "https://flagcdn.com/w320/kp.png"
+    },
+    "region": "Asia",
+    "subregion": "Asia",
+    "capital": [
+      "Pyongyang"
+    ],
+    "population": 26000000,
+    "area": 120540.0,
+    "translations": null,
+    "latlng": [
+      40,
+      127
+    ]
+  },
+  {
+    "cca3": "PRT",
+    "name": {
+      "common": "Portugal",
+      "official": "Portugal",
+      "nativeName": {
+        "eng": {
+          "official": "Portugal",
+          "common": "Portugal"
+        }
+      }
+    },
+    "flags": {
+      "png": "https://flagcdn.com/w320/pt.png"
+    },
+    "region": "Europe",
+    "subregion": "Europe",
+    "capital": [
+      "Lisbon"
+    ],
+    "population": 10300000,
+    "area": 92090.0,
+    "translations": null,
+    "latlng": [
+      39.5,
+      -8
+    ]
+  },
+  {
+    "cca3": "PRY",
+    "name": {
+      "common": "Paraguay",
+      "official": "Paraguay",
+      "nativeName": {
+        "eng": {
+          "official": "Paraguay",
+          "common": "Paraguay"
+        }
+      }
+    },
+    "flags": {
+      "png": "https://flagcdn.com/w320/py.png"
+    },
+    "region": "Americas",
+    "subregion": "South America",
+    "capital": [
+      "Asunción"
+    ],
+    "population": 7500000,
+    "area": 406752.0,
+    "translations": null,
+    "latlng": [
+      -23,
+      -58
+    ]
+  },
+  {
+    "cca3": "PSE",
+    "name": {
+      "common": "Palestine",
+      "official": "Palestine",
+      "nativeName": {
+        "eng": {
+          "official": "Palestine",
+          "common": "Palestine"
+        }
+      }
+    },
+    "flags": {
+      "png": "https://flagcdn.com/w320/ps.png"
+    },
+    "region": "Asia",
+    "subregion": "Asia",
+    "capital": [
+      "Ramallah"
+    ],
+    "population": 5200000,
+    "area": 6020.0,
+    "translations": null,
+    "latlng": [
+      31.9,
+      35.2
+    ]
+  },
+  {
+    "cca3": "PYF",
+    "name": {
+      "common": "French Polynesia",
+      "official": "French Polynesia",
+      "nativeName": {
+        "eng": {
+          "official": "French Polynesia",
+          "common": "French Polynesia"
+        }
+      }
+    },
+    "flags": {
+      "png": "https://flagcdn.com/w320/pf.png"
+    },
+    "region": "Oceania",
+    "subregion": "Oceania",
+    "capital": [
+      "Papeete"
+    ],
+    "population": 1,
+    "area": null,
+    "translations": null,
+    "latlng": [
+      -15,
+      -140
+    ]
+  },
+  {
+    "cca3": "QAT",
+    "name": {
+      "common": "Qatar",
+      "official": "Qatar",
+      "nativeName": {
+        "eng": {
+          "official": "Qatar",
+          "common": "Qatar"
+        }
+      }
+    },
+    "flags": {
+      "png": "https://flagcdn.com/w320/qa.png"
+    },
+    "region": "Asia",
+    "subregion": "Asia",
+    "capital": [
+      "Doha"
+    ],
+    "population": 2900000,
+    "area": 11586.0,
+    "translations": null,
+    "latlng": [
+      25.5,
+      51.25
+    ]
+  },
+  {
+    "cca3": "REU",
+    "name": {
+      "common": "Réunion",
+      "official": "Réunion",
+      "nativeName": {
+        "eng": {
+          "official": "Réunion",
+          "common": "Réunion"
+        }
+      }
+    },
+    "flags": {
+      "png": "https://flagcdn.com/w320/re.png"
+    },
+    "region": "Africa",
+    "subregion": "Africa",
+    "capital": [
+      "Saint-Denis"
+    ],
+    "population": 1,
+    "area": null,
+    "translations": null,
+    "latlng": [
+      -21.15,
+      55.5
+    ]
+  },
+  {
+    "cca3": "ROU",
+    "name": {
+      "common": "Romania",
+      "official": "Romania",
+      "nativeName": {
+        "eng": {
+          "official": "Romania",
+          "common": "Romania"
+        }
+      }
+    },
+    "flags": {
+      "png": "https://flagcdn.com/w320/ro.png"
+    },
+    "region": "Europe",
+    "subregion": "Europe",
+    "capital": [
+      "Bucharest"
+    ],
+    "population": 19050000,
+    "area": 238397.0,
+    "translations": null,
+    "latlng": [
+      46,
+      25
+    ]
+  },
+  {
+    "cca3": "RUS",
+    "name": {
+      "common": "Russia",
+      "official": "Russia",
+      "nativeName": {
+        "eng": {
+          "official": "Russia",
+          "common": "Russia"
+        }
+      }
+    },
+    "flags": {
+      "png": "https://flagcdn.com/w320/ru.png"
+    },
+    "region": "Europe",
+    "subregion": "Europe",
+    "capital": [
+      "Moscow"
+    ],
+    "population": 146700000,
+    "area": 17098246.0,
+    "translations": null,
+    "latlng": [
+      60,
+      100
+    ]
+  },
+  {
+    "cca3": "RWA",
+    "name": {
+      "common": "Rwanda",
+      "official": "Rwanda",
+      "nativeName": {
+        "eng": {
+          "official": "Rwanda",
+          "common": "Rwanda"
+        }
+      }
+    },
+    "flags": {
+      "png": "https://flagcdn.com/w320/rw.png"
+    },
+    "region": "Africa",
+    "subregion": "Africa",
+    "capital": [
+      "Kigali"
+    ],
+    "population": 13000000,
+    "area": 26338.0,
+    "translations": null,
+    "latlng": [
+      -2,
+      30
+    ]
+  },
+  {
+    "cca3": "SAU",
+    "name": {
+      "common": "Saudi Arabia",
+      "official": "Saudi Arabia",
+      "nativeName": {
+        "eng": {
+          "official": "Saudi Arabia",
+          "common": "Saudi Arabia"
+        }
+      }
+    },
+    "flags": {
+      "png": "https://flagcdn.com/w320/sa.png"
+    },
+    "region": "Asia",
+    "subregion": "Asia",
+    "capital": [
+      "Riyadh"
+    ],
+    "population": 35000000,
+    "area": 2149690.0,
+    "translations": null,
+    "latlng": [
+      25,
+      45
+    ]
+  },
+  {
+    "cca3": "SDN",
+    "name": {
+      "common": "Sudan",
+      "official": "Sudan",
+      "nativeName": {
+        "eng": {
+          "official": "Sudan",
+          "common": "Sudan"
+        }
+      }
+    },
+    "flags": {
+      "png": "https://flagcdn.com/w320/sd.png"
+    },
+    "region": "Africa",
+    "subregion": "Africa",
+    "capital": [
+      "Khartoum"
+    ],
+    "population": 45000000,
+    "area": 1886068.0,
+    "translations": null,
+    "latlng": [
+      15,
+      30
+    ]
+  },
+  {
+    "cca3": "SEN",
+    "name": {
+      "common": "Senegal",
+      "official": "Senegal",
+      "nativeName": {
+        "eng": {
+          "official": "Senegal",
+          "common": "Senegal"
+        }
+      }
+    },
+    "flags": {
+      "png": "https://flagcdn.com/w320/sn.png"
+    },
+    "region": "Africa",
+    "subregion": "Africa",
+    "capital": [
+      "Dakar"
+    ],
+    "population": 17000000,
+    "area": 196722.0,
+    "translations": null,
+    "latlng": [
+      14,
+      -14
+    ]
+  },
+  {
+    "cca3": "SGP",
+    "name": {
+      "common": "Singapore",
+      "official": "Singapore",
+      "nativeName": {
+        "eng": {
+          "official": "Singapore",
+          "common": "Singapore"
+        }
+      }
+    },
+    "flags": {
+      "png": "https://flagcdn.com/w320/sg.png"
+    },
+    "region": "Asia",
+    "subregion": "Asia",
+    "capital": [
+      "Singapore"
+    ],
+    "population": 5700000,
+    "area": 728.0,
+    "translations": null,
+    "latlng": [
+      1.36666666,
+      103.8
+    ]
+  },
+  {
+    "cca3": "SHN",
+    "name": {
+      "common": "Saint Helena",
+      "official": "Saint Helena",
+      "nativeName": {
+        "eng": {
+          "official": "Saint Helena",
+          "common": "Saint Helena"
+        }
+      }
+    },
+    "flags": {
+      "png": "https://flagcdn.com/w320/sh.png"
+    },
+    "region": "Africa",
+    "subregion": "Africa",
+    "capital": [
+      "Jamestown"
+    ],
+    "population": 1,
+    "area": null,
+    "translations": null,
+    "latlng": [
+      -15.95,
+      -5.72
+    ]
+  },
+  {
+    "cca3": "SJM",
+    "name": {
+      "common": "Svalbard and Jan Mayen",
+      "official": "Svalbard and Jan Mayen",
+      "nativeName": {
+        "eng": {
+          "official": "Svalbard and Jan Mayen",
+          "common": "Svalbard and Jan Mayen"
+        }
+      }
+    },
+    "flags": {
+      "png": "https://flagcdn.com/w320/sj.png"
+    },
+    "region": "Europe",
+    "subregion": "Europe",
+    "capital": [
+      "Longyearbyen"
+    ],
+    "population": 1,
+    "area": null,
+    "translations": null,
+    "latlng": [
+      78,
+      20
+    ]
+  },
+  {
+    "cca3": "SLB",
+    "name": {
+      "common": "Solomon Islands",
+      "official": "Solomon Islands",
+      "nativeName": {
+        "eng": {
+          "official": "Solomon Islands",
+          "common": "Solomon Islands"
+        }
+      }
+    },
+    "flags": {
+      "png": "https://flagcdn.com/w320/sb.png"
+    },
+    "region": "Oceania",
+    "subregion": "Oceania",
+    "capital": [
+      "Honiara"
+    ],
+    "population": 700000,
+    "area": 28896.0,
+    "translations": null,
+    "latlng": [
+      -8,
+      159
+    ]
+  },
+  {
+    "cca3": "SLE",
+    "name": {
+      "common": "Sierra Leone",
+      "official": "Sierra Leone",
+      "nativeName": {
+        "eng": {
+          "official": "Sierra Leone",
+          "common": "Sierra Leone"
+        }
+      }
+    },
+    "flags": {
+      "png": "https://flagcdn.com/w320/sl.png"
+    },
+    "region": "Africa",
+    "subregion": "Africa",
+    "capital": [
+      "Freetown"
+    ],
+    "population": 8000000,
+    "area": 71740.0,
+    "translations": null,
+    "latlng": [
+      8.5,
+      -11.5
+    ]
+  },
+  {
+    "cca3": "SLV",
+    "name": {
+      "common": "El Salvador",
+      "official": "El Salvador",
+      "nativeName": {
+        "eng": {
+          "official": "El Salvador",
+          "common": "El Salvador"
+        }
+      }
+    },
+    "flags": {
+      "png": "https://flagcdn.com/w320/sv.png"
+    },
+    "region": "Americas",
+    "subregion": "Central America",
+    "capital": [
+      "San Salvador"
+    ],
+    "population": 6500000,
+    "area": 21041.0,
+    "translations": null,
+    "latlng": [
+      13.83333333,
+      -88.91666666
+    ]
+  },
+  {
+    "cca3": "SMR",
+    "name": {
+      "common": "San Marino",
+      "official": "San Marino",
+      "nativeName": {
+        "eng": {
+          "official": "San Marino",
+          "common": "San Marino"
+        }
+      }
+    },
+    "flags": {
+      "png": "https://flagcdn.com/w320/sm.png"
+    },
+    "region": "Europe",
+    "subregion": "Europe",
+    "capital": [
+      "San Marino"
+    ],
+    "population": 34000,
+    "area": 61.0,
+    "translations": null,
+    "latlng": [
+      43.76666666,
+      12.41666666
+    ]
+  },
+  {
+    "cca3": "SOM",
+    "name": {
+      "common": "Somalia",
+      "official": "Somalia",
+      "nativeName": {
+        "eng": {
+          "official": "Somalia",
+          "common": "Somalia"
+        }
+      }
+    },
+    "flags": {
+      "png": "https://flagcdn.com/w320/so.png"
+    },
+    "region": "Africa",
+    "subregion": "Africa",
+    "capital": [
+      "Mogadishu"
+    ],
+    "population": 17000000,
+    "area": 637657.0,
+    "translations": null,
+    "latlng": [
+      10,
+      49
+    ]
+  },
+  {
+    "cca3": "SPM",
+    "name": {
+      "common": "Saint Pierre and Miquelon",
+      "official": "Saint Pierre and Miquelon",
+      "nativeName": {
+        "eng": {
+          "official": "Saint Pierre and Miquelon",
+          "common": "Saint Pierre and Miquelon"
+        }
+      }
+    },
+    "flags": {
+      "png": "https://flagcdn.com/w320/pm.png"
+    },
+    "region": "Americas",
+    "subregion": "Northern America",
+    "capital": [
+      "Saint-Pierre"
+    ],
+    "population": 1,
+    "area": null,
+    "translations": null,
+    "latlng": [
+      46.83333333,
+      -56.33333333
+    ]
+  },
+  {
+    "cca3": "SRB",
+    "name": {
+      "common": "Serbia",
+      "official": "Serbia",
+      "nativeName": {
+        "eng": {
+          "official": "Serbia",
+          "common": "Serbia"
+        }
+      }
+    },
+    "flags": {
+      "png": "https://flagcdn.com/w320/rs.png"
+    },
+    "region": "Europe",
+    "subregion": "Europe",
+    "capital": [
+      "Belgrade"
+    ],
+    "population": 6900000,
+    "area": 88361.0,
+    "translations": null,
+    "latlng": [
+      44,
+      21
+    ]
+  },
+  {
+    "cca3": "SSD",
+    "name": {
+      "common": "South Sudan",
+      "official": "South Sudan",
+      "nativeName": {
+        "eng": {
+          "official": "South Sudan",
+          "common": "South Sudan"
+        }
+      }
+    },
+    "flags": {
+      "png": "https://flagcdn.com/w320/ss.png"
+    },
+    "region": "Africa",
+    "subregion": "Africa",
+    "capital": [
+      "Juba"
+    ],
+    "population": 12000000,
+    "area": 619745.0,
+    "translations": null,
+    "latlng": [
+      7,
+      30
+    ]
+  },
+  {
+    "cca3": "STP",
+    "name": {
+      "common": "São Tomé and Príncipe",
+      "official": "São Tomé and Príncipe",
+      "nativeName": {
+        "eng": {
+          "official": "São Tomé and Príncipe",
+          "common": "São Tomé and Príncipe"
+        }
+      }
+    },
+    "flags": {
+      "png": "https://flagcdn.com/w320/st.png"
+    },
+    "region": "Africa",
+    "subregion": "Africa",
+    "capital": [
+      "São Tomé"
+    ],
+    "population": 220000,
+    "area": 964.0,
+    "translations": null,
+    "latlng": [
+      1,
+      7
+    ]
+  },
+  {
+    "cca3": "SUR",
+    "name": {
+      "common": "Suriname",
+      "official": "Suriname",
+      "nativeName": {
+        "eng": {
+          "official": "Suriname",
+          "common": "Suriname"
+        }
+      }
+    },
+    "flags": {
+      "png": "https://flagcdn.com/w320/sr.png"
+    },
+    "region": "Americas",
+    "subregion": "South America",
+    "capital": [
+      "Paramaribo"
+    ],
+    "population": 600000,
+    "area": 163820.0,
+    "translations": null,
+    "latlng": [
+      4,
+      -56
+    ]
+  },
+  {
+    "cca3": "SVK",
+    "name": {
+      "common": "Slovakia",
+      "official": "Slovakia",
+      "nativeName": {
+        "eng": {
+          "official": "Slovakia",
+          "common": "Slovakia"
+        }
+      }
+    },
+    "flags": {
+      "png": "https://flagcdn.com/w320/sk.png"
+    },
+    "region": "Europe",
+    "subregion": "Europe",
+    "capital": [
+      "Bratislava"
+    ],
+    "population": 5450000,
+    "area": 49035.0,
+    "translations": null,
+    "latlng": [
+      48.66666666,
+      19.5
+    ]
+  },
+  {
+    "cca3": "SVN",
+    "name": {
+      "common": "Slovenia",
+      "official": "Slovenia",
+      "nativeName": {
+        "eng": {
+          "official": "Slovenia",
+          "common": "Slovenia"
+        }
+      }
+    },
+    "flags": {
+      "png": "https://flagcdn.com/w320/si.png"
+    },
+    "region": "Europe",
+    "subregion": "Europe",
+    "capital": [
+      "Ljubljana"
+    ],
+    "population": 2100000,
+    "area": 20273.0,
+    "translations": null,
+    "latlng": [
+      46.11666666,
+      14.81666666
+    ]
+  },
+  {
+    "cca3": "SWE",
+    "name": {
+      "common": "Sweden",
+      "official": "Sweden",
+      "nativeName": {
+        "eng": {
+          "official": "Sweden",
+          "common": "Sweden"
+        }
+      }
+    },
+    "flags": {
+      "png": "https://flagcdn.com/w320/se.png"
+    },
+    "region": "Europe",
+    "subregion": "Europe",
+    "capital": [
+      "Stockholm"
+    ],
+    "population": 10400000,
+    "area": 450295.0,
+    "translations": null,
+    "latlng": [
+      62,
+      15
+    ]
+  },
+  {
+    "cca3": "SWZ",
+    "name": {
+      "common": "Eswatini",
+      "official": "Eswatini",
+      "nativeName": {
+        "eng": {
+          "official": "Eswatini",
+          "common": "Eswatini"
+        }
+      }
+    },
+    "flags": {
+      "png": "https://flagcdn.com/w320/sz.png"
+    },
+    "region": "Africa",
+    "subregion": "Africa",
+    "capital": [
+      "Mbabane"
+    ],
+    "population": 1200000,
+    "area": 17364.0,
+    "translations": null,
+    "latlng": [
+      -26.5,
+      31.5
+    ]
+  },
+  {
+    "cca3": "SXM",
+    "name": {
+      "common": "Sint Maarten",
+      "official": "Sint Maarten",
+      "nativeName": {
+        "eng": {
+          "official": "Sint Maarten",
+          "common": "Sint Maarten"
+        }
+      }
+    },
+    "flags": {
+      "png": "https://flagcdn.com/w320/sx.png"
+    },
+    "region": "Americas",
+    "subregion": "Caribbean",
+    "capital": [
+      "Philipsburg"
+    ],
+    "population": 1,
+    "area": null,
+    "translations": null,
+    "latlng": [
+      18.033333,
+      -63.05
+    ]
+  },
+  {
+    "cca3": "SYC",
+    "name": {
+      "common": "Seychelles",
+      "official": "Seychelles",
+      "nativeName": {
+        "eng": {
+          "official": "Seychelles",
+          "common": "Seychelles"
+        }
+      }
+    },
+    "flags": {
+      "png": "https://flagcdn.com/w320/sc.png"
+    },
+    "region": "Africa",
+    "subregion": "Africa",
+    "capital": [
+      "Victoria"
+    ],
+    "population": 100000,
+    "area": 459.0,
+    "translations": null,
+    "latlng": [
+      -4.58333333,
+      55.66666666
+    ]
+  },
+  {
+    "cca3": "SYR",
+    "name": {
+      "common": "Syria",
+      "official": "Syria",
+      "nativeName": {
+        "eng": {
+          "official": "Syria",
+          "common": "Syria"
+        }
+      }
+    },
+    "flags": {
+      "png": "https://flagcdn.com/w320/sy.png"
+    },
+    "region": "Asia",
+    "subregion": "Asia",
+    "capital": [
+      "Damascus"
+    ],
+    "population": 22000000,
+    "area": 185180.0,
+    "translations": null,
+    "latlng": [
+      35,
+      38
+    ]
+  },
+  {
+    "cca3": "TCA",
+    "name": {
+      "common": "Turks and Caicos Islands",
+      "official": "Turks and Caicos Islands",
+      "nativeName": {
+        "eng": {
+          "official": "Turks and Caicos Islands",
+          "common": "Turks and Caicos Islands"
+        }
+      }
+    },
+    "flags": {
+      "png": "https://flagcdn.com/w320/tc.png"
+    },
+    "region": "Americas",
+    "subregion": "Caribbean",
+    "capital": [
+      "Cockburn Town"
+    ],
+    "population": 1,
+    "area": null,
+    "translations": null,
+    "latlng": [
+      21.75,
+      -71.58333333
+    ]
+  },
+  {
+    "cca3": "TCD",
+    "name": {
+      "common": "Chad",
+      "official": "Chad",
+      "nativeName": {
+        "eng": {
+          "official": "Chad",
+          "common": "Chad"
+        }
+      }
+    },
+    "flags": {
+      "png": "https://flagcdn.com/w320/td.png"
+    },
+    "region": "Africa",
+    "subregion": "Africa",
+    "capital": [
+      "N'Djamena"
+    ],
+    "population": 17000000,
+    "area": 1284000.0,
+    "translations": null,
+    "latlng": [
+      15,
+      19
+    ]
+  },
+  {
+    "cca3": "TGO",
+    "name": {
+      "common": "Togo",
+      "official": "Togo",
+      "nativeName": {
+        "eng": {
+          "official": "Togo",
+          "common": "Togo"
+        }
+      }
+    },
+    "flags": {
+      "png": "https://flagcdn.com/w320/tg.png"
+    },
+    "region": "Africa",
+    "subregion": "Africa",
+    "capital": [
+      "Lomé"
+    ],
+    "population": 8500000,
+    "area": 56785.0,
+    "translations": null,
+    "latlng": [
+      8,
+      1.16666666
+    ]
+  },
+  {
+    "cca3": "THA",
+    "name": {
+      "common": "Thailand",
+      "official": "Thailand",
+      "nativeName": {
+        "eng": {
+          "official": "Thailand",
+          "common": "Thailand"
+        }
+      }
+    },
+    "flags": {
+      "png": "https://flagcdn.com/w320/th.png"
+    },
+    "region": "Asia",
+    "subregion": "Asia",
+    "capital": [
+      "Bangkok"
+    ],
+    "population": 70000000,
+    "area": 513120.0,
+    "translations": null,
+    "latlng": [
+      15,
+      100
+    ]
+  },
+  {
+    "cca3": "TJK",
+    "name": {
+      "common": "Tajikistan",
+      "official": "Tajikistan",
+      "nativeName": {
+        "eng": {
+          "official": "Tajikistan",
+          "common": "Tajikistan"
+        }
+      }
+    },
+    "flags": {
+      "png": "https://flagcdn.com/w320/tj.png"
+    },
+    "region": "Asia",
+    "subregion": "Asia",
+    "capital": [
+      "Dushanbe"
+    ],
+    "population": 9500000,
+    "area": 143100.0,
+    "translations": null,
+    "latlng": [
+      39,
+      71
+    ]
+  },
+  {
+    "cca3": "TKL",
+    "name": {
+      "common": "Tokelau",
+      "official": "Tokelau",
+      "nativeName": {
+        "eng": {
+          "official": "Tokelau",
+          "common": "Tokelau"
+        }
+      }
+    },
+    "flags": {
+      "png": "https://flagcdn.com/w320/tk.png"
+    },
+    "region": "Oceania",
+    "subregion": "Oceania",
+    "capital": [
+      "Fakaofo"
+    ],
+    "population": 1,
+    "area": null,
+    "translations": null,
+    "latlng": [
+      -9,
+      -172
+    ]
+  },
+  {
+    "cca3": "TKM",
+    "name": {
+      "common": "Turkmenistan",
+      "official": "Turkmenistan",
+      "nativeName": {
+        "eng": {
+          "official": "Turkmenistan",
+          "common": "Turkmenistan"
+        }
+      }
+    },
+    "flags": {
+      "png": "https://flagcdn.com/w320/tm.png"
+    },
+    "region": "Asia",
+    "subregion": "Asia",
+    "capital": [
+      "Ashgabat"
+    ],
+    "population": 6200000,
+    "area": 488100.0,
+    "translations": null,
+    "latlng": [
+      40,
+      60
+    ]
+  },
+  {
+    "cca3": "TLS",
+    "name": {
+      "common": "East Timor",
+      "official": "East Timor",
+      "nativeName": {
+        "eng": {
+          "official": "East Timor",
+          "common": "East Timor"
+        }
+      }
+    },
+    "flags": {
+      "png": "https://flagcdn.com/w320/tl.png"
+    },
+    "region": "Asia",
+    "subregion": "Asia",
+    "capital": [
+      "Dili"
+    ],
+    "population": 1300000,
+    "area": 14874.0,
+    "translations": null,
+    "latlng": [
+      -8.83333333,
+      125.91666666
+    ]
+  },
+  {
+    "cca3": "TON",
+    "name": {
+      "common": "Tonga",
+      "official": "Tonga",
+      "nativeName": {
+        "eng": {
+          "official": "Tonga",
+          "common": "Tonga"
+        }
+      }
+    },
+    "flags": {
+      "png": "https://flagcdn.com/w320/to.png"
+    },
+    "region": "Oceania",
+    "subregion": "Oceania",
+    "capital": [
+      "Nuku'alofa"
+    ],
+    "population": 100000,
+    "area": 747.0,
+    "translations": null,
+    "latlng": [
+      -20,
+      -175
+    ]
+  },
+  {
+    "cca3": "TTO",
+    "name": {
+      "common": "Trinidad and Tobago",
+      "official": "Trinidad and Tobago",
+      "nativeName": {
+        "eng": {
+          "official": "Trinidad and Tobago",
+          "common": "Trinidad and Tobago"
+        }
+      }
+    },
+    "flags": {
+      "png": "https://flagcdn.com/w320/tt.png"
+    },
+    "region": "Americas",
+    "subregion": "Caribbean",
+    "capital": [
+      "Port of Spain"
+    ],
+    "population": 1400000,
+    "area": 5131.0,
+    "translations": null,
+    "latlng": [
+      11,
+      -61
+    ]
+  },
+  {
+    "cca3": "TUN",
+    "name": {
+      "common": "Tunisia",
+      "official": "Tunisia",
+      "nativeName": {
+        "eng": {
+          "official": "Tunisia",
+          "common": "Tunisia"
+        }
+      }
+    },
+    "flags": {
+      "png": "https://flagcdn.com/w320/tn.png"
+    },
+    "region": "Africa",
+    "subregion": "Africa",
+    "capital": [
+      "Tunis"
+    ],
+    "population": 12000000,
+    "area": 163610.0,
+    "translations": null,
+    "latlng": [
+      34,
+      9
+    ]
+  },
+  {
+    "cca3": "TUR",
+    "name": {
+      "common": "Turkey",
+      "official": "Turkey",
+      "nativeName": {
+        "eng": {
+          "official": "Turkey",
+          "common": "Turkey"
+        }
+      }
+    },
+    "flags": {
+      "png": "https://flagcdn.com/w320/tr.png"
+    },
+    "region": "Asia",
+    "subregion": "Asia",
+    "capital": [
+      "Ankara"
+    ],
+    "population": 84000000,
+    "area": 783562.0,
+    "translations": null,
+    "latlng": [
+      39,
+      35
+    ]
+  },
+  {
+    "cca3": "TUV",
+    "name": {
+      "common": "Tuvalu",
+      "official": "Tuvalu",
+      "nativeName": {
+        "eng": {
+          "official": "Tuvalu",
+          "common": "Tuvalu"
+        }
+      }
+    },
+    "flags": {
+      "png": "https://flagcdn.com/w320/tv.png"
+    },
+    "region": "Oceania",
+    "subregion": "Oceania",
+    "capital": [
+      "Funafuti"
+    ],
+    "population": 12000,
+    "area": 26.0,
+    "translations": null,
+    "latlng": [
+      -8,
+      178
+    ]
+  },
+  {
+    "cca3": "TWN",
+    "name": {
+      "common": "Taiwan",
+      "official": "Taiwan",
+      "nativeName": {
+        "eng": {
+          "official": "Taiwan",
+          "common": "Taiwan"
+        }
+      }
+    },
+    "flags": {
+      "png": "https://flagcdn.com/w320/tw.png"
+    },
+    "region": "Asia",
+    "subregion": "Asia",
+    "capital": [
+      "Taipei"
+    ],
+    "population": 23500000,
+    "area": 36197.0,
+    "translations": null,
+    "latlng": [
+      23.5,
+      121
+    ]
+  },
+  {
+    "cca3": "TZA",
+    "name": {
+      "common": "Tanzania",
+      "official": "Tanzania",
+      "nativeName": {
+        "eng": {
+          "official": "Tanzania",
+          "common": "Tanzania"
+        }
+      }
+    },
+    "flags": {
+      "png": "https://flagcdn.com/w320/tz.png"
+    },
+    "region": "Africa",
+    "subregion": "Africa",
+    "capital": [
+      "Dodoma"
+    ],
+    "population": 62000000,
+    "area": 947303.0,
+    "translations": null,
+    "latlng": [
+      -6,
+      35
+    ]
+  },
+  {
+    "cca3": "UGA",
+    "name": {
+      "common": "Uganda",
+      "official": "Uganda",
+      "nativeName": {
+        "eng": {
+          "official": "Uganda",
+          "common": "Uganda"
+        }
+      }
+    },
+    "flags": {
+      "png": "https://flagcdn.com/w320/ug.png"
+    },
+    "region": "Africa",
+    "subregion": "Africa",
+    "capital": [
+      "Kampala"
+    ],
+    "population": 47000000,
+    "area": 241038.0,
+    "translations": null,
+    "latlng": [
+      1,
+      32
+    ]
+  },
+  {
+    "cca3": "UKR",
+    "name": {
+      "common": "Ukraine",
+      "official": "Ukraine",
+      "nativeName": {
+        "eng": {
+          "official": "Ukraine",
+          "common": "Ukraine"
+        }
+      }
+    },
+    "flags": {
+      "png": "https://flagcdn.com/w320/ua.png"
+    },
+    "region": "Europe",
+    "subregion": "Europe",
+    "capital": [
+      "Kyiv"
+    ],
+    "population": 44300000,
+    "area": 603550.0,
+    "translations": null,
+    "latlng": [
+      49,
+      32
+    ]
+  },
+  {
+    "cca3": "URY",
+    "name": {
+      "common": "Uruguay",
+      "official": "Uruguay",
+      "nativeName": {
+        "eng": {
+          "official": "Uruguay",
+          "common": "Uruguay"
+        }
+      }
+    },
+    "flags": {
+      "png": "https://flagcdn.com/w320/uy.png"
+    },
+    "region": "Americas",
+    "subregion": "South America",
+    "capital": [
+      "Montevideo"
+    ],
+    "population": 3500000,
+    "area": 176215.0,
+    "translations": null,
+    "latlng": [
+      -33,
+      -56
+    ]
+  },
+  {
+    "cca3": "USA",
+    "name": {
+      "common": "United States",
+      "official": "United States",
+      "nativeName": {
+        "eng": {
+          "official": "United States",
+          "common": "United States"
+        }
+      }
+    },
+    "flags": {
+      "png": "https://flagcdn.com/w320/us.png"
+    },
+    "region": "Americas",
+    "subregion": "Northern America",
+    "capital": [
+      "Washington, D.C."
+    ],
+    "population": 331900000,
+    "area": 9833517.0,
+    "translations": null,
+    "latlng": [
+      38,
+      -97
+    ]
+  },
+  {
+    "cca3": "UZB",
+    "name": {
+      "common": "Uzbekistan",
+      "official": "Uzbekistan",
+      "nativeName": {
+        "eng": {
+          "official": "Uzbekistan",
+          "common": "Uzbekistan"
+        }
+      }
+    },
+    "flags": {
+      "png": "https://flagcdn.com/w320/uz.png"
+    },
+    "region": "Asia",
+    "subregion": "Asia",
+    "capital": [
+      "Tashkent"
+    ],
+    "population": 35000000,
+    "area": 447400.0,
+    "translations": null,
+    "latlng": [
+      41,
+      64
+    ]
+  },
+  {
+    "cca3": "VAT",
+    "name": {
+      "common": "Vatican City",
+      "official": "Vatican City",
+      "nativeName": {
+        "eng": {
+          "official": "Vatican City",
+          "common": "Vatican City"
+        }
+      }
+    },
+    "flags": {
+      "png": "https://flagcdn.com/w320/va.png"
+    },
+    "region": "Europe",
+    "subregion": "Europe",
+    "capital": [
+      "Vatican City"
+    ],
+    "population": 825,
+    "area": 0.44,
+    "translations": null,
+    "latlng": [
+      41.9,
+      12.45
+    ]
+  },
+  {
+    "cca3": "VCT",
+    "name": {
+      "common": "Saint Vincent and the Grenadines",
+      "official": "Saint Vincent and the Grenadines",
+      "nativeName": {
+        "eng": {
+          "official": "Saint Vincent and the Grenadines",
+          "common": "Saint Vincent and the Grenadines"
+        }
+      }
+    },
+    "flags": {
+      "png": "https://flagcdn.com/w320/vc.png"
+    },
+    "region": "Americas",
+    "subregion": "Caribbean",
+    "capital": [
+      "Kingstown"
+    ],
+    "population": 110000,
+    "area": 389.0,
+    "translations": null,
+    "latlng": [
+      13.25,
+      -61.2
+    ]
+  },
+  {
+    "cca3": "VEN",
+    "name": {
+      "common": "Venezuela",
+      "official": "Venezuela",
+      "nativeName": {
+        "eng": {
+          "official": "Venezuela",
+          "common": "Venezuela"
+        }
+      }
+    },
+    "flags": {
+      "png": "https://flagcdn.com/w320/ve.png"
+    },
+    "region": "Americas",
+    "subregion": "South America",
+    "capital": [
+      "Caracas"
+    ],
+    "population": 28000000,
+    "area": 916445.0,
+    "translations": null,
+    "latlng": [
+      8,
+      -66
+    ]
+  },
+  {
+    "cca3": "VGB",
+    "name": {
+      "common": "British Virgin Islands",
+      "official": "British Virgin Islands",
+      "nativeName": {
+        "eng": {
+          "official": "British Virgin Islands",
+          "common": "British Virgin Islands"
+        }
+      }
+    },
+    "flags": {
+      "png": "https://flagcdn.com/w320/vg.png"
+    },
+    "region": "Americas",
+    "subregion": "Caribbean",
+    "capital": [
+      "Road Town"
+    ],
+    "population": 1,
+    "area": null,
+    "translations": null,
+    "latlng": [
+      18.431383,
+      -64.62305
+    ]
+  },
+  {
+    "cca3": "VIR",
+    "name": {
+      "common": "U.S. Virgin Islands",
+      "official": "U.S. Virgin Islands",
+      "nativeName": {
+        "eng": {
+          "official": "U.S. Virgin Islands",
+          "common": "U.S. Virgin Islands"
+        }
+      }
+    },
+    "flags": {
+      "png": "https://flagcdn.com/w320/vi.png"
+    },
+    "region": "Americas",
+    "subregion": "Caribbean",
+    "capital": [
+      "Charlotte Amalie"
+    ],
+    "population": 1,
+    "area": null,
+    "translations": null,
+    "latlng": [
+      18.35,
+      -64.933333
+    ]
+  },
+  {
+    "cca3": "VNM",
+    "name": {
+      "common": "Vietnam",
+      "official": "Vietnam",
+      "nativeName": {
+        "eng": {
+          "official": "Vietnam",
+          "common": "Vietnam"
+        }
+      }
+    },
+    "flags": {
+      "png": "https://flagcdn.com/w320/vn.png"
+    },
+    "region": "Asia",
+    "subregion": "Asia",
+    "capital": [
+      "Hanoi"
+    ],
+    "population": 98000000,
+    "area": 331212.0,
+    "translations": null,
+    "latlng": [
+      16.16666666,
+      107.83333333
+    ]
+  },
+  {
+    "cca3": "VUT",
+    "name": {
+      "common": "Vanuatu",
+      "official": "Vanuatu",
+      "nativeName": {
+        "eng": {
+          "official": "Vanuatu",
+          "common": "Vanuatu"
+        }
+      }
+    },
+    "flags": {
+      "png": "https://flagcdn.com/w320/vu.png"
+    },
+    "region": "Oceania",
+    "subregion": "Oceania",
+    "capital": [
+      "Port Vila"
+    ],
+    "population": 300000,
+    "area": 12189.0,
+    "translations": null,
+    "latlng": [
+      -16,
+      167
+    ]
+  },
+  {
+    "cca3": "WLF",
+    "name": {
+      "common": "Wallis and Futuna",
+      "official": "Wallis and Futuna",
+      "nativeName": {
+        "eng": {
+          "official": "Wallis and Futuna",
+          "common": "Wallis and Futuna"
+        }
+      }
+    },
+    "flags": {
+      "png": "https://flagcdn.com/w320/wf.png"
+    },
+    "region": "Oceania",
+    "subregion": "Oceania",
+    "capital": [
+      "Mata-Utu"
+    ],
+    "population": 1,
+    "area": null,
+    "translations": null,
+    "latlng": [
+      -13.3,
+      -176.2
+    ]
+  },
+  {
+    "cca3": "WSM",
+    "name": {
+      "common": "Samoa",
+      "official": "Samoa",
+      "nativeName": {
+        "eng": {
+          "official": "Samoa",
+          "common": "Samoa"
+        }
+      }
+    },
+    "flags": {
+      "png": "https://flagcdn.com/w320/ws.png"
+    },
+    "region": "Oceania",
+    "subregion": "Oceania",
+    "capital": [
+      "Apia"
+    ],
+    "population": 200000,
+    "area": 2842.0,
+    "translations": null,
+    "latlng": [
+      -13.58333333,
+      -172.33333333
+    ]
+  },
+  {
+    "cca3": "XKX",
+    "name": {
+      "common": "Kosovo",
+      "official": "Kosovo",
+      "nativeName": {
+        "eng": {
+          "official": "Kosovo",
+          "common": "Kosovo"
+        }
+      }
+    },
+    "flags": {
+      "png": "https://flagcdn.com/w320/xk.png"
+    },
+    "region": "Europe",
+    "subregion": "Europe",
+    "capital": [
+      "Pristina"
+    ],
+    "population": 1800000,
+    "area": 10887.0,
+    "translations": null,
+    "latlng": [
+      42.666667,
+      21.166667
+    ]
+  },
+  {
+    "cca3": "YEM",
+    "name": {
+      "common": "Yemen",
+      "official": "Yemen",
+      "nativeName": {
+        "eng": {
+          "official": "Yemen",
+          "common": "Yemen"
+        }
+      }
+    },
+    "flags": {
+      "png": "https://flagcdn.com/w320/ye.png"
+    },
+    "region": "Asia",
+    "subregion": "Asia",
+    "capital": [
+      "Sanaa"
+    ],
+    "population": 30000000,
+    "area": 527968.0,
+    "translations": null,
+    "latlng": [
+      15,
+      48
+    ]
+  },
+  {
+    "cca3": "ZAF",
+    "name": {
+      "common": "South Africa",
+      "official": "South Africa",
+      "nativeName": {
+        "eng": {
+          "official": "South Africa",
+          "common": "South Africa"
+        }
+      }
+    },
+    "flags": {
+      "png": "https://flagcdn.com/w320/za.png"
+    },
+    "region": "Africa",
+    "subregion": "Africa",
+    "capital": [
+      "Pretoria"
+    ],
+    "population": 60000000,
+    "area": 1221037.0,
+    "translations": null,
+    "latlng": [
+      -29,
+      24
+    ]
+  },
+  {
+    "cca3": "ZMB",
+    "name": {
+      "common": "Zambia",
+      "official": "Zambia",
+      "nativeName": {
+        "eng": {
+          "official": "Zambia",
+          "common": "Zambia"
+        }
+      }
+    },
+    "flags": {
+      "png": "https://flagcdn.com/w320/zm.png"
+    },
+    "region": "Africa",
+    "subregion": "Africa",
+    "capital": [
+      "Lusaka"
+    ],
+    "population": 19000000,
+    "area": 752618.0,
+    "translations": null,
+    "latlng": [
+      -15,
+      30
+    ]
+  },
+  {
+    "cca3": "ZWE",
+    "name": {
+      "common": "Zimbabwe",
+      "official": "Zimbabwe",
+      "nativeName": {
+        "eng": {
+          "official": "Zimbabwe",
+          "common": "Zimbabwe"
+        }
+      }
+    },
+    "flags": {
+      "png": "https://flagcdn.com/w320/zw.png"
+    },
+    "region": "Africa",
+    "subregion": "Africa",
+    "capital": [
+      "Harare"
+    ],
+    "population": 15000000,
+    "area": 390757.0,
+    "translations": null,
+    "latlng": [
+      -20,
+      30
+    ]
+  }
+]

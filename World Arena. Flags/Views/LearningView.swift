@@ -35,30 +35,29 @@ struct LearningView: View {
                     // Закреплённая шапка
                     headerBackground
                     
-                    // Основной контент
+                    // Основной контент (без отступа от шапки, в тёмной теме фон как у экрана)
                     ScrollView {
                         LazyVStack(spacing: 20) {
-                            // Континенты
                             continentsSection
-                            
-                            // Статистика флагов
                             flagStatisticsSection
-                            
-                            // Интересные факты
                             factsSection
                         }
                         .padding(.horizontal, isIPad ? 40 : 20)
-                        .padding(.top, isIPad ? 28 : 20)
+                        .padding(.top, isIPad ? 16 : 12)
                         .padding(.bottom, isIPad ? 120 : 120)
                         .frame(maxWidth: .infinity)
                     }
                     .background(
                         RoundedRectangle(cornerRadius: isIPad ? 28 : 20, style: .continuous)
-                            .fill(.background)
+                            .fill(learningContentBackground)
+                            .overlay(
+                                RoundedRectangle(cornerRadius: isIPad ? 28 : 20, style: .continuous)
+                                    .stroke(Color.primary.opacity(themeManager.colorScheme == .dark ? 0.15 : 0.08), lineWidth: 1)
+                            )
                             .ignoresSafeArea(.container, edges: .bottom)
                     )
                     .clipShape(RoundedRectangle(cornerRadius: isIPad ? 28 : 20, style: .continuous))
-                    .padding(.top, isIPad ? -24 : -20)
+                    .padding(.top, isIPad ? -32 : -28)
                 }
             }
             .frame(maxWidth: .infinity)
@@ -82,123 +81,109 @@ struct LearningView: View {
         #endif
     }
     
-    // MARK: - Header
+    // MARK: - Header (фиксированная высота без «поплывания»)
+    private static let headerBaseHeight: CGFloat = 200
+    private var headerHeight: CGFloat { Self.headerBaseHeight + safeTopInset }
+
     private var headerBackground: some View {
-        ZStack {
-            // Красивый градиентный фон
+        ZStack(alignment: .top) {
             LinearGradient(
                 colors: [
-                    Color.blue.opacity(0.9),
-                    Color.cyan.opacity(0.8),
-                    Color.blue.opacity(0.7)
+                    Color.blue.opacity(0.92),
+                    Color.cyan.opacity(0.82),
+                    Color.blue.opacity(0.75)
                 ],
                 startPoint: .topLeading,
                 endPoint: .bottomTrailing
             )
             .frame(height: headerHeight)
             .overlay(
-                // Добавляем декоративные элементы
                 ZStack {
-                    // Круги для декора
                     Circle()
-                        .fill(Color.white.opacity(0.1))
-                        .frame(width: 120, height: 120)
-                        .offset(x: -50, y: -30)
-                    
+                        .fill(Color.white.opacity(0.12))
+                        .frame(width: 100, height: 100)
+                        .blur(radius: 20)
+                        .offset(x: -60, y: -20)
                     Circle()
-                        .fill(Color.white.opacity(0.05))
-                        .frame(width: 80, height: 80)
-                        .offset(x: 60, y: 20)
-                    
-                    Circle()
-                        .fill(Color.white.opacity(0.08))
-                        .frame(width: 60, height: 60)
-                        .offset(x: -30, y: 60)
+                        .fill(Color.white.opacity(0.06))
+                        .frame(width: 70, height: 70)
+                        .blur(radius: 15)
+                        .offset(x: 70, y: 30)
                 }
             )
-            .clipShape(RoundedRectangle(cornerRadius: 25, style: .continuous))
+            .clipShape(RoundedRectangle(cornerRadius: 24, style: .continuous))
             .ignoresSafeArea(.container, edges: .top)
-            
-            // Заголовок с улучшенным дизайном (на iPad поднят выше, чтобы всё помещалось)
-            VStack(spacing: isIPad ? 16 : 12) {
-                Spacer()
-                    .frame(height: isIPad ? 8 : 20)
-                
-                // Иконка книги
+
+            VStack(spacing: isIPad ? 14 : 10) {
                 Image(systemName: "book.fill")
-                    .font(.system(size: isIPad ? 40 : 32, weight: .medium))
-                    .foregroundColor(.white.opacity(0.9))
-                    .shadow(color: .black.opacity(0.2), radius: 2, x: 0, y: 1)
-                
+                    .font(.system(size: isIPad ? 36 : 28, weight: .semibold))
+                    .foregroundStyle(.white.opacity(0.95))
+                    .symbolRenderingMode(.hierarchical)
                 Text(localizationManager.localizedString("Обучение"))
-                    .font(.system(size: isIPad ? 38 : 32, weight: .bold, design: .rounded))
+                    .font(.system(size: isIPad ? 34 : 28, weight: .bold, design: .rounded))
                     .foregroundColor(.white)
-                    .shadow(color: .black.opacity(0.3), radius: 4, x: 0, y: 2)
-                
                 Text(localizationManager.localizedString("Изучай флаги и страны мира"))
-                    .font(.system(size: isIPad ? 18 : 16, weight: .medium))
+                    .font(.system(size: isIPad ? 17 : 15, weight: .medium))
                     .foregroundColor(.white.opacity(0.9))
                     .multilineTextAlignment(.center)
-                    .shadow(color: .black.opacity(0.2), radius: 2, x: 0, y: 1)
-                
-                Spacer()
             }
-            .frame(height: headerHeight)
-            .padding(.horizontal, isIPad ? 48 : 20)
+            .padding(.top, safeTopInset + (isIPad ? 20 : 16))
+            .padding(.horizontal, isIPad ? 48 : 24)
+            .frame(height: headerHeight, alignment: .top)
         }
     }
     
-    private var headerHeight: CGFloat { (isIPad ? 260 : 240) + safeTopInset }
-    
     private var contentTopInset: CGFloat {
-        max(0, headerHeight - 80) // Убрали черную подложку полностью
+        max(0, headerHeight - 80)
+    }
+
+    /// Фон блока контента: в тёмной теме — как основной экран (без белого), в светлой — системный.
+    private var learningContentBackground: Color {
+        themeManager.colorScheme == .dark
+            ? Color(red: 0.06, green: 0.06, blue: 0.18)
+            : Color(UIColor.systemGroupedBackground).opacity(0.96)
     }
     
     // MARK: - Sections
     private var continentsSection: some View {
-        VStack(alignment: .leading, spacing: isIPad ? 20 : 16) {
-            HStack {
-                Text(localizationManager.localizedString("Континенты"))
-                    .font(.system(size: isIPad ? 24 : 20, weight: .bold))
-                    .foregroundColor(.primary)
-                
-                Spacer()
+        VStack(alignment: .leading, spacing: isIPad ? 18 : 14) {
+            Text(localizationManager.localizedString("Континенты"))
+                .font(.system(size: isIPad ? 22 : 18, weight: .bold, design: .rounded))
+                .foregroundColor(.primary)
 
-                HStack(spacing: 8) {
-                    NavigationLink(destination: WorldProgressMapView().environmentObject(gameState)) {
-                        HStack(spacing: 6) {
-                            Image(systemName: "globe.europe.africa.fill")
-                                .font(.system(size: isIPad ? 14 : 12, weight: .semibold))
-                            Text(localizationManager.localizedString("КАРТА ПРОГРЕССА"))
-                                .font(.system(size: isIPad ? 15 : 13, weight: .bold))
-                        }
-                        .foregroundColor(.green)
-                        .padding(.horizontal, isIPad ? 14 : 10)
-                        .padding(.vertical, isIPad ? 10 : 6)
-                        .background(Color.green.opacity(0.14))
-                        .cornerRadius(10)
+            HStack(spacing: 10) {
+                NavigationLink(destination: WorldProgressMapView().environmentObject(gameState)) {
+                    HStack(spacing: 6) {
+                        Image(systemName: "map.fill")
+                            .font(.system(size: 13, weight: .semibold))
+                        Text(localizationManager.localizedString("КАРТА ПРОГРЕССА"))
+                            .font(.system(size: 12, weight: .bold))
                     }
-                    .buttonStyle(PlainButtonStyle())
-
-                    // Кнопка "ВСЕ СТРАНЫ"
-                    NavigationLink(destination: AllCountriesView()) {
-                        HStack(spacing: 6) {
-                            Text(localizationManager.localizedString("ВСЕ СТРАНЫ"))
-                                .font(.system(size: isIPad ? 16 : 14, weight: .semibold))
-                                .foregroundColor(.blue)
-                            Image(systemName: "arrow.right")
-                                .font(.system(size: isIPad ? 14 : 12, weight: .semibold))
-                                .foregroundColor(.blue)
-                        }
-                        .padding(.horizontal, isIPad ? 16 : 12)
-                        .padding(.vertical, isIPad ? 10 : 6)
-                        .background(Color.blue.opacity(0.1))
-                        .cornerRadius(10)
-                    }
-                    .buttonStyle(PlainButtonStyle())
+                    .foregroundColor(.green)
+                    .padding(.horizontal, 12)
+                    .padding(.vertical, 8)
+                    .background(Color.green.opacity(0.15))
+                    .cornerRadius(12)
                 }
+                .buttonStyle(PlainButtonStyle())
+
+                NavigationLink(destination: AllCountriesView()) {
+                    HStack(spacing: 6) {
+                        Text(localizationManager.localizedString("ВСЕ СТРАНЫ"))
+                            .font(.system(size: 12, weight: .bold))
+                        Image(systemName: "arrow.right")
+                            .font(.system(size: 11, weight: .semibold))
+                    }
+                    .foregroundColor(.blue)
+                    .padding(.horizontal, 12)
+                    .padding(.vertical, 8)
+                    .background(Color.blue.opacity(0.12))
+                    .cornerRadius(12)
+                }
+                .buttonStyle(PlainButtonStyle())
+                Spacer(minLength: 0)
             }
-            
+
             LazyVGrid(columns: Array(repeating: GridItem(.flexible()), count: isIPad ? 4 : (horizontalSizeClass == .regular ? 3 : 2)), spacing: isIPad ? 20 : 16) {
                 NavigationLink(destination: ContinentDetailView(continentName: "Европа", continentEmoji: "🇪🇺")) {
                     ContinentCard(name: "Европа", emoji: "🇪🇺", countries: 44, description: "Самый маленький континент")
@@ -242,7 +227,7 @@ struct LearningView: View {
             LazyVGrid(columns: Array(repeating: GridItem(.flexible()), count: isIPad ? 4 : 2), spacing: isIPad ? 20 : 16) {
                 LearningStatCard(title: "Всего стран", value: "195", icon: "🌍", color: .blue)
                 LearningStatCard(title: "Цветов на флагах", value: "12", icon: "🎨", color: .green)
-                LearningStatCard(title: "Самый популярный цвет", value: "Красный", icon: "🔴", color: .red)
+                LearningStatCard(title: "Самый популярный цвет", value: localizationManager.localizedString("Red"), icon: "🔴", color: .red)
                 LearningStatCard(title: "Флагов с крестом", value: "29", icon: "✝️", color: .purple)
             }
         }
@@ -267,23 +252,13 @@ struct LearningView: View {
             .buttonStyle(PlainButtonStyle())
             
             VStack(spacing: isIPad ? 16 : 12) {
-                FactCard(
-                    title: "Самый старый флаг",
-                    description: "Флаг Дании используется с 1219 года",
-                    emoji: "🇩🇰"
-                )
-                
-                FactCard(
-                    title: "Единственный квадратный флаг",
-                    description: "У Швейцарии единственный квадратный флаг в мире",
-                    emoji: "🇨🇭"
-                )
-                
-                FactCard(
-                    title: "Самый сложный флаг",
-                    description: "У Бутана на флаге изображен дракон",
-                    emoji: "🇧🇹"
-                )
+                ForEach(Array(learningFactsPreview.enumerated()), id: \.offset) { _, fact in
+                    FactCard(
+                        title: fact.title,
+                        description: fact.description,
+                        emoji: fact.emoji
+                    )
+                }
                 
                 // Кнопка "More facts"
                 NavigationLink(destination: InterestingFactsView()) {
@@ -304,6 +279,16 @@ struct LearningView: View {
                 }
                 .buttonStyle(PlainButtonStyle())
             }
+        }
+    }
+
+    private var learningFactsPreview: [(title: String, description: String, emoji: String)] {
+        (1...3).map { i in
+            (
+                localizationManager.localizedString(InterestingFactsData.factTitleKey(i)),
+                localizationManager.localizedString(InterestingFactsData.factDescKey(i)),
+                InterestingFactsData.emoji(forFactIndex: i)
+            )
         }
     }
 }

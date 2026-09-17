@@ -1,0 +1,6 @@
+8.0
+
+• Förnyad quizvy med tydligare svar och animerade liv.
+• Ny design för Statistik, Ligor och Profil.
+• Förbättrad iPad-layout och kort som anpassas efter innehållet.
+• Region och svårighetsgrad sparas när du stänger snabbinställningarna.

@@ -130,10 +130,13 @@ struct GameOverView: View {
                             await gameState.restartGameInPlace()
                         }
                     }) {
+                        let playAgainTitle = gameState.selectedPlayMode == .duel
+                            ? LocalizationManager.shared.localizedString("Repeat Duel")
+                            : LocalizationManager.shared.localizedString("Play Again")
                         HStack {
                             Image(systemName: "play.circle.fill")
                                 .font(horizontalSizeClass == .regular ? .title : .headline)
-                            Text(LocalizationManager.shared.localizedString("Play Again"))
+                            Text(playAgainTitle)
                                 .font(.system(size: horizontalSizeClass == .regular ? 20 : 17, weight: .bold, design: .default))
                         }
                         .foregroundColor(.white)

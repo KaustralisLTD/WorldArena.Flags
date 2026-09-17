@@ -33,6 +33,50 @@ class FriendsService: ObservableObject {
     }
 
     private init() {}
+
+    /// Подтягивает с API настоящий `friend_code` и пишет в `user.serverFriendCode`, чтобы UI не показывал локально сгенерированный несуществующий на сервере код.
+    /// `maxAttempts` > 1 — паузы между попытками (сеть, гонка «друг только что зарегистрировался»). Для `scenePhase.active` используйте 1, чтобы не дёргать API лишний раз.
+    @MainActor
+    func syncServerFriendCode(for userProfile: UserProfile, maxAttempts: Int = 4) async {
+        let name = userProfile.username.trimmingCharacters(in: .whitespacesAndNewlines)
+        guard !name.isEmpty else { return }
+        let delaysNs: [UInt64] = [0, 300_000_000, 800_000_000, 1_600_000_000]
+        let n = min(max(1, maxAttempts), delaysNs.count)
+        for attempt in 0..<n {
+            if attempt > 0 {
+                try? await Task.sleep(nanoseconds: delaysNs[attempt])
+            }
+            let deviceToken = UserDefaults.standard.string(forKey: "apns.deviceToken")
+            let stats: [String: Any] = [
+                "level": userProfile.level,
+                "xp": userProfile.xp,
+                "streak": userProfile.streak,
+                "achievements": userProfile.achievements.compactMap(\.definitionId),
+            ]
+            var code: String?
+            do {
+                let reg = try await DuelAPIService.shared.registerUser(
+                    userId: name,
+                    username: name,
+                    deviceToken: deviceToken,
+                    stats: stats,
+                    countryCode: userProfile.selectedCountryCode
+                )
+                code = reg.friendCode
+                if let wr = reg.worldRank {
+                    userProfile.serverWorldRank = wr
+                }
+            } catch {
+                if let api = try? await DuelAPIService.shared.fetchUserByUsername(name), !api.friendCode.isEmpty {
+                    code = api.friendCode
+                }
+            }
+            if let c = code?.trimmingCharacters(in: .whitespacesAndNewlines), !c.isEmpty {
+                UserDefaults.standard.set(c, forKey: "user.serverFriendCode")
+                return
+            }
+        }
+    }
     
     // MARK: - Friend Code Generation
     func generateFriendCode(for username: String) -> String {
@@ -56,7 +100,7 @@ class FriendsService: ObservableObject {
     // MARK: - Add Friend Logic (через API: код друга выдаётся сервером при регистрации)
     @MainActor
     func addFriend(by code: String, to userProfile: UserProfile) async -> AddFriendResult {
-        let normalized = code.trimmingCharacters(in: .whitespacesAndNewlines)
+        let normalized = code.trimmingCharacters(in: .whitespacesAndNewlines).uppercased()
         guard normalized.count >= 3 else { return .addFailed }
         if userProfile.friends.contains(where: { $0.username.lowercased() == normalized.lowercased() }) {
             return .alreadyFriends
@@ -66,10 +110,25 @@ class FriendsService: ObservableObject {
         }
         let myId = userProfile.username
         guard !myId.isEmpty else { return .addFailed }
-        guard let friendFromAPI = try? await DuelAPIService.shared.addFriend(myUserId: myId, friendCode: normalized) else {
+        await syncServerFriendCode(for: userProfile)
+        let retryDelaysNs: [UInt64] = [0, 400_000_000, 1_200_000_000]
+        var friendFromAPI: FriendFromAPI?
+        for (i, pause) in retryDelaysNs.enumerated() {
+            if i > 0 { try? await Task.sleep(nanoseconds: pause) }
+            friendFromAPI = try? await DuelAPIService.shared.addFriend(myUserId: myId, friendCode: normalized)
+            if friendFromAPI != nil { break }
+        }
+        guard let apiFriend = friendFromAPI else {
             return .addFailed
         }
-        let newFriend = friendFromAPI.toFriend()
+        // Повторная проверка на дубликат после ответа API (на случай двойного тапа или повторного ответа сервера)
+        let alreadyInList = userProfile.friends.contains(where: {
+            $0.username.lowercased() == apiFriend.username.lowercased()
+        })
+        if alreadyInList {
+            return .alreadyFriends
+        }
+        let newFriend = apiFriend.toFriend()
         userProfile.friends.append(newFriend)
         userProfile.saveToStorage()
         return .success
@@ -92,19 +151,26 @@ class FriendsService: ObservableObject {
         }
         let myId = userProfile.username
         guard !myId.isEmpty else { return .addFailed }
-        do {
-            guard let found = try await DuelAPIService.shared.fetchUserByUsername(normalized) else {
-                // Fallback: в некоторых окружениях сервер может принимать логин напрямую в addFriend.
-                let fallback = await addFriend(by: normalized, to: userProfile)
-                return fallback == .addFailed ? .userNotFound : fallback
+        await syncServerFriendCode(for: userProfile)
+        let searchDelaysNs: [UInt64] = [0, 500_000_000, 1_500_000_000]
+        var found: FriendFromAPI?
+        for (i, pause) in searchDelaysNs.enumerated() {
+            if i > 0 { try? await Task.sleep(nanoseconds: pause) }
+            do {
+                found = try await DuelAPIService.shared.fetchUserByUsername(normalized)
+            } catch {
+                found = nil
             }
-            guard !found.friendCode.isEmpty else {
-                return .noFriendCode
-            }
-            return await addFriend(by: found.friendCode, to: userProfile)
-        } catch {
-            return .userNotFound
+            if found != nil { break }
         }
+        guard let found else {
+            let fallback = await addFriend(by: normalized, to: userProfile)
+            return fallback == .addFailed ? .userNotFound : fallback
+        }
+        guard !found.friendCode.isEmpty else {
+            return .noFriendCode
+        }
+        return await addFriend(by: found.friendCode, to: userProfile)
     }
     
     private func createFriendFromCode(_ code: String) -> Friend {
@@ -212,65 +278,74 @@ class FriendsService: ObservableObject {
 
     /// Рисует карточку для шаринга: аватар (или фото), имя, статы, QR со ссылкой на профиль.
     private func generateProfileShareImage(userProfile: UserProfile, profileURL: String, completion: @escaping (UIImage?) -> Void) {
-        let size = CGSize(width: 400, height: 600)
-        let renderer = UIGraphicsImageRenderer(size: size)
-        let image = renderer.image { ctx in
-            let cg = ctx.cgContext
-            let colors = [UIColor.systemBlue.cgColor, UIColor.systemCyan.cgColor]
-            guard let gradient = CGGradient(colorsSpace: CGColorSpaceCreateDeviceRGB(), colors: colors as CFArray, locations: [0, 1]) else { return }
-            cg.drawLinearGradient(gradient, start: .zero, end: CGPoint(x: size.width, y: size.height), options: [])
-            cg.setFillColor(UIColor.white.cgColor)
-            let cardRect = CGRect(x: 20, y: 80, width: 360, height: 440)
-            let path = UIBezierPath(roundedRect: cardRect, cornerRadius: 20)
-            cg.addPath(path.cgPath)
-            cg.fillPath()
-
-            let avatarRect = CGRect(x: 150, y: 120, width: 100, height: 100)
-            if userProfile.avatar == "custom_photo", let data = userProfile.customAvatarImageData, let ui = UIImage(data: data) {
-                let cornerRadius: CGFloat = 50
-                cg.saveGState()
-                let clipPath = UIBezierPath(roundedRect: avatarRect, cornerRadius: cornerRadius)
-                clipPath.addClip()
-                ui.draw(in: avatarRect)
-                cg.restoreGState()
-            } else {
-                cg.setFillColor(UIColor.systemBlue.withAlphaComponent(0.2).cgColor)
-                cg.fillEllipse(in: avatarRect)
-                let avatarText = userProfile.avatar.starts(with: "custom_") ? "👤" : "👤"
-                let font = UIFont.systemFont(ofSize: 50)
-                let attrs: [NSAttributedString.Key: Any] = [.font: font]
-                let sz = avatarText.size(withAttributes: attrs)
-                let pt = CGPoint(x: avatarRect.midX - sz.width / 2, y: avatarRect.midY - sz.height / 2)
-                (avatarText as NSString).draw(at: pt, withAttributes: attrs)
-            }
-
-            let usernameFont = UIFont.boldSystemFont(ofSize: 24)
-            let usernameAttrs: [NSAttributedString.Key: Any] = [.font: usernameFont, .foregroundColor: UIColor.label]
-            let usernameSz = userProfile.username.size(withAttributes: usernameAttrs)
-            (userProfile.username as NSString).draw(at: CGPoint(x: 200 - usernameSz.width / 2, y: 240), withAttributes: usernameAttrs)
-
+        Task { @MainActor in
+            let avatar = userProfile.avatar
+            let customAvatarImageData = userProfile.customAvatarImageData
+            let username = userProfile.username
+            let level = userProfile.level
+            let xp = userProfile.xp
+            let streak = userProfile.streak
             let statsFormat = LocalizationManager.shared.localizedString("Level %d • %d XP • %d-day streak")
-            let statsText = String(format: statsFormat, userProfile.level, userProfile.xp, userProfile.streak)
-            let statsFont = UIFont.systemFont(ofSize: 14)
-            let statsAttrs: [NSAttributedString.Key: Any] = [.font: statsFont, .foregroundColor: UIColor.secondaryLabel]
-            let statsSz = statsText.size(withAttributes: statsAttrs)
-            (statsText as NSString).draw(at: CGPoint(x: 200 - statsSz.width / 2, y: 275), withAttributes: statsAttrs)
+            let statsText = String(format: statsFormat, level, xp, streak)
 
-            if let qr = qrImage(from: profileURL) {
-                qr.draw(in: CGRect(x: 170, y: 320, width: 60, height: 60))
+            let size = CGSize(width: 400, height: 600)
+            let renderer = UIGraphicsImageRenderer(size: size)
+            let image = renderer.image { ctx in
+                let cg = ctx.cgContext
+                let colors = [UIColor.systemBlue.cgColor, UIColor.systemCyan.cgColor]
+                guard let gradient = CGGradient(colorsSpace: CGColorSpaceCreateDeviceRGB(), colors: colors as CFArray, locations: [0, 1]) else { return }
+                cg.drawLinearGradient(gradient, start: .zero, end: CGPoint(x: size.width, y: size.height), options: [])
+                cg.setFillColor(UIColor.white.cgColor)
+                let cardRect = CGRect(x: 20, y: 80, width: 360, height: 440)
+                let path = UIBezierPath(roundedRect: cardRect, cornerRadius: 20)
+                cg.addPath(path.cgPath)
+                cg.fillPath()
+
+                let avatarRect = CGRect(x: 150, y: 120, width: 100, height: 100)
+                if avatar == "custom_photo", let data = customAvatarImageData, let ui = UIImage(data: data) {
+                    let cornerRadius: CGFloat = 50
+                    cg.saveGState()
+                    let clipPath = UIBezierPath(roundedRect: avatarRect, cornerRadius: cornerRadius)
+                    clipPath.addClip()
+                    ui.draw(in: avatarRect)
+                    cg.restoreGState()
+                } else {
+                    cg.setFillColor(UIColor.systemBlue.withAlphaComponent(0.2).cgColor)
+                    cg.fillEllipse(in: avatarRect)
+                    let avatarText = avatar.starts(with: "custom_") ? "👤" : "👤"
+                    let font = UIFont.systemFont(ofSize: 50)
+                    let attrs: [NSAttributedString.Key: Any] = [.font: font]
+                    let sz = avatarText.size(withAttributes: attrs)
+                    let pt = CGPoint(x: avatarRect.midX - sz.width / 2, y: avatarRect.midY - sz.height / 2)
+                    (avatarText as NSString).draw(at: pt, withAttributes: attrs)
+                }
+
+                let usernameFont = UIFont.boldSystemFont(ofSize: 24)
+                let usernameAttrs: [NSAttributedString.Key: Any] = [.font: usernameFont, .foregroundColor: UIColor.label]
+                let usernameSz = username.size(withAttributes: usernameAttrs)
+                (username as NSString).draw(at: CGPoint(x: 200 - usernameSz.width / 2, y: 240), withAttributes: usernameAttrs)
+
+                let statsFont = UIFont.systemFont(ofSize: 14)
+                let statsAttrs: [NSAttributedString.Key: Any] = [.font: statsFont, .foregroundColor: UIColor.secondaryLabel]
+                let statsSz = statsText.size(withAttributes: statsAttrs)
+                (statsText as NSString).draw(at: CGPoint(x: 200 - statsSz.width / 2, y: 275), withAttributes: statsAttrs)
+
+                if let qr = self.qrImage(from: profileURL) {
+                    qr.draw(in: CGRect(x: 170, y: 320, width: 60, height: 60))
+                }
+                let appFont = UIFont.boldSystemFont(ofSize: 16)
+                let appAttrs: [NSAttributedString.Key: Any] = [.font: appFont, .foregroundColor: UIColor.systemBlue]
+                let appText = "World Arena Flags"
+                let appSz = appText.size(withAttributes: appAttrs)
+                (appText as NSString).draw(at: CGPoint(x: 200 - appSz.width / 2, y: 390), withAttributes: appAttrs)
+                let urlFont = UIFont.systemFont(ofSize: 12)
+                let urlAttrs: [NSAttributedString.Key: Any] = [.font: urlFont, .foregroundColor: UIColor.tertiaryLabel]
+                let urlText = "worldarena.games"
+                let urlSz = urlText.size(withAttributes: urlAttrs)
+                (urlText as NSString).draw(at: CGPoint(x: 200 - urlSz.width / 2, y: 415), withAttributes: urlAttrs)
             }
-            let appFont = UIFont.boldSystemFont(ofSize: 16)
-            let appAttrs: [NSAttributedString.Key: Any] = [.font: appFont, .foregroundColor: UIColor.systemBlue]
-            let appText = "World Arena Flags"
-            let appSz = appText.size(withAttributes: appAttrs)
-            (appText as NSString).draw(at: CGPoint(x: 200 - appSz.width / 2, y: 390), withAttributes: appAttrs)
-            let urlFont = UIFont.systemFont(ofSize: 12)
-            let urlAttrs: [NSAttributedString.Key: Any] = [.font: urlFont, .foregroundColor: UIColor.tertiaryLabel]
-            let urlText = "worldarena.games"
-            let urlSz = urlText.size(withAttributes: urlAttrs)
-            (urlText as NSString).draw(at: CGPoint(x: 200 - urlSz.width / 2, y: 415), withAttributes: urlAttrs)
+            completion(image)
         }
-        completion(image)
     }
 
     private func qrImage(from string: String) -> UIImage? {
@@ -286,6 +361,18 @@ class FriendsService: ObservableObject {
 
 // MARK: - Friend Model Extension
 extension Friend {
+    var hasRemotePhotoAvatar: Bool {
+        guard let s = avatarPhotoBase64 else { return false }
+        return !s.isEmpty
+    }
+
+    #if os(iOS)
+    var remotePhotoAvatarData: Data? {
+        guard let raw = avatarPhotoBase64, !raw.isEmpty else { return nil }
+        return Data(base64Encoded: raw, options: .ignoreUnknownCharacters)
+    }
+    #endif
+
     var profileURL: String {
         return "https://worldarena.games/profile/\(username.uppercased().replacingOccurrences(of: " ", with: ""))"
     }

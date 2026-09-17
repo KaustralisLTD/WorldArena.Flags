@@ -20,7 +20,9 @@ class AudioManager: NSObject, ObservableObject {
     #endif
     private var progressTimer: Timer?
     private var currentAudioFile: String?
-    
+    /// Увеличить при замене файлов на CDN — сбрасывает старый кэш по URL и подтягивает актуальный гимн.
+    private static let anthemCDNVersion = 2
+
     private override init() {
         super.init()
         setupAudioSession()
@@ -41,11 +43,20 @@ class AudioManager: NSObject, ObservableObject {
         // Останавливаем текущее воспроизведение
         stopAudio()
         
+        let code = countryCode.lowercased()
         // Формируем URL для загрузки с сервера
-        let audioFileName = "anthem_\(countryCode.lowercased()).m4a"
-        let serverURL = "https://flags.worldarena.games/anthems/\(audioFileName)"
+        let audioFileName = "anthem_\(code).m4a"
+        let serverURL = "https://flags.worldarena.games/anthems/\(audioFileName)?v=\(Self.anthemCDNVersion)"
         
         print("🎵 Запрос на воспроизведение гимна для страны: \(countryCode)")
+        
+        // Встроенный в бандл гимн (если добавите anthem_xx.m4a в проект)
+        if let bundleURL = Bundle.main.url(forResource: "anthem_\(code)", withExtension: "m4a")
+            ?? Bundle.main.url(forResource: "anthem_\(code)", withExtension: "mp3"),
+           isValidAnthemFile(at: bundleURL) {
+            playAudioFromURL(bundleURL)
+            return
+        }
         
         // Проверяем, есть ли файл в кэше
         if let cachedURL = getCachedAudioURL(for: countryCode) {
@@ -64,6 +75,33 @@ class AudioManager: NSObject, ObservableObject {
                 self?.playSimulatedAudio()
             }
         }
+    }
+
+    /// Проверка, что это похоже на ISO BMFF (.m4a), а не случайные байты с «писком» при декоде.
+    private func isLikelyM4AHeader(_ data: Data) -> Bool {
+        guard data.count >= 12 else { return false }
+        return data[4] == 0x66 && data[5] == 0x74 && data[6] == 0x79 && data[7] == 0x70
+    }
+
+    private func isLikelyM4AContainer(at url: URL) -> Bool {
+        guard let h = try? Data(contentsOf: url, options: [.mappedIfSafe]) else { return false }
+        return isLikelyM4AHeader(h)
+    }
+
+    private func cachedAnthemFileName(for countryCode: String) -> String {
+        "anthem_\(countryCode.lowercased())_v\(Self.anthemCDNVersion).m4a"
+    }
+
+    /// Отсекаем битые/слишком короткие файлы (на сервере мог оказаться не-аудио контент).
+    private func isValidAnthemFile(at url: URL) -> Bool {
+        #if os(iOS)
+        if url.path.lowercased().hasSuffix(".m4a"), !isLikelyM4AContainer(at: url) { return false }
+        guard let player = try? AVAudioPlayer(contentsOf: url) else { return false }
+        let d = player.duration
+        return d >= 2.5 && d < 600
+        #else
+        return true
+        #endif
     }
     
     func pauseAudio() {
@@ -188,7 +226,7 @@ class AudioManager: NSObject, ObservableObject {
     // MARK: - Server Audio Methods
     
     private func getCachedAudioURL(for countryCode: String) -> URL? {
-        let fileName = "anthem_\(countryCode.lowercased()).m4a"
+        let fileName = cachedAnthemFileName(for: countryCode)
         let cacheDirectory = FileManager.default.urls(for: .cachesDirectory, in: .userDomainMask).first
         let fileURL = cacheDirectory?.appendingPathComponent(fileName)
         
@@ -197,11 +235,11 @@ class AudioManager: NSObject, ObservableObject {
             let attributes = try? FileManager.default.attributesOfItem(atPath: url.path)
             let fileSize = attributes?[.size] as? Int64 ?? 0
             
-            // Файл должен быть больше 10KB
-            if fileSize > 10240 {
+            // Файл должен быть больше 10KB и декодироваться как нормальный гимн
+            if fileSize > 10240, isValidAnthemFile(at: url) {
                 return url
             } else {
-                print("⚠️ Кэшированный файл слишком маленький, удаляем")
+                print("⚠️ Кэшированный гимн повреждён или слишком короткий, удаляем")
                 try? FileManager.default.removeItem(at: url)
             }
         }
@@ -283,6 +321,13 @@ class AudioManager: NSObject, ObservableObject {
             
             duration = audioPlayer?.duration ?? 0.0
             currentAudioFile = url.lastPathComponent
+
+            guard duration >= 2.5 else {
+                print("❌ Аудио слишком короткое для гимна (\(duration)s), отмена")
+                stopAudio()
+                playSimulatedAudio()
+                return
+            }
             
             audioPlayer?.play()
             isPlaying = true
@@ -346,7 +391,12 @@ class AudioManager: NSObject, ObservableObject {
                     self.playSimulatedAudio()
                     return
                 }
-                
+                if !self.isLikelyM4AHeader(data) {
+                    print("❌ Ответ не похож на m4a (нет ftyp), возможно HTML/ошибка CDN")
+                    self.playSimulatedAudio()
+                    return
+                }
+
                 print("✅ Получено \(data.count) байт данных")
                 
                 // Сохраняем в кэш
@@ -361,7 +411,7 @@ class AudioManager: NSObject, ObservableObject {
     }
     
     private func saveAudioToCache(data: Data, countryCode: String) -> URL? {
-        let fileName = "anthem_\(countryCode.lowercased()).m4a"
+        let fileName = cachedAnthemFileName(for: countryCode)
         
         guard let cacheDirectory = FileManager.default.urls(for: .cachesDirectory, in: .userDomainMask).first else {
             return nil
@@ -373,13 +423,13 @@ class AudioManager: NSObject, ObservableObject {
             try data.write(to: fileURL)
             print("💾 Гимн сохранен в кэш: \(fileName) (\(data.count) байт)")
             
-            // Проверяем целостность файла
+            // Проверяем целостность файла и длительность
             #if os(iOS)
-            if let player = try? AVAudioPlayer(contentsOf: fileURL) {
+            if let player = try? AVAudioPlayer(contentsOf: fileURL), player.duration >= 2.5 {
                 print("✅ Файл проверен, длительность: \(player.duration) сек")
                 return fileURL
             } else {
-                print("❌ Файл поврежден, удаляем")
+                print("❌ Файл поврежден или не гимн, удаляем")
                 try? FileManager.default.removeItem(at: fileURL)
                 return nil
             }

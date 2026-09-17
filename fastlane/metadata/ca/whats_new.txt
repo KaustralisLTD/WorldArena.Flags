@@ -1,0 +1,6 @@
+8.0
+
+• Pantalla del qüestionari renovada, amb respostes més clares i vides animades.
+• Nou disseny de les pantalles Estadístiques, Lligues i Perfil.
+• Millores de disseny a l’iPad i targetes que s’adapten al contingut.
+• La regió i la dificultat es desen en tancar els ajustos ràpids.

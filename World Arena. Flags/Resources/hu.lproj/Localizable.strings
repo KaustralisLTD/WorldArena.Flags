@@ -1,0 +1,1739 @@
+"Open in Game Center" = "Megnyitás a Game Centerben";
+"Заработай %d XP" = "Szerezz %d XP-t";
+"F-BUCKS EARNED" = "F-BUCKS EARNED";
+"Дай %d правильных ответов" = "Szerezzen %d helyes választ";
+"Наберите %d правильных ответов за месяц" = "Szerezzen %d helyes választ ebben a hónapban";
+"Сыграй %d идеальных игр" = "Játssz %d tökéletes játékot";
+"Завершите %d игр без ошибок" = "Végezzen %d játékot hiba nélkül";
+/* Settings screen */
+"Настройки" = "Beállítások elemre";
+"Аккаунт" = "fiók";
+"Профиль пользователя" = "Felhasználói profil";
+"Поддержка" = "Támogatás";
+"Настройки приложения" = "Alkalmazásbeállítások";
+"Обратная связь" = "Visszacsatolás";
+"World Arena Premium" = "World Arena Premium";
+"Обратная связь по World Arena Flags" = "Visszajelzés a World Arena Flags-ról";
+
+/* Achievements */
+"Достижения" = "Eredmények";
+"Достижение" = "Teljesítmény";
+"ЛИЧНЫЕ РЕКОРДЫ" = "SZEMÉLYES LEGJOBBSÁGOK";
+"НАГРАДЫ" = "DÍJAK";
+"Лучшая серия" = "Legjobb sorozat";
+"Макс. лига" = "Max League";
+"Макс. XP" = "Max XP";
+"Открыто" = "Feloldva";
+
+/* Profile */
+"League" = "Liga";
+"Following" = "Barátok";
+"Days in a row" = "Napok egymás után";
+"Текущая серия" = "Aktuális sorozat";
+"дней" = "napokon";
+"Joined in %@" = "Csatlakozva itt: %@";
+"Level %d • %d XP • %d-day streak" = "%d szint • %d XP • %d napos sorozat";
+"SUPER" = "SZUPER";
+
+/* Leagues medals & labels */
+"1st" = "1";
+"2nd" = "2";
+"3rd" = "3";
+"XP" = "XP";
+
+/* Monthly badges sample titles */
+"Алмазная лига" = "Gyémánt Liga";
+"Серия мастера" = "Master Streak";
+"Чемпион месяца" = "A hónap bajnoka";
+"Идеальная неделя" = "Tökéletes Hét";
+"Бронзовая лига" = "Bronz Liga";
+"Лига Мастеров" = "Mester Liga";
+// General
+"World Flags" = "Világ zászlók";
+"Learn flags of the world" = "Ismerje meg a világ zászlóit";
+"Score" = "Pontszám";
+"Exit" = "Kijárat";
+"Error loading countries" = "Hiba történt az országok betöltésekor";
+"Retry" = "Próbálja újra";
+"System" = "Rendszer";
+
+// Start Screen
+"Select Language" = "Válassza a Nyelv lehetőséget";
+"Select Region" = "Válassza ki a Régiót";
+"Select Regions" = "Válassza a Régiók lehetőséget";
+"Multiple Regions" = "Több régió";
+"START GAME" = "JÁTÉK INDÍTÁSA";
+"All Regions" = "Minden régió";
+"Europe" = "Európa";
+"Asia" = "Ázsia";
+"Americas" = "Amerika";
+"Africa" = "Afrika";
+"Oceania" = "Óceánia";
+"North America" = "Észak Amerika";
+"South America" = "Dél-Amerika";
+
+// Game Over
+"Game Over!" = "Játék vége!";
+"points" = "pontokat";
+"Play Again" = "Játssz újra";
+"Repeat Duel" = "Párbaj megismétlése";
+"Home" = "Otthon";
+
+// Statistics
+"Statistics" = "Statisztika";
+"Total Games" = "Összes játék";
+"Best Score" = "Legjobb pontszám";
+"Correct Answers" = "Helyes válaszok";
+"Accuracy" = "Pontosság";
+"Best Time" = "Legjobb Idő";
+"Time" = "Idő";
+"Clear" = "Világos";
+"Close" = "Közeli";
+
+// Game Results
+"Excellent game!" = "🏆 Kiváló!";
+"Great result!" = "🎯 Szuper eredmény!";
+"Good game!" = "👍 Jó játékot!";
+"Keep practicing!" = "💪 Gyakorolj tovább!";
+// English (default)
+"Play Again" = "Játssz újra";
+
+// Share
+"Share Result" = "Részesedés";
+"Share" = "Részesedés";
+"ACCURACY" = "Pontosság";
+"TOTAL XP" = "Teljes XP";
+"CONTINUE" = "Folytatás";
+"Perfect! You're unstoppable!" = "Tökéletes! Megállíthatatlan vagy!";
+"Excellent performance!" = "Kiváló teljesítmény!";
+"Well done! Keep practicing!" = "Gratulálok! Gyakorolj tovább!";
+"Don't give up! Practice makes perfect!" = "Ne add fel! Gyakorlat teszi a mestert!";
+"PERFECT" = "Tökéletes";
+"AMAZING" = "Elképesztő";
+"GOOD" = "Jó";
+"KEEP GOING" = "Folytasd";
+"Play Again" = "Játssz újra";
+"Home" = "Otthon";
+"Quest Update!" = "Küldetés frissítés!";
+"quest.play_again.duel" = "Párbaj megismétlése";
+"Check your progress" = "Ellenőrizze a haladást";
+"2x XP for 10 min!" = "2x XP 10 percig!";
+"3x XP for 15 min!" = "3x XP 15 percig!";
+"Подарок за квесты" = "Napi küldetés ajándék";
+"Share Message" = "%d pontot szereztem a World Flags játékban! 🎮🌍\nTöltse le és próbálja meg legyőzni a pontszámomat!";
+"Statistics Share Promo" = "A World Arena Flags-szel játszom – tanulj világzászlót, párbaj barátokat, és mássz ligákat! 🎮🌍\nStatisztikáim: Legjobb pontszám %d, Pontosság %.1f%%, %d játék.\nSzeretnéd megtanulni a zászlókat és tesztelni tudásodat? Csatlakozz közösségünkhöz!\n%@";
+
+// Post-Game Flow
+"CLAIM XP" = "XP IGÉNYELÉS";
+"TOTAL XP" = "ÖSSZESEN XP";
+"PERFECT" = "TÖKÉLETES";
+"AMAZING" = "ELKÉPESZTŐ";
+"GOOD" = "JÓ";
+"KEEP GOING" = "TOVÁBBRA";
+"Perfect! You're unstoppable!" = "Tökéletes! Megállíthatatlan vagy!";
+"Excellent performance!" = "Kiváló teljesítmény!";
+"Well done! Keep practicing!" = "Gratulálok! Gyakorolj tovább!";
+"Don't give up! Practice makes perfect!" = "Ne add fel! Gyakorlat teszi a mestert!";
+"day streak" = "napi sorozat";
+"This Week" = "Ezen a héten";
+"Incredible streak! You're on fire!" = "Hihetetlen sorozat! Tűzben vagy!";
+"Great job! Keep the momentum going!" = "Remek munka! Tartsd a lendületet!";
+"Nice start! Build your streak day by day!" = "Szép kezdés! Építsd fel a sorozatodat nap mint nap!";
+"Your Friend Streaks" = "Barátaid sorozatai";
+"See how your friends are doing" = "Nézze meg, hogy állnak a barátai";
+"No friends yet" = "Még nincsenek barátok";
+"Add friends to see their streaks and compete together!" = "Vegyen fel barátokat, hogy megtekinthesse sorozataikat, és versenyezzen együtt!";
+"NUDGE" = "MEGLÖKÉS";
+"Remind" = "Emlékeztet";
+"Reminder sent to %@" = "Emlékeztető elküldve a következő címre: %@";
+"%@ reminds you" = "%@ emlékeztet";
+"nudge_phrase_1" = "Ne add fel! Ez megvan!";
+"nudge_phrase_2" = "A sorozatod vár rád. Játssz még ma!";
+"nudge_phrase_3" = "Napi egy meccs életben tartja a sorozatot!";
+"nudge_phrase_4" = "Gyere vissza és mutasd meg azoknak a zászlóknak, ki a főnök!";
+"nudge_phrase_5" = "Hiányzol nekünk! Ideje egy gyors játéknak?";
+"nudge_phrase_6" = "A barátaid játszanak. Csatlakozz hozzájuk!";
+"nudge_phrase_7" = "Kis lépés ma, nagy sorozat holnap!";
+"nudge_phrase_8" = "Olyan közel vagy! Ne szakítsa meg a sorozatot!";
+"nudge_phrase_9" = "Zászlók hívnak. Válaszolj a hívásra!";
+"nudge_phrase_10" = "Kelj fel és ragyogj – itt a zászló ideje!";
+"nudge_phrase_11" = "Egy kis gyakorlás sokat segít!";
+"nudge_phrase_12" = "Ma van az a nap, hogy megőrizd a sorozatod!";
+"nudge_phrase_13" = "Térj vissza a játékba! Mi hiszünk benned!";
+"nudge_phrase_14" = "Még egy játék, és jól fogod érezni magad!";
+"nudge_phrase_15" = "Hiányzol a sorozatodnak. Gyere vissza!";
+"CONTINUE" = "FOLYTATÁS";
+"streak" = "sorozat";
+"days" = "napokon";
+"Quest Update!" = "Küldetés frissítés!";
+"Check your progress" = "Ellenőrizze a haladást";
+"Заблокировано" = "Bezárt";
+"Базовый пакет" = "Alapcsomag";
+"Обучение" = "Tanulás";
+"Изучай флаги и страны мира" = "Ismerje meg a világ zászlóit és országait";
+"Континенты" = "Kontinensek";
+"Европа" = "Európa";
+"Азия" = "Ázsia";
+"Африка" = "Afrika";
+"Северная Америка" = "Észak Amerika";
+"Южная Америка" = "Dél-Amerika";
+"Океания" = "Óceánia";
+"стран" = "országokban";
+"Самый маленький континент" = "A legkisebb kontinens";
+"Самый большой континент" = "A legnagyobb kontinens";
+"Колыбель человечества" = "Az emberiség bölcsője";
+"Новый свет" = "Az Újvilág";
+"Земля контрастов" = "Az ellentétek országa";
+"Острова Тихого океана" = "Csendes-óceáni szigetek";
+"Статистика флагов" = "Flag Statisztika";
+"Всего стран" = "Összes országok";
+"Цветов на флагах" = "Színek a zászlókon";
+"Самый популярный цвет" = "Legnépszerűbb Szín";
+"Красный" = "Piros";
+"Флагов с крестом" = "Zászlók kereszttel";
+"Интересные факты" = "Érdekes tények";
+"Interesting facts study slides" = "Tanulás diákkal";
+"Interesting facts back to list" = "Vissza a listához";
+"Самый старый флаг" = "Legrégebbi zászló";
+"Флаг Дании используется с 1219 года" = "Dánia zászlóját 1219 óta használják";
+"Единственный квадратный флаг" = "Csak négyzet alakú zászló";
+"У Швейцарии единственный квадратный флаг в мире" = "Svájcnak van a világ egyetlen négyzet alakú zászlaja";
+"Самый сложный флаг" = "A legösszetettebb zászló";
+"У Бутана на флаге изображен дракон" = "Bhután zászlóján egy sárkány látható";
+"Go Premium" = "Menj a Premiumra";
+"Мой профиль в World Arena Flags" = "World Arena Flags profilom";
+"My Profile Share Title" = "World Arena Flags profilom";
+"Не удалось добавить друга. Проверьте код." = "Nem sikerült hozzáadni egy barátot. Ellenőrizze a kódot.";
+"Daily Quests" = "Napi küldetések";
+"Monthly Quest" = "Havi küldetés";
+
+// Learning Section
+"More facts" = "Még több tény";
+"стран" = "országokban";
+"фактов о флагах и странах" = "tények a zászlókról és országokról";
+"Столица" = "Tőke";
+
+// Continent names
+"Европа" = "Európa";
+"Азия" = "Ázsia";
+"Африка" = "Afrika";
+"Северная Америка" = "Észak Amerika";
+"Южная Америка" = "Dél-Amerika";
+"Океания" = "Óceánia";
+
+// Continent descriptions
+"Самый маленький континент" = "A legkisebb kontinens";
+"Самый большой континент" = "A legnagyobb kontinens";
+"Колыбель человечества" = "Az emberiség bölcsője";
+"Новый свет" = "Új Világ";
+"Земля контрастов" = "Az ellentétek országa";
+"Острова Тихого океана" = "Csendes-óceáni szigetek";
+
+// Network Errors
+"No Internet Connection" = "Nincs internetkapcsolat";
+"Request Timeout" = "Időtúllépés kérése";
+"Server Not Found" = "A szerver nem található";
+"Too Many Requests" = "Túl sok kérés";
+"Server Error" = "Szerver hiba";
+"HTTP Error: %d" = "HTTP-hiba: %d";
+"Try Again" = "Próbáld újra";
+"Not enough countries in selected regions (found %d, need at least 4)" = "Nincs elég ország a kiválasztott régiókban (%d található, legalább 4 kell)";
+"Empty response from server" = "Üres válasz a szervertől";
+
+// New additions
+"Capital" = "Tőke";
+"Population" = "Lakosság";
+"Area" = "Terület";
+"Region" = "Régió";
+"Subregion" = "Alrégió";
+
+// Language additions
+"system_language" = "Rendszer";
+"ru_language" = "Русский";
+"uk_language" = "Українська";
+"es_language" = "Español";
+"ca_language" = "Català";
+"zh_language" = "中文";
+
+// Exit confirmation
+"Exit Confirmation" = "Biztos, hogy ki akar lépni?";
+"Yes" = "Igen";
+"No" = "Nem";
+
+// New additions
+"Tap to continue" = "Koppintson a folytatáshoz";
+"Loading flag..." = "Jelző betöltése...";
+"Select Difficulty" = "Válassza a Nehézség lehetőséget";
+"Game Mode" = "Játék mód";
+
+// Game Modes
+"Game Mode" = "Játék mód";
+"Classic" = "Klasszikus";
+"Time Challenge" = "Idő kihívás";
+"Time Challenge short" = "Idő";
+"Survival" = "Túlélés";
+"Duel" = "Párbaj";
+"Challenge a friend to the same game, compare results" = "Hívd ki egy barátodat ugyanabba a játékba, hasonlítsd össze az eredményeket";
+"Challenge to Duel" = "Kihívás a párbajra";
+"You won the duel!" = "Megnyerted a párbajt!";
+"Duel challenge from %@" = "%@ kihívott egy párbajra";
+"Duel result" = "Párbaj eredménye";
+"You won!" = "Te nyertél!";
+"won" = "won";
+"You" = "Te";
+"Duel announcement title" = "Párbaj";
+"vs" = "vs";
+"Friend add username not found" = "A(z) „%@” felhasználó nem található. Ellenőrizze a bejelentkezési nevet.";
+"Start duel" = "Kezdje a párbajt";
+"24h to accept" = "24 óra az elfogadáshoz";
+"duel_invite_popup_title" = "Párbaj kihívás";
+"duel_invite_popup_body_format" = "%@ párbajra hív";
+"duel_invite_popup_accept" = "Elfogadás";
+"duel_invite_popup_remind_1h" = "Emlékeztető · 1 ó";
+"duel_invite_popup_decline" = "Elutasítás";
+
+"Accept" = "Elfogadás";
+"Random opponent" = "Véletlen ellenfél";
+"Virtual opponent" = "Virtuális ellenfél";
+"No friends yet. Add friends in Profile." = "Még nincsenek barátok. Adjon hozzá barátokat a Profilban.";
+"Standard multiple choice game" = "Szabványos feleletválasztós játék";
+"Answer quickly, time is limited" = "Válaszolj gyorsan, az idő korlátozott";
+"Game until first mistake" = "Játék az első hibáig";
+
+// Difficulty
+"Difficulty" = "Nehézség";
+"Easy" = "Könnyen";
+"Medium" = "Közepes";
+"Hard" = "Kemény";
+"Expert" = "Szakértő";
+"Erudite" = "Művelt";
+"10 questions, 45 sec per answer" = "10 kérdés, válaszonként 45 másodperc";
+"15 questions, 30 sec per answer" = "15 kérdés, válaszonként 30 másodperc";
+"20 questions, 15 sec per answer" = "20 kérdés, válaszonként 15 másodperc";
+"25 questions, 10 sec per answer" = "25 kérdés, válaszonként 10 másodperc";
+"30 questions, 5 sec per answer" = "30 kérdés, válaszonként 5 másodperc";
+"All %d countries of selected regions, 5 sec per answer" = "A kiválasztott régió összes %d országa, válaszonként 5 mp";
+"All 238 countries of the world, 5 sec per answer" = "A világ mind a 238 országa, válaszonként 5 mp";
+
+"of" = "a";
+"flags" = "zászlókat";
+
+// Theme
+"App Theme" = "Megjelenés";
+"System" = "Rendszer";
+"Light" = "Fény";
+"Dark" = "Sötét";
+
+// iPad Main Screen
+"Challenge Yourself, Learn the World" = "Tedd kihívás elé magad, tanuld meg a világot";
+"WorldArena Description" = "A WorldArena egy globális tudásalapú játéksorozat, amely a tanulást szórakozássá változtatja. Találd meg zászlókat, nagybetűket, szegélyeket és még sok mást egy dinamikus kvízformátumban, amelyet minden korosztály számára terveztek.";
+
+/* Lives & Premium */
+"Lives" = "Életek";
+"Next +%d in %02d:%02d" = "Következő +%d itt: %02d:%02d";
+"Lives refill info" = "Életek utántöltés info";
+"You will receive +%d new lives in %02d:%02d" = "+%d új életet kapsz %02d:%02d";
+"Unlimited hearts enabled" = "Korlátlan szív engedélyezve";
+"Unlimited Hearts" = "Korlátlan szívek";
+"Your Premium benefits" = "Prémium előnyei";
+"Onboarding welcome message" = "Válasszon egy régiót lent, és játsszon első játékot!";
+"Onboarding first game done" = "Elkészült az első játék! Játsszon még 4 játékot 70%-nál nagyobb pontossággal, hogy feloldja városi rangsorát.";
+"F-Bucks" = "F-Bucks";
+"Flags Bucks" = "Flags Bucks";
+
+/* F-Bucks Info Page */
+"О F-Bucks" = "Az F-Bucksról";
+"Как заработать" = "Hogyan lehet keresni";
+"История" = "Történelem";
+"Магазин" = "Üzlet";
+"Что такое F-Bucks?" = "Mik azok az F-Bucks?";
+"F-Bucks (Flags Bucks) — это внутриигровая валюта, которую можно заработать, играя в World Arena Flags. Используйте F-Bucks для покупки уникальных элементов аватара, скинов и других эксклюзивных предметов." = "Az F-Bucks (Flags Bucks) egy játékon belüli pénznem, amelyet a World Arena Flags játékkal kereshet. Az F-Bucks segítségével egyedi avatarelemeket, skineket és egyéb exkluzív tárgyakat vásárolhat.";
+"Особенности:" = "Jellemzők:";
+"Зарабатывайте за идеальные результаты в играх" = "Keressen a tökéletes játékeredményekért";
+"Получайте бонусы за длинные серии дней" = "Szerezzen bónuszokat a hosszú napi sorozatokért";
+"Покупайте эксклюзивные элементы для аватара" = "Vásároljon exkluzív avatar tárgyakat";
+"Создавайте уникальный стиль" = "Hozzon létre egyedi stílust";
+"Как заработать F-Bucks" = "Hogyan lehet F-Bucks-t keresni";
+"Идеальный результат" = "Tökéletes Eredmény";
+"Идеальный результат игры" = "Tökéletes játékeredmény";
+"Получите идеальный результат в игре (10/10 или 15/15)" = "Tökéletes eredmény a játékban (10/10 vagy 15/15)";
+"Серия 10 дней" = "10 napos sorozat";
+"Играйте 10 дней подряд" = "Játssz 10 egymást követő napon";
+"Серия 20 дней" = "20 napos sorozat";
+"Играйте 20 дней подряд" = "Játssz 20 egymást követő napon";
+"Серия 50 дней" = "50 napos sorozat";
+"Играйте 50 дней подряд" = "Játssz 50 egymást követő napon";
+"Серия 100 дней" = "100 napos sorozat";
+"Играйте 100 дней подряд" = "Játssz 100 egymást követő napon";
+"История начислений" = "Tranzakciós előzmények";
+"История пуста" = "A történelem üres";
+"Начните играть и зарабатывать F-Bucks!" = "Kezdj el játszani és keress F-Bucks-t!";
+"Магазин F-Bucks" = "F-Bucks Shop";
+"Потратьте F-Bucks на эксклюзивные элементы для вашего аватара" = "Költsön F-Bucksot exkluzív tárgyakra avatarodhoz";
+"Одежда" = "Ruházat";
+"Уникальные наряды и аксессуары" = "Egyedi ruhák és kiegészítők";
+"Скины" = "Skinek";
+"Особые визуальные эффекты" = "Speciális vizuális effektusok";
+"Эффекты" = "Hatások";
+"Анимации и спецэффекты" = "Animációk és speciális effektusok";
+"Футболка чемпиона" = "Bajnoki póló";
+"Кепка путешественника" = "Traveler's Cap";
+"Куртка исследователя" = "Felfedező kabátja";
+"Золотой скин" = "Arany bőr";
+"Радужный скин" = "Szivárvány bőr";
+"Неоновый скин" = "Neon Skin";
+"Эффект блёсток" = "Sparkle Effect";
+"Огненный эффект" = "Tűzhatás";
+"Звёздный эффект" = "Csillag effektus";
+"Купить" = "Vétel";
+"Покупка" = "Vásárlás";
+"Текст гимна" = "Himnusz szövege";
+"Continue playing with unlimited hearts!" = "Folytasd a játékot korlátlan szívvel!";
+"No lives available" = "Nincs elérhető élet";
+"Unfortunately, the game is not available now: you have no lives. You can buy lives or go Premium." = "Sajnos a játék most nem elérhető: nincs életed. Életeket vásárolhat, vagy Premium-ot vásárolhat.";
+"Go Premium" = "Menj a Premiumra";
+"Out of lives" = "Az életekből";
+"Get Free Lives" = "Szerezzen ingyenes életeket";
+"Watch video for +3 lives" = "Nézd meg a videót +3 életért";
+"Unfortunately you ran out of lives this time. Try again or come back later." = "Sajnos ezúttal kifogytál az életedből. Próbálja újra, vagy térjen vissza később.";
+"Out of lives headline 1" = "Majdnem megvan! 🚀";
+"Out of lives headline 2" = "Folytatjuk?";
+"Out of lives headline 3" = "Már csak egy lépés!";
+"Out of lives headline 4" = "Olyan közel!";
+"Out of lives headline 5" = "Ne állj meg most!";
+"Out of lives headline 6" = "Még egy kör?";
+"Out of lives headline 7" = "Tartsd a sorozatot!";
+"Out of lives continue subtitle" = "Innen folytatod?";
+"Continue with bonus lives" = "Folytatás (+%d élet)";
+"Out of lives perk resume" = "+%d élet — pont onnan folytatod, ahol abbahagytad";
+"Out of lives perk progress" = "Nem veszíted el a haladást";
+"Out of lives urgency" = "Gyorsan — őrizd a haladást!";
+"Ad-free with Premium" = "Reklámmentesen Premium-mal";
+"Out of lives continue premium" = "Folytatás Premium-mal";
+"Ad unavailable" = "A hirdetés nem elérhető";
+"Ad unavailable. Try again later." = "A hirdetés nem elérhető. Próbálja újra később.";
+"OK" = "RENDBEN";
+
+/* Premium screen */
+"Learn all countries and flags in ~2 months with Premium" = "Ismerje meg az összes országot és zászlót ~2 hónap alatt a Premiummal";
+"Unlimited Hearts" = "Korlátlan szívek";
+"Personalized Practice" = "Személyre szabott gyakorlat";
+"Explain My Answer" = "Magyarázd meg a válaszomat";
+"Roleplay Scenarios" = "Szerepjáték forgatókönyvek";
+"Access 'My Mistakes'" = "Hozzáférés a \"My Mistakes\"-hez";
+"My Mistakes" = "Az én hibáim";
+"Erudite Difficulty" = "Erudit nehézség";
+"Learning Section" = "Tanulási szakasz";
+"UPGRADE TO PREMIUM" = "FRISSÍTÉS PREMIUMRA";
+"NO THANKS" = "NEM KÖSZÖNÖM";
+
+/* Game header popovers */
+"Total game time since start" = "Összes játékidő a kezdés óta";
+"Time limit per question depending on difficulty" = "Time limit per question depending on difficulty";
+"Total Game Time" = "Teljes játékidő";
+"Time Per Question" = "Time Per Question";
+
+/* Game header motivation (iPad) */
+"Game motivation 1" = "Ez megvan!";
+"Game motivation 2" = "Folytasd!";
+"Game motivation 3" = "Minden zászló számít!";
+"Game motivation 4" = "Tűzben vagy!";
+"Game motivation 5" = "Maradj koncentrált!";
+"Game motivation 6" = "Még egyet!";
+"Game motivation 7" = "Remek tempó!";
+"Game motivation 8" = "Majdnem megvan!";
+"%d min %d sec" = "%d perc %d mp";
+"%d sec" = "%d mp";
+
+// Push Notifications
+"Push Notification Title" = "Ideje gyakorolni!";
+"Push Notification Body" = "Tesztelje zászló tudását és javítsa készségeit! 🌍🎯";
+
+// Profile Page
+"League" = "Liga";
+"Following" = "Barátok";
+"Days in a row" = "Napok egymás után";
+"Joined in %@" = "Csatlakozva itt: %@";
+"Statistics" = "Statisztika";
+"Total XP" = "Teljes XP";
+"Current streak" = "Aktuális sorozat";
+"Best streak" = "A legjobb sorozat";
+"Total games" = "Összes játék";
+"Accuracy" = "Pontosság";
+"Add Friends" = "Barátok hozzáadása";
+"Overview" = "Áttekintés";
+"Friend Streaks" = "Barátok sorozatai";
+"Monthly Badges" = "Havi Jelvények";
+
+/* Avatar Editor */
+"Edit Avatar" = "Avatar szerkesztése";
+"Cancel" = "Mégse";
+"Upload Photo" = "Fénykép feltöltése";
+"Create Avatar" = "Avatár létrehozása";
+"Photo" = "Fénykép";
+"Create" = "Teremt";
+"Select Photo" = "Válassza a Fotó lehetőséget";
+"Upload your photo from gallery or take a new one" = "Töltse fel fényképét a galériából, vagy készítsen újat";
+"Remove Photo" = "Fotó eltávolítása";
+"Save Avatar" = "Az Avatar mentése";
+"Gender" = "Nem";
+"Skin Tone" = "Bőrtónus";
+"Face Shape" = "Arcforma";
+"Hair Style" = "Hajstílus";
+"Hair Color" = "Hajszín";
+"Eye Shape" = "Szem alakja";
+"Eye Color" = "Szemszín";
+"Eyebrows" = "Szemöldök";
+"Nose" = "Orr";
+"Mouth" = "Száj";
+"Facial Hair" = "Arcszőrzet";
+"Glasses" = "Szemüveg";
+"Outfit" = "Felszerelés";
+"Accessories" = "Kiegészítők";
+
+/* Game Loading */
+"Loading flags..." = "Jelzők betöltése...";
+"Starting..." = "Indítás...";
+
+/* Main Tab Navigation */
+"Главная" = "Otthon";
+"Игра" = "Játék";
+"Квесты" = "Küldetések";
+"Лиги" = "Ligák";
+"До конца лиги: %02dч %02dм (GMT)" = "A bajnokság vége: %02dh %02dm (GMT)";
+"До конца лиги: %@ (GMT)" = "A bajnokság vége: %@ (GMT)";
+"д" = "d";
+"ч" = "h";
+"м" = "m";
+"Статистика" = "Statisztika";
+"Профиль" = "Profil";
+
+/* Profile Page */
+"ОБЗОР" = "ÁTTEKINTÉS";
+"ДОБАВИТЬ ДРУЗЕЙ" = "BARÁTOK HOZZÁADÁSA";
+"СЕРИИ ДРУЗЕЙ" = "BARÁTOK";
+"МЕСЯЧНЫЕ ДОСТИЖЕНИЯ" = "HAVI EREDMÉNYEK";
+
+/* Settings */
+"Выберите аватар" = "Válassz avatárt";
+"Редактировать аватар" = "Avatar szerkesztése";
+"profile_upload_photo" = "Fénykép feltöltése";
+"profile_crop_photo_title" = "Fénykép módosítása";
+"profile_crop_photo_subtitle" = "Csípés a nagyításhoz · húzd a mozgatáshoz";
+"profile_crop_zoom_label" = "Nagyítás";
+"profile_crop_cancel" = "Mégse";
+"profile_crop_done" = "Kész";
+"Имя пользователя" = "Felhasználónév";
+"Статистика" = "Statisztika";
+"Премиум подписка активна" = "Prémium előfizetés aktív";
+"ВОССТАНОВИТЬ ПОДПИСКУ" = "ELŐFIZETÉS VISSZAÁLLÍTÁSA";
+"ВЫЙТИ" = "KIJELENTKEZÉS";
+"Удалить аккаунт" = "Fiók törlése";
+"Это действие нельзя отменить. Все ваши данные будут удалены навсегда." = "Ez a művelet nem vonható vissza. Minden adata véglegesen törlődik.";
+
+/* Language Selection */
+"Выберите язык игры" = "Válassza ki a játék nyelvét";
+"Язык интерфейса игры и заданий" = "A játék felülete és a feladatok nyelve";
+
+/* Leagues */
+"Вы занимаете #%d место" = "#%d. helyen vagy";
+"Зона повышения - переход в следующую лигу!" = "Promóciós zóna – továbbjutás a következő ligába!";
+"Зона вылета - риск понижения лиги" = "Kiesési zóna – a bajnokságban való lemorzsolódás veszélye";
+"Безопасная зона - остаетесь в текущей лиге" = "Biztonságos zóna – maradj az aktuális bajnokságban";
+"Конец недели через %d часов" = "A hét %d óra múlva ér véget";
+"ЗОНА ВЫЛЕТА" = "RELEGÁCIÓS ZÓNA";
+"ЗОНА ПОВЫШЕНИЯ" = "PROMÓCIÓS ZÓNA";
+
+/* Monthly Quests */
+"Августовский Квест" = "augusztusi küldetés";
+"Mision de Agosto" = "augusztusi küldetés";
+"21 ДЕНЬ" = "21 NAP";
+"Заработай 40 очков квеста" = "Szerezz 40 küldetési pontot";
+"ЕЖЕДНЕВНЫЕ КВЕСТЫ" = "NAPI KÜLDETÉSEK";
+
+/* Help Center */
+"Популярные темы" = "Népszerű témák";
+"Категории" = "Kategóriák";
+/* Help Center Categories */
+"Игра" = "Játék";
+"Прогресс" = "Előrehalad";
+"Лиги" = "Ligák";
+"Профиль" = "Profil";
+"Социальные функции" = "Társadalmi jellemzők";
+"Технические вопросы" = "Műszaki problémák";
+"Нужна дополнительная помощь?" = "További segítségre van szüksége?";
+"Связаться с поддержкой" = "Lépjen kapcsolatba az ügyfélszolgálattal";
+"Результаты поиска" = "Keresési eredmények";
+"Ничего не найдено" = "Nem találtunk semmit";
+"Попробуйте другие ключевые слова" = "Próbáljon ki különböző kulcsszavakat";
+"%d тем" = "%d téma";
+
+/* Daily Quests */
+"Продли свою серию" = "Hosszabbítsa meg sorozatát";
+"Сыграй 3 игры подряд" = "Játssz 3 játékot egymás után";
+"Достигни точности 80%" = "80%-os pontosság elérése";
+"МЕСЯЧНЫЕ ЦЕЛИ" = "HAVI CÉLOK";
+"Месячные цели" = "HAVI CÉLOK";
+
+/* Profile Statistics */
+"дней" = "napokon";
+"Текущая серия" = "Aktuális sorozat";
+"Всего изучено флагов" = "Összes jelző tanult";
+"Текущая лига" = "Jelenlegi liga";
+"Общий опыт" = "Teljes tapasztalat";
+
+/* League Names */
+"Бронза" = "Bronz";
+"Серебро" = "Ezüst";
+"Золото" = "Arany";
+"Платина" = "Platina";
+"Алмаз" = "Gyémánt";
+"Мастер" = "Fő";
+
+/* Profile Edit */
+"Введите имя" = "Írja be a nevet";
+"Отмена" = "Mégse";
+"Сохранить" = "Megtakarítás";
+"Уровень" = "Szint";
+"Опыт" = "Tapasztalat";
+"Серия дней" = "Napi sorozat";
+"Всего игр" = "Összes játék";
+"Точность" = "Pontosság";
+
+/* Theme Settings */
+"Тема" = "Téma";
+"System" = "Rendszer";
+"Light" = "Fény";
+"Dark" = "Sötét";
+"Выберите тему оформления приложения" = "Válassza ki az alkalmazás megjelenési témáját";
+"Следует системным настройкам" = "Követi a rendszerbeállításokat";
+"Светлое оформление" = "Könnyű megjelenés";
+"Темное оформление" = "Sötét megjelenés";
+
+/* Monthly Quests - Additional */
+"Сыграй %d игр" = "Játssz %d játékot";
+"Завершите %d игр в этом месяце" = "Végezzen %d játékot ebben a hónapban";
+"Точность %d%%" = "Pontosság %d%%";
+"Достигните точности %d%% в играх" = "Érj el %d%%-os pontosságot a játékokban";
+"Серия %d дней" = "%d napos sorozat";
+"Поддерживайте серию %d дней подряд" = "Tartson fenn %d napos sorozatot";
+"10Ч" = "10H";
+
+/* Friends */
+"Ваш код друга" = "A barátod kódja";
+"Добавить по коду" = "Hozzáadás kóddal";
+"Введите код друга" = "Adja meg a barát kódját";
+"Добавить" = "Hozzáadás";
+"Добавить друзей" = "Barátok hozzáadása";
+"Готово" = "Kész";
+"Скопировано" = "Másolva";
+"Мой код друга" = "A barátom kódja";
+"Добавить по имени (логину)" = "Hozzáadás felhasználónévvel";
+"Введите имя пользователя" = "Adja meg a felhasználónevet";
+"Пользователь не найден или уже в друзьях. Проверьте имя." = "A felhasználó nem található, vagy már ismerősök között van. Ellenőrizze a nevet.";
+"Ваша страна (флаг в профиле)" = "Az Ön országa (zászló a profilban)";
+"Выберите страну — её флаг будет отображаться у вас в профиле у друзей." = "Válasszon országot – a zászlója megjelenik a profiljában az ismerősei számára.";
+"Не выбрано" = "Nincs kiválasztva";
+"Ваша страна" = "A te országod";
+
+/* Help Center topics */
+"Как играть в World Arena Flags?" = "Hogyan kell játszani a World Arena Flags játékot?";
+"Основы игры и правила" = "Alapok és szabályok";
+"HELP_GAME_RULES" = "A World Arena Flags egy szórakoztató játék a világ zászlóinak megtanulásához!\n\nSzabályok:\n1. Egy ország zászlaját látod\n2. Válassza ki a megfelelő nevet a lehetőségek közül\n3. Szerezz XP-t a helyes válaszokért\n4. Tartsa meg a napi sorozatot\n5. Lépj fel és mássz ligákat\n\nMinél többet játszol, annál több zászlót tanulsz meg!";
+"Что такое серия дней?" = "Mi az a sorozat?";
+"Как работает система серий" = "Hogyan működik a sorozatrendszer";
+"HELP_STREAK_TEXT" = "A sorozat azt mutatja, hogy egymás után hány napot játszottál.\n\nHogyan kell tartani:\n• Játssz legalább egy játékot minden nap\n• A sorozat visszaáll, ha kihagy egy napot\n• A hosszabb sorozatok több bónusz XP-t adnak\n\nA Streak segít a tanulási szokás kialakításában!";
+"Как работают лиги?" = "Hogyan működnek a ligák?";
+"Система рейтингов и соревнований" = "Értékelési és versenyrendszer";
+"HELP_LEAGUES_TEXT" = "A ligák versenyek más játékosokkal.\n\nLigák (alacsonyabbról magasabbra):\n• Bronz\n• Ezüst\n• Arany\n• Platina\n• Gyémánt\n• Mester\n\nHeti frissítések:\n• A legjobb 3 játékos jutalmat kap\n• A 16–20 év közötti játékosok lefokozhatók\n• Mások ugyanabban a ligában maradnak";
+
+/* Birthday */
+"День рождения" = "Születésnap";
+"Birthday description F-bucks" = "Engedje meg, hogy +10 F-dollárral gratuláljunk születésnapján";
+"Очистить" = "Világos";
+"День рождения друга" = "Barát születésnapja";
+"Friend birthday push body" = "%@ ma ünnepli születésnapját – gratulálunk! (+10 perc Triple XP vagy +1 F-dollár)";
+"С днём рождения!" = "Boldog születésnapot!";
+"Birthday bonus already claimed" = "Az idei bónuszt már igényelték";
+"Birthday bonus F-bucks message" = "+10 F-dolcsit kaptál";
+"Friend birthday today" = "Ma van %@ születésnapja";
+"Friends birthday today count" = "%d barátnak ma van a születésnapja";
+"Friend birthday congratulate hint" = "Gratulálunk: adj +10 perc Triple XP-t vagy +1 F-dolcsit";
+"Подарок на ДР от друга" = "Születésnapi ajándék baráttól";
+
+/* Help Center – profile & skin */
+"Как изменить аватар?" = "Hogyan lehet avatart változtatni?";
+"Персонализация профиля" = "Profil testreszabása";
+"HELP_PROFILE_AVATAR" = "Az avatarod megváltoztatásához:\n1. Nyissa meg a Profil lapot\n2. Érintse meg a fogaskerék ikont (Beállítások)\n3. Válassza a „Felhasználói profil” lehetőséget.\n4. Válasszon új avatart, vagy töltsön fel egy fényképet\n5. Koppintson a \"Mentés\" gombra.";
+"Как работает создание скина?" = "Hogyan működik a skin szerkesztő?";
+"Редактор аватара и элементы" = "Avatar szerkesztő és elemek";
+"HELP_PROFILE_SKIN_EDITOR" = "A skin szerkesztőben több kategóriából építheti ki megjelenését:\n• Ruházat\n• Tartozékok\n• Szemüveg\n• Bőrtónus\n• Haj\n• Arc (szem, száj stb.)\n\nHogyan kell használni:\n1. Nyissa meg a Profil → Beállítások → Felhasználói profil → Avatar szerkesztése menüpontot\n2. Váltson a \"Skin létrehozása\" lapra\n3. Válasszon ki egy kategóriát a felső sávban (kalap, ing, szemüveg, paletta ikonok stb.)\n4. Válasszon ki egy adott elemet az alábbi rácsban – az azonnal megjelenik az előnézetben\n5. Érintse meg az „Avatar mentése” lehetőséget, hogy alkalmazza a bőrt a profiljára\n\nElőfordulhat, hogy egyes elemek zárolva vannak (zárikon) – előrehaladtával vagy F-bucksért feloldják a zárolást.";
+
+/* Help Center – friends & social */
+"Как добавить друзей?" = "Hogyan adjunk hozzá barátokat?";
+"Социальные функции" = "Társadalmi jellemzők";
+"HELP_SOCIAL_ADD_FRIENDS" = "Ismerősök hozzáadása:\n1. Nyissa meg a Profil lapot\n2. Érintse meg az „Barátok hozzáadása” lehetőséget.\n3. Oszd meg barátod kódját, vagy írd be egy másik játékos kódját/bejelentkezési adatait\n4. Küldj barátkérést\n\nBarátokkal a következőket teheti:\n• Hasonlítsa össze a statisztikákat\n• Lásd a fejlődésüket\n• Versenyeznek ligákban és párharcokban";
+"Как работают напоминания друзьям?" = "Hogyan működnek az emlékeztetők az ismerősöknek?";
+"Пуш-уведомления о ежедневном уроке" = "Push értesítések a napi leckéről";
+"HELP_SOCIAL_REMINDERS" = "A játék befejezése után megjelenik egy képernyő a barátaival és sorozataikkal:\n• Azon barátok, akik már játszottak ma, lángot és sorozatban töltött napok számát mutatják\n• Azon barátok, akik ma még nem játszottak, az „Emlékeztető” gombot mutatják\n\nEmlékeztető küldés módja:\n1. A játék után lépjen a \"Barátok emlékeztetése\" képernyőre\n2. Érintse meg az „Emlékeztető” elemet egy adott barát mellett\n3. Ha engedélyezve vannak az értesítések, akkor értesítést kapnak arról, hogy a mai lecke még nem fejeződött be\n\nAz emlékeztetők segítenek a barátoknak megőrizni sorozatukat és rendszeresen tanulni.";
+
+/* Help Center – duel & progress */
+"Что такое дуэль и как её начать?" = "Mi az a párbaj és hogyan kezdjük el?";
+"Режим соревнований 1 на 1" = "1-az-1 versenymód";
+"HELP_GAME_DUEL" = "A párbaj egy olyan mód, amelyben Ön és barátja ugyanazokra a kérdésekre válaszol az eredmények összehasonlításához.\n\nHogyan kezdjünk párbajt:\n1. Nyissa meg barátja profilját (a Baráti listából, a Ligákból vagy az emlékeztetőkből)\n2. Érintse meg a „Kihívás párbajra” gombot\n3. Erősítse meg – a párbaj megosztott kérdéssort használ\n\nA végén:\n• Látod, ki szerzett több pontot\n• A párbaj motiválja és felgyorsítja a fejlődést, de NEM állítja vissza a napi sorozatot";
+"Как зарабатывать и тратить F-bucks?" = "Hogyan lehet keresni és elkölteni F-dollárokat?";
+"Внутриигровая валюта" = "A játékon belüli pénznem";
+"HELP_PROGRESS_FBUCKS" = "Az F-Bucks (Flags Bucks) a World Arena Flags játékbeli pénzneme.\n\nHogyan szerezd:\n• Tökéletes játékokkal (minden válasz helyes)\n• Hosszú napi sorozatokkal\n• Küldetések és eredmények teljesítésével\n\nMire költheted:\n• Exkluzív kinézet és avatar elemek\n• Ritka kiegészítők és effektusok feloldása\n\nFontos: az F-Bucks nem valódi pénz, nem váltható valódi valutára.";
+"Как работают квесты и достижения?" = "Hogyan működnek a küldetések és az eredmények?";
+"Месячные задания и артефакты" = "Havi küldetések és tárgyak";
+"HELP_PROGRESS_QUESTS" = "A „Küldetések” lapon:\n• napi küldetések (ha vannak)\n• havi küldetések és összesített haladás 0–40\n\nHogyan működik:\n1. Teljesíts feladatokat: játssz elég meccset, találd el régiók zászlóit stb.\n2. Minden teljesített küldetés haladást és jutalmat ad\n3. A havi összesítés a színes fejlécben sávként látszik\n\nEredmények (jutalmak) külön feltételeknél:\n• hosszú sorozatok\n• nagy pontosság\n• előkelő ligás helyezés\nA feloldott eredmények a profilodon jelennek meg.";
+
+/* Help Center – notifications */
+"Уведомления: какие бывают и как их настроить?" = "Értesítések: típusok és hogyan kezeljük őket?";
+"Ежедневный урок, дуэли и напоминания" = "Napi óra, párbajok és emlékeztetők";
+"HELP_NOTIFICATIONS_TYPES" = "Az alkalmazás többféle értesítést küldhet:\n• napi játék- és sorozat-emlékeztetők\n• barátoknak szóló emlékeztetők és válaszok\n• párbajkihívások és eredmények\n\nKezelés:\n1. Nyisd meg az eszköz beállításait\n2. Keresd meg a World Arena Flags alkalmazást\n3. Kapcsold az értesítéstípusokat ízlés szerint\n\nÉrdemes a napi emlékeztetőt bekapcsolva hagyni, ne szakadjon meg a sorozatod.";
+
+/* Help Center – technical issues */
+"Проблемы с загрузкой флагов" = "A zászlók nem töltődnek be";
+"Что делать если флаги не загружаются" = "Mi a teendő, ha a zászlók nem töltődnek be";
+"HELP_TECH_FLAGS_NOT_LOADING" = "Ha a zászlók nem töltődnek be:\n1. Ellenőrizze az internetkapcsolatot\n2. Indítsa újra az alkalmazást\n3. Törölje a gyorsítótárat az alkalmazás beállításaiban (ha elérhető)\n4. Frissítse az alkalmazást a legújabb verzióra\n5. Ha a probléma továbbra is fennáll, forduljon az ügyfélszolgálathoz";
+"Синхронизация данных" = "Adatszinkronizálás";
+"Как сохранить прогресс" = "Hogyan tartsd biztonságban a fejlődésed";
+"HELP_TECH_DATA_SYNC" = "Az előrehaladást automatikusan elmenti az eszköz.\n\nA biztonsági mentéshez:\n• Használja az iCloudot vagy az eszköz biztonsági másolatát\n• Adatok exportálása az adatvédelmi beállításokon keresztül (ha elérhető)\n• Rendszeresen készítsen biztonsági másolatot eszközéről\n\nHa eszközt vált, állítsa vissza a biztonsági másolatot a játék indítása előtt, hogy ne veszítse el a fejlődést.";
+
+/* Achievements */
+"Достижения" = "Eredmények";
+"Достижение" = "Teljesítmény";
+"ЛИЧНЫЕ РЕКОРДЫ" = "Személyes nyilvántartások";
+"НАГРАДЫ" = "Díjak";
+"Лучшая серия" = "Leghosszabb sorozat";
+"Макс. лига" = "Legmagasabb liga";
+"Макс. XP" = "A legtöbb XP";
+"Открыто" = "Feloldva";
+
+/* Achievement titles/descriptions */
+"Ранняя птица" = "Early Bird";
+"Достигните серии 5 дней" = "Érj el 5 napos sorozatot";
+"Стабильность" = "Következetesség";
+"Серия 10 дней" = "10 napos sorozat";
+"Железная воля" = "Vasakarat";
+"Серия 30 дней" = "30 napos sorozat";
+"Новичок XP" = "XP kezdő";
+"Наберите 1000 XP" = "Szerezz 1000 XP-t";
+"Олимпиец XP" = "XP olimpikon";
+"Наберите 5000 XP" = "Szerezz 5000 XP-t";
+"Легенда XP" = "XP Legend";
+"Наберите 10000 XP" = "Szerezz 10000 XP-t";
+"Исследователь" = "Quest Explorer";
+"Сыграйте 20 игр" = "Játssz 20 játékot";
+"Ветеран" = "Veterán";
+"Сыграйте 100 игр" = "Játssz 100 játékot";
+"Меткий стрелок" = "Mesterlövész";
+"Точность 70%" = "70%-os pontosság elérése";
+"Снайпер" = "Orvlövész";
+"Точность 85%" = "85%-os pontosság elérése";
+"Серебряная лига" = "Ezüst Liga";
+"Достигните Серебра" = "Érje el az ezüstöt";
+"Золотая лига" = "Arany Liga";
+"Достигните Золота" = "Reach Gold";
+"Платиновая лига" = "Platina Liga";
+"Достигните Платины" = "Érje el a platina helyezést";
+"Алмазная лига" = "Gyémánt Liga";
+"Достигните Алмаза" = "Reach Diamond";
+"Мастер лиг" = "Liga Mester";
+"Достигните Мастера" = "Érd el a Mestert";
+"Первый друг" = "Első Barát";
+"Добавьте друга" = "Adj hozzá egy barátot";
+"Своя команда" = "Az Ön csapata";
+"Добавьте 5 друзей" = "Adj hozzá 5 barátot";
+"Расскажите друзьям" = "Terjeszd az igét";
+"Поделитесь профилем" = "Ossza meg profilját";
+"Спринтер" = "Speed ​​Racer";
+"Сыграйте 10 игр за день" = "Játssz 10 játékot egy nap alatt";
+"XP Олимпиец" = "XP olimpikon";
+"Мастер Олимпиец XP" = "Mester XP olimpikon";
+"Наберите 30000 XP" = "Szerezz 30 000 XP-t";
+ 
+/* Settings - Added */
+"Уведомления" = "Értesítések";
+"Приватность" = "Magánélet";
+"Центр помощи" = "Súgó";
+"Язык игры" = "Játék nyelve";
+"Звуковые эффекты" = "Hangeffektusok";
+"Вибрация" = "Rezgés";
+
+/* Notification Settings - Sections */
+"Основные уведомления" = "Fő értesítések";
+"Напоминания об игре" = "Játék emlékeztetők";
+"Ежедневные напоминания" = "Napi emlékeztetők";
+"Напоминания о серии" = "Sorozat-emlékeztetők";
+"Время напоминания" = "Emlékeztető ideje";
+"Время" = "Idő";
+"Достижения и прогресс" = "Eredmények és haladás";
+"Социальные уведомления" = "Közösségi értesítések";
+"Друзья" = "Barátok";
+
+/* Privacy Settings */
+"Приватность профиля" = "Profil adatvédelem";
+"Публичный профиль" = "Nyilvános profil";
+"Показывать статистику" = "Statisztikák megjelenítése";
+"Заявки в друзья" = "Baráti kérések";
+"Сбор данных" = "Adatgyűjtés";
+"Аналитика использования" = "Használati elemzés";
+"Отчеты о сбоях" = "Baleseti jelentések";
+"Управление данными" = "Adatkezelés";
+"Политика конфиденциальности" = "Adatvédelmi szabályzat";
+"Ознакомьтесь с нашей политикой конфиденциальности" = "Olvassa el adatvédelmi szabályzatunkat";
+"Условия использования" = "Szolgáltatási feltételek";
+"Прочитайте наши условия использования" = "Olvassa el szolgáltatási feltételeinket";
+"Экспорт данных" = "Adatok exportálása";
+"Скачать копию ваших данных" = "Töltse le adatainak másolatát";
+"Удалить все данные" = "Törölje az összes adatot";
+"Безвозвратно удалить все ваши данные" = "Véglegesen törölje az összes adatot";
+
+// Profile page
+"Всего изучено флагов" = "Összes jelző tanult";
+"Текущая лига" = "Jelenlegi liga";
+"Общий опыт" = "Teljes tapasztalat";
+"дней" = "napokon";
+"Текущая серия" = "Aktuális sorozat";
+"XP" = "XP";
+"ДОБАВИТЬ ДРУЗЕЙ" = "BARÁTOK HOZZÁADÁSA";
+"СЕРИИ ДРУЗЕЙ" = "BARÁTOK";
+"МЕСЯЧНЫЕ ДОСТИЖЕНИЯ" = "HAVI EREDMÉNYEK";
+
+// Add Friends page
+"Ваш код друга" = "A barátod kódja";
+"Добавить по коду" = "Hozzáadás kóddal";
+"Введите код друга" = "Adja meg a barát kódját";
+"Добавить" = "Hozzáadás";
+"Добавить друзей" = "Barátok hozzáadása";
+"Готово" = "Kész";
+"Скопировано" = "Másolva";
+"Мой код друга" = "A barátom kódja";
+"Добавить по имени (логину)" = "Hozzáadás felhasználónévvel";
+"Введите имя пользователя" = "Adja meg a felhasználónevet";
+"Пользователь не найден или уже в друзьях. Проверьте имя." = "A felhasználó nem található, vagy már ismerősök között van. Ellenőrizze a nevet.";
+"Ваша страна (флаг в профиле)" = "Az Ön országa (zászló a profilban)";
+"Выберите страну — её флаг будет отображаться у вас в профиле у друзей." = "Válasszon országot – a zászlója megjelenik a profiljában az ismerősei számára.";
+"Не выбрано" = "Nincs kiválasztva";
+"Ваша страна" = "A te országod";
+
+// Settings page
+"Премиум" = "Prémium";
+"World Arena Premium" = "World Arena Premium";
+"Премиум подписка активна" = "Prémium előfizetés aktív";
+"ВОССТАНОВИТЬ ПОДПИСКУ" = "ELŐFIZETÉS VISSZAÁLLÍTÁSA";
+
+// Achievements
+"Ранняя птица" = "Early Bird";
+"Железная воля" = "Vasakarat";
+"Алмазная лига" = "Gyémánt Liga";
+"Серия мастера" = "Master Streak";
+"Чемпион месяца" = "Havi bajnok";
+"Идеальная неделя" = "Tökéletes Hét";
+
+// Friends messages
+"У вас пока нет друзей" = "Még nincsenek barátaid";
+"Добавьте друзей, чтобы видеть их серии" = "Adjon hozzá barátokat, hogy megtekinthesse sorozataikat";
+
+// Quests page
+"Щоденні квести" = "Napi küldetések";
+"Сыграй 3 игры" = "Játssz 3 játékot";
+"Дай 10 правильных ответов" = "Adj 10 helyes választ";
+"Заработай 500 XP" = "Szerezz 500 XP-t";
+"%d/7 дней активности" = "%d/7 aktív nap";
+"Месячные цели" = "Havi célok";
+"Сыграй 10 игр" = "Játssz 10 játékot";
+"Завершите 10 игр в этом месяце" = "Végezzen 10 játékot ebben a hónapban";
+"Точность 62%" = "Pontosság 62%";
+"Достигните точности 62% в играх" = "Érj el 62%-os pontosságot a játékokban";
+"Серия 3 дней" = "3 napos sorozat";
+"Поддерживайте серию 3 дней подряд" = "Tartson fenn egy 3 napos sorozatot";
+
+// Profile page buttons
+"Отмена" = "Mégse";
+"Сохранить" = "Megtakarítás";
+
+// Profile statistics
+"Статистика" = "Statisztika";
+"Уровень" = "Szint";
+"Опыт" = "Tapasztalat";
+"Серия дней" = "Day Streak";
+"Всего игр" = "Összes játék";
+"Точность" = "Pontosság";
+
+// Avatar Editor
+"Edit Avatar" = "Avatar szerkesztése";
+"Upload photo" = "Fénykép feltöltése";
+"Photo" = "Fénykép";
+"Create" = "Teremt";
+"Select photo" = "Válassza a Fotó lehetőséget";
+"Upload your photo from gallery or take a new one" = "Töltse fel fényképét a galériából, vagy készítsen újat";
+"Save Avatar" = "Az Avatar mentése";
+
+// Mission title
+"August Mission" = "augusztusi küldetés";
+
+/* Subscription Management */
+"Управление подпиской" = "Előfizetés kezelése";
+"Ваша премиум подписка активна" = "Prémium előfizetése aktív";
+"Текущий план" = "Jelenlegi terv";
+"Цена" = "Ár";
+"месяц" = "hónap";
+"Информация о платежах" = "Számlázási információk";
+"Дата начала" = "Kezdés dátuma";
+"Следующий платеж" = "Következő fizetés";
+"Статус" = "Állapot";
+"Активна" = "Aktív";
+"Премиум преимущества" = "Prémium előnyei";
+"Безлимитные жизни" = "Korlátlan életek";
+"Играйте без ожидания" = "Játssz várakozás nélkül";
+"Раздел Обучения" = "Tanulási szakasz";
+"Изучайте флаги и страны" = "Ismerje meg a zászlókat és az országokat";
+"Сложность Эрудит" = "Erudit nehézség";
+"Продвинутые вопросы" = "Haladó kérdések";
+"Мои ошибки" = "Az én hibáim";
+"Анализ ваших ошибок" = "Hibáid elemzése";
+"Отменить подписку" = "Előfizetés lemondása";
+"Закрыть" = "Közeli";
+"Отмена" = "Mégse";
+"Вы уверены, что хотите отменить премиум подписку? Вы потеряете доступ ко всем премиум функциям." = "Biztosan lemondja prémium előfizetését? Elveszíti az összes prémium funkcióhoz való hozzáférést.";
+
+"Manage subscription" = "Előfizetés kezelése";
+"Your premium subscription is active" = "Prémium előfizetése aktív";
+"Current plan" = "Jelenlegi terv";
+"Price" = "Ár";
+"month" = "hónap";
+"year" = "év";
+"Billing information" = "Számlázási információk";
+"Start date" = "Kezdés dátuma";
+"Next payment" = "Következő fizetés";
+"Status" = "Állapot";
+"Active" = "Aktív";
+"Premium benefits" = "Prémium előnyök";
+"My mistakes" = "Az én hibáim";
+"Analysis of your mistakes" = "Hibáid elemzése";
+"Premium tournaments" = "Prémium versenyek";
+"Exclusive tournaments with F-Bucks prizes" = "Exkluzív versenyek F-Bucks nyereményekkel";
+"Cancel subscription" = "Az előfizetés lemondása";
+"Keep subscription" = "Tartsa meg az előfizetést";
+"Yes, cancel" = "Igen, mégsem";
+"Are you sure you want to cancel premium? You will lose access to all premium features." = "Biztosan lemondja a prémiumot? Elveszíti az összes prémium funkcióhoz való hozzáférést.";
+"Close" = "Közeli";
+"Red" = "Piros";
+"Most popular color fact description" = "A vörös a világ nemzeti zászlóinak 75%-án megtalálható, így ez a legnépszerűbb zászlószín.";
+
+/* Friend Management */
+"Флаг в профиле" = "Zászló a profilban";
+"Удалить из друзей" = "Eltávolítás az Ismerősök közül";
+"Удалить друга" = "Ismerős eltávolítása";
+"Вы уверены, что хотите удалить %@ из друзей и перестать следить за его успехами?" = "Biztosan eltávolítja %@ ismerősei közül, és nem követi tovább a fejlődésüket?";
+
+/* Subscription Cancellation */
+"Нам очень жаль, что вы отменили премиум подписку" = "Sajnáljuk, hogy lemondta prémium előfizetését";
+"Ваши результаты за период премиум подписки:" = "Az Ön eredményei a prémium előfizetési időszak alatt:";
+"Изучено флагов" = "Flags tanulmányozott";
+"Лучший результат" = "Legjobb pontszám";
+"очков" = "pontokat";
+"Текущая серия" = "Aktuális sorozat";
+"дней" = "napokon";
+"Точность" = "Pontosság";
+"Теперь вы можете без единой ошибки отвечать на все наши вопросы с точностью в %d%%" = "Теперь вы можете без единой ошибки отвечать на все наши вопросы с точностью в %d%%";
+"Мы будем рады, если вы захотите снова вернуться к нам!" = "Örülnénk, ha még egyszer visszatérne hozzánk!";
+"Продолжить" = "Folytatás";
+
+/* Learning Section New Strings */
+"ВСЕ СТРАНЫ" = "MINDEN ORSZÁG";
+"Все страны" = "Minden ország";
+"стран" = "országokban";
+"Столица" = "Tőke";
+
+// Country Detail View
+"Галерея" = "Galéria";
+"Информация о стране" = "Országinformáció";
+"Описание флага" = "Zászló leírása";
+"Гимн страны" = "Himnusz";
+"Национальный гимн" = "Himnusz";
+"Значение гимна" = "Himnusz jelentése";
+"Официальный язык" = "Hivatalos nyelv";
+"Правительство" = "Kormány";
+"Глава государства" = "Államfő";
+"Телефонный код" = "Tárcsázó kód";
+"Население" = "Lakosság";
+"Валюта" = "Valuta";
+"Независимость" = "Függetlenség";
+"Площадь" = "Terület";
+"Описание" = "Leírás";
+"История" = "Történelem";
+"Музыка" = "Zene";
+"Природа" = "Természet";
+"Историческая информация о стране" = "Történelmi információk az országról";
+"Музыкальная культура страны" = "Az ország zenei kultúrája";
+"Уникальная природа и ландшафты этой страны" = "Az ország egyedülálló természete és tájai";
+
+/* Premium restrictions */
+"Premium Feature" = "Prémium szolgáltatás";
+"Erudite Level - Premium Only" = "Eruditált szint – csak prémium";
+"My Mistakes - Premium Only" = "Hibáim – Csak prémium";
+"This feature is available only for Premium users" = "Ez a funkció csak prémium felhasználók számára érhető el";
+"Continue with Premium" = "Folytassa a Premiummal";
+"Get Premium access to unlock:" = "Szerezzen prémium hozzáférést a feloldáshoz:";
+"• Erudite difficulty level" = "• Eruditált nehézségi szint";
+"• My Mistakes section" = "• Hibáim rész";
+"• Unlimited lives" = "• Korlátlan életek";
+"• All premium features" = "• Minden prémium szolgáltatás";
+
+/* Enhanced Game Results */
+"PERFECT!" = "TÖKÉLETES!";
+"EXCELLENT!" = "KIVÁLÓ!";
+"GREAT JOB!" = "NAGY MUNKÁT!";
+"GOOD EFFORT!" = "JÓ EREDMÉNY!";
+"KEEP TRYING!" = "PRÓBÁLJON TOVÁBB!";
+"Absolutely incredible! You're a true champion! 🎉" = "Teljesen hihetetlen! Igazi bajnok vagy! 🎉";
+"Outstanding performance! You're almost perfect! ✨" = "Kiemelkedő teljesítmény! Majdnem tökéletes vagy! ✨";
+"Fantastic work! You're doing amazing! 🚀" = "Fantasztikus munka! Csodálatosan csinálod! 🚀";
+"Nice job! Keep up the great work! 💫" = "Szép munka! Csak így tovább! 💫";
+"Don't give up! Every expert was once a beginner! 🌱" = "Ne add fel! Valaha minden szakértő kezdő volt! 🌱";
+"XP EARNED" = "MÉG XP";
+"XP boost time remaining" = "%d:%02d van hátra – játssz újra!";
+"XP boost you have remaining" = "%@ %@ maradt";
+"double XP" = "dupla XP";
+"triple XP" = "tripla XP";
+
+/* Enhanced Streak View */
+"Don't break the chain! Come back tomorrow!" = "Ne szakítsa meg a láncot! Gyere vissza holnap!";
+"Time to restart your streak! You can do it!" = "Time to restart your streak! You can do it!";
+
+/* Monthly XP Quest */
+"Заработай %d XP за месяц" = "Szerezz %d XP-t ebben a hónapban";
+"Заработайте %d XP играя минимум 7 дней в месяц" = "Szerezz %d XP-t, ha legalább 7 napot játszol ebben a hónapban";
+
+/* League end popup */
+"Итоги лиги" = "Liga eredmények";
+"Вы заняли %d место." = "Elhelyezted %d.";
+"Вы поднялись в лигу: %@" = "Előléptettek %@ kategóriába.";
+"Вы остались в текущей лиге." = "Maradtál a jelenlegi bajnokságodban.";
+"Вы понижены в лигу: %@" = "Lefokoztak %@-ra.";
+
+/* Premium placeholders when products not loaded */
+"Loading..." = "Terhelés...";
+"Unable to load products" = "Nem sikerült betölteni a termékeket";
+"Tap to load price" = "Koppintson az ár betöltéséhez";
+"Sign in with Apple ID in Settings → App Store to see prices. Tap an option or Retry to try again." = "Az árak megtekintéséhez jelentkezzen be Apple ID-vel a Beállítások → App Store menüpontban. Koppintson egy lehetőségre vagy az Újrapróbálkozásra az újrapróbálkozáshoz.";
+
+/* Home Lives Promo */
+"Unlock your full progress" = "Nyissa meg a teljes fejlődést";
+"Get Premium tools for faster learning and better game results" = "Szerezzen be prémium eszközöket a gyorsabb tanuláshoz és a jobb játékeredményekhez";
+"Learning section" = "Tanulási rész";
+"Train flags and countries in a structured mode" = "Vonat zászlók és országok strukturált módban";
+"Erudite difficulty" = "Eruditált nehézség";
+"Advanced challenge with deeper knowledge checks" = "Haladó kihívás mélyebb tudásellenőrzéssel";
+"My mistakes" = "Az én hibáim";
+"Focus on weak topics and improve accuracy" = "Koncentráljon a gyenge témákra, és javítsa a pontosságot";
+"Personalized practice" = "Személyre szabott gyakorlat";
+"Adaptive sessions based on your progress" = "Adaptív munkamenetek a fejlődésed alapján";
+"Explain my answer" = "Magyarázd meg a válaszomat";
+"Understand every mistake and learn faster" = "Érts meg minden hibát, és tanulj gyorsabban";
+"Up to +750% faster flag learning with Premium" = "Akár +750%-kal gyorsabb zászlótanulás a Premiummal";
+"Play without waiting and keep your learning momentum" = "Játsszon várakozás nélkül, és tartsa meg tanulási lendületét";
+"Train flags, listen to anthems, and explore detailed country profiles" = "Vonat zászlókat, hallgasson himnuszokat, és fedezze fel a részletes országprofilokat";
+"Restore Purchases" = "Vásárlások visszaállítása";
+"Have a promo code?" = "Van promóciós kódja?";
+"Redeem Offer Code" = "Váltsd be az ajánlati kódot";
+"Auto-renewable subscription" = "Automatikusan megújuló előfizetés";
+"Monthly Premium Title" = "Prémium Monthly: maximális érték";
+"Yearly Premium Title" = "Prémium ÉV. Zászlók és országok";
+"Duration: 1 month (auto-renewable)" = "Időtartam: 1 hónap (automatikusan megújítható)";
+"Duration: 1 year (auto-renewable)" = "Időtartam: 1 év (automatikusan megújítható)";
+"Premium Monthly" = "Prémium havi";
+"Yearly Premium" = "Éves prémium";
+"Save %d%%" = "%d%% megtakarítás";
+"Learn flags and countries of the World" = "Ismerje meg a világ zászlóit és országait";
+"Select Level" = "Válassza a Szint lehetőséget";
+"Level - %@" = "Szint - %@";
+"Exclusive tournaments with cash F-Bucks prizes" = "Exkluzív versenyek készpénzes F-Bucks nyereményekkel";
+"Survival Mode" = "Survival Mode";
+"One mistake = Game Over" = "Egy hiba = Game Over";
+"Duel result push format" = "%@: %d — Te: %d.";
+"Duel motivation win" = "Elképesztő! Folytassa a sorozatot.";
+"Duel motivation lose" = "Visszavágó idő! Meg tudod csinálni.";
+"Opponent" = "Ellenfél";
+"vs %@" = "vs %@";
+"Combo x%d" = "Kombinált x%d";
+"Combo x%d bonus" = "Kombinált x%d bónusz +1";
+"Combo x%d +10 XP" = "Kombinált x%d +10 XP";
+"Speed bonus +1" = "Sebességbónusz +1";
+"Speed bonus +10 XP" = "Sebességbónusz +10 XP";
+"Global ranking by countries" = "Globális rangsor országok szerint";
+"Country rank line" = "%@ #%d vagy itt %@";
+"World rank line" = "🌎 #%d vagy a világon";
+"World rank line no emoji" = "#%d vagy a világon";
+"Friend country rank line" = "%1$@ %2$@ #%3$d · %4$@";
+"Friend world rank line" = "%1$@ #%2$d";
+"Spain" = "Spanyolország";
+"Poland" = "Lengyelország";
+"Ukraine" = "Ukrajna";
+"Russia" = "Oroszország";
+"USA" = "Egyesült Államok";
+"Лига Чемпионов Мира" = "Világbajnoki Liga";
+"Price is loaded from the App Store on this screen" = "Az ár az App Store-ból töltődik be ezen a képernyőn";
+"Connecting to App Store..." = "Csatlakozás az App Store-hoz...";
+"Version" = "Változat";
+"Update" = "Frissítés";
+"Login without @" = "bejelentkezés @ nélkül";
+"Add by username" = "Hozzáadás felhasználónévvel";
+"Duel Summary" = "Párbaj összefoglaló";
+"No duel history yet" = "Párbajtörténet még nincs";
+"You already outranked %d%% of players in your city" = "Már megelőzte a városod játékosainak %d%%-át";
+"Goal: keep 90% accuracy in first challenge" = "Cél: 90%-os pontosság megtartása az első kihívásnál";
+"Challenge ends in %d sec" = "A kihívás %d másodperc múlva ér véget";
+"Defeat" = "Vereség";
+"Victory" = "Győzelem";
+"All" = "Minden";
+"Wins" = "Győzelem";
+"Losses" = "Veszteség";
+"Duel Summary Share Header" = "Párbajaim a World Arena Flagsben";
+"View Detailed Results" = "Részletes eredmények megtekintése";
+"Detailed Results" = "Részletes eredmények";
+"Correct" = "Helyes";
+"Wrong" = "Rossz";
+"Flag" = "Zászló";
+"Your answer" = "A válaszod";
+"Time is up" = "Lejárt az idő";
+"Search" = "Keresés";
+"3x XP for 10 min!" = "3x XP 10 percig!";
+"КАРТА ПРОГРЕССА" = "HALADÁSTÉRKÉP";
+"Карта прогресса мира" = "Világfejlődési térkép";
+"World Progress Map" = "Világfejlődési térkép";
+"Tap a country to see your correct and wrong answers" = "Koppintson egy országra a helyes és rossz válaszok megtekintéséhez";
+"Greener country means better mastery" = "A zöldebb ország jobb uralmat jelent";
+"Continent Mastery" = "A kontinens mestere";
+"Mastered %d of %d countries" = "%d országból %d";
+"Answered %d of %d countries" = "%d országból %d válaszolva";
+"Total" = "Teljes";
+"Map" = "Térkép";
+"Weak countries" = "Gyenge országok";
+"All countries" = "Minden ország";
+"Only weak" = "Csak gyenge";
+"Only mastered" = "Csak elsajátította";
+"TOP weak countries for review" = "A TOP gyenge országok felülvizsgálatra";
+"No weak countries yet" = "Még nincsenek gyenge országok";
+"%@ Master" = "%@ Mester";
+"%@ Master unlocked" = "%@ Master feloldva";
+"Continent mastered! Keep going." = "A kontinens elsajátította! Folytasd.";
+"Weekly challenge" = "Heti kihívás";
+"Weak country sessions this week" = "Gyenge vidéki ülések ezen a héten";
+"Start Weak Countries Training" = "Kezdje el a gyenge országok képzését";
+"Progress map subtitle" = "Kövesse nyomon előrehaladását országok és kontinensek szerint";
+"How is Mastered calculated?" = "Hogyan történik a Mastered kiszámítása?";
+"Duel Summary subtitle" = "Tekintse meg párbaj történetét és részletes eredményeit";
+"F-Bucks subtitle" = "Keress és költs F-Bucks-t, a játékon belüli pénznemet";
+"Mastered explanation" = "Egy ország akkor számít elsajátítottnak, ha legalább háromszor válaszolt rá, és legalább 80%-a helyes válaszokkal rendelkezik.";
+"Name" = "Név";
+"Account login title" = "Hozd létre a fiókodat";
+"Account login subtitle" = "Tartsa meg a vendég módot, vagy jelentkezzen be a személyazonosság és a biztonsági funkciók mentéséhez";
+"Login" = "Bejelentkezés";
+"Register" = "Nyilvántartás";
+"Sign in with Apple error 1000" = "Az Apple-lel való bejelentkezés itt nem érhető el. Próbálja valódi eszközön, vagy ellenőrizze a Beállítások → Apple ID lehetőséget.";
+"Username" = "Felhasználónév";
+"Password" = "Jelszó";
+"Create account" = "Hozzon létre fiókot";
+"Forgot password?" = "Elfelejtetted a jelszavad?";
+"Continue with Google" = "Folytassa a Google-lal";
+"Google login" = "Google bejelentkezés";
+"Continue" = "Folytatás";
+"Enter Google email" = "Adja meg Google e-mail címét";
+"Current password" = "Jelenlegi jelszó";
+"New password" = "Új jelszó";
+"Repeat new password" = "Ismételje meg az új jelszót";
+"Change password" = "Jelszó módosítása";
+"Reset password" = "Jelszó visszaállítása";
+"Reset code" = "Reset kód";
+"Send reset code" = "Reset kód küldése";
+"No account with this email" = "Nincs fiók ezzel az e-mail-címmel";
+"reset_request_failed" = "A jelszó visszaállítása nem sikerült. Kérjük, próbálja újra később.";
+"registration_failed" = "A regisztráció sikertelen. Kérjük, próbálja újra.";
+"Login / Register" = "Bejelentkezés / Regisztráció";
+"Logged in" = "Bejelentkezve";
+"Use Face ID / Touch ID" = "Face ID / Touch ID használata";
+"Sign out" = "Jelentkezzen ki";
+"Active sessions" = "Aktív munkamenetek";
+"My notifications" = "Saját értesítések";
+"Other device" = "Másik eszköz";
+"Login with biometrics" = "Jelentkezzen be a biometrikus adatokkal";
+"Biometric login prompt" = "Erősítse meg a biometrikus bejelentkezést";
+
+/* 68 interesting facts */
+"FACT_01_TITLE" = "A legrégebbi folyamatosan használt zászló";
+"FACT_01_DESC" = "A dán Dannebrog a legrégebbi nemzeti zászló, amelyet 1219 óta folyamatosan használnak.";
+"FACT_02_TITLE" = "Csak négyzet alakú nemzeti zászló";
+"FACT_02_DESC" = "Svájc rendelkezik a világ egyetlen négyzet alakú nemzeti lobogójával. A Vatikánnak is van négyzet alakú zászlaja, de városállam.";
+"FACT_03_TITLE" = "Nem téglalap alakú zászló";
+"FACT_03_DESC" = "Nepálnak van az egyetlen nemzeti zászlaja a világon, amely nem téglalap alakú.";
+"FACT_04_TITLE" = "Nincs piros, fehér vagy kék";
+"FACT_04_DESC" = "Jamaica az egyetlen ország, ahol nincs piros, fehér vagy kék zászló.";
+"FACT_05_TITLE" = "Soha le nem engedett zászló";
+"FACT_05_DESC" = "Szaúd-Arábia zászlaja soha nem lobog félárbocra a rajta lévő szent szöveg miatt.";
+"FACT_06_TITLE" = "Fiatal nemzeti zászló";
+"FACT_06_DESC" = "Dél-Szudán zászlaját 2011-ben fogadták el a függetlenség kivívása után.";
+"FACT_07_TITLE" = "AK-47-es zászló";
+"FACT_07_DESC" = "Mozambik az egyetlen ország, amelynek lobogója modern fegyvert – a Kalasnyikov puskát – tartalmaz.";
+"FACT_08_TITLE" = "Majdnem egyforma zászlók";
+"FACT_08_DESC" = "Románia és Csád zászlaja nagyon hasonló; általában a kék árnyalatával különböztetik meg őket.";
+"FACT_09_TITLE" = "Ukrajna szimbolikája";
+"FACT_09_DESC" = "Ukrajna kék és sárga zászlóját hagyományosan úgy értelmezik, mint az égboltot a búzamező felett.";
+"FACT_10_TITLE" = "A legegyszerűbb zászló";
+"FACT_10_DESC" = "Líbia zászlaja 1977 és 2011 között egyszínű zöld volt, szimbólumok és minták nélkül.";
+"FACT_11_TITLE" = "Zászló térképpel";
+"FACT_11_DESC" = "Ciprus zászlaja a sziget körvonalát mutatja – ez ritka eset a nemzeti zászlók között.";
+"FACT_12_TITLE" = "Zászló a Bibliával";
+"FACT_12_DESC" = "A Dominikai Köztársaság zászlaján nyitott Biblia látható, így ez az egyetlen nemzeti zászló, amelyen vallási könyv található.";
+"FACT_13_TITLE" = "A legnépszerűbb szín";
+"FACT_13_DESC" = "A piros a leggyakoribb szín a nemzeti zászlókon világszerte.";
+"FACT_14_TITLE" = "Zászló szöveggel";
+"FACT_14_DESC" = "A nemzeti zászlókon ritka a szöveg; az egyik jól ismert példa Szaúd-Arábia.";
+"FACT_15_TITLE" = "Zászló etikett";
+"FACT_15_DESC" = "Sok országban szigorú szabályok vonatkoznak a nemzeti zászló kezelésére.";
+"FACT_16_TITLE" = "Zászló különböző oldalakkal";
+"FACT_16_DESC" = "Paraguay rendelkezik a világ egyetlen nemzeti zászlajával, amelynek elő- és hátlapján különböző minták láthatók.";
+"FACT_17_TITLE" = "Olimpiai szimbolizmus";
+"FACT_17_DESC" = "Az olimpiai gyűrű színeit úgy választották meg, hogy legalább egy szín szerepeljen minden ország zászlaján.";
+"FACT_18_TITLE" = "Zászló a legösszetettebb címerrel";
+"FACT_18_DESC" = "Mexikó zászlaján egy sas látható egy kaktuszon, aki egy kígyót tart – ez az egyik legrészletesebb címer minden zászlón.";
+"FACT_19_TITLE" = "Copycat zászló";
+"FACT_19_DESC" = "Monaco és Indonézia zászlói szinte azonosak – felül piros, alul fehér. Az egyetlen különbség az arányokban van.";
+"FACT_20_TITLE" = "Zászló 50 csillaggal";
+"FACT_20_DESC" = "Az Egyesült Államok zászlója 50 csillaggal rendelkezik, államonként egy-egy. A dizájnt 1777 óta 27 alkalommal változtatták meg.";
+"FACT_21_TITLE" = "Legészakibb zászlók";
+"FACT_21_DESC" = "Az északi-sarkvidéki régiók nemzeti és regionális zászlókat is használnak egyedi szimbolikával.";
+"FACT_22_TITLE" = "Zászló kereszttel";
+"FACT_22_DESC" = "29 ország zászlóján van kereszt, így ez az egyik legnépszerűbb szimbólum a nemzeti zászlókon.";
+"FACT_23_TITLE" = "Trikolorok";
+"FACT_23_DESC" = "Sok ország egyszerű háromcsíkos mintát használ történelmileg stabil zászlóformaként.";
+"FACT_24_TITLE" = "Zászló félholddal";
+"FACT_24_DESC" = "A félhold 12 ország, többségében muszlim ország zászlaján jelenik meg, az iszlám hitet szimbolizálva.";
+"FACT_25_TITLE" = "Nap szimbólum";
+"FACT_25_DESC" = "A nap Ázsia és Dél-Amerika zászlóin az egyik leggyakoribb szimbólum.";
+"FACT_26_TITLE" = "Zászló egy fával";
+"FACT_26_DESC" = "Libanon az egyetlen ország, amelynek lobogóján egy fa (a libanoni cédrus) az örökkévalóságot és a békét jelképezi.";
+"FACT_27_TITLE" = "Legszűkebb zászló";
+"FACT_27_DESC" = "Katar zászlajának a legszokatlanabb képaránya a nemzeti zászlók közül – 11:28.";
+"FACT_28_TITLE" = "Összetett címerek";
+"FACT_28_DESC" = "A latin-amerikai zászlókon lévő címerek gyakran sok részletet és történelmi szimbólumot tartalmaznak.";
+"FACT_29_TITLE" = "Szivárvány zászló";
+"FACT_29_DESC" = "Bolíviának két hivatalos zászlaja van: a hagyományos trikolor és a bennszülött Wiphala szivárványos zászló.";
+"FACT_30_TITLE" = "Zászló egy épülettel";
+"FACT_30_DESC" = "Kambodzsa zászlaján az Angkor Wat templom látható, így ez az egyetlen nemzeti lobogó épülettel.";
+"FACT_31_TITLE" = "Történelmi viták";
+"FACT_31_DESC" = "Egyes zászlók kialakítása megváltozott az országok közötti történelmi és politikai viták miatt.";
+"FACT_32_TITLE" = "Zászló karddal";
+"FACT_32_DESC" = "Srí Lanka zászlaján egy kardot tartó oroszlán látható, amely a szingalézek bátorságát jelképezi.";
+"FACT_33_TITLE" = "Zászló kék nélkül";
+"FACT_33_DESC" = "Csak négy ország nem használ kéket a zászlóin: Jamaica, Mauritánia, Srí Lanka és a Vatikán.";
+"FACT_34_TITLE" = "Madarak a zászlókon";
+"FACT_34_DESC" = "A sas és más madarak a zászlókon az erőt, a függetlenséget és a szellem nemességét szimbolizálják.";
+"FACT_35_TITLE" = "Antarktisz szimbólum";
+"FACT_35_DESC" = "Az Antarktisznak nincs hivatalos nemzeti zászlója, de számos nem hivatalos mintát használnak.";
+"FACT_36_TITLE" = "Csillagok a zászlókon";
+"FACT_36_DESC" = "A csillag az egyik legelterjedtebb szimbólum a zászlókon szerte a világon.";
+"FACT_37_TITLE" = "Hasonló színsémák";
+"FACT_37_DESC" = "Egyes zászlók hasonló színűek, de különböznek a csíkok és emblémák sorrendjében.";
+"FACT_38_TITLE" = "Nemzetközi szakszervezeti zászlók";
+"FACT_38_DESC" = "A nemzetek feletti szervezeteknek saját zászlójuk is van, amelyek a közös értékeket tükrözik.";
+"FACT_39_TITLE" = "Sziget szimbolika";
+"FACT_39_DESC" = "A szigetországok zászlóin gyakran szerepelnek az óceán, a nap és a hajózás szimbólumai.";
+"FACT_40_TITLE" = "Változások az idő múlásával";
+"FACT_40_DESC" = "Egyes nemzeti zászlók több tucatszor változtak országuk politikai történelmével.";
+"FACT_41_TITLE" = "Észak-Macedónia nap";
+"FACT_41_DESC" = "Észak-Macedónia zászlaján nyolc sugarú nap van az új kezdet érdekében.";
+"FACT_42_TITLE" = "Belize-i favágók";
+"FACT_42_DESC" = "A belize-i zászló azon kevesek egyike, amin láthatók: favágók szerszámokkal.";
+"FACT_43_TITLE" = "Ecuador kondor";
+"FACT_43_DESC" = "Ecuador lobogója magában foglalja az andoki kondort az erő és a szuverenitás jegyében.";
+"FACT_44_TITLE" = "Bolívia Wiphala";
+"FACT_44_DESC" = "Bolívia a trikolor mellett a Wiphalát használja hivatalos szimbólumként.";
+"FACT_45_TITLE" = "Brazília 27 csillaga";
+"FACT_45_DESC" = "A brazil zászló 27 csillaggal rendelkezik, államonként és szövetségi körzetenként egy-egy.";
+"FACT_46_TITLE" = "Juharlevél";
+"FACT_46_DESC" = "Kanada zászlója egyetlen 11 hegyű juharlevéllel rendelkezik, amely egyedülálló a nemzeti zászlók között.";
+"FACT_47_TITLE" = "Union Jack";
+"FACT_47_DESC" = "Az Egyesült Királyság zászlaja három szent keresztjét ötvözi: Anglia, Skócia és Írország.";
+"FACT_48_TITLE" = "Japán felkelő napja";
+"FACT_48_DESC" = "A fehéren lévő piros kör a felkelő napot jelképezi, és a 7. század óta használják Japán zászlóján.";
+"FACT_49_TITLE" = "Ashoka csakra";
+"FACT_49_DESC" = "India zászlaján egy 24 küllős kerék található, amely a törvényt és a mozgást szimbolizálja.";
+"FACT_50_TITLE" = "Ausztrália déli keresztje";
+"FACT_50_DESC" = "Ausztrália zászlaján a déli kereszt csillagképe látható, amely csak a déli féltekén látható.";
+"FACT_51_TITLE" = "Új-Zéland déli keresztje";
+"FACT_51_DESC" = "Új-Zéland zászlaján a déli kereszt is szerepel, de fehér szegélyű vörös csillagokkal.";
+"FACT_52_TITLE" = "Dél-Korea taegeuk";
+"FACT_52_DESC" = "Dél-Korea zászlaján a hagyományos taegeuk (yin-yang) szimbólum és trigramok láthatók.";
+"FACT_53_TITLE" = "Portugália fegyveres szférája";
+"FACT_53_DESC" = "Portugália zászlaja egy armilláris gömböt, egy ősi navigációs eszközt tartalmaz.";
+"FACT_54_TITLE" = "Albánia kétfejű sasa";
+"FACT_54_DESC" = "Albánia zászlaján egy fekete kétfejű sas látható, a szuverenitás szimbóluma.";
+"FACT_55_TITLE" = "Kenya pajzsa";
+"FACT_55_DESC" = "Kenya zászlója maszáj pajzsot és keresztezett lándzsákat tartalmaz.";
+"FACT_56_TITLE" = "Wales sárkánya";
+"FACT_56_DESC" = "A walesi zászlón látható vörös sárkány a világ egyik legrégebbi nemzeti szimbóluma.";
+"FACT_57_TITLE" = "Szent András kereszt";
+"FACT_57_DESC" = "Skócia zászlaja egy fehér átlós kereszt a kéken, Szent András keresztje.";
+"FACT_58_TITLE" = "Grönland köre";
+"FACT_58_DESC" = "Grönland zászlaján egy piros-fehér kör van, amely a napot jelképezi a jég felett.";
+"FACT_59_TITLE" = "Pánafrikai színek";
+"FACT_59_DESC" = "A zöldet, a sárgát és a pirosat gyakran pánafrikai színeknek nevezik, és számos afrikai zászlón szerepel.";
+"FACT_60_TITLE" = "Északi keresztek";
+"FACT_60_DESC" = "Öt ország használja az északi keresztet: Dánia, Norvégia, Svédország, Finnország és Izland.";
+"FACT_61_TITLE" = "francia trikolór";
+"FACT_61_DESC" = "A francia kék-fehér-piros trikolór számos forradalmi és nemzeti zászló mintájává vált.";
+"FACT_62_TITLE" = "ENSZ zászló";
+"FACT_62_DESC" = "Az ENSZ zászlaja az olajágakkal körülvett világot mutatja kék alapon.";
+"FACT_63_TITLE" = "EU zászló";
+"FACT_63_DESC" = "Tizenkét arany csillag egy körben kéken szimbolizálja az Európai Unió egységét.";
+"FACT_64_TITLE" = "Olimpiai zászló";
+"FACT_64_DESC" = "Az öt fehér gyűrű az öt lakott kontinenst és a játékok globális jellegét jelzi.";
+"FACT_65_TITLE" = "Vatikán tér";
+"FACT_65_DESC" = "A Vatikánnak négyzet alakú nemzeti zászlaja van, mint Svájcnak.";
+"FACT_66_TITLE" = "Nauru 12 pont";
+"FACT_66_DESC" = "A Nauru zászló 12 ágú csillaggal rendelkezik a 12 törzs számára.";
+"FACT_67_TITLE" = "Türkmenisztán szőnyeg";
+"FACT_67_DESC" = "Türkmenisztán zászló szőnyeg minták az emelő mentén.";
+"FACT_68_TITLE" = "Afganisztán mecset";
+"FACT_68_DESC" = "Az afganisztáni zászlót mecset díszíti.";
+
+/* Add friend & duel results */
+"Пользователь найден и добавлен" = "Felhasználó megtalálva és hozzáadva";
+"Этот пользователь уже является вашим другом." = "Ez a felhasználó már az Ön barátja.";
+"Waiting for result" = "Eredményre várva";
+"Duel time left format" = "%d óra %d perc van hátra";
+"Duel time expired" = "Az idő lejárt";
+"Duel time left format" = "%d óra %d perc van hátra";
+"Duel time expired" = "Az idő lejárt";
+"Waiting for opponent" = "Ellenfélre várva";
+
+/* League weekly result */
+"league.weekly_result.title.win" = "Megnyerted a bajnokságot";
+"league.weekly_result.title.promotion" = "Előléptettél";
+"league.weekly_result.title.stayed" = "A bajnokságban maradtál";
+"league.weekly_result.title.demotion" = "Kiestél";
+"league.weekly_result.title.week_finished" = "Véget ért a bajnoki hét";
+"league.weekly_result.body.win" = "#%d helyen végzett, és a hetet a legjobb játékosok között zárta.";
+"league.weekly_result.body.promotion" = "Befejezte a #%d számot, és továbbjutott ide: %@.";
+"league.weekly_result.body.stayed" = "Befejezte a #%d számot, és itt maradt: %@.";
+"league.weekly_result.body.demotion" = "Befejezte a #%d számot, és lejjebb ment ide: %@.";
+"league.weekly_result.body.top3" = "Ezen a héten a legjobb 3-ban végeztél.";
+"league.weekly_result.label.rank" = "Hely";
+"league.weekly_result.label.new_league" = "Új liga";
+"league.weekly_result.label.reward" = "Jutalom";
+"league.weekly_result.label.week" = "Heti eredmény";
+"league.weekly_result.cta.view" = "Eredmények megtekintése";
+"league.weekly_result.cta.ok" = "RENDBEN";
+"league.weekly_result.cta.claim" = "Követelés";
+
+"league.weekly_result.promotion.tagline" = "🔥 Új szint!";
+"league.weekly_result.promotion.title" = "🚀 Mostantól %@!";
+"league.weekly_result.promotion.subtitle.top3_a" = "#%d — erős eredmény!";
+"league.weekly_result.promotion.subtitle.top3_b" = "Top 3 — nem véletlen.";
+"league.weekly_result.promotion.subtitle.other" = "#%d — szintlépés!";
+"league.weekly_result.win.hero" = "🏆 Liga bajnok!";
+"league.weekly_result.nice.title" = "Top %d — nagyszerű hét!";
+"league.weekly_result.reward.fbucks" = "+%d F-Bucks 💰";
+"league.weekly_result.next_goal" = "Következő cél — %@ 🏆";
+"league.weekly_result.next_goal.alt" = "Még egy kicsit — a csúcsliga vár!";
+"league.weekly_result.next_goal.pinnacle" = "A világ legjobbjai között vagy! ✨";
+"league.weekly_result.cta.keep_playing_arrow" = "Játssz tovább →";
+"league.weekly_result.cta.toward_league_arrow" = "%@ felé →";
+"league.weekly_result.demotion.cta" = "Rendben →";
+"league.weekly_result.stayed.cta" = "Előre →";
+"home.league_banner.title" = "Véget ért a bajnoki hét";
+"home.league_banner.body.win" = "#%d helyen végzett, és megnyerte a bajnokságot.";
+"home.league_banner.body.promotion" = "Befejezte a #%d számot, és továbbjutott ide: %@.";
+"home.league_banner.body.stayed" = "Befejezte #%d, és itt maradt: %@.";
+"home.league_banner.body.demotion" = "Befejezte a #%d. számot, és lelépett ide: %@.";
+"home.league_banner.cta" = "Eredmények megtekintése";
+/* Home layout (variant 2 / A-B) */
+"home.layout.section" = "Kezdőképernyő";
+"home.layout.classic" = "Klasszikus";
+"home.layout.variant2" = "Professzionális";
+"home.continue" = "Folytatás";
+"home.settings.change" = "Módosítás";
+"home.settings.promo.title" = "A te meccsed, a te szabályaid";
+"home.settings.promo.subtitle" = "Régió, nehézség, párbaj vagy klasszikus — koppints és játssz a magad módján.";
+"home.settings.apply" = "Alkalmazás";
+"home.settings.sheet_title" = "Játékbeállítások";
+"home.league.xp_to_next_fmt" = "%@-ig: %d XP";
+"home.league.max" = "Elérted a legmagasabb ligát";
+"home.header.lives_max" = "Max";
+"home.lives.refill_in_fmt" = "+%d %02d:%02d múlva";
+"home.next_goal.title" = "Következő cél";
+"home.quick_modes.title" = "Gyors játék";
+"home.social.title" = "Barátok";
+"home.social.friend_streak_fmt" = "%@ — %lld napos sorozat";
+"home.social.catch_today" = "Érd utól ma!";
+
+"home.goal.xp_left_fmt" = "Még %d XP";
+"home.daily.title" = "Napi jutalom";
+"home.daily.claim" = "+1 igénylése";
+"home.daily.claimed" = "Igényelve";
+"home.daily.tomorrow" = "Gyere vissza holnap";
+"home.streak_nudge.solo_title" = "%d napos sorozatod van!";
+"home.streak_nudge.solo_sub" = "Ne szakítsd meg — játssz most.";
+"home.streak_nudge.friend_title" = "%@ %d napos sorozatban van";
+"home.streak_nudge.friend_sub" = "Te: %d nap";
+"home.streak_nudge.play" = "Játék";
+"home.streak_nudge.catch_up" = "Utolérés";
+"home.hero.play_bonus" = "+1 F-Bucks, ha most játszol";
+"home.hero.streak_continue_fmt" = "Tartsd a sorozatot — %d/%d";
+"home.hero.almost_perfect" = "Tökéletes játékok — majdnem!";
+"home.hero.daily_ready" = "A napi +1 F-Bucks elvihető";
+"home.hero.catch_friend_fmt" = "Érd utol %@-t — %d napos sorozat";
+"home.earn.section" = "Ma";
+"home.earn.perfect.almost" = "Majdnem kész — fejezd be";
+"home.earn.perfect.start" = "Kezdd most — rögzítsd";
+"home.earn.perfect.going" = "Zárj erősen ma";
+"home.earn.streak.almost" = "Ne veszítsd el most";
+"home.earn.streak.start" = "Játssz most, vagy elveszíted";
+"home.earn.streak.going" = "Játssz most, vagy elveszíted";
+"home.earn.league.hint" = "Harc a top 3-ért";
+"home.earn.league.almost" = "Közel vagy";
+"home.earn.done" = "Kész!";
+"home.daily.subtitle.claim" = "+1 F-Bucks ma elérhető";
+"home.daily.subtitle.claimed" = "Már elvitted a mai bónuszt";
+"home.goal.headline_almost_fmt" = "Majdnem %@!";
+"home.goal.xp_remaining_detail" = "Hátralévő: %d XP";
+"home.goal.claim_reward_cta" = "Jutalmak igénylése →";
+"home.goal.open_league" = "Liga megnyitása →";
+"home.pride.streak_fmt" = "%d napja sorban — így tovább!";
+"home.pride.league_place_fmt" = "A héten #%d vagy a ligádban";
+"home.pride.section_title" = "Haladásod";
+"home.pride.streak_line_one" = "Sorozat: 1 nap";
+"home.pride.streak_line_fmt" = "Sorozat: %d nap";
+"home.pride.rank_line_fmt" = "Helyezés: #%d ezen a héten";
+"home.pride.top10_hint" = "Menj a top 10 felé";
+"home.pride.rank_headline_fmt" = "Ezen a héten #%d vagy";
+"home.hero.headline.streak_alive" = "Tartsd életben a sorozatot";
+"home.hero.headline.perfect_push" = "Tökéletes játékok — majdnem";
+"home.hero.headline.daily_up" = "Napi bónusz kész";
+"home.hero.headline.keep_playing" = "A következő meccs számít";
+"home.hero.headline.friend" = "Érd utol %@-t";
+"home.hero.detail.streak_fmt" = "%d/%d nap";
+"home.hero.detail.perfect_fmt" = "%d/%d tökéletes";
+"home.hero.detail.day_fmt" = "%d. nap sorban";
+"home.hero.detail.friend_streak" = "Az ő sorozatuk: %d nap";
+"home.hero.detail.start_streak" = "Kezd el a sorozatot ma";
+"home.hero.hook.reward_play" = "+1 jutalom, ha most játszol";
+"home.hero.pressure" = "Ne veszíts haladást ma";
+"home.hero.wow.tip" = "🔥 +1 ma elérhető";
+"home.sticky.hook.reward" = "+1 jutalom, ha most játszol";
+"home.sticky.hook.streak" = "Folytasd a sorozatot";
+"home.sticky.hook.play" = "A következő meccs számít";
+"home.pride.gap_top10_fmt" = "Már csak %d hely a top 10-ig";
+"home.pride.close_top10_short" = "Közel vagy a top 10-hez 🔥";
+"home.pride.streak_full_one" = "Sorozat: 1 nap — megyünk tovább";
+"home.pride.streak_full_fmt" = "Sorozat: %d nap — megyünk tovább";"home.pride.streak_full_fmt" = "Sorozat: %d nap — megyünk tovább";"coins" = "érméket";
+/* League motivation messages */
+"league_motivation_win_01" = "Ezen a héten a legjobbak között voltál. Nagyszerű munka – most tartsa a tempót.";
+"league_motivation_win_02" = "A top 3 nem véletlen. Ez a következetes játék és a jó összpontosítás eredménye.";
+"league_motivation_win_03" = "Erős hét. Továbbra is ugyanabban a tempóban – a következő bajnokság vár.";
+"league_motivation_promotion_01" = "Az előléptetés azt jelenti, hogy fejlődsz. A következő bajnokság keményebb lesz, de készen állsz.";
+"league_motivation_promotion_02" = "Te tettél egy lépést feljebb. Most nem csak az a cél, hogy feljebb kerüljünk, hanem az is, hogy ott maradjunk.";
+"league_motivation_stayed_01" = "Megtartottad a pozíciódat. Szilárd alap – most alakítsa a stabilitást növekedéssé.";
+"league_motivation_stayed_02" = "Egy hét visszaesés nélkül már eredmény. Következő lépés: érje el a promóciós zónát.";
+"league_motivation_demotion_01" = "Nem a legjobb hét – előfordul. A lényeg az, hogy ne hagyd abba: a következőt erősebben veheted.";
+"league_motivation_demotion_02" = "A lefokozás nem a vég. Ez egy visszaállítási pont, amely után gyakran jobb futások következnek.";
+"league_motivation_general_01" = "Minden hét egy új esély arra, hogy magasabbra emelkedj. Folytasd – a fejlődés összeadódik.";
+
+/* Onboarding (hook → reward → loop) */
+
+"onboarding_hook_title" = "Felismered ezt a zászlót?";
+"onboarding_hook_subtitle" = "A legtöbben itt tévednek";
+"onboarding_reward_correct" = "Helyes! 🎉";
+"onboarding_reward_almost" = "Majdnem — %@";
+"onboarding_reward_plus_one" = "+1 jutalom";
+"onboarding_reward_streak" = "Indítsd a sorozatodat";
+"onboarding_loop_line1" = "Játssz naponta 1 percet";
+"onboarding_loop_line2" = "Oldd fel a jutalmakat";
+"onboarding_loop_line3" = "Mászz a ligában";
+"onboarding_start_playing" = "Játék";
+"onboarding_swipe_hint" = "Lapozz a folytatáshoz";
+"onboarding_search_language" = "Nyelv keresése…";
+"onboarding_language_sheet_title" = "Nyelv";
+"onboarding_switch_language_hint" = "Váltás erre: %@?";
+/* Avatar constructor (AvatarEditorView) */
+"avatar_editor_edit_avatar" = "Avatar szerkesztése";
+"avatar_editor_done" = "Kész";
+"avatar_editor_discard_title" = "Elveti a változtatásokat?";
+"avatar_editor_discard_action" = "Eldobni";
+"avatar_editor_continue_editing" = "Folytassa a szerkesztést";
+"avatar_editor_discard_message" = "Az avatar módosításai nem lesznek elmentve.";
+"avatar_editor_skin_tone" = "Bőrtónus";
+"avatar_editor_body" = "Test";
+"avatar_editor_eye_color" = "Szem színe";
+"avatar_editor_expression" = "Kifejezés";
+"avatar_editor_main_hair_color" = "Hajszín";
+"avatar_editor_hairstyle" = "frizura";
+"avatar_editor_glasses" = "Szemüveg";
+"avatar_editor_glasses_color" = "Szemüveg színe";
+"avatar_editor_facial_hair" = "Arcszőrzet";
+"avatar_editor_facial_hair_color" = "Arcszőrzet színe";
+"avatar_editor_headwear" = "Fejfedők";
+"avatar_editor_headwear_color" = "Fejfedő színű";
+"avatar_editor_clothing_color" = "Ruházat színe";
+"avatar_editor_clothing_style" = "Ruházati stílus";
+"avatar_editor_background_color" = "Háttérszín";
+"avatar_editor_none" = "Egyik sem";
+"avatar_editor_round" = "Kerek";
+"avatar_editor_square" = "Négyzet";
+"avatar_editor_sunglasses" = "Napszemüveg";
+"avatar_editor_slim" = "Vékony (szemüveg)";
+"avatar_editor_cap" = "Sapka";
+"avatar_editor_beanie" = "Micisapka";
+"avatar_editor_bandana" = "Bandanna";
+"avatar_editor_sport_cap" = "Sport sapka";
+"avatar_editor_hat_SilverLeague" = "Ezüst Liga";
+"avatar_editor_hat_10_day_streak" = "10 napos sorozat";
+"avatar_editor_hat_beginner" = "Kezdő";
+"avatar_editor_hat_Premium" = "Prémium";
+"avatar_editor_editor_section_coming_soon" = "Ez a rész átmenetileg nem érhető el – hamarosan visszatér.";
+"avatar_editor_lock_item_title" = "Bezárt";
+"avatar_editor_lock_item_ok" = "RENDBEN";
+"avatar_editor_lock_headwear_premium_body" = "Ez a fejfedő Premium-szal nyitható. Iratkozzon fel a Premiumra az alkalmazás beállításaiban.";
+"avatar_editor_lock_headwear_shop_body" = "Ezt az elemet a testreszabási boltban szerezheti be – hamarosan.";
+"avatar_editor_lock_headwear_generic_body" = "Ez az elem még nem elérhető.";
+"avatar_editor_opt_slim" = "Vékony";
+"avatar_editor_opt_regular" = "Szabályos";
+"avatar_editor_opt_hoodie" = "Hamvas varjú";
+"avatar_editor_opt_tshirt" = "Póló";
+"avatar_editor_opt_sweater" = "Pulóver";
+"avatar_editor_opt_wide" = "Széles";
+"avatar_editor_opt_bald" = "Kopasz";
+"avatar_editor_opt_side_part" = "Oldalsó rész";
+"avatar_editor_opt_short" = "Rövid";
+"avatar_editor_opt_curl" = "Becsavar";
+"avatar_editor_opt_modern" = "Modern";
+"avatar_editor_opt_buzz" = "Zümmögés";
+"avatar_editor_opt_hair_waves" = "Hullámok";
+"avatar_editor_opt_hair_spiky" = "Szúrós";
+"avatar_editor_opt_hair_slick" = "Sima";
+"avatar_editor_opt_hair_pompadour" = "Kefehaj";
+"avatar_editor_opt_moustache" = "Bajusz";
+"avatar_editor_opt_trimmed" = "Levágva";
+"avatar_editor_opt_goatee" = "Kecskeszakáll";
+"avatar_editor_opt_beard_full" = "Teljes szakáll";
+"avatar_editor_opt_beard_light" = "Világos szakáll";
+"avatar_editor_opt_beard_bushy" = "Bozontos szakáll";
+"avatar_editor_opt_jacket" = "Kabát";
+
+"monthly_quest_mission_title" = "Küldetés: %@";
+"Friend profile progress title" = "STREAK AND PROGRESS";
+"Friend achievements placeholder" = "Friend achievements are shown as they are unlocked";
+
+"Answer as many flags as possible before time runs out" = "Válaszolj annyi zászlóra, amennyire csak tudsz, mielőtt lejár az idő";
+"Duration" = "Időtartam";
+"Best score" = "Best score";
+"Wrong answer penalty" = "Büntetés rossz válaszért";
+"5 correct in a row bonus" = "Bónusz 5 egymás utáni helyesre";
+"Best combo" = "Legjobb sorozat";
+"New record!" = "Új rekord!";
+"Day leaderboard place" = "Hely a napi ranglistán";
+"Week leaderboard place" = "Hely a heti ranglistán";
+"Back to Modes" = "Back to Modes";
+"Start" = "Indítás";
+"TC correct answers headline" = "%d helyes";
+"Difficulty description TC" = "%1$d%2$@ kör • +%3$d%2$@ minden 5 egymás utáni helyesre • −%4$d%2$@ hibánként";
+"Difficulty TC erudite all" = "Minden ország • %1$d%2$@ kör • +%3$d%2$@ minden 5 egymás utáni helyesre • −%4$d%2$@ hibánként";
+"Difficulty TC erudite regions" = "%1$d ország • %2$d%3$@ kör • +%4$d%3$@ minden 5 egymás utáni helyesre • −%5$d%3$@ hibánként";
+"TC best correct record" = "Legjobb eredményed: %d helyes";
+"TC intro best correct title" = "Legjobb (helyes)";
+"TC intro combo5 bonus title" = "5 helyes kombó";
+"TC detail time penalty fmt" = "Időzítő: −%1$d %2$@ (hiba)";
+"TC detail time combo fmt" = "Időzítő: +%1$d %2$@ (5 helyes egymás után)";
+"TC detail points earned" = "Points for this answer: +%d";
+"TC detail xp earned" = "XP for this answer: +%d";
+"TC detail time penalty" = "Timer: −10 s (wrong answer)";
+"TC detail time combo bonus" = "Timer: +10 s (5 correct in a row)";
+"Share TC headline" = "Time Challenge: %d correct out of %d";
+
+"Time seconds unit short" = "s";
+"TC stat best combo" = "Legjobb sorozat";
+"Time TC delta seconds fmt" = "%+d %@";
+"Time intro duration seconds fmt" = "%1$d%2$@";
+"Time intro penalty seconds fmt" = "−%1$d%2$@";
+"Time intro bonus seconds fmt" = "+%1$d%2$@";
+"Share Survival headline" = "Túlélés: %d zászló • %d helyes • max. szint %d";
+"Survival mode short description" = "Korlátozott életek, növekvő nehézség — meddig jutsz?";
+"Survival difficulty blurb fmt" = "Életek menetenként • emelkedő szintek • +1 élet minden 10 helyesre egymás után";
+"Survival depth header" = "Mélység";
+"Survival stage fmt" = "%d. szint";
+"Survival bonus life streak" = "+1 élet (10 helyes egymás után)";
+"Survival milestone banner fmt" = "%d. mérföldkő! +30 XP • +1 F-Bucks";
+"Survival next milestone fmt" = "Még %d helyes a(z) %d. mérföldkőig";
+"Survival result best depth fmt" = "Személyes mélycsúcs: %d zászló";
+"Survival result combo fmt" = "Legjobb sorozat ebben a futamban: %d";
+"Survival result survived fmt" = "%d zászlót éltél túl";
+"Survival result stage reached fmt" = "Elért max. szint: %d";
+"Survival stat correct" = "HELYES";
+"Survival intro description" = "Válaszolj zászlóról zászlóra. A hibák életbe kerülnek. Nehezedik a játék — döntsd meg a mélyrekordod.";
+"Survival intro lives title" = "Kezdő életek";
+"Survival intro best depth title" = "Legjobb mélység";
+"Survival intro choices title" = "Választási lehetőségek";
+"Survival intro timer title" = "Időzítők";
+"Survival intro timer value" = "Mint a Klasszikus módban";
+"Survival weekly title" = "Heti túlélő kihívás";
+"Survival weekly target fmt" = "Ezen a héten egy futamban élj túl %d zászlót.";
+"Survival weekly best fmt" = "A heti legjobbod: %d zászló";
+"Survival weekly all milestones met body" = "You've reached every weekly depth goal — up to 200 flags in one run. Brilliant!";
+"Survival weekly reward all claimed" = "All weekly survival bonuses claimed (up to +4000 XP).";
+"Survival weekly reward claimed" = "Heti bónusz beváltva (+1000 XP)";
+"Survival weekly reward hint" = "Each milestone — 25, 50, 100, then 200 flags in one run — gives +1000 XP once per week.";
+
+"Survival result depth progress fmt" = "%1$d / %2$d";
+
+"Last login" = "Utoljára bejelentkezett";
+"Filter by name" = "Szűrés név szerint";
+"Last played" = "Legutóbb játszott";
+
+"1 hour" = "1 óra";
+
+
+"Duel announcement subtitle" = "Same duel for both players. First to score wins!";
+"User 1" = "User 1";
+"User 2" = "User 2";
+"Number of Questions" = "Questions";
+
+
+/* F-Bucks screen */
+"fbucks.close" = "Közeli";
+"fbucks.currency.name" = "F-Bucks";
+"fbucks.hero.subtitle.enough" = "Körülbelül %d elemhez elegendő";
+"fbucks.hero.subtitle.rare" = "Ritka tárgyat vásárolhat";
+"fbucks.hero.subtitle.save" = "Tartsa a megtakarítást valami különlegesre";
+"fbucks.daily.title" = "Napi bónusz";
+"fbucks.daily.subtitle" = "+1 F-Bucks";
+"fbucks.daily.claim" = "Követelés";
+"fbucks.daily.claimed" = "Ma igényelték";
+"fbucks.daily.hint" = "A +1 ma elérhető – koppintson az Igénylés gombra";
+"fbucks.earn.today.title" = "Keressen ma";
+"fbucks.earn.today.subtitle" = "Ma akár %d F-Bucks is lehetséges";
+"fbucks.earn.perfect.title" = "Tökéletes játék";
+"fbucks.earn.perfect.sub" = "+1 10/10-re vagy 15/15-re";
+"fbucks.earn.streak" = "Csík";
+"fbucks.earn.streak.sub" = "Sorozat (%d/10 nap)";
+"fbucks.earn.league" = "A hét csúcsa";
+"fbucks.earn.league.sub" = "Végezzen a bajnokság első 3 helyezettje között";
+"fbucks.progress.title" = "Haladás a következő elemre";
+"fbucks.progress.percent" = "%d%%";
+"fbucks.progress.full" = "Megengedheti magának a következő jutalmakat – nyissa ki az üzletet!";
+"fbucks.want.title" = "Következő gól";
+"fbucks.want.price" = "Ár: %d F-Bucks";
+"fbucks.want.you" = "Önnek van: %d";
+"fbucks.want.need" = "Még %d kell";
+"fbucks.earn_more" = "Keressen többet →";
+"fbucks.buy_for" = "Vásároljon %d-ért";
+"fbucks.shop.title" = "Üzlet";
+"fbucks.shop.subtitle" = "Költsön F-Bucks-t exkluzív avatartárgyakra";
+"fbucks.shop.tier.common" = "Közös";
+"fbucks.shop.tier.rare" = "Ritka";
+"fbucks.shop.tier.legendary" = "Legendás";
+"fbucks.shop.limited" = "KORLÁTOZOTT";
+"fbucks.perfect.badge" = "Tökéletes";
+"fbucks.tab.today" = "Ma";
+"fbucks.tab.about" = "Körülbelül";
+"fbucks.tab.history" = "Történelem";
+"fbucks.tab.shop" = "Üzlet";
+"fbucks.about.title" = "Mik azok az F-Bucks?";
+"fbucks.about.body" = "Az F-Bucks (Flags Bucks) egy játékon belüli pénznem, amelyet a World Arena Flags játékkal kereshet. Töltsd el őket egyedi avatardarabokra, skinekre és egyéb exkluzív tárgyakra.";
+"fbucks.about.how" = "Hogyan lehet F-Bucks-t keresni";
+"fbucks.about.perfect.title" = "Tökéletes játék";
+"fbucks.about.perfect.desc" = "Tökéletes pontszám (10/10 vagy 15/15)";
+"fbucks.about.streak10.title" = "10 napos sorozat";
+"fbucks.about.streak10.desc" = "Játssz 10 egymást követő napon";
+"fbucks.about.streak20.title" = "20 napos sorozat";
+"fbucks.about.streak20.desc" = "Játssz 20 egymást követő napon";
+"fbucks.about.streak50.title" = "50 napos sorozat";
+"fbucks.about.streak50.desc" = "Játssz 50 egymást követő napon";
+"fbucks.about.streak100.title" = "100 napos sorozat";
+"fbucks.about.streak100.desc" = "Játssz 100 egymást követő napon";
+"fbucks.reward.plus1" = "+1 F-Bucks";
+"fbucks.reward.plus2" = "+2 F-Bucks";
+"fbucks.reward.plus5" = "+5 F-Bucks";
+"fbucks.reward.plus10" = "+10 F-Bucks";
+"fbucks.history.title" = "Tranzakciók előzményei";
+"fbucks.history.empty" = "Még nincs előzmény";
+"fbucks.history.empty.hint" = "Játssz és keress F-Bucks-t!";
+"fbucks.item.traveler_cap" = "Utazó sapka";
+"fbucks.item.champion_shirt" = "Champion póló";
+"fbucks.item.socks" = "Zokni";
+"fbucks.item.rainbow_skin" = "Szivárvány bőr";
+"fbucks.item.gold_skin" = "Arany bőr";
+"fbucks.item.explorer_jacket" = "Explorer kabát";
+"fbucks.item.fire_effect" = "Tűz hatás";
+"fbucks.item.neon_skin" = "Neon bőr";
+"fbucks.item.stars_effect" = "Csillag hatás";
+"fbucks.item.champion_jacket" = "Champion kabát";
+"fbucks.tx.daily_bonus" = "Napi bónusz";
+"friends.remind.status_sent" = "Emlékeztető elküldve!";
+
+/* Duel prepare error */
+"duel.error.alert.title" = "Hiba";
+"duel.error.prepare_questions" = "Nem sikerült előkészíteni a párbaj kérdéseit. Ellenőrizze a régiókat vagy a hálózatot, és próbálja újra.";
+
+/* Duel tiebreaker */
+"duel.tiebreaker.title" = "Döntetlen pontszám — a gyorsabb idő nyer";
+"duel.tiebreaker.history_line" = "Idő: %@ · %@";
+
+/* Learning country lists */
+"learning.progress.label" = "Megtanult";
+"learning.search.placeholder" = "Ország vagy főváros keresése";
+"learning.filter.all" = "Összes";
+"learning.filter.unlearned" = "Nem tanult";
+"learning.filter.difficult" = "Nehéz";
+"learning.filter.favorites" = "Kedvencek";
+"learning.empty.search.title" = "Nincs találat";
+"learning.empty.search.subtitle" = "Próbálj más ország- vagy fővárosnevet";
+"learning.empty.search.reset" = "Keresés törlése";
+"learning.empty.unlearned.title" = "Kész!";
+"learning.empty.unlearned.message" = "A lista összes országa már megvan 🎉";
+"learning.empty.difficult.title" = "Még nincs nehéz ország";
+"learning.empty.difficult.message" = "A nehézséget okozó országok itt jelennek meg — játssz tovább, és nézd meg a világ haladástérképét.";
+"learning.status.learned" = "Megtanult";
+"learning.status.not_learned" = "Nem tanult";
+"learning.status.difficult" = "Nehéz";
+"learning.status.favorite_short" = "Kedvenc";
+"learning.country.train_cta" = "Következő játékhoz hozzáadás";
+"learning.country.playlist_status_added" = "Ország hozzáadva";
+"learning.country.playlist_play_cta" = "Játék a sorral";
+"learning.country.playlist_added" = "Hozzáadva a következő játékhoz";
+"learning.country.playlist_duplicate" = "Már a sorban";
+"learning.country.playlist_queue_fmt" = "%d ország a sorban";
+"learning.country.playlist_min_progress_fmt" = "%d / %d";
+"learning.country.study_selected_flags" = "Kiválasztott zászlók gyakorlása";
+"learning.country.section.main" = "Áttekintés";
+"learning.country.section.gov" = "Nyelvek és állam";
+"learning.country.section.more" = "Továbbiak";
+"learning.country.region" = "Régió";
+"learning.country.gallery.title" = "Galéria";
+"learning.country.gallery.tap_hint" = "Koppints egy csempére a nagyításhoz";
+"learning.country.a11y.favorite" = "Kedvenc";
+"learning.country.a11y.difficult" = "Megjelölés nehézként";
+"learning.country.a11y.next" = "Következő ország";
+"learning.country.a11y.previous" = "Előző ország";
+"learning.gallery.tile.flag" = "Nemzeti zászló";
+"learning.gallery.tile.landmark" = "Nevezetesség";
+"learning.gallery.tile.nature" = "Természet";
+"learning.gallery.tile.culture" = "Kultúra";
+"learning.gallery.tile.government" = "Kormány";
+"learning.gallery.tile.coat" = "Címer";
+"learning.empty.favorites.title" = "Még nincsenek kedvencek";
+"learning.empty.favorites.message" = "Nyiss meg egy országot, és koppints a csillagra, hogy ide kerüljön.";
+
+/* Quiz game screen */
+"Quiz identify flag" = "Melyik országé ez a zászló?";
+
+// Subscription introductory offer
+"premium.trial.start" = "Próbáld ki 7 napig ingyen";
+"premium.trial.monthly" = "7 nap ingyen, utána havonta %@.";
+"premium.trial.yearly" = "7 nap ingyen, utána évente %@.";
+"premium.renewal" = "Lemondásig automatikusan megújul. Kezelés és lemondás az App Store-előfizetéseknél.";
+"premium.subscribe" = "Előfizetés";

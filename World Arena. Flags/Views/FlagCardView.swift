@@ -12,12 +12,16 @@ struct FlagCardView: View {
     var onNextQuestion: () -> Void
     /// iPad в альбомной: уменьшенная карточка флага, чтобы всё помещалось на один экран
     var compactForLandscape: Bool = false
-    
+    var presentationSize: CGSize? = nil
+    @Environment(\.accessibilityReduceMotion) private var reduceMotion
+
     @State private var showTapHint = false
+    @State private var detailedFlag: PlatformImage?
     @Environment(\.horizontalSizeClass) private var horizontalSizeClass
     @Environment(\.sizeCategory) private var sizeCategory
-    
+
     private var cardSize: CGSize {
+        if let presentationSize { return presentationSize }
         if compactForLandscape {
             return CGSize(width: 560, height: 240)
         }
@@ -30,91 +34,105 @@ struct FlagCardView: View {
             return CGSize(width: isLargeText ? 340 : 300, height: isLargeText ? 240 : 200)
         }
     }
-    
+
     var body: some View {
         GeometryReader { geometry in
             ZStack {
                 // Передняя сторона (флаг)
-                CachedAsyncImage(url: country.flagURL) { image in
-                    image
-                        .resizable()
-                        .scaledToFit()
-                        .overlay(
-                            // Лёгкая окантовка в тёмной теме, чтобы чёрные флаги не терялись
-                            RoundedRectangle(cornerRadius: 8)
-                                .stroke(Color.white.opacity(0.15), lineWidth: 1)
-                        )
-                } placeholder: {
-                    // Быстрый старт: пробуем racing-загрузку и подменяем placeholder
-                    RacingFlagPlaceholder(url: country.flagURL)
+                Group {
+                    if let detailedFlag {
+                        #if os(iOS)
+                        Image(uiImage: detailedFlag).resizable().scaledToFit()
+                        #else
+                        Image(nsImage: detailedFlag).resizable().scaledToFit()
+                        #endif
+                    } else {
+                        CachedAsyncImage(url: country.flagURL) { image in
+                            image
+                                .resizable()
+                                .scaledToFit()
+                                .overlay(
+                                    Rectangle()
+                                        .stroke(Color.primary.opacity(0.10), lineWidth: 0.5)
+                                )
+                        } placeholder: {
+                            RacingFlagPlaceholder(url: country.flagURL)
+                        }
+                    }
                 }
+                .padding(presentationSize == nil ? 0 : 12)
                 .frame(width: cardSize.width, height: cardSize.height)
+                .background(Color(uiColor: .secondarySystemGroupedBackground))
+                .accessibilityLabel(LocalizationManager.shared.localizedString("Flag"))
                 .opacity(isShowingInfo ? 0 : 1)
-                
+
                 // Задняя сторона (информация)
                 let isCompact = compactForLandscape
                 let backTitleSize: CGFloat = isCompact ? 24 : (horizontalSizeClass == .regular ? 34 : 20)
                 let backInfoFont: Font = isCompact ? .callout : (horizontalSizeClass == .regular ? .title2 : .callout)
-                VStack(alignment: .leading, spacing: isCompact ? 4 : (horizontalSizeClass == .regular ? 8 : 2)) {
-                    // Название страны
-                    Text(getLocalizedName())
-                        .font(.system(size: backTitleSize, weight: .bold, design: .default))
-                        .fixedSize(horizontal: false, vertical: true)
-                        .lineLimit(2)
-                        .padding(.bottom, horizontalSizeClass == .regular ? 4 : 1)
-                    
-                    // Остальная информация
-                    Group {
-                        // Столица
-                        if let capitals = country.capital, !capitals.isEmpty {
-                            let capitalText = getLocalizedText("Capital")
-                            let localizedCapitals = capitals.map { getLocalizedCapital($0) }
-                            Text("\(capitalText): \(localizedCapitals.joined(separator: ", "))")
-                                .font(backInfoFont)
-                        }
-                        
-                        // Население
-                        let populationText = getLocalizedText("Population")
-                        Text("\(populationText): \(formatPopulation(country.population))")
-                            .font(backInfoFont)
-                        
-                        // Площадь
-                        if let area = country.area {
-                            let areaText = getLocalizedText("Area")
-                            Text("\(areaText): \(formatArea(area))")
-                                .font(backInfoFont)
-                        }
-                        
-                        // Регион
-                        let regionText = getLocalizedText("Region")
-                        Text("\(regionText): \(getLocalizedRegion())")
-                            .font(backInfoFont)
-                        
-                        // Субрегион (последний элемент)
-                        if let subregion = country.subregion {
-                            let subregionText = getLocalizedText("Subregion")
-                            Text("\(subregionText): \(getLocalizedSubregion(subregion))")
-                                .font(backInfoFont)
-                        }
-                        
-                        // Подсказка сразу после субрегиона
-                        if isShowingInfo {
-                            HStack {
-                                Spacer()
-                                Text(LocalizationManager.shared.localizedString("Tap to continue"))
-                                    .font(isCompact ? .caption : (horizontalSizeClass == .regular ? .title3 : .caption))
-                                    .foregroundColor(.secondary)
-                                    .opacity(showTapHint ? 0.8 : 0.4)
-                                    .animation(.easeInOut(duration: 1).repeatForever(), value: showTapHint)
+                ScrollView {
+                    VStack(alignment: .leading, spacing: isCompact ? 4 : (horizontalSizeClass == .regular ? 8 : 2)) {
+                        // Название страны
+                        Text(getLocalizedName())
+                            .font(.system(size: backTitleSize, weight: .bold, design: .default))
+                            .fixedSize(horizontal: false, vertical: true)
+                            .lineLimit(2)
+                            .padding(.bottom, horizontalSizeClass == .regular ? 4 : 1)
+
+                        // Остальная информация
+                        Group {
+                            // Столица
+                            if let capitals = country.capital, !capitals.isEmpty {
+                                let capitalText = getLocalizedText("Capital")
+                                let localizedCapitals = capitals.map { getLocalizedCapital($0) }
+                                Text("\(capitalText): \(localizedCapitals.joined(separator: ", "))")
+                                    .font(backInfoFont)
                             }
-                            .padding(.top, horizontalSizeClass == .regular ? 8 : 2)
+
+                            // Население
+                            let populationText = getLocalizedText("Population")
+                            Text("\(populationText): \(formatPopulation(country.population))")
+                                .font(backInfoFont)
+
+                            // Площадь
+                            if let area = country.area {
+                                let areaText = getLocalizedText("Area")
+                                Text("\(areaText): \(formatArea(area))")
+                                    .font(backInfoFont)
+                            }
+
+                            // Регион
+                            let regionText = getLocalizedText("Region")
+                            Text("\(regionText): \(getLocalizedRegion())")
+                                .font(backInfoFont)
+
+                            // Субрегион (последний элемент)
+                            if let subregion = country.subregion {
+                                let subregionText = getLocalizedText("Subregion")
+                                Text("\(subregionText): \(getLocalizedSubregion(subregion))")
+                                    .font(backInfoFont)
+                            }
+
+                            // Подсказка сразу после субрегиона
+                            if isShowingInfo && presentationSize == nil {
+                                HStack {
+                                    Spacer()
+                                    Text(LocalizationManager.shared.localizedString("Tap to continue"))
+                                        .font(isCompact ? .caption : (horizontalSizeClass == .regular ? .title3 : .caption))
+                                        .foregroundColor(.secondary)
+                                        .opacity(showTapHint ? 0.8 : 0.4)
+                                        .animation(.easeInOut(duration: 1).repeatForever(), value: showTapHint)
+                                }
+                                .padding(.top, horizontalSizeClass == .regular ? 8 : 2)
+                            }
                         }
+                        .foregroundColor(.secondary)
                     }
-                    .foregroundColor(.secondary)
+                    .padding(.top, isCompact ? 18 : (horizontalSizeClass == .regular ? 28 : 18))
+                    .padding(.horizontal, isCompact ? 16 : (horizontalSizeClass == .regular ? 32 : 16))
+                    .padding(.bottom, isCompact ? 12 : (horizontalSizeClass == .regular ? 24 : 12))
+                    .frame(maxWidth: .infinity, alignment: .leading)
                 }
-                .padding(.top, isCompact ? 18 : (horizontalSizeClass == .regular ? 28 : 18))
-                .padding(.horizontal, isCompact ? 16 : (horizontalSizeClass == .regular ? 32 : 16))
-                .padding(.bottom, isCompact ? 12 : (horizontalSizeClass == .regular ? 24 : 12))
                 .frame(width: cardSize.width, height: cardSize.height)
                 .background(Color(UIColor.secondarySystemGroupedBackground))
                 .overlay(
@@ -122,19 +140,25 @@ struct FlagCardView: View {
                         .stroke(Color.primary.opacity(0.1), lineWidth: 1)
                 )
                 .opacity(isShowingInfo ? 1 : 0)
-                .rotation3DEffect(.degrees(180), axis: (x: 0, y: 1, z: 0))
+                .rotation3DEffect(.degrees(reduceMotion ? 0 : 180), axis: (x: 0, y: 1, z: 0))
             }
             .frame(width: cardSize.width, height: cardSize.height, alignment: .center)
         }
         .frame(width: cardSize.width, height: cardSize.height)
-        .cornerRadius(10)
-        .shadow(radius: 5)
+        .clipShape(RoundedRectangle(cornerRadius: presentationSize == nil ? 10 : 18))
+        .overlay(RoundedRectangle(cornerRadius: presentationSize == nil ? 10 : 18).stroke(Color.primary.opacity(0.06), lineWidth: 1))
+        .shadow(color: .black.opacity(0.05), radius: 8, x: 0, y: 3)
         .scaleEffect(flagScale)
         .rotation3DEffect(
-            .degrees(isShowingInfo ? 180 : 0),
+            .degrees(isShowingInfo && !reduceMotion ? 180 : 0),
             axis: (x: 0, y: 1, z: 0)
         )
-        .animation(.spring(response: 0.5, dampingFraction: 0.6), value: isShowingInfo)
+        .animation(reduceMotion ? nil : .easeInOut(duration: 0.25), value: isShowingInfo)
+        .task(id: country.flagURL) {
+            guard presentationSize != nil else { return }
+            let image = await FlagImageService.shared.loadDetailedFlag(from: country.flagURL)
+            if !Task.isCancelled { detailedFlag = image }
+        }
         .onAppear {
             if isShowingInfo {
                 DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
@@ -146,7 +170,7 @@ struct FlagCardView: View {
             showTapHint = false
         }
     }
-    
+
     private func getLocalizedName() -> String {
         return LocalizationManager.shared.localizedCountryName(country)
     }

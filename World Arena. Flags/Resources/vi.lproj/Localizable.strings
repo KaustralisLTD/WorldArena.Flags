@@ -1,0 +1,1739 @@
+"Open in Game Center" = "Mở trong Game Center";
+"Заработай %d XP" = "Kiếm %d XP";
+"F-BUCKS EARNED" = "F-BUCKS EARNED";
+"Дай %d правильных ответов" = "Nhận được %d câu trả lời đúng";
+"Наберите %d правильных ответов за месяц" = "Nhận được %d câu trả lời đúng trong tháng này";
+"Сыграй %d идеальных игр" = "Chơi %d trò chơi hoàn hảo";
+"Завершите %d игр без ошибок" = "Kết thúc %d trò chơi mà không mắc lỗi";
+/* Settings screen */
+"Настройки" = "Cài đặt";
+"Аккаунт" = "Tài khoản";
+"Профиль пользователя" = "Hồ sơ người dùng";
+"Поддержка" = "Ủng hộ";
+"Настройки приложения" = "Cài đặt ứng dụng";
+"Обратная связь" = "Nhận xét";
+"World Arena Premium" = "World Arena Premium";
+"Обратная связь по World Arena Flags" = "Phản hồi về World Arena Flags";
+
+/* Achievements */
+"Достижения" = "Thành tích";
+"Достижение" = "Thành tích";
+"ЛИЧНЫЕ РЕКОРДЫ" = "TỐT NHẤT CÁ NHÂN";
+"НАГРАДЫ" = "GIẢI THƯỞNG";
+"Лучшая серия" = "Chuỗi hay nhất";
+"Макс. лига" = "Giải đấu tối đa";
+"Макс. XP" = "XP tối đa";
+"Открыто" = "Đã mở khóa";
+
+/* Profile */
+"League" = "Liên minh";
+"Following" = "Bạn bè";
+"Days in a row" = "Ngày liên tiếp";
+"Текущая серия" = "Chuỗi hiện tại";
+"дней" = "ngày";
+"Joined in %@" = "Đã tham gia vào %@";
+"Level %d • %d XP • %d-day streak" = "Cấp %d • %d XP • chuỗi %d ngày";
+"SUPER" = "SIÊU";
+
+/* Leagues medals & labels */
+"1st" = "thứ nhất";
+"2nd" = "thứ 2";
+"3rd" = "thứ 3";
+"XP" = "XP";
+
+/* Monthly badges sample titles */
+"Алмазная лига" = "Liên đoàn kim cương";
+"Серия мастера" = "Chuỗi chính";
+"Чемпион месяца" = "Nhà vô địch của tháng";
+"Идеальная неделя" = "Tuần hoàn hảo";
+"Бронзовая лига" = "Giải đồng";
+"Лига Мастеров" = "Giải đấu cao thủ";
+// General
+"World Flags" = "Cờ thế giới";
+"Learn flags of the world" = "Tìm hiểu các lá cờ trên thế giới";
+"Score" = "Điểm";
+"Exit" = "Ra";
+"Error loading countries" = "Lỗi tải quốc gia";
+"Retry" = "Thử lại";
+"System" = "Hệ thống";
+
+// Start Screen
+"Select Language" = "Chọn ngôn ngữ";
+"Select Region" = "Chọn khu vực";
+"Select Regions" = "Chọn khu vực";
+"Multiple Regions" = "Nhiều vùng";
+"START GAME" = "BẮT ĐẦU TRÒ CHƠI";
+"All Regions" = "Tất cả các khu vực";
+"Europe" = "Châu Âu";
+"Asia" = "Châu Á";
+"Americas" = "Châu Mỹ";
+"Africa" = "Châu phi";
+"Oceania" = "Châu Đại Dương";
+"North America" = "Bắc Mỹ";
+"South America" = "Nam Mỹ";
+
+// Game Over
+"Game Over!" = "Trò chơi kết thúc!";
+"points" = "điểm";
+"Play Again" = "Chơi lại";
+"Repeat Duel" = "Chơi lại đấu";
+"Home" = "Trang chủ";
+
+// Statistics
+"Statistics" = "Thống kê";
+"Total Games" = "Tổng số trò chơi";
+"Best Score" = "Điểm tốt nhất";
+"Correct Answers" = "Câu trả lời đúng";
+"Accuracy" = "Sự chính xác";
+"Best Time" = "Thời gian tốt nhất";
+"Time" = "Thời gian";
+"Clear" = "Thông thoáng";
+"Close" = "Đóng";
+
+// Game Results
+"Excellent game!" = "🏆 Tuyệt vời!";
+"Great result!" = "🎯 Kết quả tuyệt vời!";
+"Good game!" = "👍 Trò chơi hay!";
+"Keep practicing!" = "💪 Hãy tiếp tục luyện tập!";
+// English (default)
+"Play Again" = "Chơi lại";
+
+// Share
+"Share Result" = "Chia sẻ";
+"Share" = "Chia sẻ";
+"ACCURACY" = "Sự chính xác";
+"TOTAL XP" = "Tổng kinh nghiệm";
+"CONTINUE" = "Tiếp tục";
+"Perfect! You're unstoppable!" = "Hoàn hảo! Bạn không thể ngăn cản được!";
+"Excellent performance!" = "Hiệu suất tuyệt vời!";
+"Well done! Keep practicing!" = "Làm tốt! Hãy tiếp tục luyện tập!";
+"Don't give up! Practice makes perfect!" = "Đừng bỏ cuộc! Luyện tập tạo nên sự hoàn hảo!";
+"PERFECT" = "Hoàn hảo";
+"AMAZING" = "Tuyệt vời";
+"GOOD" = "Tốt";
+"KEEP GOING" = "Tiếp tục đi";
+"Play Again" = "Chơi lại";
+"Home" = "Trang chủ";
+"Quest Update!" = "Cập nhật nhiệm vụ!";
+"quest.play_again.duel" = "Chơi lại tử đấu";
+"Check your progress" = "Kiểm tra tiến trình của bạn";
+"2x XP for 10 min!" = "Nhân đôi XP trong 10 phút!";
+"3x XP for 15 min!" = "3x XP trong 15 phút!";
+"Подарок за квесты" = "Quà tặng nhiệm vụ hàng ngày";
+"Share Message" = "Tôi đã ghi được %d điểm trong trò chơi Cờ Thế giới! 🎮🌍\nTải về và cố gắng đánh bại điểm số của tôi!";
+"Statistics Share Promo" = "Tôi đang chơi World Arena Flags - tìm hiểu về cờ thế giới, đấu tay đôi với bạn bè và leo lên các giải đấu! 🎮🌍\nSố liệu thống kê của tôi: Điểm tốt nhất %d, Độ chính xác %.1f%%, %d trận đã chơi.\nBạn muốn học cờ và kiểm tra kỹ năng của bạn? Tham gia cộng đồng của chúng tôi!\n%@";
+
+// Post-Game Flow
+"CLAIM XP" = "YÊU CẦU XP";
+"TOTAL XP" = "TỔNG XP";
+"PERFECT" = "HOÀN HẢO";
+"AMAZING" = "TUYỆT VỜI";
+"GOOD" = "TỐT";
+"KEEP GOING" = "TIẾP TỤC";
+"Perfect! You're unstoppable!" = "Hoàn hảo! Bạn không thể ngăn cản được!";
+"Excellent performance!" = "Hiệu suất tuyệt vời!";
+"Well done! Keep practicing!" = "Làm tốt! Hãy tiếp tục luyện tập!";
+"Don't give up! Practice makes perfect!" = "Đừng bỏ cuộc! Luyện tập tạo nên sự hoàn hảo!";
+"day streak" = "chuỗi ngày";
+"This Week" = "Tuần này";
+"Incredible streak! You're on fire!" = "Chuỗi không thể tin được! Bạn đang cháy!";
+"Great job! Keep the momentum going!" = "Làm tốt lắm! Hãy giữ đà phát triển!";
+"Nice start! Build your streak day by day!" = "Khởi đầu tốt đẹp! Xây dựng chuỗi của bạn từng ngày!";
+"Your Friend Streaks" = "Chuỗi ngày của bạn bè";
+"See how your friends are doing" = "Xem bạn bè của bạn đang làm gì";
+"No friends yet" = "Chưa có bạn bè";
+"Add friends to see their streaks and compete together!" = "Thêm bạn bè để xem thành tích của họ và cạnh tranh cùng nhau!";
+"NUDGE" = "di chuyển";
+"Remind" = "Nhắc lại";
+"Reminder sent to %@" = "Lời nhắc đã được gửi tới %@";
+"%@ reminds you" = "%@ nhắc nhở bạn";
+"nudge_phrase_1" = "Đừng bỏ cuộc! Bạn đã có cái này!";
+"nudge_phrase_2" = "Chuỗi của bạn đang chờ đợi bạn. Chơi ngay hôm nay!";
+"nudge_phrase_3" = "Một trò chơi mỗi ngày giúp duy trì kỷ lục!";
+"nudge_phrase_4" = "Hãy quay lại và cho những lá cờ đó biết ai là ông chủ!";
+"nudge_phrase_5" = "Chúng tôi nhớ bạn! Thời gian cho một trò chơi nhanh chóng?";
+"nudge_phrase_6" = "Bạn bè của bạn đang chơi. Tham gia cùng họ!";
+"nudge_phrase_7" = "Bước nhỏ hôm nay, thành công lớn ngày mai!";
+"nudge_phrase_8" = "Bạn đang ở rất gần! Đừng phá vỡ chuỗi!";
+"nudge_phrase_9" = "Cờ đang kêu gọi. Hãy trả lời cuộc gọi!";
+"nudge_phrase_10" = "Hãy trỗi dậy và tỏa sáng - đã đến lúc chào cờ!";
+"nudge_phrase_11" = "Một chút luyện tập sẽ giúp ích rất nhiều!";
+"nudge_phrase_12" = "Hôm nay là ngày để bạn giữ vững thành tích của mình!";
+"nudge_phrase_13" = "Hãy quay lại trò chơi! Chúng tôi tin vào bạn!";
+"nudge_phrase_14" = "Thêm một trò chơi nữa và bạn sẽ cảm thấy tuyệt vời!";
+"nudge_phrase_15" = "Chuỗi của bạn nhớ bạn. Sự trở lại!";
+"CONTINUE" = "TIẾP TỤC";
+"streak" = "chuỗi";
+"days" = "ngày";
+"Quest Update!" = "Cập nhật nhiệm vụ!";
+"Check your progress" = "Kiểm tra tiến trình của bạn";
+"Заблокировано" = "Đã khóa";
+"Базовый пакет" = "Gói cơ bản";
+"Обучение" = "Học hỏi";
+"Изучай флаги и страны мира" = "Tìm hiểu cờ và các nước trên thế giới";
+"Континенты" = "lục địa";
+"Европа" = "Châu Âu";
+"Азия" = "Châu Á";
+"Африка" = "Châu phi";
+"Северная Америка" = "Bắc Mỹ";
+"Южная Америка" = "Nam Mỹ";
+"Океания" = "Châu Đại Dương";
+"стран" = "các nước";
+"Самый маленький континент" = "Lục địa nhỏ nhất";
+"Самый большой континент" = "Lục địa lớn nhất";
+"Колыбель человечества" = "Cái nôi của nhân loại";
+"Новый свет" = "Thế giới mới";
+"Земля контрастов" = "Vùng đất tương phản";
+"Острова Тихого океана" = "Quần đảo Thái Bình Dương";
+"Статистика флагов" = "Thống kê cờ";
+"Всего стран" = "Tổng số quốc gia";
+"Цветов на флагах" = "Màu sắc trên cờ";
+"Самый популярный цвет" = "Màu phổ biến nhất";
+"Красный" = "Màu đỏ";
+"Флагов с крестом" = "Cờ có chữ thập";
+"Интересные факты" = "Sự thật thú vị";
+"Interesting facts study slides" = "Học bằng trang chiếu";
+"Interesting facts back to list" = "Quay lại danh sách";
+"Самый старый флаг" = "Lá cờ cổ nhất";
+"Флаг Дании используется с 1219 года" = "Quốc kỳ Đan Mạch được sử dụng từ năm 1219";
+"Единственный квадратный флаг" = "Cờ vuông duy nhất";
+"У Швейцарии единственный квадратный флаг в мире" = "Thụy Sĩ có lá cờ hình vuông duy nhất trên thế giới";
+"Самый сложный флаг" = "Cờ phức tạp nhất";
+"У Бутана на флаге изображен дракон" = "Quốc kỳ Bhutan có hình rồng";
+"Go Premium" = "Đi trả phí";
+"Мой профиль в World Arena Flags" = "Hồ sơ World Arena Flags của tôi";
+"My Profile Share Title" = "Hồ sơ World Arena Flags của tôi";
+"Не удалось добавить друга. Проверьте код." = "Không thể thêm bạn bè. Kiểm tra mã.";
+"Daily Quests" = "Nhiệm vụ hàng ngày";
+"Monthly Quest" = "Nhiệm vụ hàng tháng";
+
+// Learning Section
+"More facts" = "Thêm sự thật";
+"стран" = "các nước";
+"фактов о флагах и странах" = "sự thật về cờ và các quốc gia";
+"Столица" = "Thủ đô";
+
+// Continent names
+"Европа" = "Châu Âu";
+"Азия" = "Châu Á";
+"Африка" = "Châu phi";
+"Северная Америка" = "Bắc Mỹ";
+"Южная Америка" = "Nam Mỹ";
+"Океания" = "Châu Đại Dương";
+
+// Continent descriptions
+"Самый маленький континент" = "Lục địa nhỏ nhất";
+"Самый большой континент" = "Lục địa lớn nhất";
+"Колыбель человечества" = "Cái nôi của nhân loại";
+"Новый свет" = "Thế giới mới";
+"Земля контрастов" = "Vùng đất tương phản";
+"Острова Тихого океана" = "Quần đảo Thái Bình Dương";
+
+// Network Errors
+"No Internet Connection" = "Không có kết nối Internet";
+"Request Timeout" = "Yêu cầu hết thời gian";
+"Server Not Found" = "Không tìm thấy máy chủ";
+"Too Many Requests" = "Quá nhiều yêu cầu";
+"Server Error" = "Lỗi máy chủ";
+"HTTP Error: %d" = "Lỗi HTTP: %d";
+"Try Again" = "Thử lại";
+"Not enough countries in selected regions (found %d, need at least 4)" = "Không đủ quốc gia ở các khu vực đã chọn (đã tìm thấy %d, cần ít nhất 4)";
+"Empty response from server" = "Phản hồi trống từ máy chủ";
+
+// New additions
+"Capital" = "Thủ đô";
+"Population" = "Dân số";
+"Area" = "Khu vực";
+"Region" = "Vùng đất";
+"Subregion" = "Tiểu vùng";
+
+// Language additions
+"system_language" = "Hệ thống";
+"ru_language" = "Русский";
+"uk_language" = "Українська";
+"es_language" = "tiếng Tây Ban Nha";
+"ca_language" = "Català";
+"zh_language" = "中文";
+
+// Exit confirmation
+"Exit Confirmation" = "Bạn có chắc chắn muốn thoát không?";
+"Yes" = "Đúng";
+"No" = "KHÔNG";
+
+// New additions
+"Tap to continue" = "Nhấn để tiếp tục";
+"Loading flag..." = "Đang tải cờ...";
+"Select Difficulty" = "Chọn độ khó";
+"Game Mode" = "Chế độ trò chơi";
+
+// Game Modes
+"Game Mode" = "Chế độ trò chơi";
+"Classic" = "Cổ điển";
+"Time Challenge" = "Thử thách thời gian";
+"Time Challenge short" = "Thời gian";
+"Survival" = "Sống sót";
+"Duel" = "Đấu tay đôi";
+"Challenge a friend to the same game, compare results" = "Thách đấu một người bạn cùng trò chơi, so sánh kết quả";
+"Challenge to Duel" = "Thử thách đấu tay đôi";
+"You won the duel!" = "Bạn đã thắng cuộc đấu tay đôi!";
+"Duel challenge from %@" = "%@ thách đấu bạn một trận đấu tay đôi";
+"Duel result" = "Kết quả đấu tay đôi";
+"You won!" = "Bạn đã thắng!";
+"won" = "thắng";
+"You" = "Bạn";
+"Duel announcement title" = "Đấu tay đôi";
+"vs" = "vs";
+"Friend add username not found" = "Không tìm thấy người dùng «%@». Kiểm tra tên đăng nhập.";
+"Start duel" = "Bắt đầu trận đấu";
+"24h to accept" = "24h để chấp nhận";
+"duel_invite_popup_title" = "Thách đấu";
+"duel_invite_popup_body_format" = "%@ mời bạn thách đấu";
+"duel_invite_popup_accept" = "Chấp nhận";
+"duel_invite_popup_remind_1h" = "Nhắc · 1 giờ";
+"duel_invite_popup_decline" = "Từ chối";
+
+"Accept" = "Chấp nhận";
+"Random opponent" = "Đối thủ ngẫu nhiên";
+"Virtual opponent" = "Đối thủ ảo";
+"No friends yet. Add friends in Profile." = "Chưa có bạn bè. Thêm bạn bè trong Hồ sơ.";
+"Standard multiple choice game" = "Trò chơi trắc nghiệm tiêu chuẩn";
+"Answer quickly, time is limited" = "Trả lời nhanh chóng, thời gian có hạn";
+"Game until first mistake" = "Trò chơi cho đến khi mắc lỗi đầu tiên";
+
+// Difficulty
+"Difficulty" = "Khó khăn";
+"Easy" = "Dễ";
+"Medium" = "Trung bình";
+"Hard" = "Cứng";
+"Expert" = "Chuyên gia";
+"Erudite" = "uyên bác";
+"10 questions, 45 sec per answer" = "10 câu hỏi, 45 giây mỗi câu trả lời";
+"15 questions, 30 sec per answer" = "15 câu hỏi, 30 giây mỗi câu trả lời";
+"20 questions, 15 sec per answer" = "20 câu hỏi, 15 giây cho mỗi câu trả lời";
+"25 questions, 10 sec per answer" = "25 câu hỏi, 10 giây mỗi câu trả lời";
+"30 questions, 5 sec per answer" = "30 câu hỏi, 5 giây mỗi câu";
+"All %d countries of selected regions, 5 sec per answer" = "Tất cả %d quốc gia của các khu vực đã chọn, 5 giây cho mỗi câu trả lời";
+"All 238 countries of the world, 5 sec per answer" = "Tất cả 238 quốc gia trên thế giới, 5 giây cho mỗi câu trả lời";
+
+"of" = "của";
+"flags" = "cờ";
+
+// Theme
+"App Theme" = "Vẻ bề ngoài";
+"System" = "Hệ thống";
+"Light" = "Ánh sáng";
+"Dark" = "Tối tăm";
+
+// iPad Main Screen
+"Challenge Yourself, Learn the World" = "Thử thách bản thân, tìm hiểu thế giới";
+"WorldArena Description" = "WorldArena là loạt trò chơi tri thức toàn cầu biến việc học thành niềm vui. Đoán cờ, thủ đô, biên giới và nhiều thứ khác trong định dạng bài kiểm tra năng động được thiết kế cho mọi lứa tuổi.";
+
+/* Lives & Premium */
+"Lives" = "Cuộc sống";
+"Next +%d in %02d:%02d" = "+%d tiếp theo trong %02d:%02d";
+"Lives refill info" = "Thông tin nạp mạng";
+"You will receive +%d new lives in %02d:%02d" = "Bạn sẽ nhận được +%d mạng mới vào %02d:%02d";
+"Unlimited hearts enabled" = "Đã kích hoạt trái tim không giới hạn";
+"Unlimited Hearts" = "Trái tim không giới hạn";
+"Your Premium benefits" = "Lợi ích Premium của bạn";
+"Onboarding welcome message" = "Chọn một khu vực bên dưới và chơi trò chơi đầu tiên của bạn!";
+"Onboarding first game done" = "Trò chơi đầu tiên đã xong! Chơi thêm 4 trò chơi với độ chính xác trên 70% để mở khóa thứ hạng thành phố của bạn.";
+"F-Bucks" = "F-Bucks";
+"Flags Bucks" = "Cờ Bucks";
+
+/* F-Bucks Info Page */
+"О F-Bucks" = "Giới thiệu về F-Bucks";
+"Как заработать" = "Cách kiếm tiền";
+"История" = "Lịch sử";
+"Магазин" = "Cửa hàng";
+"Что такое F-Bucks?" = "F-Bucks là gì?";
+"F-Bucks (Flags Bucks) — это внутриигровая валюта, которую можно заработать, играя в World Arena Flags. Используйте F-Bucks для покупки уникальных элементов аватара, скинов и других эксклюзивных предметов." = "F-Bucks (Flags Bucks) là loại tiền tệ trong trò chơi mà bạn có thể kiếm được bằng cách chơi World Arena Flags. Sử dụng F-Bucks để mua các vật phẩm hình đại diện, giao diện độc đáo và các vật phẩm độc quyền khác.";
+"Особенности:" = "Đặc trưng:";
+"Зарабатывайте за идеальные результаты в играх" = "Kiếm tiền để có kết quả trò chơi hoàn hảo";
+"Получайте бонусы за длинные серии дней" = "Nhận tiền thưởng cho chuỗi ngày dài";
+"Покупайте эксклюзивные элементы для аватара" = "Mua vật phẩm avatar độc quyền";
+"Создавайте уникальный стиль" = "Tạo phong cách độc đáo";
+"Как заработать F-Bucks" = "Cách kiếm F-Bucks";
+"Идеальный результат" = "Kết quả hoàn hảo";
+"Идеальный результат игры" = "Kết quả trò chơi hoàn hảo";
+"Получите идеальный результат в игре (10/10 или 15/15)" = "Nhận kết quả hoàn hảo trong trò chơi (10/10 hoặc 15/15)";
+"Серия 10 дней" = "Chuỗi 10 ngày";
+"Играйте 10 дней подряд" = "Chơi 10 ngày liên tiếp";
+"Серия 20 дней" = "Chuỗi 20 ngày";
+"Играйте 20 дней подряд" = "Chơi 20 ngày liên tiếp";
+"Серия 50 дней" = "Chuỗi 50 ngày";
+"Играйте 50 дней подряд" = "Chơi 50 ngày liên tiếp";
+"Серия 100 дней" = "Chuỗi 100 ngày";
+"Играйте 100 дней подряд" = "Chơi 100 ngày liên tiếp";
+"История начислений" = "Lịch sử giao dịch";
+"История пуста" = "Lịch sử trống rỗng";
+"Начните играть и зарабатывать F-Bucks!" = "Bắt đầu chơi và kiếm F-Bucks!";
+"Магазин F-Bucks" = "Cửa hàng F-Bucks";
+"Потратьте F-Bucks на эксклюзивные элементы для вашего аватара" = "Chi F-Bucks cho các vật phẩm độc quyền cho hình đại diện của bạn";
+"Одежда" = "Quần áo";
+"Уникальные наряды и аксессуары" = "Trang phục và phụ kiện độc đáo";
+"Скины" = "Da";
+"Особые визуальные эффекты" = "Hiệu ứng hình ảnh đặc biệt";
+"Эффекты" = "Các hiệu ứng";
+"Анимации и спецэффекты" = "Hoạt hình và hiệu ứng đặc biệt";
+"Футболка чемпиона" = "Áo thun vô địch";
+"Кепка путешественника" = "Mũ du lịch";
+"Куртка исследователя" = "Áo khoác thám hiểm";
+"Золотой скин" = "Da vàng";
+"Радужный скин" = "Da cầu vồng";
+"Неоновый скин" = "Da neon";
+"Эффект блёсток" = "Hiệu ứng lấp lánh";
+"Огненный эффект" = "Hiệu ứng lửa";
+"Звёздный эффект" = "Hiệu ứng ngôi sao";
+"Купить" = "Mua";
+"Покупка" = "Mua";
+"Текст гимна" = "văn bản quốc ca";
+"Continue playing with unlimited hearts!" = "Tiếp tục chơi với trái tim không giới hạn!";
+"No lives available" = "Không có mạng sống nào";
+"Unfortunately, the game is not available now: you have no lives. You can buy lives or go Premium." = "Thật không may, trò chơi hiện không có sẵn: bạn không có mạng. Bạn có thể mua mạng hoặc dùng Premium.";
+"Go Premium" = "Đi trả phí";
+"Out of lives" = "Ngoài cuộc sống";
+"Get Free Lives" = "Nhận cuộc sống miễn phí";
+"Watch video for +3 lives" = "Xem video được +3 mạng";
+"Unfortunately you ran out of lives this time. Try again or come back later." = "Thật không may, lần này bạn đã hết mạng. Hãy thử lại hoặc quay lại sau.";
+"Out of lives headline 1" = "Sắp xong rồi! 🚀";
+"Out of lives headline 2" = "Tiếp tục nhé?";
+"Out of lives headline 3" = "Còn một bước nữa!";
+"Out of lives headline 4" = "Rất gần rồi!";
+"Out of lives headline 5" = "Đừng dừng lại!";
+"Out of lives headline 6" = "Thêm một vòng?";
+"Out of lives headline 7" = "Giữ chuỗi thắng!";
+"Out of lives continue subtitle" = "Tiếp tục từ đây?";
+"Continue with bonus lives" = "Tiếp tục (+%d mạng)";
+"Out of lives perk resume" = "+%d mạng — tiếp tục đúng chỗ bạn dừng";
+"Out of lives perk progress" = "Bạn không mất tiến trình";
+"Out of lives urgency" = "Nhanh lên — giữ tiến trình!";
+"Ad-free with Premium" = "Không quảng cáo với Premium";
+"Out of lives continue premium" = "Tiếp tục với Premium";
+"Ad unavailable" = "Quảng cáo không có sẵn";
+"Ad unavailable. Try again later." = "Quảng cáo không có sẵn. Hãy thử lại sau.";
+"OK" = "ĐƯỢC RỒI";
+
+/* Premium screen */
+"Learn all countries and flags in ~2 months with Premium" = "Tìm hiểu tất cả các quốc gia và cờ trong ~2 tháng với Premium";
+"Unlimited Hearts" = "Trái tim không giới hạn";
+"Personalized Practice" = "Thực hành cá nhân hóa";
+"Explain My Answer" = "Giải thích câu trả lời của tôi";
+"Roleplay Scenarios" = "Kịch bản nhập vai";
+"Access 'My Mistakes'" = "Truy cập 'Sai lầm của tôi'";
+"My Mistakes" = "Sai lầm của tôi";
+"Erudite Difficulty" = "Độ khó uyên bác";
+"Learning Section" = "Phần học tập";
+"UPGRADE TO PREMIUM" = "NÂNG CẤP LÊN CAO CẤP";
+"NO THANKS" = "KHÔNG, CẢM ƠN";
+
+/* Game header popovers */
+"Total game time since start" = "Tổng thời gian trò chơi kể từ khi bắt đầu";
+"Time limit per question depending on difficulty" = "Time limit per question depending on difficulty";
+"Total Game Time" = "Tổng thời gian trò chơi";
+"Time Per Question" = "Time Per Question";
+
+/* Game header motivation (iPad) */
+"Game motivation 1" = "Bạn đã có cái này!";
+"Game motivation 2" = "Tiếp tục đi!";
+"Game motivation 3" = "Mỗi lá cờ đều có giá trị!";
+"Game motivation 4" = "Bạn đang cháy!";
+"Game motivation 5" = "Hãy tập trung!";
+"Game motivation 6" = "Một cái nữa!";
+"Game motivation 7" = "Tốc độ tuyệt vời!";
+"Game motivation 8" = "Hầu như ở đó!";
+"%d min %d sec" = "%d phút %d giây";
+"%d sec" = "%d giây";
+
+// Push Notifications
+"Push Notification Title" = "Thời gian để thực hành!";
+"Push Notification Body" = "Kiểm tra kiến ​​thức cờ của bạn và cải thiện kỹ năng của bạn! 🌍🎯";
+
+// Profile Page
+"League" = "Liên minh";
+"Following" = "Bạn bè";
+"Days in a row" = "Ngày liên tiếp";
+"Joined in %@" = "Đã tham gia vào %@";
+"Statistics" = "Thống kê";
+"Total XP" = "Tổng kinh nghiệm";
+"Current streak" = "Chuỗi hiện tại";
+"Best streak" = "Chuỗi tốt nhất";
+"Total games" = "Tổng số trò chơi";
+"Accuracy" = "Sự chính xác";
+"Add Friends" = "Thêm bạn bè";
+"Overview" = "Tổng quan";
+"Friend Streaks" = "Chuỗi bạn bè";
+"Monthly Badges" = "Huy hiệu hàng tháng";
+
+/* Avatar Editor */
+"Edit Avatar" = "Chỉnh sửa hình đại diện";
+"Cancel" = "Hủy bỏ";
+"Upload Photo" = "Tải ảnh lên";
+"Create Avatar" = "Tạo hình đại diện";
+"Photo" = "ảnh";
+"Create" = "Tạo nên";
+"Select Photo" = "Chọn ảnh";
+"Upload your photo from gallery or take a new one" = "Tải ảnh của bạn lên từ thư viện hoặc chụp ảnh mới";
+"Remove Photo" = "Xóa ảnh";
+"Save Avatar" = "Lưu hình đại diện";
+"Gender" = "Giới tính";
+"Skin Tone" = "Tông Màu Da";
+"Face Shape" = "Hình dạng khuôn mặt";
+"Hair Style" = "Kiểu tóc";
+"Hair Color" = "Màu tóc";
+"Eye Shape" = "Hình dạng mắt";
+"Eye Color" = "Màu mắt";
+"Eyebrows" = "Lông mày";
+"Nose" = "Mũi";
+"Mouth" = "Miệng";
+"Facial Hair" = "Tóc trên khuôn mặt";
+"Glasses" = "Kính";
+"Outfit" = "Trang phục";
+"Accessories" = "Phụ kiện";
+
+/* Game Loading */
+"Loading flags..." = "Đang tải cờ...";
+"Starting..." = "Đang bắt đầu...";
+
+/* Main Tab Navigation */
+"Главная" = "Trang chủ";
+"Игра" = "Chơi";
+"Квесты" = "Nhiệm vụ";
+"Лиги" = "Giải đấu";
+"До конца лиги: %02dч %02dм (GMT)" = "Giải đấu kết thúc sau %02dh %02dm (GMT)";
+"До конца лиги: %@ (GMT)" = "Giải đấu kết thúc sau %@ (GMT)";
+"д" = "d";
+"ч" = "h";
+"м" = "tôi";
+"Статистика" = "Thống kê";
+"Профиль" = "Hồ sơ";
+
+/* Profile Page */
+"ОБЗОР" = "TỔNG QUAN";
+"ДОБАВИТЬ ДРУЗЕЙ" = "THÊM BẠN BÈ";
+"СЕРИИ ДРУЗЕЙ" = "KẾT NỐI BẠN BÈ";
+"МЕСЯЧНЫЕ ДОСТИЖЕНИЯ" = "THÀNH TÍCH HÀNG THÁNG";
+
+/* Settings */
+"Выберите аватар" = "Chọn hình đại diện";
+"Редактировать аватар" = "Chỉnh sửa hình đại diện";
+"profile_upload_photo" = "Tải ảnh lên";
+"profile_crop_photo_title" = "Chỉnh ảnh";
+"profile_crop_photo_subtitle" = "Chụm để phóng to · kéo để di chuyển";
+"profile_crop_zoom_label" = "Thu phóng";
+"profile_crop_cancel" = "Hủy";
+"profile_crop_done" = "Xong";
+"Имя пользователя" = "Tên người dùng";
+"Статистика" = "Thống kê";
+"Премиум подписка активна" = "Đăng ký trả phí đang hoạt động";
+"ВОССТАНОВИТЬ ПОДПИСКУ" = "KHÔI PHỤC ĐĂNG KÝ";
+"ВЫЙТИ" = "ĐĂNG NHẬP";
+"Удалить аккаунт" = "Xóa tài khoản";
+"Это действие нельзя отменить. Все ваши данные будут удалены навсегда." = "Không thể hoàn tác hành động này. Tất cả dữ liệu của bạn sẽ bị xóa vĩnh viễn.";
+
+/* Language Selection */
+"Выберите язык игры" = "Chọn ngôn ngữ trò chơi";
+"Язык интерфейса игры и заданий" = "Ngôn ngữ giao diện và nhiệm vụ của trò chơi";
+
+/* Leagues */
+"Вы занимаете #%d место" = "Bạn được xếp hạng #%d";
+"Зона повышения - переход в следующую лигу!" = "Khu vực thăng hạng - tiến tới giải đấu tiếp theo!";
+"Зона вылета - риск понижения лиги" = "Khu vực xuống hạng - nguy cơ xuống hạng";
+"Безопасная зона - остаетесь в текущей лиге" = "Vùng an toàn - ở lại giải đấu hiện tại";
+"Конец недели через %d часов" = "Tuần kết thúc sau %d giờ";
+"ЗОНА ВЫЛЕТА" = "KHU XUỐNG";
+"ЗОНА ПОВЫШЕНИЯ" = "KHU KHUYẾN MÃI";
+
+/* Monthly Quests */
+"Августовский Квест" = "Nhiệm vụ tháng 8";
+"Mision de Agosto" = "Nhiệm vụ tháng 8";
+"21 ДЕНЬ" = "21 NGÀY";
+"Заработай 40 очков квеста" = "Kiếm 40 điểm nhiệm vụ";
+"ЕЖЕДНЕВНЫЕ КВЕСТЫ" = "NHIỆM VỤ HÀNG NGÀY";
+
+/* Help Center */
+"Популярные темы" = "Chủ đề phổ biến";
+"Категории" = "Thể loại";
+/* Help Center Categories */
+"Игра" = "Trò chơi";
+"Прогресс" = "Tiến triển";
+"Лиги" = "Giải đấu";
+"Профиль" = "Hồ sơ";
+"Социальные функции" = "Tính năng xã hội";
+"Технические вопросы" = "Vấn đề kỹ thuật";
+"Нужна дополнительная помощь?" = "Cần trợ giúp thêm?";
+"Связаться с поддержкой" = "Liên hệ hỗ trợ";
+"Результаты поиска" = "Kết quả tìm kiếm";
+"Ничего не найдено" = "Không tìm thấy gì";
+"Попробуйте другие ключевые слова" = "Hãy thử các từ khóa khác nhau";
+"%d тем" = "%d chủ đề";
+
+/* Daily Quests */
+"Продли свою серию" = "Kéo dài chuỗi của bạn";
+"Сыграй 3 игры подряд" = "Chơi 3 ván liên tiếp";
+"Достигни точности 80%" = "Đạt độ chính xác 80%";
+"МЕСЯЧНЫЕ ЦЕЛИ" = "MỤC TIÊU HÀNG THÁNG";
+"Месячные цели" = "MỤC TIÊU HÀNG THÁNG";
+
+/* Profile Statistics */
+"дней" = "ngày";
+"Текущая серия" = "Chuỗi hiện tại";
+"Всего изучено флагов" = "Tổng số cờ đã học";
+"Текущая лига" = "Giải đấu hiện tại";
+"Общий опыт" = "Tổng kinh nghiệm";
+
+/* League Names */
+"Бронза" = "đồng";
+"Серебро" = "Bạc";
+"Золото" = "Vàng";
+"Платина" = "Bạch kim";
+"Алмаз" = "Kim cương";
+"Мастер" = "Bậc thầy";
+
+/* Profile Edit */
+"Введите имя" = "Nhập tên";
+"Отмена" = "Hủy bỏ";
+"Сохранить" = "Cứu";
+"Уровень" = "Mức độ";
+"Опыт" = "Kinh nghiệm";
+"Серия дней" = "Chuỗi ngày";
+"Всего игр" = "Tổng số trò chơi";
+"Точность" = "Sự chính xác";
+
+/* Theme Settings */
+"Тема" = "chủ đề";
+"System" = "Hệ thống";
+"Light" = "Ánh sáng";
+"Dark" = "Tối tăm";
+"Выберите тему оформления приложения" = "Chọn chủ đề giao diện ứng dụng";
+"Следует системным настройкам" = "Theo dõi cài đặt hệ thống";
+"Светлое оформление" = "Ngoại hình nhẹ nhàng";
+"Темное оформление" = "Ngoại hình tối";
+
+/* Monthly Quests - Additional */
+"Сыграй %d игр" = "Chơi trò chơi %d";
+"Завершите %d игр в этом месяце" = "Hoàn thành %d trò chơi trong tháng này";
+"Точность %d%%" = "Độ chính xác %d%%";
+"Достигните точности %d%% в играх" = "Đạt được độ chính xác %d%% trong trò chơi";
+"Серия %d дней" = "chuỗi %d ngày";
+"Поддерживайте серию %d дней подряд" = "Duy trì chuỗi %d ngày";
+"10Ч" = "10H";
+
+/* Friends */
+"Ваш код друга" = "Mã bạn bè của bạn";
+"Добавить по коду" = "Thêm theo mã";
+"Введите код друга" = "Nhập mã bạn bè";
+"Добавить" = "Thêm vào";
+"Добавить друзей" = "Thêm bạn bè";
+"Готово" = "Xong";
+"Скопировано" = "Đã sao chép";
+"Мой код друга" = "Mã bạn bè của tôi";
+"Добавить по имени (логину)" = "Thêm theo tên người dùng";
+"Введите имя пользователя" = "Nhập tên người dùng";
+"Пользователь не найден или уже в друзьях. Проверьте имя." = "Người dùng không được tìm thấy hoặc đã có trong danh sách bạn bè. Kiểm tra tên.";
+"Ваша страна (флаг в профиле)" = "Quốc gia của bạn (cờ trong hồ sơ)";
+"Выберите страну — её флаг будет отображаться у вас в профиле у друзей." = "Chọn một quốc gia - cờ của quốc gia đó sẽ được hiển thị trong hồ sơ của bạn cho bạn bè.";
+"Не выбрано" = "Không được chọn";
+"Ваша страна" = "Đất nước của bạn";
+
+/* Help Center topics */
+"Как играть в World Arena Flags?" = "Cách chơi World Arena Flags?";
+"Основы игры и правила" = "Cơ bản và quy tắc";
+"HELP_GAME_RULES" = "World Arena Flags là một trò chơi thú vị để tìm hiểu các lá cờ thế giới!\n\nQuy tắc:\n1. Bạn nhìn thấy lá cờ của một quốc gia\n2. Chọn tên đúng từ các tùy chọn\n3. Kiếm XP cho câu trả lời đúng\n4. Duy trì chuỗi ngày của bạn\n5. Tăng cấp và leo lên giải đấu\n\nCàng chơi nhiều, bạn càng học được nhiều cờ!";
+"Что такое серия дней?" = "Một vệt là gì?";
+"Как работает система серий" = "Hệ thống sọc hoạt động như thế nào";
+"HELP_STREAK_TEXT" = "Chuỗi ngày cho biết bạn đã chơi liên tiếp bao nhiêu ngày.\n\nCách duy trì:\n• Mỗi ngày chơi ít nhất một lượt\n• Nếu bỏ một ngày, chuỗi sẽ bị đặt lại\n• Chuỗi càng dài, XP thưởng càng nhiều\n\nChuỗi ngày giúp bạn duy trì thói quen học đều đặn!";
+"Как работают лиги?" = "Các giải đấu hoạt động như thế nào?";
+"Система рейтингов и соревнований" = "Hệ thống xếp hạng và cạnh tranh";
+"HELP_LEAGUES_TEXT" = "Giải đấu là cuộc cạnh tranh với những người chơi khác.\n\nCác giải đấu (từ thấp đến cao):\n• Đồng\n• Bạc\n• Vàng\n• Bạch kim\n• Kim cương\n• Thầy\n\nCập nhật hàng tuần:\n• Top 3 người chơi nhận được phần thưởng\n• Người chơi ở độ tuổi 16–20 có thể bị giáng cấp\n• Những người khác ở cùng một giải đấu";
+
+/* Birthday */
+"День рождения" = "Sinh nhật";
+"Birthday description F-bucks" = "Cho phép chúng tôi chúc mừng sinh nhật bạn với +10 F-bucks";
+"Очистить" = "Thông thoáng";
+"День рождения друга" = "Sinh nhật của người bạn";
+"Friend birthday push body" = "Hôm nay %@ kỷ niệm sinh nhật của họ — xin chúc mừng họ! (cho +10 phút Triple XP hoặc +1 F-bucks)";
+"С днём рождения!" = "Chúc mừng sinh nhật!";
+"Birthday bonus already claimed" = "Tiền thưởng cho năm nay đã được nhận";
+"Birthday bonus F-bucks message" = "Bạn đã nhận được +10 F-bucks";
+"Friend birthday today" = "Hôm nay là sinh nhật của %@";
+"Friends birthday today count" = "%d bạn bè có sinh nhật hôm nay";
+"Friend birthday congratulate hint" = "Xin chúc mừng: tặng +10 phút Triple XP hoặc +1 F-bucks";
+"Подарок на ДР от друга" = "Món quà sinh nhật từ bạn bè";
+
+/* Help Center – profile & skin */
+"Как изменить аватар?" = "Làm thế nào để thay đổi hình đại diện?";
+"Персонализация профиля" = "Tùy chỉnh hồ sơ";
+"HELP_PROFILE_AVATAR" = "Để thay đổi hình đại diện của bạn:\n1. Mở tab Hồ sơ\n2. Nhấn vào biểu tượng bánh răng (Cài đặt)\n3. Chọn \"Hồ sơ người dùng\"\n4. Chọn ảnh đại diện mới hoặc tải ảnh lên\n5. Nhấn vào \"Lưu\"";
+"Как работает создание скина?" = "Trình chỉnh sửa giao diện hoạt động như thế nào?";
+"Редактор аватара и элементы" = "Trình chỉnh sửa hình đại diện và các mục";
+"HELP_PROFILE_SKIN_EDITOR" = "Trong trình chỉnh sửa giao diện, bạn xây dựng giao diện của mình từ một số danh mục:\n• Quần áo\n• Phụ kiện\n• Kính\n• Màu da\n• Tóc\n• Khuôn mặt (mắt, miệng, v.v.)\n\nLàm thế nào để sử dụng nó:\n1. Mở Hồ sơ → Cài đặt → Hồ sơ người dùng → Chỉnh sửa hình đại diện\n2. Chuyển sang tab “Tạo giao diện”\n3. Chọn một danh mục ở thanh trên cùng (mũ, áo sơ mi, kính, biểu tượng bảng màu, v.v.)\n4. Chọn một mục cụ thể trong lưới bên dưới – nó sẽ xuất hiện ngay trong bản xem trước\n5. Nhấn vào \"Lưu hình đại diện\" để áp dụng giao diện cho hồ sơ của bạn\n\nMột số vật phẩm có thể bị khóa (biểu tượng khóa) – chúng sẽ mở khóa khi bạn tiến bộ hoặc để lấy F-bucks.";
+
+/* Help Center – friends & social */
+"Как добавить друзей?" = "Làm thế nào để thêm bạn bè?";
+"Социальные функции" = "Đặc điểm xã hội";
+"HELP_SOCIAL_ADD_FRIENDS" = "Để thêm bạn bè:\n1. Mở tab Hồ sơ\n2. Nhấn vào \"Thêm bạn bè\"\n3. Chia sẻ mã bạn bè của bạn hoặc nhập mã/đăng nhập của người chơi khác\n4. Gửi lời mời kết bạn\n\nVới bạn bè, bạn có thể:\n• So sánh số liệu thống kê\n• Xem sự tiến bộ của họ\n• Thi đấu trong các giải đấu và đấu tay đôi";
+"Как работают напоминания друзьям?" = "Lời nhắc cho bạn bè hoạt động như thế nào?";
+"Пуш-уведомления о ежедневном уроке" = "Thông báo đẩy về bài học hàng ngày";
+"HELP_SOCIAL_REMINDERS" = "Sau khi kết thúc trò chơi, bạn sẽ thấy một màn hình có bạn bè của mình và thành tích của họ:\n• Những người bạn đã chơi hôm nay hiển thị ngọn lửa và số ngày liên tục\n• Những người bạn chưa chơi hôm nay hiển thị nút \"Nhắc nhở\"\n\nCách gửi lời nhắc:\n1. Sau khi chơi xong, hãy chuyển đến màn hình \"Nhắc bạn bè\"\n2. Nhấn vào \"Nhắc nhở\" bên cạnh một người bạn cụ thể\n3. Nếu các em đã bật thông báo, các em sẽ nhận được thông báo rằng bài học hôm nay chưa hoàn thành\n\nLời nhắc giúp bạn bè duy trì thành tích và học tập thường xuyên.";
+
+/* Help Center – duel & progress */
+"Что такое дуэль и как её начать?" = "Cuộc đấu tay đôi là gì và làm thế nào để bắt đầu nó?";
+"Режим соревнований 1 на 1" = "Chế độ thi đấu 1 chọi 1";
+"HELP_GAME_DUEL" = "Đấu tay đôi là chế độ mà bạn và bạn của mình trả lời các câu hỏi giống nhau để so sánh kết quả.\n\nCách bắt đầu một cuộc đấu tay đôi:\n1. Mở hồ sơ bạn bè của bạn (từ Danh sách bạn bè, Giải đấu hoặc lời nhắc)\n2. Nhấn vào nút \"Thử thách đấu tay đôi\"\n3. Xác nhận – trận đấu sẽ sử dụng một bộ câu hỏi chung\n\nCuối cùng:\n• Bạn xem ai ghi được nhiều điểm hơn\n• Đấu tay đôi thúc đẩy và thúc đẩy tiến bộ nhưng KHÔNG thiết lập lại chuỗi ngày của bạn";
+"Как зарабатывать и тратить F-bucks?" = "Làm cách nào để kiếm và chi tiêu F-bucks?";
+"Внутриигровая валюта" = "Tiền tệ trong trò chơi";
+"HELP_PROGRESS_FBUCKS" = "F-Bucks (Flags Bucks) là tiền tệ trong game World Arena Flags.\n\nCách kiếm:\n• Chơi hoàn hảo (mọi câu đúng)\n• Chuỗi ngày chơi dài\n• Hoàn thành nhiệm vụ và thành tích\n\nDùng để:\n• Mua đồ độc quyền cho avatar và giao diện\n• Mở khóa phụ kiện và hiệu ứng hiếm\n\nLưu ý: F-Bucks không phải tiền thật, không rút hay đổi tiền mặt được.";
+"Как работают квесты и достижения?" = "Nhiệm vụ và thành tích hoạt động như thế nào?";
+"Месячные задания и артефакты" = "Nhiệm vụ và hiện vật hàng tháng";
+"HELP_PROGRESS_QUESTS" = "Trong tab \"Nhiệm vụ\" bạn thấy:\n• Nhiệm vụ hàng ngày (nếu có)\n• Nhiệm vụ hàng tháng và tổng tiến độ 0–40\n\nNó hoạt động như thế nào:\n1. Hoàn thành nhiệm vụ: chơi đủ số trò chơi theo yêu cầu, đoán cờ của các khu vực cụ thể, v.v.\n2. Mỗi nhiệm vụ hoàn thành sẽ mang lại tiến bộ và phần thưởng\n3. Tổng tiến độ hàng tháng được hiển thị trong tiêu đề màu dưới dạng thanh\n\nMở khóa thành tích (hiện vật) cho các điều kiện đặc biệt:\n• Vệt dài\n• Độ chính xác cao\n• Vị trí cao trong giải đấu\nThành tích đã mở khóa được hiển thị trong hồ sơ của bạn.";
+
+/* Help Center – notifications */
+"Уведомления: какие бывают и как их настроить?" = "Thông báo: các loại và cách quản lý chúng?";
+"Ежедневный урок, дуэли и напоминания" = "Bài học hàng ngày, đấu tay đôi và nhắc nhở";
+"HELP_NOTIFICATIONS_TYPES" = "Ứng dụng có thể gửi một số loại thông báo:\n• Lời nhắc về bài học và thành tích hàng ngày\n• Lời nhắc cho bạn bè và phản hồi lời nhắc của bạn\n• Thử thách đấu tay đôi và kết quả đấu tay đôi\n\nCách quản lý thông báo:\n1. Mở cài đặt thiết bị của bạn\n2. Tìm Cờ Đấu Trường Thế Giới\n3. Bật hoặc tắt các loại thông báo theo ý muốn\n\nChúng tôi khuyên bạn nên bật lời nhắc bài học hàng ngày để không bị mất thành tích.";
+
+/* Help Center – technical issues */
+"Проблемы с загрузкой флагов" = "Cờ không tải";
+"Что делать если флаги не загружаются" = "Phải làm gì nếu cờ không tải";
+"HELP_TECH_FLAGS_NOT_LOADING" = "Nếu cờ không tải:\n1. Kiểm tra kết nối internet của bạn\n2. Khởi động lại ứng dụng\n3. Xóa bộ nhớ đệm trong cài đặt ứng dụng (nếu có)\n4. Cập nhật ứng dụng lên phiên bản mới nhất\n5. Liên hệ bộ phận hỗ trợ nếu sự cố vẫn tiếp diễn";
+"Синхронизация данных" = "Đồng bộ hóa dữ liệu";
+"Как сохранить прогресс" = "Làm thế nào để giữ cho tiến trình của bạn an toàn";
+"HELP_TECH_DATA_SYNC" = "Tiến trình của bạn được lưu tự động trên thiết bị.\n\nĐể sao lưu nó:\n• Sử dụng iCloud hoặc bản sao lưu thiết bị của bạn\n• Xuất dữ liệu thông qua cài đặt quyền riêng tư (nếu có)\n• Thường xuyên tạo bản sao lưu cho thiết bị của bạn\n\nNếu bạn thay đổi thiết bị, hãy khôi phục bản sao lưu trước khi khởi chạy trò chơi để không bị mất tiến trình.";
+
+/* Achievements */
+"Достижения" = "Thành tích";
+"Достижение" = "Thành tích";
+"ЛИЧНЫЕ РЕКОРДЫ" = "Hồ sơ cá nhân";
+"НАГРАДЫ" = "giải thưởng";
+"Лучшая серия" = "Vệt dài nhất";
+"Макс. лига" = "Giải đấu cao nhất";
+"Макс. XP" = "Nhiều XP nhất";
+"Открыто" = "Đã mở khóa";
+
+/* Achievement titles/descriptions */
+"Ранняя птица" = "Chim sớm";
+"Достигните серии 5 дней" = "Đạt đến chuỗi 5 ngày";
+"Стабильность" = "tính nhất quán";
+"Серия 10 дней" = "chuỗi 10 ngày";
+"Железная воля" = "Ý chí sắt đá";
+"Серия 30 дней" = "chuỗi 30 ngày";
+"Новичок XP" = "XP mới bắt đầu";
+"Наберите 1000 XP" = "Kiếm 1000 XP";
+"Олимпиец XP" = "vận động viên Olympic XP";
+"Наберите 5000 XP" = "Kiếm 5000 XP";
+"Легенда XP" = "Huyền thoại XP";
+"Наберите 10000 XP" = "Kiếm 10000 XP";
+"Исследователь" = "Nhà thám hiểm nhiệm vụ";
+"Сыграйте 20 игр" = "Chơi 20 trò chơi";
+"Ветеран" = "Cựu chiến binh";
+"Сыграйте 100 игр" = "Chơi 100 trò chơi";
+"Меткий стрелок" = "xạ thủ";
+"Точность 70%" = "Đạt độ chính xác 70%";
+"Снайпер" = "Bắn tỉa";
+"Точность 85%" = "Đạt độ chính xác 85%";
+"Серебряная лига" = "Giải bạc";
+"Достигните Серебра" = "Đạt Bạc";
+"Золотая лига" = "Giải Vàng";
+"Достигните Золота" = "Đạt vàng";
+"Платиновая лига" = "Giải Bạch kim";
+"Достигните Платины" = "Đạt bạch kim";
+"Алмазная лига" = "Liên đoàn kim cương";
+"Достигните Алмаза" = "Đạt kim cương";
+"Мастер лиг" = "Bậc thầy giải đấu";
+"Достигните Мастера" = "Tiếp cận bậc thầy";
+"Первый друг" = "Người bạn đầu tiên";
+"Добавьте друга" = "Thêm một người bạn";
+"Своя команда" = "Nhóm của bạn";
+"Добавьте 5 друзей" = "Thêm 5 người bạn";
+"Расскажите друзьям" = "Truyền bá";
+"Поделитесь профилем" = "Chia sẻ hồ sơ của bạn";
+"Спринтер" = "Tay đua tốc độ";
+"Сыграйте 10 игр за день" = "Chơi 10 trò chơi trong một ngày";
+"XP Олимпиец" = "vận động viên Olympic XP";
+"Мастер Олимпиец XP" = "Bậc thầy XP Olympian";
+"Наберите 30000 XP" = "Kiếm 30000 XP";
+ 
+/* Settings - Added */
+"Уведомления" = "Thông báo";
+"Приватность" = "Sự riêng tư";
+"Центр помощи" = "Trung tâm trợ giúp";
+"Язык игры" = "Ngôn ngữ trò chơi";
+"Звуковые эффекты" = "Hiệu ứng âm thanh";
+"Вибрация" = "Rung";
+
+/* Notification Settings - Sections */
+"Основные уведомления" = "Thông báo chính";
+"Напоминания об игре" = "Lời nhắc trò chơi";
+"Ежедневные напоминания" = "Lời nhắc hàng ngày";
+"Напоминания о серии" = "Nhắc nhở liên tục";
+"Время напоминания" = "Thời gian nhắc nhở";
+"Время" = "Thời gian";
+"Достижения и прогресс" = "Thành tựu và tiến bộ";
+"Социальные уведомления" = "Thông báo xã hội";
+"Друзья" = "Bạn";
+
+/* Privacy Settings */
+"Приватность профиля" = "Quyền riêng tư hồ sơ";
+"Публичный профиль" = "Hồ sơ công khai";
+"Показывать статистику" = "Hiển thị số liệu thống kê";
+"Заявки в друзья" = "Yêu cầu kết bạn";
+"Сбор данных" = "Thu thập dữ liệu";
+"Аналитика использования" = "Phân tích sử dụng";
+"Отчеты о сбоях" = "Báo cáo sự cố";
+"Управление данными" = "Quản lý dữ liệu";
+"Политика конфиденциальности" = "Chính sách bảo mật";
+"Ознакомьтесь с нашей политикой конфиденциальности" = "Đọc chính sách bảo mật của chúng tôi";
+"Условия использования" = "Điều khoản dịch vụ";
+"Прочитайте наши условия использования" = "Đọc điều khoản dịch vụ của chúng tôi";
+"Экспорт данных" = "Xuất dữ liệu";
+"Скачать копию ваших данных" = "Tải xuống bản sao dữ liệu của bạn";
+"Удалить все данные" = "Xóa tất cả dữ liệu";
+"Безвозвратно удалить все ваши данные" = "Xóa vĩnh viễn tất cả dữ liệu của bạn";
+
+// Profile page
+"Всего изучено флагов" = "Tổng số cờ đã học";
+"Текущая лига" = "Giải đấu hiện tại";
+"Общий опыт" = "Tổng kinh nghiệm";
+"дней" = "ngày";
+"Текущая серия" = "Chuỗi hiện tại";
+"XP" = "XP";
+"ДОБАВИТЬ ДРУЗЕЙ" = "THÊM BẠN BÈ";
+"СЕРИИ ДРУЗЕЙ" = "KẾT NỐI BẠN BÈ";
+"МЕСЯЧНЫЕ ДОСТИЖЕНИЯ" = "THÀNH TÍCH HÀNG THÁNG";
+
+// Add Friends page
+"Ваш код друга" = "Mã bạn bè của bạn";
+"Добавить по коду" = "Thêm theo mã";
+"Введите код друга" = "Nhập mã bạn bè";
+"Добавить" = "Thêm vào";
+"Добавить друзей" = "Thêm bạn bè";
+"Готово" = "Xong";
+"Скопировано" = "Đã sao chép";
+"Мой код друга" = "Mã bạn bè của tôi";
+"Добавить по имени (логину)" = "Thêm theo tên người dùng";
+"Введите имя пользователя" = "Nhập tên người dùng";
+"Пользователь не найден или уже в друзьях. Проверьте имя." = "Người dùng không được tìm thấy hoặc đã có trong danh sách bạn bè. Kiểm tra tên.";
+"Ваша страна (флаг в профиле)" = "Quốc gia của bạn (cờ trong hồ sơ)";
+"Выберите страну — её флаг будет отображаться у вас в профиле у друзей." = "Chọn một quốc gia - cờ của quốc gia đó sẽ được hiển thị trong hồ sơ của bạn cho bạn bè.";
+"Не выбрано" = "Không được chọn";
+"Ваша страна" = "Đất nước của bạn";
+
+// Settings page
+"Премиум" = "Phần thưởng";
+"World Arena Premium" = "World Arena Premium";
+"Премиум подписка активна" = "Đăng ký trả phí đang hoạt động";
+"ВОССТАНОВИТЬ ПОДПИСКУ" = "KHÔI PHỤC ĐĂNG KÝ";
+
+// Achievements
+"Ранняя птица" = "Chim sớm";
+"Железная воля" = "Ý chí sắt đá";
+"Алмазная лига" = "Liên đoàn kim cương";
+"Серия мастера" = "Chuỗi chính";
+"Чемпион месяца" = "Nhà vô địch hàng tháng";
+"Идеальная неделя" = "Tuần hoàn hảo";
+
+// Friends messages
+"У вас пока нет друзей" = "Bạn chưa có bạn bè";
+"Добавьте друзей, чтобы видеть их серии" = "Thêm bạn bè để xem thành tích của họ";
+
+// Quests page
+"Щоденні квести" = "Nhiệm vụ hàng ngày";
+"Сыграй 3 игры" = "Chơi 3 trò chơi";
+"Дай 10 правильных ответов" = "Đưa ra 10 câu trả lời đúng";
+"Заработай 500 XP" = "Kiếm 500 XP";
+"%d/7 дней активности" = "%d/7 ngày hoạt động";
+"Месячные цели" = "Mục tiêu hàng tháng";
+"Сыграй 10 игр" = "Chơi 10 trò chơi";
+"Завершите 10 игр в этом месяце" = "Hoàn thành 10 trò chơi trong tháng này";
+"Точность 62%" = "Độ chính xác 62%";
+"Достигните точности 62% в играх" = "Đạt độ chính xác 62% trong trò chơi";
+"Серия 3 дней" = "Chuỗi 3 ngày";
+"Поддерживайте серию 3 дней подряд" = "Duy trì chuỗi 3 ngày";
+
+// Profile page buttons
+"Отмена" = "Hủy bỏ";
+"Сохранить" = "Cứu";
+
+// Profile statistics
+"Статистика" = "Thống kê";
+"Уровень" = "Mức độ";
+"Опыт" = "Kinh nghiệm";
+"Серия дней" = "Chuỗi ngày";
+"Всего игр" = "Tổng số trò chơi";
+"Точность" = "Sự chính xác";
+
+// Avatar Editor
+"Edit Avatar" = "Chỉnh sửa hình đại diện";
+"Upload photo" = "Tải ảnh lên";
+"Photo" = "ảnh";
+"Create" = "Tạo nên";
+"Select photo" = "Chọn ảnh";
+"Upload your photo from gallery or take a new one" = "Tải ảnh của bạn lên từ thư viện hoặc chụp ảnh mới";
+"Save Avatar" = "Lưu hình đại diện";
+
+// Mission title
+"August Mission" = "Nhiệm vụ tháng 8";
+
+/* Subscription Management */
+"Управление подпиской" = "Quản lý đăng ký";
+"Ваша премиум подписка активна" = "Đăng ký trả phí của bạn đang hoạt động";
+"Текущий план" = "Gói hiện tại";
+"Цена" = "Giá";
+"месяц" = "tháng";
+"Информация о платежах" = "Thông tin thanh toán";
+"Дата начала" = "Ngày bắt đầu";
+"Следующий платеж" = "Thanh toán tiếp theo";
+"Статус" = "Trạng thái";
+"Активна" = "Tích cực";
+"Премиум преимущества" = "Lợi ích cao cấp";
+"Безлимитные жизни" = "Cuộc sống không giới hạn";
+"Играйте без ожидания" = "Chơi mà không cần chờ đợi";
+"Раздел Обучения" = "Phần học tập";
+"Изучайте флаги и страны" = "Tìm hiểu cờ và các quốc gia";
+"Сложность Эрудит" = "Độ khó uyên bác";
+"Продвинутые вопросы" = "Câu hỏi nâng cao";
+"Мои ошибки" = "Sai lầm của tôi";
+"Анализ ваших ошибок" = "Phân tích những sai lầm của bạn";
+"Отменить подписку" = "Hủy đăng ký";
+"Закрыть" = "Đóng";
+"Отмена" = "Hủy bỏ";
+"Вы уверены, что хотите отменить премиум подписку? Вы потеряете доступ ко всем премиум функциям." = "Bạn có chắc chắn muốn hủy đăng ký trả phí của mình không? Bạn sẽ mất quyền truy cập vào tất cả các tính năng cao cấp.";
+
+"Manage subscription" = "Quản lý đăng ký";
+"Your premium subscription is active" = "Đăng ký trả phí của bạn đang hoạt động";
+"Current plan" = "Kế hoạch hiện tại";
+"Price" = "Giá";
+"month" = "tháng";
+"year" = "năm";
+"Billing information" = "Thông tin thanh toán";
+"Start date" = "Ngày bắt đầu";
+"Next payment" = "Thanh toán tiếp theo";
+"Status" = "Trạng thái";
+"Active" = "Tích cực";
+"Premium benefits" = "Lợi ích cao cấp";
+"My mistakes" = "Những sai lầm của tôi";
+"Analysis of your mistakes" = "Phân tích những sai lầm của bạn";
+"Premium tournaments" = "Giải đấu cao cấp";
+"Exclusive tournaments with F-Bucks prizes" = "Các giải đấu độc quyền với giải thưởng F-Bucks";
+"Cancel subscription" = "Hủy đăng ký";
+"Keep subscription" = "Tiếp tục đăng ký";
+"Yes, cancel" = "Có, hủy";
+"Are you sure you want to cancel premium? You will lose access to all premium features." = "Bạn có chắc chắn muốn hủy phí bảo hiểm không? Bạn sẽ mất quyền truy cập vào tất cả các tính năng cao cấp.";
+"Close" = "Đóng";
+"Red" = "Màu đỏ";
+"Most popular color fact description" = "Màu đỏ hiện diện trên 75% quốc kỳ các quốc gia trên toàn thế giới, khiến nó trở thành màu cờ phổ biến nhất.";
+
+/* Friend Management */
+"Флаг в профиле" = "Gắn cờ trong hồ sơ";
+"Удалить из друзей" = "Xóa khỏi bạn bè";
+"Удалить друга" = "Xóa bạn bè";
+"Вы уверены, что хотите удалить %@ из друзей и перестать следить за его успехами?" = "Bạn có chắc chắn muốn xóa %@ khỏi bạn bè và ngừng theo dõi tiến trình của họ không?";
+
+/* Subscription Cancellation */
+"Нам очень жаль, что вы отменили премиум подписку" = "Chúng tôi rất tiếc vì bạn đã hủy đăng ký trả phí của mình";
+"Ваши результаты за период премиум подписки:" = "Kết quả của bạn trong thời gian đăng ký trả phí:";
+"Изучено флагов" = "Cờ đã nghiên cứu";
+"Лучший результат" = "Điểm tốt nhất";
+"очков" = "điểm";
+"Текущая серия" = "Chuỗi hiện tại";
+"дней" = "ngày";
+"Точность" = "Sự chính xác";
+"Теперь вы можете без единой ошибки отвечать на все наши вопросы с точностью в %d%%" = "Bạn có thể làm điều đó để đạt được lợi ích của mình khi đạt được %d%%";
+"Мы будем рады, если вы захотите снова вернуться к нам!" = "Chúng tôi sẽ rất vui nếu bạn muốn quay lại với chúng tôi lần nữa!";
+"Продолжить" = "Tiếp tục";
+
+/* Learning Section New Strings */
+"ВСЕ СТРАНЫ" = "TẤT CẢ CÁC QUỐC GIA";
+"Все страны" = "Tất cả các nước";
+"стран" = "các nước";
+"Столица" = "Thủ đô";
+
+// Country Detail View
+"Галерея" = "Phòng trưng bày";
+"Информация о стране" = "Thông tin quốc gia";
+"Описание флага" = "Cờ Mô tả";
+"Гимн страны" = "Quốc ca";
+"Национальный гимн" = "Quốc ca";
+"Значение гимна" = "Ý nghĩa quốc ca";
+"Официальный язык" = "Ngôn ngữ chính thức";
+"Правительство" = "Chính phủ";
+"Глава государства" = "nguyên thủ quốc gia";
+"Телефонный код" = "Mã quay số";
+"Население" = "Dân số";
+"Валюта" = "Tiền tệ";
+"Независимость" = "Độc lập";
+"Площадь" = "Khu vực";
+"Описание" = "Sự miêu tả";
+"История" = "Lịch sử";
+"Музыка" = "Âm nhạc";
+"Природа" = "Thiên nhiên";
+"Историческая информация о стране" = "Thông tin lịch sử về đất nước";
+"Музыкальная культура страны" = "Văn hóa âm nhạc đất nước";
+"Уникальная природа и ландшафты этой страны" = "Thiên nhiên và cảnh quan độc đáo của đất nước này";
+
+/* Premium restrictions */
+"Premium Feature" = "Tính năng cao cấp";
+"Erudite Level - Premium Only" = "Cấp độ uyên bác - Chỉ cao cấp";
+"My Mistakes - Premium Only" = "Sai lầm của tôi - Chỉ trả phí";
+"This feature is available only for Premium users" = "Tính năng này chỉ khả dụng cho người dùng Premium";
+"Continue with Premium" = "Tiếp tục với Premium";
+"Get Premium access to unlock:" = "Nhận quyền truy cập Premium để mở khóa:";
+"• Erudite difficulty level" = "• Mức độ khó uyên bác";
+"• My Mistakes section" = "• Phần Lỗi của tôi";
+"• Unlimited lives" = "• Cuộc sống không giới hạn";
+"• All premium features" = "• Tất cả các tính năng cao cấp";
+
+/* Enhanced Game Results */
+"PERFECT!" = "HOÀN HẢO!";
+"EXCELLENT!" = "XUẤT SẮC!";
+"GREAT JOB!" = "CÔNG VIỆC TUYỆT VỜI!";
+"GOOD EFFORT!" = "NỖ LỰC TỐT!";
+"KEEP TRYING!" = "HÃY CỐ GẮNG!";
+"Absolutely incredible! You're a true champion! 🎉" = "Hoàn toàn không thể tin được! Bạn là một nhà vô địch thực sự! 🎉";
+"Outstanding performance! You're almost perfect! ✨" = "Hiệu suất vượt trội! Bạn gần như hoàn hảo! ✨";
+"Fantastic work! You're doing amazing! 🚀" = "Công việc tuyệt vời! Bạn đang làm rất tuyệt vời! 🚀";
+"Nice job! Keep up the great work! 💫" = "Làm tốt lắm! Hãy tiếp tục công việc tuyệt vời! 💫";
+"Don't give up! Every expert was once a beginner! 🌱" = "Đừng bỏ cuộc! Mọi chuyên gia đều từng là người mới bắt đầu! 🌱";
+"XP EARNED" = "XP KIẾM ĐƯỢC";
+"XP boost time remaining" = "%d:%02d còn lại — chơi lại!";
+"XP boost you have remaining" = "Bạn còn lại %@ %@";
+"double XP" = "gấp đôi XP";
+"triple XP" = "gấp ba XP";
+
+/* Enhanced Streak View */
+"Don't break the chain! Come back tomorrow!" = "Đừng phá vỡ chuỗi! Hãy quay lại vào ngày mai!";
+"Time to restart your streak! You can do it!" = "Time to restart your streak! You can do it!";
+
+/* Monthly XP Quest */
+"Заработай %d XP за месяц" = "Kiếm %d XP trong tháng này";
+"Заработайте %d XP играя минимум 7 дней в месяц" = "Kiếm %d XP bằng cách chơi ít nhất 7 ngày trong tháng này";
+
+/* League end popup */
+"Итоги лиги" = "Kết quả giải đấu";
+"Вы заняли %d место." = "Bạn đã đặt %d.";
+"Вы поднялись в лигу: %@" = "Bạn đã được thăng chức lên %@.";
+"Вы остались в текущей лиге." = "Bạn vẫn ở trong giải đấu hiện tại của bạn.";
+"Вы понижены в лигу: %@" = "Bạn đã bị giáng chức xuống %@.";
+
+/* Premium placeholders when products not loaded */
+"Loading..." = "Đang tải...";
+"Unable to load products" = "Không thể tải sản phẩm";
+"Tap to load price" = "Nhấn để tải giá";
+"Sign in with Apple ID in Settings → App Store to see prices. Tap an option or Retry to try again." = "Đăng nhập bằng Apple ID trong Cài đặt → App Store để xem giá. Nhấn vào một tùy chọn hoặc Thử lại để thử lại.";
+
+/* Home Lives Promo */
+"Unlock your full progress" = "Mở khóa toàn bộ tiến trình của bạn";
+"Get Premium tools for faster learning and better game results" = "Nhận các công cụ cao cấp để học nhanh hơn và kết quả trò chơi tốt hơn";
+"Learning section" = "Phần học tập";
+"Train flags and countries in a structured mode" = "Cờ đào tạo và các quốc gia ở chế độ có cấu trúc";
+"Erudite difficulty" = "Khó khăn uyên bác";
+"Advanced challenge with deeper knowledge checks" = "Thử thách nâng cao với kiểm tra kiến ​​thức sâu hơn";
+"My mistakes" = "Những sai lầm của tôi";
+"Focus on weak topics and improve accuracy" = "Tập trung vào các chủ đề yếu và cải thiện độ chính xác";
+"Personalized practice" = "Thực hành cá nhân hóa";
+"Adaptive sessions based on your progress" = "Phiên thích ứng dựa trên sự tiến bộ của bạn";
+"Explain my answer" = "Giải thích câu trả lời của tôi";
+"Understand every mistake and learn faster" = "Hiểu mọi sai lầm và học nhanh hơn";
+"Up to +750% faster flag learning with Premium" = "Học cờ nhanh hơn tới +750% với Premium";
+"Play without waiting and keep your learning momentum" = "Chơi mà không cần chờ đợi và giữ đà học tập của bạn";
+"Train flags, listen to anthems, and explore detailed country profiles" = "Huấn luyện cờ, nghe quốc ca và khám phá hồ sơ quốc gia chi tiết";
+"Restore Purchases" = "Khôi phục mua hàng";
+"Have a promo code?" = "Có mã khuyến mãi?";
+"Redeem Offer Code" = "Đổi mã ưu đãi";
+"Auto-renewable subscription" = "Đăng ký tự động gia hạn";
+"Monthly Premium Title" = "Phí bảo hiểm hàng tháng: giá trị tối đa";
+"Yearly Premium Title" = "NĂM cao cấp. Cờ và các quốc gia";
+"Duration: 1 month (auto-renewable)" = "Thời lượng: 1 tháng (tự động tái tạo)";
+"Duration: 1 year (auto-renewable)" = "Thời hạn: 1 năm (tự động tái tạo)";
+"Premium Monthly" = "Phí bảo hiểm hàng tháng";
+"Yearly Premium" = "Phí bảo hiểm hàng năm";
+"Save %d%%" = "Lưu %d%%";
+"Learn flags and countries of the World" = "Tìm hiểu cờ và các nước trên thế giới";
+"Select Level" = "Chọn cấp độ";
+"Level - %@" = "Mức độ - %@";
+"Exclusive tournaments with cash F-Bucks prizes" = "Các giải đấu độc quyền với giải thưởng F-Bucks tiền mặt";
+"Survival Mode" = "Survival Mode";
+"One mistake = Game Over" = "Một sai lầm = Trò chơi kết thúc";
+"Duel result push format" = "%@: %d — Bạn: %d.";
+"Duel motivation win" = "Tuyệt vời! Hãy tiếp tục duy trì chuỗi thành tích đó.";
+"Duel motivation lose" = "Thời gian tái đấu! Bạn có thể làm điều đó.";
+"Opponent" = "đối thủ";
+"vs %@" = "so với %@";
+"Combo x%d" = "Tổ hợp x%d";
+"Combo x%d bonus" = "Combo x%d tiền thưởng +1";
+"Combo x%d +10 XP" = "Tổ hợp x%d +10 XP";
+"Speed bonus +1" = "Phần thưởng tốc độ +1";
+"Speed bonus +10 XP" = "Phần thưởng tốc độ +10 XP";
+"Global ranking by countries" = "Xếp hạng toàn cầu theo quốc gia";
+"Country rank line" = "%@ Bạn là #%d trong %@";
+"World rank line" = "🌎 Bạn là #%d trên thế giới";
+"World rank line no emoji" = "Bạn là #%d trên thế giới";
+"Friend country rank line" = "%1$@ %2$@ #%3$d · %4$@";
+"Friend world rank line" = "%1$@ #%2$d";
+"Spain" = "Tây ban nha";
+"Poland" = "Ba Lan";
+"Ukraine" = "Ukraina";
+"Russia" = "Nga";
+"USA" = "Hoa Kỳ";
+"Лига Чемпионов Мира" = "Giải vô địch thế giới";
+"Price is loaded from the App Store on this screen" = "Giá được tải từ App Store trên màn hình này";
+"Connecting to App Store..." = "Đang kết nối với App Store...";
+"Version" = "Phiên bản";
+"Update" = "Cập nhật";
+"Login without @" = "đăng nhập mà không có @";
+"Add by username" = "Thêm theo tên người dùng";
+"Duel Summary" = "Tóm tắt trận đấu";
+"No duel history yet" = "Chưa có lịch sử đấu tay đôi";
+"You already outranked %d%% of players in your city" = "Bạn đã xếp hạng cao hơn %d%% số người chơi trong thành phố của bạn";
+"Goal: keep 90% accuracy in first challenge" = "Mục tiêu: giữ độ chính xác 90% trong thử thách đầu tiên";
+"Challenge ends in %d sec" = "Thử thách kết thúc sau %d giây";
+"Defeat" = "Đánh bại";
+"Victory" = "Chiến thắng";
+"All" = "Tất cả";
+"Wins" = "Thắng";
+"Losses" = "Tổn thất";
+"Duel Summary Share Header" = "Kết quả trận đấu của tôi là Cờ đấu trường thế giới";
+"View Detailed Results" = "Xem kết quả chi tiết";
+"Detailed Results" = "Kết quả chi tiết";
+"Correct" = "Chính xác";
+"Wrong" = "Sai";
+"Flag" = "Lá cờ";
+"Your answer" = "Câu trả lời của bạn";
+"Time is up" = "Hết giờ";
+"Search" = "Tìm kiếm";
+"3x XP for 10 min!" = "3x XP trong 10 phút!";
+"КАРТА ПРОГРЕССА" = "BẢN ĐỒ TIẾN ĐỘ";
+"Карта прогресса мира" = "Bản đồ tiến bộ thế giới";
+"World Progress Map" = "Bản đồ tiến bộ thế giới";
+"Tap a country to see your correct and wrong answers" = "Nhấn vào một quốc gia để xem câu trả lời đúng và sai của bạn";
+"Greener country means better mastery" = "Đất nước xanh hơn có nghĩa là làm chủ tốt hơn";
+"Continent Mastery" = "Làm chủ lục địa";
+"Mastered %d of %d countries" = "Thành thạo %d của %d quốc gia";
+"Answered %d of %d countries" = "Đã trả lời %d của %d quốc gia";
+"Total" = "Tổng cộng";
+"Map" = "Bản đồ";
+"Weak countries" = "Các nước yếu";
+"All countries" = "Tất cả các nước";
+"Only weak" = "Chỉ yếu thôi";
+"Only mastered" = "Chỉ làm chủ";
+"TOP weak countries for review" = "TOP quốc gia yếu cần xem xét";
+"No weak countries yet" = "Chưa có nước yếu";
+"%@ Master" = "%@ Bậc thầy";
+"%@ Master unlocked" = "%@ Master đã được mở khóa";
+"Continent mastered! Keep going." = "Làm chủ lục địa! Tiếp tục đi.";
+"Weekly challenge" = "Thử thách hàng tuần";
+"Weak country sessions this week" = "Phiên quốc gia yếu trong tuần này";
+"Start Weak Countries Training" = "Bắt đầu đào tạo các nước yếu";
+"Progress map subtitle" = "Theo dõi tiến trình của bạn theo quốc gia và lục địa";
+"How is Mastered calculated?" = "Mastered được tính như thế nào?";
+"Duel Summary subtitle" = "Xem lịch sử đấu tay đôi của bạn và kết quả chi tiết";
+"F-Bucks subtitle" = "Kiếm và chi tiêu F-Bucks, loại tiền tệ trong trò chơi";
+"Mastered explanation" = "Một quốc gia được coi là thông thạo khi bạn đã trả lời ít nhất 3 lần và có ít nhất 80% câu trả lời đúng.";
+"Name" = "Tên";
+"Account login title" = "Tạo tài khoản của bạn";
+"Account login subtitle" = "Giữ chế độ khách hoặc đăng nhập để lưu các tính năng nhận dạng và bảo mật";
+"Login" = "Đăng nhập";
+"Register" = "Đăng ký";
+"Sign in with Apple error 1000" = "Đăng nhập bằng Apple không có sẵn ở đây. Hãy thử trên thiết bị thực hoặc kiểm tra Cài đặt → ID Apple.";
+"Username" = "Tên người dùng";
+"Password" = "Mật khẩu";
+"Create account" = "Tạo tài khoản";
+"Forgot password?" = "Quên mật khẩu?";
+"Continue with Google" = "Tiếp tục với Google";
+"Google login" = "đăng nhập Google";
+"Continue" = "Tiếp tục";
+"Enter Google email" = "Nhập email Google của bạn";
+"Current password" = "Mật khẩu hiện tại";
+"New password" = "Mật khẩu mới";
+"Repeat new password" = "Lặp lại mật khẩu mới";
+"Change password" = "Thay đổi mật khẩu";
+"Reset password" = "Đặt lại mật khẩu";
+"Reset code" = "Đặt lại mã";
+"Send reset code" = "Gửi mã đặt lại";
+"No account with this email" = "Không có tài khoản với email này";
+"reset_request_failed" = "Đặt lại mật khẩu không thành công. Vui lòng thử lại sau.";
+"registration_failed" = "Đăng ký không thành công. Vui lòng thử lại.";
+"Login / Register" = "Đăng nhập / Đăng ký";
+"Logged in" = "Đã đăng nhập";
+"Use Face ID / Touch ID" = "Sử dụng Face ID/Touch ID";
+"Sign out" = "Đăng xuất";
+"Active sessions" = "Phiên hoạt động";
+"My notifications" = "Thông báo của tôi";
+"Other device" = "Thiết bị khác";
+"Login with biometrics" = "Đăng nhập bằng sinh trắc học";
+"Biometric login prompt" = "Xác nhận đăng nhập sinh trắc học";
+
+/* 68 interesting facts */
+"FACT_01_TITLE" = "Cờ được sử dụng liên tục lâu đời nhất";
+"FACT_01_DESC" = "Dannebrog của Đan Mạch được coi là quốc kỳ lâu đời nhất được sử dụng liên tục kể từ năm 1219.";
+"FACT_02_TITLE" = "Cờ Tổ quốc chỉ có hình vuông";
+"FACT_02_DESC" = "Thụy Sĩ có quốc kỳ hình vuông duy nhất trên thế giới. Vatican cũng có cờ hình vuông nhưng là một thành bang.";
+"FACT_03_TITLE" = "Cờ không phải hình chữ nhật";
+"FACT_03_DESC" = "Nepal có quốc kỳ duy nhất trên thế giới không có hình chữ nhật.";
+"FACT_04_TITLE" = "Không có màu đỏ, trắng hoặc xanh";
+"FACT_04_DESC" = "Jamaica là quốc gia duy nhất có quốc kỳ không có màu đỏ, trắng hoặc xanh.";
+"FACT_05_TITLE" = "Cờ không bao giờ hạ xuống";
+"FACT_05_DESC" = "Quốc kỳ của Ả Rập Saudi không bao giờ được treo rủ vì có dòng chữ thiêng liêng trên đó.";
+"FACT_06_TITLE" = "Lá cờ non trẻ";
+"FACT_06_DESC" = "Quốc kỳ của Nam Sudan được thông qua vào năm 2011 sau khi giành độc lập.";
+"FACT_07_TITLE" = "Cờ với AK-47";
+"FACT_07_DESC" = "Mozambique là quốc gia duy nhất có cờ có hình vũ khí hiện đại - súng trường Kalashnikov.";
+"FACT_08_TITLE" = "Cờ gần như giống hệt nhau";
+"FACT_08_DESC" = "Cờ của Romania và Tchad rất giống nhau; chúng thường được phân biệt bằng màu xanh lam.";
+"FACT_09_TITLE" = "biểu tượng của Ukraine";
+"FACT_09_DESC" = "Cờ xanh và vàng của Ukraine theo truyền thống được hiểu là bầu trời trên cánh đồng lúa mì.";
+"FACT_10_TITLE" = "Cờ đơn giản nhất";
+"FACT_10_DESC" = "Quốc kỳ Libya từ năm 1977 đến năm 2011 có màu xanh lục đặc, không có biểu tượng hay hoa văn.";
+"FACT_11_TITLE" = "Gắn cờ bằng bản đồ";
+"FACT_11_DESC" = "Quốc kỳ của Síp thể hiện đường viền của hòn đảo—một trường hợp hiếm gặp trong số các quốc kỳ.";
+"FACT_12_TITLE" = "Cờ với một cuốn Kinh Thánh";
+"FACT_12_DESC" = "Quốc kỳ của Cộng hòa Dominica có hình một cuốn Kinh thánh mở, khiến đây trở thành quốc kỳ duy nhất có sách tôn giáo.";
+"FACT_13_TITLE" = "Màu sắc phổ biến nhất";
+"FACT_13_DESC" = "Màu đỏ là màu phổ biến nhất trên quốc kỳ các quốc gia trên toàn thế giới.";
+"FACT_14_TITLE" = "Gắn cờ bằng văn bản";
+"FACT_14_DESC" = "Dòng chữ trên quốc kỳ rất hiếm; một ví dụ nổi tiếng là Ả Rập Saudi.";
+"FACT_15_TITLE" = "nghi thức chào cờ";
+"FACT_15_DESC" = "Nhiều quốc gia có những quy định nghiêm ngặt về cách đối xử với quốc kỳ.";
+"FACT_16_TITLE" = "Cờ có các mặt khác nhau";
+"FACT_16_DESC" = "Paraguay có quốc kỳ duy nhất trên thế giới có thiết kế khác nhau ở mặt trước và mặt sau.";
+"FACT_17_TITLE" = "biểu tượng Olympic";
+"FACT_17_DESC" = "Màu vòng tròn Olympic được chọn sao cho ít nhất một màu xuất hiện trên lá cờ của mỗi quốc gia.";
+"FACT_18_TITLE" = "Cờ có quốc huy phức tạp nhất";
+"FACT_18_DESC" = "Quốc kỳ Mexico có hình một con đại bàng đậu trên cây xương rồng ôm một con rắn—một trong những quốc huy chi tiết nhất trên bất kỳ lá cờ nào.";
+"FACT_19_TITLE" = "Cờ bắt chước";
+"FACT_19_DESC" = "Cờ của Monaco và Indonesia gần như giống hệt nhau – màu đỏ ở trên, màu trắng ở dưới. Sự khác biệt duy nhất là tỷ lệ.";
+"FACT_20_TITLE" = "Lá cờ có 50 ngôi sao";
+"FACT_20_DESC" = "Quốc kỳ Hoa Kỳ có 50 ngôi sao, mỗi ngôi sao tượng trưng cho một tiểu bang. Thiết kế đã được thay đổi 27 lần kể từ năm 1777.";
+"FACT_21_TITLE" = "Cờ cực bắc";
+"FACT_21_DESC" = "Các vùng Bắc Cực sử dụng cả cờ quốc gia và cờ khu vực với tính biểu tượng độc đáo.";
+"FACT_22_TITLE" = "Cờ có hình chữ thập";
+"FACT_22_DESC" = "29 quốc gia có hình thánh giá trên quốc kỳ của họ, khiến nó trở thành một trong những biểu tượng phổ biến nhất trên quốc kỳ.";
+"FACT_23_TITLE" = "ba màu";
+"FACT_23_DESC" = "Nhiều quốc gia sử dụng thiết kế ba sọc đơn giản làm mẫu cờ ổn định về mặt lịch sử.";
+"FACT_24_TITLE" = "Cờ có hình lưỡi liềm";
+"FACT_24_DESC" = "Hình lưỡi liềm xuất hiện trên lá cờ của 12 quốc gia, chủ yếu là người Hồi giáo, tượng trưng cho đức tin Hồi giáo.";
+"FACT_25_TITLE" = "biểu tượng mặt trời";
+"FACT_25_DESC" = "Mặt trời là một trong những biểu tượng phổ biến nhất trên các lá cờ ở Châu Á và Nam Mỹ.";
+"FACT_26_TITLE" = "Cờ với một cái cây";
+"FACT_26_DESC" = "Lebanon là quốc gia duy nhất có cây (cây tuyết tùng Lebanon) trên lá cờ, tượng trưng cho sự vĩnh cửu và hòa bình.";
+"FACT_27_TITLE" = "Cờ hẹp nhất";
+"FACT_27_DESC" = "Quốc kỳ Qatar có tỷ lệ khung hình khác thường nhất so với bất kỳ quốc kỳ nào—11:28.";
+"FACT_28_TITLE" = "Huy hiệu phức tạp";
+"FACT_28_DESC" = "Huy hiệu trên các lá cờ Mỹ Latinh thường bao gồm nhiều chi tiết và biểu tượng lịch sử.";
+"FACT_29_TITLE" = "Cờ cầu vồng";
+"FACT_29_DESC" = "Bolivia có hai lá cờ chính thức—lá cờ ba màu truyền thống và lá cờ cầu vồng Wiphala bản địa.";
+"FACT_30_TITLE" = "Cờ với một tòa nhà";
+"FACT_30_DESC" = "Quốc kỳ Campuchia có hình ngôi đền Angkor Wat, khiến quốc kỳ này trở thành quốc kỳ duy nhất có tòa nhà.";
+"FACT_31_TITLE" = "Tranh chấp lịch sử";
+"FACT_31_DESC" = "Thiết kế của một số lá cờ đã thay đổi do tranh chấp lịch sử và chính trị giữa các quốc gia.";
+"FACT_32_TITLE" = "Cờ với một thanh kiếm";
+"FACT_32_DESC" = "Quốc kỳ Sri Lanka có hình một con sư tử cầm kiếm, tượng trưng cho lòng dũng cảm của người dân Sinhalese.";
+"FACT_33_TITLE" = "Cờ không có màu xanh";
+"FACT_33_DESC" = "Chỉ có 4 quốc gia không sử dụng màu xanh lam trên quốc kỳ của mình: Jamaica, Mauritania, Sri Lanka và Vatican.";
+"FACT_34_TITLE" = "Chim trên cờ";
+"FACT_34_DESC" = "Đại bàng và các loài chim khác trên lá cờ tượng trưng cho sức mạnh, sự độc lập và tinh thần cao thượng.";
+"FACT_35_TITLE" = "biểu tượng Nam Cực";
+"FACT_35_DESC" = "Nam Cực không có quốc kỳ chính thức nhưng có một số thiết kế không chính thức được sử dụng.";
+"FACT_36_TITLE" = "Ngôi sao trên lá cờ";
+"FACT_36_DESC" = "Ngôi sao là một trong những biểu tượng phổ biến nhất trên các lá cờ trên khắp thế giới.";
+"FACT_37_TITLE" = "Cách phối màu tương tự";
+"FACT_37_DESC" = "Một số lá cờ có màu sắc tương tự nhưng khác nhau về thứ tự sọc và biểu tượng.";
+"FACT_38_TITLE" = "Cờ liên minh quốc tế";
+"FACT_38_DESC" = "Các tổ chức siêu quốc gia cũng có lá cờ riêng phản ánh các giá trị chung.";
+"FACT_39_TITLE" = "biểu tượng đảo";
+"FACT_39_DESC" = "Cờ của các quốc đảo thường có biểu tượng của đại dương, mặt trời và hàng hải.";
+"FACT_40_TITLE" = "Thay đổi theo thời gian";
+"FACT_40_DESC" = "Một số quốc kỳ đã thay đổi hàng chục lần theo lịch sử chính trị của đất nước họ.";
+"FACT_41_TITLE" = "Mặt trời Bắc Macedonia";
+"FACT_41_DESC" = "Quốc kỳ Bắc Macedonia có hình mặt trời tám tia báo hiệu một khởi đầu mới.";
+"FACT_42_TITLE" = "tiều phu Belize";
+"FACT_42_DESC" = "Cờ Belize là một trong số ít hình ảnh con người: những người tiều phu với các công cụ.";
+"FACT_43_TITLE" = "Thần ưng Ecuador";
+"FACT_43_DESC" = "Cờ Ecuador có hình thần ưng Andean tượng trưng cho sức mạnh và chủ quyền.";
+"FACT_44_TITLE" = "Bolivia Wiphala";
+"FACT_44_DESC" = "Bolivia sử dụng Wiphala cùng với ba màu làm biểu tượng chính thức.";
+"FACT_45_TITLE" = "27 ngôi sao của Brazil";
+"FACT_45_DESC" = "Quốc kỳ Brazil có 27 ngôi sao, mỗi ngôi sao tượng trưng cho một bang và một quận liên bang.";
+"FACT_46_TITLE" = "Lá phong";
+"FACT_46_DESC" = "Quốc kỳ Canada có hình một chiếc lá phong 11 cánh, độc nhất vô nhị trong số các quốc kỳ.";
+"FACT_47_TITLE" = "Jack đoàn";
+"FACT_47_DESC" = "Quốc kỳ Vương quốc Anh kết hợp hình thánh giá của 3 vị thánh: Anh, Scotland và Ireland.";
+"FACT_48_TITLE" = "Mặt trời mọc ở Nhật Bản";
+"FACT_48_DESC" = "Vòng tròn màu đỏ trên nền trắng tượng trưng cho mặt trời mọc và được sử dụng trên quốc kỳ Nhật Bản từ thế kỷ thứ 7.";
+"FACT_49_TITLE" = "Luân xa Ashoka";
+"FACT_49_DESC" = "Quốc kỳ Ấn Độ có bánh xe 24 nan, tượng trưng cho luật pháp và chuyển động.";
+"FACT_50_TITLE" = "Southern Cross của Úc";
+"FACT_50_DESC" = "Quốc kỳ Australia có hình chòm sao Thập tự phương Nam, chỉ có thể nhìn thấy ở Nam bán cầu.";
+"FACT_51_TITLE" = "Southern Cross của New Zealand";
+"FACT_51_DESC" = "Quốc kỳ của New Zealand cũng có hình Chữ Thập Phương Nam nhưng có các ngôi sao màu đỏ viền trắng.";
+"FACT_52_TITLE" = "Taegeuk của Hàn Quốc";
+"FACT_52_DESC" = "Quốc kỳ Hàn Quốc có biểu tượng và bát quái taegeuk (âm dương) truyền thống.";
+"FACT_53_TITLE" = "Hỗn dịch cầu của Bồ Đào Nha";
+"FACT_53_DESC" = "Quốc kỳ Bồ Đào Nha có hình cầu hỗn thiên, một công cụ điều hướng cổ xưa.";
+"FACT_54_TITLE" = "Đại bàng hai đầu của Albania";
+"FACT_54_DESC" = "Quốc kỳ Albania có hình đại bàng hai đầu màu đen, biểu tượng của chủ quyền.";
+"FACT_55_TITLE" = "Lá chắn của Kenya";
+"FACT_55_DESC" = "Quốc kỳ của Kenya có hình khiên Maasai và những ngọn giáo bắt chéo.";
+"FACT_56_TITLE" = "Rồng xứ Wales";
+"FACT_56_DESC" = "Con rồng đỏ trên lá cờ của xứ Wales là một trong những biểu tượng quốc gia lâu đời nhất trên thế giới.";
+"FACT_57_TITLE" = "Thánh giá thánh Andrew";
+"FACT_57_DESC" = "Quốc kỳ Scotland có hình chữ thập chéo màu trắng trên nền xanh lam, chữ thập của Thánh Andrew.";
+"FACT_58_TITLE" = "vòng tròn Greenland";
+"FACT_58_DESC" = "Lá cờ của Greenland có một vòng tròn màu đỏ và trắng tượng trưng cho mặt trời trên băng.";
+"FACT_59_TITLE" = "Màu sắc châu Phi";
+"FACT_59_DESC" = "Màu xanh lá cây, vàng và đỏ thường được gọi là màu Liên Phi và xuất hiện trên nhiều lá cờ châu Phi.";
+"FACT_60_TITLE" = "Thánh giá Bắc Âu";
+"FACT_60_DESC" = "Năm quốc gia sử dụng chữ thập Bắc Âu: Đan Mạch, Na Uy, Thụy Điển, Phần Lan và Iceland.";
+"FACT_61_TITLE" = "Pháp ba màu";
+"FACT_61_DESC" = "Cờ ba màu xanh-trắng-đỏ của Pháp đã trở thành hình mẫu cho nhiều lá cờ cách mạng và quốc kỳ.";
+"FACT_62_TITLE" = "Cờ Liên Hiệp Quốc";
+"FACT_62_DESC" = "Lá cờ Liên Hợp Quốc thể hiện thế giới được bao quanh bởi những cành ô liu trên nền xanh.";
+"FACT_63_TITLE" = "Cờ EU";
+"FACT_63_DESC" = "Mười hai ngôi sao vàng trong vòng tròn màu xanh lam tượng trưng cho sự thống nhất của Liên minh châu Âu.";
+"FACT_64_TITLE" = "Cờ Olympic";
+"FACT_64_DESC" = "Năm vòng tròn màu trắng tượng trưng cho năm lục địa có người sinh sống và tính chất toàn cầu của Thế vận hội.";
+"FACT_65_TITLE" = "quảng trường Vatican";
+"FACT_65_DESC" = "Vatican có quốc kỳ hình vuông giống Thụy Sĩ.";
+"FACT_66_TITLE" = "Nauru 12 điểm";
+"FACT_66_DESC" = "Trên cờ Nauru có ngôi sao 12 cánh tượng trưng cho 12 bộ tộc.";
+"FACT_67_TITLE" = "Thảm Turkmenistan";
+"FACT_67_DESC" = "Cờ Turkmenistan có hoa văn thảm dọc theo tời.";
+"FACT_68_TITLE" = "Nhà thờ Hồi giáo Afghanistan";
+"FACT_68_DESC" = "Lá cờ Afghanistan có hình ảnh một nhà thờ Hồi giáo trong thiết kế của nó.";
+
+/* Add friend & duel results */
+"Пользователь найден и добавлен" = "Người dùng đã tìm thấy và thêm";
+"Этот пользователь уже является вашим другом." = "Người dùng này đã là bạn của bạn.";
+"Waiting for result" = "Đang chờ kết quả";
+"Duel time left format" = "%d h %d phút còn lại";
+"Duel time expired" = "Hết thời gian";
+"Duel time left format" = "%d h %d phút còn lại";
+"Duel time expired" = "Hết thời gian";
+"Waiting for opponent" = "Chờ đợi đối thủ";
+
+/* League weekly result */
+"league.weekly_result.title.win" = "Bạn đã thắng giải đấu";
+"league.weekly_result.title.promotion" = "Bạn đã được thăng chức";
+"league.weekly_result.title.stayed" = "Bạn vẫn ở trong giải đấu";
+"league.weekly_result.title.demotion" = "Bạn đã xuống hạng";
+"league.weekly_result.title.week_finished" = "Tuần giải đấu đã kết thúc";
+"league.weekly_result.body.win" = "Bạn đã hoàn thành #%d và kết thúc tuần trong số những người chơi hàng đầu.";
+"league.weekly_result.body.promotion" = "Bạn đã hoàn thành #%d và tiến tới %@.";
+"league.weekly_result.body.stayed" = "Bạn đã hoàn thành #%d và vẫn ở lại %@.";
+"league.weekly_result.body.demotion" = "Bạn đã hoàn thành #%d và chuyển xuống %@.";
+"league.weekly_result.body.top3" = "Bạn đã lọt vào top 3 tuần này.";
+"league.weekly_result.label.rank" = "Địa điểm";
+"league.weekly_result.label.new_league" = "Giải đấu mới";
+"league.weekly_result.label.reward" = "Phần thưởng";
+"league.weekly_result.label.week" = "Kết quả tuần";
+"league.weekly_result.cta.view" = "Xem kết quả";
+"league.weekly_result.cta.ok" = "ĐƯỢC RỒI";
+"league.weekly_result.cta.claim" = "Khẳng định";
+
+"league.weekly_result.promotion.tagline" = "🔥 Tầng mới!";
+"league.weekly_result.promotion.title" = "🚀 Bạn đã vào %@!";
+"league.weekly_result.promotion.subtitle.top3_a" = "Hạng #%d — kết quả mạnh!";
+"league.weekly_result.promotion.subtitle.top3_b" = "Top 3 — không phải may mắn.";
+"league.weekly_result.promotion.subtitle.other" = "Hạng #%d — lên cấp!";
+"league.weekly_result.win.hero" = "🏆 Vô địch giải!";
+"league.weekly_result.nice.title" = "Top %d — tuần tuyệt vời!";
+"league.weekly_result.reward.fbucks" = "+%d F-Bucks 💰";
+"league.weekly_result.next_goal" = "Mục tiêu tiếp — %@ 🏆";
+"league.weekly_result.next_goal.alt" = "Thêm chút nữa — giải đỉnh đang chờ!";
+"league.weekly_result.next_goal.pinnacle" = "Bạn thuộc nhóm xuất sắc nhất thế giới! ✨";
+"league.weekly_result.cta.keep_playing_arrow" = "Chơi tiếp →";
+"league.weekly_result.cta.toward_league_arrow" = "Tới %@ →";
+"league.weekly_result.demotion.cta" = "Đã hiểu →";
+"league.weekly_result.stayed.cta" = "Tiến lên →";
+"home.league_banner.title" = "Tuần giải đấu đã kết thúc";
+"home.league_banner.body.win" = "Bạn đã hoàn thành #%d và giành chức vô địch.";
+"home.league_banner.body.promotion" = "Bạn đã hoàn thành #%d và tiến tới %@.";
+"home.league_banner.body.stayed" = "Bạn đã hoàn thành #%d và ở lại %@.";
+"home.league_banner.body.demotion" = "Bạn đã hoàn thành #%d và chuyển xuống %@.";
+"home.league_banner.cta" = "Xem kết quả";
+/* Home layout (variant 2 / A-B) */
+"home.layout.section" = "Màn hình chính";
+"home.layout.classic" = "Cổ điển";
+"home.layout.variant2" = "Chuyên nghiệp";
+"home.continue" = "Tiếp tục";
+"home.settings.change" = "Đổi";
+"home.settings.promo.title" = "Trận đấu của bạn, cài đặt của bạn";
+"home.settings.promo.subtitle" = "Khu vực, độ khó, đấu đôi hoặc cổ điển — chạm và chơi theo cách bạn muốn.";
+"home.settings.apply" = "Áp dụng";
+"home.settings.sheet_title" = "Cài đặt trò chơi";
+"home.league.xp_to_next_fmt" = "Đến %@: %d XP";
+"home.league.max" = "Đã đạt giải đấu cao nhất";
+"home.header.lives_max" = "Tối đa";
+"home.lives.refill_in_fmt" = "+%d sau %02d:%02d";
+"home.next_goal.title" = "Mục tiêu tiếp theo";
+"home.quick_modes.title" = "Chơi nhanh";
+"home.social.title" = "Bạn bè";
+"home.social.friend_streak_fmt" = "%@ — chuỗi %lld ngày";
+"home.social.catch_today" = "Bắt kịp hôm nay!";
+
+"home.goal.xp_left_fmt" = "Còn %d XP";
+"home.daily.title" = "Phần thưởng hàng ngày";
+"home.daily.claim" = "Nhận +1";
+"home.daily.claimed" = "Đã nhận";
+"home.daily.tomorrow" = "Mai quay lại";
+"home.streak_nudge.solo_title" = "Bạn đang chuỗi %d ngày!";
+"home.streak_nudge.solo_sub" = "Đừng đứt — chơi ngay.";
+"home.streak_nudge.friend_title" = "%@ đang chuỗi %d ngày";
+"home.streak_nudge.friend_sub" = "Bạn: %d ngày";
+"home.streak_nudge.play" = "Chơi";
+"home.streak_nudge.catch_up" = "Đuổi kịp";
+"home.hero.play_bonus" = "+1 F-Bucks nếu chơi ngay";
+"home.hero.streak_continue_fmt" = "Giữ chuỗi — %d/%d";
+"home.hero.almost_perfect" = "Trận hoàn hảo — gần xong!";
+"home.hero.daily_ready" = "+1 F-Bucks hàng ngày sẵn sàng";
+"home.hero.catch_friend_fmt" = "Đuổi %@ — chuỗi %d ngày";
+"home.earn.section" = "Hôm nay";
+"home.earn.perfect.almost" = "Gần xong — kết thúc đi";
+"home.earn.perfect.start" = "Bắt đầu ngay — khóa lại";
+"home.earn.perfect.going" = "Kết thúc mạnh hôm nay";
+"home.earn.streak.almost" = "Đừng mất ngay";
+"home.earn.streak.start" = "Chơi ngay hoặc mất chuỗi";
+"home.earn.streak.going" = "Chơi ngay hoặc mất chuỗi";
+"home.earn.league.hint" = "Đấu top 3";
+"home.earn.league.almost" = "Bạn đang rất gần";
+"home.earn.done" = "Xong!";
+"home.daily.subtitle.claim" = "+1 F-Bucks hôm nay có sẵn";
+"home.daily.subtitle.claimed" = "Đã lấy thưởng hôm nay";
+"home.goal.headline_almost_fmt" = "Gần %@!";
+"home.goal.xp_remaining_detail" = "Còn: %d XP";
+"home.goal.claim_reward_cta" = "Nhận thưởng →";
+"home.goal.open_league" = "Mở giải đấu →";
+"home.pride.streak_fmt" = "%d ngày liên tiếp — tiếp tục!";
+"home.pride.league_place_fmt" = "Bạn hạng #%d trong giải tuần này";
+"home.pride.section_title" = "Tiến độ của bạn";
+"home.pride.streak_line_one" = "Chuỗi: 1 ngày";
+"home.pride.streak_line_fmt" = "Chuỗi: %d ngày";
+"home.pride.rank_line_fmt" = "Hạng: #%d tuần này";
+"home.pride.top10_hint" = "Tiến tới top 10";
+"home.pride.rank_headline_fmt" = "Tuần này bạn #%d";
+"home.hero.headline.streak_alive" = "Giữ chuỗi sống";
+"home.hero.headline.perfect_push" = "Trận hoàn hảo — gần rồi";
+"home.hero.headline.daily_up" = "Thưởng hàng ngày sẵn sàng";
+"home.hero.headline.keep_playing" = "Trận sau quan trọng";
+"home.hero.headline.friend" = "Đuổi %@";
+"home.hero.detail.streak_fmt" = "%d/%d ngày";
+"home.hero.detail.perfect_fmt" = "%d/%d hoàn hảo";
+"home.hero.detail.day_fmt" = "Ngày %d liên tiếp";
+"home.hero.detail.friend_streak" = "Chuỗi họ: %d ngày";
+"home.hero.detail.start_streak" = "Bắt đầu chuỗi hôm nay";
+"home.hero.hook.reward_play" = "+1 thưởng nếu chơi ngay";
+"home.hero.pressure" = "Đừng mất tiến độ hôm nay";
+"home.hero.wow.tip" = "🔥 +1 hôm nay có";
+"home.sticky.hook.reward" = "+1 thưởng nếu chơi ngay";
+"home.sticky.hook.streak" = "Tiếp tục chuỗi";
+"home.sticky.hook.play" = "Trận sau quan trọng";
+"home.pride.gap_top10_fmt" = "Còn %d bậc tới top 10";
+"home.pride.close_top10_short" = "Bạn gần top 10 🔥";
+"home.pride.streak_full_one" = "Chuỗi: 1 ngày — tiếp tục";
+"home.pride.streak_full_fmt" = "Chuỗi: %d ngày — tiếp tục";"home.pride.streak_full_fmt" = "Chuỗi: %d ngày — tiếp tục";"coins" = "đồng xu";
+/* League motivation messages */
+"league_motivation_win_01" = "Bạn là một trong những người giỏi nhất tuần này. Làm tốt lắm - bây giờ hãy giữ tốc độ.";
+"league_motivation_win_02" = "Top 3 không phải ngẫu nhiên. Đó là kết quả của việc chơi ổn định và tập trung tốt.";
+"league_motivation_win_03" = "Tuần mạnh mẽ. Tiếp tục đẩy mạnh với tốc độ như cũ - giải đấu tiếp theo đang chờ đợi.";
+"league_motivation_promotion_01" = "Thăng tiến có nghĩa là bạn đang phát triển. Giải đấu tiếp theo sẽ khó khăn hơn, nhưng bạn đã sẵn sàng.";
+"league_motivation_promotion_02" = "Bạn đã tiến một bước. Bây giờ mục tiêu không chỉ là đạt được vị trí cao hơn mà còn ở lại đó.";
+"league_motivation_stayed_01" = "Bạn đã giữ vững vị trí của mình. Nền tảng vững chắc - giờ đây biến sự ổn định thành tăng trưởng.";
+"league_motivation_stayed_02" = "Một tuần không thất bại đã là một kết quả. Bước tiếp theo: đến khu vực khuyến mãi.";
+"league_motivation_demotion_01" = "Không phải là tuần tốt nhất - nó xảy ra. Điều chính là không dừng lại: bạn có thể thực hiện bước tiếp theo mạnh mẽ hơn.";
+"league_motivation_demotion_02" = "Cách chức không phải là kết thúc. Đó là điểm đặt lại, sau đó thường sẽ chạy tốt hơn.";
+"league_motivation_general_01" = "Mỗi tuần là một cơ hội mới để tăng cao hơn. Hãy tiếp tục - tiến bộ sẽ tăng lên.";
+
+/* Onboarding (hook → reward → loop) */
+
+"onboarding_hook_title" = "Bạn đoán được lá cờ này không?";
+"onboarding_hook_subtitle" = "Hầu hết mọi người đoán sai ở đây";
+"onboarding_reward_correct" = "Đúng rồi! 🎉";
+"onboarding_reward_almost" = "Gần đúng — đáp án là %@";
+"onboarding_reward_plus_one" = "+1 phần thưởng";
+"onboarding_reward_streak" = "Bắt đầu chuỗi thắng";
+"onboarding_loop_line1" = "Chơi 1 phút mỗi ngày";
+"onboarding_loop_line2" = "Mở khóa phần thưởng";
+"onboarding_loop_line3" = "Leo hạng giải đấu";
+"onboarding_start_playing" = "Bắt đầu chơi";
+"onboarding_swipe_hint" = "Vuốt để tiếp tục";
+"onboarding_search_language" = "Tìm ngôn ngữ…";
+"onboarding_language_sheet_title" = "Ngôn ngữ";
+"onboarding_switch_language_hint" = "Chuyển sang %@?";
+/* Avatar constructor (AvatarEditorView) */
+"avatar_editor_edit_avatar" = "Chỉnh sửa hình đại diện";
+"avatar_editor_done" = "Xong";
+"avatar_editor_discard_title" = "Hủy thay đổi?";
+"avatar_editor_discard_action" = "Loại bỏ";
+"avatar_editor_continue_editing" = "Tiếp tục chỉnh sửa";
+"avatar_editor_discard_message" = "Thay đổi hình đại diện của bạn sẽ không được lưu.";
+"avatar_editor_skin_tone" = "Màu da";
+"avatar_editor_body" = "Thân hình";
+"avatar_editor_eye_color" = "Màu mắt";
+"avatar_editor_expression" = "Sự biểu lộ";
+"avatar_editor_main_hair_color" = "Màu tóc";
+"avatar_editor_hairstyle" = "kiểu tóc";
+"avatar_editor_glasses" = "Kính";
+"avatar_editor_glasses_color" = "Màu kính";
+"avatar_editor_facial_hair" = "Lông mặt";
+"avatar_editor_facial_hair_color" = "Màu tóc trên khuôn mặt";
+"avatar_editor_headwear" = "mũ nón";
+"avatar_editor_headwear_color" = "Màu mũ nón";
+"avatar_editor_clothing_color" = "Màu quần áo";
+"avatar_editor_clothing_style" = "Phong cách quần áo";
+"avatar_editor_background_color" = "Màu nền";
+"avatar_editor_none" = "Không có";
+"avatar_editor_round" = "Tròn";
+"avatar_editor_square" = "Quảng trường";
+"avatar_editor_sunglasses" = "Kính râm";
+"avatar_editor_slim" = "Mỏng (kính)";
+"avatar_editor_cap" = "mũ lưỡi trai";
+"avatar_editor_beanie" = "mũ len";
+"avatar_editor_bandana" = "khăn rằn";
+"avatar_editor_sport_cap" = "mũ thể thao";
+"avatar_editor_hat_SilverLeague" = "Giải bạc";
+"avatar_editor_hat_10_day_streak" = "chuỗi 10 ngày";
+"avatar_editor_hat_beginner" = "Người mới bắt đầu";
+"avatar_editor_hat_Premium" = "Phần thưởng";
+"avatar_editor_editor_section_coming_soon" = "Phần này tạm thời không khả dụng - sẽ sớm quay lại.";
+"avatar_editor_lock_item_title" = "Đã khóa";
+"avatar_editor_lock_item_ok" = "ĐƯỢC RỒI";
+"avatar_editor_lock_headwear_premium_body" = "Mũ đội đầu này mở khóa với Premium. Đăng ký Premium trong cài đặt ứng dụng.";
+"avatar_editor_lock_headwear_shop_body" = "Bạn sẽ có thể nhận được vật phẩm này trong cửa hàng tùy chỉnh - sắp ra mắt.";
+"avatar_editor_lock_headwear_generic_body" = "Mặt hàng này hiện chưa có sẵn.";
+"avatar_editor_opt_slim" = "Mảnh khảnh";
+"avatar_editor_opt_regular" = "Thường xuyên";
+"avatar_editor_opt_hoodie" = "áo hoodie";
+"avatar_editor_opt_tshirt" = "áo thun";
+"avatar_editor_opt_sweater" = "Áo len";
+"avatar_editor_opt_wide" = "Rộng";
+"avatar_editor_opt_bald" = "Hói";
+"avatar_editor_opt_side_part" = "Phần bên";
+"avatar_editor_opt_short" = "Ngắn";
+"avatar_editor_opt_curl" = "uốn cong";
+"avatar_editor_opt_modern" = "Hiện đại";
+"avatar_editor_opt_buzz" = "Buzz";
+"avatar_editor_opt_hair_waves" = "Sóng";
+"avatar_editor_opt_hair_spiky" = "gai nhọn";
+"avatar_editor_opt_hair_slick" = "Trơn tru";
+"avatar_editor_opt_hair_pompadour" = "Pompadour";
+"avatar_editor_opt_moustache" = "Ria";
+"avatar_editor_opt_trimmed" = "Đã cắt tỉa";
+"avatar_editor_opt_goatee" = "râu dê";
+"avatar_editor_opt_beard_full" = "đầy đủ râu";
+"avatar_editor_opt_beard_light" = "Râu nhẹ";
+"avatar_editor_opt_beard_bushy" = "Râu rậm rạp";
+"avatar_editor_opt_jacket" = "Áo khoác";
+
+"monthly_quest_mission_title" = "Nhiệm vụ %@";
+"Friend profile progress title" = "STREAK AND PROGRESS";
+"Friend achievements placeholder" = "Friend achievements are shown as they are unlocked";
+
+"Answer as many flags as possible before time runs out" = "Trả lời càng nhiều lá cờ càng tốt trước khi hết giờ";
+"Duration" = "Thời lượng";
+"Best score" = "Best score";
+"Wrong answer penalty" = "Phạt khi trả lời sai";
+"5 correct in a row bonus" = "Thưởng cho 5 câu đúng liên tiếp";
+"Best combo" = "Chuỗi tốt nhất";
+"New record!" = "Kỷ lục mới!";
+"Day leaderboard place" = "Thứ hạng bảng xếp hạng ngày";
+"Week leaderboard place" = "Thứ hạng bảng xếp hạng tuần";
+"Back to Modes" = "Back to Modes";
+"Start" = "Bắt đầu";
+"TC correct answers headline" = "%d đúng";
+"Difficulty description TC" = "%1$d%2$@ mỗi vòng • +%3$d%2$@ mỗi 5 câu đúng liên tiếp • −%4$d%2$@ mỗi sai";
+"Difficulty TC erudite all" = "Tất cả quốc gia • %1$d%2$@ mỗi vòng • +%3$d%2$@ mỗi 5 câu đúng liên tiếp • −%4$d%2$@ mỗi sai";
+"Difficulty TC erudite regions" = "%1$d quốc gia • %2$d%3$@ mỗi vòng • +%4$d%3$@ mỗi 5 câu đúng liên tiếp • −%5$d%3$@ mỗi sai";
+"TC best correct record" = "Điểm tốt nhất: %d đúng";
+"TC intro best correct title" = "Tốt nhất (đúng)";
+"TC intro combo5 bonus title" = "Combo 5 câu đúng liên tiếp";
+"TC detail time penalty fmt" = "Hẹn giờ: −%1$d %2$@ (sai)";
+"TC detail time combo fmt" = "Hẹn giờ: +%1$d %2$@ (5 đúng liên tiếp)";
+"TC detail points earned" = "Points for this answer: +%d";
+"TC detail xp earned" = "XP for this answer: +%d";
+"TC detail time penalty" = "Timer: −10 s (wrong answer)";
+"TC detail time combo bonus" = "Timer: +10 s (5 correct in a row)";
+"Share TC headline" = "Time Challenge: %d correct out of %d";
+
+"Time seconds unit short" = "giây";
+"TC stat best combo" = "Chuỗi tốt nhất";
+"Time TC delta seconds fmt" = "%+d %@";
+"Time intro duration seconds fmt" = "%1$d%2$@";
+"Time intro penalty seconds fmt" = "−%1$d%2$@";
+"Time intro bonus seconds fmt" = "+%1$d%2$@";
+"Share Survival headline" = "Sinh tồn: %d lá cờ • %d đúng • giai đoạn tối đa %d";
+"Survival mode short description" = "Mạng hạn chế, độ khó tăng dần — bạn đi được xa đến đâu?";
+"Survival difficulty blurb fmt" = "Mạng mỗi phiên • tăng giai đoạn • +1 mạng mỗi 10 câu đúng liên tiếp";
+"Survival depth header" = "Độ sâu";
+"Survival stage fmt" = "Giai đoạn %d";
+"Survival bonus life streak" = "+1 mạng (10 câu đúng liên tiếp)";
+"Survival milestone banner fmt" = "Cột mốc %d! +30 XP • +1 F-Bucks";
+"Survival next milestone fmt" = "Còn %d câu đúng để đạt cột mốc %d";
+"Survival result best depth fmt" = "Kỷ lục độ sâu cá nhân: %d lá cờ";
+"Survival result combo fmt" = "Chuỗi tốt nhất lượt này: %d";
+"Survival result survived fmt" = "Bạn vượt qua %d lá cờ";
+"Survival result stage reached fmt" = "Giai đoạn cao nhất: %d";
+"Survival stat correct" = "ĐÚNG";
+"Survival intro description" = "Trả lời từng lá cờ. Sai sẽ mất mạng. Độ khó tăng — phá kỷ lục độ sâu của bạn.";
+"Survival intro lives title" = "Mạng ban đầu";
+"Survival intro best depth title" = "Độ sâu tốt nhất";
+"Survival intro choices title" = "Lựa chọn";
+"Survival intro timer title" = "Hẹn giờ";
+"Survival intro timer value" = "Giống chế độ Cổ điển";
+"Survival weekly title" = "Thử thách Sinh tồn hàng tuần";
+"Survival weekly target fmt" = "Trong một lượt tuần này, vượt qua %d lá cờ.";
+"Survival weekly best fmt" = "Tốt nhất tuần này của bạn: %d lá cờ";
+"Survival weekly all milestones met body" = "You've reached every weekly depth goal — up to 200 flags in one run. Brilliant!";
+"Survival weekly reward all claimed" = "All weekly survival bonuses claimed (up to +4000 XP).";
+"Survival weekly reward claimed" = "Đã nhận thưởng tuần (+1000 XP)";
+"Survival weekly reward hint" = "Each milestone — 25, 50, 100, then 200 flags in one run — gives +1000 XP once per week.";
+
+"Survival result depth progress fmt" = "%1$d / %2$d";
+
+"Last login" = "Đăng nhập lần cuối";
+"Filter by name" = "Lọc theo tên";
+"Last played" = "Lần chơi gần đây nhất";
+
+"1 hour" = "1 giờ";
+
+
+"Duel announcement subtitle" = "Same duel for both players. First to score wins!";
+"User 1" = "User 1";
+"User 2" = "User 2";
+"Number of Questions" = "Questions";
+
+
+/* F-Bucks screen */
+"fbucks.close" = "Close";
+"fbucks.currency.name" = "F-Bucks";
+"fbucks.hero.subtitle.enough" = "Enough for about %d items";
+"fbucks.hero.subtitle.rare" = "You can buy a rare item";
+"fbucks.hero.subtitle.save" = "Keep saving for something special";
+"fbucks.daily.title" = "Daily bonus";
+"fbucks.daily.subtitle" = "+1 F-Bucks";
+"fbucks.daily.claim" = "Claim";
+"fbucks.daily.claimed" = "Claimed today";
+"fbucks.daily.hint" = "+1 available today — tap Claim";
+"fbucks.earn.today.title" = "Earn today";
+"fbucks.earn.today.subtitle" = "Up to %d F-Bucks possible today";
+"fbucks.earn.perfect.title" = "Perfect game";
+"fbucks.earn.perfect.sub" = "+1 for 10/10 or 15/15";
+"fbucks.earn.streak" = "Streak";
+"fbucks.earn.streak.sub" = "Series (%d/10 days)";
+"fbucks.earn.league" = "Top of the week";
+"fbucks.earn.league.sub" = "Finish in the top 3 of your league";
+"fbucks.progress.title" = "Progress to next item";
+"fbucks.progress.percent" = "%d%%";
+"fbucks.progress.full" = "You can afford the next rewards — open the shop!";
+"fbucks.want.title" = "Next goal";
+"fbucks.want.price" = "Price: %d F-Bucks";
+"fbucks.want.you" = "You have: %d";
+"fbucks.want.need" = "Need %d more";
+"fbucks.earn_more" = "Earn more →";
+"fbucks.buy_for" = "Buy for %d";
+"fbucks.shop.title" = "Shop";
+"fbucks.shop.subtitle" = "Spend F-Bucks on exclusive avatar items";
+"fbucks.shop.tier.common" = "Common";
+"fbucks.shop.tier.rare" = "Rare";
+"fbucks.shop.tier.legendary" = "Legendary";
+"fbucks.shop.limited" = "LIMITED";
+"fbucks.perfect.badge" = "Perfect";
+"fbucks.tab.today" = "Today";
+"fbucks.tab.about" = "About";
+"fbucks.tab.history" = "History";
+"fbucks.tab.shop" = "Shop";
+"fbucks.about.title" = "What are F-Bucks?";
+"fbucks.about.body" = "F-Bucks (Flags Bucks) are in-game currency you earn by playing World Arena Flags. Spend them on unique avatar pieces, skins, and other exclusive items.";
+"fbucks.about.how" = "How to earn F-Bucks";
+"fbucks.about.perfect.title" = "Perfect game";
+"fbucks.about.perfect.desc" = "Get a perfect score (10/10 or 15/15)";
+"fbucks.about.streak10.title" = "10-day streak";
+"fbucks.about.streak10.desc" = "Play 10 days in a row";
+"fbucks.about.streak20.title" = "20-day streak";
+"fbucks.about.streak20.desc" = "Play 20 days in a row";
+"fbucks.about.streak50.title" = "50-day streak";
+"fbucks.about.streak50.desc" = "Play 50 days in a row";
+"fbucks.about.streak100.title" = "100-day streak";
+"fbucks.about.streak100.desc" = "Play 100 days in a row";
+"fbucks.reward.plus1" = "+1 F-Bucks";
+"fbucks.reward.plus2" = "+2 F-Bucks";
+"fbucks.reward.plus5" = "+5 F-Bucks";
+"fbucks.reward.plus10" = "+10 F-Bucks";
+"fbucks.history.title" = "Transaction history";
+"fbucks.history.empty" = "No history yet";
+"fbucks.history.empty.hint" = "Play and earn F-Bucks!";
+"fbucks.item.traveler_cap" = "Traveler's cap";
+"fbucks.item.champion_shirt" = "Champion tee";
+"fbucks.item.socks" = "Socks";
+"fbucks.item.rainbow_skin" = "Rainbow skin";
+"fbucks.item.gold_skin" = "Gold skin";
+"fbucks.item.explorer_jacket" = "Explorer jacket";
+"fbucks.item.fire_effect" = "Fire effect";
+"fbucks.item.neon_skin" = "Neon skin";
+"fbucks.item.stars_effect" = "Star effect";
+"fbucks.item.champion_jacket" = "Champion jacket";
+"fbucks.tx.daily_bonus" = "Daily bonus";
+"friends.remind.status_sent" = "Đã gửi nhắc nhở!";
+
+/* Duel prepare error */
+"duel.error.alert.title" = "Lỗi";
+"duel.error.prepare_questions" = "Không thể chuẩn bị câu hỏi tử đấu. Kiểm tra khu vực hoặc kết nối và thử lại.";
+
+/* Duel tiebreaker */
+"duel.tiebreaker.title" = "Hòa điểm — thời gian nhanh hơn thắng";
+"duel.tiebreaker.history_line" = "Thời gian: %@ · %@";
+
+/* Learning country lists */
+"learning.progress.label" = "Đã học";
+"learning.search.placeholder" = "Tìm quốc gia hoặc thủ đô";
+"learning.filter.all" = "Tất cả";
+"learning.filter.unlearned" = "Chưa học";
+"learning.filter.difficult" = "Khó";
+"learning.filter.favorites" = "Yêu thích";
+"learning.empty.search.title" = "Không tìm thấy";
+"learning.empty.search.subtitle" = "Thử tên quốc gia hoặc thủ đô khác";
+"learning.empty.search.reset" = "Xóa tìm kiếm";
+"learning.empty.unlearned.title" = "Xong!";
+"learning.empty.unlearned.message" = "Tất cả quốc gia trong danh sách này đã được học 🎉";
+"learning.empty.difficult.title" = "Chưa có quốc gia khó";
+"learning.empty.difficult.message" = "Các quốc gia bạn gặp khó sẽ hiển thị ở đây — tiếp tục chơi và xem bản đồ tiến độ thế giới.";
+"learning.status.learned" = "Đã học";
+"learning.status.not_learned" = "Chưa học";
+"learning.status.difficult" = "Khó";
+"learning.status.favorite_short" = "Yêu thích";
+"learning.country.train_cta" = "Thêm vào ván sau";
+"learning.country.playlist_status_added" = "Đã thêm quốc gia";
+"learning.country.playlist_play_cta" = "Chơi với hàng đợi";
+"learning.country.playlist_added" = "Đã thêm vào ván sau";
+"learning.country.playlist_duplicate" = "Đã có trong hàng đợi";
+"learning.country.playlist_queue_fmt" = "%d quốc gia trong hàng đợi";
+"learning.country.playlist_min_progress_fmt" = "%d / %d";
+"learning.country.study_selected_flags" = "Học các lá cờ đã chọn";
+"learning.country.section.main" = "Tổng quan";
+"learning.country.section.gov" = "Ngôn ngữ & chính trị";
+"learning.country.section.more" = "Thêm";
+"learning.country.region" = "Khu vực";
+"learning.country.gallery.title" = "Thư viện ảnh";
+"learning.country.gallery.tap_hint" = "Chạm ô để phóng to";
+"learning.country.a11y.favorite" = "Yêu thích";
+"learning.country.a11y.difficult" = "Đánh dấu là khó";
+"learning.country.a11y.next" = "Quốc gia tiếp theo";
+"learning.country.a11y.previous" = "Quốc gia trước";
+"learning.gallery.tile.flag" = "Quốc kỳ";
+"learning.gallery.tile.landmark" = "Danh thắng";
+"learning.gallery.tile.nature" = "Thiên nhiên";
+"learning.gallery.tile.culture" = "Văn hóa";
+"learning.gallery.tile.government" = "Chính phủ";
+"learning.gallery.tile.coat" = "Quốc huy";
+"learning.empty.favorites.title" = "Chưa có mục yêu thích";
+"learning.empty.favorites.message" = "Mở một quốc gia và chạm vào ngôi sao để thêm vào đây.";
+
+/* Quiz game screen */
+"Quiz identify flag" = "Lá cờ này thuộc quốc gia nào?";
+
+// Subscription introductory offer
+"premium.trial.start" = "Dùng thử miễn phí 7 ngày";
+"premium.trial.monthly" = "Miễn phí 7 ngày, sau đó %@ mỗi tháng.";
+"premium.trial.yearly" = "Miễn phí 7 ngày, sau đó %@ mỗi năm.";
+"premium.renewal" = "Tự động gia hạn cho đến khi hủy. Quản lý hoặc hủy trong mục đăng ký của App Store.";
+"premium.subscribe" = "Đăng ký";

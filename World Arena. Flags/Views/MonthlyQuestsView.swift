@@ -98,6 +98,8 @@ struct MonthlyQuestsView: View {
             .navigationBarHidden(true)
             #endif
             .onAppear {
+                questService.registerCompletedDailyQuestPointsForToday()
+                userProfile.ensureMonthlyQuestsForCurrentMonth()
                 #if os(iOS)
                 let appearance = UINavigationBarAppearance()
                 appearance.configureWithTransparentBackground()
@@ -121,7 +123,8 @@ struct MonthlyQuestsView: View {
     @MainActor
     private func refreshQuestsContent() async {
         questService.loadDailyQuests()
-        userProfile.generateMonthlyQuests()
+        questService.registerCompletedDailyQuestPointsForToday()
+        userProfile.ensureMonthlyQuestsForCurrentMonth()
         userProfile.saveToStorage()
     }
     
@@ -144,18 +147,15 @@ struct MonthlyQuestsView: View {
 
                 Spacer()
 
-                // Персонаж
-                ZStack {
-                    Circle()
-                        .fill(Color.white.opacity(0.2))
-                        .frame(width: 80, height: 20)
-
-                    Text("🎯")
-                        .font(.system(size: 40))
-                }
+                // Статус миссий: бронза → серебро → золото (золото когда осталось ≤5 из 40)
+                Image(missionTierImageName)
+                    .resizable()
+                    .aspectRatio(contentMode: .fit)
+                    .frame(width: 44, height: 44)
+                    .padding(.trailing, 12)
             }
             .padding(.leading, 24)
-            .padding(.trailing, 8)
+            .padding(.trailing, 20)
             .padding(.top, max(0, safeTopInset - (isIPad ? 72 : 24)))
 
             // Основной прогресс
@@ -217,12 +217,19 @@ struct MonthlyQuestsView: View {
         return width * (totalMonthlyProgress / 40.0)
     }
 
-    // Совокупный прогресс по месяцу из массива monthlyQuests (среднее по прогрессам * 40)
+    // Совокупный прогресс шапки: +1 за каждый закрытый daily и +1 за каждый закрытый monthly в текущем месяце (кап 40).
     private var totalMonthlyProgress: Double {
-        let quests = userProfile.monthlyQuests
-        guard !quests.isEmpty else { return 0 }
-        let avg = quests.map { $0.isCompleted ? 1.0 : $0.progress }.reduce(0, +) / Double(quests.count)
-        return (avg * 40.0).rounded()
+        let dailyPoints = questService.completedDailyQuestPointsForCurrentMonth()
+        let monthlyPoints = userProfile.completedMonthlyQuestPointsForCurrentMonth()
+        return Double(min(40, dailyPoints + monthlyPoints))
+    }
+
+    /// Иконка уровня миссий: бронза по умолчанию, серебро при прогрессе ≥20, золото когда осталось ≤5 из 40 (≥35).
+    private var missionTierImageName: String {
+        let p = totalMonthlyProgress
+        if p >= 35 { return "IconMissionsGold" }
+        if p >= 20 { return "IconMissionsSilver" }
+        return "IconMissionsBronze"
     }
 
     // MARK: - Days left in current month (localized short label)
@@ -355,10 +362,11 @@ struct MonthlyQuestsView: View {
     @MainActor
     private func getCurrentMonthMissionTitle() -> String {
         let formatter = DateFormatter()
-        formatter.locale = LocalizationManager.shared.currentLocale
+        formatter.locale = localizationManager.currentLocale
         formatter.dateFormat = "MMMM"
         let monthName = formatter.string(from: Date()).capitalized
-        return "\(monthName) Mission"
+        let format = localizationManager.localizedString("monthly_quest_mission_title")
+        return String(format: format, locale: localizationManager.currentLocale, arguments: [monthName])
     }
 }
 
@@ -385,13 +393,22 @@ struct DailyQuestRow: View {
         #endif
     }
     
+    private var isSFSymbol: Bool { icon.contains(".") }
+    
     var body: some View {
         HStack(spacing: 16) {
-            Text(icon)
-                .font(.system(size: 24))
-                .frame(width: 40, height: 40)
-                .background(Color.orange.opacity(0.1))
-                .cornerRadius(12)
+            Group {
+                if isSFSymbol {
+                    Image(systemName: icon)
+                        .font(.system(size: 22))
+                } else {
+                    Text(icon)
+                        .font(.system(size: 24))
+                }
+            }
+            .frame(width: 40, height: 40)
+            .background(Color.orange.opacity(0.1))
+            .cornerRadius(12)
             
             VStack(alignment: .leading, spacing: 4) {
                 Text(title)
@@ -444,9 +461,13 @@ struct MonthlyQuestRow: View {
         #endif
     }
     
+    private var monthlyQuestIconSystemName: String {
+        QuestService.questIconSystemName(for: quest.icon) ?? quest.icon
+    }
+    
     var body: some View {
         HStack(spacing: 16) {
-            Image(systemName: quest.icon)
+            Image(systemName: monthlyQuestIconSystemName.contains(".") ? monthlyQuestIconSystemName : "star.fill")
                 .font(.system(size: 20, weight: .semibold))
                 .foregroundColor(.white)
                 .frame(width: 44, height: 44)

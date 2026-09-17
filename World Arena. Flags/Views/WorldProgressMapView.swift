@@ -3,6 +3,7 @@ import MapKit
 
 struct WorldProgressMapView: View {
     @EnvironmentObject private var gameState: GameState
+    @Environment(\.colorScheme) private var colorScheme
     @ObservedObject private var localizationManager = LocalizationManager.shared
 
     @State private var worldCountries: [Country] = []
@@ -14,6 +15,8 @@ struct WorldProgressMapView: View {
     @State private var isLoading = true
     @State private var selectedTab: DisplayTab = .map
     @State private var mapFilter: MapFilter = .all
+    /// Язык карты применён до первого рендера Map, чтобы подпись «Карты»/«Правовые документы» была на выбранном языке.
+    @State private var mapLocaleApplied = false
     @State private var toastText: String = ""
     @State private var showToast = false
     @State private var showMasteredHint = false
@@ -23,6 +26,8 @@ struct WorldProgressMapView: View {
     }
     @State private var badgeUnlocked: BadgeUnlock? = nil
     @AppStorage("learning.masteredContinents.v1") private var masteredContinentsRaw: String = ""
+    /// Сохранённое значение AppleLanguages до входа на экран карты (для восстановления при уходе).
+    @State private var savedAppleLanguages: [String]?
 
     private enum DisplayTab: String, CaseIterable, Identifiable {
         case map = "Map"
@@ -73,11 +78,12 @@ struct WorldProgressMapView: View {
     }
 
     private var points: [CountryPoint] {
-        filteredCountries.map { country in
-            CountryPoint(
+        filteredCountries.compactMap { country in
+            guard let coordinate = coordinate(for: country) else { return nil }
+            return CountryPoint(
                 id: country.id,
                 country: country,
-                coordinate: coordinate(for: country)
+                coordinate: coordinate
             )
         }
     }
@@ -95,15 +101,37 @@ struct WorldProgressMapView: View {
             }
     }
 
+    private var pageBackground: some View {
+        Group {
+            if colorScheme == .light {
+                LinearGradient(
+                    colors: [
+                        Color(red: 0.97, green: 0.98, blue: 1.0),
+                        Color(red: 0.90, green: 0.93, blue: 0.98),
+                        Color(red: 0.86, green: 0.91, blue: 0.96)
+                    ],
+                    startPoint: .topLeading,
+                    endPoint: .bottomTrailing
+                )
+            } else {
+                LinearGradient(
+                    colors: [Color(red: 0.08, green: 0.10, blue: 0.18), Color(red: 0.12, green: 0.17, blue: 0.29)],
+                    startPoint: .topLeading,
+                    endPoint: .bottomTrailing
+                )
+            }
+        }
+    }
+
     private var continentProgress: [ContinentProgress] {
-        let grouped = Dictionary(grouping: worldCountries, by: continentName(for:))
+        let grouped = Dictionary(grouping: worldCountries, by: continentKey(for:))
         let order = [
-            "Европа",
-            "Азия",
-            "Африка",
-            "Северная Америка",
-            "Южная Америка",
-            "Океания"
+            "Europe",
+            "Asia",
+            "Africa",
+            "North America",
+            "South America",
+            "Oceania"
         ]
 
         return order.compactMap { key in
@@ -117,7 +145,7 @@ struct WorldProgressMapView: View {
             }
             return ContinentProgress(
                 id: key,
-                title: localizationManager.localizedString(key),
+                title: localizedContinentName(key),
                 totalCountries: countries.count,
                 answeredCountries: answered,
                 masteredCountries: mastered
@@ -132,7 +160,14 @@ struct WorldProgressMapView: View {
                 tabSelector
                 if selectedTab == .map {
                     filtersRow
-                    mapCard
+                    if mapLocaleApplied {
+                        mapCard
+                    } else {
+                        RoundedRectangle(cornerRadius: 22, style: .continuous)
+                            .fill(colorScheme == .light ? Color(UIColor.tertiarySystemFill) : Color.black.opacity(0.24))
+                            .frame(height: 370)
+                            .overlay(ProgressView().tint(colorScheme == .light ? Color.accentColor : .white))
+                    }
                     selectedCountryCard
                 } else {
                     weeklyChallengeCard
@@ -145,14 +180,8 @@ struct WorldProgressMapView: View {
             .padding(.top, 12)
             .padding(.bottom, 28)
         }
-        .background(
-            LinearGradient(
-                colors: [Color(red: 0.08, green: 0.10, blue: 0.18), Color(red: 0.12, green: 0.17, blue: 0.29)],
-                startPoint: .topLeading,
-                endPoint: .bottomTrailing
-            )
-            .ignoresSafeArea()
-        )
+        .environment(\.locale, localizationManager.currentLocale)
+        .background(pageBackground.ignoresSafeArea())
         .navigationTitle(localizationManager.localizedString("World Progress Map"))
         .navigationBarTitleDisplayMode(.inline)
         .task {
@@ -161,6 +190,14 @@ struct WorldProgressMapView: View {
         .onAppear {
             gameState.reloadCountryLearningProgressFromStorage()
             gameState.refreshWeeklyChallengeCount()
+            LocalProgressICloudMirror.pushString(masteredContinentsRaw, forKey: LocalProgressICloudMirror.keyMasteredContinents)
+            if !mapLocaleApplied {
+                applyMapLanguage()
+                mapLocaleApplied = true
+            }
+        }
+        .onDisappear {
+            restoreMapLanguage()
         }
         .onChange(of: gameState.isNavigatingToGame) { navigating in
             if !navigating {
@@ -169,6 +206,9 @@ struct WorldProgressMapView: View {
         }
         .onChange(of: gameState.countryLearningProgress) { _ in
             evaluateContinentMasterUnlocks()
+        }
+        .onChange(of: masteredContinentsRaw) { _ in
+            LocalProgressICloudMirror.pushString(masteredContinentsRaw, forKey: LocalProgressICloudMirror.keyMasteredContinents)
         }
         .overlay(alignment: .top) {
             if showToast {
@@ -188,42 +228,52 @@ struct WorldProgressMapView: View {
         VStack(alignment: .leading, spacing: 8) {
             Text(localizationManager.localizedString("World Progress Map"))
                 .font(.system(size: 24, weight: .bold, design: .rounded))
-                .foregroundColor(.white)
+                .foregroundColor(colorScheme == .light ? Color(red: 0.06, green: 0.12, blue: 0.28) : .white)
             Text(localizationManager.localizedString("Tap a country to see your correct and wrong answers"))
                 .font(.system(size: 14, weight: .medium))
-                .foregroundColor(.white.opacity(0.85))
+                .foregroundColor(colorScheme == .light ? Color(red: 0.2, green: 0.24, blue: 0.38) : .white.opacity(0.85))
             Text(localizationManager.localizedString("Greener country means better mastery"))
                 .font(.system(size: 13, weight: .regular))
-                .foregroundColor(.green.opacity(0.92))
+                .foregroundColor(colorScheme == .light ? Color(red: 0.0, green: 0.45, blue: 0.32) : .green.opacity(0.92))
         }
         .frame(maxWidth: .infinity, alignment: .leading)
         .padding(16)
         .background(
             RoundedRectangle(cornerRadius: 20, style: .continuous)
                 .fill(
-                    LinearGradient(
-                        colors: [Color.cyan.opacity(0.32), Color.blue.opacity(0.22)],
-                        startPoint: .topLeading,
-                        endPoint: .bottomTrailing
-                    )
+                    colorScheme == .light
+                        ? LinearGradient(
+                            colors: [Color.white, Color(red: 0.93, green: 0.96, blue: 1.0)],
+                            startPoint: .topLeading,
+                            endPoint: .bottomTrailing
+                        )
+                        : LinearGradient(
+                            colors: [Color.cyan.opacity(0.32), Color.blue.opacity(0.22)],
+                            startPoint: .topLeading,
+                            endPoint: .bottomTrailing
+                        )
                 )
         )
         .overlay(
             RoundedRectangle(cornerRadius: 20, style: .continuous)
-                .stroke(Color.white.opacity(0.22), lineWidth: 1)
+                .stroke(
+                    colorScheme == .light ? Color.blue.opacity(0.14) : Color.white.opacity(0.22),
+                    lineWidth: 1
+                )
         )
+        .shadow(color: colorScheme == .light ? Color.black.opacity(0.06) : .clear, radius: 12, x: 0, y: 4)
     }
 
     private var mapCard: some View {
         ZStack {
             RoundedRectangle(cornerRadius: 22, style: .continuous)
-                .fill(Color.black.opacity(0.24))
+                .fill(colorScheme == .light ? Color(UIColor.tertiarySystemFill) : Color.black.opacity(0.24))
             RoundedRectangle(cornerRadius: 22, style: .continuous)
-                .stroke(Color.white.opacity(0.16), lineWidth: 1)
+                .stroke(colorScheme == .light ? Color.black.opacity(0.08) : Color.white.opacity(0.16), lineWidth: 1)
 
             if isLoading {
                 ProgressView()
-                    .tint(.white)
+                    .tint(colorScheme == .light ? Color.accentColor : .white)
             } else {
                 Map(coordinateRegion: $region, annotationItems: points) { point in
                     MapAnnotation(coordinate: point.coordinate) {
@@ -235,7 +285,7 @@ struct WorldProgressMapView: View {
                                 .frame(width: markerSize(for: point.country), height: markerSize(for: point.country))
                                 .overlay(
                                     Circle()
-                                        .stroke(Color.white.opacity(0.8), lineWidth: 1)
+                                        .stroke(colorScheme == .light ? Color.black.opacity(0.2) : Color.white.opacity(0.8), lineWidth: 1)
                                 )
                                 .shadow(color: countryColor(for: point.country).opacity(0.6), radius: 6, x: 0, y: 0)
                         }
@@ -258,12 +308,39 @@ struct WorldProgressMapView: View {
                 } label: {
                     Text(localizationManager.localizedString(tab.rawValue))
                         .font(.system(size: 13, weight: .bold))
-                        .foregroundColor(selectedTab == tab ? .black : .white)
+                        .foregroundColor(
+                            selectedTab == tab
+                                ? Color.white
+                                : (colorScheme == .light ? Color(red: 0.12, green: 0.18, blue: 0.42) : Color.white.opacity(0.88))
+                        )
                         .padding(.vertical, 10)
                         .frame(maxWidth: .infinity)
                         .background(
                             RoundedRectangle(cornerRadius: 12, style: .continuous)
-                                .fill(selectedTab == tab ? Color.green.opacity(0.9) : Color.white.opacity(0.08))
+                                .fill(
+                                    selectedTab == tab
+                                        ? LinearGradient(
+                                            colors: [Color(red: 0.15, green: 0.45, blue: 0.95), Color(red: 0.08, green: 0.32, blue: 0.82)],
+                                            startPoint: .topLeading,
+                                            endPoint: .bottomTrailing
+                                        )
+                                        : LinearGradient(
+                                            colors: colorScheme == .light
+                                                ? [Color(UIColor.secondarySystemGroupedBackground), Color(UIColor.secondarySystemGroupedBackground)]
+                                                : [Color.white.opacity(0.08), Color.white.opacity(0.08)],
+                                            startPoint: .topLeading,
+                                            endPoint: .bottomTrailing
+                                        )
+                                )
+                        )
+                        .overlay(
+                            RoundedRectangle(cornerRadius: 12, style: .continuous)
+                                .stroke(
+                                    selectedTab == tab
+                                        ? Color.clear
+                                        : (colorScheme == .light ? Color.blue.opacity(0.12) : Color.white.opacity(0.12)),
+                                    lineWidth: 1
+                                )
                         )
                 }
                 .buttonStyle(.plain)
@@ -284,12 +361,37 @@ struct WorldProgressMapView: View {
                 } label: {
                     Text(localizationManager.localizedString(filter.rawValue))
                         .font(.system(size: 12, weight: .semibold))
-                        .foregroundColor(mapFilter == filter ? .black : .white.opacity(0.9))
+                        .foregroundColor(
+                            mapFilter == filter
+                                ? (colorScheme == .light ? Color.white : Color.white)
+                                : (colorScheme == .light ? Color(red: 0.14, green: 0.2, blue: 0.38) : Color.white.opacity(0.9))
+                        )
                         .padding(.horizontal, 12)
                         .padding(.vertical, 8)
                         .background(
                             Capsule(style: .continuous)
-                                .fill(mapFilter == filter ? Color.mint.opacity(0.92) : Color.white.opacity(0.09))
+                                .fill(
+                                    mapFilter == filter
+                                        ? LinearGradient(
+                                            colors: [Color(red: 0.2, green: 0.55, blue: 0.42), Color(red: 0.1, green: 0.48, blue: 0.55)],
+                                            startPoint: .leading,
+                                            endPoint: .trailing
+                                        )
+                                        : LinearGradient(
+                                            colors: colorScheme == .light
+                                                ? [Color(UIColor.secondarySystemGroupedBackground), Color(UIColor.secondarySystemGroupedBackground)]
+                                                : [Color.white.opacity(0.09), Color.white.opacity(0.09)],
+                                            startPoint: .leading,
+                                            endPoint: .trailing
+                                        )
+                                )
+                        )
+                        .overlay(
+                            Capsule(style: .continuous)
+                                .stroke(
+                                    mapFilter == filter ? Color.clear : (colorScheme == .light ? Color.black.opacity(0.06) : Color.white.opacity(0.1)),
+                                    lineWidth: 1
+                                )
                         )
                 }
                 .buttonStyle(.plain)
@@ -307,7 +409,7 @@ struct WorldProgressMapView: View {
                 HStack {
                     Text("\(country.flagEmoji) \(localizationManager.localizedCountryName(country))")
                         .font(.system(size: 18, weight: .bold))
-                        .foregroundColor(.white)
+                        .foregroundColor(colorScheme == .light ? Color.primary : Color.white)
                     Spacer()
                     Text("\(accuracy)%")
                         .font(.system(size: 16, weight: .bold))
@@ -335,11 +437,11 @@ struct WorldProgressMapView: View {
             .frame(maxWidth: .infinity, alignment: .leading)
             .background(
                 RoundedRectangle(cornerRadius: 18, style: .continuous)
-                    .fill(Color.white.opacity(0.08))
+                    .fill(colorScheme == .light ? Color(UIColor.secondarySystemGroupedBackground) : Color.white.opacity(0.08))
             )
             .overlay(
                 RoundedRectangle(cornerRadius: 18, style: .continuous)
-                    .stroke(Color.white.opacity(0.16), lineWidth: 1)
+                    .stroke(colorScheme == .light ? Color.black.opacity(0.08) : Color.white.opacity(0.16), lineWidth: 1)
             )
         }
     }
@@ -355,16 +457,16 @@ struct WorldProgressMapView: View {
                     .foregroundColor(.orange)
                 Text(localizationManager.localizedString("Weekly challenge"))
                     .font(.system(size: 18, weight: .bold))
-                    .foregroundColor(.white)
+                    .foregroundColor(colorScheme == .light ? Color.primary : Color.white)
                 Spacer()
                 Text("\(current)/\(goal)")
                     .font(.system(size: 14, weight: .bold))
-                    .foregroundColor(.white.opacity(0.95))
+                    .foregroundColor(colorScheme == .light ? Color.secondary : Color.white.opacity(0.95))
             }
             GeometryReader { geo in
                 ZStack(alignment: .leading) {
                     RoundedRectangle(cornerRadius: 8, style: .continuous)
-                        .fill(Color.white.opacity(0.12))
+                        .fill(colorScheme == .light ? Color(UIColor.tertiarySystemFill) : Color.white.opacity(0.12))
                     RoundedRectangle(cornerRadius: 8, style: .continuous)
                         .fill(
                             LinearGradient(
@@ -379,13 +481,13 @@ struct WorldProgressMapView: View {
             .frame(height: 10)
             Text(localizationManager.localizedString("Weak country sessions this week"))
                 .font(.system(size: 12, weight: .medium))
-                .foregroundColor(.white.opacity(0.8))
+                .foregroundColor(colorScheme == .light ? Color.secondary : Color.white.opacity(0.8))
         }
         .padding(14)
         .frame(maxWidth: .infinity, alignment: .leading)
         .background(
             RoundedRectangle(cornerRadius: 20, style: .continuous)
-                .fill(Color.black.opacity(0.25))
+                .fill(colorScheme == .light ? Color(UIColor.secondarySystemGroupedBackground) : Color.black.opacity(0.25))
         )
         .overlay(
             RoundedRectangle(cornerRadius: 20, style: .continuous)
@@ -431,12 +533,12 @@ struct WorldProgressMapView: View {
         VStack(alignment: .leading, spacing: 10) {
             Text(localizationManager.localizedString("TOP weak countries for review"))
                 .font(.system(size: 18, weight: .bold))
-                .foregroundColor(.white)
+                .foregroundColor(colorScheme == .light ? Color.primary : Color.white)
 
             if weakCountries.isEmpty {
                 Text(localizationManager.localizedString("No weak countries yet"))
                     .font(.system(size: 14, weight: .medium))
-                    .foregroundColor(.white.opacity(0.75))
+                    .foregroundColor(colorScheme == .light ? Color.secondary : Color.white.opacity(0.75))
                     .padding(.vertical, 12)
             } else {
                 ForEach(Array(weakCountries.prefix(20).enumerated()), id: \.element.id) { idx, country in
@@ -444,17 +546,17 @@ struct WorldProgressMapView: View {
                     HStack(spacing: 10) {
                         Text("#\(idx + 1)")
                             .font(.system(size: 12, weight: .bold))
-                            .foregroundColor(.white.opacity(0.75))
+                            .foregroundColor(colorScheme == .light ? Color.secondary : Color.white.opacity(0.75))
                             .frame(width: 24, alignment: .leading)
                         Text(country.flagEmoji)
                             .font(.system(size: 20))
                         VStack(alignment: .leading, spacing: 2) {
                             Text(localizationManager.localizedCountryName(country))
                                 .font(.system(size: 14, weight: .semibold))
-                                .foregroundColor(.white)
+                                .foregroundColor(colorScheme == .light ? Color.primary : Color.white)
                             Text("\(localizationManager.localizedString("Wrong")) \(p.wrong) • \(localizationManager.localizedString("Correct")) \(p.correct)")
                                 .font(.system(size: 12, weight: .medium))
-                                .foregroundColor(.white.opacity(0.75))
+                                .foregroundColor(colorScheme == .light ? Color.secondary : Color.white.opacity(0.75))
                         }
                         Spacer()
                         Text("\(Int((p.accuracy * 100).rounded()))%")
@@ -465,7 +567,7 @@ struct WorldProgressMapView: View {
                     .padding(.horizontal, 10)
                     .background(
                         RoundedRectangle(cornerRadius: 12, style: .continuous)
-                            .fill(Color.white.opacity(0.06))
+                            .fill(colorScheme == .light ? Color(UIColor.tertiarySystemFill) : Color.white.opacity(0.06))
                     )
                 }
             }
@@ -474,11 +576,11 @@ struct WorldProgressMapView: View {
         .frame(maxWidth: .infinity, alignment: .leading)
         .background(
             RoundedRectangle(cornerRadius: 20, style: .continuous)
-                .fill(Color.black.opacity(0.20))
+                .fill(colorScheme == .light ? Color(UIColor.secondarySystemGroupedBackground) : Color.black.opacity(0.20))
         )
         .overlay(
             RoundedRectangle(cornerRadius: 20, style: .continuous)
-                .stroke(Color.white.opacity(0.16), lineWidth: 1)
+                .stroke(colorScheme == .light ? Color.black.opacity(0.08) : Color.white.opacity(0.16), lineWidth: 1)
         )
     }
 
@@ -486,14 +588,14 @@ struct WorldProgressMapView: View {
         VStack(alignment: .leading, spacing: 12) {
             Text(localizationManager.localizedString("Continent Mastery"))
                 .font(.system(size: 18, weight: .bold))
-                .foregroundColor(.white)
+                .foregroundColor(colorScheme == .light ? Color.primary : Color.white)
 
             ForEach(continentProgress) { item in
                 VStack(alignment: .leading, spacing: 8) {
                     HStack {
                         Text(item.title)
                             .font(.system(size: 15, weight: .semibold))
-                            .foregroundColor(.white)
+                            .foregroundColor(colorScheme == .light ? Color.primary : Color.white)
                         Spacer()
                         if item.isMastered {
                             Text(String(format: localizationManager.localizedString("%@ Master"), item.title))
@@ -502,13 +604,13 @@ struct WorldProgressMapView: View {
                         } else {
                             Text("\(Int((item.completion * 100).rounded()))%")
                                 .font(.system(size: 12, weight: .bold))
-                                .foregroundColor(.white.opacity(0.86))
+                                .foregroundColor(colorScheme == .light ? Color.secondary : Color.white.opacity(0.86))
                         }
                     }
                     GeometryReader { geo in
                         ZStack(alignment: .leading) {
                             RoundedRectangle(cornerRadius: 8, style: .continuous)
-                                .fill(Color.white.opacity(0.12))
+                                .fill(colorScheme == .light ? Color(UIColor.tertiarySystemFill) : Color.white.opacity(0.12))
                             RoundedRectangle(cornerRadius: 8, style: .continuous)
                                 .fill(
                                     LinearGradient(
@@ -530,7 +632,7 @@ struct WorldProgressMapView: View {
                             )
                         )
                         .font(.system(size: 12, weight: .medium))
-                        .foregroundColor(.white.opacity(0.8))
+                        .foregroundColor(colorScheme == .light ? Color.secondary : Color.white.opacity(0.8))
 
                         HStack(spacing: 4) {
                             Text(
@@ -541,13 +643,13 @@ struct WorldProgressMapView: View {
                                 )
                             )
                             .font(.system(size: 12, weight: .medium))
-                            .foregroundColor(.white.opacity(0.7))
+                            .foregroundColor(colorScheme == .light ? Color.secondary : Color.white.opacity(0.7))
                             Button {
                                 showMasteredHint = true
                             } label: {
                                 Image(systemName: "questionmark.circle")
                                     .font(.system(size: 12))
-                                    .foregroundColor(.white.opacity(0.6))
+                                    .foregroundColor(colorScheme == .light ? Color.secondary : Color.white.opacity(0.6))
                             }
                             .buttonStyle(.plain)
                         }
@@ -556,7 +658,7 @@ struct WorldProgressMapView: View {
                 .padding(10)
                 .background(
                     RoundedRectangle(cornerRadius: 12, style: .continuous)
-                        .fill(Color.white.opacity(0.05))
+                        .fill(colorScheme == .light ? Color(UIColor.tertiarySystemFill) : Color.white.opacity(0.05))
                 )
             }
         }
@@ -564,11 +666,11 @@ struct WorldProgressMapView: View {
         .frame(maxWidth: .infinity, alignment: .leading)
         .background(
             RoundedRectangle(cornerRadius: 20, style: .continuous)
-                .fill(Color.black.opacity(0.20))
+                .fill(colorScheme == .light ? Color(UIColor.secondarySystemGroupedBackground) : Color.black.opacity(0.20))
         )
         .overlay(
             RoundedRectangle(cornerRadius: 20, style: .continuous)
-                .stroke(Color.white.opacity(0.16), lineWidth: 1)
+                .stroke(colorScheme == .light ? Color.black.opacity(0.08) : Color.white.opacity(0.16), lineWidth: 1)
         )
         .alert(localizationManager.localizedString("How is Mastered calculated?"), isPresented: $showMasteredHint) {
             Button(localizationManager.localizedString("CONTINUE"), role: .cancel) { }
@@ -581,7 +683,7 @@ struct WorldProgressMapView: View {
         VStack(spacing: 4) {
             Text(value)
                 .font(.system(size: 17, weight: .bold))
-                .foregroundColor(.white)
+                .foregroundColor(colorScheme == .light ? Color.primary : Color.white)
             Text(title)
                 .font(.system(size: 11, weight: .medium))
                 .foregroundColor(color.opacity(0.95))
@@ -590,7 +692,7 @@ struct WorldProgressMapView: View {
         .padding(.vertical, 8)
         .background(
             RoundedRectangle(cornerRadius: 10, style: .continuous)
-                .fill(Color.white.opacity(0.07))
+                .fill(colorScheme == .light ? Color(UIColor.tertiarySystemFill) : Color.white.opacity(0.07))
         )
     }
 
@@ -604,7 +706,9 @@ struct WorldProgressMapView: View {
 
     private func countryColor(for country: Country) -> Color {
         let p = gameState.progressForCountry(code3: country.id)
-        guard p.total > 0 else { return Color.white.opacity(0.24) }
+        guard p.total > 0 else {
+            return colorScheme == .light ? Color.primary.opacity(0.2) : Color.white.opacity(0.24)
+        }
         let t = min(1.0, max(0.0, p.accuracy))
         return Color(
             red: 0.15 * (1.0 - t),
@@ -623,49 +727,38 @@ struct WorldProgressMapView: View {
         return p.total >= 3 && (p.accuracy < 0.6 || p.wrong > p.correct)
     }
 
-    private func continentName(for country: Country) -> String {
-        if country.region == "Europe" { return "Европа" }
-        if country.region == "Asia" { return "Азия" }
-        if country.region == "Africa" { return "Африка" }
-        if country.region == "Oceania" { return "Океания" }
+    private func continentKey(for country: Country) -> String {
+        if country.region == "Europe" { return "Europe" }
+        if country.region == "Asia" { return "Asia" }
+        if country.region == "Africa" { return "Africa" }
+        if country.region == "Oceania" { return "Oceania" }
         if country.region == "Americas" {
             if country.subregion == "South America" {
-                return "Южная Америка"
+                return "South America"
             }
-            return "Северная Америка"
+            return "North America"
         }
-        return "Европа"
+        return "Europe"
     }
 
-    private func coordinate(for country: Country) -> CLLocationCoordinate2D {
-        if let latlng = country.latlng, latlng.count >= 2 {
-            return CLLocationCoordinate2D(latitude: latlng[0], longitude: latlng[1])
+    private func localizedContinentName(_ key: String) -> String {
+        switch key {
+        case "Europe": return localizationManager.localizedString("Европа")
+        case "Asia": return localizationManager.localizedString("Азия")
+        case "Africa": return localizationManager.localizedString("Африка")
+        case "North America": return localizationManager.localizedString("Северная Америка")
+        case "South America": return localizationManager.localizedString("Южная Америка")
+        case "Oceania": return localizationManager.localizedString("Океания")
+        default: return key
         }
-        return fallbackCoordinate(for: country)
     }
 
-    private func fallbackCoordinate(for country: Country) -> CLLocationCoordinate2D {
-        let center: (Double, Double)
-        switch continentName(for: country) {
-        case "Европа": center = (52, 15)
-        case "Азия": center = (28, 90)
-        case "Африка": center = (4, 21)
-        case "Северная Америка": center = (38, -100)
-        case "Южная Америка": center = (-14, -60)
-        case "Океания": center = (-23, 135)
-        default: center = (20, 0)
-        }
-        let seed = stableSeed(country.id)
-        let latOffset = Double((seed % 1700) - 850) / 100.0
-        let lonOffset = Double(((seed / 1700) % 2500) - 1250) / 100.0
-        return CLLocationCoordinate2D(
-            latitude: max(-80, min(80, center.0 + latOffset)),
-            longitude: max(-179, min(179, center.1 + lonOffset))
-        )
-    }
-
-    private func stableSeed(_ source: String) -> Int {
-        source.unicodeScalars.reduce(19) { ($0 &* 31) &+ Int($1.value) } & Int.max
+    private func coordinate(for country: Country) -> CLLocationCoordinate2D? {
+        guard let latlng = country.latlng, latlng.count == 2,
+              latlng[0].isFinite, latlng[1].isFinite else { return nil }
+        let coordinate = CLLocationCoordinate2D(latitude: latlng[0], longitude: latlng[1])
+        // Missing data must never produce a made-up location on the map.
+        return CLLocationCoordinate2DIsValid(coordinate) ? coordinate : nil
     }
 
     private var masterToast: some View {
@@ -675,7 +768,7 @@ struct WorldProgressMapView: View {
                 .foregroundColor(.yellow)
             Text(toastText)
                 .font(.system(size: 14, weight: .bold))
-                .foregroundColor(.white)
+                .foregroundColor(colorScheme == .light ? Color.primary : Color.white)
             Spacer(minLength: 0)
         }
         .padding(.horizontal, 14)
@@ -692,10 +785,10 @@ struct WorldProgressMapView: View {
         )
         .overlay(
             RoundedRectangle(cornerRadius: 14, style: .continuous)
-                .stroke(Color.white.opacity(0.32), lineWidth: 1)
+                .stroke(colorScheme == .light ? Color.black.opacity(0.1) : Color.white.opacity(0.32), lineWidth: 1)
         )
         .padding(.horizontal, 16)
-        .shadow(color: .black.opacity(0.25), radius: 12, x: 0, y: 8)
+        .shadow(color: .black.opacity(colorScheme == .light ? 0.12 : 0.25), radius: 12, x: 0, y: 8)
     }
 
     private func evaluateContinentMasterUnlocks() {
@@ -711,7 +804,7 @@ struct WorldProgressMapView: View {
         masteredContinentsRaw = unlocked.sorted().joined(separator: ",")
 
         let first = newUnlocks[0]
-        let localized = localizationManager.localizedString(first)
+        let localized = localizedContinentName(first)
         let format = localizationManager.localizedString("%@ Master unlocked")
         toastText = String(format: format, localized)
         withAnimation(.spring(response: 0.35, dampingFraction: 0.85)) {
@@ -723,6 +816,23 @@ struct WorldProgressMapView: View {
             }
         }
         badgeUnlocked = BadgeUnlock(continentTitle: localized)
+    }
+
+    /// Устанавливает язык карты MapKit по выбранному в приложении (подписи на карте в нужной локали).
+    private func applyMapLanguage() {
+        savedAppleLanguages = UserDefaults.standard.stringArray(forKey: "AppleLanguages")
+        let mapLocale = localizationManager.mapKitLocaleIdentifier
+        UserDefaults.standard.set([mapLocale], forKey: "AppleLanguages")
+    }
+
+    /// Восстанавливает AppleLanguages после ухода с экрана карты, чтобы не влиять на остальное приложение.
+    private func restoreMapLanguage() {
+        if let saved = savedAppleLanguages {
+            UserDefaults.standard.set(saved, forKey: "AppleLanguages")
+        } else {
+            UserDefaults.standard.removeObject(forKey: "AppleLanguages")
+        }
+        savedAppleLanguages = nil
     }
 
     @MainActor

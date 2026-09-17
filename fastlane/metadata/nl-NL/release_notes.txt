@@ -1,0 +1,6 @@
+8.0
+
+• Vernieuwd quizscherm met duidelijkere antwoorden en geanimeerde levens.
+• Nieuw ontwerp voor Statistieken, Competities en Profiel.
+• Verbeterde iPad-indeling en kaarten die zich aan de inhoud aanpassen.
+• Regio en moeilijkheid worden opgeslagen als je de snelle instellingen sluit.

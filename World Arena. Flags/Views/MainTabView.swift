@@ -10,6 +10,10 @@ struct MainTabView: View {
     @StateObject private var userProfile = UserProfile.shared
     @State private var selectedTab = 0
     @State private var pendingNudgeAlert: NudgeFromAPI?
+    @State private var incomingDuelPopup: DuelChallenge?
+    @State private var isAcceptingIncomingDuel = false
+    @State private var duelActionErrorText: String?
+    @State private var showDuelAnnouncement = false
     @ObservedObject private var localizationManager = LocalizationManager.shared
     @Environment(\.horizontalSizeClass) private var horizontalSizeClass
     @Environment(\.verticalSizeClass) private var verticalSizeClass
@@ -60,6 +64,44 @@ struct MainTabView: View {
                     iPhoneMainLayout()
                 }
             }
+            .overlay {
+                if let nudge = pendingNudgeAlert {
+                    FriendNudgePopupView(
+                        fromUsername: nudge.fromUsername,
+                        phraseKey: nudge.phraseLocalizationKey,
+                        onContinue: {
+                            Task {
+                                try? await DuelAPIService.shared.markNudgesRead(userId: userProfile.username)
+                            }
+                            pendingNudgeAlert = nil
+                        }
+                    )
+                    .transition(.opacity.combined(with: .scale(scale: 0.94)))
+                    .zIndex(2000)
+                }
+            }
+            .animation(.spring(response: 0.4, dampingFraction: 0.86), value: pendingNudgeAlert?.id)
+            .overlay(alignment: .top) {
+                if let duel = incomingDuelPopup {
+                    GlobalIncomingDuelPopupView(
+                        challenge: duel,
+                        isAccepting: isAcceptingIncomingDuel,
+                        onAccept: { acceptIncomingDuel(duel) },
+                        onRemind: { withAnimation(.easeOut(duration: 0.25)) { remindIncomingDuel(duel) } },
+                        onDecline: { Task { await declineIncomingDuel(duel) } },
+                        onDismiss: {
+                            withAnimation(.easeOut(duration: 0.25)) {
+                                remindIncomingDuel(duel)
+                            }
+                        }
+                    )
+                    .padding(.top, 12)
+                    .padding(.horizontal, 14)
+                    .transition(.move(edge: .top).combined(with: .opacity))
+                    .zIndex(1000)
+                }
+            }
+            .animation(.spring(response: 0.45, dampingFraction: 0.86), value: incomingDuelPopup?.id)
         }
         .environmentObject(gameState)
         .environmentObject(userProfile)
@@ -68,9 +110,33 @@ struct MainTabView: View {
                 .environmentObject(gameState)
                 .environmentObject(userProfile)
         }
+        .onChange(of: gameState.isNavigatingToGame) { isOpen in
+            if !isOpen && gameState.isGameInProgress {
+                gameState.abandonActiveGameIfFullScreenDismissed()
+            }
+        }
+        .onReceive(NotificationCenter.default.publisher(for: Notification.Name("SwitchToLeagueTab"))) { _ in
+            // Премиум: вкладка «Обучение» = 2, «Лиги» = 3. Раньше всегда ставили 2 → открывалось Обучение.
+            selectedTab = gameState.isPremium ? 3 : 2
+        }
+        .onReceive(NotificationCenter.default.publisher(for: Notification.Name("SwitchToQuestsTab"))) { _ in
+            selectedTab = 1
+        }
+        .onReceive(NotificationCenter.default.publisher(for: Notification.Name("OnboardingDidFinish"))) { _ in
+            Task { await checkNudgeInbox() }
+        }
+        .onReceive(NotificationCenter.default.publisher(for: Notification.Name("apnsDeviceTokenUpdated"))) { _ in
+            Task { await registerAndSaveFriendCodeIfNeeded() }
+        }
+        .onReceive(NotificationCenter.default.publisher(for: .localProgressRestoredFromICloud)) { _ in
+            gameState.reloadCountryLearningProgressFromStorage()
+            gameState.refreshWeeklyChallengeCount()
+            userProfile.reloadFromPersistence()
+        }
         .onAppear {
             userProfile.checkAndAwardBirthdayBonusIfNeeded()
             Task {
+                await syncMyCountryToServer()
                 await fetchIncomingDuelChallenges()
                 await registerAndSaveFriendCodeIfNeeded()
                 await refreshFriendsDisplayNames()
@@ -83,32 +149,39 @@ struct MainTabView: View {
                 #endif
             }
         }
+        .onReceive(Timer.publish(every: 12, on: .main, in: .common).autoconnect()) { _ in
+            Task {
+                await fetchIncomingDuelChallenges()
+                await gameState.syncIncomingDuelsWithServer(profile: userProfile)
+                await refreshFriendsDisplayNames()
+                await checkNudgeInbox()
+            }
+        }
         .onChange(of: userProfile.selectedCountryCode) { _ in
+            Task {
+                await syncMyCountryToServer()
+                await registerAndSaveFriendCodeIfNeeded()
+            }
+        }
+        .onChange(of: userProfile.username) { _ in
             Task { await registerAndSaveFriendCodeIfNeeded() }
         }
-        .alert(
-            localizationManager.localizedString("%@ reminds you").replacingOccurrences(of: "%@", with: pendingNudgeAlert?.fromUsername ?? ""),
-            isPresented: Binding(
-                get: { pendingNudgeAlert != nil },
-                set: { if !$0 { pendingNudgeAlert = nil } }
-            )
-        ) {
-            Button(localizationManager.localizedString("CONTINUE")) {
-                if let _ = pendingNudgeAlert {
+        .fullScreenCover(isPresented: $showDuelAnnouncement) {
+            DuelAnnouncementView(
+                gameState: gameState,
+                onDismiss: { showDuelAnnouncement = false },
+                onStart: {
                     Task {
-                        try? await DuelAPIService.shared.markNudgesRead(userId: userProfile.username)
+                        await gameState.startNewGameWithCurrentRegions()
+                        await MainActor.run { showDuelAnnouncement = false }
                     }
                 }
-                pendingNudgeAlert = nil
-            }
-        } message: {
-            if let nudge = pendingNudgeAlert {
-                Text(localizationManager.localizedString(nudge.phraseLocalizationKey))
-            }
+            )
         }
     }
 
     private func checkNudgeInbox() async {
+        guard OnboardingView.hasCompletedOnboarding else { return }
         let userId = userProfile.username
         guard !userId.isEmpty else { return }
         guard let inbox = try? await DuelAPIService.shared.fetchNudgeInbox(userId: userId), let first = inbox.first else { return }
@@ -135,16 +208,18 @@ struct MainTabView: View {
     }
 
     private func registerAndSaveFriendCodeIfNeeded() async {
-        let name = userProfile.username.trimmingCharacters(in: .whitespacesAndNewlines)
-        guard !name.isEmpty else { return }
-        guard let code = try? await DuelAPIService.shared.registerUser(
-            userId: name,
-            username: name,
-            deviceToken: nil,
-            stats: ["level": userProfile.level, "xp": userProfile.xp, "streak": userProfile.streak],
-            countryCode: userProfile.selectedCountryCode
-        ) else { return }
-        UserDefaults.standard.set(code, forKey: "user.serverFriendCode")
+        await FriendsService.shared.syncServerFriendCode(for: userProfile)
+    }
+
+    private func syncMyCountryToServer() async {
+        let userId = userProfile.username.trimmingCharacters(in: .whitespacesAndNewlines)
+        guard !userId.isEmpty else { return }
+        guard let code = FriendsService.normalizeCountryCode(userProfile.selectedCountryCode) else { return }
+        do {
+            try await DuelAPIService.shared.updateMyCountryCode(userId: userId, countryCode: code)
+        } catch {
+            print("[MainTabView] updateMyCountryCode failed:", error.localizedDescription)
+        }
     }
     
     private func fetchIncomingDuelChallenges() async {
@@ -154,10 +229,114 @@ struct MainTabView: View {
         let existingIds = Set(userProfile.incomingDuelChallenges.map(\.id))
         let newOnes = list.compactMap { $0.toDuelChallenge(opponentId: userId, opponentName: userId) }
             .filter { !existingIds.contains($0.id) }
-        guard !newOnes.isEmpty else { return }
         await MainActor.run {
-            userProfile.incomingDuelChallenges.append(contentsOf: newOnes)
+            if !newOnes.isEmpty {
+                userProfile.incomingDuelChallenges.append(contentsOf: newOnes)
+                for duel in newOnes {
+                    NotificationService.shared.logDuelChallengeNotificationIfNeeded(
+                        challengeId: duel.id,
+                        challengerName: duel.challengerName
+                    )
+                }
+            }
+            let duelInvitesEnabled = (UserDefaults.standard.object(forKey: "duelInvitesNotifications") as? Bool) ?? true
+            guard duelInvitesEnabled else {
+                incomingDuelPopup = nil
+                return
+            }
+            if incomingDuelPopup == nil {
+                let now = Date()
+                incomingDuelPopup = userProfile.incomingDuelChallenges
+                    .filter {
+                        ($0.status == .pending || $0.status == .challengerCompleted)
+                        && now.timeIntervalSince($0.createdAt) < 24 * 60 * 60
+                        && !DuelInviteSuppression.isSuppressed($0.id, now: now)
+                    }
+                    .sorted { $0.createdAt > $1.createdAt }
+                    .first
+            } else if let current = incomingDuelPopup, DuelInviteSuppression.isSuppressed(current.id) {
+                incomingDuelPopup = nil
+            }
         }
+    }
+
+    private func acceptIncomingDuel(_ challenge: DuelChallenge) {
+        guard !isAcceptingIncomingDuel else { return }
+        isAcceptingIncomingDuel = true
+        Task {
+            defer { Task { @MainActor in isAcceptingIncomingDuel = false } }
+            let result: (seed: Int, challengerName: String, challengerScore: Int?, duelSetup: DuelAPIService.DuelSetup?)
+            do {
+                result = try await DuelAPIService.shared.acceptChallenge(challengeId: challenge.id)
+                print("[MainTabView] acceptIncomingDuel success challengeId=", challenge.id, "seed=", result.seed)
+            } catch {
+                let msg = (error as? LocalizedError)?.errorDescription ?? error.localizedDescription
+                print("[MainTabView] acceptIncomingDuel failed:", msg, "challengeId=", challenge.id)
+                await MainActor.run {
+                    duelActionErrorText = msg
+                    isAcceptingIncomingDuel = false
+                }
+                return
+            }
+            await MainActor.run {
+                gameState.selectedPlayMode = .duel
+                if let setup = result.duelSetup {
+                    gameState.applyDuelSetupFromServer(setup)
+                } else if
+                    let regions = challenge.duelRegions,
+                    let difficulty = challenge.duelDifficulty,
+                    let gameMode = challenge.duelGameMode
+                {
+                    gameState.applyDuelSetupFromServer(
+                        .init(
+                            regions: regions,
+                            difficulty: difficulty,
+                            gameMode: gameMode,
+                            questionsCount: challenge.duelQuestionsCount ?? 0,
+                            optionsCount: challenge.duelOptionsCount ?? 0
+                        )
+                    )
+                }
+                if gameState.duelQuestionsPayload == nil {
+                    gameState.duelQuestionsPayload = challenge.duelQuestionsPayload
+                }
+                gameState.duelSeed = result.seed
+                gameState.duelChallengeId = challenge.id
+                gameState.duelOpponentId = challenge.challengerId
+                gameState.duelRoleIsChallenger = false
+                gameState.duelChallengerName = result.challengerName
+                gameState.duelOpponentName = userProfile.username
+                // Не удаляем incoming-челлендж: он нужен для ожидания результата и для отправки счёта после игры.
+                DuelInviteSuppression.clear(challenge.id)
+                incomingDuelPopup = nil
+                selectedTab = 0
+                showDuelAnnouncement = true
+            }
+        }
+    }
+
+    private func declineIncomingDuel(_ challenge: DuelChallenge) async {
+        guard !isAcceptingIncomingDuel else { return }
+        isAcceptingIncomingDuel = true
+        defer { isAcceptingIncomingDuel = false }
+        do {
+            try await DuelAPIService.shared.declineChallenge(challengeId: challenge.id, userId: userProfile.username)
+        } catch {
+            // даже если сервер не отработал — локально прячем, чтобы не надоедало
+            let msg = (error as? LocalizedError)?.errorDescription ?? error.localizedDescription
+            print("[MainTabView] declineIncomingDuel failed:", msg, "challengeId=", challenge.id)
+        }
+        await MainActor.run {
+            DuelInviteSuppression.decline(challenge.id)
+            userProfile.incomingDuelChallenges.removeAll { $0.id == challenge.id }
+            incomingDuelPopup = nil
+        }
+    }
+
+    private func remindIncomingDuel(_ challenge: DuelChallenge) {
+        let until = Date().addingTimeInterval(60 * 60) // 1 hour
+        DuelInviteSuppression.snooze(challenge.id, until: until)
+        incomingDuelPopup = nil
     }
 
     /// Обновить отображаемые имена друзей с сервера (после смены имени другом у него обновится имя у нас).
@@ -166,30 +345,71 @@ struct MainTabView: View {
         guard !userId.isEmpty else { return }
         guard let fromAPI = try? await DuelAPIService.shared.fetchMyFriends(userId: userId) else { return }
         await MainActor.run {
+            let oldFriends = userProfile.friends
+            var usedOldIds = Set<UUID>()
+            var merged: [Friend] = []
             for apiFriend in fromAPI {
-                if let idx = userProfile.friends.firstIndex(where: { $0.username == apiFriend.username }) {
-                    let old = userProfile.friends[idx]
-                    let fromAPI = apiFriend.toFriend()
-                    userProfile.friends[idx] = Friend(
+                let mapped = apiFriend.toFriend()
+                if let old = bestMatchingFriendForMerge(apiFriend: apiFriend, oldFriends: oldFriends, usedIds: usedOldIds) {
+                    usedOldIds.insert(old.id)
+                    merged.append(Friend(
                         id: old.id,
-                        username: old.username,
-                        displayName: apiFriend.displayName ?? fromAPI.displayName,
-                        avatar: fromAPI.avatar,
-                        countryCode: fromAPI.countryCode,
+                        username: mapped.username,
+                        displayName: apiFriend.displayName ?? mapped.displayName,
+                        avatar: mapped.avatar,
+                        avatarPhotoBase64: mapped.avatarPhotoBase64 ?? old.avatarPhotoBase64,
+                        countryCode: mapped.countryCode,
                         level: apiFriend.level,
                         xp: apiFriend.xp,
                         streak: apiFriend.streak,
+                        totalGamesPlayed: mapped.totalGamesPlayed,
+                        correctAnswers: mapped.correctAnswers,
                         isOnline: old.isOnline,
-                        joinDate: old.joinDate,
+                        joinDate: apiFriend.joinDateFromServer ?? old.joinDate,
                         playedToday: apiFriend.playedToday,
-                        birthday: fromAPI.birthday ?? old.birthday
-                    )
+                        birthday: mapped.birthday ?? old.birthday,
+                        achievements: apiFriend.achievements,
+                        worldRankFromServer: apiFriend.worldRank ?? old.worldRankFromServer
+                    ))
                 } else {
-                    userProfile.friends.append(apiFriend.toFriend())
+                    merged.append(mapped)
                 }
             }
+            userProfile.friends = merged
             userProfile.saveToStorage()
         }
+    }
+
+    private func bestMatchingFriendForMerge(apiFriend: FriendFromAPI, oldFriends: [Friend], usedIds: Set<UUID>) -> Friend? {
+        let apiUsername = apiFriend.username.trimmingCharacters(in: .whitespacesAndNewlines)
+        let apiDisplay = (apiFriend.displayName ?? "").trimmingCharacters(in: .whitespacesAndNewlines)
+        let apiUsernameNorm = canonicalFriendIdentity(apiUsername)
+        let apiDisplayNorm = canonicalFriendIdentity(apiDisplay)
+        if let exact = oldFriends.first(where: { !usedIds.contains($0.id) && $0.username.caseInsensitiveCompare(apiUsername) == .orderedSame }) {
+            return exact
+        }
+        if let byDisplay = oldFriends.first(where: {
+            !usedIds.contains($0.id)
+            && !$0.displayNameOrUsername.isEmpty
+            && $0.displayNameOrUsername.caseInsensitiveCompare(apiDisplay) == .orderedSame
+        }) {
+            return byDisplay
+        }
+        return oldFriends.first(where: {
+            !usedIds.contains($0.id)
+            && (canonicalFriendIdentity($0.username) == apiUsernameNorm
+                || canonicalFriendIdentity($0.displayNameOrUsername) == apiUsernameNorm
+                || (!apiDisplayNorm.isEmpty
+                    && (canonicalFriendIdentity($0.username) == apiDisplayNorm
+                        || canonicalFriendIdentity($0.displayNameOrUsername) == apiDisplayNorm)))
+        })
+    }
+
+    private func canonicalFriendIdentity(_ raw: String) -> String {
+        var s = raw.trimmingCharacters(in: .whitespacesAndNewlines).lowercased()
+        s = s.replacingOccurrences(of: "[-_ ]?\\d+$", with: "", options: .regularExpression)
+        s = s.replacingOccurrences(of: "[^a-zа-яёіїєґ0-9]", with: "", options: .regularExpression)
+        return s
     }
     
     @ViewBuilder
@@ -536,6 +756,125 @@ struct MainTabView: View {
                 }
                 #endif
             }
+    }
+}
+
+private struct GlobalIncomingDuelPopupView: View {
+    let challenge: DuelChallenge
+    let isAccepting: Bool
+    let onAccept: () -> Void
+    let onRemind: () -> Void
+    let onDecline: () -> Void
+    let onDismiss: () -> Void
+    @ObservedObject private var localizationManager = LocalizationManager.shared
+    @State private var glow = false
+
+    var body: some View {
+        VStack(alignment: .leading, spacing: 10) {
+            HStack(spacing: 10) {
+                ZStack {
+                    Circle()
+                        .fill(LinearGradient(colors: [Color.purple.opacity(0.95), Color.blue.opacity(0.95)], startPoint: .topLeading, endPoint: .bottomTrailing))
+                        .frame(width: 38, height: 38)
+                    Image(systemName: "flame.fill")
+                        .font(.system(size: 16, weight: .bold))
+                        .foregroundColor(.white)
+                }
+                VStack(alignment: .leading, spacing: 2) {
+                    Text(localizationManager.localizedString("duel_invite_popup_title"))
+                        .font(.system(size: 12, weight: .bold))
+                        .foregroundColor(.white.opacity(0.9))
+                    Text(String(format: localizationManager.localizedString("duel_invite_popup_body_format"), challenge.challengerName))
+                        .font(.system(size: 15, weight: .heavy, design: .rounded))
+                        .foregroundColor(.white)
+                        .lineLimit(1)
+                }
+                Spacer(minLength: 8)
+                Button(action: onDismiss) {
+                    Image(systemName: "xmark.circle.fill")
+                        .font(.system(size: 18))
+                        .foregroundColor(.white.opacity(0.9))
+                }
+                .buttonStyle(.plain)
+            }
+
+            Label(localizationManager.localizedString("24h to accept"), systemImage: "clock.badge.exclamationmark")
+                .font(.system(size: 12, weight: .medium))
+                .foregroundColor(.white.opacity(0.9))
+                .frame(maxWidth: .infinity, alignment: .leading)
+
+            HStack(spacing: 6) {
+                Button(action: onAccept) {
+                    HStack(spacing: 4) {
+                        if isAccepting {
+                            ProgressView().tint(.white).scaleEffect(0.75)
+                                .frame(width: 12, height: 12)
+                        }
+                        Text(localizationManager.localizedString("duel_invite_popup_accept"))
+                            .font(.system(size: 11, weight: .bold))
+                            .lineLimit(1)
+                            .minimumScaleFactor(0.75)
+                    }
+                    .foregroundColor(.white)
+                    .frame(maxWidth: .infinity)
+                    .frame(minHeight: 36)
+                    .padding(.horizontal, 4)
+                    .background(
+                        Capsule()
+                            .fill(LinearGradient(colors: [Color.green, Color.teal], startPoint: .leading, endPoint: .trailing))
+                    )
+                }
+                .disabled(isAccepting)
+                .buttonStyle(.plain)
+
+                Button(action: onRemind) {
+                    Text(localizationManager.localizedString("duel_invite_popup_remind_1h"))
+                        .font(.system(size: 11, weight: .bold))
+                        .lineLimit(1)
+                        .minimumScaleFactor(0.75)
+                        .foregroundColor(.white)
+                        .frame(maxWidth: .infinity)
+                        .frame(minHeight: 36)
+                        .padding(.horizontal, 4)
+                        .background(
+                            Capsule()
+                                .fill(Color.blue.opacity(0.35))
+                        )
+                }
+                .buttonStyle(.plain)
+
+                Button(action: onDecline) {
+                    Text(localizationManager.localizedString("duel_invite_popup_decline"))
+                        .font(.system(size: 11, weight: .bold))
+                        .lineLimit(1)
+                        .minimumScaleFactor(0.75)
+                        .foregroundColor(.white)
+                        .frame(maxWidth: .infinity)
+                        .frame(minHeight: 36)
+                        .padding(.horizontal, 4)
+                        .background(
+                            Capsule()
+                                .fill(Color.red.opacity(0.72))
+                        )
+                }
+                .buttonStyle(.plain)
+            }
+        }
+        .padding(14)
+        .background(
+            RoundedRectangle(cornerRadius: 16, style: .continuous)
+                .fill(LinearGradient(colors: [Color.black.opacity(0.9), Color.indigo.opacity(0.82), Color.purple.opacity(0.74)], startPoint: .topLeading, endPoint: .bottomTrailing))
+        )
+        .overlay(
+            RoundedRectangle(cornerRadius: 16, style: .continuous)
+                .stroke(Color.white.opacity(glow ? 0.36 : 0.18), lineWidth: 1.2)
+        )
+        .shadow(color: Color.black.opacity(0.35), radius: 14, x: 0, y: 8)
+        .onAppear {
+            withAnimation(.easeInOut(duration: 1.4).repeatForever(autoreverses: true)) {
+                glow = true
+            }
+        }
     }
 }
 

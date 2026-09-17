@@ -1,0 +1,1 @@
+Country coordinates extracted from https://github.com/mledoze/countries/blob/master/countries.json on 2026-09-16. Licensed under ODbL 1.0; see country_coordinates-LICENSE.txt. Kosovo uses the app code XKX (upstream UNK/XK). This coordinate extract is distributed under the same license.

@@ -1,0 +1,6 @@
+8.0
+
+• Un écran de quiz repensé, avec des réponses plus lisibles et des vies animées.
+• Nouveau design des écrans Statistiques, Ligues et Profil.
+• Une mise en page améliorée sur iPad et des cartes adaptées au contenu.
+• La région et la difficulté sont enregistrées à la fermeture des réglages rapides.

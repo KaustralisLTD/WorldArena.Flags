@@ -29,8 +29,45 @@ class CountryPhotosService {
         case "TH": return thailandPhotos
         case "AR": return argentinaPhotos
         case "ZA": return southAfricaPhotos
-        default: return defaultPhotos(for: countryCode)
+        default: return []
         }
+    }
+
+    /// Галерея для экрана «Обучение»: только курируемые фото с сервера; иначе три emoji-плитки без битых URL.
+    func galleryPhotosForLearning(for countryCode: String) -> [CountryPhoto] {
+        let curated = getPhotos(for: countryCode)
+        if !curated.isEmpty { return curated }
+        return emojiFallbackGallery(for: countryCode)
+    }
+
+    private func emojiFallbackGallery(for countryCode: String) -> [CountryPhoto] {
+        let c = countryCode.uppercased()
+        return [
+            CountryPhoto(
+                id: "\(c)_learn_flag",
+                type: .flag,
+                title: "Flag",
+                description: "",
+                imageURL: "",
+                localImage: getFlagEmoji(for: c)
+            ),
+            CountryPhoto(
+                id: "\(c)_learn_landmark",
+                type: .landmark,
+                title: "Landmark",
+                description: "",
+                imageURL: "",
+                localImage: "🏛️"
+            ),
+            CountryPhoto(
+                id: "\(c)_learn_nature",
+                type: .nature,
+                title: "Nature",
+                description: "",
+                imageURL: "",
+                localImage: "🌄"
+            )
+        ]
     }
     
     // MARK: - USA Photos

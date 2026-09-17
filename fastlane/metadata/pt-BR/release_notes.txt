@@ -1,0 +1,6 @@
+8.0
+
+• Tela do quiz renovada, com respostas mais claras e vidas animadas.
+• Novo design das telas Estatísticas, Ligas e Perfil.
+• Layouts aprimorados no iPad e cartões que se ajustam ao conteúdo.
+• Região e dificuldade são salvas ao fechar os ajustes rápidos.

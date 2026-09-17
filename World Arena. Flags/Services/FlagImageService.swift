@@ -72,6 +72,46 @@ class FlagImageService: ObservableObject {
         
         session = URLSession(configuration: config)
     }
+
+    /// Відсікає JSON/HTML-тіло відповіді CDN (наприклад, flagcdn для AF може віддавати текст на кшталт PX-FLAG_OF_THE_TALIBAN).
+    /// `nonisolated`: викликається з `TaskGroup` поза MainActor (клас позначено `@MainActor`).
+    nonisolated private static func isLikelyRasterImageData(_ data: Data) -> Bool {
+        guard data.count >= 8 else { return false }
+        let b = [UInt8](data.prefix(12))
+        if b.count >= 4, b[0] == 0x89, b[1] == 0x50, b[2] == 0x4E, b[3] == 0x47 { return true }
+        if b.count >= 3, b[0] == 0xFF, b[1] == 0xD8, b[2] == 0xFF { return true }
+        if b.count >= 6, b[0] == 0x47, b[1] == 0x49, b[2] == 0x46 { return true }
+        if data.count >= 12,
+           b[0] == 0x52, b[1] == 0x49, b[2] == 0x46, b[3] == 0x46,
+           data[8] == 0x57, data[9] == 0x45, data[10] == 0x42, data[11] == 0x50 { return true }
+        return false
+    }
+
+    private func countryCodeFromFlagPNGURL(_ url: URL) -> String? {
+        let stem = url.lastPathComponent.replacingOccurrences(of: ".png", with: "").uppercased()
+        guard stem.count == 2 else { return nil }
+        return stem
+    }
+
+    /// Свой хост (как фото гимнов): стабильный PNG, без сюрпризов flagcdn/CDN для AF.
+    /// На хостинге файлы лежат в каталоге `flags/flags/` (FTP: …/worldarena.games/flags/flags/).
+    private static let afghanistanHostedOnServerURL = URL(string: "https://flags.worldarena.games/flags/flags/AF.png")
+
+    /// Джерела без пріоритету flagcdn: для AF flagcdn інколи віддає текст/HTML замість PNG.
+    private func afghanistanFlagMirrorURLs() -> [URL] {
+        var list: [URL] = []
+        if let u = Self.afghanistanHostedOnServerURL { list.append(u) }
+        list.append(contentsOf: [
+            "https://upload.wikimedia.org/wikipedia/commons/thumb/5/5c/Flag_of_the_Taliban.svg/640px-Flag_of_the_Taliban.svg.png",
+            "https://upload.wikimedia.org/wikipedia/commons/thumb/5/5c/Flag_of_the_Taliban.svg/320px-Flag_of_the_Taliban.svg.png",
+            "https://flagpedia.net/data/flags/w580/af.png",
+            "https://flagsapi.com/AF/flat/128.png",
+            "https://flagsapi.com/AF/flat/64.png",
+            "https://flagcdn.com/w640/af.png",
+            "https://flagcdn.com/w320/af.png"
+        ].compactMap { URL(string: $0) })
+        return list
+    }
     
     func loadImage(from url: URL) async -> PlatformImage? {
         // Проверяем кэш
@@ -101,9 +141,16 @@ class FlagImageService: ObservableObject {
         }
         let primaryUrl = upscaleIfPossible(originalUrl)
         var candidates: [URL] = []
-        // Ставим быстрых конкурентов первыми: флагпедиа 580, флагcdn 640/320, flagsapi
-        candidates.append(contentsOf: buildAlternativeUrls(for: primaryUrl))
-        candidates.insert(primaryUrl, at: 0)
+        if countryCodeFromFlagPNGURL(primaryUrl) == "AF" {
+            candidates = afghanistanFlagMirrorURLs()
+            if !candidates.contains(where: { $0.absoluteString == primaryUrl.absoluteString }) {
+                candidates.append(primaryUrl)
+            }
+        } else {
+            // Ставим быстрых конкурентов первыми: флагпедиа 580, флагcdn 640/320, flagsapi
+            candidates.append(contentsOf: buildAlternativeUrls(for: primaryUrl))
+            candidates.insert(primaryUrl, at: 0)
+        }
 
         // Гонка запросов с короткими таймаутами
         return await withTaskGroup(of: PlatformImage?.self) { group in
@@ -113,6 +160,7 @@ class FlagImageService: ObservableObject {
                     request.timeoutInterval = 1.2
                     do {
                         let (data, _) = try await session.data(for: request)
+                        guard Self.isLikelyRasterImageData(data) else { return nil }
                         #if os(iOS)
                         if let image = UIImage(data: data) {
                             return image
@@ -145,6 +193,32 @@ class FlagImageService: ObservableObject {
         }
     }
     
+    /// Upgrade the question card without delaying its bundled, offline image.
+    /// Keep the same CDN and country; special Afghanistan sources retain their existing policy.
+    func loadDetailedFlag(from originalURL: URL) async -> PlatformImage? {
+        guard originalURL.host == "flagcdn.com",
+              countryCodeFromFlagPNGURL(originalURL) != "AF" else { return nil }
+        let optimizedURL = upscaleIfPossible(originalURL)
+        guard let url = URL(string: optimizedURL.absoluteString.replacingOccurrences(of: "/w640/", with: "/w1280/")),
+              url != originalURL else { return nil }
+        let key = url.absoluteString as NSString
+        if let cached = cache.object(forKey: key) { return cached }
+        var request = URLRequest(url: url)
+        request.timeoutInterval = 4
+        do {
+            let (data, response) = try await session.data(for: request)
+            guard !Task.isCancelled,
+                  (response as? HTTPURLResponse)?.statusCode == 200,
+                  Self.isLikelyRasterImageData(data),
+                  let image = PlatformImage(data: data),
+                  image.size.width >= 640 else { return nil }
+            cache.setObject(image, forKey: key)
+            return image
+        } catch {
+            return nil
+        }
+    }
+
     private func createPlaceholderImage(for url: URL) -> PlatformImage? {
         // Извлекаем код страны из URL
         let fileName = url.lastPathComponent
@@ -393,17 +467,19 @@ class FlagImageService: ObservableObject {
             var request = URLRequest(url: primaryUrl)
             request.timeoutInterval = 2.5
             let (data, _) = try await session.data(for: request)
-            #if os(iOS)
-            if let image = UIImage(data: data) {
-                cache.setObject(image, forKey: cacheKey)
-                return image
+            if Self.isLikelyRasterImageData(data) {
+                #if os(iOS)
+                if let image = UIImage(data: data) {
+                    cache.setObject(image, forKey: cacheKey)
+                    return image
+                }
+                #else
+                if let image = NSImage(data: data) {
+                    cache.setObject(image, forKey: cacheKey)
+                    return image
+                }
+                #endif
             }
-            #else
-            if let image = NSImage(data: data) {
-                cache.setObject(image, forKey: cacheKey)
-                return image
-            }
-            #endif
         } catch {
             // fallthrough to alternatives
         }
@@ -420,6 +496,8 @@ class FlagImageService: ObservableObject {
                 URL(string: "https://www.worldometers.info/img/flags/kv-flag.gif"),
                 URL(string: "https://flagsapi.com/XK/flat/64.png")
             ].compactMap { $0 }
+        } else if countryCode == "AF" {
+            alt = afghanistanFlagMirrorURLs()
         } else {
             alt = [
                 URL(string: "https://flagcdn.com/w640/\(mappedCode.lowercased()).png"),
@@ -433,6 +511,7 @@ class FlagImageService: ObservableObject {
                 var r = URLRequest(url: u)
                 r.timeoutInterval = 2.5
                 let (data, _) = try await session.data(for: r)
+                guard Self.isLikelyRasterImageData(data) else { continue }
                 #if os(iOS)
                 if let image = UIImage(data: data) {
                     cache.setObject(image, forKey: cacheKey)
@@ -469,6 +548,11 @@ class FlagImageService: ObservableObject {
                 
                 if let httpResponse = response as? HTTPURLResponse {
                     print("📊 HTTP Status: \(httpResponse.statusCode) for \(primaryUrl.lastPathComponent)")
+                }
+
+                guard Self.isLikelyRasterImageData(data) else {
+                    print("❌ Non-image body for: \(primaryUrl.lastPathComponent)")
+                    continue
                 }
                 
                 #if os(iOS)
@@ -518,6 +602,8 @@ class FlagImageService: ObservableObject {
                 if let httpResponse = response as? HTTPURLResponse {
                     print("📊 Alt HTTP Status: \(httpResponse.statusCode)")
                 }
+
+                guard Self.isLikelyRasterImageData(data) else { continue }
                 
                 #if os(iOS)
                 if let image = UIImage(data: data) {
@@ -575,6 +661,10 @@ class FlagImageService: ObservableObject {
                 URL(string: "https://www.worldometers.info/img/flags/kv-flag.gif"),
                 URL(string: "https://flagsapi.com/XK/flat/64.png")
             ].compactMap { $0 }
+        }
+
+        if countryCode == "AF" {
+            return afghanistanFlagMirrorURLs()
         }
 
         return [

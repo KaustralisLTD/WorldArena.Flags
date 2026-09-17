@@ -1,0 +1,6 @@
+8.0
+
+• Màn hình đố vui mới với đáp án rõ ràng hơn và hiệu ứng mạng chơi.
+• Thiết kế mới cho Thống kê, Giải đấu và Hồ sơ.
+• Cải thiện bố cục iPad và thẻ tự điều chỉnh theo nội dung.
+• Khu vực và độ khó được lưu khi đóng cài đặt nhanh.

@@ -1,0 +1,6 @@
+8.0
+
+• A refreshed quiz screen with clearer answers and animated lives.
+• Redesigned Statistics, Leagues and Profile screens.
+• Improved iPad layouts and cards that adapt to their content.
+• Region and difficulty changes now save when you close quick settings.

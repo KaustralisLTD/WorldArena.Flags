@@ -177,14 +177,14 @@ struct StartView: View {
     
     private var titleView: some View {
         VStack(spacing: 8) {
-            Text("🌍")
+            Image(systemName: "globe")
                 .font(.system(size: 50))
                 .scaleEffect(titleScale)
                 .opacity(titleOpacity)
                 .animation(.spring(response: 0.6, dampingFraction: 0.6).delay(0.2), value: titleScale)
                 .animation(.easeIn(duration: 0.8).delay(0.2), value: titleOpacity)
             
-            Text("🔥 НОВЫЙ ДИЗАЙН! 🔥")
+            Text(LocalizationManager.shared.localizedString("НОВЫЙ ДИЗАЙН"))
                 .font(.system(size: 40, weight: .black, design: .rounded))
                 .foregroundColor(.red)
                 .background(Color.yellow)
@@ -231,12 +231,12 @@ struct StartView: View {
                                             gameState.selectedDifficulty == difficulty ? .white : .primary
                                         )
                                     
-                                    Text(difficulty.description)
+                                    Text(difficulty.description(for: gameState.selectedPlayMode))
                                         .font(.system(size: 12))
                                         .foregroundColor(
                                             gameState.selectedDifficulty == difficulty ? .white.opacity(0.8) : .secondary
                                         )
-                                        .lineLimit(2)
+                                        .lineLimit((gameState.selectedPlayMode == .timeChallenge || gameState.selectedPlayMode == .survival) ? 4 : 2)
                                         .minimumScaleFactor(0.8)
                                 }
                                 .padding(.horizontal, 10)
@@ -281,7 +281,7 @@ struct StartView: View {
                         }
                             }) {
                                 HStack(spacing: 12) {
-                            Text("🎯")
+                            Image(systemName: "target")
                                         .font(.system(size: 24))
                                     
                                     VStack(alignment: .leading, spacing: 2) {

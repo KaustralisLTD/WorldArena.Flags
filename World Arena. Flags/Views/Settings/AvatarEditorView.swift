@@ -1,1498 +1,981 @@
 import SwiftUI
-import PhotosUI
 #if os(iOS)
 import UIKit
 #endif
 
+final class AvatarEditorViewModel: ObservableObject {
+    @Published var draft: AvatarConfiguration
+    let original: AvatarConfiguration
+    @Published var selectedCategory: AvatarEditorCategory = .body
+
+    init(configuration: AvatarConfiguration) {
+        var cfg = configuration
+        AvatarEditorViewModel.sanitizeDraftForEditor(&cfg)
+        self.draft = cfg
+        self.original = cfg
+        if !AvatarEditorViewModel.visibleEditorCategories.contains(self.selectedCategory) {
+            self.selectedCategory = .body
+        }
+    }
+
+    var hasChanges: Bool { draft != original }
+
+    /// Видимые вкладки (без очков и одежды — временно).
+    static var visibleEditorCategories: [AvatarEditorCategory] {
+        AvatarEditorCategory.allCases.filter { $0 != .glasses && $0 != .clothing }
+    }
+
+    /// Убранные из редактора эмоции / шапки не оставляем в черновике (иначе превью без выбора в сетке).
+    static func sanitizeDraftForEditor(_ cfg: inout AvatarConfiguration) {
+        if AvatarEditorView.hiddenExpressionRawValues.contains(cfg.expression.rawValue) {
+            cfg.expression = .e1
+        }
+        if cfg.headwearStyle == .beanie || cfg.headwearStyle == .bandana {
+            cfg.headwearStyle = .none
+            cfg.headwearColor = nil
+        }
+    }
+}
+
 struct AvatarEditorView: View {
-    @Environment(\.presentationMode) var presentationMode
+    @Environment(\.dismiss) private var dismiss
+    @Environment(\.horizontalSizeClass) private var horizontalSizeClass
     @EnvironmentObject var userProfile: UserProfile
-    @State private var selectedTab = 0
-    @State private var showingImagePicker = false
-    #if os(iOS)
-    @State private var selectedImage: UIImage?
-    #endif
-    
-    private var systemGroupedBackground: Color {
-        #if os(iOS)
-        return Color(UIColor.systemGroupedBackground)
-        #else
-        return Color(NSColor.controlBackgroundColor)
-        #endif
-    }
-    
-    private var secondarySystemGroupedBackground: Color {
-        #if os(iOS)
-        return Color(UIColor.secondarySystemGroupedBackground)
-        #else
-        return Color(NSColor.textBackgroundColor)
-        #endif
-    }
-    
-    // Avatar creator states
-    @State private var selectedGender = 0 // 0: male, 1: female
-    @State private var selectedSkinTone = 2
-    @State private var selectedFaceShape = 0
-    @State private var selectedHairStyle = 0
-    @State private var selectedHairColor = 0
-    @State private var selectedEyeShape = 0
-    @State private var selectedEyeColor = 0
-    @State private var selectedEyebrows = 0
-    @State private var selectedNose = 0
-    @State private var selectedMouth = 0
-    @State private var selectedFacialHair = 0
-    @State private var selectedOutfit = 0
-    @State private var selectedAccessory = 0
-    @State private var selectedGlasses = 0
-    @State private var skinShopCategory: SkinShopCategory = .body
+    @EnvironmentObject var gameState: GameState
+    @ObservedObject private var localizationManager = LocalizationManager.shared
+    @StateObject private var viewModel: AvatarEditorViewModel
+    @State private var showDiscardAlert = false
+    @State private var showHeadwearLockAlert = false
+    @State private var headwearLockAlertMessage = ""
 
-    private enum SkinShopCategory: Int, CaseIterable {
-        case headwear = 0
-        case body = 1
-        case glasses = 2
-        case skin = 3
-        case hair = 4
-        case face = 5
+    /// Эмоции, скрытые в сетке редактора (номера 1…23 на ассетах).
+    static let hiddenExpressionRawValues: Set<Int> = [2, 4, 5, 6, 9, 10]
+    /// iPad / широкий контейнер: превью слева, опции справа, табы снизу (паттерн Duolingo).
+    private var useWideAvatarLayout: Bool { horizontalSizeClass == .regular }
+    private let wideLayoutTabBarHeight: CGFloat = 58
+
+    init() {
+        let config = AvatarStorage.shared.load() ?? AvatarConfiguration.default
+        _viewModel = StateObject(wrappedValue: AvatarEditorViewModel(configuration: config))
     }
-    
+
     var body: some View {
-        NavigationView {
-            VStack(spacing: 0) {
-                // Avatar preview
-                avatarPreview
-                
-                // Tab selector
-                tabSelector
-                
-                // Content based on selected tab
-                TabView(selection: $selectedTab) {
-                    photoUploadTab
-                        .tag(0)
-                    
-                    avatarCreatorTab
-                        .tag(1)
+        VStack(spacing: 0) {
+            header
+            Group {
+                if useWideAvatarLayout {
+                    wideAvatarEditorBody
+                } else {
+                    compactAvatarEditorBody
                 }
-                #if os(iOS)
-                .tabViewStyle(PageTabViewStyle(indexDisplayMode: .never))
-                #endif
-                
-                Spacer()
-                
-                // Save button
-                saveButton
             }
-            .background(selectedTab == 1 ? Self.skinEditorDark : systemGroupedBackground)
-            .navigationTitle(LocalizationManager.shared.localizedString("Edit Avatar"))
-            #if os(iOS)
-            .navigationBarTitleDisplayMode(.inline)
+            .frame(maxWidth: .infinity, maxHeight: .infinity)
+        }
+        .background(Color(UIColor.systemGray6))
+        .alert(t("discard_title"), isPresented: $showDiscardAlert) {
+            Button(t("discard_action"), role: .destructive) { dismiss() }
+            Button(t("continue_editing"), role: .cancel) { }
+        } message: {
+            Text(t("discard_message"))
+        }
+        .alert(t("lock_item_title"), isPresented: $showHeadwearLockAlert) {
+            Button(t("lock_item_ok"), role: .cancel) { }
+        } message: {
+            Text(headwearLockAlertMessage)
+        }
+    }
+
+    private var header: some View {
+        HStack(alignment: .center, spacing: 6) {
+            Button {
+                if viewModel.hasChanges { showDiscardAlert = true } else { dismiss() }
+            } label: {
+                Image(systemName: "xmark")
+                    .font(.system(size: 18, weight: .semibold))
+                    .foregroundColor(.secondary)
+                    .frame(width: 38, height: 38)
+            }
+            .buttonStyle(.plain)
+            Text(t("edit_avatar"))
+                .font(.system(size: 17, weight: .bold))
+                .foregroundColor(.primary)
+                .lineLimit(2)
+                .minimumScaleFactor(0.72)
+                .multilineTextAlignment(.center)
+                .frame(maxWidth: .infinity)
+            Button {
+                saveAvatar()
+            } label: {
+                Image(systemName: "checkmark.circle.fill")
+                    .symbolRenderingMode(.palette)
+                    .foregroundStyle(.white, Color.blue)
+                    .font(.system(size: 28, weight: .semibold))
+                    .frame(width: 38, height: 38)
+            }
+            .buttonStyle(.plain)
+            .accessibilityLabel(t("done"))
+        }
+        .padding(.horizontal, 10)
+        .padding(.vertical, 8)
+        .background(.white)
+    }
+
+    /// Кадр «по пояс»: ~половина высоты экрана, ширина на весь блок — композитор сам подгоняет масштаб.
+    private var avatarPreviewCanvasHeight: CGFloat {
+        #if os(iOS)
+        min(max(UIScreen.main.bounds.height * 0.46, 300), 520)
+        #else
+        320
             #endif
-            .toolbar {
-                #if os(iOS)
-                ToolbarItem(placement: .navigationBarLeading) {
-                    Button(LocalizationManager.shared.localizedString("Cancel")) {
-                        presentationMode.wrappedValue.dismiss()
+    }
+
+    private var compactAvatarEditorBody: some View {
+        VStack(spacing: 0) {
+            avatarPreviewBlock(canvasHeight: avatarPreviewCanvasHeight)
+            categoryTabs
+            editorPanel
+        }
+    }
+
+    private var wideAvatarEditorBody: some View {
+        GeometryReader { geo in
+            let mainH = max(220, geo.size.height - wideLayoutTabBarHeight)
+            VStack(spacing: 0) {
+                HStack(alignment: .top, spacing: 0) {
+                    avatarPreviewBlock(canvasHeight: mainH)
+                        .frame(width: min(420, max(280, geo.size.width * 0.38)))
+                    Divider()
+                    ScrollView {
+                        editorScrollSections
+                            .padding(14)
+                            .padding(.bottom, 30)
                     }
-                    .foregroundColor(.red)
+                    .frame(maxWidth: .infinity, maxHeight: mainH)
                 }
-                #else
-                ToolbarItem(placement: .cancellationAction) {
-                    Button(LocalizationManager.shared.localizedString("Cancel")) {
-                        presentationMode.wrappedValue.dismiss()
-                    }
-                    .foregroundColor(.red)
-                }
-                #endif
+                .frame(height: mainH)
+                categoryTabs
             }
         }
+    }
+
+    private func avatarPreviewBlock(canvasHeight: CGFloat) -> some View {
+        ZStack {
+            viewModel.draft.backgroundColor.color
+            AvatarRendererView(configuration: viewModel.draft)
+                .id("\(viewModel.draft.skinTone.rawValue)-\(viewModel.draft.bodyStyle.rawValue)-\(viewModel.draft.clothingStyle.rawValue)-\(viewModel.draft.expression.rawValue)-\(viewModel.draft.hairstyle.rawValue)-\(viewModel.draft.hairColor.rawValue)")
+                .frame(maxWidth: .infinity, maxHeight: .infinity)
+                .padding(.horizontal, 6)
+                .padding(.vertical, 4)
+        }
+        .frame(height: canvasHeight)
+    }
+
+    private var categoryTabs: some View {
+        ScrollView(.horizontal, showsIndicators: false) {
+            HStack(spacing: 18) {
+                ForEach(AvatarEditorViewModel.visibleEditorCategories) { category in
+                    Button {
+                        viewModel.selectedCategory = category
+        } label: {
+                        VStack(spacing: 7) {
+                            Image(categoryTabAssetName(for: category))
+                                .resizable()
+                                .scaledToFit()
+                                .frame(width: 54, height: 54)
+                                .opacity(viewModel.selectedCategory == category ? 1 : 0.55)
+                            Rectangle()
+                                .fill(viewModel.selectedCategory == category ? Color.blue : .clear)
+                                .frame(height: 2.5)
+                        }
+                        .frame(width: 66)
+        }
+        .buttonStyle(.plain)
+    }
+            }
+            .padding(.horizontal, 14)
+            .padding(.vertical, 10)
+        }
+        .background(.white)
+    }
+
+    @ViewBuilder
+    private var editorScrollSections: some View {
+        VStack(alignment: .leading, spacing: 22) {
+            switch viewModel.selectedCategory {
+            case .body: bodySection
+            case .face: faceSection
+            case .hair: hairSection
+            case .glasses: glassesSection
+            case .facialHair: facialHairSection
+            case .headwear: headwearSection
+            case .clothing: clothingSection
+            case .background: backgroundSection
+            }
+        }
+    }
+
+    private var editorPanel: some View {
+        ScrollView {
+            editorScrollSections
+                .padding(14)
+                .padding(.bottom, 30)
+        }
+    }
+
+    private var bodySection: some View {
+        VStack(alignment: .leading, spacing: 16) {
+            sectionTitle(t("skin_tone"))
+            Text(t("editor_section_coming_soon"))
+                .font(.subheadline)
+                .foregroundStyle(.secondary)
+                .frame(maxWidth: .infinity, alignment: .leading)
+                .padding(.vertical, 4)
+            sectionTitle(t("body"))
+            AvatarStyleGrid(items: AvatarBodyStyle.allCases, selected: viewModel.draft.bodyStyle, title: bodyTitle, preview: { item in
+                AnyView(bodyShapePreview(for: item))
+            }) { item in
+                viewModel.draft.bodyStyle = item
+                switch item {
+                case .hoodie: viewModel.draft.clothingStyle = .hoodie
+                case .tshirt: viewModel.draft.clothingStyle = .tshirt
+                case .sweater: viewModel.draft.clothingStyle = .sweater
+                case .slim, .regular, .wide: break
+                }
+            }
+        }
+    }
+
+    private var faceSection: some View {
+        VStack(alignment: .leading, spacing: 16) {
+            sectionTitle(t("eye_color"))
+            Text(t("editor_section_coming_soon"))
+                .font(.subheadline)
+                .foregroundStyle(.secondary)
+                .frame(maxWidth: .infinity, alignment: .leading)
+                .padding(.vertical, 4)
+            sectionTitle(t("expression"))
+            AvatarStyleGrid(
+                items: expressionEditorItems,
+                selected: viewModel.draft.expression,
+                showLabels: false,
+                title: { _ in "" },
+                accessibilityLabel: { item in
+                    if let idx = expressionEditorItems.firstIndex(of: item) {
+                        return "\(t("expression")) \(idx + 1)"
+                    }
+                    return t("expression")
+                },
+                preview: { item in
+                    AnyView(expressionPreview(for: item))
+                }
+            ) {
+                viewModel.draft.expression = $0
+            }
+        }
+    }
+
+    private var expressionEditorItems: [AvatarExpression] {
+        AvatarExpression.allCases.filter { !Self.hiddenExpressionRawValues.contains($0.rawValue) }
+    }
+
+    private var headwearEditorItems: [AvatarHeadwearStyle] {
+        AvatarHeadwearStyle.allCases.filter { $0 != .beanie && $0 != .bandana }
+    }
+
+    private func presentHeadwearLockExplanation(for style: AvatarHeadwearStyle) {
+        switch style.availability {
+        case .premiumSubscription:
+            headwearLockAlertMessage = t("lock_headwear_premium_body")
+        case .shopLocked:
+            headwearLockAlertMessage = t("lock_headwear_shop_body")
+        case .always:
+            headwearLockAlertMessage = t("lock_headwear_generic_body")
+        }
+        showHeadwearLockAlert = true
+    }
+
+    private var hairSection: some View {
+        VStack(alignment: .leading, spacing: 16) {
+            sectionTitle(t("main_hair_color"))
+            Text(t("editor_section_coming_soon"))
+                .font(.subheadline)
+                .foregroundStyle(.secondary)
+                .frame(maxWidth: .infinity, alignment: .leading)
+                .padding(.vertical, 4)
+            sectionTitle(t("hairstyle"))
+            AvatarStyleGrid(items: AvatarHairStyle.allCases, selected: viewModel.draft.hairstyle, title: hairTitle, preview: { item in
+                AnyView(hairStylePreview(for: item))
+            }) {
+                viewModel.draft.hairstyle = $0
+            }
+        }
+    }
+
+    private var glassesSection: some View {
+        VStack(alignment: .leading, spacing: 16) {
+            sectionTitle(t("glasses"))
+            AvatarStyleGrid(items: AvatarGlassesStyle.allCases, selected: viewModel.draft.glassesStyle, title: glassesTitle, preview: { item in
+                AnyView(glassesIconPreview(for: item))
+            }) {
+                viewModel.draft.glassesStyle = $0
+                if $0 == .none { viewModel.draft.glassesColor = nil }
+            }
+            if viewModel.draft.glassesStyle != .none {
+                sectionTitle(t("glasses_color"))
+                AvatarColorGrid(
+                    colors: [.black, .blue, .green, .orange, .redSoft, .purple],
+                    selected: viewModel.draft.glassesColor ?? .blue
+                ) { viewModel.draft.glassesColor = $0 }
+            }
+        }
+    }
+
+    private var facialHairSection: some View {
+        VStack(alignment: .leading, spacing: 16) {
+            sectionTitle(t("facial_hair"))
+            AvatarStyleGrid(items: AvatarFacialHairStyle.allCases, selected: viewModel.draft.facialHairStyle, title: facialHairTitle, preview: { item in
+                AnyView(stylePreview { $0.facialHairStyle = item })
+            }) {
+                viewModel.draft.facialHairStyle = $0
+                if $0 == .none { viewModel.draft.facialHairColor = nil }
+            }
+            if viewModel.draft.facialHairStyle != .none, !facialHairUsesPreColoredPNG {
+                sectionTitle(t("facial_hair_color"))
+                AvatarColorGrid(
+                    colors: [.black, .darkBrown, .brown, .auburn, .gray, .white],
+                    selected: viewModel.draft.facialHairColor ?? .brown
+                ) { viewModel.draft.facialHairColor = $0 }
+            }
+        }
+    }
+
+    private var headwearSection: some View {
+        VStack(alignment: .leading, spacing: 16) {
+            sectionTitle(t("headwear"))
+            AvatarHeadwearStyleGrid(
+                items: headwearEditorItems,
+                selected: viewModel.draft.headwearStyle,
+                isPremiumActive: gameState.isPremium,
+                title: headwearTitle,
+                preview: { item in AnyView(stylePreview { $0.headwearStyle = item }) },
+                onSelect: { style in
+                    viewModel.draft.headwearStyle = style
+                    if style == .none { viewModel.draft.headwearColor = nil }
+                },
+                onLockedTap: { presentHeadwearLockExplanation(for: $0) }
+            )
+            if viewModel.draft.headwearStyle != .none, !headwearUsesPreColoredHatPNG {
+                sectionTitle(t("headwear_color"))
+                AvatarColorGrid(
+                    colors: [.purple, .blue, .green, .yellow, .orange, .redSoft],
+                    selected: viewModel.draft.headwearColor ?? .purple
+                ) { viewModel.draft.headwearColor = $0 }
+            }
+        }
+    }
+
+    private var headwearUsesPreColoredHatPNG: Bool {
+        guard viewModel.draft.headwearStyle != .none,
+              let name = AvatarLayerAssetNames.hat(viewModel.draft.headwearStyle),
+              AvatarBundleImage.exists(name) else { return false }
+        return name.hasPrefix("avatar_hat_")
+    }
+
+    private var clothingSection: some View {
+        VStack(alignment: .leading, spacing: 16) {
+            sectionTitle(t("clothing_color"))
+            AvatarColorGrid(
+                colors: [.purple, .skyBlue, .green, .yellow, .orange, .redSoft, .pink, .lightGray, .darkGray],
+                selected: viewModel.draft.clothingColor
+            ) { viewModel.draft.clothingColor = $0 }
+            sectionTitle(t("clothing_style"))
+            AvatarStyleGrid(items: AvatarClothingStyle.allCases, selected: viewModel.draft.clothingStyle, title: clothingTitle, preview: { item in
+                AnyView(stylePreview { $0.clothingStyle = item })
+            }) { item in
+                viewModel.draft.clothingStyle = item
+                switch item {
+                case .hoodie, .tshirt, .sweater:
+                    if [.hoodie, .tshirt, .sweater].contains(viewModel.draft.bodyStyle) {
+                        switch item {
+                        case .hoodie: viewModel.draft.bodyStyle = .hoodie
+                        case .tshirt: viewModel.draft.bodyStyle = .tshirt
+                        case .sweater: viewModel.draft.bodyStyle = .sweater
+                        default: break
+                        }
+                    }
+                case .jacket:
+                    if [.hoodie, .tshirt, .sweater].contains(viewModel.draft.bodyStyle) {
+                        viewModel.draft.bodyStyle = .regular
+                    }
+                }
+            }
+        }
+    }
+
+    private var backgroundSection: some View {
+        VStack(alignment: .leading, spacing: 16) {
+            sectionTitle(t("background_color"))
+            AvatarColorGrid(
+                colors: [.lightGray, .gray, .darkGray, .beige, .purple, .skyBlue, .blue, .mint, .green, .lime, .yellow, .orange, .peach, .pink, .redSoft],
+                selected: viewModel.draft.backgroundColor
+            ) { viewModel.draft.backgroundColor = $0 }
+        }
+    }
+
+    private func sectionTitle(_ title: String) -> some View {
+        Text(title)
+            .font(.system(size: 22, weight: .bold))
+            .minimumScaleFactor(0.7)
+            .lineLimit(1)
+    }
+
+    private func stylePreview(apply: (inout AvatarConfiguration) -> Void) -> some View {
+        var cfg = viewModel.draft
+        apply(&cfg)
+        return ZStack {
+            RoundedRectangle(cornerRadius: 10)
+                .fill(cfg.backgroundColor.color.opacity(0.9))
+            AvatarRendererView(configuration: cfg)
+                .padding(6)
+        }
+    }
+
+    private func categoryTabAssetName(for category: AvatarEditorCategory) -> String {
+        switch category {
+        /// Иконки 1-го и 2-го таба переставлены; разделы `.body` / `.face` и `editorScrollSections` без изменений.
+        case .body: return "AvatarEditorTabFace"
+        case .face: return "AvatarEditorTabBody"
+        case .hair: return "AvatarEditorTabHair"
+        case .glasses: return "AvatarEditorTabGlasses"
+        case .facialHair: return "AvatarEditorTabFacialHair"
+        case .headwear: return "AvatarEditorTabHeadwear"
+        case .clothing: return "AvatarEditorTabClothing"
+        case .background: return "AvatarEditorTabBackground"
+        }
+    }
+
+    @ViewBuilder
+    private func bodyShapePreview(for item: AvatarBodyStyle) -> some View {
+        let layer = AvatarLayerAssetNames.body(for: item)
+        if AvatarBundleImage.exists(layer) {
+            tabIconCard {
+                Image(layer)
+                    .resizable()
+                    .scaledToFit()
+                    .padding(4)
+            }
+        } else {
+            switch item {
+            case .slim:
+                tabIconCard { Image("AvatarEditorBodySlim").resizable().scaledToFit().padding(4) }
+            case .regular:
+                tabIconCard { Image("AvatarEditorBodyRegular").resizable().scaledToFit().padding(4) }
+            case .wide:
+                tabIconCard { Image("AvatarEditorBodyWide").resizable().scaledToFit().padding(4) }
+            case .hoodie, .tshirt, .sweater:
+                stylePreview { $0.bodyStyle = item }
+            }
+        }
+    }
+
+    private func tabIconCard<Content: View>(@ViewBuilder content: () -> Content) -> some View {
+        ZStack {
+            RoundedRectangle(cornerRadius: 10)
+                .fill(Color.gray.opacity(0.14))
+            content()
+        }
+    }
+
+    @ViewBuilder
+    private func glassesIconPreview(for style: AvatarGlassesStyle) -> some View {
+        let name: String = {
+            if let layer = AvatarLayerAssetNames.glasses(style), AvatarBundleImage.exists(layer) { return layer }
+            switch style {
+            case .none: return "AvatarPickerGlassesNone"
+            case .round: return "AvatarPickerGlassesRound"
+            case .square: return "AvatarPickerGlassesSquare"
+            case .sunglasses: return "AvatarPickerGlassesSunglasses"
+            case .slim: return "AvatarPickerGlassesSlim"
+            }
+        }()
+        tabIconCard {
+            Image(name)
+                .resizable()
+                .scaledToFit()
+                .padding(6)
+        }
+    }
+
+    @ViewBuilder
+    private func expressionPreview(for item: AvatarExpression) -> some View {
+        let primary = AvatarLayerAssetNames.mouthPrimary(item)
+        tabIconCard {
+            Image(primary)
+                .resizable()
+                .scaledToFit()
+                .padding(4)
+        }
+    }
+
+    @ViewBuilder
+    private func hairStylePreview(for item: AvatarHairStyle) -> some View {
+        switch item {
+        case .bald:
+            tabIconCard {
+                Image(systemName: "person.crop.circle")
+                    .font(.system(size: 26, weight: .medium))
+                    .foregroundStyle(.secondary)
+            }
+        default:
+            if let layer = AvatarLayerAssetNames.hair(item), AvatarBundleImage.exists(layer) {
+                tabIconCard { hairPNGSwatch(layerName: layer) }
+            } else {
+                hairLegacyIconPreview(for: item)
+            }
+        }
+    }
+
+    /// Только верх ассета (причёска), без полного тела — не дублируем «вторую голову» как `stylePreview`.
+    @ViewBuilder
+    private func hairPNGSwatch(layerName: String) -> some View {
+        let tinted = !layerName.hasPrefix("avatar_hair_")
+        Group {
+            if tinted {
+                Image(layerName)
+                    .resizable()
+                    .scaledToFill()
+                    .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .top)
+                    .clipped()
+                    .padding(4)
+                    .colorMultiply(viewModel.draft.hairColor.color)
+            } else {
+                Image(layerName)
+                    .resizable()
+                    .scaledToFill()
+                    .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .top)
+                    .clipped()
+                    .padding(4)
+            }
+        }
+    }
+
+    @ViewBuilder
+    private func hairLegacyIconPreview(for item: AvatarHairStyle) -> some View {
+        switch item {
+        case .shortFlat, .buzz:
+            tabIconCard { Image("AvatarPickerHairShort").resizable().scaledToFit().padding(4) }
+        case .curl, .waves:
+            tabIconCard { Image("AvatarPickerHairCurl").resizable().scaledToFit().padding(4) }
+        case .sidePart, .modernTop, .slick, .pompadour:
+            tabIconCard { Image("AvatarPickerHairBold").resizable().scaledToFit().padding(4) }
+        case .spiky:
+            tabIconCard { Image("AvatarPickerHairShort").resizable().scaledToFit().padding(4) }
+        case .bald:
+            tabIconCard {
+                Image(systemName: "person.crop.circle")
+                    .font(.system(size: 26, weight: .medium))
+                    .foregroundStyle(.secondary)
+            }
+        }
+    }
+
+    private func saveAvatar() {
+        AvatarStorage.shared.save(viewModel.draft)
         #if os(iOS)
-        .sheet(isPresented: $showingImagePicker) {
-            ImagePicker(selectedImage: $selectedImage)
+        if let data = snapshotAvatarJPEG(configuration: viewModel.draft) {
+            userProfile.customAvatarImageData = data
+            userProfile.avatar = "custom_photo"
         }
         #endif
-    }
-    
-    private var avatarPreview: some View {
-        VStack(spacing: 14) {
-            ZStack {
-                Circle()
-                    .fill(LinearGradient(
-                        colors: [
-                            Color(red: 0.2, green: 0.35, blue: 0.6),
-                            Color(red: 0.1, green: 0.18, blue: 0.35)
-                        ],
-                        startPoint: .topLeading,
-                        endPoint: .bottomTrailing
-                    ))
-                    .frame(width: 140, height: 140)
-                    .overlay(Circle().stroke(Color.white.opacity(0.2), lineWidth: 1))
-                
-                #if os(iOS)
-                if selectedTab == 0, let image = selectedImage {
-                    Image(uiImage: image)
-                        .resizable()
-                        .scaledToFill()
-                        .frame(width: 130, height: 130)
-                        .clipShape(Circle())
-                } else if selectedTab == 1 {
-                    customAvatarView
-                        .frame(width: 130, height: 130)
-                } else {
-                    Image(systemName: "person.circle.fill")
-                        .font(.system(size: 70))
-                        .foregroundColor(.white.opacity(0.9))
-                }
-                #else
-                if selectedTab == 1 {
-                    customAvatarView
-                        .frame(width: 130, height: 130)
-                } else {
-                    Image(systemName: "person.circle.fill")
-                        .font(.system(size: 70))
-                        .foregroundColor(.white.opacity(0.9))
-                }
-                #endif
-            }
-            .shadow(color: .black.opacity(0.25), radius: 12, x: 0, y: 6)
-            
-            Text(selectedTab == 0 ? LocalizationManager.shared.localizedString("Upload Photo") : LocalizationManager.shared.localizedString("Create skin"))
-                .font(.system(size: 16, weight: .bold))
-                .foregroundColor(.primary)
+
+        userProfile.saveToStorage()
+        let username = userProfile.username
+        Task {
+            try? await DuelAPIService.shared.updateMyAvatarConfig(
+                userId: username,
+                config: viewModel.draft,
+                avatar: userProfile.avatar,
+                customAvatarImageData: userProfile.customAvatarImageData
+            )
         }
-        .padding(.top, 20)
+        dismiss()
     }
-    
-    private var tabSelector: some View {
-        HStack(spacing: 12) {
-            Button(action: { selectedTab = 0 }) {
-                HStack(spacing: 8) {
-                    Image(systemName: "arrow.triangle.2.circlepath.camera")
-                        .font(.system(size: 16))
-                    Text(LocalizationManager.shared.localizedString("Replace photo"))
-                        .font(.system(size: 14, weight: .semibold))
-                }
-                .foregroundColor(selectedTab == 0 ? .primary : .secondary)
-                .frame(maxWidth: .infinity)
-                .padding(.vertical, 14)
-                .background(selectedTab == 0 ? Color.blue.opacity(0.12) : secondarySystemGroupedBackground)
-                .cornerRadius(14)
-            }
-            Button(action: { selectedTab = 1 }) {
-                HStack(spacing: 8) {
-                    Image(systemName: "square.and.arrow.down")
-                        .font(.system(size: 16))
-                    Text(LocalizationManager.shared.localizedString("Create skin"))
-                        .font(.system(size: 14, weight: .semibold))
-                }
-                .foregroundColor(selectedTab == 1 ? .primary : .secondary)
-                .frame(maxWidth: .infinity)
-                .padding(.vertical, 14)
-                .background(selectedTab == 1 ? Color.blue.opacity(0.12) : secondarySystemGroupedBackground)
-                .cornerRadius(14)
+
+    #if os(iOS)
+    /// Экспорт в JPEG для профиля: **квадрат** под рамку в шапке профиля (без полей `scaledToFit`).
+    private func snapshotAvatarJPEG(configuration: AvatarConfiguration) -> Data? {
+        let exportS: CGFloat = 360
+        let size = CGSize(width: exportS, height: exportS)
+        let root = avatarExportRoot(configuration: configuration, exportSize: exportS)
+
+        if #available(iOS 16.0, *) {
+            let renderer = ImageRenderer(content: root)
+            renderer.scale = UIScreen.main.scale
+            renderer.proposedSize = ProposedViewSize(width: exportS, height: exportS)
+            if let ui = renderer.uiImage {
+                return ui.jpegData(compressionQuality: 0.92)
             }
         }
-        .padding(.horizontal, 20)
-        .padding(.top, 16)
+        return snapshotAvatarJPEGLegacy(root: root, size: size, backgroundUIColor: UIColor(configuration.backgroundColor.color))
     }
-    
-    private var photoUploadTab: some View {
-        VStack(spacing: 24) {
-            VStack(spacing: 16) {
-                Image(systemName: "photo.badge.plus")
-                    .font(.system(size: 60))
-                    .foregroundColor(.blue)
-                
-                Text(LocalizationManager.shared.localizedString("Upload your photo from gallery or take a new one"))
-                    .font(.system(size: 16))
-                    .foregroundColor(.secondary)
-                    .multilineTextAlignment(.center)
-                    .padding(.horizontal, 40)
-            }
-            .padding(.top, 40)
-            
-            #if os(iOS)
-            Button(action: { showingImagePicker = true }) {
-                HStack(spacing: 12) {
-                    Image(systemName: "photo.on.rectangle")
-                    Text(LocalizationManager.shared.localizedString("Select photo"))
-                }
-                .font(.system(size: 16, weight: .semibold))
-                .foregroundColor(.white)
-                .frame(maxWidth: .infinity)
-                .padding(.vertical, 16)
-                .background(Color.blue)
-                .cornerRadius(12)
-            }
-            #else
-            Button(action: { }) {
-                HStack(spacing: 12) {
-                    Image(systemName: "photo.on.rectangle")
-                    Text(LocalizationManager.shared.localizedString("Select photo"))
-                }
-                .font(.system(size: 16, weight: .semibold))
-                .foregroundColor(.white)
-                .frame(maxWidth: .infinity)
-                .padding(.vertical, 16)
-                .background(Color.blue)
-                .cornerRadius(12)
-            }
-            .padding(.horizontal, 20)
-            #endif
-            
-            Spacer()
+
+    /// Квадратный кадр: фон на весь размер + портретный холст конструктора заполняет квадрат (обрезка как в профиле `scaledToFill`).
+    private func avatarExportRoot(configuration: AvatarConfiguration, exportSize: CGFloat) -> some View {
+        let canvasAspectWidthOverHeight: CGFloat = 501 / 684
+        return ZStack {
+            Rectangle()
+                .fill(configuration.backgroundColor.color)
+                .frame(width: exportSize, height: exportSize)
+            AvatarRendererView(configuration: configuration)
+                .aspectRatio(canvasAspectWidthOverHeight, contentMode: .fill)
+                .frame(width: exportSize, height: exportSize)
+                .clipped()
         }
-    }
-    
-    private static let skinEditorDark = Color(red: 0.10, green: 0.10, blue: 0.12)
-    private static let skinEditorCard = Color(red: 0.15, green: 0.15, blue: 0.18)
-    private static let skinEditorCategorySelected = Color.white
-    private static let skinEditorCategoryUnselected = Color.white.opacity(0.5)
-    
-    private var avatarCreatorTab: some View {
-        GeometryReader { geo in
-            let topHeight = geo.size.height * 0.38
-            VStack(spacing: 0) {
-                // Превью скина — стильный градиент
-                ZStack {
-                    LinearGradient(
-                        colors: [
-                            Color(red: 0.15, green: 0.25, blue: 0.45),
-                            Color(red: 0.08, green: 0.12, blue: 0.22)
-                        ],
-                        startPoint: .topLeading,
-                        endPoint: .bottomTrailing
-                    )
-                    customAvatarView
-                        .scaleEffect(min(1.8, (topHeight - 24) / 160))
-                }
-                .frame(height: topHeight)
-
-                // Категории в стиле премиум-приложений: иконки, выбранная — белый фон
-                ScrollView(.horizontal, showsIndicators: false) {
-                    HStack(spacing: 10) {
-                        ForEach(SkinShopCategory.allCases, id: \.rawValue) { cat in
-                            skinCategoryButton(cat, isSelected: skinShopCategory == cat)
-                        }
-                    }
-                    .padding(.horizontal, 16)
-                    .padding(.vertical, 14)
-                }
-                .background(Self.skinEditorDark)
-
-                // Сетка элементов на тёмном фоне
-                ScrollView {
-                    skinShopGrid
-                        .padding(16)
-                }
-                .background(Self.skinEditorDark)
-            }
-        }
-    }
-
-    private func skinCategoryButton(_ category: SkinShopCategory, isSelected: Bool) -> some View {
-        let (icon, label) = skinCategoryInfo(category)
-        return Button {
-            skinShopCategory = category
-        } label: {
-            VStack(spacing: 6) {
-                Image(systemName: icon)
-                    .font(.system(size: 20, weight: .medium))
-                Text(label)
-                    .font(.system(size: 10, weight: .semibold))
-                    .lineLimit(1)
-            }
-            .foregroundColor(isSelected ? Self.skinEditorDark : Self.skinEditorCategoryUnselected)
-            .frame(minWidth: 64, minHeight: 52)
-            .padding(.horizontal, 12)
-            .background(isSelected ? Self.skinEditorCategorySelected : Color.clear)
-            .cornerRadius(14)
-        }
-        .buttonStyle(.plain)
-    }
-
-    private func skinCategoryInfo(_ category: SkinShopCategory) -> (String, String) {
-        switch category {
-        case .headwear: return ("cap.fill", LocalizationManager.shared.localizedString("Accessories"))
-        case .body: return ("tshirt.fill", LocalizationManager.shared.localizedString("Clothing"))
-        case .glasses: return ("eyeglasses", LocalizationManager.shared.localizedString("Glasses"))
-        case .skin: return ("paintpalette.fill", LocalizationManager.shared.localizedString("Skin Tone"))
-        case .hair: return ("scissors", LocalizationManager.shared.localizedString("Hair"))
-        case .face: return ("face.smiling", LocalizationManager.shared.localizedString("Face"))
-        }
-    }
-
-    private func isItemLocked(category: SkinShopCategory, index: Int) -> Bool {
-        switch category {
-        case .headwear: return index >= 3
-        case .body: return index >= 3
-        case .glasses: return index >= 3
-        case .skin: return false
-        case .hair: return false
-        case .face: return false
-        }
-    }
-
-    private var skinShopGrid: some View {
-        let columns = [GridItem(.adaptive(minimum: 88), spacing: 14)]
-        return Group {
-            switch skinShopCategory {
-            case .headwear:
-                LazyVGrid(columns: columns, spacing: 14) {
-                    ForEach(Array(accessoryStyles.enumerated()), id: \.offset) { index, _ in
-                        skinShopItem(
-                            icon: accessoryStyleIcons[index],
-                            title: LocalizationManager.shared.localizedString(accessoryStyles[index]),
-                            isSelected: selectedAccessory == index,
-                            isLocked: isItemLocked(category: .headwear, index: index),
-                            action: { if !isItemLocked(category: .headwear, index: index) { selectedAccessory = index } }
-                        )
-                    }
-                }
-            case .body:
-                LazyVGrid(columns: columns, spacing: 14) {
-                    ForEach(Array(outfitStyles.enumerated()), id: \.offset) { index, _ in
-                        skinShopItem(
-                            icon: outfitStyleIcons[index],
-                            title: LocalizationManager.shared.localizedString(outfitStyles[index]),
-                            isSelected: selectedOutfit == index,
-                            isLocked: isItemLocked(category: .body, index: index),
-                            action: { if !isItemLocked(category: .body, index: index) { selectedOutfit = index } }
-                        )
-                    }
-                }
-            case .glasses:
-                LazyVGrid(columns: columns, spacing: 14) {
-                    ForEach(Array(glassesStyles.enumerated()), id: \.offset) { index, _ in
-                        skinShopItem(
-                            icon: glassesStyleIcons[index],
-                            title: LocalizationManager.shared.localizedString(glassesStyles[index]),
-                            isSelected: selectedGlasses == index,
-                            isLocked: isItemLocked(category: .glasses, index: index),
-                            action: { if !isItemLocked(category: .glasses, index: index) { selectedGlasses = index } }
-                        )
-                    }
-                }
-            case .skin:
-                LazyVGrid(columns: columns, spacing: 14) {
-                    ForEach(Array(skinTones.enumerated()), id: \.offset) { index, _ in
-                        skinShopColorItem(
-                            color: skinToneColors[index],
-                            isSelected: selectedSkinTone == index,
-                            action: { selectedSkinTone = index }
-                        )
-                    }
-                }
-            case .hair:
-                VStack(alignment: .leading, spacing: 14) {
-                    premiumSubsectionTitle(LocalizationManager.shared.localizedString("Hair style"))
-                    LazyVGrid(columns: columns, spacing: 14) {
-                        ForEach(Array(hairStyles.enumerated()), id: \.offset) { index, title in
-                            skinShopItem(
-                                icon: hairStyleIcons[index],
-                                title: LocalizationManager.shared.localizedString(title),
-                                isSelected: selectedHairStyle == index,
-                                isLocked: false,
-                                action: { selectedHairStyle = index }
-                            )
-                        }
-                    }
-                    premiumSubsectionTitle(LocalizationManager.shared.localizedString("Hair Color"))
-                    ScrollView(.horizontal, showsIndicators: false) {
-                        HStack(spacing: 10) {
-                            ForEach(Array(hairColors.enumerated()), id: \.offset) { index, title in
-                                premiumColorChip(
-                                    color: hairColorValues[index],
-                                    title: LocalizationManager.shared.localizedString(title),
-                                    isSelected: selectedHairColor == index,
-                                    action: { selectedHairColor = index }
-                                )
-                            }
-                        }
-                    }
-                }
-            case .face:
-                VStack(alignment: .leading, spacing: 14) {
-                    premiumSubsectionTitle(LocalizationManager.shared.localizedString("Eyes"))
-                    ScrollView(.horizontal, showsIndicators: false) {
-                        HStack(spacing: 10) {
-                            ForEach(Array(eyeShapes.enumerated()), id: \.offset) { index, title in
-                                premiumIconChip(
-                                    icon: eyeShapeIcons[index],
-                                    title: LocalizationManager.shared.localizedString(title),
-                                    isSelected: selectedEyeShape == index,
-                                    action: { selectedEyeShape = index }
-                                )
-                            }
-                        }
-                    }
-                    premiumSubsectionTitle(LocalizationManager.shared.localizedString("Mouth"))
-                    ScrollView(.horizontal, showsIndicators: false) {
-                        HStack(spacing: 10) {
-                            ForEach(Array(mouthStyles.enumerated()), id: \.offset) { index, title in
-                                premiumIconChip(
-                                    icon: mouthStyleIcons[index],
-                                    title: LocalizationManager.shared.localizedString(title),
-                                    isSelected: selectedMouth == index,
-                                    action: { selectedMouth = index }
-                                )
-                            }
-                        }
-                    }
-                }
-            }
-        }
-    }
-
-    private func skinShopItem(icon: String, title: String, isSelected: Bool, isLocked: Bool, action: @escaping () -> Void) -> some View {
-        Button(action: action) {
-            ZStack(alignment: .topTrailing) {
-                VStack(spacing: 8) {
-                    Image(systemName: icon)
-                        .font(.system(size: 28))
-                        .foregroundColor(isLocked ? Color.white.opacity(0.4) : (isSelected ? .white : Color.white.opacity(0.9)))
-                    Text(title)
-                        .font(.system(size: 10, weight: .semibold))
-                        .foregroundColor(isLocked ? Color.white.opacity(0.35) : (isSelected ? .white : Color.white.opacity(0.7)))
-                        .lineLimit(2)
-                        .multilineTextAlignment(.center)
-                }
-                .frame(maxWidth: .infinity)
-                .padding(.vertical, 14)
-                .background(Self.skinEditorCard)
-                .cornerRadius(14)
-                .overlay(
-                    RoundedRectangle(cornerRadius: 14)
-                        .stroke(isSelected ? Color.white : Color.clear, lineWidth: 2.5)
-                )
-                .opacity(isLocked ? 0.7 : 1)
-                if isLocked {
-                    Image(systemName: "lock.fill")
-                        .font(.system(size: 14))
-                        .foregroundColor(Color.white.opacity(0.6))
-                        .padding(8)
-                }
-            }
-        }
-        .buttonStyle(.plain)
-        .disabled(isLocked)
-    }
-
-    private func skinShopColorItem(color: Color, isSelected: Bool, action: @escaping () -> Void) -> some View {
-        Button(action: action) {
-            Circle()
-                .fill(color)
-                .frame(width: 54, height: 54)
-                .overlay(
-                    Circle()
-                        .stroke(isSelected ? Color.white : Color.white.opacity(0.25), lineWidth: isSelected ? 3 : 1)
-                )
-        }
-        .buttonStyle(.plain)
-    }
-
-    private func premiumSubsectionTitle(_ title: String) -> some View {
-        Text(title)
-            .font(.system(size: 12, weight: .bold))
-            .foregroundColor(.white.opacity(0.78))
-            .textCase(.uppercase)
-    }
-
-    private func premiumIconChip(icon: String, title: String, isSelected: Bool, action: @escaping () -> Void) -> some View {
-        Button(action: action) {
-            VStack(spacing: 6) {
-                Image(systemName: icon)
-                    .font(.system(size: 18, weight: .medium))
-                    .foregroundColor(isSelected ? .black : .white.opacity(0.9))
-                Text(title)
-                    .font(.system(size: 10, weight: .semibold))
-                    .foregroundColor(isSelected ? .black : .white.opacity(0.7))
-                    .lineLimit(1)
-            }
-            .padding(.horizontal, 12)
-            .padding(.vertical, 10)
-            .background(isSelected ? Color.white : Self.skinEditorCard)
-            .cornerRadius(12)
-        }
-        .buttonStyle(.plain)
-    }
-
-    private func premiumColorChip(color: Color, title: String, isSelected: Bool, action: @escaping () -> Void) -> some View {
-        Button(action: action) {
-            HStack(spacing: 8) {
-                Circle()
-                    .fill(color)
-                    .frame(width: 18, height: 18)
-                    .overlay(Circle().stroke(Color.white.opacity(0.3), lineWidth: 1))
-                Text(title)
-                    .font(.system(size: 11, weight: .semibold))
-                    .foregroundColor(isSelected ? .black : .white.opacity(0.8))
-            }
-            .padding(.horizontal, 12)
-            .padding(.vertical, 9)
-            .background(isSelected ? Color.white : Self.skinEditorCard)
-            .cornerRadius(12)
-        }
-        .buttonStyle(.plain)
-    }
-
-    private func sectionHeader(_ title: String) -> some View {
-        Text(title)
-            .font(.system(size: 13, weight: .semibold))
-            .foregroundColor(.secondary)
-            .textCase(.uppercase)
-            .padding(.horizontal, 4)
-            .padding(.top, 8)
-    }
-    
-    // MARK: - Custom Avatar View (Improved)
-    
-    private var customAvatarView: some View {
-        avatarFigure(
-            skinTone: getSkinToneColor(),
-            hairColor: getHairColor(),
-            eyeColor: getEyeColor(),
-            outfitColor: getOutfitColor()
-        )
-    }
-
-    private func avatarFigure(
-        skinTone: Color,
-        hairColor: Color,
-        eyeColor: Color,
-        outfitColor: Color
-    ) -> some View {
-        let headW: CGFloat = 72
-        let headH: CGFloat = 82
-        let bodyH: CGFloat = 50
-        return ZStack(alignment: .top) {
-            // Тело (одежда) — трапеция/плечи
-            VStack(spacing: 0) {
-                RoundedRectangle(cornerRadius: 8)
-                    .fill(outfitColor)
-                    .frame(width: headW * 1.35, height: bodyH)
-                    .overlay(
-                        RoundedRectangle(cornerRadius: 8)
-                            .stroke(outfitColor.opacity(0.8), lineWidth: 1)
-                    )
-            }
-            .offset(y: headH + 4)
-
-            // Шея
-            RoundedRectangle(cornerRadius: 4)
-                .fill(skinTone.opacity(0.9))
-                .frame(width: headW * 0.4, height: 14)
-                .offset(y: headH - 2)
-
-            // Голова (форма лица)
-            getFaceShape()
-                .fill(skinTone)
-                .frame(width: headW, height: headH)
-                .overlay(
-                    getFaceShape()
-                        .stroke(skinTone.opacity(0.7), lineWidth: 1)
-                )
-
-            // Волосы (под головной убор, над лицом)
-            if selectedHairStyle > 0 {
-                getHairStyle()
-                    .fill(hairColor)
-                    .frame(width: headW * 1.08, height: headH * 0.55)
-                    .offset(y: -headH * 0.18)
-            }
-
-            // Глаза
-            HStack(spacing: headW * 0.28) {
-                getEyeStyle()
-                    .fill(eyeColor)
-                    .frame(width: 12, height: 8)
-                getEyeStyle()
-                    .fill(eyeColor)
-                    .frame(width: 12, height: 8)
-            }
-            .offset(y: headH * 0.28)
-            
-            // Брови
-            HStack(spacing: headW * 0.28) {
-                getEyebrowStyle()
-                    .fill(hairColor)
-                    .frame(width: 14, height: 5)
-                getEyebrowStyle()
-                    .fill(hairColor)
-                    .frame(width: 14, height: 5)
-            }
-            .offset(y: headH * 0.18)
-            
-            // Нос
-            getNoseStyle()
-                .fill(skinTone.opacity(0.85))
-                .frame(width: 8, height: 14)
-                .offset(y: headH * 0.52)
-
-            // Рот
-            getMouthStyle()
-                .fill(Color.red.opacity(0.75))
-                .frame(width: 22, height: 7)
-                .offset(y: headH * 0.72)
-
-            // Борода/усы (мужчины)
-            if selectedGender == 0 && selectedFacialHair > 0 {
-                getFacialHairStyle()
-                    .fill(hairColor)
-                    .frame(width: 28, height: 16)
-                    .offset(y: headH * 0.82)
-            }
-            
-            // Очки
-            if selectedGlasses > 0 {
-                getGlassesStyle()
-                    .stroke(Color.black, lineWidth: 2)
-                    .frame(width: 56, height: 20)
-                    .offset(y: headH * 0.28)
-            }
-
-            // Головной убор / аксессуар на голове
-            if selectedAccessory == 1 {
-                // Шляпа
-                Ellipse()
-                    .fill(Color.gray)
-                    .frame(width: headW * 1.2, height: 18)
-                    .offset(y: -headH * 0.42)
-                Capsule()
-                    .fill(Color.gray)
-                    .frame(width: headW * 0.7, height: 22)
-                    .offset(y: -headH * 0.28)
-            } else if selectedAccessory == 2 {
-                // Повязка
-                RoundedRectangle(cornerRadius: 6)
-                    .fill(Color.blue)
-                    .frame(width: headW * 1.15, height: 12)
-                    .offset(y: -headH * 0.38)
-            }
-
-            // Серьги (по бокам)
-            if selectedAccessory == 3 {
-                Circle()
-                    .fill(Color.gray)
-                    .frame(width: 8, height: 8)
-                    .offset(x: -headW * 0.52, y: headH * 0.45)
-                Circle()
-                    .fill(Color.gray)
-                    .frame(width: 8, height: 8)
-                    .offset(x: headW * 0.52, y: headH * 0.45)
-            }
-
-            // Ожерелье (у основания шеи)
-            if selectedAccessory == 4 {
-                Ellipse()
-                    .stroke(Color.gray, lineWidth: 2)
-                    .frame(width: 28, height: 14)
-                    .offset(y: headH + 2)
-            }
-        }
-        .frame(width: 140, height: 160)
+        .frame(width: exportSize, height: exportSize)
         .clipped()
     }
-    
-    // MARK: - Safe Color Access Functions
-    
-    private func getSkinToneColor() -> Color {
-        let index = min(selectedSkinTone, skinToneColors.count - 1)
-        return skinToneColors[index]
-    }
-    
-    private func getHairColor() -> Color {
-        let index = min(selectedHairColor, hairColorValues.count - 1)
-        return hairColorValues[index]
-    }
-    
-    private func getEyeColor() -> Color {
-        let index = min(selectedEyeColor, eyeColorValues.count - 1)
-        return eyeColorValues[index]
-    }
-    
-    // MARK: - Improved Shape Generators
-    
-    private func getFaceShape() -> some Shape {
-        switch selectedFaceShape {
-        case 0: // Oval
-            return AnyShape(Ellipse())
-        case 1: // Round
-            return AnyShape(Circle())
-        case 2: // Square
-            return AnyShape(RoundedRectangle(cornerRadius: 20))
-        case 3: // Heart
-            return AnyShape(HeartShape())
-        default:
-            return AnyShape(Ellipse())
+
+    private func snapshotAvatarJPEGLegacy<V: View>(root: V, size: CGSize, backgroundUIColor: UIColor) -> Data? {
+        guard let scene = UIApplication.shared.connectedScenes.compactMap({ $0 as? UIWindowScene }).first else {
+            return nil
         }
-    }
-    
-    private func getHairStyle() -> some Shape {
-        switch selectedHairStyle {
-        case 1: // Short
-            return AnyShape(
-                Path { path in
-                    let rect = CGRect(x: 0, y: 0, width: 110, height: 40)
-                    path.addEllipse(in: rect)
-                }
-            )
-        case 2: // Medium
-            return AnyShape(
-                Path { path in
-                    let rect = CGRect(x: 0, y: 0, width: 110, height: 50)
-                    path.addEllipse(in: rect)
-                }
-            )
-        case 3: // Long
-            return AnyShape(
-                Path { path in
-                    let rect = CGRect(x: 0, y: 0, width: 110, height: 70)
-                    path.addEllipse(in: rect)
-                }
-            )
-        case 4: // Curly
-            return AnyShape(
-                Path { path in
-                    let rect = CGRect(x: 0, y: 0, width: 110, height: 60)
-                    path.addEllipse(in: rect)
-                }
-            )
-        case 5: // Spiky
-            return AnyShape(
-                Path { path in
-                    let rect = CGRect(x: 0, y: 0, width: 110, height: 45)
-                    path.addEllipse(in: rect)
-                }
-            )
-        default:
-            return AnyShape(Rectangle())
+        let window = UIWindow(windowScene: scene)
+        window.frame = CGRect(x: -20_000, y: -20_000, width: size.width, height: size.height)
+        window.windowLevel = .normal
+        window.backgroundColor = backgroundUIColor
+        let hosting = UIHostingController(rootView: root)
+        hosting.view.bounds = CGRect(origin: .zero, size: size)
+        hosting.view.backgroundColor = backgroundUIColor
+        window.rootViewController = hosting
+        window.isHidden = false
+        window.makeKeyAndVisible()
+        hosting.view.setNeedsLayout()
+        hosting.view.layoutIfNeeded()
+        CATransaction.flush()
+        let format = UIGraphicsImageRendererFormat()
+        format.scale = UIScreen.main.scale
+        format.opaque = true
+        let imgRenderer = UIGraphicsImageRenderer(size: size, format: format)
+        let image = imgRenderer.image { _ in
+            hosting.view.drawHierarchy(in: hosting.view.bounds, afterScreenUpdates: true)
         }
+        window.isHidden = true
+        window.rootViewController = nil
+        return image.jpegData(compressionQuality: 0.92)
     }
-    
-    private func getEyeStyle() -> some Shape {
-        switch selectedEyeShape {
-        case 0: // Round
-            return AnyShape(Ellipse())
-        case 1: // Almond
-            return AnyShape(
-                Path { path in
-                    let rect = CGRect(x: 0, y: 0, width: 15, height: 10)
-                    path.addEllipse(in: rect)
-                }
-            )
-        case 2: // Narrow
-            return AnyShape(
-                Path { path in
-                    let rect = CGRect(x: 0, y: 0, width: 15, height: 8)
-                    path.addEllipse(in: rect)
-                }
-            )
-        case 3: // Large
-            return AnyShape(
-                Path { path in
-                    let rect = CGRect(x: 0, y: 0, width: 18, height: 12)
-                    path.addEllipse(in: rect)
-                }
-            )
-        case 4: // Small
-            return AnyShape(
-                Path { path in
-                    let rect = CGRect(x: 0, y: 0, width: 12, height: 8)
-                    path.addEllipse(in: rect)
-                }
-            )
-        default:
-            return AnyShape(Ellipse())
+    #endif
+
+    private func bodyTitle(_ item: AvatarBodyStyle) -> String {
+        switch item {
+        case .slim: return t("opt_slim")
+        case .regular: return t("opt_regular")
+        case .hoodie: return t("opt_hoodie")
+        case .tshirt: return t("opt_tshirt")
+        case .sweater: return t("opt_sweater")
+        case .wide: return t("opt_wide")
         }
-    }
-    
-    private func getEyebrowStyle() -> some Shape {
-        switch selectedEyebrows {
-        case 0: // Straight
-            return AnyShape(RoundedRectangle(cornerRadius: 2))
-        case 1: // Curved
-            return AnyShape(
-                Path { path in
-                    let rect = CGRect(x: 0, y: 0, width: 12, height: 6)
-                    path.addRoundedRect(in: rect, cornerSize: CGSize(width: 6, height: 3))
-                }
-            )
-        case 2: // Thick
-            return AnyShape(RoundedRectangle(cornerRadius: 3))
-        case 3: // Thin
-            return AnyShape(RoundedRectangle(cornerRadius: 1))
-        case 4: // Arched
-            return AnyShape(
-                Path { path in
-                    let rect = CGRect(x: 0, y: 0, width: 12, height: 6)
-                    path.addRoundedRect(in: rect, cornerSize: CGSize(width: 6, height: 3))
-                }
-            )
-        default:
-            return AnyShape(RoundedRectangle(cornerRadius: 2))
-        }
-    }
-    
-    private func getNoseStyle() -> some Shape {
-        switch selectedNose {
-        case 0: // Small
-            return AnyShape(
-                Path { path in
-                    let rect = CGRect(x: 0, y: 0, width: 6, height: 10)
-                    path.addEllipse(in: rect)
-                }
-            )
-        case 1: // Medium
-            return AnyShape(
-                Path { path in
-                    let rect = CGRect(x: 0, y: 0, width: 8, height: 12)
-                    path.addEllipse(in: rect)
-                }
-            )
-        case 2: // Large
-            return AnyShape(
-                Path { path in
-                    let rect = CGRect(x: 0, y: 0, width: 10, height: 14)
-                    path.addEllipse(in: rect)
-                }
-            )
-        case 3: // Pointed
-            return AnyShape(
-                Path { path in
-                    let rect = CGRect(x: 0, y: 0, width: 6, height: 12)
-                    path.addEllipse(in: rect)
-                }
-            )
-        case 4: // Wide
-            return AnyShape(
-                Path { path in
-                    let rect = CGRect(x: 0, y: 0, width: 12, height: 10)
-                    path.addEllipse(in: rect)
-                }
-            )
-        default:
-            return AnyShape(Ellipse())
-        }
-    }
-    
-    private func getMouthStyle() -> some Shape {
-        switch selectedMouth {
-        case 0: // Smile
-            return AnyShape(
-                Path { path in
-                    let rect = CGRect(x: 0, y: 0, width: 25, height: 8)
-                    path.addEllipse(in: rect)
-                }
-            )
-        case 1: // Neutral
-            return AnyShape(RoundedRectangle(cornerRadius: 3))
-        case 2: // Small
-            return AnyShape(
-                Path { path in
-                    let rect = CGRect(x: 0, y: 0, width: 20, height: 6)
-                    path.addEllipse(in: rect)
-                }
-            )
-        case 3: // Wide
-            return AnyShape(
-                Path { path in
-                    let rect = CGRect(x: 0, y: 0, width: 30, height: 8)
-                    path.addEllipse(in: rect)
-                }
-            )
-        case 4: // Frown
-            return AnyShape(
-                Path { path in
-                    let rect = CGRect(x: 0, y: 0, width: 25, height: 8)
-                    path.addEllipse(in: rect)
-                }
-            )
-        default:
-            return AnyShape(Capsule())
-        }
-    }
-    
-    private func getFacialHairStyle() -> some Shape {
-        switch selectedFacialHair {
-        case 1: // Mustache
-            return AnyShape(
-                Path { path in
-                    let rect = CGRect(x: 0, y: 0, width: 20, height: 6)
-                    path.addEllipse(in: rect)
-                }
-            )
-        case 2: // Goatee
-            return AnyShape(
-                Path { path in
-                    let rect = CGRect(x: 0, y: 0, width: 16, height: 12)
-                    path.addEllipse(in: rect)
-                }
-            )
-        case 3: // Full beard
-            return AnyShape(
-                Path { path in
-                    let rect = CGRect(x: 0, y: 0, width: 25, height: 18)
-                    path.addEllipse(in: rect)
-                }
-            )
-        case 4: // Stubble
-            return AnyShape(
-                Path { path in
-                    let rect = CGRect(x: 0, y: 0, width: 22, height: 8)
-                    path.addEllipse(in: rect)
-                }
-            )
-        default:
-            return AnyShape(Rectangle())
-        }
-    }
-    
-    private func getGlassesStyle() -> some Shape {
-        switch selectedGlasses {
-        case 1: // Round
-            return AnyShape(
-                Path { path in
-                    let rect = CGRect(x: 0, y: 0, width: 70, height: 25)
-                    path.addEllipse(in: rect)
-                }
-            )
-        case 2: // Square
-            return AnyShape(
-                Path { path in
-                    let rect = CGRect(x: 0, y: 0, width: 70, height: 25)
-                    path.addRoundedRect(in: rect, cornerSize: CGSize(width: 5, height: 5))
-                }
-            )
-        case 3: // Oval
-            return AnyShape(
-                Path { path in
-                    let rect = CGRect(x: 0, y: 0, width: 70, height: 25)
-                    path.addEllipse(in: rect)
-                }
-            )
-        case 4: // Sunglasses
-            return AnyShape(
-                Path { path in
-                    let rect = CGRect(x: 0, y: 0, width: 70, height: 25)
-                    path.addRoundedRect(in: rect, cornerSize: CGSize(width: 5, height: 5))
-                }
-            )
-        default:
-            return AnyShape(Rectangle())
-        }
-    }
-    
-    private func getOutfitStyle() -> some Shape {
-        switch selectedOutfit {
-        case 0: // Casual
-            return AnyShape(
-                Path { path in
-                    let rect = CGRect(x: 0, y: 0, width: 30, height: 25)
-                    path.addRoundedRect(in: rect, cornerSize: CGSize(width: 8, height: 8))
-                }
-            )
-        case 1: // Formal
-            return AnyShape(
-                Path { path in
-                    let rect = CGRect(x: 0, y: 0, width: 30, height: 25)
-                    path.addRoundedRect(in: rect, cornerSize: CGSize(width: 5, height: 5))
-                }
-            )
-        case 2: // Sporty
-            return AnyShape(
-                Path { path in
-                    let rect = CGRect(x: 0, y: 0, width: 30, height: 25)
-                    path.addRoundedRect(in: rect, cornerSize: CGSize(width: 12, height: 12))
-                }
-            )
-        case 3: // Elegant
-            return AnyShape(
-                Path { path in
-                    let rect = CGRect(x: 0, y: 0, width: 30, height: 25)
-                    path.addEllipse(in: rect)
-                }
-            )
-        case 4: // Business
-            return AnyShape(
-                Path { path in
-                    let rect = CGRect(x: 0, y: 0, width: 30, height: 25)
-                    path.addRoundedRect(in: rect, cornerSize: CGSize(width: 10, height: 10))
-                }
-            )
-        default:
-            return AnyShape(RoundedRectangle(cornerRadius: 8))
-        }
-    }
-    
-    private func getAccessoryStyle() -> some Shape {
-        switch selectedAccessory {
-        case 1: // Hat
-            return AnyShape(
-                Path { path in
-                    let rect = CGRect(x: 0, y: 0, width: 25, height: 15)
-                    path.addEllipse(in: rect)
-                }
-            )
-        case 2: // Headband
-            return AnyShape(
-                Path { path in
-                    let rect = CGRect(x: 0, y: 0, width: 25, height: 8)
-                    path.addRoundedRect(in: rect, cornerSize: CGSize(width: 6, height: 6))
-                }
-            )
-        case 3: // Earrings
-            return AnyShape(
-                Path { path in
-                    let rect = CGRect(x: 0, y: 0, width: 8, height: 8)
-                    path.addEllipse(in: rect)
-                }
-            )
-        case 4: // Necklace
-            return AnyShape(
-                Path { path in
-                    let rect = CGRect(x: 0, y: 0, width: 20, height: 12)
-                    path.addRoundedRect(in: rect, cornerSize: CGSize(width: 10, height: 10))
-                }
-            )
-        default:
-            return AnyShape(Rectangle())
-        }
-    }
-    
-    private func getOutfitColor() -> Color {
-        let colors = [Color.blue, Color.green, Color.red, Color.purple, Color.orange]
-        return colors[selectedOutfit % colors.count]
-    }
-    
-    // MARK: - UI Components
-    
-    private func customizationSection(
-        title: String,
-        selectedIndex: Binding<Int>,
-        items: [String],
-        itemIcons: [String]? = nil,
-        isIconPicker: Bool = false,
-        isColorPicker: Bool = false
-    ) -> some View {
-        VStack(alignment: .leading, spacing: 12) {
-            Text(title)
-                .font(.system(size: 16, weight: .semibold))
-                .foregroundColor(.primary)
-            
-            ScrollView(.horizontal, showsIndicators: false) {
-                HStack(spacing: 12) {
-                    ForEach(0..<items.count, id: \.self) { index in
-                        Button(action: { selectedIndex.wrappedValue = index }) {
-                            if isIconPicker {
-                                Image(systemName: items[index])
-                                    .font(.system(size: 24))
-                                    .foregroundColor(selectedIndex.wrappedValue == index ? .white : .primary)
-                                    .frame(width: 50, height: 50)
-                                    .background(selectedIndex.wrappedValue == index ? Color.blue : secondarySystemGroupedBackground)
-                                    .cornerRadius(12)
-                            } else if isColorPicker {
-                                Circle()
-                                    .fill(getColor(for: title, index: index))
-                                    .frame(width: 50, height: 50)
-                                    .overlay(
-                                        Circle()
-                                            .stroke(selectedIndex.wrappedValue == index ? Color.blue : Color.clear, lineWidth: 3)
-                                    )
-                            } else {
-                                let selected = selectedIndex.wrappedValue == index
-                                Group {
-                                    if let icons = itemIcons, index < icons.count, !icons[index].isEmpty {
-                                        Image(systemName: icons[index])
-                                            .font(.system(size: 22))
-                                            .foregroundColor(selected ? .blue : .primary)
-                                    } else {
-                                        Text(items[index])
-                                            .font(.system(size: 12, weight: .medium))
-                                            .foregroundColor(selected ? .blue : .primary)
-                                            .lineLimit(1)
-                                            .minimumScaleFactor(0.7)
-                                    }
-                                }
-                                    .frame(width: 50, height: 50)
-                                .background(selected ? Color.blue.opacity(0.15) : secondarySystemGroupedBackground)
-                                    .cornerRadius(12)
-                                    .overlay(
-                                        RoundedRectangle(cornerRadius: 12)
-                                        .stroke(selected ? Color.blue : Color.clear, lineWidth: 2)
-                                    )
-                            }
-                        }
-                        .buttonStyle(PlainButtonStyle())
-                    }
-                }
-                .padding(.horizontal, 4)
-            }
-        }
-        .padding(.horizontal, 16)
-        .padding(.vertical, 14)
-        .background(secondarySystemGroupedBackground)
-        .cornerRadius(12)
-    }
-    
-    private var saveButton: some View {
-        Button(action: saveAvatar) {
-            Text(LocalizationManager.shared.localizedString("Save Avatar"))
-                .font(.system(size: 18, weight: .semibold))
-                .foregroundColor(.white)
-                .frame(maxWidth: .infinity)
-                .padding(.vertical, 16)
-                .background(
-                    LinearGradient(
-                        colors: [Color.blue, Color.cyan],
-                        startPoint: .leading,
-                        endPoint: .trailing
-                    )
-                )
-                .cornerRadius(12)
-        }
-        .padding(.horizontal, 20)
-        .padding(.bottom, 20)
-    }
-    
-    private func saveAvatar() {
-        #if os(iOS)
-        if selectedTab == 0, let image = selectedImage,
-           let data = image.jpegData(compressionQuality: 0.9) {
-            userProfile.customAvatarImageData = data
-            userProfile.avatar = "custom_photo"
-        } else if selectedTab == 1 {
-            if let data = renderCreatedAvatarToImage() {
-                userProfile.customAvatarImageData = data
-                userProfile.avatar = "custom_photo"
-            }
-        }
-        
-        let impactFeedback = UIImpactFeedbackGenerator(style: .medium)
-        impactFeedback.impactOccurred()
-        #else
-        if selectedTab == 1, let data = renderCreatedAvatarToImage() {
-            userProfile.customAvatarImageData = data
-            userProfile.avatar = "custom_photo"
-        }
-        #endif
-        
-        presentationMode.wrappedValue.dismiss()
     }
 
-    #if os(iOS)
-    private func renderCreatedAvatarToImage() -> Data? {
-        let view = AvatarSnapshotView(
-            selectedGender: selectedGender,
-            selectedSkinTone: selectedSkinTone,
-            selectedFaceShape: selectedFaceShape,
-            selectedHairStyle: selectedHairStyle,
-            selectedHairColor: selectedHairColor,
-            selectedEyeShape: selectedEyeShape,
-            selectedEyeColor: selectedEyeColor,
-            selectedEyebrows: selectedEyebrows,
-            selectedNose: selectedNose,
-            selectedMouth: selectedMouth,
-            selectedFacialHair: selectedFacialHair,
-            selectedOutfit: selectedOutfit,
-            selectedAccessory: selectedAccessory,
-            selectedGlasses: selectedGlasses
-        )
-        let size = CGSize(width: 280, height: 320)
-        let hosting = UIHostingController(rootView: view.frame(width: size.width, height: size.height))
-        hosting.view.bounds = CGRect(origin: .zero, size: size)
-        hosting.view.backgroundColor = .clear
-        hosting.view.layoutIfNeeded()
-        let renderer = UIGraphicsImageRenderer(size: size)
-        let image = renderer.image { ctx in
-            hosting.view.layer.render(in: ctx.cgContext)
-        }
-        return image.jpegData(compressionQuality: 0.9)
-    }
-    #else
-    private func renderCreatedAvatarToImage() -> Data? { nil }
-    #endif
-    
-    // MARK: - Helper Functions
-    
-    private func getColor(for category: String, index: Int) -> Color {
-        switch category {
-        case LocalizationManager.shared.localizedString("Skin Tone"):
-            return skinToneColors[index]
-        case LocalizationManager.shared.localizedString("Hair Color"):
-            return hairColorValues[index]
-        case LocalizationManager.shared.localizedString("Eye Color"):
-            return eyeColorValues[index]
-        default:
-            return .gray
+    private func hairTitle(_ item: AvatarHairStyle) -> String {
+        switch item {
+        case .bald: return t("opt_bald")
+        case .sidePart: return t("opt_side_part")
+        case .shortFlat: return t("opt_short")
+        case .curl: return t("opt_curl")
+        case .modernTop: return t("opt_modern")
+        case .buzz: return t("opt_buzz")
+        case .waves: return t("opt_hair_waves")
+        case .spiky: return t("opt_hair_spiky")
+        case .slick: return t("opt_hair_slick")
+        case .pompadour: return t("opt_hair_pompadour")
         }
     }
-    
-    // MARK: - Avatar Customization Data
-    
-    private let genderOptions = ["person.fill", "person.crop.circle.fill"]
-    
-    private let skinTones = ["Very Light", "Light", "Medium", "Tan", "Dark", "Very Dark"]
-    private let faceShapeIcons = ["oval", "circle.fill", "square.fill", "heart.fill"]
-    private let eyeShapeIcons = ["eye.fill", "eye", "eye.trianglebadge.exclamationmark", "eye.circle", "eye.slash"]
-    private let eyebrowIcons = ["line.diagonal", "curlybraces", "bold", "italic", "arrow.up"]
-    private let noseStyleIcons = ["circle.fill", "circle.lefthalf.filled", "circle", "location.north.fill", "square.fill"]
-    private let mouthStyleIcons = ["face.smiling.fill", "minus", "circle.fill", "rectangle.compress.vertical", "mouth"]
-    private let facialHairIcons = ["xmark.circle", "mustache.fill", "rectangle.fill", "person.fill", "circle.lefthalf.filled"]
-    private let hairStyleIcons = ["person.crop.circle", "scissors", "wind", "waveform.path", "flame", "bolt.fill"]
-    private let glassesStyleIcons = ["xmark.circle", "eyeglasses", "rectangle", "oval", "sun.max.fill"]
-    private let accessoryStyleIcons = ["xmark.circle", "graduationcap.fill", "bandage", "circle.fill", "link"]
-    private let outfitStyleIcons = ["tshirt.fill", "suit.club.fill", "figure.run", "sparkles", "briefcase.fill"]
-    private let skinToneColors = [
-        Color(red: 1.0, green: 0.87, blue: 0.73),
-        Color(red: 0.96, green: 0.80, blue: 0.69),
-        Color(red: 0.85, green: 0.65, blue: 0.47),
-        Color(red: 0.73, green: 0.51, blue: 0.37),
-        Color(red: 0.55, green: 0.35, blue: 0.25),
-        Color(red: 0.35, green: 0.20, blue: 0.15)
-    ]
-    
-    private let faceShapes = ["Oval", "Round", "Square", "Heart"]
-    
-    private let hairStyles = ["Bald", "Short", "Medium", "Long", "Curly", "Spiky"]
-    private let hairColors = ["Black", "Brown", "Blonde", "Red", "Gray", "White", "Blue"]
-    private let hairColorValues = [
-        Color.black,
-        Color.brown,
-        Color.yellow,
-        Color.red,
-        Color.gray,
-        Color.white,
-        Color.blue
-    ]
-    
-    private let eyeShapes = ["Round", "Almond", "Narrow", "Large", "Small"]
-    private let eyeColors = ["Brown", "Blue", "Green", "Hazel", "Gray", "Black"]
-    private let eyeColorValues = [
-        Color.brown,
-        Color.blue,
-        Color.green,
-        Color(red: 0.6, green: 0.4, blue: 0.2),
-        Color.gray,
-        Color.black
-    ]
-    
-    private let eyebrowStyles = ["Straight", "Curved", "Thick", "Thin", "Arched"]
-    private let noseStyles = ["Small", "Medium", "Large", "Pointed", "Wide"]
-    private let mouthStyles = ["Smile", "Neutral", "Small", "Wide", "Frown"]
-    private let facialHairStyles = ["None", "Mustache", "Goatee", "Full Beard", "Stubble"]
-    private let glassesStyles = ["None", "Round", "Square", "Oval", "Sunglasses"]
-    private let outfitStyles = ["Casual", "Formal", "Sporty", "Elegant", "Business"]
-    private let accessoryStyles = ["None", "Hat", "Headband", "Earrings", "Necklace"]
+
+    private func glassesTitle(_ item: AvatarGlassesStyle) -> String {
+        switch item {
+        case .none: return t("none")
+        case .round: return t("round")
+        case .square: return t("square")
+        case .sunglasses: return t("sunglasses")
+        case .slim: return t("slim")
+        }
+    }
+
+    private var facialHairUsesPreColoredPNG: Bool {
+        guard viewModel.draft.facialHairStyle != .none,
+              let name = AvatarLayerAssetNames.beard(viewModel.draft.facialHairStyle),
+              AvatarBundleImage.exists(name) else { return false }
+        return name.hasPrefix("avatar_facial_hair_")
+    }
+
+    private func facialHairTitle(_ item: AvatarFacialHairStyle) -> String {
+        switch item {
+        case .none: return t("none")
+        case .moustache: return t("opt_moustache")
+        case .trimmed: return t("opt_trimmed")
+        case .goatee: return t("opt_goatee")
+        case .beardFull: return t("opt_beard_full")
+        case .beardLight: return t("opt_beard_light")
+        case .beardBushy: return t("opt_beard_bushy")
+        }
+    }
+
+    private func headwearTitle(_ item: AvatarHeadwearStyle) -> String {
+        switch item {
+        case .none: return t("none")
+        case .cap: return t("cap")
+        case .beanie: return t("beanie")
+        case .bandana: return t("bandana")
+        case .sportCap: return t("sport_cap")
+        case .SilverLeague: return t("hat_SilverLeague")
+        case .tenDayStreak: return t("hat_10-day-streak")
+        case .beginner: return t("hat_beginner")
+        case .Premium: return t("hat_Premium")
+        }
+    }
+
+    private func clothingTitle(_ item: AvatarClothingStyle) -> String {
+        switch item {
+        case .tshirt: return t("opt_tshirt")
+        case .sweater: return t("opt_sweater")
+        case .hoodie: return t("opt_hoodie")
+        case .jacket: return t("opt_jacket")
+        }
+    }
 }
 
-// MARK: - Snapshot view for rendering created avatar to image
-#if os(iOS)
-struct AvatarSnapshotView: View {
-    let selectedGender: Int
-    let selectedSkinTone: Int
-    let selectedFaceShape: Int
-    let selectedHairStyle: Int
-    let selectedHairColor: Int
-    let selectedEyeShape: Int
-    let selectedEyeColor: Int
-    let selectedEyebrows: Int
-    let selectedNose: Int
-    let selectedMouth: Int
-    let selectedFacialHair: Int
-    let selectedOutfit: Int
-    let selectedAccessory: Int
-    let selectedGlasses: Int
+private extension AvatarEditorView {
+    /// Строки в `Localizable.strings`: ключ `avatar_editor_<internal>`, дефисы в internal заменяются на `_`.
+    func t(_ key: String) -> String {
+        let _ = localizationManager.currentLocale
+        let bundleKey = "avatar_editor_" + key.replacingOccurrences(of: "-", with: "_")
+        return LocalizationManager.shared.localizedString(bundleKey)
+    }
+}
 
-    private static let skinToneColors: [Color] = [
-        Color(red: 1.0, green: 0.87, blue: 0.73),
-        Color(red: 0.96, green: 0.80, blue: 0.69),
-        Color(red: 0.85, green: 0.65, blue: 0.47),
-        Color(red: 0.73, green: 0.51, blue: 0.37),
-        Color(red: 0.55, green: 0.35, blue: 0.25),
-        Color(red: 0.35, green: 0.20, blue: 0.15)
+struct AvatarSkinToneGrid: View {
+    let selected: AvatarColorToken
+    let onSelect: (AvatarColorToken) -> Void
+
+    private let rows: [(AvatarColorToken, String)] = [
+        (.peach, "AvatarEditorSkinPeach"),
+        (.beige, "AvatarEditorSkinBeige"),
+        (.lightBrown, "AvatarEditorSkinLightBrown"),
+        (.brown, "AvatarEditorSkinBrown"),
+        (.darkBrown, "AvatarEditorSkinDarkBrown"),
+        (.black, "AvatarEditorSkinBlack")
     ]
-    private static let hairColorValues: [Color] = [
-        .black, .brown, .yellow, .red, .gray, .white, .blue
-    ]
-    private static let eyeColorValues: [Color] = [
-        .brown, .blue, .green, Color(red: 0.6, green: 0.4, blue: 0.2), .gray, .black
-    ]
-    private static let outfitColors: [Color] = [.blue, .green, .red, .purple, .orange]
 
     var body: some View {
-        ZStack(alignment: .top) {
-            Color.clear
-            snapshotFigure
-        }
-    }
-
-    private var snapshotFigure: some View {
-        let skinTone = Self.skinToneColors[min(selectedSkinTone, Self.skinToneColors.count - 1)]
-        let hairColor = Self.hairColorValues[min(selectedHairColor, Self.hairColorValues.count - 1)]
-        let eyeColor = Self.eyeColorValues[min(selectedEyeColor, Self.eyeColorValues.count - 1)]
-        let outfitColor = Self.outfitColors[selectedOutfit % Self.outfitColors.count]
-        let headW: CGFloat = 72
-        let headH: CGFloat = 82
-        let bodyH: CGFloat = 50
-        return ZStack(alignment: .top) {
-            VStack(spacing: 0) {
-                RoundedRectangle(cornerRadius: 8)
-                    .fill(outfitColor)
-                    .frame(width: headW * 1.35, height: bodyH)
-            }
-            .offset(y: headH + 4)
-            RoundedRectangle(cornerRadius: 4)
-                .fill(skinTone.opacity(0.9))
-                .frame(width: headW * 0.4, height: 14)
-                .offset(y: headH - 2)
-            snapshotFaceShape()
-                .fill(skinTone)
-                .frame(width: headW, height: headH)
-            if selectedHairStyle > 0 {
-                snapshotHairShape()
-                    .fill(hairColor)
-                    .frame(width: headW * 1.08, height: headH * 0.55)
-                    .offset(y: -headH * 0.18)
-            }
-            HStack(spacing: headW * 0.28) {
-                snapshotEyeShape().fill(eyeColor).frame(width: 12, height: 8)
-                snapshotEyeShape().fill(eyeColor).frame(width: 12, height: 8)
-            }
-            .offset(y: headH * 0.28)
-            HStack(spacing: headW * 0.28) {
-                snapshotEyebrowShape().fill(hairColor).frame(width: 14, height: 5)
-                snapshotEyebrowShape().fill(hairColor).frame(width: 14, height: 5)
-            }
-            .offset(y: headH * 0.18)
-            snapshotNoseShape()
-                .fill(skinTone.opacity(0.85))
-                .frame(width: 8, height: 14)
-                .offset(y: headH * 0.52)
-            snapshotMouthShape()
-                .fill(Color.red.opacity(0.75))
-                .frame(width: 22, height: 7)
-                .offset(y: headH * 0.72)
-            if selectedGender == 0 && selectedFacialHair > 0 {
-                snapshotFacialHairShape()
-                    .fill(hairColor)
-                    .frame(width: 28, height: 16)
-                    .offset(y: headH * 0.82)
-            }
-            if selectedGlasses > 0 {
-                snapshotGlassesShape()
-                    .stroke(Color.black, lineWidth: 2)
-                    .frame(width: 56, height: 20)
-                    .offset(y: headH * 0.28)
-            }
-            if selectedAccessory == 1 {
-                Ellipse().fill(Color.gray).frame(width: headW * 1.2, height: 18).offset(y: -headH * 0.42)
-                Capsule().fill(Color.gray).frame(width: headW * 0.7, height: 22).offset(y: -headH * 0.28)
-            } else if selectedAccessory == 2 {
-                RoundedRectangle(cornerRadius: 6).fill(Color.blue).frame(width: headW * 1.15, height: 12).offset(y: -headH * 0.38)
-            }
-            if selectedAccessory == 3 {
-                Circle().fill(Color.gray).frame(width: 8, height: 8).offset(x: -headW * 0.52, y: headH * 0.45)
-                Circle().fill(Color.gray).frame(width: 8, height: 8).offset(x: headW * 0.52, y: headH * 0.45)
-            }
-            if selectedAccessory == 4 {
-                Ellipse().stroke(Color.gray, lineWidth: 2).frame(width: 28, height: 14).offset(y: headH + 2)
+        let columns = Array(repeating: GridItem(.flexible(), spacing: 10), count: 3)
+        LazyVGrid(columns: columns, spacing: 10) {
+            ForEach(rows, id: \.0) { row in
+                Button {
+                    onSelect(row.0)
+                } label: {
+                    ZStack {
+                        Image(row.1)
+                            .resizable()
+                            .scaledToFit()
+                            .padding(6)
+                        if row.0 == .black {
+                            RoundedRectangle(cornerRadius: 11)
+                                .fill(Color.black.opacity(0.45))
+                        }
+                    }
+                    .frame(height: 76)
+                    .background(RoundedRectangle(cornerRadius: 13).fill(Color.gray.opacity(0.14)))
+                                    .overlay(
+                        RoundedRectangle(cornerRadius: 13)
+                            .stroke(selected == row.0 ? Color.blue : Color.black.opacity(0.08), lineWidth: selected == row.0 ? 3 : 1)
+                    )
+                }
+                .buttonStyle(.plain)
             }
         }
-        .frame(width: 140, height: 160)
-    }
-
-    private func snapshotFaceShape() -> AnyShape {
-        switch selectedFaceShape {
-        case 0: return AnyShape(Ellipse())
-        case 1: return AnyShape(Circle())
-        case 2: return AnyShape(RoundedRectangle(cornerRadius: 20))
-        case 3: return AnyShape(HeartShape())
-        default: return AnyShape(Ellipse())
-        }
-    }
-    private func snapshotHairShape() -> AnyShape {
-        switch selectedHairStyle {
-        case 1...5: return AnyShape(Ellipse())
-        default: return AnyShape(Rectangle())
-        }
-    }
-    private func snapshotEyeShape() -> AnyShape { AnyShape(Ellipse()) }
-    private func snapshotEyebrowShape() -> AnyShape { AnyShape(RoundedRectangle(cornerRadius: 2)) }
-    private func snapshotNoseShape() -> AnyShape { AnyShape(Ellipse()) }
-    private func snapshotMouthShape() -> AnyShape { AnyShape(Capsule()) }
-    private func snapshotFacialHairShape() -> AnyShape { AnyShape(Ellipse()) }
-    private func snapshotGlassesShape() -> AnyShape { AnyShape(Ellipse()) }
-}
-#endif
-
-struct HeartShape: Shape {
-    func path(in rect: CGRect) -> Path {
-        var path = Path()
-        let w = rect.width, h = rect.height
-        path.move(to: CGPoint(x: w * 0.5, y: h * 0.8))
-        path.addCurve(to: CGPoint(x: 0, y: h * 0.3), control1: CGPoint(x: w * 0.2, y: h * 0.6), control2: CGPoint(x: 0, y: h * 0.5))
-        path.addCurve(to: CGPoint(x: w * 0.5, y: 0), control1: CGPoint(x: 0, y: h * 0.1), control2: CGPoint(x: w * 0.2, y: 0))
-        path.addCurve(to: CGPoint(x: w, y: h * 0.3), control1: CGPoint(x: w * 0.8, y: 0), control2: CGPoint(x: w, y: h * 0.1))
-        path.addCurve(to: CGPoint(x: w * 0.5, y: h * 0.8), control1: CGPoint(x: w, y: h * 0.5), control2: CGPoint(x: w * 0.8, y: h * 0.6))
-        return path
     }
 }
 
-// MARK: - AnyShape Wrapper
-struct AnyShape: Shape {
-    private let _path: (CGRect) -> Path
-    
-    init<S: Shape>(_ shape: S) {
-        _path = { rect in
-            shape.path(in: rect)
+/// Иконки оттенка глаз: имена слоёв `eyes_*` из `AvatarLayerAssetNames`, иначе старые превью.
+struct AvatarEyeIconGrid: View {
+    let selected: AvatarColorToken
+    let onSelect: (AvatarColorToken) -> Void
+
+    private let tokens: [AvatarColorToken] = [.black, .brown, .auburn, .green, .blue, .cyan]
+
+    private func thumbAsset(for token: AvatarColorToken) -> String {
+        let layer = AvatarLayerAssetNames.eyes(token)
+        if AvatarBundleImage.exists(layer) { return layer }
+        switch token {
+        case .black: return "AvatarPickerEyeBlack"
+        case .brown: return "AvatarPickerEyeBrown2"
+        case .auburn: return "AvatarPickerEyeBrown3"
+        case .green: return "AvatarPickerEyeGreen"
+        case .blue: return "AvatarPickerEyeBlue"
+        case .cyan: return "AvatarPickerEyeBrown4"
+        default: return "AvatarPickerEyeBrown2"
         }
     }
-    
-    func path(in rect: CGRect) -> Path {
-        _path(rect)
+
+    var body: some View {
+        let columns = Array(repeating: GridItem(.flexible(), spacing: 10), count: 3)
+        LazyVGrid(columns: columns, spacing: 10) {
+            ForEach(tokens, id: \.self) { token in
+                Button {
+                    onSelect(token)
+                } label: {
+                    Image(thumbAsset(for: token))
+                        .resizable()
+                        .scaledToFit()
+                        .padding(8)
+                        .frame(height: 72)
+                        .background(RoundedRectangle(cornerRadius: 13).fill(Color.gray.opacity(0.14)))
+                        .overlay(
+                            RoundedRectangle(cornerRadius: 13)
+                                .stroke(selected == token ? Color.blue : Color.black.opacity(0.08), lineWidth: selected == token ? 3 : 1)
+                        )
+                }
+                .buttonStyle(.plain)
+            }
+        }
     }
 }
 
-// MARK: - ImagePicker
-#if os(iOS)
-struct ImagePicker: UIViewControllerRepresentable {
-    @Binding var selectedImage: UIImage?
-    @Environment(\.presentationMode) var presentationMode
-    
-    func makeUIViewController(context: Context) -> UIImagePickerController {
-        let picker = UIImagePickerController()
-        picker.delegate = context.coordinator
-        picker.sourceType = .photoLibrary
-        return picker
-    }
-    
-    func updateUIViewController(_ uiViewController: UIImagePickerController, context: Context) {}
-    
-    func makeCoordinator() -> Coordinator {
-        Coordinator(self)
-    }
-    
-    class Coordinator: NSObject, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
-        let parent: ImagePicker
-        
-        init(_ parent: ImagePicker) {
-            self.parent = parent
-        }
-        
-        func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
-            if let image = info[.originalImage] as? UIImage {
-                parent.selectedImage = image
+struct AvatarColorGrid: View {
+    let colors: [AvatarColorToken]
+    let selected: AvatarColorToken
+    let onSelect: (AvatarColorToken) -> Void
+
+    var body: some View {
+        let columns = Array(repeating: GridItem(.flexible(), spacing: 10), count: 5)
+        LazyVGrid(columns: columns, spacing: 10) {
+            ForEach(colors, id: \.self) { token in
+                Button {
+                    onSelect(token)
+                } label: {
+                    RoundedRectangle(cornerRadius: 13)
+                        .fill(token.color)
+                        .frame(height: 46)
+                        .overlay(
+                            RoundedRectangle(cornerRadius: 13)
+                                .stroke(selected == token ? Color.blue : Color.black.opacity(0.08), lineWidth: selected == token ? 3 : 1)
+                        )
+                }
+                .buttonStyle(.plain)
             }
-            parent.presentationMode.wrappedValue.dismiss()
-        }
-        
-        func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
-            parent.presentationMode.wrappedValue.dismiss()
         }
     }
 }
-#endif
+
+/// Сетка головных уборов: замок и недоступный тап для `availability` ≠ always (Premium / магазин).
+private struct AvatarHeadwearStyleGrid: View {
+    let items: [AvatarHeadwearStyle]
+    let selected: AvatarHeadwearStyle
+    let isPremiumActive: Bool
+    let title: (AvatarHeadwearStyle) -> String
+    let preview: (AvatarHeadwearStyle) -> AnyView
+    let onSelect: (AvatarHeadwearStyle) -> Void
+    let onLockedTap: (AvatarHeadwearStyle) -> Void
+
+    var body: some View {
+        let columns = Array(repeating: GridItem(.flexible(), spacing: 10), count: 3)
+        LazyVGrid(columns: columns, spacing: 10) {
+            ForEach(items, id: \.self) { item in
+                let unlocked = item.isUnlockedForEditor(isPremiumActive: isPremiumActive)
+                Button {
+                    if unlocked {
+                        onSelect(item)
+                    } else {
+                        onLockedTap(item)
+                    }
+                } label: {
+                    ZStack(alignment: .topTrailing) {
+                        VStack(spacing: 8) {
+                            preview(item)
+                                .frame(height: 74)
+                                .clipShape(RoundedRectangle(cornerRadius: 10))
+                                .opacity(unlocked ? 1 : 0.5)
+                            Text(title(item))
+                                .font(.system(size: 12, weight: .semibold))
+                                .lineLimit(2)
+                                .minimumScaleFactor(0.75)
+                                .multilineTextAlignment(.center)
+                                .foregroundColor(unlocked ? .primary : .secondary)
+                        }
+                        .padding(8)
+                        .frame(maxWidth: .infinity)
+                        .background(selected == item ? Color.blue.opacity(0.12) : .white)
+                        .overlay(
+                            RoundedRectangle(cornerRadius: 14)
+                                .stroke(selected == item ? Color.blue : Color.black.opacity(0.1), lineWidth: selected == item ? 2 : 1)
+                        )
+                        .cornerRadius(14)
+                        if !unlocked {
+                            Image(systemName: "lock.fill")
+                                .font(.system(size: 13, weight: .semibold))
+                                .foregroundStyle(.secondary)
+                                .padding(5)
+                                .background(.ultraThinMaterial, in: Circle())
+                                .padding(6)
+                        }
+                    }
+                }
+                .buttonStyle(.plain)
+                .accessibilityLabel(title(item))
+            }
+        }
+    }
+}
+
+struct AvatarStyleGrid<Item: CaseIterable & Hashable>: View {
+    let items: [Item]
+    let selected: Item
+    /// Только иконки, без подписи под ячейкой (например эмоции).
+    var showLabels: Bool = true
+    let title: (Item) -> String
+    /// Подпись для VoiceOver, если `showLabels == false` или нужно отличить от `title`.
+    var accessibilityLabel: ((Item) -> String)? = nil
+    let preview: (Item) -> AnyView
+    let onSelect: (Item) -> Void
+
+    var body: some View {
+        let columns = Array(repeating: GridItem(.flexible(), spacing: 10), count: 3)
+        LazyVGrid(columns: columns, spacing: 10) {
+            ForEach(items, id: \.self) { item in
+                Button {
+                    onSelect(item)
+                } label: {
+                    VStack(spacing: showLabels ? 8 : 0) {
+                        preview(item)
+                            .frame(height: 74)
+                            .clipShape(RoundedRectangle(cornerRadius: 10))
+                        if showLabels {
+                            Text(title(item))
+                                .font(.system(size: 12, weight: .semibold))
+                                .lineLimit(2)
+                                .minimumScaleFactor(0.75)
+                                .multilineTextAlignment(.center)
+                                .foregroundColor(.primary)
+                        }
+                    }
+                    .padding(8)
+                    .background(selected == item ? Color.blue.opacity(0.12) : .white)
+                    .overlay(
+                        RoundedRectangle(cornerRadius: 14)
+                            .stroke(selected == item ? Color.blue : Color.black.opacity(0.1), lineWidth: selected == item ? 2 : 1)
+                    )
+                    .cornerRadius(14)
+                }
+                .buttonStyle(.plain)
+                .accessibilityLabel(accessibilityLabel?(item) ?? title(item))
+            }
+        }
+    }
+}
 
 #Preview {
     AvatarEditorView()
         .environmentObject(UserProfile.shared)
+        .environmentObject(GameState())
 }
+

@@ -1,0 +1,6 @@
+8.0
+
+• Odświeżony ekran quizu z czytelniejszymi odpowiedziami i animacją żyć.
+• Nowy wygląd ekranów Statystyki, Ligi i Profil.
+• Ulepszony układ na iPadzie i karty dopasowane do treści.
+• Region i poziom trudności zapisują się po zamknięciu szybkich ustawień.

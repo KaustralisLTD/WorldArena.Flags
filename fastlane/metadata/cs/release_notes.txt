@@ -1,0 +1,6 @@
+8.0
+
+• Obnovená obrazovka kvízu s přehlednějšími odpověďmi a animovanými životy.
+• Nový vzhled obrazovek Statistiky, Ligy a Profil.
+• Lepší rozložení na iPadu a karty přizpůsobené obsahu.
+• Region a obtížnost se ukládají při zavření rychlého nastavení.

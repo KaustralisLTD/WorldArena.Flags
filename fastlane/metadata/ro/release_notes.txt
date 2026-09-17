@@ -1,0 +1,6 @@
+8.0
+
+• Ecran de quiz reînnoit, cu răspunsuri mai clare și vieți animate.
+• Design nou pentru Statistică, Ligi și Profil.
+• Aspect îmbunătățit pe iPad și carduri adaptate conținutului.
+• Regiunea și dificultatea se salvează la închiderea setărilor rapide.

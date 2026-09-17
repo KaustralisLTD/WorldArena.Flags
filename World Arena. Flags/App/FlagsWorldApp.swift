@@ -1,6 +1,9 @@
 import SwiftUI
 #if os(iOS)
 import UIKit
+#if canImport(GoogleSignIn)
+import GoogleSignIn
+#endif
 #if canImport(FirebaseCore)
 import FirebaseCore
 #endif
@@ -8,15 +11,53 @@ import FirebaseCore
 import GoogleMobileAds
 #endif
 final class AppDelegate: NSObject, UIApplicationDelegate {
+    private static let apnsDeviceTokenKey = "apns.deviceToken"
+
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]? = nil) -> Bool {
+        LocalProgressICloudMirror.restoreFromICloudIntoUserDefaultsIfMissing()
+        LocalProgressICloudMirror.registerForRemoteUpdates()
+        // ATT: запрашиваем сразу после старта приложения, чтобы системный попап гарантированно появлялся и на iPad.
+        // Инициализацию рекламных SDK (MobileAds) держим позже в `FlagsWorldApp.bootstrapTrackingAndAdsIfNeeded()`.
+#if canImport(AppTrackingTransparency)
+        Task { @MainActor in
+            TrackingAuthorizationService.shared.requestIfNeeded { }
+        }
+#endif
+
         #if canImport(FirebaseCore)
         FirebaseApp.configure()
         #endif
+
+        // Для Google Sign-In на реальном устройстве иногда нужен явный clientID.
+        #if canImport(GoogleSignIn) && os(iOS)
+        if let url = Bundle.main.url(forResource: "GoogleService-Info", withExtension: "plist"),
+           let dict = NSDictionary(contentsOf: url),
+           let clientID = dict["CLIENT_ID"] as? String,
+           !clientID.isEmpty {
+            GIDSignIn.sharedInstance.configuration = GIDConfiguration(clientID: clientID)
+        }
+        #endif
         #if canImport(GoogleMobileAds)
-        GADMobileAds.sharedInstance().start(completionHandler: nil)
+        // Важно: MobileAds.start() вызываем позже, после ATT (см. FlagsWorldApp.onAppear).
+        #if !DEBUG
+        // Release: явно без тестовых device id. В DEBUG не трогаем список — иначе `= []` затирает авто-пометку симулятора как тестового (Google: simulators are test devices).
+        MobileAds.shared.requestConfiguration.testDeviceIdentifiers = []
+        #endif
         #endif
         return true
     }
+
+    func application(_ application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: Data) {
+        let token = deviceToken.map { String(format: "%02.2hhx", $0) }.joined()
+        UserDefaults.standard.set(token, forKey: Self.apnsDeviceTokenKey)
+        NotificationCenter.default.post(name: Notification.Name("apnsDeviceTokenUpdated"), object: nil)
+        print("✅ APNs device token saved")
+    }
+
+    func application(_ application: UIApplication, didFailToRegisterForRemoteNotificationsWithError error: Error) {
+        print("❌ APNs registration failed: \(error.localizedDescription)")
+    }
+
     func application(
         _ application: UIApplication,
         supportedInterfaceOrientationsFor window: UIWindow?
@@ -27,6 +68,13 @@ final class AppDelegate: NSObject, UIApplicationDelegate {
         }
         return .all
     }
+
+    #if canImport(GoogleSignIn)
+    func application(_ app: UIApplication, open url: URL, options: [UIApplication.OpenURLOptionsKey: Any] = [:]) -> Bool {
+        // Для завершения Google Sign-In после возврата из браузера/окон.
+        return GIDSignIn.sharedInstance.handle(url)
+    }
+    #endif
 }
 #endif
 
@@ -55,9 +103,16 @@ struct FlagsWorldApp: App {
     @StateObject private var gameState = GameState()
     @StateObject private var notificationService = NotificationService.shared
     @StateObject private var themeManager = AppThemeManager.shared
+    @State private var didBootstrapAds = false
     @State private var showPremiumFromNotif = false
     @State private var previousScenePhase: ScenePhase?
     @State private var pendingProfileLink: PendingProfileLink?
+    @State private var showOnboarding: Bool = {
+        #if DEBUG
+        if CommandLine.arguments.contains("UITesting") { return false }
+        #endif
+        return !OnboardingView.hasCompletedOnboarding
+    }()
 
     var body: some Scene {
         WindowGroup {
@@ -77,7 +132,15 @@ struct FlagsWorldApp: App {
                     ProfileByLinkView(friendCode: link.friendCode, gameState: gameState)
                         .environmentObject(UserProfile.shared)
                 }
+                .fullScreenCover(isPresented: $showOnboarding) {
+                    OnboardingView(isPresented: $showOnboarding)
+                        .environmentObject(gameState)
+                        .interactiveDismissDisabled(true)
+                }
                 .onAppear {
+                    #if os(macOS)
+                    LocalProgressICloudMirror.registerForRemoteUpdates()
+                    #endif
                     // Настраиваем метрики запуска
                     #if DEBUG
                     if CommandLine.arguments.contains("UITesting") {
@@ -93,8 +156,18 @@ struct FlagsWorldApp: App {
                     
                     // Инициализируем StoreManager
                     gameState.initializeStoreManager()
-                    // Предзагрузка награждаемой рекламы (видео за жизни)
-                    Task { await RewardedAdService.shared.loadAd() }
+
+                    // Game Center: аутентифицируем игрока и синхронизируем прогресс достижений.
+                    GameCenterAchievementsService.shared.authenticateIfNeeded { ok in
+                        if ok {
+                            Task { @MainActor in
+                                GameCenterAchievementsService.shared.reportAllAchievementsProgress(userProfile: UserProfile.shared)
+                            }
+                        }
+                    }
+
+                    // ATT сначала, AdMob и загрузка rewarded — только после ATT-шага.
+                    bootstrapTrackingAndAdsIfNeeded()
                 }
                 .onReceive(NotificationCenter.default.publisher(for: Notification.Name("showPremiumFromHome"))) { _ in
                     showPremiumFromNotif = true
@@ -102,6 +175,11 @@ struct FlagsWorldApp: App {
                 .measureMetrics()
         }
         .onChange(of: scenePhase) { newPhase in
+            if newPhase == .active {
+                Task { @MainActor in
+                    await FriendsService.shared.syncServerFriendCode(for: UserProfile.shared, maxAttempts: 1)
+                }
+            }
             if newPhase == .background {
                 // При уходе в фон принудительно сохраняем профиль (статистика, streak, XP, F-bucks) и статистику игр
                 Task { @MainActor in
@@ -110,6 +188,25 @@ struct FlagsWorldApp: App {
                 }
             }
             previousScenePhase = newPhase
+        }
+    }
+
+    @MainActor
+    private func bootstrapTrackingAndAdsIfNeeded() {
+        guard !didBootstrapAds else { return }
+        didBootstrapAds = true
+
+        TrackingAuthorizationService.shared.requestIfNeeded {
+            #if canImport(GoogleMobileAds)
+            // Рекомендация Google: загружать объявления после колбэка start (таймаут ~10 с, медиация может догонять позже).
+            MobileAds.shared.start { _ in
+                Task { @MainActor in
+                    await RewardedAdService.shared.loadAd()
+                }
+            }
+            #else
+            Task { await RewardedAdService.shared.loadAd() }
+            #endif
         }
     }
 }
@@ -146,6 +243,108 @@ struct PresentationDetentsModifier: ViewModifier {
     }
 }
 
+/// iPad: полноэкранный фон, контент по центру с шириной как у системного sheet (~телефонная колонка), без «растягивания».
+struct IPadSheetLikeFullScreenContainer<Content: View>: View {
+    static var maxContentWidth: CGFloat { 600 }
+    static var horizontalInset: CGFloat { 24 }
+
+    @ViewBuilder var content: () -> Content
+
+    var body: some View {
+        #if os(iOS)
+        if UIDevice.current.userInterfaceIdiom == .pad {
+            GeometryReader { geo in
+                let w = geo.size.width
+                let safeW = (w.isFinite && w > 0) ? w : UIScreen.main.bounds.width
+                let colW = max(1, min(Self.maxContentWidth, safeW - Self.horizontalInset * 2))
+                ZStack {
+                    Color(UIColor.systemGroupedBackground)
+                        .ignoresSafeArea()
+                    HStack(alignment: .top, spacing: 0) {
+                        Spacer(minLength: 0)
+                        content()
+                            .frame(maxWidth: colW)
+                            .frame(maxHeight: .infinity, alignment: .top)
+                        Spacer(minLength: 0)
+                    }
+                }
+            }
+            .ignoresSafeArea()
+        } else {
+            content()
+        }
+        #else
+        content()
+        #endif
+    }
+}
+
+/// На iPad даже `presentationDetents([.large])` даёт узкий лист; fullScreen + узкая колонка по центру.
+private struct SheetOrFullScreenOnIPadModifier<SheetContent: View>: ViewModifier {
+    @Binding var isPresented: Bool
+    let sheetContent: () -> SheetContent
+
+    func body(content: Content) -> some View {
+        #if os(iOS)
+        if UIDevice.current.userInterfaceIdiom == .pad {
+            content
+                .fullScreenCover(isPresented: $isPresented) {
+                    IPadSheetLikeFullScreenContainer {
+                        sheetContent()
+                    }
+                }
+        } else {
+            content
+                .sheet(isPresented: $isPresented, content: sheetContent)
+        }
+        #else
+        content
+            .sheet(isPresented: $isPresented, content: sheetContent)
+        #endif
+    }
+}
+
+private struct SheetItemOrFullScreenOnIPadModifier<Item: Identifiable, SheetContent: View>: ViewModifier {
+    @Binding var item: Item?
+    let sheetContent: (Item) -> SheetContent
+
+    func body(content: Content) -> some View {
+        #if os(iOS)
+        if UIDevice.current.userInterfaceIdiom == .pad {
+            content
+                .fullScreenCover(item: $item) { i in
+                    IPadSheetLikeFullScreenContainer {
+                        sheetContent(i)
+                    }
+                }
+        } else {
+            content
+                .sheet(item: $item, content: sheetContent)
+        }
+        #else
+        content
+            .sheet(item: $item, content: sheetContent)
+        #endif
+    }
+}
+
+extension View {
+    /// iPhone: обычный sheet. iPad: на весь экран (как ожидают «страницы» F-Bucks, премиум, настройки).
+    func sheetOrFullScreenOnIPad<Content: View>(
+        isPresented: Binding<Bool>,
+        @ViewBuilder content: @escaping () -> Content
+    ) -> some View {
+        modifier(SheetOrFullScreenOnIPadModifier(isPresented: isPresented, sheetContent: content))
+    }
+
+    func sheetItemOrFullScreenOnIPad<Item: Identifiable, Content: View>(
+        item: Binding<Item?>,
+        @ViewBuilder content: @escaping (Item) -> Content
+    ) -> some View {
+        modifier(SheetItemOrFullScreenOnIPadModifier(item: item, sheetContent: content))
+    }
+}
+
 // В настройках: Premium или ManageSubscription; на iPad — полноэкранно
 struct SettingsPremiumModifier: ViewModifier {
     @Binding var showingPremium: Bool
@@ -164,12 +363,14 @@ struct SettingsPremiumModifier: ViewModifier {
             if isIPad {
                 content
                     .fullScreenCover(isPresented: $showingPremium) {
-                        if gameState.isPremium {
-                            ManageSubscriptionView()
-                                .environmentObject(gameState)
-                                .environmentObject(UserProfile.shared)
-                        } else {
-                            PremiumView(gameState: gameState)
+                        IPadSheetLikeFullScreenContainer {
+                            if gameState.isPremium {
+                                ManageSubscriptionView()
+                                    .environmentObject(gameState)
+                                    .environmentObject(UserProfile.shared)
+                            } else {
+                                PremiumView(gameState: gameState)
+                            }
                         }
                     }
             } else {
@@ -209,12 +410,14 @@ struct PremiumPresentationModifier: ViewModifier {
             if isIPad {
                 content
                     .fullScreenCover(isPresented: $showPremium) {
-                        if gameState.isPremium {
-                            ManageSubscriptionView()
-                                .environmentObject(gameState)
-                                .environmentObject(UserProfile.shared)
-                        } else {
-                            PremiumView(gameState: gameState)
+                        IPadSheetLikeFullScreenContainer {
+                            if gameState.isPremium {
+                                ManageSubscriptionView()
+                                    .environmentObject(gameState)
+                                    .environmentObject(UserProfile.shared)
+                            } else {
+                                PremiumView(gameState: gameState)
+                            }
                         }
                     }
             } else {

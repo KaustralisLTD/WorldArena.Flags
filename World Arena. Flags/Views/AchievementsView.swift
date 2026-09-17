@@ -33,6 +33,25 @@ struct AchievementsView: View {
                 }
                 .padding(.horizontal, 16)
                 .padding(.bottom, 20)
+
+                #if os(iOS)
+                Button {
+                    GameCenterAchievementsService.shared.authenticateAndShowAchievementsUI()
+                } label: {
+                    HStack(spacing: 10) {
+                        Image(systemName: "person.badge.gearshape.fill")
+                            .font(.system(size: 16, weight: .semibold))
+                        Text(LocalizationManager.shared.localizedString("Open in Game Center"))
+                            .font(.system(size: 14, weight: .semibold))
+                    }
+                    .frame(maxWidth: .infinity)
+                    .padding(.vertical, 12)
+                    .background(Color(UIColor.secondarySystemGroupedBackground))
+                    .cornerRadius(14)
+                }
+                .padding(.horizontal, 16)
+                .padding(.bottom, 28)
+                #endif
             }
         }
         .navigationTitle(LocalizationManager.shared.localizedString("Достижения"))
@@ -42,14 +61,12 @@ struct AchievementsView: View {
     }
     
     private var personalRecords: some View {
-        ScrollView(.horizontal, showsIndicators: false) {
-            HStack(spacing: 12) {
-                RecordCard(title: LocalizationManager.shared.localizedString("Лучшая серия"), value: "#\(userProfile.streak)")
-                RecordCard(title: LocalizationManager.shared.localizedString("Макс. лига"), value: userProfile.currentLeague.localizedName)
-                RecordCard(title: LocalizationManager.shared.localizedString("Макс. XP"), value: "\(userProfile.xp)")
-            }
-            .padding(.horizontal, 20)
+        HStack(spacing: 8) {
+            RecordCard(title: LocalizationManager.shared.localizedString("Лучшая серия"), value: "#\(userProfile.streak)")
+            RecordCard(title: LocalizationManager.shared.localizedString("Макс. лига"), value: userProfile.currentLeague.localizedName)
+            RecordCard(title: LocalizationManager.shared.localizedString("Макс. XP"), value: "\(userProfile.xp)")
         }
+        .padding(.horizontal, 16)
     }
 }
 
@@ -96,6 +113,8 @@ private struct AchievementCell: View {
                         .scaledToFit()
                         .frame(width: 72, height: 72)
                         .saturation(isUnlocked ? 1 : 0)
+                        .shadow(color: (isUnlocked ? definition.color : .clear).opacity(0.45), radius: 12, x: 0, y: 0)
+                        .shadow(color: (isUnlocked ? Color.yellow : Color.clear).opacity(0.25), radius: 18, x: 0, y: 0)
                         .background(Circle().fill(secondarySystemGroupedBackground))
                         .clipShape(Circle())
                 } else {
@@ -107,6 +126,7 @@ private struct AchievementCell: View {
                                 .stroke(levelAccent.opacity(0.45), lineWidth: visualLevel > 0 ? CGFloat(visualLevel) + 1 : 1)
                         )
                         .shadow(color: levelAccent.opacity(visualLevel > 0 ? 0.28 : 0), radius: 8, x: 0, y: 4)
+                        .shadow(color: levelAccent.opacity(visualLevel > 0 ? 0.45 : 0), radius: 14, x: 0, y: 0)
                     Image(systemName: isUnlocked ? definition.icon : "lock.fill")
                         .foregroundColor(isUnlocked ? .white : .gray)
                         .font(.system(size: isUnlocked ? 28 : 20, weight: .bold))
@@ -160,13 +180,18 @@ private struct RecordCard: View {
     var body: some View {
         VStack(alignment: .leading, spacing: 8) {
             Text(value)
-                .font(.system(size: 22, weight: .bold))
+                .font(.system(size: 18, weight: .bold))
+                .lineLimit(1)
+                .minimumScaleFactor(0.75)
             Text(title)
-                .font(.system(size: 12, weight: .semibold))
+                .font(.system(size: 11, weight: .semibold))
                 .foregroundColor(.secondary)
+                .lineLimit(2)
+                .minimumScaleFactor(0.8)
         }
-        .frame(width: 160, height: 90)
-        .padding(12)
+        .frame(maxWidth: .infinity, minHeight: 80, alignment: .leading)
+        .padding(.horizontal, 10)
+        .padding(.vertical, 10)
         .background(secondarySystemGroupedBackground)
         .cornerRadius(14)
     }
@@ -198,7 +223,8 @@ struct AchievementDetailView: View {
             
             Text(LocalizationManager.shared.localizedString(definition.titleKey))
                 .font(.system(size: 22, weight: .bold))
-            Text(LocalizationManager.shared.localizedString(definition.descriptionKey))
+            let unlockedText = "\(LocalizationManager.shared.localizedString("Открыто")) • \(LocalizationManager.shared.localizedString(definition.titleKey))"
+            Text(isUnlocked ? unlockedText : LocalizationManager.shared.localizedString(definition.descriptionKey))
                 .font(.system(size: 14))
                 .foregroundColor(.secondary)
                 .multilineTextAlignment(.center)

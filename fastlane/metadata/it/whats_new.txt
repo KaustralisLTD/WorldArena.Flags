@@ -1,0 +1,6 @@
+8.0
+
+• Schermata del quiz rinnovata con risposte più chiare e vite animate.
+• Nuovo design per Statistiche, Leghe e Profilo.
+• Layout migliorati su iPad e schede che si adattano al contenuto.
+• Regione e difficoltà vengono salvate alla chiusura delle impostazioni rapide.

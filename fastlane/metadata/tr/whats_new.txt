@@ -1,0 +1,6 @@
+8.0
+
+• Daha net yanıtlar ve animasyonlu canlarla yenilenen bilgi yarışması ekranı.
+• İstatistikler, Ligler ve Profil ekranları için yeni tasarım.
+• iPad düzeni iyileştirildi; kartlar artık içeriğe uyum sağlıyor.
+• Bölge ve zorluk, hızlı ayarlar kapatıldığında kaydediliyor.

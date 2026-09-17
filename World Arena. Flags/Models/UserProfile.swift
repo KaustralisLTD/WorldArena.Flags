@@ -19,8 +19,10 @@ struct FBucksTransaction: Identifiable, Codable {
         case registrationBonus = "registration_bonus" // Бонус за регистрацию
         case birthday = "birthday" // Поздравление с днём рождения (+10 F-bucks)
         case birthdayGiftFromFriend = "birthday_gift_from_friend" // Подарок от друга на ДР
+        case dailyFBucksClaim = "daily_fbucks_claim" // Ежедневный бонус на экране F-Bucks (+1)
+        case streakRestore = "streak_restore" // Восстановление серии за F-Bucks
 
-        nonisolated(unsafe) var localizedDescription: String {
+        nonisolated var localizedDescription: String {
             return MainActor.assumeIsolated {
                 let L = LocalizationManager.shared
                 switch self {
@@ -35,6 +37,8 @@ struct FBucksTransaction: Identifiable, Codable {
                 case .registrationBonus: return L.localizedString("Бонус за регистрацию")
                 case .birthday: return L.localizedString("День рождения")
                 case .birthdayGiftFromFriend: return L.localizedString("Подарок на ДР от друга")
+                case .dailyFBucksClaim: return L.localizedString("fbucks.tx.daily_bonus")
+                case .streakRestore: return L.localizedString("fbucks.tx.streak_restore")
                 }
             }
         }
@@ -48,7 +52,7 @@ import AppKit
 #endif
 
 // MARK: - Color Codable Extension
-extension Color: Codable {
+extension Color: @retroactive Codable {
     public init(from decoder: Decoder) throws {
         let container = try decoder.singleValueContainer()
         let hexString = try container.decode(String.self)
@@ -117,11 +121,16 @@ class UserProfile: ObservableObject {
     @Published var correctAnswers: Int = 0 { didSet { saveIfReady() } }
     /// Общее количество данных ответов (вопросов) за все игры — нужно для корректного расчёта точности
     @Published var totalAnswers: Int = 0 { didSet { saveIfReady() } }
+    /// Место в мире по XP с сервера (БД); если nil — в UI используется оценка MotivationalRanking.
+    @Published var serverWorldRank: Int? = nil { didSet { saveIfReady() } }
     @Published var bestScore: Int = 0 { didSet { saveIfReady() } }
     @Published var achievements: [Achievement] = []
     @Published var friends: [Friend] = []
     @Published var monthlyQuests: [MonthlyQuest] = []
     @Published var recentMonthlyQuestRewards: [MonthlyQuestCompletionReward] = []
+    /// После пропуска дня: прежняя длина серии — предложить восстановить за F-Bucks или игру.
+    @Published var streakRecoveryLostChain: Int? = nil { didSet { saveIfReady() } }
+    @Published var streakRecoveryAwaitingPlay: Bool = false { didSet { saveIfReady() } }
     /// F-Bucks (Flags Bucks) — начисляются за идеальный результат игры (10/10 или 15/15) и за серии дней
     @Published var fBucks: Int = 0 { didSet { saveIfReady() } }
     /// История начислений F-bucks (для страницы статистики)
@@ -161,14 +170,17 @@ class UserProfile: ObservableObject {
     // Хранилище и флаг инициализации
     private let storageKey = "user.profile.v1"
     private let duelChallengesStorageKey = "user.duelChallenges.v1"
+    /// Резервное хранение F-Bucks, чтобы не терять при миграции/падении декода основного профиля
+    private static let fBucksBackupKey = "user.profile.fBucks.backup.v1"
+    private static let fBucksHistoryBackupKey = "user.profile.fBucksHistory.backup.v1"
     private var isLoadedFromStorage = false
     
     private init() {
         loadFromStorage()
         loadDuelChallenges()
-        // Квесты генерируем после загрузки профиля
-        generateMonthlyQuests()
+        ensureMonthlyQuestsForCurrentMonth()
         ensureDefaultUsernameIfNeeded()
+        ensureDefaultCountryIfNeeded()
     }
     
     private struct DuelChallengesPayload: Codable {
@@ -205,12 +217,35 @@ class UserProfile: ObservableObject {
         return (m == 2 || m == 3) ? m : 1
     }
 
-    /// Включить буст XP на заданное время (2x или 3x на 10–15 мин)
+    /// Оставшееся время буста в секундах (nil, если буст не активен)
+    var xpBoostRemainingSeconds: Int? {
+        guard let end = UserDefaults.standard.object(forKey: Self.xpBoostEndTimeKey) as? Date else { return nil }
+        let remaining = end.timeIntervalSince(Date())
+        return remaining > 0 ? Int(remaining) : nil
+    }
+
+    /// Включить буст XP: стек/апгрейд. Triple поверх triple — добавляем время после текущего конца. Double + triple — оставшееся время становится triple, потом + новое время.
     func activateXPBoost(multiplier: Int, durationMinutes: Int) {
         let m = min(3, max(2, multiplier))
-        let end = Date().addingTimeInterval(TimeInterval(durationMinutes * 60))
-        UserDefaults.standard.set(m, forKey: Self.xpBoostMultiplierKey)
-        UserDefaults.standard.set(end, forKey: Self.xpBoostEndTimeKey)
+        let now = Date()
+        let durationSec = TimeInterval(durationMinutes * 60)
+        let defaults = UserDefaults.standard
+        guard let currentEnd = defaults.object(forKey: Self.xpBoostEndTimeKey) as? Date, currentEnd > now else {
+            defaults.set(m, forKey: Self.xpBoostMultiplierKey)
+            defaults.set(now.addingTimeInterval(durationSec), forKey: Self.xpBoostEndTimeKey)
+            objectWillChange.send()
+            return
+        }
+        let currentM = defaults.integer(forKey: Self.xpBoostMultiplierKey)
+        let effectiveM = (currentM == 2 || currentM == 3) ? currentM : 2
+        if m >= effectiveM {
+            let newEnd = currentEnd.addingTimeInterval(durationSec)
+            defaults.set(m, forKey: Self.xpBoostMultiplierKey)
+            defaults.set(newEnd, forKey: Self.xpBoostEndTimeKey)
+        } else {
+            let newEnd = currentEnd.addingTimeInterval(durationSec)
+            defaults.set(newEnd, forKey: Self.xpBoostEndTimeKey)
+        }
         objectWillChange.send()
     }
 
@@ -273,6 +308,34 @@ class UserProfile: ObservableObject {
         }
     }
 
+    private static let fbucksDailyClaimDayKey = "user.fbucks.dailyClaimDay"
+    private static let firstGameDailyFBucksDayKey = "user.fbucks.firstGameDailyDay"
+
+    /// Можно ли забрать ежедневный +1 F-Bucks на экране валюты (раз в календарный день).
+    func canClaimDailyFBucksBonus() -> Bool {
+        let today = dateStringFromDate(Date())
+        return UserDefaults.standard.string(forKey: Self.fbucksDailyClaimDayKey) != today
+    }
+
+    /// Забрать ежедневный бонус (+1). Идемпотентно по дню.
+    func claimDailyFBucksBonus() {
+        guard canClaimDailyFBucksBonus() else { return }
+        UserDefaults.standard.set(dateStringFromDate(Date()), forKey: Self.fbucksDailyClaimDayKey)
+        addFBucks(1, reason: .dailyFBucksClaim)
+    }
+
+    /// Бонус за первую игру дня: +1, а если первая игра дня идеальная — +2.
+    /// Возвращает `true`, если бонус начислен в этом вызове.
+    func claimFirstGameDailyFBucksBonus(isPerfectGame: Bool) -> Bool {
+        let today = dateStringFromDate(Date())
+        if UserDefaults.standard.string(forKey: Self.firstGameDailyFBucksDayKey) == today {
+            return false
+        }
+        UserDefaults.standard.set(today, forKey: Self.firstGameDailyFBucksDayKey)
+        addFBucks(isPerfectGame ? 2 : 1, reason: .dailyGift)
+        return true
+    }
+
     /// Проверка и начисление F-bucks за серии дней (10, 20, 50, 100)
     func checkAndAwardStreakFBucks() {
         let milestones: [(days: Int, reward: Int, reason: FBucksTransaction.FBucksReason)] = [
@@ -321,12 +384,64 @@ class UserProfile: ObservableObject {
             // Играли вчера - увеличиваем streak
             streak += 1
         } else {
-            // Не играли вчера - сбрасываем streak
+            // Не играли вчера — сброс; даём шанс восстановить серию (F-Bucks или ещё одна партия).
+            let lost = streak
+            if lost >= 2 {
+                streakRecoveryLostChain = lost
+                streakRecoveryAwaitingPlay = false
+            } else {
+                streakRecoveryLostChain = nil
+                streakRecoveryAwaitingPlay = false
+            }
             streak = 1
         }
-        
+
         lastGameDate = today
         addPlayedDate(today)
+    }
+
+    /// Стоимость восстановления серии в F-Bucks (мягкая шкала).
+    func streakRecoveryFBucksCost() -> Int? {
+        guard let lost = streakRecoveryLostChain, lost >= 2 else { return nil }
+        return min(120, max(8, lost * 3))
+    }
+
+    func dismissStreakRecoveryOffer() {
+        streakRecoveryLostChain = nil
+        streakRecoveryAwaitingPlay = false
+        saveToStorage()
+    }
+
+    func chooseStreakRecoveryPlayPath() {
+        guard streakRecoveryLostChain != nil else { return }
+        streakRecoveryAwaitingPlay = true
+    }
+
+    @discardableResult
+    func restoreStreakWithFBucks() -> Bool {
+        guard let lost = streakRecoveryLostChain, lost >= 2, let cost = streakRecoveryFBucksCost() else { return false }
+        guard fBucks >= cost else { return false }
+        addFBucks(-cost, reason: .streakRestore)
+        streak = lost
+        streakRecoveryLostChain = nil
+        streakRecoveryAwaitingPlay = false
+        ensureMonthlyQuestsForCurrentMonth()
+        syncStreakMonthlyQuestWithProfile()
+        saveMonthlyQuestProgressSnapshot()
+        saveToStorage()
+        return true
+    }
+
+    /// После завершённой партии, если выбрали восстановление «сыграть бесплатно».
+    func applyPendingStreakRecoveryAfterGameIfNeeded() {
+        guard streakRecoveryAwaitingPlay, let lost = streakRecoveryLostChain, lost >= 2 else { return }
+        streakRecoveryAwaitingPlay = false
+        streakRecoveryLostChain = nil
+        streak = lost
+        ensureMonthlyQuestsForCurrentMonth()
+        syncStreakMonthlyQuestWithProfile()
+        saveMonthlyQuestProgressSnapshot()
+        saveToStorage()
     }
     
     // MARK: - Game Days Tracking
@@ -429,6 +544,7 @@ class UserProfile: ObservableObject {
         let totalGamesPlayed: Int
         let correctAnswers: Int
         let totalAnswers: Int?
+        let serverWorldRank: Int?
         let bestScore: Int
         let friends: [Friend]
         let achievements: [Achievement]
@@ -438,6 +554,8 @@ class UserProfile: ObservableObject {
         let fBucksHistory: [FBucksTransaction]?
         let birthday: Date?
         let birthdayBonusClaimedYear: Int?
+        let streakRecoveryLostChain: Int?
+        let streakRecoveryAwaitingPlay: Bool?
     }
 
     private func saveIfReady() {
@@ -462,6 +580,7 @@ class UserProfile: ObservableObject {
             totalGamesPlayed: totalGamesPlayed,
             correctAnswers: correctAnswers,
             totalAnswers: totalAnswers,
+            serverWorldRank: serverWorldRank,
             bestScore: bestScore,
             friends: friends,
             achievements: achievements,
@@ -470,16 +589,31 @@ class UserProfile: ObservableObject {
             fBucks: fBucks,
             fBucksHistory: fBucksHistory,
             birthday: birthday,
-            birthdayBonusClaimedYear: birthdayBonusClaimedYear
+            birthdayBonusClaimedYear: birthdayBonusClaimedYear,
+            streakRecoveryLostChain: streakRecoveryLostChain,
+            streakRecoveryAwaitingPlay: streakRecoveryAwaitingPlay
         )
         do {
             let data = try JSONEncoder().encode(toSave)
             _ = KeychainStorage.save(data: data, forKey: storageKey)
             UserDefaults.standard.set(data, forKey: storageKey)
+            UserDefaults.standard.set(fBucks, forKey: Self.fBucksBackupKey)
+            if let historyData = try? JSONEncoder().encode(fBucksHistory) {
+                UserDefaults.standard.set(historyData, forKey: Self.fBucksHistoryBackupKey)
+            }
             UserDefaults.standard.synchronize()
+            LocalProgressICloudMirror.pushData(data, forKey: LocalProgressICloudMirror.keyUserProfile)
         } catch {
             print("❌ Failed to save user profile:", error)
         }
+    }
+
+    /// Перечитать профиль с диска (после восстановления из iCloud в UserDefaults/Keychain).
+    @MainActor
+    func reloadFromPersistence() {
+        isLoadedFromStorage = false
+        loadFromStorage()
+        ensureMonthlyQuestsForCurrentMonth()
     }
 
     private func loadFromStorage() {
@@ -506,21 +640,26 @@ class UserProfile: ObservableObject {
             self.totalGamesPlayed = obj.totalGamesPlayed
             self.correctAnswers = obj.correctAnswers
             self.totalAnswers = obj.totalAnswers ?? 0
+            self.serverWorldRank = obj.serverWorldRank
             self.bestScore = obj.bestScore
             self.friends = obj.friends
             self.achievements = obj.achievements
             self.playedDates = obj.playedDates
             self.dailyXP = obj.dailyXP
-            self.fBucks = obj.fBucks ?? 0
-            self.fBucksHistory = obj.fBucksHistory ?? []
+            self.fBucks = obj.fBucks ?? loadFBucksBackup()
+            self.fBucksHistory = obj.fBucksHistory ?? loadFBucksHistoryBackup()
             self.birthday = obj.birthday
             self.birthdayBonusClaimedYear = obj.birthdayBonusClaimedYear
+            self.streakRecoveryLostChain = obj.streakRecoveryLostChain
+            self.streakRecoveryAwaitingPlay = obj.streakRecoveryAwaitingPlay ?? false
             ensureNonNegativeCriticalFields()
         } catch {
             print("❌ Failed to load user profile:", error)
-            // Попробуем загрузить старую версию без playedDates
+            let (extractedFBucks, extractedHistory) = extractFBucksFromProfileData(data)
             if let legacyProfile = tryLoadLegacyProfile(from: data) {
-                applyLegacyProfile(legacyProfile)
+                let fBucksToRestore = extractedFBucks ?? loadFBucksBackup()
+                let historyToRestore = extractedHistory ?? loadFBucksHistoryBackup()
+                applyLegacyProfile(legacyProfile, restoreFBucks: fBucksToRestore, restoreFBucksHistory: historyToRestore)
             } else {
                 UserDefaults.standard.removeObject(forKey: storageKey)
                 KeychainStorage.remove(forKey: storageKey)
@@ -556,7 +695,28 @@ class UserProfile: ObservableObject {
         }
     }
     
-    private func applyLegacyProfile(_ obj: LegacyPersistedProfile) {
+    /// Извлечь fBucks и историю из сырых данных профиля (если основной декод упал, но в JSON они есть).
+    private func extractFBucksFromProfileData(_ data: Data) -> (Int?, [FBucksTransaction]?) {
+        struct Partial: Codable {
+            let fBucks: Int?
+            let fBucksHistory: [FBucksTransaction]?
+        }
+        guard let p = try? JSONDecoder().decode(Partial.self, from: data) else { return (nil, nil) }
+        return (p.fBucks, p.fBucksHistory)
+    }
+
+    private func loadFBucksBackup() -> Int {
+        let v = UserDefaults.standard.integer(forKey: Self.fBucksBackupKey)
+        return v > 0 ? v : 0
+    }
+
+    private func loadFBucksHistoryBackup() -> [FBucksTransaction] {
+        guard let data = UserDefaults.standard.data(forKey: Self.fBucksHistoryBackupKey),
+              let list = try? JSONDecoder().decode([FBucksTransaction].self, from: data) else { return [] }
+        return list
+    }
+
+    private func applyLegacyProfile(_ obj: LegacyPersistedProfile, restoreFBucks: Int = 0, restoreFBucksHistory: [FBucksTransaction] = []) {
         self.username = obj.username
         self.avatar = obj.avatar
         self.customAvatarImageData = obj.customAvatarImageData
@@ -569,19 +729,20 @@ class UserProfile: ObservableObject {
         self.leaguePosition = obj.leaguePosition
         self.totalGamesPlayed = obj.totalGamesPlayed
         self.correctAnswers = obj.correctAnswers
-        self.totalAnswers = 0 // в старых сохранениях не было — точность будет пересчитана после следующих игр
+        self.totalAnswers = 0
         self.bestScore = obj.bestScore
         self.friends = obj.friends
         self.achievements = obj.achievements
-        self.playedDates = [] // Пустой набор для старых профилей
-        self.dailyXP = [:] // Пустой словарь для старых профилей
+        self.playedDates = []
+        self.dailyXP = [:]
         self.selectedCountryCode = nil
-        
-        // Если у пользователя есть lastGameDate, добавим этот день как сыгранный
+        self.fBucks = restoreFBucks
+        self.fBucksHistory = restoreFBucksHistory
+        self.streakRecoveryLostChain = nil
+        self.streakRecoveryAwaitingPlay = false
         if let lastDate = obj.lastGameDate {
             addPlayedDate(lastDate)
         }
-        self.fBucks = 0 // в старых сохранениях не было
         ensureNonNegativeCriticalFields()
     }
 
@@ -613,6 +774,23 @@ class UserProfile: ObservableObject {
             }
         }
     }
+    
+    /// При первом входе (selectedCountryCode == nil) выставляем флаг по региону устройства/Apple ID.
+    private func ensureDefaultCountryIfNeeded() {
+        guard selectedCountryCode == nil else { return }
+        if #available(iOS 16.0, *) {
+            let regionCode = Locale.current.region?.identifier
+            if let code = regionCode, FriendsService.normalizeCountryCode(code) != nil {
+                selectedCountryCode = code
+                saveToStorage()
+            }
+        } else {
+            if let code = Locale.current.regionCode, FriendsService.normalizeCountryCode(code) != nil {
+                selectedCountryCode = code
+                saveToStorage()
+            }
+        }
+    }
 
     private func generateDefaultUsername() -> String {
         let adjectives = [
@@ -628,8 +806,45 @@ class UserProfile: ObservableObject {
     }
     
     // MARK: - Monthly quests live update after game
+    private static let monthlyQuestPeriodKey = "monthly.quest.period.v1"
     private static let monthlyQuestRewardedMonthKey = "monthly.quest.rewarded.month"
     private static let monthlyQuestRewardedIndicesKey = "monthly.quest.rewarded.indices"
+    private static let monthlyQuestProgressSnapshotKey = "monthly.quest.progress.snapshot.v1"
+
+    private struct MonthlyQuestProgressSnapshot: Codable {
+        var month: String
+        var currents: [Int]
+    }
+
+    private func clearMonthlyQuestProgressSnapshot() {
+        UserDefaults.standard.removeObject(forKey: Self.monthlyQuestProgressSnapshotKey)
+    }
+
+    private func saveMonthlyQuestProgressSnapshot() {
+        guard !monthlyQuests.isEmpty else { return }
+        let snap = MonthlyQuestProgressSnapshot(month: currentMonthToken(), currents: monthlyQuests.map(\.currentValue))
+        guard let data = try? JSONEncoder().encode(snap) else { return }
+        UserDefaults.standard.set(data, forKey: Self.monthlyQuestProgressSnapshotKey)
+    }
+
+    /// Восстановить прогресс месячных квестов после холодного старта в том же календарном месяце.
+    private func mergeMonthlyQuestProgressFromSnapshotIfSameMonth() -> Bool {
+        let token = currentMonthToken()
+        guard let data = UserDefaults.standard.data(forKey: Self.monthlyQuestProgressSnapshotKey),
+              let snap = try? JSONDecoder().decode(MonthlyQuestProgressSnapshot.self, from: data),
+              snap.month == token,
+              snap.currents.count == monthlyQuests.count else { return false }
+        for i in monthlyQuests.indices {
+            monthlyQuests[i].currentValue = min(monthlyQuests[i].targetValue, max(0, snap.currents[i]))
+        }
+        syncStreakMonthlyQuestWithProfile()
+        return true
+    }
+
+    private func syncStreakMonthlyQuestWithProfile() {
+        guard let i = monthlyQuests.firstIndex(where: { $0.questType == .streak }) else { return }
+        monthlyQuests[i].currentValue = min(monthlyQuests[i].targetValue, streak)
+    }
 
     private func currentMonthToken() -> String {
         let formatter = DateFormatter()
@@ -652,6 +867,44 @@ class UserProfile: ObservableObject {
     private func saveRewardedMonthlyQuestIndices(_ indices: Set<Int>) {
         UserDefaults.standard.set(Array(indices), forKey: Self.monthlyQuestRewardedIndicesKey)
         UserDefaults.standard.set(currentMonthToken(), forKey: Self.monthlyQuestRewardedMonthKey)
+    }
+
+    /// Количество закрытых monthly-квестов в текущем месяце (каждый закрытый квест = +1 в общий прогресс).
+    func completedMonthlyQuestPointsForCurrentMonth() -> Int {
+        loadRewardedMonthlyQuestIndices().count
+    }
+
+    /// Обеспечивает корректный набор месячных квестов для текущего месяца.
+    /// При смене месяца полностью сбрасывает прогресс и награды monthly-квестов.
+    @MainActor
+    func ensureMonthlyQuestsForCurrentMonth(forceReset: Bool = false) {
+        let token = currentMonthToken()
+        let savedToken = UserDefaults.standard.string(forKey: Self.monthlyQuestPeriodKey)
+        let monthChanged = (savedToken != token)
+
+        if forceReset || monthChanged {
+            monthlyQuests.removeAll()
+            recentMonthlyQuestRewards.removeAll()
+            UserDefaults.standard.set(token, forKey: Self.monthlyQuestPeriodKey)
+            UserDefaults.standard.set(token, forKey: Self.monthlyQuestRewardedMonthKey)
+            UserDefaults.standard.set([], forKey: Self.monthlyQuestRewardedIndicesKey)
+            clearMonthlyQuestProgressSnapshot()
+            generateMonthlyQuests()
+            _ = mergeMonthlyQuestProgressFromSnapshotIfSameMonth()
+            syncStreakMonthlyQuestWithProfile()
+            saveMonthlyQuestProgressSnapshot()
+            saveToStorage()
+            return
+        }
+
+        if monthlyQuests.isEmpty {
+            generateMonthlyQuests()
+            if !mergeMonthlyQuestProgressFromSnapshotIfSameMonth() {
+                syncStreakMonthlyQuestWithProfile()
+            }
+            saveMonthlyQuestProgressSnapshot()
+            saveToStorage()
+        }
     }
 
     func consumeRecentMonthlyQuestRewards() -> [MonthlyQuestCompletionReward] {
@@ -685,6 +938,7 @@ class UserProfile: ObservableObject {
 
     @MainActor
     func updateMonthlyQuestsAfterGame(score: Int, questions: Int) {
+        ensureMonthlyQuestsForCurrentMonth()
         // Update best score if current score is higher
         if score > bestScore {
             bestScore = score
@@ -754,6 +1008,9 @@ class UserProfile: ObservableObject {
             saveRewardedMonthlyQuestIndices(rewardedIndices)
         }
         if hasChanges { saveToStorage() }
+        if hasChanges || rewardsChanged {
+            saveMonthlyQuestProgressSnapshot()
+        }
     }
 
     private func checkLevelUp() {
@@ -766,10 +1023,6 @@ class UserProfile: ObservableObject {
     
     @MainActor
     func generateMonthlyQuests() {
-        
-        // Clear existing quests
-        monthlyQuests.removeAll()
-        
         // Generate quests based on user level and stats
         let baseGamesTarget = max(16, level * 6)
         let baseAccuracyTarget = min(97, 68 + level * 2)
@@ -785,7 +1038,7 @@ class UserProfile: ObservableObject {
                 title: String(format: L.localizedString("Сыграй %d игр"), baseGamesTarget),
                 description: String(format: L.localizedString("Завершите %d игр в этом месяце"), baseGamesTarget),
                 targetValue: baseGamesTarget,
-                currentValue: min(baseGamesTarget, totalGamesPlayed),
+                currentValue: 0,
                 questType: .gamesPlayed,
                 xpReward: baseGamesTarget * 10,
                 icon: "gamecontroller.fill",
@@ -796,7 +1049,7 @@ class UserProfile: ObservableObject {
                 title: String(format: L.localizedString("Точность %d%%"), baseAccuracyTarget),
                 description: String(format: L.localizedString("Достигните точности %d%% в играх"), baseAccuracyTarget),
                 targetValue: baseAccuracyTarget,
-                currentValue: Int(accuracy),
+                currentValue: 0,
                 questType: .accuracy,
                 xpReward: 500,
                 icon: "target",
@@ -807,7 +1060,7 @@ class UserProfile: ObservableObject {
                 title: String(format: L.localizedString("Серия %d дней"), streakTarget),
                 description: String(format: L.localizedString("Поддерживайте серию %d дней подряд"), streakTarget),
                 targetValue: streakTarget,
-                currentValue: streak,
+                currentValue: 0,
                 questType: .streak,
                 xpReward: streakTarget * 50,
                 icon: "flame.fill",
@@ -818,7 +1071,7 @@ class UserProfile: ObservableObject {
                 title: String(format: L.localizedString("Дай %d правильных ответов"), correctAnswersTarget),
                 description: String(format: L.localizedString("Наберите %d правильных ответов за месяц"), correctAnswersTarget),
                 targetValue: correctAnswersTarget,
-                currentValue: min(correctAnswersTarget, correctAnswers),
+                currentValue: 0,
                 questType: .correctAnswers,
                 xpReward: correctAnswersTarget * 3,
                 icon: "checkmark.seal.fill",
@@ -1058,38 +1311,52 @@ struct Friend: Identifiable, Codable {
     /// Имя для отображения (с сервера); у друзей обновляется при смене имени пользователем.
     var displayName: String?
     let avatar: String
+    var avatarPhotoBase64: String?
     var countryCode: String?
     let level: Int
     let xp: Int
     let streak: Int
+    /// С сервера (друзья): для тех же мотивационных рангов, что у пользователя у себя в профиле.
+    var totalGamesPlayed: Int
+    var correctAnswers: Int
     let isOnline: Bool
     let joinDate: Date
     /// true если друг уже играл сегодня (показываем огонёк и дни, иначе кнопку «Напомнить»).
     var playedToday: Bool
     /// День рождения (опционально; с сервера или локально) — для уведомления «Поздравьте друга».
     var birthday: Date?
+    /// Список id достижений, открытых у друга (приходит с сервера).
+    var achievements: [String]
+    /// Место в мире по XP из API (БД на сервере).
+    var worldRankFromServer: Int?
 
     /// Имя, которое показываем в UI (у друзей — актуальное с сервера).
     var displayNameOrUsername: String { displayName ?? username }
 
     enum CodingKeys: String, CodingKey {
-        case id, username, displayName, avatar, level, xp, streak, isOnline, joinDate
-        case countryCode, playedToday, birthday
+        case id, username, displayName, avatar, avatarPhotoBase64, level, xp, streak, isOnline, joinDate
+        case countryCode, playedToday, birthday, achievements
+        case totalGamesPlayed, correctAnswers
+        case worldRankFromServer
     }
 
-    init(id: UUID, username: String, displayName: String? = nil, avatar: String, countryCode: String? = nil, level: Int, xp: Int, streak: Int, isOnline: Bool, joinDate: Date, playedToday: Bool = false, birthday: Date? = nil) {
+    init(id: UUID, username: String, displayName: String? = nil, avatar: String, avatarPhotoBase64: String? = nil, countryCode: String? = nil, level: Int, xp: Int, streak: Int, totalGamesPlayed: Int = 0, correctAnswers: Int = 0, isOnline: Bool, joinDate: Date, playedToday: Bool = false, birthday: Date? = nil, achievements: [String] = [], worldRankFromServer: Int? = nil) {
         self.id = id
         self.username = username
         self.displayName = displayName
         self.avatar = avatar
+        self.avatarPhotoBase64 = avatarPhotoBase64
         self.countryCode = countryCode
         self.level = level
         self.xp = xp
         self.streak = streak
+        self.totalGamesPlayed = totalGamesPlayed
+        self.correctAnswers = correctAnswers
         self.isOnline = isOnline
         self.joinDate = joinDate
         self.playedToday = playedToday
         self.birthday = birthday
+        self.achievements = achievements
     }
 
     init(from decoder: Decoder) throws {
@@ -1098,14 +1365,19 @@ struct Friend: Identifiable, Codable {
         username = try c.decode(String.self, forKey: .username)
         displayName = try c.decodeIfPresent(String.self, forKey: .displayName)
         avatar = try c.decode(String.self, forKey: .avatar)
+        avatarPhotoBase64 = try c.decodeIfPresent(String.self, forKey: .avatarPhotoBase64)
         countryCode = try c.decodeIfPresent(String.self, forKey: .countryCode)
         level = try c.decode(Int.self, forKey: .level)
         xp = try c.decode(Int.self, forKey: .xp)
         streak = try c.decode(Int.self, forKey: .streak)
+        totalGamesPlayed = try c.decodeIfPresent(Int.self, forKey: .totalGamesPlayed) ?? 0
+        correctAnswers = try c.decodeIfPresent(Int.self, forKey: .correctAnswers) ?? 0
         isOnline = try c.decode(Bool.self, forKey: .isOnline)
         joinDate = try c.decode(Date.self, forKey: .joinDate)
         playedToday = try c.decodeIfPresent(Bool.self, forKey: .playedToday) ?? false
         birthday = try c.decodeIfPresent(Date.self, forKey: .birthday)
+        achievements = try c.decodeIfPresent([String].self, forKey: .achievements) ?? []
+        worldRankFromServer = try c.decodeIfPresent(Int.self, forKey: .worldRankFromServer)
     }
 
     func encode(to encoder: Encoder) throws {
@@ -1114,18 +1386,28 @@ struct Friend: Identifiable, Codable {
         try c.encode(username, forKey: .username)
         try c.encodeIfPresent(displayName, forKey: .displayName)
         try c.encode(avatar, forKey: .avatar)
+        try c.encodeIfPresent(avatarPhotoBase64, forKey: .avatarPhotoBase64)
         try c.encodeIfPresent(countryCode, forKey: .countryCode)
         try c.encode(level, forKey: .level)
         try c.encode(xp, forKey: .xp)
         try c.encode(streak, forKey: .streak)
+        try c.encode(totalGamesPlayed, forKey: .totalGamesPlayed)
+        try c.encode(correctAnswers, forKey: .correctAnswers)
         try c.encode(isOnline, forKey: .isOnline)
         try c.encode(joinDate, forKey: .joinDate)
         try c.encode(playedToday, forKey: .playedToday)
         try c.encodeIfPresent(birthday, forKey: .birthday)
+        try c.encode(achievements, forKey: .achievements)
+        try c.encodeIfPresent(worldRankFromServer, forKey: .worldRankFromServer)
     }
 }
 
 // MARK: - Duel Challenge (режим «Дуэль»: один и тот же seed — одинаковые вопросы у обоих)
+struct DuelQuestionPayloadItem: Codable, Sendable {
+    let correctCountryId: String
+    let optionCountryIds: [String]
+}
+
 struct DuelChallenge: Identifiable, Codable {
     let id: String
     let challengerId: String
@@ -1137,5 +1419,11 @@ struct DuelChallenge: Identifiable, Codable {
     var challengerScore: Int?
     var opponentScore: Int?
     var status: Status
+    var duelRegions: [String]? = nil
+    var duelDifficulty: String? = nil
+    var duelGameMode: Int? = nil
+    var duelQuestionsCount: Int? = nil
+    var duelOptionsCount: Int? = nil
+    var duelQuestionsPayload: [DuelQuestionPayloadItem]? = nil
     enum Status: String, Codable { case pending, challengerCompleted, opponentCompleted, completed }
 }

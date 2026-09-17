@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		3A28871F2DA2C4700070FFBE /* File.txt in Resources */ = {isa = PBXBuildFile; fileRef = 3A28871E2DA2C4700070FFBE /* File.txt */; };
+		6A09C91713310B4CD31FE571 /* Pods_World_Arena__FlagsTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6CBAFC89CA02541D7A4DCE97 /* Pods_World_Arena__FlagsTests.framework */; };
+		92EBC6AAFAF9D1B28EB69150 /* Pods_World_Arena__Flags.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FA026F6D5F7454806547A5AC /* Pods_World_Arena__Flags.framework */; };
+		9FF479494A02D74930BBD01A /* Pods_World_Arena__Flags_World_Arena__FlagsUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E05AEEE78B931544E8ACFBB6 /* Pods_World_Arena__Flags_World_Arena__FlagsUITests.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -28,10 +31,19 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		203DC8A3611D630E25D7AD89 /* Pods-World Arena. Flags-World Arena. FlagsUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-World Arena. Flags-World Arena. FlagsUITests.release.xcconfig"; path = "Target Support Files/Pods-World Arena. Flags-World Arena. FlagsUITests/Pods-World Arena. Flags-World Arena. FlagsUITests.release.xcconfig"; sourceTree = "<group>"; };
+		2BCFC6F0A9A3D19F2525FF84 /* Pods-World Arena. Flags.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-World Arena. Flags.debug.xcconfig"; path = "Target Support Files/Pods-World Arena. Flags/Pods-World Arena. Flags.debug.xcconfig"; sourceTree = "<group>"; };
 		3A28871E2DA2C4700070FFBE /* File.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = File.txt; sourceTree = "<group>"; };
 		3A73792A2D6F36E70075C1D9 /* World Arena. Flags.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "World Arena. Flags.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		3A73793B2D6F36EA0075C1D9 /* World Arena. FlagsTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "World Arena. FlagsTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		3A7379452D6F36EA0075C1D9 /* World Arena. FlagsUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "World Arena. FlagsUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		6CBAFC89CA02541D7A4DCE97 /* Pods_World_Arena__FlagsTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_World_Arena__FlagsTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		79E6318AE3968A6AE1C619CE /* Pods-World Arena. Flags-World Arena. FlagsUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-World Arena. Flags-World Arena. FlagsUITests.debug.xcconfig"; path = "Target Support Files/Pods-World Arena. Flags-World Arena. FlagsUITests/Pods-World Arena. Flags-World Arena. FlagsUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		A6B14E5A3F6685F1853AA8BD /* Pods-World Arena. Flags.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-World Arena. Flags.release.xcconfig"; path = "Target Support Files/Pods-World Arena. Flags/Pods-World Arena. Flags.release.xcconfig"; sourceTree = "<group>"; };
+		E05AEEE78B931544E8ACFBB6 /* Pods_World_Arena__Flags_World_Arena__FlagsUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_World_Arena__Flags_World_Arena__FlagsUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		E4863C02039D95C458CA8DEC /* Pods-World Arena. FlagsTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-World Arena. FlagsTests.release.xcconfig"; path = "Target Support Files/Pods-World Arena. FlagsTests/Pods-World Arena. FlagsTests.release.xcconfig"; sourceTree = "<group>"; };
+		F7E95F698ED41D080D394B5D /* Pods-World Arena. FlagsTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-World Arena. FlagsTests.debug.xcconfig"; path = "Target Support Files/Pods-World Arena. FlagsTests/Pods-World Arena. FlagsTests.debug.xcconfig"; sourceTree = "<group>"; };
+		FA026F6D5F7454806547A5AC /* Pods_World_Arena__Flags.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_World_Arena__Flags.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
@@ -57,6 +69,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				92EBC6AAFAF9D1B28EB69150 /* Pods_World_Arena__Flags.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -64,6 +77,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6A09C91713310B4CD31FE571 /* Pods_World_Arena__FlagsTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -71,12 +85,36 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9FF479494A02D74930BBD01A /* Pods_World_Arena__Flags_World_Arena__FlagsUITests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0F6193130DAD7D48713E571B /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				2BCFC6F0A9A3D19F2525FF84 /* Pods-World Arena. Flags.debug.xcconfig */,
+				A6B14E5A3F6685F1853AA8BD /* Pods-World Arena. Flags.release.xcconfig */,
+				79E6318AE3968A6AE1C619CE /* Pods-World Arena. Flags-World Arena. FlagsUITests.debug.xcconfig */,
+				203DC8A3611D630E25D7AD89 /* Pods-World Arena. Flags-World Arena. FlagsUITests.release.xcconfig */,
+				F7E95F698ED41D080D394B5D /* Pods-World Arena. FlagsTests.debug.xcconfig */,
+				E4863C02039D95C458CA8DEC /* Pods-World Arena. FlagsTests.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		2F0086DFC1038166DB844BC5 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				FA026F6D5F7454806547A5AC /* Pods_World_Arena__Flags.framework */,
+				E05AEEE78B931544E8ACFBB6 /* Pods_World_Arena__Flags_World_Arena__FlagsUITests.framework */,
+				6CBAFC89CA02541D7A4DCE97 /* Pods_World_Arena__FlagsTests.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		3A7379212D6F36E60075C1D9 = {
 			isa = PBXGroup;
 			children = (
@@ -85,6 +123,8 @@
 				3A7379482D6F36EA0075C1D9 /* Flags.WorldUITests */,
 				3A73792B2D6F36E70075C1D9 /* Products */,
 				3A28871E2DA2C4700070FFBE /* File.txt */,
+				0F6193130DAD7D48713E571B /* Pods */,
+				2F0086DFC1038166DB844BC5 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -105,9 +145,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 3A73794F2D6F36EA0075C1D9 /* Build configuration list for PBXNativeTarget "World Arena. Flags" */;
 			buildPhases = (
+				13299B728F3A38950FDDDD85 /* [CP] Check Pods Manifest.lock */,
 				3A7379262D6F36E70075C1D9 /* Sources */,
 				3A7379272D6F36E70075C1D9 /* Frameworks */,
 				3A7379282D6F36E70075C1D9 /* Resources */,
+				4F32B7A2622024AA7114AF98 /* [CP] Embed Pods Frameworks */,
+				9B2FBA70F2F6D56515349E44 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -117,8 +160,6 @@
 				3A73792C2D6F36E70075C1D9 /* World Arena. Flags */,
 			);
 			name = "World Arena. Flags";
-			packageProductDependencies = (
-			);
 			productName = Flags.World;
 			productReference = 3A73792A2D6F36E70075C1D9 /* World Arena. Flags.app */;
 			productType = "com.apple.product-type.application";
@@ -127,6 +168,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 3A7379522D6F36EA0075C1D9 /* Build configuration list for PBXNativeTarget "World Arena. FlagsTests" */;
 			buildPhases = (
+				827F5EB899364F33111941E4 /* [CP] Check Pods Manifest.lock */,
 				3A7379372D6F36EA0075C1D9 /* Sources */,
 				3A7379382D6F36EA0075C1D9 /* Frameworks */,
 				3A7379392D6F36EA0075C1D9 /* Resources */,
@@ -140,8 +182,6 @@
 				3A73793E2D6F36EA0075C1D9 /* Flags.WorldTests */,
 			);
 			name = "World Arena. FlagsTests";
-			packageProductDependencies = (
-			);
 			productName = Flags.WorldTests;
 			productReference = 3A73793B2D6F36EA0075C1D9 /* World Arena. FlagsTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
@@ -150,9 +190,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 3A7379552D6F36EA0075C1D9 /* Build configuration list for PBXNativeTarget "World Arena. FlagsUITests" */;
 			buildPhases = (
+				61EB8506DC478D434638C6EE /* [CP] Check Pods Manifest.lock */,
 				3A7379412D6F36EA0075C1D9 /* Sources */,
 				3A7379422D6F36EA0075C1D9 /* Frameworks */,
 				3A7379432D6F36EA0075C1D9 /* Resources */,
+				27D1430388AC8BE8B347B6BC /* [CP] Embed Pods Frameworks */,
+				5A6445C7B5332B2E8987291C /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -163,8 +206,6 @@
 				3A7379482D6F36EA0075C1D9 /* Flags.WorldUITests */,
 			);
 			name = "World Arena. FlagsUITests";
-			packageProductDependencies = (
-			);
 			productName = Flags.WorldUITests;
 			productReference = 3A7379452D6F36EA0075C1D9 /* World Arena. FlagsUITests.xctest */;
 			productType = "com.apple.product-type.bundle.ui-testing";
@@ -203,12 +244,30 @@
 				es,
 				ca,
 				zh,
+				"zh-Hant",
 				de,
 				fr,
 				it,
 				"pt-BR",
 				pl,
 				nl,
+				hi,
+				cs,
+				sv,
+				ja,
+				ar,
+				bn,
+				hu,
+				vi,
+				el,
+				id,
+				ko,
+				ro,
+				th,
+				ta,
+				te,
+				tr,
+				fil,
 			);
 			mainGroup = 3A7379212D6F36E60075C1D9;
 			minimizedProjectReferenceProxies = 1;
@@ -248,6 +307,159 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		13299B728F3A38950FDDDD85 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-World Arena. Flags-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		27D1430388AC8BE8B347B6BC /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-World Arena. Flags-World Arena. FlagsUITests/Pods-World Arena. Flags-World Arena. FlagsUITests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-World Arena. Flags-World Arena. FlagsUITests/Pods-World Arena. Flags-World Arena. FlagsUITests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-World Arena. Flags-World Arena. FlagsUITests/Pods-World Arena. Flags-World Arena. FlagsUITests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		4F32B7A2622024AA7114AF98 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-World Arena. Flags/Pods-World Arena. Flags-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-World Arena. Flags/Pods-World Arena. Flags-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-World Arena. Flags/Pods-World Arena. Flags-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		5A6445C7B5332B2E8987291C /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-World Arena. Flags-World Arena. FlagsUITests/Pods-World Arena. Flags-World Arena. FlagsUITests-resources-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-World Arena. Flags-World Arena. FlagsUITests/Pods-World Arena. Flags-World Arena. FlagsUITests-resources-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-World Arena. Flags-World Arena. FlagsUITests/Pods-World Arena. Flags-World Arena. FlagsUITests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		61EB8506DC478D434638C6EE /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-World Arena. Flags-World Arena. FlagsUITests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		827F5EB899364F33111941E4 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-World Arena. FlagsTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		9B2FBA70F2F6D56515349E44 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-World Arena. Flags/Pods-World Arena. Flags-resources-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-World Arena. Flags/Pods-World Arena. Flags-resources-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-World Arena. Flags/Pods-World Arena. Flags-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		3A7379262D6F36E70075C1D9 /* Sources */ = {
@@ -413,6 +625,7 @@
 		};
 		3A7379502D6F36EA0075C1D9 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 2BCFC6F0A9A3D19F2525FF84 /* Pods-World Arena. Flags.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -420,13 +633,26 @@
 				CODE_SIGN_IDENTITY = "Apple Development";
 				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 22;
+				CURRENT_PROJECT_VERSION = 80;
 				DEAD_CODE_STRIPPING = YES;
 				DEVELOPMENT_ASSET_PATHS = "\"World Arena. Flags/Preview Content\"";
 				DEVELOPMENT_TEAM = 8QK64BF264;
+				ENABLE_APP_SANDBOX = YES;
 				ENABLE_HARDENED_RUNTIME = YES;
+				ENABLE_INCOMING_NETWORK_CONNECTIONS = NO;
+				ENABLE_OUTGOING_NETWORK_CONNECTIONS = YES;
 				ENABLE_PREVIEWS = YES;
+				ENABLE_RESOURCE_ACCESS_AUDIO_INPUT = NO;
+				ENABLE_RESOURCE_ACCESS_BLUETOOTH = NO;
+				ENABLE_RESOURCE_ACCESS_CALENDARS = NO;
+				ENABLE_RESOURCE_ACCESS_CAMERA = NO;
+				ENABLE_RESOURCE_ACCESS_CONTACTS = NO;
+				ENABLE_RESOURCE_ACCESS_LOCATION = NO;
+				ENABLE_RESOURCE_ACCESS_PRINTING = NO;
+				ENABLE_RESOURCE_ACCESS_USB = NO;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "World-Arena--Flags-Info.plist";
 				INFOPLIST_KEY_CFBundleDisplayName = "Flags Quiz";
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.educational-games";
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphoneos*]" = YES;
@@ -440,10 +666,13 @@
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				IPHONEOS_DEPLOYMENT_TARGET = 15.6;
-				LD_RUNPATH_SEARCH_PATHS = "@executable_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
 				"LD_RUNPATH_SEARCH_PATHS[sdk=macosx*]" = "@executable_path/../Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 12.4;
-				MARKETING_VERSION = 2.14;
+				MARKETING_VERSION = 8.0;
 				PRODUCT_BUNDLE_IDENTIFIER = Kaustralis.WorldArena.Flags;
 				"PRODUCT_BUNDLE_IDENTIFIER[sdk=iphoneos*]" = "World-Arena.-Flags";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -460,6 +689,7 @@
 		};
 		3A7379512D6F36EA0075C1D9 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = A6B14E5A3F6685F1853AA8BD /* Pods-World Arena. Flags.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -467,13 +697,26 @@
 				CODE_SIGN_IDENTITY = "Apple Development";
 				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 22;
+				CURRENT_PROJECT_VERSION = 80;
 				DEAD_CODE_STRIPPING = YES;
 				DEVELOPMENT_ASSET_PATHS = "\"World Arena. Flags/Preview Content\"";
 				DEVELOPMENT_TEAM = 8QK64BF264;
+				ENABLE_APP_SANDBOX = YES;
 				ENABLE_HARDENED_RUNTIME = YES;
+				ENABLE_INCOMING_NETWORK_CONNECTIONS = NO;
+				ENABLE_OUTGOING_NETWORK_CONNECTIONS = YES;
 				ENABLE_PREVIEWS = YES;
+				ENABLE_RESOURCE_ACCESS_AUDIO_INPUT = NO;
+				ENABLE_RESOURCE_ACCESS_BLUETOOTH = NO;
+				ENABLE_RESOURCE_ACCESS_CALENDARS = NO;
+				ENABLE_RESOURCE_ACCESS_CAMERA = NO;
+				ENABLE_RESOURCE_ACCESS_CONTACTS = NO;
+				ENABLE_RESOURCE_ACCESS_LOCATION = NO;
+				ENABLE_RESOURCE_ACCESS_PRINTING = NO;
+				ENABLE_RESOURCE_ACCESS_USB = NO;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "World-Arena--Flags-Info.plist";
 				INFOPLIST_KEY_CFBundleDisplayName = "Flags Quiz";
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.educational-games";
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphoneos*]" = YES;
@@ -487,10 +730,13 @@
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				IPHONEOS_DEPLOYMENT_TARGET = 15.6;
-				LD_RUNPATH_SEARCH_PATHS = "@executable_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
 				"LD_RUNPATH_SEARCH_PATHS[sdk=macosx*]" = "@executable_path/../Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 12.4;
-				MARKETING_VERSION = 2.14;
+				MARKETING_VERSION = 8.0;
 				PRODUCT_BUNDLE_IDENTIFIER = Kaustralis.WorldArena.Flags;
 				"PRODUCT_BUNDLE_IDENTIFIER[sdk=iphoneos*]" = "World-Arena.-Flags";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -507,11 +753,13 @@
 		};
 		3A7379532D6F36EA0075C1D9 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = F7E95F698ED41D080D394B5D /* Pods-World Arena. FlagsTests.debug.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEAD_CODE_STRIPPING = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_EXPAND_BUILD_SETTINGS = NO;
 				IPHONEOS_DEPLOYMENT_TARGET = 18.2;
@@ -532,11 +780,13 @@
 		};
 		3A7379542D6F36EA0075C1D9 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = E4863C02039D95C458CA8DEC /* Pods-World Arena. FlagsTests.release.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEAD_CODE_STRIPPING = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_EXPAND_BUILD_SETTINGS = NO;
 				IPHONEOS_DEPLOYMENT_TARGET = 18.2;
@@ -557,10 +807,12 @@
 		};
 		3A7379562D6F36EA0075C1D9 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 79E6318AE3968A6AE1C619CE /* Pods-World Arena. Flags-World Arena. FlagsUITests.debug.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEAD_CODE_STRIPPING = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_EXPAND_BUILD_SETTINGS = NO;
 				IPHONEOS_DEPLOYMENT_TARGET = 18.2;
@@ -574,17 +826,19 @@
 				SWIFT_EMIT_LOC_STRINGS = NO;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2,7";
-				TEST_TARGET_NAME = Flags.World;
+				TEST_TARGET_NAME = "World Arena. Flags";
 				XROS_DEPLOYMENT_TARGET = 2.2;
 			};
 			name = Debug;
 		};
 		3A7379572D6F36EA0075C1D9 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 203DC8A3611D630E25D7AD89 /* Pods-World Arena. Flags-World Arena. FlagsUITests.release.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEAD_CODE_STRIPPING = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_EXPAND_BUILD_SETTINGS = NO;
 				IPHONEOS_DEPLOYMENT_TARGET = 18.2;
@@ -598,7 +852,7 @@
 				SWIFT_EMIT_LOC_STRINGS = NO;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2,7";
-				TEST_TARGET_NAME = Flags.World;
+				TEST_TARGET_NAME = "World Arena. Flags";
 				XROS_DEPLOYMENT_TARGET = 2.2;
 			};
 			name = Release;

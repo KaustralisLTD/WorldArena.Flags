@@ -203,7 +203,7 @@ class CountryDetailsService {
                 anthemMeaning: "Гимн прославляет красоту австрийской природы, горы и реки, а также единство народа и любовь к родине.",
                 anthemText: getAnthemText(for: "AT", language: "ru"),
                 photos: ["austria_flag", "austria_coat_of_arms", "vienna_palace", "salzburg_castle", "hallstatt_lake"],
-                anthemAudio: "austria_anthem",
+                anthemAudio: "anthem_at",
                 interestingFacts: [
                     "Австрия известна как родина классической музыки - здесь родились Моцарт, Бетховен, Шуберт и Штраус.",
                     "Вена была признана самым пригодным для жизни городом в мире несколько лет подряд.",
@@ -230,7 +230,7 @@ class CountryDetailsService {
                 anthemMeaning: "The anthem celebrates the beauty of Austrian nature, mountains and rivers, as well as the unity of the people and love for the homeland.",
                 anthemText: getAnthemText(for: "AT", language: "en"),
                 photos: ["austria_flag", "austria_coat_of_arms", "vienna_palace", "salzburg_castle", "hallstatt_lake"],
-                anthemAudio: "austria_anthem",
+                anthemAudio: "anthem_at",
                 interestingFacts: [
                     "Austria is known as the birthplace of classical music - Mozart, Beethoven, Schubert and Strauss were born here.",
                     "Vienna has been ranked as the world's most livable city for several years in a row.",
@@ -257,7 +257,7 @@ class CountryDetailsService {
                 anthemMeaning: "El himno celebra la belleza de la naturaleza austriaca, montañas y ríos, así como la unidad del pueblo y el amor por la patria.",
                 anthemText: getAnthemText(for: "AT", language: "es"),
                 photos: ["austria_flag", "austria_coat_of_arms", "vienna_palace", "salzburg_castle", "hallstatt_lake"],
-                anthemAudio: "austria_anthem",
+                anthemAudio: "anthem_at",
                 interestingFacts: getInterestingFacts(for: "AT", language: language)
             )
         case "uk":
@@ -280,7 +280,7 @@ class CountryDetailsService {
                 anthemMeaning: "Гімн прославляє красу австрійської природи, гори та річки, а також єдність народу та любов до батьківщини.",
                 anthemText: getAnthemText(for: "AT", language: "uk"),
                 photos: ["austria_flag", "austria_coat_of_arms", "vienna_palace", "salzburg_castle", "hallstatt_lake"],
-                anthemAudio: "austria_anthem",
+                anthemAudio: "anthem_at",
                 interestingFacts: getInterestingFacts(for: "AT", language: language)
             )
         case "ca":
@@ -303,7 +303,7 @@ class CountryDetailsService {
                 anthemMeaning: "L'himne celebra la bellesa de la natura austríaca, muntanyes i rius, així com la unitat del poble i l'amor per la pàtria.",
                 anthemText: getAnthemText(for: "AT", language: "ca"),
                 photos: ["austria_flag", "austria_coat_of_arms", "vienna_palace", "salzburg_castle", "hallstatt_lake"],
-                anthemAudio: "austria_anthem",
+                anthemAudio: "anthem_at",
                 interestingFacts: getInterestingFacts(for: "AT", language: language)
             )
         case "zh":
@@ -326,7 +326,7 @@ class CountryDetailsService {
                 anthemMeaning: "国歌歌颂奥地利自然之美、山川河流，以及人民的团结和对祖国的热爱。",
                 anthemText: getAnthemText(for: "AT", language: "zh"),
                 photos: ["austria_flag", "austria_coat_of_arms", "vienna_palace", "salzburg_castle", "hallstatt_lake"],
-                anthemAudio: "austria_anthem",
+                anthemAudio: "anthem_at",
                 interestingFacts: getInterestingFacts(for: "AT", language: language)
             )
         default:

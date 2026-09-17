@@ -9,6 +9,8 @@ class QuestService: ObservableObject {
 
     private let storageKey = "quests.daily.v1"
     private let lastResetKey = "quests.daily.lastReset"
+    private let monthlyHeaderPeriodKey = "quests.monthlyHeader.period.v1"
+    private let monthlyHeaderCompletedDailyMarkersKey = "quests.monthlyHeader.completedDailyMarkers.v1"
 
     private init() {
         loadDailyQuests()
@@ -31,6 +33,7 @@ class QuestService: ObservableObject {
             let decoded = try JSONDecoder().decode([DailyQuestPersisted].self, from: data)
             dailyQuests = decoded.map { $0.toModel() }
             refreshQuestLocalization(save: false)
+            registerCompletedDailyQuestPointsForToday()
         } catch {
             generateNewDailyQuests(); saveDailyQuests()
         }
@@ -52,14 +55,66 @@ class QuestService: ObservableObject {
         }
         dailyQuests = updated
         saveDailyQuests()
+        registerCompletedDailyQuestPointsForToday()
+    }
+
+    private func currentMonthToken() -> String {
+        let formatter = DateFormatter()
+        formatter.dateFormat = "yyyy-MM"
+        return formatter.string(from: Date())
+    }
+
+    private func todayToken() -> String {
+        let formatter = DateFormatter()
+        formatter.dateFormat = "yyyy-MM-dd"
+        return formatter.string(from: Date())
+    }
+
+    private func loadCompletedDailyMarkersForCurrentMonth() -> Set<String> {
+        let month = currentMonthToken()
+        let savedMonth = UserDefaults.standard.string(forKey: monthlyHeaderPeriodKey)
+        if savedMonth != month {
+            UserDefaults.standard.set(month, forKey: monthlyHeaderPeriodKey)
+            UserDefaults.standard.set([], forKey: monthlyHeaderCompletedDailyMarkersKey)
+            return []
+        }
+        let raw = UserDefaults.standard.array(forKey: monthlyHeaderCompletedDailyMarkersKey) as? [String] ?? []
+        return Set(raw)
+    }
+
+    private func saveCompletedDailyMarkers(_ markers: Set<String>) {
+        UserDefaults.standard.set(Array(markers), forKey: monthlyHeaderCompletedDailyMarkersKey)
+        UserDefaults.standard.set(currentMonthToken(), forKey: monthlyHeaderPeriodKey)
+    }
+
+    /// Учитываем прогресс главной полосы квестов: +1 за каждый daily-квест, впервые закрытый в текущий день.
+    func registerCompletedDailyQuestPointsForToday() {
+        let today = todayToken()
+        var markers = loadCompletedDailyMarkersForCurrentMonth()
+        var changed = false
+        for quest in dailyQuests where quest.isCompleted {
+            let marker = "\(today)|\(quest.kind.rawValue)"
+            if !markers.contains(marker) {
+                markers.insert(marker)
+                changed = true
+            }
+        }
+        if changed {
+            saveCompletedDailyMarkers(markers)
+        }
+    }
+
+    /// Количество начисленных очков за daily-квесты в текущем месяце (каждое закрытие daily = +1).
+    func completedDailyQuestPointsForCurrentMonth() -> Int {
+        loadCompletedDailyMarkersForCurrentMonth().count
     }
 
     private func generateNewDailyQuests() {
         // Лёгкие задания ~5-10 минут
         dailyQuests = [
-            DailyQuest(title: localizedDailyTitle(kind: .gamesPlayed, target: 3), target: 3, progress: 0, icon: "🎮", kind: .gamesPlayed),
-            DailyQuest(title: localizedDailyTitle(kind: .correctAnswers, target: 10), target: 10, progress: 0, icon: "✅", kind: .correctAnswers),
-            DailyQuest(title: localizedDailyTitle(kind: .xpEarned, target: 500), target: 500, progress: 0, icon: "⚡", kind: .xpEarned)
+            DailyQuest(title: localizedDailyTitle(kind: .gamesPlayed, target: 3), target: 3, progress: 0, icon: "gamecontroller.fill", kind: .gamesPlayed),
+            DailyQuest(title: localizedDailyTitle(kind: .correctAnswers, target: 10), target: 10, progress: 0, icon: "checkmark.circle.fill", kind: .correctAnswers),
+            DailyQuest(title: localizedDailyTitle(kind: .xpEarned, target: 500), target: 500, progress: 0, icon: "bolt.fill", kind: .xpEarned)
         ]
     }
 
@@ -74,6 +129,20 @@ class QuestService: ObservableObject {
             )
         }
         if save { saveDailyQuests() }
+    }
+
+    /// Возвращает имя SF Symbol для отображения иконки квеста (поддержка старых emoji из UserDefaults).
+    static func questIconSystemName(for icon: String) -> String? {
+        if icon.contains(".") { return icon }
+        switch icon {
+        case "🎮": return "gamecontroller.fill"
+        case "✅": return "checkmark.circle.fill"
+        case "⚡": return "bolt.fill"
+        case "🎯": return "target"
+        case "🔥": return "flame.fill"
+        case "⏱️": return "clock.fill"
+        default: return nil
+        }
     }
 
     private func localizedDailyTitle(kind: DailyQuest.Kind, target: Int) -> String {

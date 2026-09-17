@@ -1,5 +1,8 @@
 import SwiftUI
 import Foundation
+#if os(iOS)
+import UIKit
+#endif
 
 struct StreakView: View {
     let currentStreak: Int
@@ -45,15 +48,33 @@ struct StreakView: View {
                             .frame(width: 160, height: 160)
                             .scaleEffect(flameGlow)
                         
-                        // Flame
-                        Text("🔥")
-                            .font(.system(size: 80))
-                            .scaleEffect(flameScale)
-                            .animation(
-                                .easeInOut(duration: 1.0)
-                                .repeatForever(autoreverses: true),
-                                value: flameScale
-                            )
+                        // Уникальная миниатюра огня как в Профиле (StatDayStreak), иначе SF Symbol с оранжевым цветом
+                        Group {
+                            #if os(iOS)
+                            if UIImage(named: "StatDayStreak") != nil {
+                                Image("StatDayStreak")
+                                    .renderingMode(.template)
+                                    .resizable()
+                                    .scaledToFit()
+                                    .frame(width: 80, height: 80)
+                                    .foregroundColor(Color.orange)
+                            } else {
+                                Image(systemName: "flame.fill")
+                                    .font(.system(size: 80))
+                                    .foregroundColor(Color.orange)
+                            }
+                            #else
+                            Image(systemName: "flame.fill")
+                                .font(.system(size: 80))
+                                .foregroundColor(Color.orange)
+                            #endif
+                        }
+                        .scaleEffect(flameScale)
+                        .animation(
+                            .easeInOut(duration: 1.0)
+                            .repeatForever(autoreverses: true),
+                            value: flameScale
+                        )
                     }
                     
                     // Streak number
@@ -199,7 +220,6 @@ struct StreakView: View {
     }
     
     private var weekDaysWithInfo: [DayInfo] {
-        let calendar = Calendar.current
         let today = Date()
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "EE"

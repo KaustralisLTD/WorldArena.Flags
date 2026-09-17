@@ -1,0 +1,1217 @@
+{
+  "AD": {
+    "region": "Europe",
+    "subregion": "Europe",
+    "cca3": "AND"
+  },
+  "AE": {
+    "region": "Asia",
+    "subregion": "Asia",
+    "cca3": "ARE"
+  },
+  "AF": {
+    "region": "Asia",
+    "subregion": "Asia",
+    "cca3": "AFG"
+  },
+  "AG": {
+    "region": "Americas",
+    "subregion": "Caribbean",
+    "cca3": "ATG"
+  },
+  "AI": {
+    "region": "Americas",
+    "subregion": "Caribbean",
+    "cca3": "AIA"
+  },
+  "AL": {
+    "region": "Europe",
+    "subregion": "Europe",
+    "cca3": "ALB"
+  },
+  "AM": {
+    "region": "Asia",
+    "subregion": "Asia",
+    "cca3": "ARM"
+  },
+  "AO": {
+    "region": "Africa",
+    "subregion": "Africa",
+    "cca3": "AGO"
+  },
+  "AR": {
+    "region": "Americas",
+    "subregion": "South America",
+    "cca3": "ARG"
+  },
+  "AS": {
+    "region": "Oceania",
+    "subregion": "Oceania",
+    "cca3": "ASM"
+  },
+  "AT": {
+    "region": "Europe",
+    "subregion": "Europe",
+    "cca3": "AUT"
+  },
+  "AU": {
+    "region": "Oceania",
+    "subregion": "Oceania",
+    "cca3": "AUS"
+  },
+  "AW": {
+    "region": "Americas",
+    "subregion": "Caribbean",
+    "cca3": "ABW"
+  },
+  "AZ": {
+    "region": "Asia",
+    "subregion": "Asia",
+    "cca3": "AZE"
+  },
+  "BA": {
+    "region": "Europe",
+    "subregion": "Europe",
+    "cca3": "BIH"
+  },
+  "BB": {
+    "region": "Americas",
+    "subregion": "Caribbean",
+    "cca3": "BRB"
+  },
+  "BD": {
+    "region": "Asia",
+    "subregion": "Asia",
+    "cca3": "BGD"
+  },
+  "BE": {
+    "region": "Europe",
+    "subregion": "Europe",
+    "cca3": "BEL"
+  },
+  "BF": {
+    "region": "Africa",
+    "subregion": "Africa",
+    "cca3": "BFA"
+  },
+  "BG": {
+    "region": "Europe",
+    "subregion": "Europe",
+    "cca3": "BGR"
+  },
+  "BH": {
+    "region": "Asia",
+    "subregion": "Asia",
+    "cca3": "BHR"
+  },
+  "BI": {
+    "region": "Africa",
+    "subregion": "Africa",
+    "cca3": "BDI"
+  },
+  "BJ": {
+    "region": "Africa",
+    "subregion": "Africa",
+    "cca3": "BEN"
+  },
+  "BL": {
+    "region": "Americas",
+    "subregion": "Caribbean",
+    "cca3": "BLM"
+  },
+  "BM": {
+    "region": "Americas",
+    "subregion": "Northern America",
+    "cca3": "BMU"
+  },
+  "BN": {
+    "region": "Asia",
+    "subregion": "Asia",
+    "cca3": "BRN"
+  },
+  "BO": {
+    "region": "Americas",
+    "subregion": "South America",
+    "cca3": "BOL"
+  },
+  "BQ": {
+    "region": "Americas",
+    "subregion": "Caribbean",
+    "cca3": "BES"
+  },
+  "BR": {
+    "region": "Americas",
+    "subregion": "South America",
+    "cca3": "BRA"
+  },
+  "BS": {
+    "region": "Americas",
+    "subregion": "Caribbean",
+    "cca3": "BHS"
+  },
+  "BT": {
+    "region": "Asia",
+    "subregion": "Asia",
+    "cca3": "BTN"
+  },
+  "BW": {
+    "region": "Africa",
+    "subregion": "Africa",
+    "cca3": "BWA"
+  },
+  "BY": {
+    "region": "Europe",
+    "subregion": "Europe",
+    "cca3": "BLR"
+  },
+  "BZ": {
+    "region": "Americas",
+    "subregion": "Central America",
+    "cca3": "BLZ"
+  },
+  "CA": {
+    "region": "Americas",
+    "subregion": "Northern America",
+    "cca3": "CAN"
+  },
+  "CC": {
+    "region": "Asia",
+    "subregion": "Asia",
+    "cca3": "CCK"
+  },
+  "CD": {
+    "region": "Africa",
+    "subregion": "Africa",
+    "cca3": "COD"
+  },
+  "CF": {
+    "region": "Africa",
+    "subregion": "Africa",
+    "cca3": "CAF"
+  },
+  "CG": {
+    "region": "Africa",
+    "subregion": "Africa",
+    "cca3": "COG"
+  },
+  "CH": {
+    "region": "Europe",
+    "subregion": "Europe",
+    "cca3": "CHE"
+  },
+  "CI": {
+    "region": "Africa",
+    "subregion": "Africa",
+    "cca3": "CIV"
+  },
+  "CK": {
+    "region": "Oceania",
+    "subregion": "Oceania",
+    "cca3": "COK"
+  },
+  "CL": {
+    "region": "Americas",
+    "subregion": "South America",
+    "cca3": "CHL"
+  },
+  "CM": {
+    "region": "Africa",
+    "subregion": "Africa",
+    "cca3": "CMR"
+  },
+  "CN": {
+    "region": "Asia",
+    "subregion": "Asia",
+    "cca3": "CHN"
+  },
+  "CO": {
+    "region": "Americas",
+    "subregion": "South America",
+    "cca3": "COL"
+  },
+  "CR": {
+    "region": "Americas",
+    "subregion": "Central America",
+    "cca3": "CRI"
+  },
+  "CU": {
+    "region": "Americas",
+    "subregion": "Caribbean",
+    "cca3": "CUB"
+  },
+  "CV": {
+    "region": "Africa",
+    "subregion": "Africa",
+    "cca3": "CPV"
+  },
+  "CW": {
+    "region": "Americas",
+    "subregion": "Caribbean",
+    "cca3": "CUW"
+  },
+  "CX": {
+    "region": "Asia",
+    "subregion": "Asia",
+    "cca3": "CXR"
+  },
+  "CY": {
+    "region": "Europe",
+    "subregion": "Europe",
+    "cca3": "CYP"
+  },
+  "CZ": {
+    "region": "Europe",
+    "subregion": "Europe",
+    "cca3": "CZE"
+  },
+  "DE": {
+    "region": "Europe",
+    "subregion": "Europe",
+    "cca3": "DEU"
+  },
+  "DJ": {
+    "region": "Africa",
+    "subregion": "Africa",
+    "cca3": "DJI"
+  },
+  "DK": {
+    "region": "Europe",
+    "subregion": "Europe",
+    "cca3": "DNK"
+  },
+  "DM": {
+    "region": "Americas",
+    "subregion": "Caribbean",
+    "cca3": "DMA"
+  },
+  "DO": {
+    "region": "Americas",
+    "subregion": "Caribbean",
+    "cca3": "DOM"
+  },
+  "DZ": {
+    "region": "Africa",
+    "subregion": "Africa",
+    "cca3": "DZA"
+  },
+  "EC": {
+    "region": "Americas",
+    "subregion": "South America",
+    "cca3": "ECU"
+  },
+  "EE": {
+    "region": "Europe",
+    "subregion": "Europe",
+    "cca3": "EST"
+  },
+  "EG": {
+    "region": "Africa",
+    "subregion": "Africa",
+    "cca3": "EGY"
+  },
+  "EH": {
+    "region": "Africa",
+    "subregion": "Africa",
+    "cca3": "ESH"
+  },
+  "ER": {
+    "region": "Africa",
+    "subregion": "Africa",
+    "cca3": "ERI"
+  },
+  "ES": {
+    "region": "Europe",
+    "subregion": "Europe",
+    "cca3": "ESP"
+  },
+  "ET": {
+    "region": "Africa",
+    "subregion": "Africa",
+    "cca3": "ETH"
+  },
+  "FI": {
+    "region": "Europe",
+    "subregion": "Europe",
+    "cca3": "FIN"
+  },
+  "FJ": {
+    "region": "Oceania",
+    "subregion": "Oceania",
+    "cca3": "FJI"
+  },
+  "FK": {
+    "region": "Americas",
+    "subregion": "South America",
+    "cca3": "FLK"
+  },
+  "FM": {
+    "region": "Oceania",
+    "subregion": "Oceania",
+    "cca3": "FSM"
+  },
+  "FO": {
+    "region": "Europe",
+    "subregion": "Europe",
+    "cca3": "FRO"
+  },
+  "FR": {
+    "region": "Europe",
+    "subregion": "Europe",
+    "cca3": "FRA"
+  },
+  "GA": {
+    "region": "Africa",
+    "subregion": "Africa",
+    "cca3": "GAB"
+  },
+  "GB": {
+    "region": "Europe",
+    "subregion": "Europe",
+    "cca3": "GBR"
+  },
+  "GD": {
+    "region": "Americas",
+    "subregion": "Caribbean",
+    "cca3": "GRD"
+  },
+  "GE": {
+    "region": "Asia",
+    "subregion": "Asia",
+    "cca3": "GEO"
+  },
+  "GF": {
+    "region": "Americas",
+    "subregion": "South America",
+    "cca3": "GUF"
+  },
+  "GG": {
+    "region": "Europe",
+    "subregion": "Europe",
+    "cca3": "GGY"
+  },
+  "GH": {
+    "region": "Africa",
+    "subregion": "Africa",
+    "cca3": "GHA"
+  },
+  "GI": {
+    "region": "Europe",
+    "subregion": "Europe",
+    "cca3": "GIB"
+  },
+  "GL": {
+    "region": "Americas",
+    "subregion": "Northern America",
+    "cca3": "GRL"
+  },
+  "GM": {
+    "region": "Africa",
+    "subregion": "Africa",
+    "cca3": "GMB"
+  },
+  "GN": {
+    "region": "Africa",
+    "subregion": "Africa",
+    "cca3": "GIN"
+  },
+  "GP": {
+    "region": "Americas",
+    "subregion": "Caribbean",
+    "cca3": "GLP"
+  },
+  "GQ": {
+    "region": "Africa",
+    "subregion": "Africa",
+    "cca3": "GNQ"
+  },
+  "GR": {
+    "region": "Europe",
+    "subregion": "Europe",
+    "cca3": "GRC"
+  },
+  "GT": {
+    "region": "Americas",
+    "subregion": "Central America",
+    "cca3": "GTM"
+  },
+  "GU": {
+    "region": "Oceania",
+    "subregion": "Oceania",
+    "cca3": "GUM"
+  },
+  "GW": {
+    "region": "Africa",
+    "subregion": "Africa",
+    "cca3": "GNB"
+  },
+  "GY": {
+    "region": "Americas",
+    "subregion": "South America",
+    "cca3": "GUY"
+  },
+  "HK": {
+    "region": "Asia",
+    "subregion": "Asia",
+    "cca3": "HKG"
+  },
+  "HN": {
+    "region": "Americas",
+    "subregion": "Central America",
+    "cca3": "HND"
+  },
+  "HR": {
+    "region": "Europe",
+    "subregion": "Europe",
+    "cca3": "HRV"
+  },
+  "HT": {
+    "region": "Americas",
+    "subregion": "Caribbean",
+    "cca3": "HTI"
+  },
+  "HU": {
+    "region": "Europe",
+    "subregion": "Europe",
+    "cca3": "HUN"
+  },
+  "ID": {
+    "region": "Asia",
+    "subregion": "Asia",
+    "cca3": "IDN"
+  },
+  "IE": {
+    "region": "Europe",
+    "subregion": "Europe",
+    "cca3": "IRL"
+  },
+  "IL": {
+    "region": "Asia",
+    "subregion": "Asia",
+    "cca3": "ISR"
+  },
+  "IM": {
+    "region": "Europe",
+    "subregion": "Europe",
+    "cca3": "IMN"
+  },
+  "IN": {
+    "region": "Asia",
+    "subregion": "Asia",
+    "cca3": "IND"
+  },
+  "IO": {
+    "region": "Asia",
+    "subregion": "Asia",
+    "cca3": "IOT"
+  },
+  "IQ": {
+    "region": "Asia",
+    "subregion": "Asia",
+    "cca3": "IRQ"
+  },
+  "IR": {
+    "region": "Asia",
+    "subregion": "Asia",
+    "cca3": "IRN"
+  },
+  "IS": {
+    "region": "Europe",
+    "subregion": "Europe",
+    "cca3": "ISL"
+  },
+  "IT": {
+    "region": "Europe",
+    "subregion": "Europe",
+    "cca3": "ITA"
+  },
+  "JE": {
+    "region": "Europe",
+    "subregion": "Europe",
+    "cca3": "JEY"
+  },
+  "JM": {
+    "region": "Americas",
+    "subregion": "Caribbean",
+    "cca3": "JAM"
+  },
+  "JO": {
+    "region": "Asia",
+    "subregion": "Asia",
+    "cca3": "JOR"
+  },
+  "JP": {
+    "region": "Asia",
+    "subregion": "Asia",
+    "cca3": "JPN"
+  },
+  "KE": {
+    "region": "Africa",
+    "subregion": "Africa",
+    "cca3": "KEN"
+  },
+  "KG": {
+    "region": "Asia",
+    "subregion": "Asia",
+    "cca3": "KGZ"
+  },
+  "KH": {
+    "region": "Asia",
+    "subregion": "Asia",
+    "cca3": "KHM"
+  },
+  "KI": {
+    "region": "Oceania",
+    "subregion": "Oceania",
+    "cca3": "KIR"
+  },
+  "KM": {
+    "region": "Africa",
+    "subregion": "Africa",
+    "cca3": "COM"
+  },
+  "KN": {
+    "region": "Americas",
+    "subregion": "Caribbean",
+    "cca3": "KNA"
+  },
+  "KP": {
+    "region": "Asia",
+    "subregion": "Asia",
+    "cca3": "PRK"
+  },
+  "KR": {
+    "region": "Asia",
+    "subregion": "Asia",
+    "cca3": "KOR"
+  },
+  "KW": {
+    "region": "Asia",
+    "subregion": "Asia",
+    "cca3": "KWT"
+  },
+  "KY": {
+    "region": "Americas",
+    "subregion": "Caribbean",
+    "cca3": "CYM"
+  },
+  "KZ": {
+    "region": "Asia",
+    "subregion": "Asia",
+    "cca3": "KAZ"
+  },
+  "LA": {
+    "region": "Asia",
+    "subregion": "Asia",
+    "cca3": "LAO"
+  },
+  "LB": {
+    "region": "Asia",
+    "subregion": "Asia",
+    "cca3": "LBN"
+  },
+  "LC": {
+    "region": "Americas",
+    "subregion": "Caribbean",
+    "cca3": "LCA"
+  },
+  "LI": {
+    "region": "Europe",
+    "subregion": "Europe",
+    "cca3": "LIE"
+  },
+  "LK": {
+    "region": "Asia",
+    "subregion": "Asia",
+    "cca3": "LKA"
+  },
+  "LR": {
+    "region": "Africa",
+    "subregion": "Africa",
+    "cca3": "LBR"
+  },
+  "LS": {
+    "region": "Africa",
+    "subregion": "Africa",
+    "cca3": "LSO"
+  },
+  "LT": {
+    "region": "Europe",
+    "subregion": "Europe",
+    "cca3": "LTU"
+  },
+  "LU": {
+    "region": "Europe",
+    "subregion": "Europe",
+    "cca3": "LUX"
+  },
+  "LV": {
+    "region": "Europe",
+    "subregion": "Europe",
+    "cca3": "LVA"
+  },
+  "LY": {
+    "region": "Africa",
+    "subregion": "Africa",
+    "cca3": "LBY"
+  },
+  "MA": {
+    "region": "Africa",
+    "subregion": "Africa",
+    "cca3": "MAR"
+  },
+  "MC": {
+    "region": "Europe",
+    "subregion": "Europe",
+    "cca3": "MCO"
+  },
+  "MD": {
+    "region": "Europe",
+    "subregion": "Europe",
+    "cca3": "MDA"
+  },
+  "ME": {
+    "region": "Europe",
+    "subregion": "Europe",
+    "cca3": "MNE"
+  },
+  "MF": {
+    "region": "Americas",
+    "subregion": "Caribbean",
+    "cca3": "MAF"
+  },
+  "MG": {
+    "region": "Africa",
+    "subregion": "Africa",
+    "cca3": "MDG"
+  },
+  "MH": {
+    "region": "Oceania",
+    "subregion": "Oceania",
+    "cca3": "MHL"
+  },
+  "MK": {
+    "region": "Europe",
+    "subregion": "Europe",
+    "cca3": "MKD"
+  },
+  "ML": {
+    "region": "Africa",
+    "subregion": "Africa",
+    "cca3": "MLI"
+  },
+  "MM": {
+    "region": "Asia",
+    "subregion": "Asia",
+    "cca3": "MMR"
+  },
+  "MN": {
+    "region": "Asia",
+    "subregion": "Asia",
+    "cca3": "MNG"
+  },
+  "MO": {
+    "region": "Asia",
+    "subregion": "Asia",
+    "cca3": "MAC"
+  },
+  "MP": {
+    "region": "Oceania",
+    "subregion": "Oceania",
+    "cca3": "MNP"
+  },
+  "MQ": {
+    "region": "Americas",
+    "subregion": "Caribbean",
+    "cca3": "MTQ"
+  },
+  "MR": {
+    "region": "Africa",
+    "subregion": "Africa",
+    "cca3": "MRT"
+  },
+  "MS": {
+    "region": "Americas",
+    "subregion": "Caribbean",
+    "cca3": "MSR"
+  },
+  "MT": {
+    "region": "Europe",
+    "subregion": "Europe",
+    "cca3": "MLT"
+  },
+  "MU": {
+    "region": "Africa",
+    "subregion": "Africa",
+    "cca3": "MUS"
+  },
+  "MV": {
+    "region": "Asia",
+    "subregion": "Asia",
+    "cca3": "MDV"
+  },
+  "MW": {
+    "region": "Africa",
+    "subregion": "Africa",
+    "cca3": "MWI"
+  },
+  "MX": {
+    "region": "Americas",
+    "subregion": "Central America",
+    "cca3": "MEX"
+  },
+  "MY": {
+    "region": "Asia",
+    "subregion": "Asia",
+    "cca3": "MYS"
+  },
+  "MZ": {
+    "region": "Africa",
+    "subregion": "Africa",
+    "cca3": "MOZ"
+  },
+  "NA": {
+    "region": "Africa",
+    "subregion": "Africa",
+    "cca3": "NAM"
+  },
+  "NC": {
+    "region": "Oceania",
+    "subregion": "Oceania",
+    "cca3": "NCL"
+  },
+  "NE": {
+    "region": "Africa",
+    "subregion": "Africa",
+    "cca3": "NER"
+  },
+  "NF": {
+    "region": "Oceania",
+    "subregion": "Oceania",
+    "cca3": "NFK"
+  },
+  "NG": {
+    "region": "Africa",
+    "subregion": "Africa",
+    "cca3": "NGA"
+  },
+  "NI": {
+    "region": "Americas",
+    "subregion": "Central America",
+    "cca3": "NIC"
+  },
+  "NL": {
+    "region": "Europe",
+    "subregion": "Europe",
+    "cca3": "NLD"
+  },
+  "NO": {
+    "region": "Europe",
+    "subregion": "Europe",
+    "cca3": "NOR"
+  },
+  "NP": {
+    "region": "Asia",
+    "subregion": "Asia",
+    "cca3": "NPL"
+  },
+  "NR": {
+    "region": "Oceania",
+    "subregion": "Oceania",
+    "cca3": "NRU"
+  },
+  "NU": {
+    "region": "Oceania",
+    "subregion": "Oceania",
+    "cca3": "NIU"
+  },
+  "NZ": {
+    "region": "Oceania",
+    "subregion": "Oceania",
+    "cca3": "NZL"
+  },
+  "OM": {
+    "region": "Asia",
+    "subregion": "Asia",
+    "cca3": "OMN"
+  },
+  "PA": {
+    "region": "Americas",
+    "subregion": "Central America",
+    "cca3": "PAN"
+  },
+  "PE": {
+    "region": "Americas",
+    "subregion": "South America",
+    "cca3": "PER"
+  },
+  "PF": {
+    "region": "Oceania",
+    "subregion": "Oceania",
+    "cca3": "PYF"
+  },
+  "PG": {
+    "region": "Oceania",
+    "subregion": "Oceania",
+    "cca3": "PNG"
+  },
+  "PH": {
+    "region": "Asia",
+    "subregion": "Asia",
+    "cca3": "PHL"
+  },
+  "PK": {
+    "region": "Asia",
+    "subregion": "Asia",
+    "cca3": "PAK"
+  },
+  "PL": {
+    "region": "Europe",
+    "subregion": "Europe",
+    "cca3": "POL"
+  },
+  "PM": {
+    "region": "Americas",
+    "subregion": "Northern America",
+    "cca3": "SPM"
+  },
+  "PN": {
+    "region": "Oceania",
+    "subregion": "Oceania",
+    "cca3": "PCN"
+  },
+  "PR": {
+    "region": "Americas",
+    "subregion": "Caribbean",
+    "cca3": "PRI"
+  },
+  "PS": {
+    "region": "Asia",
+    "subregion": "Asia",
+    "cca3": "PSE"
+  },
+  "PT": {
+    "region": "Europe",
+    "subregion": "Europe",
+    "cca3": "PRT"
+  },
+  "PW": {
+    "region": "Oceania",
+    "subregion": "Oceania",
+    "cca3": "PLW"
+  },
+  "PY": {
+    "region": "Americas",
+    "subregion": "South America",
+    "cca3": "PRY"
+  },
+  "QA": {
+    "region": "Asia",
+    "subregion": "Asia",
+    "cca3": "QAT"
+  },
+  "RE": {
+    "region": "Africa",
+    "subregion": "Africa",
+    "cca3": "REU"
+  },
+  "RO": {
+    "region": "Europe",
+    "subregion": "Europe",
+    "cca3": "ROU"
+  },
+  "RS": {
+    "region": "Europe",
+    "subregion": "Europe",
+    "cca3": "SRB"
+  },
+  "RU": {
+    "region": "Europe",
+    "subregion": "Europe",
+    "cca3": "RUS"
+  },
+  "RW": {
+    "region": "Africa",
+    "subregion": "Africa",
+    "cca3": "RWA"
+  },
+  "SA": {
+    "region": "Asia",
+    "subregion": "Asia",
+    "cca3": "SAU"
+  },
+  "SB": {
+    "region": "Oceania",
+    "subregion": "Oceania",
+    "cca3": "SLB"
+  },
+  "SC": {
+    "region": "Africa",
+    "subregion": "Africa",
+    "cca3": "SYC"
+  },
+  "SD": {
+    "region": "Africa",
+    "subregion": "Africa",
+    "cca3": "SDN"
+  },
+  "SE": {
+    "region": "Europe",
+    "subregion": "Europe",
+    "cca3": "SWE"
+  },
+  "SG": {
+    "region": "Asia",
+    "subregion": "Asia",
+    "cca3": "SGP"
+  },
+  "SH": {
+    "region": "Africa",
+    "subregion": "Africa",
+    "cca3": "SHN"
+  },
+  "SI": {
+    "region": "Europe",
+    "subregion": "Europe",
+    "cca3": "SVN"
+  },
+  "SJ": {
+    "region": "Europe",
+    "subregion": "Europe",
+    "cca3": "SJM"
+  },
+  "SK": {
+    "region": "Europe",
+    "subregion": "Europe",
+    "cca3": "SVK"
+  },
+  "SL": {
+    "region": "Africa",
+    "subregion": "Africa",
+    "cca3": "SLE"
+  },
+  "SM": {
+    "region": "Europe",
+    "subregion": "Europe",
+    "cca3": "SMR"
+  },
+  "SN": {
+    "region": "Africa",
+    "subregion": "Africa",
+    "cca3": "SEN"
+  },
+  "SO": {
+    "region": "Africa",
+    "subregion": "Africa",
+    "cca3": "SOM"
+  },
+  "SR": {
+    "region": "Americas",
+    "subregion": "South America",
+    "cca3": "SUR"
+  },
+  "SS": {
+    "region": "Africa",
+    "subregion": "Africa",
+    "cca3": "SSD"
+  },
+  "ST": {
+    "region": "Africa",
+    "subregion": "Africa",
+    "cca3": "STP"
+  },
+  "SV": {
+    "region": "Americas",
+    "subregion": "Central America",
+    "cca3": "SLV"
+  },
+  "SX": {
+    "region": "Americas",
+    "subregion": "Caribbean",
+    "cca3": "SXM"
+  },
+  "SY": {
+    "region": "Asia",
+    "subregion": "Asia",
+    "cca3": "SYR"
+  },
+  "SZ": {
+    "region": "Africa",
+    "subregion": "Africa",
+    "cca3": "SWZ"
+  },
+  "TC": {
+    "region": "Americas",
+    "subregion": "Caribbean",
+    "cca3": "TCA"
+  },
+  "TD": {
+    "region": "Africa",
+    "subregion": "Africa",
+    "cca3": "TCD"
+  },
+  "TG": {
+    "region": "Africa",
+    "subregion": "Africa",
+    "cca3": "TGO"
+  },
+  "TH": {
+    "region": "Asia",
+    "subregion": "Asia",
+    "cca3": "THA"
+  },
+  "TJ": {
+    "region": "Asia",
+    "subregion": "Asia",
+    "cca3": "TJK"
+  },
+  "TK": {
+    "region": "Oceania",
+    "subregion": "Oceania",
+    "cca3": "TKL"
+  },
+  "TL": {
+    "region": "Asia",
+    "subregion": "Asia",
+    "cca3": "TLS"
+  },
+  "TM": {
+    "region": "Asia",
+    "subregion": "Asia",
+    "cca3": "TKM"
+  },
+  "TN": {
+    "region": "Africa",
+    "subregion": "Africa",
+    "cca3": "TUN"
+  },
+  "TO": {
+    "region": "Oceania",
+    "subregion": "Oceania",
+    "cca3": "TON"
+  },
+  "TR": {
+    "region": "Asia",
+    "subregion": "Asia",
+    "cca3": "TUR"
+  },
+  "TT": {
+    "region": "Americas",
+    "subregion": "Caribbean",
+    "cca3": "TTO"
+  },
+  "TV": {
+    "region": "Oceania",
+    "subregion": "Oceania",
+    "cca3": "TUV"
+  },
+  "TW": {
+    "region": "Asia",
+    "subregion": "Asia",
+    "cca3": "TWN"
+  },
+  "TZ": {
+    "region": "Africa",
+    "subregion": "Africa",
+    "cca3": "TZA"
+  },
+  "UA": {
+    "region": "Europe",
+    "subregion": "Europe",
+    "cca3": "UKR"
+  },
+  "UG": {
+    "region": "Africa",
+    "subregion": "Africa",
+    "cca3": "UGA"
+  },
+  "US": {
+    "region": "Americas",
+    "subregion": "Northern America",
+    "cca3": "USA"
+  },
+  "UY": {
+    "region": "Americas",
+    "subregion": "South America",
+    "cca3": "URY"
+  },
+  "UZ": {
+    "region": "Asia",
+    "subregion": "Asia",
+    "cca3": "UZB"
+  },
+  "VA": {
+    "region": "Europe",
+    "subregion": "Europe",
+    "cca3": "VAT"
+  },
+  "VC": {
+    "region": "Americas",
+    "subregion": "Caribbean",
+    "cca3": "VCT"
+  },
+  "VE": {
+    "region": "Americas",
+    "subregion": "South America",
+    "cca3": "VEN"
+  },
+  "VG": {
+    "region": "Americas",
+    "subregion": "Caribbean",
+    "cca3": "VGB"
+  },
+  "VI": {
+    "region": "Americas",
+    "subregion": "Caribbean",
+    "cca3": "VIR"
+  },
+  "VN": {
+    "region": "Asia",
+    "subregion": "Asia",
+    "cca3": "VNM"
+  },
+  "VU": {
+    "region": "Oceania",
+    "subregion": "Oceania",
+    "cca3": "VUT"
+  },
+  "WF": {
+    "region": "Oceania",
+    "subregion": "Oceania",
+    "cca3": "WLF"
+  },
+  "WS": {
+    "region": "Oceania",
+    "subregion": "Oceania",
+    "cca3": "WSM"
+  },
+  "XK": {
+    "region": "Europe",
+    "subregion": "Europe",
+    "cca3": "XKX"
+  },
+  "YE": {
+    "region": "Asia",
+    "subregion": "Asia",
+    "cca3": "YEM"
+  },
+  "YT": {
+    "region": "Africa",
+    "subregion": "Africa",
+    "cca3": "MYT"
+  },
+  "ZA": {
+    "region": "Africa",
+    "subregion": "Africa",
+    "cca3": "ZAF"
+  },
+  "ZM": {
+    "region": "Africa",
+    "subregion": "Africa",
+    "cca3": "ZMB"
+  },
+  "ZW": {
+    "region": "Africa",
+    "subregion": "Africa",
+    "cca3": "ZWE"
+  }
+}

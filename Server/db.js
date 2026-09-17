@@ -11,6 +11,7 @@ const dataDir = path.join(__dirname, 'data');
 if (!fs.existsSync(dataDir)) fs.mkdirSync(dataDir, { recursive: true });
 const dbPath = path.join(dataDir, 'duel.db');
 const db = new Database(dbPath);
+db.pragma('foreign_keys = ON');
 
 db.exec(`
   CREATE TABLE IF NOT EXISTS users (
@@ -47,6 +48,8 @@ db.exec(`
     created_at TEXT DEFAULT (datetime('now')),
     challenger_score INTEGER,
     opponent_score INTEGER,
+    challenger_time_ms INTEGER,
+    opponent_time_ms INTEGER,
     status TEXT NOT NULL DEFAULT 'pending'
   );
 
@@ -64,7 +67,10 @@ db.exec(`
     token TEXT PRIMARY KEY,
     username TEXT NOT NULL,
     created_at TEXT DEFAULT (datetime('now')),
-    expires_at TEXT NOT NULL
+    expires_at TEXT NOT NULL,
+    device_model TEXT,
+    app_version TEXT,
+    location_label TEXT
   );
 
   CREATE TABLE IF NOT EXISTS password_resets (
@@ -84,7 +90,21 @@ try { db.exec(`ALTER TABLE users ADD COLUMN auth_provider TEXT DEFAULT 'guest'`)
 try { db.exec(`ALTER TABLE users ADD COLUMN is_registered INTEGER DEFAULT 0`); } catch (_) {}
 try { db.exec(`ALTER TABLE users ADD COLUMN registration_reward_granted INTEGER DEFAULT 0`); } catch (_) {}
 try { db.exec(`ALTER TABLE users ADD COLUMN birthday TEXT`); } catch (_) {}
+try { db.exec(`ALTER TABLE users ADD COLUMN avatar TEXT`); } catch (_) {}
+try { db.exec(`ALTER TABLE users ADD COLUMN avatar_photo_base64 TEXT`); } catch (_) {}
+try { db.exec(`ALTER TABLE users ADD COLUMN achievements_json TEXT`); } catch (_) {}
 try { db.exec(`CREATE UNIQUE INDEX IF NOT EXISTS idx_users_email_unique ON users(email)`); } catch (_) {}
+try { db.exec(`ALTER TABLE duel_challenges ADD COLUMN challenger_time_ms INTEGER`); } catch (_) {}
+try { db.exec(`ALTER TABLE duel_challenges ADD COLUMN opponent_time_ms INTEGER`); } catch (_) {}
+try { db.exec(`ALTER TABLE duel_challenges ADD COLUMN duel_regions TEXT`); } catch (_) {}
+try { db.exec(`ALTER TABLE duel_challenges ADD COLUMN duel_difficulty TEXT`); } catch (_) {}
+try { db.exec(`ALTER TABLE duel_challenges ADD COLUMN duel_game_mode INTEGER`); } catch (_) {}
+try { db.exec(`ALTER TABLE duel_challenges ADD COLUMN duel_questions_count INTEGER`); } catch (_) {}
+try { db.exec(`ALTER TABLE duel_challenges ADD COLUMN duel_options_count INTEGER`); } catch (_) {}
+try { db.exec(`ALTER TABLE duel_challenges ADD COLUMN duel_questions_payload TEXT`); } catch (_) {}
+try { db.exec(`ALTER TABLE auth_sessions ADD COLUMN device_model TEXT`); } catch (_) {}
+try { db.exec(`ALTER TABLE auth_sessions ADD COLUMN app_version TEXT`); } catch (_) {}
+try { db.exec(`ALTER TABLE auth_sessions ADD COLUMN location_label TEXT`); } catch (_) {}
 try {
   db.exec(`
     CREATE TABLE IF NOT EXISTS birthday_gifts (
@@ -99,6 +119,23 @@ try {
     );
   `);
 } catch (_) {}
+try {
+  db.exec(`
+    CREATE TABLE IF NOT EXISTS time_challenge_scores (
+      id TEXT PRIMARY KEY,
+      username TEXT NOT NULL,
+      score INTEGER NOT NULL,
+      correct_answers INTEGER DEFAULT 0,
+      total_answers INTEGER DEFAULT 0,
+      best_combo INTEGER DEFAULT 0,
+      duration_sec INTEGER DEFAULT 0,
+      created_at TEXT DEFAULT (datetime('now')),
+      FOREIGN KEY (username) REFERENCES users(username)
+    );
+  `);
+  db.exec(`CREATE INDEX IF NOT EXISTS idx_time_challenge_username ON time_challenge_scores(username)`);
+  db.exec(`CREATE INDEX IF NOT EXISTS idx_time_challenge_created ON time_challenge_scores(created_at)`);
+} catch (_) {}
 
 function randomFriendCode() {
   const chars = 'ABCDEFGHJKLMNPQRSTUVWXYZ23456789';
@@ -108,14 +145,14 @@ function randomFriendCode() {
 }
 
 const insertUser = db.prepare(`
-  INSERT INTO users (username, friend_code, device_token, level, xp, streak, total_games_played, correct_answers, best_time, display_name, birthday)
-  VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+  INSERT INTO users (username, friend_code, device_token, level, xp, streak, total_games_played, correct_answers, best_time, display_name, birthday, achievements_json)
+  VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
 `);
 const updateUserToken = db.prepare(`
   UPDATE users SET device_token = ?, updated_at = datetime('now') WHERE username = ?
 `);
 const updateUserStats = db.prepare(`
-  UPDATE users SET level = ?, xp = ?, streak = ?, total_games_played = ?, correct_answers = ?, best_time = ?, updated_at = datetime('now') WHERE username = ?
+  UPDATE users SET level = ?, xp = ?, streak = ?, total_games_played = ?, correct_answers = ?, best_time = ?, achievements_json = ?, updated_at = datetime('now') WHERE username = ?
 `);
 const updateUserBirthday = db.prepare(`
   UPDATE users SET birthday = ?, updated_at = datetime('now') WHERE username = ?
@@ -129,6 +166,12 @@ const updatePasswordStmt = db.prepare(`
 
 function normalizeEmail(email) {
   return (email || '').trim().toLowerCase();
+}
+
+/** Единый вид user id для гостей/логина: без учёта регистра (как buildSafeUsername). */
+function normalizeUsernameId(s) {
+  if (!s || typeof s !== 'string') return '';
+  return s.trim().toLowerCase();
 }
 
 function makePasswordHash(password, saltHex) {
@@ -169,10 +212,23 @@ function buildSafeUsername(base) {
   return candidate;
 }
 
-function createSession(username) {
+function clipSessionText(v, maxLen) {
+  if (typeof v !== 'string') return null;
+  const t = v.trim();
+  if (!t) return null;
+  return t.length > maxLen ? t.slice(0, maxLen) : t;
+}
+
+/** meta: { deviceModel?, appVersion?, locationLabel? } — с клиента при login/register/social */
+function createSession(username, meta = {}) {
   const token = randomToken();
-  db.prepare('INSERT INTO auth_sessions (token, username, expires_at) VALUES (?, ?, datetime(\'now\', \'+30 days\'))')
-    .run(token, username);
+  const dm = clipSessionText(meta.deviceModel, 120);
+  const av = clipSessionText(meta.appVersion, 160);
+  const loc = clipSessionText(meta.locationLabel, 200);
+  db.prepare(`
+    INSERT INTO auth_sessions (token, username, expires_at, device_model, app_version, location_label)
+    VALUES (?, ?, datetime('now', '+30 days'), ?, ?, ?)
+  `).run(token, username, dm, av, loc);
   return token;
 }
 
@@ -186,7 +242,25 @@ function getSession(token) {
   `).get(token);
 }
 
-function registerAuthUser({ email, password, username }) {
+function getAuthSessionsForUser(username) {
+  const u = getCanonicalUsername(username) || normalizeUsernameId(username);
+  if (!u) return [];
+  return db.prepare(`
+    SELECT
+      token,
+      created_at AS createdAt,
+      expires_at AS expiresAt,
+      device_model AS deviceModel,
+      app_version AS appVersion,
+      location_label AS locationLabel
+    FROM auth_sessions
+    WHERE username = ?
+      AND datetime(expires_at) > datetime('now')
+    ORDER BY created_at DESC
+  `).all(u);
+}
+
+function registerAuthUser({ email, password, username, sessionMeta }) {
   const normalizedEmail = normalizeEmail(email);
   if (!normalizedEmail || !password || password.length < 6) {
     return { error: 'invalid_input' };
@@ -209,11 +283,11 @@ function registerAuthUser({ email, password, username }) {
   `).run(uname, friendCode, normalizedEmail, hashHex, saltHex, uname);
 
   db.prepare('UPDATE users SET registration_reward_granted = 1 WHERE username = ?').run(uname);
-  const token = createSession(uname);
+  const token = createSession(uname, sessionMeta || {});
   return { username: uname, email: normalizedEmail, token, friendCode, rewardGranted: true };
 }
 
-function loginAuthUser({ email, password }) {
+function loginAuthUser({ email, password, sessionMeta }) {
   const normalizedEmail = normalizeEmail(email);
   const row = db.prepare(`
     SELECT username, email, friend_code, password_hash, password_salt
@@ -223,19 +297,21 @@ function loginAuthUser({ email, password }) {
   if (!verifyPassword(password, row.password_salt, row.password_hash)) {
     return { error: 'invalid_credentials' };
   }
-  const token = createSession(row.username);
+  const token = createSession(row.username, sessionMeta || {});
   return { username: row.username, email: row.email, friendCode: row.friend_code, token };
 }
 
 function changePassword({ username, currentPassword, newPassword }) {
-  const row = db.prepare('SELECT password_hash, password_salt FROM users WHERE username = ?').get(username);
+  const u = getCanonicalUsername(username);
+  if (!u) return { error: 'not_found' };
+  const row = db.prepare('SELECT password_hash, password_salt FROM users WHERE username = ?').get(u);
   if (!row) return { error: 'not_found' };
   if (!verifyPassword(currentPassword, row.password_salt, row.password_hash)) {
     return { error: 'invalid_credentials' };
   }
   if (!newPassword || newPassword.length < 6) return { error: 'weak_password' };
   const { saltHex, hashHex } = makePasswordHash(newPassword);
-  updatePasswordStmt.run(hashHex, saltHex, username);
+  updatePasswordStmt.run(hashHex, saltHex, u);
   return { ok: true };
 }
 
@@ -267,7 +343,7 @@ function confirmPasswordReset({ email, code, newPassword }) {
   return { ok: true, username: row.username };
 }
 
-function socialLogin({ provider, providerUserId, email, displayName }) {
+function socialLogin({ provider, providerUserId, email, displayName, sessionMeta }) {
   const safeProvider = ['apple', 'google'].includes(provider) ? provider : 'social';
   const normalizedEmail = normalizeEmail(email);
   let user = null;
@@ -294,7 +370,7 @@ function socialLogin({ provider, providerUserId, email, displayName }) {
       .run(safeProvider, user.username);
     user.rewardGranted = false;
   }
-  const token = createSession(user.username);
+  const token = createSession(user.username, sessionMeta || {});
   return {
     username: user.username,
     email: user.email,
@@ -305,14 +381,28 @@ function socialLogin({ provider, providerUserId, email, displayName }) {
 }
 
 function registerUser({ userId, username, deviceToken = null, stats = {} }) {
-  const name = (username || userId || 'Player').trim();
-  if (!name) return { username: 'Player', friendCode: randomFriendCode() };
-  const existing = db.prepare('SELECT friend_code FROM users WHERE username = ?').get(name);
-  if (existing) {
-    updateUserToken.run(deviceToken, name);
-    updateDisplayName.run(name, name);
-    const hasStats = [stats.level, stats.xp, stats.streak, stats.totalGamesPlayed, stats.correctAnswers, stats.bestTime].some(v => v != null);
+  const raw = (username || userId || 'Player').trim();
+  if (!raw) return { username: 'Player', friendCode: randomFriendCode() };
+  const normalized = normalizeUsernameId(raw);
+  // Сначала точное имя, затем lower-case, затем каноническое без учёта регистра — один аккаунт на логин.
+  let row = db.prepare('SELECT username, friend_code FROM users WHERE username = ?').get(raw);
+  if (!row && normalized && normalized !== raw) {
+    row = db.prepare('SELECT username, friend_code FROM users WHERE username = ?').get(normalized);
+  }
+  if (!row) {
+    const canonical = getCanonicalUsername(raw);
+    if (canonical) {
+      row = db.prepare('SELECT username, friend_code FROM users WHERE username = ?').get(canonical);
+    }
+  }
+  if (row) {
+    const dbUsername = row.username;
+    updateUserToken.run(deviceToken, dbUsername);
+    updateDisplayName.run(dbUsername, dbUsername);
+    const hasStats = [stats.level, stats.xp, stats.streak, stats.totalGamesPlayed, stats.correctAnswers, stats.bestTime, stats.achievements].some(v => v != null);
     if (hasStats)
+      {
+      const achievementsJson = Array.isArray(stats.achievements) ? JSON.stringify(stats.achievements) : null;
       updateUserStats.run(
         stats.level ?? 1,
         stats.xp ?? 0,
@@ -320,8 +410,10 @@ function registerUser({ userId, username, deviceToken = null, stats = {} }) {
         stats.totalGamesPlayed ?? 0,
         stats.correctAnswers ?? 0,
         stats.bestTime ?? null,
-        name
+        achievementsJson,
+        dbUsername
       );
+    }
     if (stats.birthday != null) {
       // birthday приходит как миллисекунды Unix или ISO‑строка — приводим к ISO‑датe
       let stored = null;
@@ -332,10 +424,10 @@ function registerUser({ userId, username, deviceToken = null, stats = {} }) {
         if (!Number.isNaN(d.getTime())) stored = d.toISOString();
       }
       if (stored) {
-        updateUserBirthday.run(stored, name);
+        updateUserBirthday.run(stored, dbUsername);
       }
     }
-    return { username: name, friendCode: existing.friend_code };
+    return { username: dbUsername, friendCode: row.friend_code };
   }
   let friendCode = randomFriendCode().toUpperCase();
   while (db.prepare('SELECT 1 FROM users WHERE friend_code = ?').get(friendCode))
@@ -350,8 +442,9 @@ function registerUser({ userId, username, deviceToken = null, stats = {} }) {
     }
   }
 
+  const newKey = normalized || normalizeUsernameId(raw);
   insertUser.run(
-    name,
+    newKey,
     friendCode,
     deviceToken,
     stats.level ?? 1,
@@ -360,23 +453,26 @@ function registerUser({ userId, username, deviceToken = null, stats = {} }) {
     stats.totalGamesPlayed ?? 0,
     stats.correctAnswers ?? 0,
     stats.bestTime ?? null,
-    name,
-    birthdayISO
+    raw,
+    birthdayISO,
+    Array.isArray(stats.achievements) ? JSON.stringify(stats.achievements) : null
   );
-  return { username: name, friendCode };
+  return { username: newKey, friendCode };
 }
 
 function getUserByUsername(username) {
+  const u = getCanonicalUsername(username);
+  if (!u) return null;
   return db.prepare(
-    'SELECT username, friend_code, device_token, level, xp, streak, total_games_played, correct_answers, best_time, birthday FROM users WHERE username = ?'
-  ).get(username);
+    'SELECT username, friend_code, display_name, device_token, level, xp, streak, total_games_played, correct_answers, best_time, birthday, avatar, avatar_photo_base64, achievements_json, created_at FROM users WHERE username = ?'
+  ).get(u);
 }
 
 function getUserByFriendCode(code) {
   if (!code || typeof code !== 'string') return null;
   const normalized = code.trim().toUpperCase();
   return db.prepare(
-    'SELECT username, friend_code, display_name, level, xp, streak, birthday FROM users WHERE friend_code = ?'
+    'SELECT username, friend_code, display_name, level, xp, streak, total_games_played, correct_answers, birthday, avatar, avatar_photo_base64, achievements_json, created_at FROM users WHERE friend_code = ?'
   ).get(normalized);
 }
 
@@ -387,65 +483,143 @@ const addFriendshipReverse = db.prepare(`
   INSERT OR IGNORE INTO friendships (user_username, friend_username) VALUES (?, ?)
 `);
 
+/** Однозначный username в БД: точное совпадение или без учёта регистра (при дубликатах — самый ранний created_at). */
+function getCanonicalUsername(raw) {
+  if (!raw || typeof raw !== 'string') return null;
+  const t = raw.trim();
+  if (!t) return null;
+  const exact = db.prepare('SELECT username FROM users WHERE username = ?').get(t);
+  if (exact) return exact.username;
+  const ci = db.prepare(`
+    SELECT username FROM users
+    WHERE LOWER(username) = LOWER(?)
+    ORDER BY datetime(created_at) ASC, username ASC
+  `).all(t);
+  if (ci.length === 0) return null;
+  return ci[0].username;
+}
+
 function addFriend(myUsername, friendCode) {
+  const raw = typeof myUsername === 'string' ? myUsername.trim() : myUsername;
+  const me = getCanonicalUsername(raw);
+  if (!me) return null;
+  const meRow = getUserByUsername(me);
+  if (!meRow) return null;
+  const meKey = meRow.username;
   const friend = getUserByFriendCode(friendCode);
-  if (!friend || friend.username === myUsername) return null;
-  addFriendship.run(myUsername, friend.username);
-  addFriendshipReverse.run(friend.username, myUsername);
+  if (!friend) return null;
+  const friendRow = getUserByUsername(friend.username);
+  if (!friendRow) return null;
+  const friendKey = friendRow.username;
+  if (friendKey === meKey) return null;
+  try {
+    addFriendship.run(meKey, friendKey);
+    addFriendshipReverse.run(friendKey, meKey);
+  } catch (e) {
+    const msg = e && e.message ? String(e.message) : '';
+    const fk = e && (e.code === 'SQLITE_CONSTRAINT_FOREIGNKEY' || msg.includes('FOREIGN KEY'));
+    if (fk) {
+      console.warn('[db.addFriend] FOREIGN KEY (check deploy + users row)', { meKey, friendKey, raw });
+      return null;
+    }
+    throw e;
+  }
   return friend;
 }
 
+/** Место в мире по XP: 1 = лучший; при равенстве XP — лексикографически меньший username выше. */
+function getWorldRank(username) {
+  const u = getCanonicalUsername(username);
+  if (!u) return null;
+  const row = db.prepare('SELECT xp, username FROM users WHERE username = ?').get(u);
+  if (!row) return null;
+  const xp = Number(row.xp) || 0;
+  const name = row.username;
+  const r = db
+    .prepare(
+      `SELECT COUNT(*) + 1 AS rank FROM users WHERE xp > ? OR (xp = ? AND username < ?)`
+    )
+    .get(xp, xp, name);
+  return r && r.rank != null ? Number(r.rank) : null;
+}
+
 function getFriends(username) {
+  const u = getCanonicalUsername(username);
+  if (!u) return [];
   const rows = db.prepare(`
-    SELECT u.username, u.friend_code, u.display_name, u.level, u.xp, u.streak, u.updated_at AS updated_at, u.birthday AS birthday
+    SELECT u.username, u.friend_code, u.display_name, u.level, u.xp, u.streak, u.updated_at AS updated_at, u.birthday AS birthday,
+           u.avatar AS avatar, u.avatar_photo_base64 AS avatar_photo_base64, u.achievements_json AS achievements_json,
+           u.total_games_played AS total_games_played, u.correct_answers AS correct_answers, u.created_at AS created_at
     FROM friendships f
     JOIN users u ON u.username = f.friend_username
     WHERE f.user_username = ?
-  `).all(username);
+  `).all(u);
   return rows;
 }
 
 function hasSentBirthdayGiftThisYear(giverUsername, receiverUsername, year) {
+  const g = getCanonicalUsername(giverUsername) || normalizeUsernameId(giverUsername);
+  const r = getCanonicalUsername(receiverUsername) || normalizeUsernameId(receiverUsername);
   const row = db
     .prepare(
-      'SELECT 1 FROM birthday_gifts WHERE giver_username = ? AND receiver_username = ? AND year = ? LIMIT 1'
+      'SELECT 1 FROM birthday_gifts WHERE (giver_username = ? OR LOWER(giver_username) = LOWER(?)) AND (receiver_username = ? OR LOWER(receiver_username) = LOWER(?)) AND year = ? LIMIT 1'
     )
-    .get(giverUsername, receiverUsername, year);
+    .get(g, g, r, r, year);
   return !!row;
 }
 
 function createBirthdayGift({ giverUsername, receiverUsername, year, type }) {
+  const g = getCanonicalUsername(giverUsername) || normalizeUsernameId(giverUsername);
+  const r = getCanonicalUsername(receiverUsername) || normalizeUsernameId(receiverUsername);
   db.prepare(
     'INSERT OR IGNORE INTO birthday_gifts (giver_username, receiver_username, year, type, created_at) VALUES (?, ?, ?, ?, datetime(\'now\'))'
-  ).run(giverUsername, receiverUsername, year, type);
+  ).run(g, r, year, type);
 }
 
 function getBirthdayGiftsForUser(username) {
+  const u = getCanonicalUsername(username) || normalizeUsernameId(username);
   const year = new Date().getUTCFullYear();
   return db
     .prepare(
-      'SELECT giver_username AS giverUsername, receiver_username AS receiverUsername, year, type FROM birthday_gifts WHERE receiver_username = ? AND year = ?'
+      'SELECT giver_username AS giverUsername, receiver_username AS receiverUsername, year, type FROM birthday_gifts WHERE (receiver_username = ? OR LOWER(receiver_username) = LOWER(?)) AND year = ?'
     )
-    .all(username, year);
+    .all(u, u, year);
 }
 
 function clearBirthdayGiftsForUser(username) {
+  const u = getCanonicalUsername(username) || normalizeUsernameId(username);
   const year = new Date().getUTCFullYear();
-  db.prepare('DELETE FROM birthday_gifts WHERE receiver_username = ? AND year = ?').run(username, year);
+  db.prepare('DELETE FROM birthday_gifts WHERE (receiver_username = ? OR LOWER(receiver_username) = LOWER(?)) AND year = ?').run(u, u, year);
 }
 
 function setDisplayName(username, displayName) {
-  if (!username || !displayName) return false;
-  updateDisplayName.run((displayName || '').trim(), username);
+  const u = getCanonicalUsername(username);
+  if (!u || !displayName) return false;
+  updateDisplayName.run((displayName || '').trim(), u);
+  return true;
+}
+
+function setUserAvatar(username, avatar, avatarPhotoBase64) {
+  const u = getCanonicalUsername(username);
+  if (!u) return false;
+  db.prepare(
+    'UPDATE users SET avatar = ?, avatar_photo_base64 = ?, updated_at = datetime(\'now\') WHERE username = ?'
+  ).run(avatar || null, avatarPhotoBase64 || null, u);
   return true;
 }
 
 // Duel challenges
 function createChallenge(row) {
   db.prepare(`
-    INSERT INTO duel_challenges (id, challenger_id, challenger_name, opponent_id, opponent_name, seed, challenger_score, opponent_score, status)
-    VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)
-  `).run(row.id, row.challengerId, row.challengerName, row.opponentId, row.opponentName, row.seed, null, null, 'pending');
+    INSERT INTO duel_challenges (
+      id, challenger_id, challenger_name, opponent_id, opponent_name, seed, challenger_score, opponent_score, status,
+      duel_regions, duel_difficulty, duel_game_mode, duel_questions_count, duel_options_count, duel_questions_payload
+    )
+    VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+  `).run(
+    row.id, row.challengerId, row.challengerName, row.opponentId, row.opponentName, row.seed, null, null, 'pending',
+    row.duelRegions || null, row.duelDifficulty || null, row.duelGameMode ?? null, row.duelQuestionsCount ?? null, row.duelOptionsCount ?? null, row.duelQuestionsPayload || null
+  );
 }
 
 function getChallenge(id) {
@@ -457,35 +631,103 @@ function setChallengeStatus(id, status) {
 }
 
 function getIncomingChallenges(opponentId) {
+  const oid = getCanonicalUsername(opponentId) || normalizeUsernameId(opponentId);
+  if (!oid) return [];
+  // pending — ждём принятия; challenger_completed + opponent_score NULL — challengер уже сыграл,
+  // оппонент ещё не принял/не видел вызов в приложении (иначе строка пропадала из /incoming).
   return db.prepare(`
-    SELECT id, challenger_id AS challengerId, challenger_name AS challengerName, seed, created_at AS createdAt, challenger_score AS challengerScore, status
+    SELECT id, challenger_id AS challengerId, challenger_name AS challengerName, seed, created_at AS createdAt, challenger_score AS challengerScore, status,
+           duel_regions AS duelRegions, duel_difficulty AS duelDifficulty, duel_game_mode AS duelGameMode,
+           duel_questions_count AS duelQuestionsCount, duel_options_count AS duelOptionsCount,
+           duel_questions_payload AS duelQuestionsPayload
     FROM duel_challenges
-    WHERE opponent_id = ? AND status = 'pending'
+    WHERE opponent_id = ?
+      AND datetime(created_at) >= datetime('now', '-24 hours')
+      AND (
+        status = 'pending'
+        OR (status = 'challenger_completed' AND opponent_score IS NULL)
+      )
+    ORDER BY created_at DESC
+  `).all(opponentId);
+}
+
+function getIncomingChallengesForSync(opponentId) {
+  return db.prepare(`
+    SELECT
+      id,
+      challenger_id AS challengerId,
+      challenger_name AS challengerName,
+      seed,
+      created_at AS createdAt,
+      challenger_score AS challengerScore,
+      opponent_score AS opponentScore,
+      challenger_time_ms AS challengerTimeMs,
+      opponent_time_ms AS opponentTimeMs,
+      status,
+      duel_regions AS duelRegions,
+      duel_difficulty AS duelDifficulty,
+      duel_game_mode AS duelGameMode,
+      duel_questions_count AS duelQuestionsCount,
+      duel_options_count AS duelOptionsCount,
+      duel_questions_payload AS duelQuestionsPayload
+    FROM duel_challenges
+    WHERE opponent_id = ?
+      AND status IN ('pending','challenger_completed','opponent_completed','completed')
       AND datetime(created_at) >= datetime('now', '-24 hours')
     ORDER BY created_at DESC
   `).all(opponentId);
 }
 
-function updateChallengeScore(id, side, score) {
+function getOutgoingChallenges(challengerId) {
+  return db.prepare(`
+    SELECT id, challenger_name AS challengerName, opponent_name AS opponentName, seed,
+           created_at AS createdAt, challenger_score AS challengerScore, opponent_score AS opponentScore,
+           status, challenger_time_ms AS challengerTimeMs, opponent_time_ms AS opponentTimeMs,
+           duel_regions AS duelRegions, duel_difficulty AS duelDifficulty, duel_game_mode AS duelGameMode,
+           duel_questions_count AS duelQuestionsCount, duel_options_count AS duelOptionsCount,
+           duel_questions_payload AS duelQuestionsPayload
+    FROM duel_challenges
+    WHERE challenger_id = ?
+      AND datetime(created_at) >= datetime('now', '-24 hours')
+    ORDER BY created_at DESC
+  `).all(challengerId);
+}
+
+function removeFriendship(userA, friendUsername) {
+  const a = getCanonicalUsername(userA);
+  const b = getCanonicalUsername(friendUsername);
+  if (!a || !b || a === b) return false;
+  const r = db
+    .prepare(
+      'DELETE FROM friendships WHERE (user_username = ? AND friend_username = ?) OR (user_username = ? AND friend_username = ?)'
+    )
+    .run(a, b, b, a);
+  return r.changes > 0;
+}
+
+function updateChallengeScore(id, side, score, elapsedMs) {
   const c = getChallenge(id);
   if (!c) return null;
+  if (c.status === 'declined') return null;
   if (side === 'challenger') {
     const createdAt = c.created_at ? new Date(c.created_at).getTime() : 0;
     const expiry24h = Date.now() - 24 * 60 * 60 * 1000;
     if (c.opponent_score == null && createdAt < expiry24h) {
-      db.prepare('UPDATE duel_challenges SET challenger_score = ?, opponent_score = ?, status = ? WHERE id = ?').run(
-        score, -1, 'completed', id
+      db.prepare('UPDATE duel_challenges SET challenger_score = ?, challenger_time_ms = ?, opponent_score = ?, status = ? WHERE id = ?').run(
+        score, elapsedMs ?? null, -1, 'completed', id
       );
       return getChallenge(id);
     }
-    db.prepare('UPDATE duel_challenges SET challenger_score = ?, status = ? WHERE id = ?').run(
+    db.prepare('UPDATE duel_challenges SET challenger_score = ?, challenger_time_ms = ?, status = ? WHERE id = ?').run(
       score,
+      elapsedMs ?? null,
       c.opponent_score != null ? 'completed' : 'challenger_completed',
       id
     );
   } else {
-    db.prepare('UPDATE duel_challenges SET opponent_score = ?, status = ? WHERE id = ?').run(
+    db.prepare('UPDATE duel_challenges SET opponent_score = ?, opponent_time_ms = ?, status = ? WHERE id = ?').run(
       score,
+      elapsedMs ?? null,
       c.challenger_score != null ? 'completed' : 'opponent_completed',
       id
     );
@@ -503,10 +745,12 @@ function getAllUsersForRandomOpponent(excludeUsernames) {
 }
 
 function areFriends(usernameA, usernameB) {
-  if (!usernameA || !usernameB) return false;
+  const a = getCanonicalUsername(usernameA);
+  const b = getCanonicalUsername(usernameB);
+  if (!a || !b || a === b) return false;
   const row = db.prepare(
     'SELECT 1 FROM friendships WHERE (user_username = ? AND friend_username = ?) OR (user_username = ? AND friend_username = ?)'
-  ).get(usernameA, usernameB, usernameB, usernameA);
+  ).get(a, b, b, a);
   return !!row;
 }
 
@@ -515,33 +759,203 @@ const insertNudge = db.prepare(`
 `);
 
 function createNudge({ id, fromUsername, toUsername, phraseId }) {
-  insertNudge.run(id, fromUsername, toUsername, phraseId);
-  return { id, fromUsername, toUsername, phraseId };
+  const from = getCanonicalUsername(fromUsername) || normalizeUsernameId(fromUsername);
+  const to = getCanonicalUsername(toUsername) || normalizeUsernameId(toUsername);
+  insertNudge.run(id, from, to, phraseId);
+  return { id, fromUsername: from, toUsername: to, phraseId };
 }
 
 function getNudgesForUser(toUsername, unreadOnly = true) {
+  const to = getCanonicalUsername(toUsername) || normalizeUsernameId(toUsername);
   const sql = unreadOnly
-    ? "SELECT id, from_username AS fromUsername, phrase_id AS phraseId, created_at AS createdAt FROM nudges WHERE to_username = ? AND read_at IS NULL ORDER BY created_at DESC"
-    : "SELECT id, from_username AS fromUsername, phrase_id AS phraseId, created_at AS createdAt, read_at AS readAt FROM nudges WHERE to_username = ? ORDER BY created_at DESC";
-  return db.prepare(sql).all(toUsername);
+    ? "SELECT id, from_username AS fromUsername, phrase_id AS phraseId, created_at AS createdAt FROM nudges WHERE (to_username = ? OR LOWER(to_username) = LOWER(?)) AND read_at IS NULL ORDER BY created_at DESC"
+    : "SELECT id, from_username AS fromUsername, phrase_id AS phraseId, created_at AS createdAt, read_at AS readAt FROM nudges WHERE to_username = ? OR LOWER(to_username) = LOWER(?) ORDER BY created_at DESC";
+  return db.prepare(sql).all(to, to);
 }
 
 function markNudgesRead(toUsername) {
-  return db.prepare("UPDATE nudges SET read_at = datetime('now') WHERE to_username = ? AND read_at IS NULL").run(toUsername);
+  const to = getCanonicalUsername(toUsername) || normalizeUsernameId(toUsername);
+  return db.prepare("UPDATE nudges SET read_at = datetime('now') WHERE (to_username = ? OR LOWER(to_username) = LOWER(?)) AND read_at IS NULL").run(to, to);
+}
+
+function addTimeChallengeScore(row) {
+  const u = getCanonicalUsername(row.username) || normalizeUsernameId(row.username);
+  db.prepare(`
+    INSERT INTO time_challenge_scores
+      (id, username, score, correct_answers, total_answers, best_combo, duration_sec, created_at)
+    VALUES (?, ?, ?, ?, ?, ?, ?, datetime('now'))
+  `).run(
+    row.id,
+    u,
+    row.score ?? 0,
+    row.correctAnswers ?? 0,
+    row.totalAnswers ?? 0,
+    row.bestCombo ?? 0,
+    row.durationSec ?? 0
+  );
+}
+
+function getTimeChallengeTop(period = 'daily', limit = 20) {
+  const safeLimit = Math.max(1, Math.min(100, Number(limit) || 20));
+  const periodFilter = period === 'weekly'
+    ? `created_at >= datetime('now', '-6 days')`
+    : `created_at >= date('now')`;
+  return db.prepare(`
+    SELECT
+      username,
+      MAX(score) AS score,
+      MAX(best_combo) AS best_combo
+    FROM time_challenge_scores
+    WHERE ${periodFilter}
+    GROUP BY username
+    ORDER BY score DESC, best_combo DESC, username ASC
+    LIMIT ?
+  `).all(safeLimit);
+}
+
+function mergeUserInto(primary, dup) {
+  if (!primary || !dup || primary === dup) return;
+  console.log('[db] mergeUserInto', primary, '<-', dup);
+  db.prepare('UPDATE friendships SET user_username = ? WHERE user_username = ?').run(primary, dup);
+  db.prepare('UPDATE friendships SET friend_username = ? WHERE friend_username = ?').run(primary, dup);
+  db.prepare('DELETE FROM friendships WHERE user_username = friend_username').run();
+  db.prepare(`
+    DELETE FROM friendships WHERE rowid NOT IN (
+      SELECT MIN(rowid) FROM friendships GROUP BY user_username, friend_username
+    )
+  `).run();
+
+  db.prepare('UPDATE duel_challenges SET challenger_id = ? WHERE challenger_id = ?').run(primary, dup);
+  db.prepare('UPDATE duel_challenges SET opponent_id = ? WHERE opponent_id = ?').run(primary, dup);
+
+  db.prepare('UPDATE nudges SET from_username = ? WHERE from_username = ?').run(primary, dup);
+  db.prepare('UPDATE nudges SET to_username = ? WHERE to_username = ?').run(primary, dup);
+
+  db.prepare('UPDATE auth_sessions SET username = ? WHERE username = ?').run(primary, dup);
+  db.prepare('UPDATE password_resets SET username = ? WHERE username = ?').run(primary, dup);
+  db.prepare('UPDATE birthday_gifts SET giver_username = ? WHERE giver_username = ?').run(primary, dup);
+  db.prepare('UPDATE birthday_gifts SET receiver_username = ? WHERE receiver_username = ?').run(primary, dup);
+  db.prepare('UPDATE time_challenge_scores SET username = ? WHERE username = ?').run(primary, dup);
+
+  const pRow = db.prepare('SELECT * FROM users WHERE username = ?').get(primary);
+  const dRow = db.prepare('SELECT * FROM users WHERE username = ?').get(dup);
+  if (pRow && dRow) {
+    const mergedLevel = Math.max(pRow.level || 0, dRow.level || 0);
+    const mergedXp = Math.max(pRow.xp || 0, dRow.xp || 0);
+    const mergedStreak = Math.max(pRow.streak || 0, dRow.streak || 0);
+    const mergedTgp = Math.max(pRow.total_games_played || 0, dRow.total_games_played || 0);
+    const mergedCa = Math.max(pRow.correct_answers || 0, dRow.correct_answers || 0);
+    let mergedBt = pRow.best_time;
+    if (dRow.best_time != null) {
+      if (mergedBt == null || dRow.best_time < mergedBt) mergedBt = dRow.best_time;
+    }
+    const deviceToken = pRow.device_token || dRow.device_token;
+    const displayName = pRow.display_name || dRow.display_name;
+    const email = pRow.email || dRow.email;
+    const avatar = pRow.avatar || dRow.avatar;
+    const photo = pRow.avatar_photo_base64 || dRow.avatar_photo_base64;
+    const achievements = pRow.achievements_json || dRow.achievements_json;
+
+    db.prepare(`
+      UPDATE users SET
+        level = ?, xp = ?, streak = ?, total_games_played = ?, correct_answers = ?, best_time = ?,
+        device_token = ?, display_name = ?, email = ?, avatar = ?, avatar_photo_base64 = ?, achievements_json = ?,
+        updated_at = datetime('now')
+      WHERE username = ?
+    `).run(
+      mergedLevel,
+      mergedXp,
+      mergedStreak,
+      mergedTgp,
+      mergedCa,
+      mergedBt,
+      deviceToken,
+      displayName,
+      email,
+      avatar,
+      photo,
+      achievements,
+      primary
+    );
+  }
+
+  db.prepare('DELETE FROM users WHERE username = ?').run(dup);
+}
+
+function mergeDuplicateUsers() {
+  const groups = db.prepare(`
+    SELECT LOWER(username) AS k, COUNT(*) AS c
+    FROM users
+    GROUP BY LOWER(username)
+    HAVING c > 1
+  `).all();
+  let merged = 0;
+  for (const g of groups) {
+    const rows = db.prepare(`
+      SELECT username FROM users
+      WHERE LOWER(username) = ?
+      ORDER BY datetime(created_at) ASC, username ASC
+    `).all(g.k);
+    if (rows.length < 2) continue;
+    const primary = rows[0].username;
+    for (let i = 1; i < rows.length; i++) {
+      mergeUserInto(primary, rows[i].username);
+      merged += 1;
+    }
+  }
+  if (merged > 0) console.log('[db] mergeDuplicateUsers: merged', merged, 'duplicate account(s)');
+}
+
+try {
+  mergeDuplicateUsers();
+} catch (e) {
+  console.error('[db] mergeDuplicateUsers failed', e.message || e);
+}
+
+function getTimeChallengeRank(period = 'daily', username, score) {
+  if (!username) return null;
+  const u = getCanonicalUsername(username) || normalizeUsernameId(username);
+  const periodFilter = period === 'weekly'
+    ? `created_at >= datetime('now', '-6 days')`
+    : `created_at >= date('now')`;
+  const myBest = db.prepare(`
+    SELECT MAX(score) AS value
+    FROM time_challenge_scores
+    WHERE username = ? AND ${periodFilter}
+  `).get(u)?.value ?? 0;
+  const effectiveScore = Math.max(Number(score) || 0, myBest);
+  const betterCount = db.prepare(`
+    SELECT COUNT(*) AS c
+    FROM (
+      SELECT username, MAX(score) AS max_score
+      FROM time_challenge_scores
+      WHERE ${periodFilter}
+      GROUP BY username
+    ) t
+    WHERE t.max_score > ?
+  `).get(effectiveScore)?.c ?? 0;
+  return Number(betterCount) + 1;
 }
 
 module.exports = {
   db,
   registerUser,
   getUserByUsername,
+  getWorldRank,
+  getCanonicalUsername,
+  normalizeUsernameId,
   getUserByFriendCode,
   addFriend,
   getFriends,
   setDisplayName,
+  setUserAvatar,
   createChallenge,
   getChallenge,
   setChallengeStatus,
   getIncomingChallenges,
+  getIncomingChallengesForSync,
+  getOutgoingChallenges,
+  removeFriendship,
   updateChallengeScore,
   getAllUsersForRandomOpponent,
   areFriends,
@@ -549,6 +963,7 @@ module.exports = {
   getNudgesForUser,
   markNudgesRead,
   getSession,
+  getAuthSessionsForUser,
   registerAuthUser,
   loginAuthUser,
   changePassword,
@@ -559,4 +974,7 @@ module.exports = {
   createBirthdayGift,
   getBirthdayGiftsForUser,
   clearBirthdayGiftsForUser,
+  addTimeChallengeScore,
+  getTimeChallengeTop,
+  getTimeChallengeRank,
 };

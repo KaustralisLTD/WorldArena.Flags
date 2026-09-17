@@ -1,0 +1,6 @@
+8.0
+
+• Layar kuis diperbarui dengan jawaban lebih jelas dan nyawa beranimasi.
+• Desain baru untuk Statistik, Liga, dan Profil.
+• Tata letak iPad ditingkatkan dengan kartu yang menyesuaikan isi.
+• Wilayah dan tingkat kesulitan disimpan saat pengaturan cepat ditutup.

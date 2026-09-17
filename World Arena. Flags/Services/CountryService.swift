@@ -2,30 +2,38 @@ import Foundation
 
 class CountryService {
     static let shared = CountryService()
-    private let session: URLSession
     private let cache = NSCache<NSString, NSArray>()
-    
-    private let baseURL = "https://restcountries.com/v3.1"
-    
-    private init() {
-        let config = URLSessionConfiguration.default
-        config.timeoutIntervalForRequest = 30
-        config.timeoutIntervalForResource = 300
-        config.waitsForConnectivity = true
-        config.allowsExpensiveNetworkAccess = true
-        config.allowsConstrainedNetworkAccess = true
-        config.requestCachePolicy = .returnCacheDataElseLoad
-        
-        session = URLSession(configuration: config)
+
+    /// Локальный снимок стран для квиза (restcountries v1–v4 deprecated с 2026).
+    private static let localCatalogResource = "game_countries"
+
+    private init() {}
+
+    private lazy var localCatalog: [Country] = {
+        Self.loadLocalCatalog()
+    }()
+
+    private static func loadLocalCatalog() -> [Country] {
+        guard let url = Bundle.main.url(forResource: localCatalogResource, withExtension: "json") else {
+            print("❌ CountryService: \(localCatalogResource).json not found in bundle")
+            return []
+        }
+        do {
+            let data = try Data(contentsOf: url)
+            let countries = try JSONDecoder().decode([Country].self, from: data)
+            print("✅ CountryService: loaded \(countries.count) countries from local catalog")
+            return countries.filter { $0.region != "Antarctic" }
+        } catch {
+            print("❌ CountryService: failed to decode local catalog: \(error)")
+            return []
+        }
     }
-    
+
     func fetchCountries(for regions: Set<GameState.Region>) async throws -> [Country] {
         print("Fetching countries for regions: \(regions.map { $0.rawValue })")
-        
-        // Если выбран регион "Мои ошибки", возвращаем сохраненные ошибки
+
         if regions.contains(.myMistakes) {
             print("\nLoading mistakes region...")
-            // Используем UserDefaults напрямую
             if let data = UserDefaults.standard.data(forKey: "mistakeCountries"),
                let mistakes = try? JSONDecoder().decode([Country].self, from: data) {
                 print("Loaded \(mistakes.count) mistakes from storage")
@@ -34,233 +42,89 @@ class CountryService {
             print("No mistakes found in storage")
             return []
         }
-        
-        // Если выбраны все регионы, загружаем каждый регион отдельно
-        if regions == [.all] {
-            print("\nLoading all regions separately...")
-            var allCountries: [Country] = []
-            
-            // Загружаем каждый регион отдельно
-            for region in GameState.Region.allCases where region != .all {
-                print("Fetching region: \(region.rawValue)")
-                let regionPath = getRegionPath(for: region)
-                let url = URL(string: "\(baseURL)/\(regionPath)")!
-                let countries = try await fetchCountriesFromURL(url)
-                
-                // Фильтруем страны для Северной и Южной Америки
-                let filteredCountries = filterCountriesForRegion(countries, region: region)
-                allCountries.append(contentsOf: filteredCountries)
-                
-                print("Fetched \(filteredCountries.count) countries for \(region.rawValue)")
+
+        let catalog = localCatalog
+        guard !catalog.isEmpty else {
+            throw NetworkError.emptyResponse
+        }
+
+        if regions.contains(.all) || regions.isEmpty {
+            let cacheKey = "local-all" as NSString
+            if let cached = cache.object(forKey: cacheKey) as? [Country] {
+                return cached
             }
-            
-            print("Total countries loaded: \(allCountries.count)")
-            return allCountries.filter { $0.region != "Antarctic" }
+            cache.setObject(catalog as NSArray, forKey: cacheKey)
+            return catalog
         }
-        
-        // Для конкретных регионов используем существующую логику
-        var allCountries: [Country] = []
-        for region in regions {
-            let regionPath = getRegionPath(for: region)
-            let url = URL(string: "\(baseURL)/\(regionPath)")!
-            let countries = try await fetchCountriesFromURL(url)
-            let filteredCountries = filterCountriesForRegion(countries, region: region)
-            allCountries.append(contentsOf: filteredCountries)
+
+        var result: [Country] = []
+        for region in regions where region != .all && region != .myMistakes {
+            let cacheKey = "local-\(region.rawValue)" as NSString
+            if let cached = cache.object(forKey: cacheKey) as? [Country] {
+                result.append(contentsOf: cached)
+                continue
+            }
+            let filtered = filterCountriesForRegion(catalog, region: region)
+            cache.setObject(filtered as NSArray, forKey: cacheKey)
+            result.append(contentsOf: filtered)
+            print("Fetched \(filtered.count) countries for \(region.rawValue) (local)")
         }
-        
-        return allCountries.filter { $0.region != "Antarctic" }
+
+        var seen = Set<String>()
+        return result.filter { seen.insert($0.id).inserted }
     }
-    
-    private func getRegionPath(for region: GameState.Region) -> String {
-        switch region {
-        case .all:
-            return "all"
-        case .europe:
-            return "region/europe"
-        case .asia:
-            return "region/asia"
-        case .northAmerica, .southAmerica:
-            return "region/americas"
-        case .africa:
-            return "region/africa"
-        case .oceania:
-            return "region/oceania"
-        case .myMistakes:
-            return "my-mistakes"
-        }
-    }
-    
+
     private func filterCountriesForRegion(_ countries: [Country], region: GameState.Region) -> [Country] {
         switch region {
+        case .europe:
+            return countries.filter { $0.region == "Europe" }
+        case .asia:
+            return countries.filter { $0.region == "Asia" }
+        case .africa:
+            return countries.filter { $0.region == "Africa" }
+        case .oceania:
+            return countries.filter { $0.region == "Oceania" }
         case .northAmerica:
             return countries.filter { country in
-                country.subregion == "Northern America" ||
-                country.subregion == "Central America" ||
-                country.subregion == "Caribbean"
+                country.region == "Americas" && (
+                    country.subregion == "Northern America" ||
+                    country.subregion == "Central America" ||
+                    country.subregion == "Caribbean"
+                )
             }
         case .southAmerica:
             return countries.filter { country in
-                country.subregion == "South America"
+                country.region == "Americas" && country.subregion == "South America"
             }
-        default:
+        case .all, .myMistakes:
             return countries
         }
     }
-    
-    private func fetchAllCountries() async throws -> [Country] {
-        let url = URL(string: "\(baseURL)/all")!
-        return try await fetchCountriesFromURL(url)
-    }
-    
-    private func fetchCountriesForRegion(_ region: GameState.Region) async throws -> [Country] {
-        let regionPath = switch region {
-        case .europe:
-            "region/europe"
-        case .asia:
-            "region/asia"
-        case .northAmerica, .southAmerica:
-            "region/americas"
-        case .africa:
-            "region/africa"
-        case .oceania:
-            "region/oceania"
-        case .all:
-            "all"
-        case .myMistakes:
-            "my-mistakes"
-        }
-        
-        print("Fetching countries from endpoint: \(baseURL)/\(regionPath)")
-        let url = URL(string: "\(baseURL)/\(regionPath)")!
-        var countries = try await fetchCountriesFromURL(url)
-        
-        // Дополнительная фильтрация для Северной и Южной Америки
-        if region == .northAmerica {
-            countries = countries.filter { country in
-                country.subregion == "Northern America" ||
-                country.subregion == "Central America" ||
-                country.subregion == "Caribbean"
-            }
-        } else if region == .southAmerica {
-            countries = countries.filter { country in
-                country.subregion == "South America"
-            }
-        }
-        
-        return countries.filter { $0.region != "Antarctic" }
-    }
-    
-    private func fetchCountriesFromURL(_ url: URL) async throws -> [Country] {
-        let (data, response) = try await session.data(from: url)
-        
-        guard let httpResponse = response as? HTTPURLResponse else {
-            throw URLError(.badServerResponse)
-        }
-        
-        switch httpResponse.statusCode {
-        case 200:
-            let decoder = JSONDecoder()
-            let countries = try decoder.decode([Country].self, from: data)
-            return countries.filter { $0.region != "Antarctic" }
-        case 404:
-            return []
-        case 429:
-            throw NetworkError.tooManyRequests
-        case 500...599:
-            throw NetworkError.serverError
-        default:
-            throw NetworkError.httpError(statusCode: httpResponse.statusCode)
-        }
-    }
-    
-    private func fetchCountriesForRegionString(_ region: String) async throws -> [Country] {
-        let regionPath = region.lowercased()
-        print("Fetching countries from endpoint: \(baseURL)/region/\(regionPath)")
-        let url = URL(string: "\(baseURL)/region/\(regionPath)")!
-        return try await fetchCountriesFromURL(url)
-    }
-    
+
     func loadCountries(for regions: [String]) async throws -> [Country] {
-        print("\n=== Loading Countries ===")
-        print("Current regions:", regions)
-        print("Fetching countries for regions:", regions)
-        
-        // Если выбраны все регионы, загружаем каждый регион отдельно
-        if regions.contains("All Regions") {
-            print("Loading all regions...")
-            let allRegions = ["Europe", "Asia", "Africa", "Americas", "Oceania"]
-            var allCountries: [Country] = []
-            
-            for region in allRegions {
-                print("Fetching countries from endpoint: \(baseURL)/region/\(region.lowercased())")
-                let countries = try await fetchCountriesForRegionString(region)
-                allCountries.append(contentsOf: countries)
-            }
-            
-            print("Loaded \(allCountries.count) countries from all regions")
-            print("======================\n")
-            return allCountries
+        if regions.contains("Americas") {
+            let north = try await fetchCountries(for: [.northAmerica])
+            let south = try await fetchCountries(for: [.southAmerica])
+            return north + south
         }
-        
-        // Загрузка для конкретных регионов
-        var loadedCountries: [Country] = []
-        
-        for region in regions {
-            if region == "South America" || region == "North America" {
-                print("Fetching countries from endpoint: \(baseURL)/region/americas")
-                let americasCountries = try await fetchCountriesForRegionString("Americas")
-                let filteredCountries = americasCountries.filter { country in
-                    if region == "South America" {
-                        return country.subregion == "South America"
-                    } else {
-                        return country.subregion == "North America" || 
-                               country.subregion == "Central America" || 
-                               country.subregion == "Caribbean"
-                    }
-                }
-                loadedCountries.append(contentsOf: filteredCountries)
-            } else {
-                print("Fetching countries from endpoint: \(baseURL)/region/\(region.lowercased())")
-                let countries = try await fetchCountriesForRegionString(region)
-                loadedCountries.append(contentsOf: countries)
+        let mapped: Set<GameState.Region> = Set(regions.compactMap { name in
+            switch name {
+            case "All Regions": return .all
+            case "Europe": return .europe
+            case "Asia": return .asia
+            case "Africa": return .africa
+            case "Oceania": return .oceania
+            case "North America", "Northern America": return .northAmerica
+            case "South America": return .southAmerica
+            case "My Mistakes": return .myMistakes
+            default: return GameState.Region(rawValue: name)
             }
-        }
-        
-        print("Loaded \(loadedCountries.count) countries")
-        print("======================\n")
-        return loadedCountries
+        })
+        return try await fetchCountries(for: mapped.isEmpty ? [.all] : mapped)
     }
-    
+
     func fetchCountries(for regions: [String]) async throws -> [Country] {
-        print("Fetching countries for regions: \(regions)")
-        var allCountries: [Country] = []
-        
-        for region in regions {
-            // Пропускаем регион "My Mistakes", так как он обрабатывается в GameState
-            if region.lowercased() == "my mistakes" {
-                continue
-            }
-            
-            let endpoint = "https://restcountries.com/v3.1/region/\(region.lowercased())"
-            print("Fetching countries from endpoint: \(endpoint)")
-            
-            guard let url = URL(string: endpoint) else {
-                print("Invalid URL for region: \(region)")
-                continue
-            }
-            
-            do {
-                let (data, _) = try await URLSession.shared.data(from: url)
-                let countries = try JSONDecoder().decode([Country].self, from: data)
-                allCountries.append(contentsOf: countries)
-                print("Loaded \(countries.count) countries from region \(region)")
-            } catch {
-                print("Error loading countries for region \(region): \(error)")
-            }
-        }
-        
-        print("Loaded \(allCountries.count) countries in total")
-        return allCountries
+        try await loadCountries(for: regions)
     }
 }
 
@@ -276,7 +140,7 @@ struct RestCountryDetailResponse: Codable {
     let currencies: [String: CurrencyInfo]?
     let idd: Idd?
     let languages: [String: String]?
-    
+
     struct Name: Codable {
         let common: String?
         let official: String?
@@ -292,7 +156,7 @@ struct RestCountryDetailResponse: Codable {
         let root: String?
         let suffixes: [String]?
     }
-    
+
     var capitalFirst: String? { capital?.first }
     var dialingCode: String? {
         guard let root = idd?.root?.trimmingCharacters(in: CharacterSet(charactersIn: "+")),
@@ -311,14 +175,26 @@ struct RestCountryDetailResponse: Codable {
 }
 
 extension CountryService {
-    /// Загрузка одной страны по коду (alpha2) для экрана «Информация о стране».
+    /// Детали страны: из локального каталога (remote REST Countries v3.1 больше недоступен).
     func fetchCountryDetailByCode(_ code: String) async throws -> RestCountryDetailResponse? {
-        let url = URL(string: "\(baseURL)/alpha/\(code)")!
-        let (data, response) = try await session.data(from: url)
-        guard let http = response as? HTTPURLResponse else { throw URLError(.badServerResponse) }
-        guard http.statusCode == 200 else { return nil }
-        let decoded = try JSONDecoder().decode([RestCountryDetailResponse].self, from: data)
-        return decoded.first
+        let normalized = code.trimmingCharacters(in: .whitespacesAndNewlines).uppercased()
+        let alpha3 = ISO3166.alpha2ToAlpha3[normalized] ?? (normalized.count == 3 ? normalized : nil)
+        guard let a3 = alpha3,
+              let country = localCatalog.first(where: { $0.id == a3 }) else {
+            return nil
+        }
+        return RestCountryDetailResponse(
+            name: .init(common: country.name.common, official: country.name.official),
+            capital: country.capital,
+            population: country.population,
+            area: country.area,
+            region: country.region,
+            subregion: country.subregion,
+            flags: .init(png: country.flagURL.absoluteString),
+            currencies: nil,
+            idd: nil,
+            languages: nil
+        )
     }
 }
 
@@ -331,7 +207,7 @@ enum NetworkError: LocalizedError {
     case httpError(statusCode: Int)
     case emptyResponse
     case other(Error)
-    
+
     var errorDescription: String? {
         switch self {
         case .noInternet:
@@ -352,4 +228,4 @@ enum NetworkError: LocalizedError {
             return error.localizedDescription
         }
     }
-} 
+}

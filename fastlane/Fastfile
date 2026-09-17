@@ -1,0 +1,54 @@
+default_platform(:ios)
+
+platform :ios do
+  desc "Upload App Store metadata only (What's New + Promotional Text)"
+  lane :release_metadata do |options|
+    version = options[:version]
+    UI.user_error!("Pass version, example: bundle exec fastlane ios release_metadata version:2.4.0") if version.to_s.strip.empty?
+    project_root = File.expand_path("..", __dir__)
+    setup_script = File.join(project_root, "scripts", "setup_fastlane_metadata.sh")
+
+    sh("bash \"#{setup_script}\" \"#{version}\"")
+
+    api_key = nil
+    if ENV["ASC_KEY_ID"] && ENV["ASC_ISSUER_ID"] && ENV["ASC_KEY_FILEPATH"]
+      api_key = app_store_connect_api_key(
+        key_id: ENV["ASC_KEY_ID"],
+        issuer_id: ENV["ASC_ISSUER_ID"],
+        key_filepath: ENV["ASC_KEY_FILEPATH"],
+        in_house: false
+      )
+    end
+
+    deliver(
+      app_version: version,
+      api_key: api_key,
+      metadata_path: File.join(project_root, "fastlane", "metadata"),
+      skip_binary_upload: true,
+      skip_screenshots: true,
+      ignore_language_directory_validation: true,
+      run_precheck_before_submit: false,
+      submit_for_review: false,
+      automatic_release: false,
+      force: true
+    )
+  end
+
+  desc "Sync Game Center achievements from markdown table"
+  lane :sync_game_center_achievements do |options|
+    project_root = File.expand_path("..", __dir__)
+    source_md = File.join(project_root, "World Arena. Flags", "Docs", "GameCenter_Achievements_Table.md")
+    output_json = File.join(project_root, "fastlane", "game_center", "achievements.json")
+    export_script = File.join(project_root, "scripts", "export_gamecenter_achievements_from_markdown.py")
+    sync_script = File.join(project_root, "scripts", "sync_gamecenter_achievements.py")
+
+    sh("python3 \"#{export_script}\" \"#{source_md}\" \"#{output_json}\"")
+
+    apply = options[:apply].to_s == "true"
+    force_reupload_images = options[:force_reupload_images].to_s == "true"
+    sync_cmd = "python3 \"#{sync_script}\" \"#{output_json}\""
+    sync_cmd += " --apply" if apply
+    sync_cmd += " --force-reupload-images" if force_reupload_images
+    sh(sync_cmd)
+  end
+end

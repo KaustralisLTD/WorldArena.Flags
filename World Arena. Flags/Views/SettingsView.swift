@@ -26,8 +26,10 @@ struct SettingsView: View {
     @State private var showingAuth = false
     @State private var showingChangePassword = false
     @State private var showingResetPassword = false
+    @State private var showingLoginInfoSheet = false
     @State private var isUpdateAvailable = false
-    
+    @AppStorage(GameHomeLayoutVariant.storageKey) private var homeLayoutRaw: Int = GameHomeLayoutVariant.quickStart.rawValue
+
     private var systemGroupedBackground: Color {
         #if os(iOS)
         return Color(UIColor.systemGroupedBackground)
@@ -86,9 +88,11 @@ struct SettingsView: View {
                             SettingsRow(
                                 title: LocalizationManager.shared.localizedString("Logged in"),
                                 icon: "person.crop.circle.badge.checkmark",
-                                hasArrow: false,
+                                hasArrow: true,
                                 subtitle: authService.authEmail ?? authService.authUsername
-                            ) { }
+                            ) {
+                                showingLoginInfoSheet = true
+                            }
 
                             SettingsRow(
                                 title: LocalizationManager.shared.localizedString("Change password"),
@@ -194,6 +198,20 @@ struct SettingsView: View {
                         ) {
                             showingThemeSelection = true
                         }
+
+                        VStack(alignment: .leading, spacing: 10) {
+                            Text(LocalizationManager.shared.localizedString("home.layout.section"))
+                                .font(.system(size: 13, weight: .semibold))
+                                .foregroundColor(.secondary)
+                                .padding(.leading, 4)
+                            Picker("", selection: $homeLayoutRaw) {
+                                Text(GameHomeLayoutVariant.classic.title).tag(GameHomeLayoutVariant.classic.rawValue)
+                                Text(GameHomeLayoutVariant.quickStart.title).tag(GameHomeLayoutVariant.quickStart.rawValue)
+                            }
+                            .pickerStyle(.segmented)
+                        }
+                        .padding(.vertical, 6)
+                        .padding(.horizontal, 16)
                         
                         SettingsToggleRow(
                             title: LocalizationManager.shared.localizedString("Звуковые эффекты"),
@@ -279,40 +297,55 @@ struct SettingsView: View {
                 #endif
             }
         }
-        .sheet(isPresented: $showingProfile) {
+        .sheetOrFullScreenOnIPad(isPresented: $showingProfile) {
             ProfileEditView()
                 .environmentObject(userProfile)
+                .environmentObject(gameState)
         }
-        .sheet(isPresented: $showingAuth) {
+        // fullScreenCover: вложенный .sheet(Настройки) + .sheet(вход) на iPhone при фокусе в поле почты
+        // иногда срывает верхний sheet; полноэкранный вход стабильнее с клавиатурой.
+        .fullScreenCover(isPresented: $showingAuth) {
             AuthGatewayView()
         }
-        .sheet(isPresented: $showingChangePassword) {
+        .sheetOrFullScreenOnIPad(isPresented: $showingChangePassword) {
             ChangePasswordView()
         }
-        .sheet(isPresented: $showingResetPassword) {
+        .sheetOrFullScreenOnIPad(isPresented: $showingResetPassword) {
             ResetPasswordView()
         }
-        .sheet(isPresented: $showingNotifications) {
+        .sheetOrFullScreenOnIPad(isPresented: $showingLoginInfoSheet) {
+            LoginInfoSheet(
+                email: authService.authEmail ?? authService.authUsername ?? "—",
+                lastLoginAt: authService.lastLoginAt,
+                username: authService.authUsername ?? "—",
+                currentSessionToken: authService.authToken,
+                onLogout: {
+                    showingLoginInfoSheet = false
+                    signOut()
+                }
+            )
+        }
+        .sheetOrFullScreenOnIPad(isPresented: $showingNotifications) {
             NotificationSettingsView()
         }
-        .sheet(isPresented: $showingPrivacy) {
+        .sheetOrFullScreenOnIPad(isPresented: $showingPrivacy) {
             PrivacySettingsView()
         }
-        .sheet(isPresented: $showingHelp) {
+        .sheetOrFullScreenOnIPad(isPresented: $showingHelp) {
             HelpCenterView()
         }
-                    .sheet(isPresented: $showingLanguageSelection) {
-                LanguageSelectionView()
-                    .environmentObject(gameState)
-            }
-            .sheet(isPresented: $showingThemeSelection) {
-                ThemeSelectionView()
-                    .environmentObject(themeManager)
-            }
-            .modifier(SettingsPremiumModifier(showingPremium: $showingPremium, gameState: gameState))
-            .task {
-                await checkForUpdates()
-            }
+        .sheetOrFullScreenOnIPad(isPresented: $showingLanguageSelection) {
+            LanguageSelectionView()
+                .environmentObject(gameState)
+        }
+        .sheetOrFullScreenOnIPad(isPresented: $showingThemeSelection) {
+            ThemeSelectionView()
+                .environmentObject(themeManager)
+        }
+        .modifier(SettingsPremiumModifier(showingPremium: $showingPremium, gameState: gameState))
+        .task {
+            await checkForUpdates()
+        }
     }
     
     private var appVersion: String {
@@ -482,6 +515,269 @@ struct SettingsView: View {
         Task {
             await StoreManager.shared.restorePurchases()
         }
+    }
+}
+
+private struct LoginInfoSheet: View {
+    let email: String
+    let lastLoginAt: Date?
+    let username: String
+    let currentSessionToken: String?
+    let onLogout: () -> Void
+    @Environment(\.dismiss) private var dismiss
+
+    @State private var isLoadingSessions = true
+    @State private var sessions: [AuthSessionFromAPI] = []
+    @State private var sessionsError: String?
+
+    private var lm: LocalizationManager { LocalizationManager.shared }
+
+    private var secondarySystemGroupedBackground: Color {
+        #if os(iOS)
+        return Color(UIColor.secondarySystemGroupedBackground)
+        #else
+        return Color(NSColor.textBackgroundColor)
+        #endif
+    }
+
+    private var groupedBg: Color {
+        #if os(iOS)
+        return Color(UIColor.systemGroupedBackground)
+        #else
+        return Color(NSColor.windowBackgroundColor)
+        #endif
+    }
+
+    private var formattedLastLogin: String {
+        guard let dt = lastLoginAt else { return "—" }
+        let df = DateFormatter()
+        df.locale = lm.currentLocale
+        df.dateStyle = .medium
+        df.timeStyle = .short
+        return df.string(from: dt)
+    }
+
+    private var otherSessions: [AuthSessionFromAPI] {
+        guard let t = currentSessionToken?.trimmingCharacters(in: .whitespacesAndNewlines), !t.isEmpty else { return sessions }
+        return sessions.filter { $0.token != t }
+    }
+
+    private var hasCurrentSessionToken: Bool {
+        !(currentSessionToken?.trimmingCharacters(in: .whitespacesAndNewlines) ?? "").isEmpty
+    }
+
+    var body: some View {
+        NavigationView {
+            ScrollView {
+                VStack(alignment: .leading, spacing: 16) {
+                    Text(email)
+                        .font(.system(size: 16, weight: .semibold))
+
+                    HStack {
+                        Text(lm.localizedString("Last login"))
+                            .foregroundColor(.secondary)
+                        Spacer()
+                        Text(formattedLastLogin)
+                            .foregroundColor(.primary)
+                    }
+                    .font(.system(size: 14))
+
+                    Divider().padding(.vertical, 4)
+
+                    Text(lm.localizedString("Active sessions"))
+                        .font(.system(size: 13, weight: .semibold))
+                        .foregroundColor(.secondary)
+                        .textCase(.uppercase)
+                        .padding(.top, 4)
+
+                    if isLoadingSessions {
+                        HStack { ProgressView() }
+                            .padding(.top, 6)
+                            .frame(maxWidth: .infinity)
+                    } else if let err = sessionsError, !err.isEmpty {
+                        Text(err)
+                            .foregroundColor(.red)
+                    } else if sessions.isEmpty {
+                        Text("—")
+                            .foregroundColor(.secondary)
+                    } else {
+                        #if os(iOS)
+                        Group {
+                            if hasCurrentSessionToken {
+                                sessionSectionTitle(lm.localizedString("This device"))
+                                currentDeviceSessionCard
+                                if !otherSessions.isEmpty {
+                                    sessionSectionTitle(lm.localizedString("Other sessions"))
+                                    ForEach(otherSessions, id: \.token) { session in
+                                        sessionRow(session)
+                                    }
+                                }
+                            } else {
+                                ForEach(sessions, id: \.token) { session in
+                                    sessionRow(session)
+                                }
+                            }
+                        }
+                        #else
+                        ForEach(sessions, id: \.token) { session in
+                            sessionRow(session)
+                        }
+                        #endif
+                    }
+
+                    Button {
+                        onLogout()
+                    } label: {
+                        Text(lm.localizedString("Sign out"))
+                            .font(.system(size: 16, weight: .semibold))
+                            .foregroundColor(.red)
+                            .frame(maxWidth: .infinity)
+                            .padding(.vertical, 16)
+                            .background(secondarySystemGroupedBackground)
+                            .cornerRadius(12)
+                    }
+                    .padding(.top, 12)
+                }
+                .padding(20)
+            }
+            .background(groupedBg)
+            .navigationTitle(lm.localizedString("Logged in"))
+            #if os(iOS)
+            .navigationBarTitleDisplayMode(.inline)
+            #endif
+            .toolbar {
+                ToolbarItem(placement: .cancellationAction) {
+                    Button(lm.localizedString("Close")) { dismiss() }
+                }
+            }
+        }
+        .task(id: username) {
+            await loadSessions()
+        }
+    }
+
+    @ViewBuilder
+    private func sessionSectionTitle(_ title: String) -> some View {
+        Text(title)
+            .font(.system(size: 13, weight: .semibold))
+            .foregroundColor(.secondary)
+            .textCase(.uppercase)
+            .padding(.top, 8)
+    }
+
+    #if os(iOS)
+    @ViewBuilder
+    private var currentDeviceSessionCard: some View {
+        let subtitle = currentOnlineSubtitle()
+        sessionCardContent(
+            iconName: sessionIconName(deviceModelLine: DeviceSessionMetadata.marketingDeviceName),
+            title: DeviceSessionMetadata.marketingDeviceName,
+            line2: DeviceSessionMetadata.appVersionLine,
+            line3: subtitle
+        )
+    }
+    #endif
+
+    private func currentOnlineSubtitle() -> String {
+        #if os(iOS)
+        // Для текущего устройства не показываем "примерную" страну из региональных настроек ОС,
+        // чтобы не вводить пользователя в заблуждение.
+        return lm.localizedString("Session online")
+        #else
+        return ""
+        #endif
+    }
+
+    private func sessionIconName(deviceModelLine: String) -> String {
+        let m = deviceModelLine.lowercased()
+        if m.contains("ipad") { return "ipad" }
+        if m.contains("mac") || m.contains("simulator") { return "laptopcomputer" }
+        return "iphone"
+    }
+
+    @ViewBuilder
+    private func sessionRow(_ session: AuthSessionFromAPI) -> some View {
+        let title = session.deviceModel ?? lm.localizedString("Other device")
+        let line2 = session.appVersion ?? "—"
+        let line3: String = {
+            if let loc = DeviceSessionMetadata.localizedSessionLocationLabel(
+                session.locationLabel,
+                countryCode: session.locationCountryCode,
+                appLocale: lm.currentLocale
+            ) {
+                return "\(loc) • \(format(session.createdAt))"
+            }
+            return format(session.createdAt)
+        }()
+        sessionCardContent(
+            iconName: sessionIconName(deviceModelLine: title),
+            title: title,
+            line2: line2,
+            line3: line3
+        )
+    }
+
+    private func sessionCardContent(iconName: String, title: String, line2: String, line3: String) -> some View {
+        HStack(alignment: .top, spacing: 14) {
+            ZStack {
+                RoundedRectangle(cornerRadius: 10, style: .continuous)
+                    .fill(Color.blue.opacity(0.15))
+                    .frame(width: 44, height: 44)
+                Image(systemName: iconName)
+                    .font(.system(size: 20, weight: .semibold))
+                    .foregroundColor(.blue)
+            }
+            VStack(alignment: .leading, spacing: 6) {
+                Text(title)
+                    .font(.system(size: 16, weight: .bold))
+                    .foregroundColor(.primary)
+                Text(line2)
+                    .font(.system(size: 14, weight: .medium))
+                    .foregroundColor(.secondary)
+                Text(line3)
+                    .font(.system(size: 13))
+                    .foregroundColor(.secondary)
+            }
+            Spacer(minLength: 0)
+        }
+        .padding(14)
+        .background(secondarySystemGroupedBackground)
+        .clipShape(RoundedRectangle(cornerRadius: 14, style: .continuous))
+    }
+
+    private func format(_ date: Date?) -> String {
+        guard let date else { return "—" }
+        let df = DateFormatter()
+        df.locale = lm.currentLocale
+        df.dateStyle = .medium
+        df.timeStyle = .short
+        return df.string(from: date)
+    }
+
+    private func loadSessions() async {
+        guard !username.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty,
+              username != "—" else {
+            isLoadingSessions = false
+            sessions = []
+            return
+        }
+        isLoadingSessions = true
+        sessionsError = nil
+        do {
+            sessions = try await DuelAPIService.shared.fetchAuthSessions(userId: username)
+                .sorted { ($0.createdAt ?? .distantPast) > ($1.createdAt ?? .distantPast) }
+        } catch {
+            let msg = error.localizedDescription
+            // Сервер может быть ещё без нового endpoint /api/v1/auth/sessions.
+            // В этом случае не показываем красную ошибку пользователю.
+            if msg.contains("Cannot GET /api/v1/auth/sessions") || msg.contains("/auth/sessions") {
+                sessions = []
+                sessionsError = nil
+            } else {
+                sessionsError = msg
+            }
+        }
+        isLoadingSessions = false
     }
 }
 

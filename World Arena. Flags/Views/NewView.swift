@@ -1,5 +1,8 @@
 import SwiftUI
 import StoreKit
+#if os(iOS)
+import UIKit
+#endif
 
 // Контейнер пост-игрового флоу со страницами: результаты → серия → серии друзей → квесты
 struct PostGameFlowContainer: View {
@@ -60,10 +63,33 @@ struct PostGameFlowContainer: View {
                     bonusXP: gameState.bonusXP,
                     earnedFBucks: gameState.lastGameEarnedFBucks,
                     appliedXPBoostMultiplier: gameState.lastAppliedXPBoostMultiplier,
+                    xpBoostRemainingSeconds: UserProfile.shared.xpBoostRemainingSeconds,
                     detailedResults: gameState.lastGameResults,
+                    isTimeChallengeResult: gameState.selectedPlayMode == .timeChallenge,
+                    timeChallengeBestCombo: gameState.timeChallengeBestCombo,
+                    timeChallengeIsNewBestScore: gameState.timeChallengeIsNewBestScore,
+                    timeChallengeBestScore: gameState.timeChallengeBestScore,
+                    timeChallengeDailyRank: gameState.timeChallengeDailyRank,
+                    timeChallengeWeeklyRank: gameState.timeChallengeWeeklyRank,
+                    isSurvivalResult: gameState.selectedPlayMode == .survival,
+                    survivalRunDepth: gameState.survivalLastRunQuestions,
+                    survivalRunMaxStage: gameState.survivalLastRunMaxStage,
+                    survivalPersonalBestDisplay: gameState.survivalPersonalBestDepth,
+                    survivalIsNewBestDepth: gameState.survivalIsNewBestDepth,
+                    survivalSessionBestCombo: gameState.survivalSessionBestCombo,
                     onContinue: {
-                        gameState.pendingDuelResult = nil
+                        // Итог дуэли не сбрасываем — покажем баннер на главной
                         next()
+                    },
+                    onPlayAgain: {
+                        onPlayAgain?()
+                    },
+                    onBackHome: {
+                        onFinish()
+                        onHome?()
+                    },
+                    onShare: {
+                        ShareService.shared.sharePostGameResult(score: score, totalQuestions: totalQuestions, timeElapsed: timeElapsed, gameState: gameState)
                     }
                 )
             case 1:
@@ -80,6 +106,7 @@ struct PostGameFlowContainer: View {
                     QuestResultsView(
                         dailyQuests: dailyQuests,
                         monthlyQuests: monthlyQuests,
+                        playAgainIsDuelRepeat: gameState.selectedPlayMode == .duel,
                         onContinue: { onFinish() },
                         onPlayAgain: {
                             onPlayAgain?()
@@ -89,7 +116,7 @@ struct PostGameFlowContainer: View {
                             onHome?()
                         },
                         onShare: {
-                            ShareService.shared.shareGameResult(score: score, totalQuestions: totalQuestions, timeElapsed: timeElapsed)
+                            ShareService.shared.sharePostGameResult(score: score, totalQuestions: totalQuestions, timeElapsed: timeElapsed, gameState: gameState)
                         }
                     )
                 } else {
@@ -129,7 +156,7 @@ struct PostGameFlowContainer: View {
                         onHome?()
                     },
                     onShare: {
-                        ShareService.shared.shareGameResult(score: score, totalQuestions: totalQuestions, timeElapsed: timeElapsed)
+                        ShareService.shared.sharePostGameResult(score: score, totalQuestions: totalQuestions, timeElapsed: timeElapsed, gameState: gameState)
                     }
                 )
             default:
@@ -146,8 +173,7 @@ struct PostGameFlowContainer: View {
                         onHome?()
                     },
                     onShare: {
-                        // Share logic
-                        ShareService.shared.shareGameResult(score: score, totalQuestions: totalQuestions, timeElapsed: timeElapsed)
+                        ShareService.shared.sharePostGameResult(score: score, totalQuestions: totalQuestions, timeElapsed: timeElapsed, gameState: gameState)
                     }
                 )
             }
@@ -172,6 +198,10 @@ struct DuelOpponentPickerView: View {
     @Environment(\.dismiss) private var dismiss
     @ObservedObject private var localizationManager = LocalizationManager.shared
     @State private var isStarting = false
+    @State private var showDuelPrepareFailedAlert = false
+    @State private var showingAddFriends = false
+    /// Если задан — после выбора соперника не запускаем игру, а вызываем callback (показать анонс на главной).
+    var onDuelReadyToStart: (() -> Void)?
     
     var body: some View {
         NavigationView {
@@ -184,10 +214,7 @@ struct DuelOpponentPickerView: View {
                     ForEach(userProfile.friends, id: \.id) { friend in
                         Button(action: { startDuel(with: friend) }) {
                             HStack(spacing: 12) {
-                                Text(friend.displayAvatar)
-                                    .font(.system(size: friend.countryCode != nil ? 24 : 18, weight: .semibold))
-                                    .frame(width: 40, height: 40)
-                                    .background(Circle().fill(Color.blue.opacity(0.2)))
+                                friendAvatarView(friend, size: 40)
                                 VStack(alignment: .leading, spacing: 2) {
                                     Text(friend.displayNameOrUsername).font(.headline)
                                     Text("\(friend.xp) XP · \(friend.streak) \(localizationManager.localizedString("days"))")
@@ -199,15 +226,56 @@ struct DuelOpponentPickerView: View {
                         .disabled(isStarting)
                     }
                 }
-                Section {
-                    Button(action: startDuelWithRandom) {
+                Section(localizationManager.localizedString("Random opponent")) {
+                    Button(action: startVirtualDuel) {
                         HStack {
                             Image(systemName: "person.2.fill")
                             Text(localizationManager.localizedString("Random opponent"))
                         }
                     }
-                    .disabled(isStarting || userProfile.friends.isEmpty)
+                    .disabled(isStarting)
                 }
+            }
+            .safeAreaInset(edge: .bottom, spacing: 0) {
+                VStack(spacing: 8) {
+                    Button(action: {
+                        showingAddFriends = true
+                    }) {
+                        HStack(spacing: 12) {
+                            Image("IconAddFriends")
+                                .resizable()
+                                .scaledToFit()
+                                .frame(width: 44, height: 44)
+                            Text(localizationManager.localizedString("ДОБАВИТЬ ДРУЗЕЙ"))
+                                .font(.system(size: 16, weight: .semibold))
+                        }
+                        .foregroundColor(.primary)
+                        .frame(maxWidth: .infinity)
+                        .padding(.vertical, 12)
+                        .background(Color(UIColor.secondarySystemGroupedBackground))
+                        .cornerRadius(12)
+                    }
+                    .buttonStyle(.plain)
+
+                    NavigationLink(destination: DuelSummaryView().environmentObject(gameState).environmentObject(userProfile)) {
+                        HStack(spacing: 6) {
+                            Image("IconDuelSummary")
+                                .resizable()
+                                .scaledToFit()
+                                .frame(width: 32, height: 32)
+                            Text(localizationManager.localizedString("Duel Summary"))
+                                .font(.system(size: 20, weight: .bold))
+                        }
+                        .foregroundColor(.primary)
+                        .frame(maxWidth: .infinity)
+                        .padding(.vertical, 8)
+                    }
+                    .buttonStyle(.plain)
+                }
+                .padding(.horizontal, 16)
+                .padding(.top, 8)
+                .padding(.bottom, 4)
+                .background(Color(UIColor.secondarySystemGroupedBackground))
             }
             .navigationTitle(localizationManager.localizedString("Duel"))
             .navigationBarTitleDisplayMode(.inline)
@@ -218,22 +286,74 @@ struct DuelOpponentPickerView: View {
                     }
                 }
             }
+            .alert(localizationManager.localizedString("duel.error.alert.title"), isPresented: $showDuelPrepareFailedAlert) {
+                Button(localizationManager.localizedString("OK"), role: .cancel) { }
+            } message: {
+                Text(localizationManager.localizedString("duel.error.prepare_questions"))
+            }
+            .sheetOrFullScreenOnIPad(isPresented: $showingAddFriends) {
+                AddFriendsView()
+                    .environmentObject(userProfile)
+            }
         }
     }
     
     private func startDuel(with friend: Friend) {
         guard !isStarting, gameState.canStartGameWithLives() else { return }
+        if gameState.isGameInProgress && gameState.selectedPlayMode == .duel { return }
         isStarting = true
-        let seed = Int.random(in: 0..<Int.max)
         let myName = userProfile.username
+        if let onReady = onDuelReadyToStart {
+            gameState.selectedPlayMode = .duel
+            gameState.duelServerQuestionsCount = nil
+            gameState.duelServerQuestionsCount = gameState.questionsPerGame
+            gameState.duelSeed = Int.random(in: 0..<Int.max)
+            gameState.duelChallengeId = nil
+            gameState.duelOpponentId = friend.username
+            gameState.duelOpponentName = friend.displayNameOrUsername
+            gameState.duelChallengerName = myName
+            gameState.duelRoleIsChallenger = true
+            isStarting = false
+            onReady()
+            dismiss()
+            return
+        }
+
+        let seed = Int.random(in: 0..<Int.max)
         Task {
+            await MainActor.run { gameState.duelServerQuestionsCount = nil }
+            let regions = await MainActor.run { gameState.duelRegionsServerStrings() }
+            let difficulty = await MainActor.run { gameState.selectedDifficulty.rawValue }
+            let gameMode = await MainActor.run { gameState.selectedGameMode.rawValue }
+            let questionsCount = await MainActor.run { gameState.questionsPerGame }
+            let optionsCount = await MainActor.run { gameState.optionsCount }
+            let questionsPayload = await gameState.buildDuelQuestionsPayload(
+                seed: seed,
+                questionsCount: questionsCount,
+                optionsCount: optionsCount
+            )
+            guard let questionsPayload, !questionsPayload.isEmpty else {
+                await MainActor.run {
+                    isStarting = false
+                    showDuelPrepareFailedAlert = true
+                }
+                return
+            }
             var challengeId = UUID().uuidString
             if let serverId = try? await DuelAPIService.shared.createChallenge(
                 opponentId: friend.username,
                 opponentName: friend.username,
                 seed: seed,
                 challengerName: myName,
-                challengerId: myName
+                challengerId: myName,
+                duelSetup: .init(
+                    regions: regions,
+                    difficulty: difficulty,
+                    gameMode: gameMode,
+                    questionsCount: questionsCount,
+                    optionsCount: optionsCount,
+                    questionsPayload: questionsPayload
+                )
             ) {
                 challengeId = serverId
             }
@@ -241,22 +361,31 @@ struct DuelOpponentPickerView: View {
                 id: challengeId,
                 challengerId: myName,
                 challengerName: myName,
-                opponentId: friend.id.uuidString,
+                opponentId: friend.username,
                 opponentName: friend.username,
                 seed: seed,
                 createdAt: Date(),
                 challengerScore: nil,
                 opponentScore: nil,
-                status: .pending
+                status: .pending,
+                duelRegions: regions,
+                duelDifficulty: difficulty,
+                duelGameMode: gameMode,
+                duelQuestionsCount: questionsCount,
+                duelOptionsCount: optionsCount,
+                duelQuestionsPayload: questionsPayload
             )
             await MainActor.run {
                 userProfile.outgoingDuelChallenges.append(challenge)
                 gameState.selectedPlayMode = .duel
+                gameState.duelServerQuestionsCount = questionsCount
                 gameState.duelSeed = seed
                 gameState.duelChallengeId = challengeId
-                gameState.duelOpponentId = friend.id.uuidString
+                gameState.duelOpponentId = friend.username
                 gameState.duelOpponentName = friend.displayNameOrUsername
                 gameState.duelChallengerName = myName
+                gameState.duelRoleIsChallenger = true
+                gameState.duelQuestionsPayload = questionsPayload
             }
             await gameState.startNewGameWithCurrentRegions()
             await MainActor.run {
@@ -270,6 +399,65 @@ struct DuelOpponentPickerView: View {
         let similar = DuelService.pickSimilarOpponent(from: userProfile.friends, myXP: userProfile.xp, myStreak: userProfile.streak)
         guard let friend = similar else { return }
         startDuel(with: friend)
+    }
+
+    private static let virtualDuelCountKey = "duel.virtualCount.v1"
+
+        private func startVirtualDuel() {
+        guard !isStarting, gameState.canStartGameWithLives() else { return }
+        isStarting = true
+        let count = UserDefaults.standard.integer(forKey: Self.virtualDuelCountKey)
+        UserDefaults.standard.set(count + 1, forKey: Self.virtualDuelCountKey)
+        let seed = Int.random(in: 0..<Int.max)
+        let localeCode = LocalizationManager.shared.currentBundleLanguageCode
+        let name = RandomOpponentNames.randomName(for: localeCode)
+        let myName = userProfile.username
+        gameState.selectedPlayMode = .duel
+        gameState.duelServerQuestionsCount = nil
+        gameState.duelServerQuestionsCount = gameState.questionsPerGame
+        gameState.duelSeed = seed
+        gameState.duelChallengeId = "virtual-\(UUID().uuidString)"
+        gameState.duelOpponentId = "virtual"
+        gameState.duelOpponentName = name
+        gameState.duelChallengerName = myName
+        gameState.duelRoleIsChallenger = true
+        gameState.duelIsVirtual = true
+        if let onReady = onDuelReadyToStart {
+            onReady()
+            isStarting = false
+            dismiss()
+        } else {
+            Task {
+                await gameState.startNewGameWithCurrentRegions()
+                await MainActor.run {
+                    isStarting = false
+                    dismiss()
+                }
+            }
+        }
+    }
+}
+
+
+@ViewBuilder
+private func friendAvatarView(_ friend: Friend, size: CGFloat) -> some View {
+    ZStack {
+        Circle().fill(Color.blue.opacity(0.2)).frame(width: size, height: size)
+        #if os(iOS)
+        if let data = friend.remotePhotoAvatarData, let image = UIImage(data: data) {
+            Image(uiImage: image)
+                .resizable()
+                .scaledToFill()
+                .frame(width: size, height: size)
+                .clipShape(Circle())
+        } else {
+            Text(friend.displayAvatar)
+                .font(.system(size: friend.countryCode != nil ? size * 0.6 : size * 0.46, weight: .semibold))
+        }
+        #else
+        Text(friend.displayAvatar)
+            .font(.system(size: friend.countryCode != nil ? size * 0.6 : size * 0.46, weight: .semibold))
+        #endif
     }
 }
 
@@ -295,6 +483,7 @@ struct FriendProfileView: View {
     @ObservedObject private var localizationManager = LocalizationManager.shared
     @State private var showDeleteAlert = false
     @State private var isStartingDuel = false
+    @State private var showDuelPrepareFailedAlert = false
     @State private var isSendingBirthdayGift = false
     @State private var birthdayGiftSentThisSession = false
     @State private var birthdayGiftError: String?
@@ -304,22 +493,23 @@ struct FriendProfileView: View {
             VStack(spacing: 24) {
                 // Аватар (миниатюра как у друга: флаг или эмодзи)
                 ZStack {
-                    Circle().fill(Color.blue.opacity(0.15)).frame(width: 100, height: 100)
-                    Text(friend.displayAvatar)
-                        .font(.system(size: friend.countryCode != nil ? 56 : 48, weight: .bold))
+                    friendAvatarView(friend, size: 100)
                 }
                 Text(friend.displayNameOrUsername)
                     .font(.system(size: 24, weight: .bold))
+                Text("@\(friend.username)")
+                    .font(.system(size: 14, weight: .medium))
+                    .foregroundColor(.secondary)
 
                 // Серия дней и прогресс
                 VStack(alignment: .leading, spacing: 8) {
-                    Text(localizationManager.localizedString("СЕРИЯ И ПРОГРЕСС"))
+                    Text(localizationManager.localizedString("Friend profile progress title"))
                         .font(.system(size: 12, weight: .bold))
                         .foregroundColor(.secondary)
                     HStack(spacing: 16) {
-                        stat("🔥", String(format: "%d", friend.streak), localizationManager.localizedString("days"))
-                        stat("⚡", String(format: "%d", friend.xp), "XP")
-                        stat("📊", String(format: "%d", friend.level), localizationManager.localizedString("Level"))
+                        stat("flame.fill", String(format: "%d", friend.streak), localizationManager.localizedString("days"))
+                        stat("bolt.fill", String(format: "%d", friend.xp), "XP")
+                        stat("chart.bar.fill", String(format: "%d", friend.level), localizationManager.localizedString("Level"))
                     }
                     .padding()
                     .frame(maxWidth: .infinity)
@@ -328,14 +518,16 @@ struct FriendProfileView: View {
                 }
                 .padding(.horizontal, 20)
 
-                // Рейтинг
+                // Рейтинг (оценка по данным друга, без «You are…»)
                 VStack(alignment: .leading, spacing: 8) {
                     Text(localizationManager.localizedString("Global ranking by countries"))
                         .font(.system(size: 14, weight: .semibold))
                         .foregroundColor(.secondary)
-                    Text(friendCountryRankLine(code: friend.countryCode ?? "US", seed: 31))
-                        .font(.system(size: 15, weight: .bold))
-                    Text(friendWorldRankLine(seed: 43))
+                    if let cc = friend.countryCode, !cc.isEmpty {
+                        Text(friendCountryRankLineDisplay(code: cc))
+                            .font(.system(size: 15, weight: .bold))
+                    }
+                    Text(friendWorldRankLineDisplay())
                         .font(.system(size: 15, weight: .bold))
                 }
                 .frame(maxWidth: .infinity, alignment: .leading)
@@ -345,27 +537,17 @@ struct FriendProfileView: View {
                 .cornerRadius(16)
                 .padding(.horizontal, 20)
 
-                // Достижения (заглушка: по API достижений друга пока нет)
-                VStack(alignment: .leading, spacing: 8) {
-                    Text(localizationManager.localizedString("МЕСЯЧНЫЕ ДОСТИЖЕНИЯ"))
-                        .font(.system(size: 12, weight: .bold))
-                        .foregroundColor(.secondary)
-                    Text(localizationManager.localizedString("Достижения друга отображаются по мере их открытия"))
-                        .font(.system(size: 14))
-                        .foregroundColor(.secondary)
-                        .frame(maxWidth: .infinity, alignment: .leading)
+                if !friendDuelEntries.isEmpty {
+                    friendDuelsSection
                 }
-                .padding(.horizontal, 20)
-                .padding(.vertical, 12)
-                .background(.ultraThinMaterial)
-                .cornerRadius(16)
-                .padding(.horizontal, 20)
+
+                friendAchievementsSection
 
                 // Подарок на день рождения (если сегодня ДР друга)
                 if let bday = friend.birthday, userProfile.isTodayBirthday(bday), !birthdayGiftSentThisSession {
                     Button(action: { Task { await sendBirthdayGift() } }) {
                         HStack(spacing: 8) {
-                            Text("🎁")
+                            Image(systemName: "gift.fill")
                             Text(localizationManager.localizedString("Поздравить друга"))
                                 .fontWeight(.semibold)
                         }
@@ -379,42 +561,7 @@ struct FriendProfileView: View {
                     .disabled(isSendingBirthdayGift)
                 }
 
-                // Кнопка «Вызвать на дуэль»
-                Button(action: { startDuel() }) {
-                    HStack {
-                        Text("⚔️")
-                        Text(localizationManager.localizedString("Challenge to Duel"))
-                            .fontWeight(.semibold)
-                    }
-                    .foregroundColor(.white)
-                    .frame(maxWidth: .infinity)
-                    .padding()
-                    .background(Color.blue)
-                    .cornerRadius(12)
-                }
-                .padding(.horizontal, 20)
-                .disabled(isStartingDuel || !gameState.canStartGameWithLives())
-
-                // Кнопка удаления друга
-                Button(action: { showDeleteAlert = true }) {
-                    HStack {
-                        Image(systemName: "person.badge.minus")
-                            .foregroundColor(.red)
-                        Text(localizationManager.localizedString("Удалить из друзей"))
-                            .fontWeight(.semibold)
-                    }
-                    .foregroundColor(.red)
-                    .frame(maxWidth: .infinity)
-                    .padding()
-                    .background(Color.red.opacity(0.1))
-                    .cornerRadius(12)
-                    .overlay(
-                        RoundedRectangle(cornerRadius: 12)
-                            .stroke(Color.red.opacity(0.3), lineWidth: 1)
-                    )
-                }
-                .padding(.horizontal, 20)
-                .padding(.bottom, 20)
+                Spacer(minLength: 88)
             }
         }
         .padding(.top, 24)
@@ -442,6 +589,49 @@ struct FriendProfileView: View {
                 dismissButton: .default(Text(localizationManager.localizedString("OK")))
             )
         }
+        .alert(localizationManager.localizedString("duel.error.alert.title"), isPresented: $showDuelPrepareFailedAlert) {
+            Button(localizationManager.localizedString("OK"), role: .cancel) { }
+        } message: {
+            Text(localizationManager.localizedString("duel.error.prepare_questions"))
+        }
+        .safeAreaInset(edge: .bottom) {
+            VStack(spacing: 10) {
+                Button(action: { startDuel() }) {
+                    HStack {
+                        Image(systemName: "person.2.fill")
+                        Text(localizationManager.localizedString("Challenge to Duel"))
+                            .fontWeight(.semibold)
+                    }
+                    .foregroundColor(.white)
+                    .frame(maxWidth: .infinity)
+                    .frame(height: 52)
+                    .background(Color.blue)
+                    .cornerRadius(14)
+                }
+                .disabled(isStartingDuel || !gameState.canStartGameWithLives())
+
+                Button(action: { showDeleteAlert = true }) {
+                    HStack {
+                        Image(systemName: "person.badge.minus")
+                        Text(localizationManager.localizedString("Удалить из друзей"))
+                            .fontWeight(.semibold)
+                    }
+                    .foregroundColor(.red)
+                    .frame(maxWidth: .infinity)
+                    .frame(height: 52)
+                    .background(Color.red.opacity(0.1))
+                    .cornerRadius(14)
+                    .overlay(
+                        RoundedRectangle(cornerRadius: 14)
+                            .stroke(Color.red.opacity(0.3), lineWidth: 1)
+                    )
+                }
+            }
+            .padding(.horizontal, 20)
+            .padding(.top, 8)
+            .padding(.bottom, 8)
+            .background(.ultraThinMaterial)
+        }
     }
 
     @MainActor
@@ -463,9 +653,17 @@ struct FriendProfileView: View {
     }
     
     private func removeFriend() {
-        userProfile.friends.removeAll { $0.id == friend.id }
-        userProfile.saveToStorage()
-        dismiss()
+        let me = userProfile.username.trimmingCharacters(in: .whitespacesAndNewlines)
+        Task {
+            if !me.isEmpty {
+                try? await DuelAPIService.shared.removeFriend(myUserId: me, friendUsername: friend.username)
+            }
+            await MainActor.run {
+                userProfile.friends.removeAll { $0.id == friend.id }
+                userProfile.saveToStorage()
+                dismiss()
+            }
+        }
     }
     
     private func startDuel() {
@@ -474,13 +672,39 @@ struct FriendProfileView: View {
         let seed = Int.random(in: 0..<Int.max)
         let myName = userProfile.username
         Task {
+            await MainActor.run { gameState.duelServerQuestionsCount = nil }
+            let regions = await MainActor.run { gameState.duelRegionsServerStrings() }
+            let difficulty = await MainActor.run { gameState.selectedDifficulty.rawValue }
+            let gameMode = await MainActor.run { gameState.selectedGameMode.rawValue }
+            let questionsCount = await MainActor.run { gameState.questionsPerGame }
+            let optionsCount = await MainActor.run { gameState.optionsCount }
+            let questionsPayload = await gameState.buildDuelQuestionsPayload(
+                seed: seed,
+                questionsCount: questionsCount,
+                optionsCount: optionsCount
+            )
+            guard let questionsPayload, !questionsPayload.isEmpty else {
+                await MainActor.run {
+                    isStartingDuel = false
+                    showDuelPrepareFailedAlert = true
+                }
+                return
+            }
             var challengeId = UUID().uuidString
             if let serverId = try? await DuelAPIService.shared.createChallenge(
                 opponentId: friend.username,
                 opponentName: friend.username,
                 seed: seed,
                 challengerName: myName,
-                challengerId: myName
+                challengerId: myName,
+                duelSetup: .init(
+                    regions: regions,
+                    difficulty: difficulty,
+                    gameMode: gameMode,
+                    questionsCount: questionsCount,
+                    optionsCount: optionsCount,
+                    questionsPayload: questionsPayload
+                )
             ) {
                 challengeId = serverId
             }
@@ -488,22 +712,31 @@ struct FriendProfileView: View {
                 id: challengeId,
                 challengerId: myName,
                 challengerName: myName,
-                opponentId: friend.id.uuidString,
+                opponentId: friend.username,
                 opponentName: friend.username,
                 seed: seed,
                 createdAt: Date(),
                 challengerScore: nil,
                 opponentScore: nil,
-                status: .pending
+                status: .pending,
+                duelRegions: regions,
+                duelDifficulty: difficulty,
+                duelGameMode: gameMode,
+                duelQuestionsCount: questionsCount,
+                duelOptionsCount: optionsCount,
+                duelQuestionsPayload: questionsPayload
             )
             await MainActor.run {
                 userProfile.outgoingDuelChallenges.append(challenge)
                 gameState.selectedPlayMode = .duel
+                gameState.duelServerQuestionsCount = questionsCount
                 gameState.duelSeed = seed
                 gameState.duelChallengeId = challengeId
-                gameState.duelOpponentId = friend.id.uuidString
+                gameState.duelOpponentId = friend.username
                 gameState.duelOpponentName = friend.displayNameOrUsername
                 gameState.duelChallengerName = myName
+                gameState.duelRoleIsChallenger = true
+                gameState.duelQuestionsPayload = questionsPayload
             }
             await gameState.startNewGameWithCurrentRegions()
             await MainActor.run {
@@ -514,33 +747,33 @@ struct FriendProfileView: View {
     }
     
     @ViewBuilder
-    private func stat(_ icon: String, _ value: String, _ title: String) -> some View {
+    private func stat(_ systemImageName: String, _ value: String, _ title: String) -> some View {
         VStack(spacing: 4) {
-            Text(icon).font(.title2)
+            Image(systemName: systemImageName).font(.title2)
             Text(value).font(.headline)
             Text(title).font(.caption).foregroundColor(.secondary)
         }
         .frame(maxWidth: .infinity)
     }
 
-    private func friendPseudoRank(seed: Int, scope: Int) -> Int {
-        let base = max(1, (2_000_000 - (friend.xp * 73 + friend.streak * 31)))
-        let mixed = abs((base + seed * 997) % max(scope, 1))
-        return max(1, mixed + 1)
-    }
-
-    private func friendCountryRankLine(code: String, seed: Int) -> String {
+    private func friendCountryRankLineDisplay(code: String) -> String {
         let upper = code.uppercased()
         let flag = FriendsService.countryCodeToFlagEmoji(upper)
-        let rank = friendPseudoRank(seed: seed, scope: 12_000)
-        let format = localizationManager.localizedString("Country rank line")
-        return String(format: format, flag, rank, localizationManager.localizedString(friendCountryNameByCode(upper)))
+        let rank = MotivationalRanking.countryRank(for: friend.motivationalRankInputs(), countryCode: upper)
+        let format = localizationManager.localizedString("Friend country rank line")
+        return String(
+            format: format,
+            flag,
+            friend.displayNameOrUsername,
+            rank,
+            localizationManager.localizedString(friendCountryNameByCode(upper))
+        )
     }
 
-    private func friendWorldRankLine(seed: Int) -> String {
-        let rank = friendPseudoRank(seed: seed, scope: 150_000)
-        let format = localizationManager.localizedString("World rank line")
-        return String(format: format, rank)
+    private func friendWorldRankLineDisplay() -> String {
+        let rank = friend.worldRankFromServer ?? MotivationalRanking.worldRank(for: friend.motivationalRankInputs())
+        let format = localizationManager.localizedString("Friend world rank line")
+        return String(format: format, friend.displayNameOrUsername, rank)
     }
 
     private func friendCountryNameByCode(_ code: String) -> String {
@@ -549,6 +782,101 @@ struct FriendProfileView: View {
         return CountryDatabase.getLocalizedCountryData(for: upper, language: lang)?.name
             ?? CountryDatabase.getCountryData(for: upper)?.ru.name
             ?? upper
+    }
+
+    private var friendAchievementDefs: [AchievementDefinition] {
+        userProfile.allAchievementDefinitions.filter { friend.achievements.contains($0.id) }
+    }
+
+    private var friendDuelEntries: [DuelHistoryEntry] {
+        gameState.duelHistory
+            .filter { $0.opponentName == friend.username || $0.opponentName == friend.displayNameOrUsername }
+            .sorted { $0.playedAt > $1.playedAt }
+    }
+
+    private var friendDuelsWonCount: Int {
+        friendDuelEntries.filter(\.iWon).count
+    }
+
+    private var friendDuelsSection: some View {
+        VStack(alignment: .leading, spacing: 10) {
+            Text(localizationManager.localizedString("Duel Summary"))
+                .font(.system(size: 12, weight: .bold))
+                .foregroundColor(.secondary)
+            HStack(spacing: 12) {
+                stat("person.2.fill", "\(friendDuelEntries.count)", localizationManager.localizedString("Total Games"))
+                stat("trophy.fill", "\(friendDuelsWonCount)", localizationManager.localizedString("Wins"))
+            }
+            if let latest = friendDuelEntries.first {
+                Text("\(localizationManager.localizedString("Last played")): \(latest.playedAt.formatted(date: .abbreviated, time: .shortened))")
+                    .font(.system(size: 12, weight: .medium))
+                    .foregroundColor(.secondary)
+            }
+        }
+        .padding(.horizontal, 20)
+        .padding(.vertical, 12)
+        .background(.ultraThinMaterial)
+        .cornerRadius(16)
+        .padding(.horizontal, 20)
+    }
+
+    private var friendAchievementsTitle: String {
+        localizationManager.localizedString("МЕСЯЧНЫЕ ДОСТИЖЕНИЯ")
+    }
+
+    private var friendAchievementsSection: some View {
+        VStack(alignment: .leading, spacing: 10) {
+            Text(friendAchievementsTitle)
+                .font(.system(size: 12, weight: .bold))
+                .foregroundColor(.secondary)
+            if friendAchievementDefs.isEmpty {
+                Text(localizationManager.localizedString("Friend achievements placeholder"))
+                    .font(.system(size: 14))
+                    .foregroundColor(.secondary)
+                    .frame(maxWidth: .infinity, alignment: .leading)
+            } else {
+                LazyVGrid(columns: Array(repeating: GridItem(.flexible(), spacing: 8), count: 3), spacing: 8) {
+                    ForEach(friendAchievementDefs.prefix(9), id: \.id) { def in
+                        friendAchievementCell(definition: def)
+                    }
+                }
+            }
+        }
+        .padding(.horizontal, 20)
+        .padding(.vertical, 12)
+        .background(.ultraThinMaterial)
+        .cornerRadius(16)
+        .padding(.horizontal, 20)
+    }
+
+    @ViewBuilder
+    private func friendAchievementCell(definition: AchievementDefinition) -> some View {
+        VStack(spacing: 6) {
+            if let asset = definition.imageAssetName {
+                Image(asset)
+                    .resizable()
+                    .scaledToFit()
+                    .frame(width: 42, height: 42)
+            } else {
+                Circle()
+                    .fill(definition.color)
+                    .frame(width: 38, height: 38)
+                    .overlay(
+                        Image(systemName: definition.icon)
+                            .font(.system(size: 16, weight: .bold))
+                            .foregroundColor(.white)
+                    )
+            }
+            Text(localizationManager.localizedString(definition.titleKey))
+                .font(.system(size: 11, weight: .semibold))
+                .foregroundColor(.primary)
+                .multilineTextAlignment(.center)
+                .lineLimit(2)
+        }
+        .padding(8)
+        .frame(maxWidth: .infinity, minHeight: 84)
+        .background(Color.white.opacity(0.18))
+        .cornerRadius(10)
     }
 }
 
@@ -617,20 +945,21 @@ struct ProfileByLinkView: View {
         ScrollView {
             VStack(spacing: 24) {
                 ZStack {
-                    Circle().fill(Color.blue.opacity(0.15)).frame(width: 100, height: 100)
-                    Text(friend.displayAvatar)
-                        .font(.system(size: friend.countryCode != nil ? 56 : 48, weight: .bold))
+                    friendAvatarView(friend, size: 100)
                 }
                 Text(friend.displayNameOrUsername)
                     .font(.system(size: 24, weight: .bold))
+                Text("@\(friend.username)")
+                    .font(.system(size: 14, weight: .medium))
+                    .foregroundColor(.secondary)
                 VStack(alignment: .leading, spacing: 8) {
-                    Text(lm.localizedString("СЕРИЯ И ПРОГРЕСС"))
+                    Text(lm.localizedString("Friend profile progress title"))
                         .font(.system(size: 12, weight: .bold))
                         .foregroundColor(.secondary)
                     HStack(spacing: 16) {
-                        statRow("🔥", "\(friend.streak)", lm.localizedString("days"))
-                        statRow("⚡", "\(friend.xp)", "XP")
-                        statRow("📊", "\(friend.level)", lm.localizedString("Level"))
+                        statRow("flame.fill", "\(friend.streak)", lm.localizedString("days"))
+                        statRow("bolt.fill", "\(friend.xp)", "XP")
+                        statRow("chart.bar.fill", "\(friend.level)", lm.localizedString("Level"))
                     }
                     .padding()
                     .frame(maxWidth: .infinity)
@@ -657,9 +986,9 @@ struct ProfileByLinkView: View {
         }
     }
 
-    private func statRow(_ icon: String, _ value: String, _ title: String) -> some View {
+    private func statRow(_ systemImageName: String, _ value: String, _ title: String) -> some View {
         VStack(spacing: 4) {
-            Text(icon).font(.title2)
+            Image(systemName: systemImageName).font(.title2)
             Text(value).font(.headline)
             Text(title).font(.caption).foregroundColor(.secondary)
         }
@@ -904,6 +1233,7 @@ struct PremiumView: View {
                                 Task {
                                     await storeManager.restorePurchases()
                                     if storeManager.isPremium {
+                                        GameState.userDidCancelSubscription = false
                                         gameState.isPremium = true
                                         dismiss()
                                     }
@@ -932,6 +1262,8 @@ struct PremiumView: View {
                         .font(.system(size: isIPad ? 19 : 14, weight: .semibold))
                         .padding(.bottom, 30)
                     }
+                    .frame(maxWidth: 680)
+                    .frame(maxWidth: .infinity)
                 }
             }
             .navigationBarTitleDisplayMode(.inline)
@@ -1082,13 +1414,21 @@ struct FinalGameOverView: View {
 
 struct StatisticItem: View {
     let icon: String
+    var systemImageName: String? = nil
     let value: String
     let label: String
-    
+
     var body: some View {
         VStack(spacing: 4) {
-            Text(icon)
-                .font(.system(size: 24))
+            Group {
+                if let name = systemImageName {
+                    Image(systemName: name)
+                        .font(.system(size: 24))
+                } else {
+                    Text(icon)
+                        .font(.system(size: 24))
+                }
+            }
             Text(value)
                 .font(.system(size: 16, weight: .bold))
                 .foregroundColor(.primary)
@@ -1118,17 +1458,23 @@ struct ManageSubscriptionView: View {
         isActive: true
     )
 
-    /// Цена и название плана из StoreKit (по региону пользователя) или мок
-    private var monthlyDisplayPrice: String {
-        if let p = storeManager.monthlyProduct { return p.displayPrice }
-        if let m = storeManager.monthlyMockProduct { return m.displayPrice }
-        return "$1.99"
+    /// Текущий план (годовой или месячный) — название и цена для отображения
+    private var currentPlanDisplayPrice: String {
+        if let p = storeManager.currentSubscriptionProduct { return p.displayPrice }
+        if let m = storeManager.currentSubscriptionMockProduct { return m.displayPrice }
+        return storeManager.isCurrentPlanYearly ? "$5.99" : "$1.99"
     }
 
-    private var monthlyPlanDisplayName: String {
-        if let p = storeManager.monthlyProduct { return p.displayName }
-        if let m = storeManager.monthlyMockProduct { return m.displayName }
-        return "Premium Monthly"
+    private var currentPlanDisplayName: String {
+        if let p = storeManager.currentSubscriptionProduct { return p.displayName }
+        if let m = storeManager.currentSubscriptionMockProduct { return m.displayName }
+        return storeManager.isCurrentPlanYearly
+            ? localizationManager.localizedString("Yearly Premium")
+            : localizationManager.localizedString("Premium Monthly")
+    }
+
+    private var currentPlanPeriodKey: String {
+        storeManager.isCurrentPlanYearly ? "year" : "month"
     }
     
     var body: some View {
@@ -1141,12 +1487,12 @@ struct ManageSubscriptionView: View {
                             .font(.system(size: 60))
                             .foregroundColor(.yellow)
                         
-                        Text(localizationManager.localizedString("Управление подпиской"))
+                        Text(localizationManager.localizedString("Manage subscription"))
                             .font(.title)
                             .fontWeight(.bold)
                             .multilineTextAlignment(.center)
                         
-                        Text(localizationManager.localizedString("Ваша премиум подписка активна"))
+                        Text(localizationManager.localizedString("Your premium subscription is active"))
                             .font(.headline)
                             .foregroundColor(.green)
                     }
@@ -1154,17 +1500,17 @@ struct ManageSubscriptionView: View {
                     
                     // Current Plan
                     VStack(alignment: .leading, spacing: 16) {
-                        Text(localizationManager.localizedString("Текущий план"))
+                        Text(localizationManager.localizedString("Current plan"))
                             .font(.headline)
                             .fontWeight(.semibold)
                         
                         HStack {
                             VStack(alignment: .leading, spacing: 8) {
-                                Text(monthlyPlanDisplayName)
+                                Text(currentPlanDisplayName)
                                     .font(.title3)
                                     .fontWeight(.semibold)
                                 
-                                Text("\(localizationManager.localizedString("Цена")): \(monthlyDisplayPrice)/\(localizationManager.localizedString("месяц"))")
+                                Text("\(localizationManager.localizedString("Price")): \(currentPlanDisplayPrice)/\(localizationManager.localizedString(currentPlanPeriodKey))")
                                     .font(.subheadline)
                                     .foregroundColor(.secondary)
                             }
@@ -1182,26 +1528,26 @@ struct ManageSubscriptionView: View {
                     
                     // Billing Information
                     VStack(alignment: .leading, spacing: 16) {
-                        Text(localizationManager.localizedString("Информация о платежах"))
+                        Text(localizationManager.localizedString("Billing information"))
                             .font(.headline)
                             .fontWeight(.semibold)
                         
                         VStack(spacing: 12) {
                             InfoRow(
-                                title: localizationManager.localizedString("Дата начала"),
+                                title: localizationManager.localizedString("Start date"),
                                 value: formatDate(subscriptionData.startDate),
                                 icon: "calendar.badge.plus"
                             )
                             
                             InfoRow(
-                                title: localizationManager.localizedString("Следующий платеж"),
+                                title: localizationManager.localizedString("Next payment"),
                                 value: formatDate(subscriptionData.nextBillingDate),
                                 icon: "calendar.badge.clock"
                             )
                             
                             InfoRow(
-                                title: localizationManager.localizedString("Статус"),
-                                value: localizationManager.localizedString("Активна"),
+                                title: localizationManager.localizedString("Status"),
+                                value: localizationManager.localizedString("Active"),
                                 icon: "checkmark.shield.fill",
                                 valueColor: .green
                             )
@@ -1213,7 +1559,7 @@ struct ManageSubscriptionView: View {
                     
                     // Premium Features
                     VStack(alignment: .leading, spacing: 16) {
-                        Text(localizationManager.localizedString("Премиум преимущества"))
+                        Text(localizationManager.localizedString("Premium benefits"))
                             .font(.headline)
                             .fontWeight(.semibold)
                         
@@ -1222,7 +1568,7 @@ struct ManageSubscriptionView: View {
                                 title: localizationManager.localizedString("Безлимитные жизни"),
                                 description: localizationManager.localizedString("Играйте без ожидания"),
                                 icon: "heart.fill",
-                                iconImageName: localizationManager.lifeHeartAssetName,
+                                iconImageName: localizationManager.lifeHeartAssetName(forCountryCode: userProfile.selectedCountryCode),
                                 color: Color.red
                             )
                             
@@ -1241,10 +1587,17 @@ struct ManageSubscriptionView: View {
                             )
                             
                             PremiumFeatureRow(
-                                title: localizationManager.localizedString("Мои ошибки"),
-                                description: localizationManager.localizedString("Анализ ваших ошибок"),
+                                title: localizationManager.localizedString("My mistakes"),
+                                description: localizationManager.localizedString("Analysis of your mistakes"),
                                 icon: "exclamationmark.bubble.fill",
                                 color: Color.orange
+                            )
+                            
+                            PremiumFeatureRow(
+                                title: localizationManager.localizedString("Premium tournaments"),
+                                description: localizationManager.localizedString("Exclusive tournaments with F-Bucks prizes"),
+                                icon: "trophy.fill",
+                                color: Color.yellow
                             )
                         }
                         .padding()
@@ -1259,7 +1612,7 @@ struct ManageSubscriptionView: View {
                         HStack {
                             Image(systemName: "xmark.circle.fill")
                                 .foregroundColor(.red)
-                            Text(localizationManager.localizedString("Отменить подписку"))
+                            Text(localizationManager.localizedString("Cancel subscription"))
                                 .fontWeight(.semibold)
                         }
                         .foregroundColor(.red)
@@ -1282,21 +1635,20 @@ struct ManageSubscriptionView: View {
             .navigationBarTitleDisplayMode(.inline)
             .toolbar {
                 ToolbarItem(placement: .navigationBarLeading) {
-                    Button(localizationManager.localizedString("Закрыть")) {
+                    Button(localizationManager.localizedString("Close")) {
                         dismiss()
                     }
                 }
             }
         }
-        .alert(localizationManager.localizedString("Отменить подписку"), isPresented: $showCancelAlert) {
-            Button(localizationManager.localizedString("Отмена"), role: .cancel) { }
-            Button(localizationManager.localizedString("Отменить"), role: .destructive) {
-                // Здесь будет логика отмены подписки через StoreKit
-                print("Отмена подписки")
+        .alert(localizationManager.localizedString("Cancel subscription"), isPresented: $showCancelAlert) {
+            Button(localizationManager.localizedString("Keep subscription"), role: .cancel) { }
+            Button(localizationManager.localizedString("Yes, cancel"), role: .destructive) {
+                print("Cancel subscription")
                 showCancellationView = true
             }
         } message: {
-            Text(localizationManager.localizedString("Вы уверены, что хотите отменить премиум подписку? Вы потеряете доступ ко всем премиум функциям."))
+            Text(localizationManager.localizedString("Are you sure you want to cancel premium? You will lose access to all premium features."))
         }
         .fullScreenCover(isPresented: $showCancellationView) {
             SubscriptionCancellationView(gameState: gameState, userProfile: userProfile)
@@ -1376,10 +1728,18 @@ struct PremiumPlaceholderRow: View {
 // MARK: - Premium Product Button
 struct PremiumProductButton: View {
     let product: Product
-    let storeManager: StoreManager
+    @ObservedObject var storeManager: StoreManager
     let gameState: GameState
     let onPurchaseComplete: () -> Void
     
+    @Environment(\.scenePhase) private var scenePhase
+    @State private var hasEligibleWeekTrial = false
+    @ObservedObject private var localizationManager = LocalizationManager.shared
+
+    private var showsTrial: Bool {
+        hasEligibleWeekTrial && !storeManager.isPremium
+    }
+
     private var isIPad: Bool {
         #if os(iOS)
         UIDevice.current.userInterfaceIdiom == .pad
@@ -1393,49 +1753,51 @@ struct PremiumProductButton: View {
             Task {
                 let success = await storeManager.purchase(product)
                 if success {
+                    GameState.userDidCancelSubscription = false
                     gameState.isPremium = true
                     onPurchaseComplete()
                 }
             }
         } label: {
-            VStack(spacing: 6) {
-                HStack {
-                    VStack(alignment: .leading, spacing: 2) {
-                        Text(productTitle)
-                            .font(.system(size: isIPad ? 22 : 16, weight: .bold))
-                            .foregroundColor(.white)
+            VStack(spacing: 12) {
+                Text(productTitle)
+                    .font(.system(size: isIPad ? 22 : 18, weight: .bold))
 
-                        Text(durationText)
-                            .font(.system(size: isIPad ? 16 : 12, weight: .medium))
-                            .foregroundColor(.white.opacity(0.9))
+                Text(product.displayPrice)
+                    .font(.system(size: isIPad ? 32 : 26, weight: .heavy))
+                    .monospacedDigit()
 
-                        if let pricePerMonth = monthlyPrice {
-                            Text(pricePerMonth)
-                                .font(.system(size: isIPad ? 15 : 12))
-                                .foregroundColor(.white.opacity(0.8))
-                        }
-                    }
-                    
-                    Spacer()
-                    
-                    Text(product.displayPrice)
-                        .font(.system(size: isIPad ? 30 : 18, weight: .heavy))
-                        .foregroundColor(.white)
-                }
-                
+                Text(durationText)
+                    .font(.subheadline)
+                    .foregroundColor(.white.opacity(0.9))
+
                 if isYearlyProduct && savingsPercentage > 0 {
-                    HStack {
-                        Text(String(format: LocalizationManager.shared.localizedString("Save %d%%"), savingsPercentage))
-                            .font(.system(size: 12, weight: .medium))
-                            .foregroundColor(.green)
-                            .padding(.horizontal, 8)
-                            .padding(.vertical, 2)
-                            .background(Color.green.opacity(0.2))
-                            .cornerRadius(4)
-                        Spacer()
-                    }
+                    Text(String(format: localizationManager.localizedString("Save %d%%"), savingsPercentage))
+                        .font(.subheadline.weight(.semibold))
+                        .padding(.horizontal, 12)
+                        .padding(.vertical, 5)
+                        .background(Color.white.opacity(0.15), in: Capsule())
                 }
+
+                Text(localizationManager.localizedString(showsTrial ? "premium.trial.start" : "premium.subscribe"))
+                    .font(.headline)
+                    .frame(maxWidth: .infinity)
+                    .padding(.vertical, 12)
+                    .padding(.horizontal, 8)
+                    .background(Color.white.opacity(0.18), in: RoundedRectangle(cornerRadius: 12))
+
+                if showsTrial {
+                    Text(String(format: localizationManager.localizedString(isYearlyProduct ? "premium.trial.yearly" : "premium.trial.monthly"), product.displayPrice))
+                        .font(.subheadline.weight(.semibold))
+                }
+                Text(localizationManager.localizedString("premium.renewal"))
+                    .font(.footnote)
+                    .foregroundColor(.white.opacity(0.9))
             }
+            .foregroundColor(.white)
+            .multilineTextAlignment(.center)
+            .fixedSize(horizontal: false, vertical: true)
+            .frame(maxWidth: .infinity)
             .padding(.horizontal, 16)
             .padding(.vertical, isIPad ? 20 : 14)
             .background(
@@ -1452,33 +1814,34 @@ struct PremiumProductButton: View {
             .cornerRadius(16)
             .shadow(color: (isYearlyProduct ? Color.green : Color.purple).opacity(0.28), radius: 10, x: 0, y: 4)
         }
+        .buttonStyle(.plain)
         .disabled(storeManager.isLoading)
+        .accessibilityIdentifier("premium.product.\(product.id)")
+        .task(id: scenePhase) {
+            hasEligibleWeekTrial = false
+            guard scenePhase == .active,
+                  let subscription = product.subscription,
+                  let offer = subscription.introductoryOffer,
+                  offer.paymentMode == .freeTrial,
+                  offer.periodCount == 1,
+                  (offer.period.unit == .week && offer.period.value == 1)
+                    || (offer.period.unit == .day && offer.period.value == 7) else { return }
+            let eligible = await subscription.isEligibleForIntroOffer
+            guard !Task.isCancelled else { return }
+            hasEligibleWeekTrial = eligible
+        }
     }
     
     private var productTitle: String {
-        LocalizationManager.shared.localizedString(isYearlyProduct ? "Yearly Premium Title" : "Monthly Premium Title")
+        localizationManager.localizedString(isYearlyProduct ? "Yearly Premium Title" : "Monthly Premium Title")
     }
 
     private var durationText: String {
-        LocalizationManager.shared.localizedString(isYearlyProduct ? "Duration: 1 year (auto-renewable)" : "Duration: 1 month (auto-renewable)")
+        localizationManager.localizedString(isYearlyProduct ? "Duration: 1 year (auto-renewable)" : "Duration: 1 month (auto-renewable)")
     }
     
     private var isYearlyProduct: Bool {
         product.id.contains("Yearly") || product.id.contains("yearly")
-    }
-    
-    private var monthlyPrice: String? {
-        if isYearlyProduct {
-            let monthly = product.price / 12
-            let n = NSDecimalNumber(decimal: monthly).doubleValue
-            let formatter = NumberFormatter()
-            formatter.numberStyle = .decimal
-            formatter.minimumFractionDigits = 0
-            formatter.maximumFractionDigits = 2
-            let str = formatter.string(from: NSNumber(value: n)) ?? String(format: "%.2f", n)
-            return "\(str)/\(LocalizationManager.shared.localizedString("месяц"))"
-        }
-        return nil
     }
     
     private var savingsPercentage: Int {
@@ -1588,7 +1951,7 @@ struct SubscriptionCancellationView: View {
                     VStack(spacing: 30) {
                         // Header with sad emoji
                         VStack(spacing: 16) {
-                            Text("😢")
+                            Image(systemName: "face.sad.fill")
                                 .font(.system(size: 80))
                             
                             Text(localizationManager.localizedString("Нам очень жаль, что вы отменили премиум подписку"))
@@ -1612,26 +1975,9 @@ struct SubscriptionCancellationView: View {
                                     color: .blue
                                 )
                                 
-                                ResultCard(
-                                    icon: "🎯",
-                                    title: localizationManager.localizedString("Лучший результат"),
-                                    value: "\(userProfile.bestScore) \(localizationManager.localizedString("очков"))",
-                                    color: .orange
-                                )
-                                
-                                ResultCard(
-                                    icon: "🔥",
-                                    title: localizationManager.localizedString("Текущая серия"),
-                                    value: "\(userProfile.streak) \(localizationManager.localizedString("дней"))",
-                                    color: .red
-                                )
-                                
-                                ResultCard(
-                                    icon: "✅",
-                                    title: localizationManager.localizedString("Точность"),
-                                    value: String(format: "%.1f%%", min(100.0, max(0.0, userProfile.accuracy))),
-                                    color: .green
-                                )
+                                ResultCard(icon: "", systemImageName: "target", title: localizationManager.localizedString("Лучший результат"), value: "\(userProfile.bestScore) \(localizationManager.localizedString("очков"))", color: .orange)
+                                ResultCard(icon: "", systemImageName: "flame.fill", iconImageName: "StatDayStreak", title: localizationManager.localizedString("Текущая серия"), value: "\(userProfile.streak) \(localizationManager.localizedString("дней"))", color: .red)
+                                ResultCard(icon: "", systemImageName: "checkmark.circle.fill", title: localizationManager.localizedString("Точность"), value: String(format: "%.1f%%", min(100.0, max(0.0, userProfile.accuracy))), color: .green)
                             }
                         }
                         .padding()
@@ -1656,14 +2002,12 @@ struct SubscriptionCancellationView: View {
                         
                         Spacer()
                         
-                        // Continue button — сброс подписки после dismiss (gameState передан параметром, не через environment)
+                        // Continue button — сброс подписки после dismiss
                         Button(action: {
+                            GameState.userDidCancelSubscription = true
+                            StoreManager.shared.cancelMockSubscription()
+                            gameState.isPremium = false
                             dismiss()
-                            Task { @MainActor in
-                                try? await Task.sleep(nanoseconds: 150_000_000) // 0.15 с после закрытия
-                                StoreManager.shared.cancelMockSubscription()
-                                gameState.isPremium = false
-                            }
                         }) {
                             Text(localizationManager.localizedString("Продолжить"))
                                 .font(.system(size: 18, weight: .bold))
@@ -1690,14 +2034,31 @@ struct SubscriptionCancellationView: View {
 // MARK: - Result Card Component
 struct ResultCard: View {
     let icon: String
+    var systemImageName: String? = nil
+    var iconImageName: String? = nil
     let title: String
     let value: String
     let color: Color
-    
+
     var body: some View {
         HStack(spacing: 16) {
-            Text(icon)
-                .font(.system(size: 32))
+            Group {
+                if let assetName = iconImageName {
+                    Image(assetName)
+                        .renderingMode(.template)
+                        .resizable()
+                        .scaledToFit()
+                        .frame(width: 28, height: 28)
+                        .foregroundColor(color)
+                } else if let name = systemImageName {
+                    Image(systemName: name)
+                        .font(.system(size: 28))
+                        .foregroundColor(color)
+                } else {
+                    Text(icon)
+                        .font(.system(size: 32))
+                }
+            }
             
             VStack(alignment: .leading, spacing: 4) {
                 Text(title)
@@ -1743,8 +2104,7 @@ struct MockPremiumProductButton: View {
                 
                 // Симулируем успешную покупку через StoreManager
                 storeManager.simulateMockPurchase(productID: mockProduct.id)
-                
-                // Синхронизируем статус с GameState
+                GameState.userDidCancelSubscription = false
                 await gameState.syncPremiumStatus()
                 
                 print("🔧 Mock purchase successful: \(mockProduct.id)")

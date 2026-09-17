@@ -27,6 +27,9 @@ class NotificationService: NSObject, ObservableObject {
             DispatchQueue.main.async {
                 if granted {
                     print("✅ Notification permission granted")
+                    #if os(iOS)
+                    UIApplication.shared.registerForRemoteNotifications()
+                    #endif
                     self.scheduleInactivityNotification()
                 } else {
                     print("❌ Notification permission denied")
@@ -62,11 +65,12 @@ class NotificationService: NSObject, ObservableObject {
                 trigger: trigger
             )
             
-            UNUserNotificationCenter.current().add(request) { error in
-                if let error = error {
-                    print("❌ Error scheduling notification: \(error)")
-                } else {
+            Task {
+                do {
+                    try await UNUserNotificationCenter.current().add(request)
                     print("✅ Inactivity notification scheduled for 3 days")
+                } catch {
+                    print("❌ Error scheduling notification: \(error)")
                 }
             }
         }
@@ -112,9 +116,10 @@ class NotificationService: NSObject, ObservableObject {
         let cal = Calendar.current
         let now = Date()
         let year = cal.component(.year, from: now)
-        UNUserNotificationCenter.current().getPendingNotificationRequests { [weak self] requests in
+        UNUserNotificationCenter.current().getPendingNotificationRequests { requests in
             let toRemove = requests.filter { $0.identifier.hasPrefix(Self.birthdayFriendPrefix) }.map(\.identifier)
             UNUserNotificationCenter.current().removePendingNotificationRequests(withIdentifiers: toRemove)
+            var scheduled: [(Friend, Date)] = []
             for friend in friends {
                 guard let bday = friend.birthday else { continue }
                 var comps = DateComponents()
@@ -124,12 +129,17 @@ class NotificationService: NSObject, ObservableObject {
                 comps.minute = 0
                 comps.year = year
                 if let nextDate = cal.date(from: comps), nextDate >= now {
-                    self?.addBirthdayNotification(friend: friend, triggerDate: nextDate)
+                    scheduled.append((friend, nextDate))
                 } else {
                     comps.year = year + 1
                     if let nextYear = cal.date(from: comps) {
-                        self?.addBirthdayNotification(friend: friend, triggerDate: nextYear)
+                        scheduled.append((friend, nextYear))
                     }
+                }
+            }
+            Task { @MainActor in
+                for (friend, triggerDate) in scheduled {
+                    NotificationService.shared.addBirthdayNotification(friend: friend, triggerDate: triggerDate)
                 }
             }
         }
@@ -146,7 +156,7 @@ class NotificationService: NSObject, ObservableObject {
             let trigger = UNCalendarNotificationTrigger(dateMatching: comps, repeats: false)
             let id = Self.birthdayFriendPrefix + friend.username.filter { $0.isLetter || $0.isNumber }
             let request = UNNotificationRequest(identifier: id, content: content, trigger: trigger)
-            UNUserNotificationCenter.current().add(request, withCompletionHandler: nil)
+            try? await UNUserNotificationCenter.current().add(request)
         }
     }
 
@@ -174,7 +184,10 @@ class NotificationService: NSObject, ObservableObject {
         UNUserNotificationCenter.current().getNotificationSettings { settings in
             DispatchQueue.main.async {
                 switch settings.authorizationStatus {
-                case .authorized, .provisional:
+                case .authorized, .provisional, .ephemeral:
+                    #if os(iOS)
+                    UIApplication.shared.registerForRemoteNotifications()
+                    #endif
                     self.scheduleInactivityNotification()
                 case .denied:
                     print("❌ Notifications are denied")
@@ -188,12 +201,120 @@ class NotificationService: NSObject, ObservableObject {
     }
 }
 
+struct AppNotificationLogItem: Identifiable {
+    let id: String
+    let title: String
+    let body: String
+    let date: Date?
+    let source: String
+}
+
+extension NotificationService {
+    private static let inAppLogKey = "notifications.inapp.log.v1"
+    private static let inAppDuelLoggedIdsKey = "notifications.inapp.duel.ids.v1"
+
+    private struct StoredInAppNotificationLogItem: Codable {
+        let id: String
+        let title: String
+        let body: String
+        let date: Date
+        let source: String
+    }
+
+    @MainActor
+    func logInAppNotification(id: String = UUID().uuidString, title: String, body: String, source: String = "in-app") {
+        var items = loadInAppNotificationItems()
+        if items.contains(where: { $0.id == id }) { return }
+        items.append(.init(id: id, title: title, body: body, date: Date(), source: source))
+        if items.count > 200 {
+            items = Array(items.suffix(200))
+        }
+        saveInAppNotificationItems(items)
+    }
+
+    @MainActor
+    func logDuelChallengeNotificationIfNeeded(challengeId: String, challengerName: String) {
+        var logged = Set(userDefaults.stringArray(forKey: Self.inAppDuelLoggedIdsKey) ?? [])
+        guard !logged.contains(challengeId) else { return }
+        logged.insert(challengeId)
+        userDefaults.set(Array(logged.suffix(500)), forKey: Self.inAppDuelLoggedIdsKey)
+
+        let title = LocalizationManager.shared.localizedString("Duel")
+        let template = LocalizationManager.shared.localizedString("Duel challenge from %@")
+        let body = String(format: template, challengerName)
+        logInAppNotification(id: "duel_challenge_\(challengeId)", title: title, body: body, source: "duel")
+    }
+
+    private func loadInAppNotificationItems() -> [StoredInAppNotificationLogItem] {
+        guard let data = userDefaults.data(forKey: Self.inAppLogKey) else { return [] }
+        return (try? JSONDecoder().decode([StoredInAppNotificationLogItem].self, from: data)) ?? []
+    }
+
+    private func saveInAppNotificationItems(_ items: [StoredInAppNotificationLogItem]) {
+        guard let data = try? JSONEncoder().encode(items) else { return }
+        userDefaults.set(data, forKey: Self.inAppLogKey)
+    }
+
+    func fetchMyNotifications() async -> [AppNotificationLogItem] {
+        let inAppItems: [AppNotificationLogItem] = loadInAppNotificationItems().map {
+            AppNotificationLogItem(
+                id: $0.id,
+                title: $0.title,
+                body: $0.body,
+                date: $0.date,
+                source: $0.source
+            )
+        }
+        return await withCheckedContinuation { continuation in
+            UNUserNotificationCenter.current().getDeliveredNotifications { delivered in
+                UNUserNotificationCenter.current().getPendingNotificationRequests { pending in
+                    let deliveredItems = delivered.map { n in
+                        AppNotificationLogItem(
+                            id: n.request.identifier,
+                            title: n.request.content.title,
+                            body: n.request.content.body,
+                            date: n.date,
+                            source: "delivered"
+                        )
+                    }
+                    let pendingItems = pending.map { r in
+                        AppNotificationLogItem(
+                            id: r.identifier,
+                            title: r.content.title,
+                            body: r.content.body,
+                            date: nil,
+                            source: "pending"
+                        )
+                    }
+                    let combined = (deliveredItems + pendingItems + inAppItems)
+                        .sorted { ($0.date ?? .distantPast) > ($1.date ?? .distantPast) }
+                    continuation.resume(returning: combined)
+                }
+            }
+        }
+    }
+}
+
 // MARK: - UNUserNotificationCenterDelegate
 extension NotificationService: UNUserNotificationCenterDelegate {
     
     // Обработка уведомлений когда приложение на переднем плане
     func userNotificationCenter(_ center: UNUserNotificationCenter, willPresent notification: UNNotification, withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Void) {
-        completionHandler([.alert, .badge, .sound])
+        let duelType = notification.request.content.userInfo["type"] as? String
+        if duelType == "duel_challenge" {
+            // Системный баннер и в foreground (плюс in-app popup по опросу /incoming).
+            if #available(iOS 14.0, *) {
+                completionHandler([.banner, .list, .sound])
+            } else {
+                completionHandler([.alert, .badge, .sound])
+            }
+            return
+        }
+        if #available(iOS 14.0, *) {
+            completionHandler([.banner, .list, .badge, .sound])
+        } else {
+            completionHandler([.alert, .badge, .sound])
+        }
     }
     
     // Обработка нажатия на уведомление

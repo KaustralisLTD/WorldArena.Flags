@@ -11,6 +11,8 @@ struct ProfileView: View {
     @EnvironmentObject var gameState: GameState
     @State private var showingSettings = false
     @State private var showingShareSheet = false
+    /// Редактирование профиля (имя, день рождения, аватар) — тап по аватарке в шапке.
+    @State private var showingUserProfileEdit = false
     @State private var showFullNameAlert = false
     #if os(iOS)
     @State private var profileCardImage: UIImage?
@@ -23,6 +25,7 @@ struct ProfileView: View {
     @Environment(\.sizeCategory) private var sizeCategory
     @State private var containerSize: CGSize = .zero
     @Binding var selectedTab: Int
+    @State private var lightweightFriendsSyncTask: Task<Void, Never>?
     #if os(iOS)
     @Environment(\.verticalSizeClass) private var verticalSizeClass
     #endif
@@ -116,30 +119,27 @@ struct ProfileView: View {
                     }
                 }
             } else {
-                ScrollView {
-                    VStack(spacing: isIPad ? 24 : 20) {
-                        statisticsSection
-                        addFriendsButton
-                        overviewSection
-                        friendStreaksSection
-                        monthlyBadgesSection
+                GeometryReader { geometry in
+                    ScrollView {
+                        VStack(spacing: 20) {
+                            phoneHeader
+                                .padding(.top, geometry.safeAreaInsets.top)
+                                .background(
+                                    LinearGradient(colors: [.cyan, .blue], startPoint: .topLeading, endPoint: .bottomTrailing)
+                                )
+                            statisticsSection
+                            addFriendsButton
+                            overviewSection
+                            friendStreaksSection
+                            monthlyBadgesSection
+                        }
+                        .padding(.bottom, 28)
                     }
-                    .padding(.bottom, 100)
-                    .padding(.top, headerHeight - 24)
+                    .ignoresSafeArea(.container, edges: .top)
+                    .accessibilityIdentifier("profile.scroll")
+                    .refreshable { await refreshProfileData() }
+                    .modifier(ProfileHideScrollContentBackgroundModifier())
                 }
-                .refreshable {
-                    await refreshProfileData()
-                }
-                .modifier(ProfileHideScrollContentBackgroundModifier())
-                .background(
-                    RoundedRectangle(cornerRadius: 25, style: .continuous)
-                        .fill(systemGroupedBackground)
-                        .ignoresSafeArea(.container, edges: .bottom)
-                )
-                .clipShape(RoundedRectangle(cornerRadius: 25, style: .continuous))
-                .padding(.top, -16)
-                if !isIPadLandscape { headerBackground }
-                headerContent
             }
         }
         .background(
@@ -178,8 +178,11 @@ struct ProfileView: View {
                 #endif
                 userProfile.evaluateAchievementsAndUnlock()
                 Task { await refreshProfileData() }
+                startLightweightFriendsSync()
             }
             .onDisappear {
+                lightweightFriendsSyncTask?.cancel()
+                lightweightFriendsSyncTask = nil
                 #if os(iOS)
                 let appearance = UINavigationBarAppearance()
                 appearance.configureWithDefaultBackground()
@@ -187,12 +190,17 @@ struct ProfileView: View {
                 UINavigationBar.appearance().scrollEdgeAppearance = appearance
                 #endif
             }
-            .sheet(isPresented: $showingSettings) {
+            .sheetOrFullScreenOnIPad(isPresented: $showingSettings) {
                 SettingsView()
             }
             #if os(iOS)
-            .sheet(isPresented: $showingShareSheet) {
+            .sheetOrFullScreenOnIPad(isPresented: $showingShareSheet) {
                 ShareSheet(activityItems: profileShareActivityItems)
+            }
+            .sheetOrFullScreenOnIPad(isPresented: $showingUserProfileEdit) {
+                ProfileEditView()
+                    .environmentObject(userProfile)
+                    .environmentObject(gameState)
             }
             #endif
             .alert(localizationManager.localizedString("Name"), isPresented: $showFullNameAlert) {
@@ -200,6 +208,17 @@ struct ProfileView: View {
             } message: {
                 Text(userProfile.username)
             }
+    }
+
+    private func startLightweightFriendsSync() {
+        lightweightFriendsSyncTask?.cancel()
+        lightweightFriendsSyncTask = Task {
+            while !Task.isCancelled {
+                try? await Task.sleep(nanoseconds: 3_500_000_000)
+                if Task.isCancelled { break }
+                await refreshFriendsLightweight()
+            }
+        }
     }
 
     // Старый блок хедера больше не используется
@@ -212,35 +231,18 @@ struct ProfileView: View {
                 .padding(.horizontal, isIPad ? 40 : 20)
             
             VStack(spacing: isIPad ? 16 : 12) {
-                StatisticRow(
-                    icon: "🔥",
-                    iconImageName: "StatDayStreak",
-                    title: "\(userProfile.streak) " + LocalizationManager.shared.localizedString("дней"),
-                    subtitle: LocalizationManager.shared.localizedString("Текущая серия"),
-                    isIPad: isIPad
-                )
-                
-                StatisticRow(
-                    icon: flagForSelectedLanguage,
-                    title: "\(userProfile.totalGamesPlayed * 10)",
-                    subtitle: LocalizationManager.shared.localizedString("Всего изучено флагов"),
-                    isIPad: isIPad
-                )
-                
-                StatisticRow(
-                    icon: "💎",
-                    iconImageName: userProfile.currentLeague.imageAssetName,
-                    title: userProfile.currentLeague.localizedFullName,
-                    subtitle: LocalizationManager.shared.localizedString("Текущая лига"),
-                    isIPad: isIPad
-                )
-                
-                StatisticRow(
-                    icon: "⚡",
-                    title: "\(userProfile.xp) " + LocalizationManager.shared.localizedString("XP"),
-                    subtitle: LocalizationManager.shared.localizedString("Общий опыт"),
-                    isIPad: isIPad
-                )
+                StatisticRow(icon: "", iconImageName: "StatDayStreak", systemImageName: "flame.fill", title: "\(userProfile.streak) " + LocalizationManager.shared.localizedString("дней"), subtitle: LocalizationManager.shared.localizedString("Текущая серия"), isIPad: isIPad)
+                Button(action: { showingCountryPicker = true }) {
+                    StatisticRow(
+                        icon: flagForSelectedCountry,
+                        title: "\(userProfile.totalGamesPlayed * 10)",
+                        subtitle: LocalizationManager.shared.localizedString("Всего изучено флагов"),
+                        isIPad: isIPad
+                    )
+                }
+                .buttonStyle(.plain)
+                StatisticRow(icon: "", iconImageName: userProfile.currentLeague.imageAssetName, systemImageName: "diamond.fill", title: userProfile.currentLeague.localizedFullName, subtitle: LocalizationManager.shared.localizedString("Текущая лига"), isIPad: isIPad)
+                StatisticRow(icon: "", systemImageName: "bolt.fill", title: "\(userProfile.xp) " + LocalizationManager.shared.localizedString("XP"), subtitle: LocalizationManager.shared.localizedString("Общий опыт"), isIPad: isIPad)
                 
                 // Глобальный рейтинг по странам и миру (мотивационный блок)
                 VStack(alignment: .leading, spacing: 8) {
@@ -275,7 +277,7 @@ struct ProfileView: View {
                     iconName: "IconDuelSummary",
                     title: LocalizationManager.shared.localizedString("Duel Summary"),
                     subtitle: LocalizationManager.shared.localizedString("Duel Summary subtitle"),
-                    destination: { DuelSummaryView().environmentObject(gameState) }
+                    destination: { DuelSummaryView().environmentObject(gameState).environmentObject(userProfile) }
                 )
                 profileOverviewCard(
                     iconName: "IconStatistics",
@@ -290,8 +292,8 @@ struct ProfileView: View {
         }
     }
 
-    /// Размер миниатюры в карточках (увеличен в 2 раза)
-    private var profileCardIconSize: (w: CGFloat, h: CGFloat) { isIPad ? (104, 104) : (92, 92) }
+    /// Размер миниатюры в карточках (чуть уменьшен, чтобы визуально не доминировать)
+    private var profileCardIconSize: (w: CGFloat, h: CGFloat) { isIPad ? (80, 80) : (68, 68) }
 
     /// Карточка одного размера для World Progress Map / Duel Summary / Statistics
     private func profileOverviewCard<Destination: View>(
@@ -397,14 +399,14 @@ struct ProfileView: View {
             )
         }
         .padding(.horizontal, isIPad ? 40 : 20)
-        .sheet(isPresented: $showingFBucksInfo) {
+        .sheetOrFullScreenOnIPad(isPresented: $showingFBucksInfo) {
             FBucksInfoView()
         }
-        .sheet(isPresented: $showingAddFriends) {
+        .sheetOrFullScreenOnIPad(isPresented: $showingAddFriends) {
             AddFriendsView()
                 .environmentObject(userProfile)
         }
-        .sheet(isPresented: $showingCountryPicker) {
+        .sheetOrFullScreenOnIPad(isPresented: $showingCountryPicker) {
             NavigationView {
                 CountryPickerView(selectedCode: Binding(
                     get: { userProfile.selectedCountryCode },
@@ -490,10 +492,9 @@ struct ProfileView: View {
 
 extension ProfileView {
     /// Аватар с бейджем лиги в правом верхнем углу. Квадрат с закруглением.
-    private func profileAvatarWithLeagueBadge(size: CGFloat, innerSize: CGFloat) -> some View {
+    private func profileAvatarWithLeagueBadge(size: CGFloat, innerSize: CGFloat, onAvatarTap: (() -> Void)? = nil) -> some View {
         let cornerRadius = size * 0.22
-        return ZStack(alignment: .topTrailing) {
-            ZStack {
+        let avatarPlate = ZStack {
                 RoundedRectangle(cornerRadius: cornerRadius)
                     .fill(Color.white.opacity(0.2))
                     .frame(width: size, height: size)
@@ -506,20 +507,31 @@ extension ProfileView {
                         .resizable()
                         .scaledToFill()
                         .frame(width: innerSize, height: innerSize)
+                        .clipped()
                         .clipShape(RoundedRectangle(cornerRadius: cornerRadius - 4))
                 } else if userProfile.avatar.starts(with: "custom_") {
-                    Text("👤")
-                        .font(.system(size: size * 0.45))
+                    Image(systemName: "person.fill")
+                        .font(.system(size: size * 0.4))
+                        .foregroundColor(.secondary)
                 } else {
                     Image(systemName: userProfile.avatar)
                         .font(.system(size: size * 0.4))
                         .foregroundColor(.blue)
                 }
                 #else
-                Text("👤")
-                    .font(.system(size: size * 0.45))
+                Image(systemName: "person.fill")
+                    .font(.system(size: size * 0.4))
+                    .foregroundColor(.secondary)
                 #endif
-            }
+        }
+        .contentShape(Rectangle())
+        #if os(iOS)
+        .onTapGesture {
+            onAvatarTap?()
+        }
+        #endif
+        return ZStack(alignment: .topTrailing) {
+            avatarPlate
             Image(userProfile.currentLeague.imageAssetName)
                 .resizable()
                 .scaledToFit()
@@ -572,7 +584,6 @@ extension ProfileView {
     private var ipadOverlayLandscape: some View {
         ZStack(alignment: .topLeading) {
             headerContentCompact
-                .allowsHitTesting(false)
             VStack(spacing: 0) {
                 HStack(spacing: 16) {
                     Spacer(minLength: 0)
@@ -617,6 +628,7 @@ extension ProfileView {
             VStack(spacing: 0) {
                 profileHeaderButtonsPortrait
                 Spacer(minLength: 0)
+                    .allowsHitTesting(false)
             }
         }
         .frame(height: headerHeight)
@@ -624,9 +636,13 @@ extension ProfileView {
 
     /// Шапка для iPad альбомная: аватар, справа — имя, логин, лига, друзья, серия, joined в одну строку.
     private var headerContentCompact: some View {
-        HStack(alignment: .top, spacing: 20) {
-            profileAvatarWithLeagueBadge(size: 264, innerSize: 228)
-                .padding(.leading, 24)
+        HStack(alignment: .top, spacing: 16) {
+            profileAvatarWithLeagueBadge(size: 264, innerSize: 228, onAvatarTap: {
+                #if os(iOS)
+                showingUserProfileEdit = true
+                #endif
+            })
+                .padding(.leading, 12)
             VStack(alignment: .leading, spacing: 6) {
                 Text(userProfile.username)
                     .font(.system(size: sizeCategory >= .accessibilityMedium ? 24 : 32, weight: .bold))
@@ -638,15 +654,6 @@ extension ProfileView {
                 Text("@\(userProfile.username.uppercased())")
                     .font(.system(size: 14, weight: .medium))
                     .foregroundColor(.white.opacity(0.9))
-                HStack(spacing: 8) {
-                    Image(userProfile.currentLeague.imageAssetName)
-                        .resizable()
-                        .scaledToFit()
-                        .frame(width: 22, height: 22)
-                    Text(userProfile.currentLeague.localizedFullName)
-                        .font(.system(size: 17, weight: .semibold))
-                        .foregroundColor(.white.opacity(0.95))
-                }
                 HStack(spacing: 8) {
                     Image(systemName: "person.2.fill")
                         .font(.system(size: 17))
@@ -672,7 +679,7 @@ extension ProfileView {
             Spacer(minLength: 16)
             Color.clear.frame(width: 100, height: 44)
         }
-        .padding(.horizontal, 24)
+        .padding(.horizontal, 12)
         .padding(.top, max(0, safeTopInset - 16))
         .padding(.bottom, 16)
         .frame(height: headerHeightLandscape, alignment: .top)
@@ -740,8 +747,12 @@ extension ProfileView {
     private var headerContentNoButtons: some View {
         VStack(spacing: 0) {
             HStack(alignment: .top) {
-                profileAvatarWithLeagueBadge(size: 168, innerSize: 150)
-                    .padding(.leading, 8)
+                profileAvatarWithLeagueBadge(size: 168, innerSize: 150, onAvatarTap: {
+                    #if os(iOS)
+                    showingUserProfileEdit = true
+                    #endif
+                })
+                    .padding(.leading, 4)
                 VStack(alignment: .leading, spacing: 6) {
                     Text(userProfile.username)
                         .font(.system(size: 28, weight: .bold))
@@ -749,15 +760,6 @@ extension ProfileView {
                     Text("@\(userProfile.username.uppercased())")
                         .font(.system(size: 14, weight: .medium))
                         .foregroundColor(.white.opacity(0.9))
-                    HStack(spacing: 8) {
-                        Image(userProfile.currentLeague.imageAssetName)
-                            .resizable()
-                            .scaledToFit()
-                            .frame(width: 18, height: 18)
-                        Text(userProfile.currentLeague.localizedFullName)
-                            .foregroundColor(.white.opacity(0.95))
-                            .font(.system(size: 14, weight: .semibold))
-                    }
                     HStack(spacing: 8) {
                         Image(systemName: "person.2.fill")
                             .foregroundColor(.white)
@@ -779,24 +781,80 @@ extension ProfileView {
                         .foregroundColor(.white.opacity(0.85))
                         .lineLimit(1)
                 }
-                .padding(.leading, 10)
+                .padding(.leading, 8)
                 .frame(maxWidth: .infinity, alignment: .leading)
+                .allowsHitTesting(false)
                 Spacer()
             }
-            .padding(.horizontal, 32)
+            .padding(.horizontal, 12)
             .padding(.top, max(0, safeTopInset - 52))
             .padding(.bottom, 20)
         }
         .frame(height: headerHeight, alignment: .top)
-        .allowsHitTesting(false)
     }
 
     // MARK: - Закреплённая шапка (контент, с оверлеем кнопок — только для телефона)
+    private var phoneHeader: some View {
+        VStack(spacing: 14) {
+            HStack(spacing: 8) {
+                Spacer()
+                Button(action: shareProfile) {
+                    Image(systemName: "square.and.arrow.up")
+                        .frame(width: 44, height: 44)
+                        .background(.white.opacity(0.16), in: Circle())
+                }
+                .accessibilityLabel(localizationManager.localizedString("Share Result"))
+                .accessibilityIdentifier("profile.share")
+                Button(action: { showingSettings = true }) {
+                    Image(systemName: "gearshape.fill")
+                        .frame(width: 44, height: 44)
+                        .background(.white.opacity(0.16), in: Circle())
+                }
+                .accessibilityLabel(localizationManager.localizedString("Settings"))
+                .accessibilityIdentifier("profile.settings")
+            }
+            HStack(alignment: .center, spacing: 16) {
+                profileAvatarWithLeagueBadge(size: 112, innerSize: 98, onAvatarTap: {
+                    showingUserProfileEdit = true
+                })
+                .accessibilityIdentifier("profile.avatar")
+                VStack(alignment: .leading, spacing: 5) {
+                    Text(userProfile.username)
+                        .font(.title2.bold())
+                        .lineLimit(2)
+                        .onTapGesture { showFullNameAlert = true }
+                        .accessibilityIdentifier("profile.name")
+                    Text("@\(userProfile.username.uppercased())")
+                        .font(.caption).lineLimit(1).truncationMode(.middle)
+                        .foregroundStyle(.white.opacity(0.85))
+                    Label("\(userProfile.friends.count) " + localizationManager.localizedString("Following"), systemImage: "person.2.fill")
+                        .font(.caption.weight(.semibold))
+                    Label("\(userProfile.streak) " + localizationManager.localizedString("дней"), systemImage: "flame.fill")
+                        .font(.caption.weight(.semibold))
+                    Text(profileJoinDateText)
+                        .font(.caption).foregroundStyle(.white.opacity(0.85))
+                        .accessibilityIdentifier("profile.joinDate")
+                }
+                .fixedSize(horizontal: false, vertical: true)
+                .frame(maxWidth: .infinity, alignment: .leading)
+            }
+        }
+        .buttonStyle(.plain)
+        .foregroundStyle(.white)
+        .padding(.horizontal, 20)
+        .padding(.top, 8)
+        .padding(.bottom, 24)
+    }
+
     private var headerContent: some View {
         VStack(spacing: 8) {
             HStack(alignment: .top) {
-                profileAvatarWithLeagueBadge(size: isIPad ? 168 : 138, innerSize: isIPad ? 150 : 120)
-                    .padding(.leading, isIPad ? 8 : 4)
+                profileAvatarWithLeagueBadge(size: isIPad ? 168 : 138, innerSize: isIPad ? 150 : 120, onAvatarTap: {
+                    #if os(iOS)
+                    showingUserProfileEdit = true
+                    #endif
+                })
+                    .padding(.leading, isIPad ? 4 : 2)
 
                 VStack(alignment: .leading, spacing: isIPad ? 6 : 4) {
                     Text(userProfile.username)
@@ -809,15 +867,6 @@ extension ProfileView {
                     Text("@\(userProfile.username.uppercased())")
                         .font(.system(size: isIPad ? 14 : 12, weight: .medium))
                         .foregroundColor(.white.opacity(0.9))
-                    HStack(spacing: isIPad ? 8 : 6) {
-                        Image(userProfile.currentLeague.imageAssetName)
-                            .resizable()
-                            .scaledToFit()
-                            .frame(width: isIPad ? 18 : 16, height: isIPad ? 18 : 16)
-                        Text(userProfile.currentLeague.localizedFullName)
-                            .foregroundColor(.white.opacity(0.95))
-                            .font(.system(size: isIPad ? 14 : 12, weight: .semibold))
-                    }
                     HStack(spacing: isIPad ? 8 : 6) {
                         Image(systemName: "person.2.fill")
                             .foregroundColor(.white)
@@ -839,19 +888,17 @@ extension ProfileView {
                         .foregroundColor(.white.opacity(0.85))
                         .lineLimit(1)
                 }
-                .padding(.leading, isIPad ? 10 : 6)
+                .padding(.leading, isIPad ? 8 : 4)
                 .frame(maxWidth: .infinity, alignment: .leading)
                 .padding(.trailing, isIPad ? 0 : 72)
 
                 Spacer()
             }
-            .padding(.horizontal, isIPad ? 32 : 14)
+            .padding(.horizontal, isIPad ? 12 : 8)
             .padding(.top, max(0, safeTopInset - (isIPad ? 52 : 20)))
             .padding(.bottom, isIPad ? 20 : 12)
-            .allowsHitTesting(false)
         }
         .frame(height: headerHeight, alignment: .top)
-        .allowsHitTesting(false)
         .overlay(
             VStack(spacing: 0) {
                 HStack {
@@ -912,154 +959,22 @@ extension ProfileView {
     // MARK: - Professional ranking model (country + world)
     // Позиция зависит от качества профиля и оценочного размера активной аудитории:
     // население страны * смартфоны * доля мобильных игроков * доля онлайн-игроков.
+    /// Локализованный формат **Country rank line**: аргументы строго в порядке **флаг (String), ранг (Int), страна (String)** → плейсхолдеры `%@`, `%d` или `%lld`, `%@` (как в `en`: «%@ You are #%d in %@»).
     fileprivate func countryRankLine(code: String) -> String {
         let upper = code.uppercased()
         let flag = FriendsService.countryCodeToFlagEmoji(upper)
-        let rank = computedCountryRank(for: upper)
+        let inputs = userProfile.motivationalRankInputs(league: userProfile.currentLeague)
+        let rank = MotivationalRanking.countryRank(for: inputs, countryCode: upper)
         let format = LocalizationManager.shared.localizedString("Country rank line")
         return String(format: format, flag, rank, LocalizationManager.shared.localizedString(countryNameByCode(upper)))
     }
 
     fileprivate func worldRankLine() -> String {
-        let rank = computedWorldRank()
+        let inputs = userProfile.motivationalRankInputs(league: userProfile.currentLeague)
+        let rank = userProfile.serverWorldRank ?? MotivationalRanking.worldRank(for: inputs)
         let format = LocalizationManager.shared.localizedString("World rank line")
         return String(format: format, rank)
     }
-
-    private func computedCountryRank(for countryCode: String) -> Int {
-        let pool = max(5_000, estimatedActivePlayers(for: countryCode))
-        let p = adjustedPercentile(seedSalt: "COUNTRY_\(countryCode)")
-        return max(1, Int((1.0 - p) * Double(pool)) + 1)
-    }
-
-    private func computedWorldRank() -> Int {
-        let worldPool = max(2_000_000, Self.estimatedWorldActivePlayers)
-        let p = adjustedPercentile(seedSalt: "WORLD")
-        return max(1, Int((1.0 - p) * Double(worldPool)) + 1)
-    }
-
-    private func adjustedPercentile(seedSalt: String) -> Double {
-        let base = basePerformancePercentile()
-        // Небольшой стабильный сдвиг, чтобы игроки с одинаковыми метриками не имели один и тот же rank.
-        let jitter = (Double(stableSeed(seedSalt) % 1000) / 1000.0 - 0.5) * 0.028
-        return min(0.995, max(0.01, base + jitter))
-    }
-
-    private func basePerformancePercentile() -> Double {
-        let accuracy = min(1.0, max(0.0, userProfile.accuracy / 100.0))
-        let xpNorm = min(1.0, log1p(Double(max(0, userProfile.xp))) / log1p(120_000.0))
-        let gamesNorm = min(1.0, log1p(Double(max(0, userProfile.totalGamesPlayed))) / log1p(4_000.0))
-        let streakNorm = min(1.0, log1p(Double(max(0, userProfile.streak))) / log1p(365.0))
-        let leagueNorm = min(1.0, max(0.0, Double(leagueTierIndex(userProfile.currentLeague)) / 5.0))
-        let consistency = min(1.0, accuracy * (0.62 + 0.38 * gamesNorm))
-
-        var skill =
-            0.34 * accuracy +
-            0.24 * xpNorm +
-            0.14 * gamesNorm +
-            0.12 * streakNorm +
-            0.16 * leagueNorm
-
-        // За регулярную игру добавляем мягкий буст.
-        skill += min(0.08, Double(userProfile.totalGamesPlayed) / 5_000.0) * consistency
-        skill = min(1.0, max(0.0, skill))
-
-        // Нелинейная кривая приближена к поведению популярных leaderboard-аппов.
-        return 0.02 + pow(skill, 1.35) * 0.965
-    }
-
-    private func leagueTierIndex(_ league: League) -> Int {
-        switch league {
-        case .bronze: return 0
-        case .silver: return 1
-        case .gold: return 2
-        case .platinum: return 3
-        case .diamond: return 4
-        case .master: return 5
-        }
-    }
-
-    private func stableSeed(_ salt: String) -> Int {
-        let raw = "\(userProfile.username)|\(Int(userProfile.joinDate.timeIntervalSince1970))|\(salt)"
-        return raw.unicodeScalars.reduce(17) { ($0 &* 31) &+ Int($1.value) } & Int.max
-    }
-
-    private func estimatedActivePlayers(for countryCode: String) -> Int {
-        let profile = digitalProfile(for: countryCode)
-        let population = estimatedPopulation(for: countryCode)
-        // App-interest factor: какая доля mobile аудитории играет именно в квиз/edutainment.
-        let appInterest = 0.0022
-        let estimated = Double(population) * profile.smartphone * profile.mobileGamers * profile.onlineGamers * appInterest
-        return max(5_000, Int(estimated.rounded()))
-    }
-
-    private func estimatedPopulation(for countryCode: String) -> Int {
-        if let predefined = countryPopulationOverrides[countryCode] {
-            return predefined
-        }
-        guard let country = CountryDatabase.getCountryData(for: countryCode) else {
-            return 12_000_000
-        }
-        let digits = country.en.population.filter { $0.isNumber }
-        if let parsed = Int(digits), parsed > 100_000 {
-            return parsed
-        }
-        return 12_000_000
-    }
-
-    private func digitalProfile(for countryCode: String) -> (smartphone: Double, mobileGamers: Double, onlineGamers: Double) {
-        if let value = Self.countryDigitalOverrides[countryCode] {
-            return value
-        }
-        // Базовый мировой профиль для стран без точного коэффициента.
-        return (0.69, 0.56, 0.74)
-    }
-
-    private static let estimatedWorldActivePlayers: Int = {
-        let appInterest = 0.0022
-        var uniqueCodes = Set<String>()
-        var total = 0.0
-
-        for country in CountryDatabase.allCountries {
-            let code = country.en.code.uppercased()
-            guard !uniqueCodes.contains(code) else { continue }
-            uniqueCodes.insert(code)
-
-            let digits = country.en.population.filter { $0.isNumber }
-            let population = Int(digits) ?? 12_000_000
-            let profile = countryDigitalOverrides[code] ?? (0.69, 0.56, 0.74)
-            total += Double(population) * profile.smartphone * profile.mobileGamers * profile.onlineGamers * appInterest
-        }
-        return max(2_000_000, Int(total.rounded()))
-    }()
-
-    private var countryPopulationOverrides: [String: Int] {
-        [
-            "US": 334_000_000, "CN": 1_410_000_000, "IN": 1_430_000_000, "BR": 203_000_000,
-            "ID": 278_000_000, "PK": 241_000_000, "NG": 223_000_000, "BD": 173_000_000,
-            "RU": 146_000_000, "JP": 123_000_000, "MX": 129_000_000, "PH": 117_000_000,
-            "VN": 100_000_000, "TR": 86_000_000, "DE": 84_000_000, "FR": 68_000_000,
-            "GB": 68_000_000, "IT": 59_000_000, "ES": 48_000_000, "UA": 37_000_000,
-            "PL": 38_000_000, "NL": 18_000_000, "CA": 40_000_000, "AU": 27_000_000,
-            "SE": 10_500_000, "NO": 5_500_000, "CH": 8_900_000, "BE": 11_700_000
-        ]
-    }
-
-    private static let countryDigitalOverrides: [String: (smartphone: Double, mobileGamers: Double, onlineGamers: Double)] = [
-        "US": (0.90, 0.62, 0.86), "CA": (0.89, 0.61, 0.85), "GB": (0.91, 0.60, 0.87),
-        "DE": (0.89, 0.58, 0.84), "FR": (0.87, 0.57, 0.83), "IT": (0.85, 0.56, 0.82),
-        "ES": (0.88, 0.57, 0.83), "NL": (0.92, 0.60, 0.88), "PL": (0.82, 0.55, 0.79),
-        "SE": (0.93, 0.59, 0.89), "NO": (0.94, 0.58, 0.90), "CH": (0.92, 0.57, 0.88),
-        "BE": (0.90, 0.57, 0.85), "UA": (0.75, 0.53, 0.71), "RU": (0.79, 0.55, 0.73),
-        "TR": (0.79, 0.57, 0.75), "CN": (0.77, 0.64, 0.74), "JP": (0.88, 0.53, 0.86),
-        "KR": (0.95, 0.64, 0.93), "IN": (0.54, 0.62, 0.60), "ID": (0.69, 0.66, 0.71),
-        "PH": (0.71, 0.67, 0.73), "VN": (0.74, 0.65, 0.74), "TH": (0.77, 0.64, 0.76),
-        "MY": (0.84, 0.62, 0.82), "SG": (0.94, 0.61, 0.91), "BR": (0.81, 0.63, 0.77),
-        "MX": (0.76, 0.61, 0.73), "AR": (0.80, 0.58, 0.76), "CL": (0.83, 0.57, 0.79),
-        "CO": (0.74, 0.60, 0.72), "SA": (0.91, 0.58, 0.88), "AE": (0.96, 0.60, 0.93),
-        "EG": (0.65, 0.58, 0.63), "NG": (0.45, 0.55, 0.50), "ZA": (0.69, 0.56, 0.68),
-        "AU": (0.91, 0.60, 0.86)
-    ]
 
     private func countryNameByCode(_ code: String) -> String {
         let upper = code.uppercased()
@@ -1074,27 +989,44 @@ extension ProfileView {
         let userId = userProfile.username.trimmingCharacters(in: .whitespacesAndNewlines)
         guard !userId.isEmpty else { return }
 
+        if let selfRow = try? await DuelAPIService.shared.fetchUserByUsername(userId) {
+            userProfile.serverWorldRank = selfRow.worldRank
+        }
+
         if let apiFriends = try? await DuelAPIService.shared.fetchMyFriends(userId: userId) {
-            let oldByUsername = Dictionary(uniqueKeysWithValues: userProfile.friends.map { ($0.username, $0) })
-            userProfile.friends = apiFriends.map { api in
+            // Дедупликация по username, чтобы не крашить при Dictionary(uniqueKeysWithValues:) и двойных друзьях
+            var seenUsernames = Set<String>()
+            let uniqueExisting = userProfile.friends.filter { seenUsernames.insert($0.username.lowercased()).inserted }
+            let oldByUsername = Dictionary(uniqueKeysWithValues: uniqueExisting.map { ($0.username, $0) })
+            var result: [Friend] = []
+            var seenApi = Set<String>()
+            for api in apiFriends {
+                guard seenApi.insert(api.username.lowercased()).inserted else { continue }
                 let mapped = api.toFriend()
                 if let old = oldByUsername[api.username] {
-                    return Friend(
+                    result.append(Friend(
                         id: old.id,
                         username: mapped.username,
                         displayName: api.displayName ?? mapped.displayName,
                         avatar: mapped.avatar,
+                        avatarPhotoBase64: mapped.avatarPhotoBase64 ?? old.avatarPhotoBase64,
                         countryCode: mapped.countryCode,
                         level: mapped.level,
                         xp: mapped.xp,
                         streak: mapped.streak,
+                        totalGamesPlayed: mapped.totalGamesPlayed,
+                        correctAnswers: mapped.correctAnswers,
                         isOnline: old.isOnline,
-                        joinDate: old.joinDate,
-                        playedToday: mapped.playedToday
-                    )
+                        joinDate: api.joinDateFromServer ?? old.joinDate,
+                        playedToday: mapped.playedToday,
+                        birthday: mapped.birthday ?? old.birthday,
+                        achievements: mapped.achievements
+                    ))
+                } else {
+                    result.append(mapped)
                 }
-                return mapped
             }
+            userProfile.friends = result
         }
 
         if let incoming = try? await DuelAPIService.shared.fetchIncomingChallenges(userId: userId) {
@@ -1111,6 +1043,113 @@ extension ProfileView {
         LeaguesService.shared.tickCompetitors(for: userProfile.currentLeague)
         userProfile.evaluateAchievementsAndUnlock()
         userProfile.saveToStorage()
+    }
+
+    @MainActor
+    private func refreshFriendsLightweight() async {
+        let userId = userProfile.username.trimmingCharacters(in: .whitespacesAndNewlines)
+        guard !userId.isEmpty else { return }
+        if let selfRow = try? await DuelAPIService.shared.fetchUserByUsername(userId) {
+            userProfile.serverWorldRank = selfRow.worldRank
+        }
+        guard let apiFriends = try? await DuelAPIService.shared.fetchMyFriends(userId: userId) else { return }
+        let oldFriends = userProfile.friends
+        var usedOldIds = Set<UUID>()
+
+        var merged: [Friend] = []
+        var seen = Set<String>()
+        var changed = false
+
+        for api in apiFriends {
+            let key = api.username.lowercased()
+            guard seen.insert(key).inserted else { continue }
+            let mapped = api.toFriend()
+            if let old = bestMatchingFriend(for: api, in: oldFriends, excluding: usedOldIds) {
+                usedOldIds.insert(old.id)
+                let updated = Friend(
+                    id: old.id,
+                    username: mapped.username,
+                    displayName: api.displayName ?? mapped.displayName,
+                    avatar: mapped.avatar,
+                    avatarPhotoBase64: mapped.avatarPhotoBase64 ?? old.avatarPhotoBase64,
+                    countryCode: mapped.countryCode,
+                    level: mapped.level,
+                    xp: mapped.xp,
+                    streak: mapped.streak,
+                    totalGamesPlayed: mapped.totalGamesPlayed,
+                    correctAnswers: mapped.correctAnswers,
+                    isOnline: old.isOnline,
+                    joinDate: api.joinDateFromServer ?? old.joinDate,
+                    playedToday: mapped.playedToday,
+                    birthday: mapped.birthday ?? old.birthday,
+                    achievements: mapped.achievements,
+                    worldRankFromServer: api.worldRank ?? old.worldRankFromServer
+                )
+                if friendDataChanged(old: old, new: updated) { changed = true }
+                merged.append(updated)
+            } else {
+                changed = true
+                merged.append(mapped)
+            }
+        }
+
+        if merged.count != userProfile.friends.count { changed = true }
+        guard changed else { return }
+        userProfile.friends = merged
+        userProfile.saveToStorage()
+    }
+
+    private func bestMatchingFriend(for api: FriendFromAPI, in oldFriends: [Friend], excluding used: Set<UUID>) -> Friend? {
+        let apiUsername = api.username.trimmingCharacters(in: .whitespacesAndNewlines)
+        let apiDisplay = (api.displayName ?? "").trimmingCharacters(in: .whitespacesAndNewlines)
+        let apiUsernameNorm = canonicalFriendIdentity(apiUsername)
+        let apiDisplayNorm = canonicalFriendIdentity(apiDisplay)
+
+        if let exact = oldFriends.first(where: { !used.contains($0.id) && $0.username.caseInsensitiveCompare(apiUsername) == .orderedSame }) {
+            return exact
+        }
+        if let byDisplay = oldFriends.first(where: {
+            !used.contains($0.id)
+            && !$0.displayNameOrUsername.isEmpty
+            && $0.displayNameOrUsername.caseInsensitiveCompare(apiDisplay) == .orderedSame
+        }) {
+            return byDisplay
+        }
+        if let byNormalized = oldFriends.first(where: {
+            !used.contains($0.id)
+            && (canonicalFriendIdentity($0.username) == apiUsernameNorm
+                || canonicalFriendIdentity($0.displayNameOrUsername) == apiUsernameNorm
+                || (!apiDisplayNorm.isEmpty
+                    && (canonicalFriendIdentity($0.username) == apiDisplayNorm
+                        || canonicalFriendIdentity($0.displayNameOrUsername) == apiDisplayNorm)))
+        }) {
+            return byNormalized
+        }
+        return nil
+    }
+
+    private func canonicalFriendIdentity(_ raw: String) -> String {
+        var s = raw.trimmingCharacters(in: .whitespacesAndNewlines).lowercased()
+        s = s.replacingOccurrences(of: "[-_ ]?\\d+$", with: "", options: .regularExpression)
+        s = s.replacingOccurrences(of: "[^a-zа-яёіїєґ0-9]", with: "", options: .regularExpression)
+        return s
+    }
+
+    private func friendDataChanged(old: Friend, new: Friend) -> Bool {
+        old.displayName != new.displayName
+        || old.avatar != new.avatar
+        || old.avatarPhotoBase64 != new.avatarPhotoBase64
+        || old.countryCode != new.countryCode
+        || old.level != new.level
+        || old.xp != new.xp
+        || old.streak != new.streak
+        || old.playedToday != new.playedToday
+        || old.birthday != new.birthday
+        || old.achievements != new.achievements
+        || old.totalGamesPlayed != new.totalGamesPlayed
+        || old.correctAnswers != new.correctAnswers
+        || old.joinDate != new.joinDate
+        || old.worldRankFromServer != new.worldRankFromServer
     }
 
     private func generateProfileURL() -> String {
@@ -1292,6 +1331,8 @@ struct StatisticRow: View {
     let icon: String
     /// Миниатюра из Assets (если задана — показывается вместо emoji)
     var iconImageName: String? = nil
+    /// SF Symbol (если задан — показывается вместо emoji)
+    var systemImageName: String? = nil
     let title: String
     let subtitle: String
     var isIPad: Bool = false
@@ -1306,6 +1347,10 @@ struct StatisticRow: View {
                     Image(name)
                         .resizable()
                         .scaledToFit()
+                        .frame(width: iconFrame, height: iconFrame)
+                } else if let sys = systemImageName {
+                    Image(systemName: sys)
+                        .font(.system(size: iconSize))
                         .frame(width: iconFrame, height: iconFrame)
                 } else {
                     Text(icon)
@@ -1355,8 +1400,21 @@ struct FriendStreakCard: View {
                     Circle()
                         .fill(Color.blue.opacity(0.1))
                         .frame(width: 50, height: 50)
+                    #if os(iOS)
+                    if let data = f.remotePhotoAvatarData, let image = UIImage(data: data) {
+                        Image(uiImage: image)
+                            .resizable()
+                            .scaledToFill()
+                            .frame(width: 50, height: 50)
+                            .clipShape(Circle())
+                    } else {
+                        Text(f.displayAvatar)
+                            .font(.system(size: 24))
+                    }
+                    #else
                     Text(f.displayAvatar)
                         .font(.system(size: 24))
+                    #endif
                 }
                 Text(f.displayNameOrUsername)
                     .font(.system(size: 12, weight: .medium))
@@ -1441,10 +1499,42 @@ struct MonthlyBadge: View {
     }
 }
 
+// Элемент списка: завершённая дуэль или ожидающая результата
+private enum DuelSummaryRow: Identifiable {
+    case completed(DuelHistoryEntry)
+    case pending(DuelChallenge)
+
+    var id: String {
+        switch self {
+        case .completed(let e): return "c-\(e.id)"
+        case .pending(let c): return "p-\(c.id)"
+        }
+    }
+
+    var sortDate: Date {
+        switch self {
+        case .completed(let e): return e.playedAt
+        case .pending(let c): return c.createdAt
+        }
+    }
+}
+
 struct DuelSummaryView: View {
     @EnvironmentObject var gameState: GameState
+    @EnvironmentObject var userProfile: UserProfile
     @ObservedObject private var localizationManager = LocalizationManager.shared
     @State private var filter: DuelHistoryFilter = .all
+    @State private var selectedOpponent: String? = nil
+    @State private var acceptingIncomingChallengeId: String? = nil
+    @State private var remindingChallengeId: String? = nil
+    @State private var showingOutOfLives = false
+    @State private var processedExpiredChallengeIds: Set<String> = []
+    private let duelSummaryAutoRefresh = Timer.publish(every: 8, on: .main, in: .common).autoconnect()
+    private struct PendingUserProfileLink: Identifiable {
+        let id = UUID()
+        let friendCode: String
+    }
+    @State private var pendingUserProfileLink: PendingUserProfileLink? = nil
     #if os(iOS)
     @State private var showShareSheet = false
     #endif
@@ -1456,11 +1546,77 @@ struct DuelSummaryView: View {
     }
 
     private var filteredHistory: [DuelHistoryEntry] {
+        let base: [DuelHistoryEntry]
         switch filter {
-        case .all: return gameState.duelHistory
-        case .wins: return gameState.duelHistory.filter(\.iWon)
-        case .losses: return gameState.duelHistory.filter { !$0.iWon }
+        case .all: base = dedupedCompletedHistory(gameState.duelHistory)
+        case .wins: base = dedupedCompletedHistory(gameState.duelHistory.filter(\.iWon))
+        case .losses: base = dedupedCompletedHistory(gameState.duelHistory.filter { !$0.iWon })
         }
+        guard let selected = selectedOpponent, !selected.isEmpty else { return base }
+        return base.filter { resolvedOpponentName(for: $0) == selected }
+    }
+
+    private var opponentFilterOptions: [String] {
+        var names = Set(dedupedCompletedHistory(gameState.duelHistory).map { resolvedOpponentName(for: $0) })
+        for challenge in userProfile.outgoingDuelChallenges where challenge.status == .pending || challenge.status == .challengerCompleted {
+            names.insert(challenge.opponentName)
+        }
+        for challenge in userProfile.incomingDuelChallenges where challenge.status == .pending || challenge.status == .challengerCompleted {
+            if !DuelInviteSuppression.isSuppressed(challenge.id) {
+                names.insert(challenge.challengerName)
+            }
+        }
+        return names.sorted()
+    }
+
+    /// Для таба «Усі»: завершённые + исходящие, где ждём результат (соперник ещё не сыграл)
+    private var allRows: [DuelSummaryRow] {
+        var rows: [DuelSummaryRow] = dedupedCompletedHistory(gameState.duelHistory).map { .completed($0) }
+        let now = Date()
+        let waiting = userProfile.outgoingDuelChallenges.filter { c in
+            if c.status == .pending { return true }
+            if c.status == .challengerCompleted {
+                return now.timeIntervalSince(c.createdAt) < Self.duelExpirySeconds
+            }
+            return false
+        }
+        rows.append(contentsOf: waiting.map { .pending($0) })
+
+        let incomingWaiting = userProfile.incomingDuelChallenges.filter { c in
+            (c.status == .pending || c.status == .opponentCompleted || c.status == .challengerCompleted)
+                && now.timeIntervalSince(c.createdAt) < Self.duelExpirySeconds
+                && !DuelInviteSuppression.isSuppressed(c.id)
+        }
+        rows.append(contentsOf: incomingWaiting.map { .pending($0) })
+
+        // Один duel challenge = одна карточка (без дублей по id).
+        var seenPending = Set<String>()
+        let deduped = rows.filter { row in
+            switch row {
+            case .completed:
+                return true
+            case .pending(let c):
+                if seenPending.contains(c.id) { return false }
+                seenPending.insert(c.id)
+                return true
+            }
+        }
+
+        let sorted = deduped.sorted { $0.sortDate > $1.sortDate }
+        guard let selected = selectedOpponent, !selected.isEmpty else { return sorted }
+        return sorted.filter { row in
+            switch row {
+            case .completed(let entry): return resolvedOpponentName(for: entry) == selected
+            case .pending(let challenge): return pendingOpponentDisplayName(challenge) == selected
+            }
+        }
+    }
+
+    private func pendingOpponentDisplayName(_ challenge: DuelChallenge) -> String {
+        if userProfile.incomingDuelChallenges.contains(where: { $0.id == challenge.id }) {
+            return challenge.challengerName
+        }
+        return challenge.opponentName
     }
 
     private var dateFormatter: DateFormatter {
@@ -1471,44 +1627,60 @@ struct DuelSummaryView: View {
         return formatter
     }
 
-    var body: some View {
-        VStack(spacing: 8) {
-            Picker("", selection: $filter) {
-                Text(localizationManager.localizedString("All")).tag(DuelHistoryFilter.all)
-                Text(localizationManager.localizedString("Wins")).tag(DuelHistoryFilter.wins)
-                Text(localizationManager.localizedString("Losses")).tag(DuelHistoryFilter.losses)
-            }
-            .pickerStyle(.segmented)
-            .padding(.horizontal)
+    private var shortDateFormatter: DateFormatter {
+        let formatter = DateFormatter()
+        formatter.locale = localizationManager.currentLocale
+        formatter.dateStyle = .short
+        formatter.timeStyle = .none
+        return formatter
+    }
 
-            List {
-                if filteredHistory.isEmpty {
-                    Text(localizationManager.localizedString("No duel history yet"))
-                        .foregroundColor(.secondary)
-                } else {
-                    ForEach(filteredHistory) { item in
-                        VStack(alignment: .leading, spacing: 6) {
-                            HStack {
-                                Text(item.iWon ? "✅ \(localizationManager.localizedString("Victory"))" : "⚔️ \(localizationManager.localizedString("Defeat"))")
-                                    .font(.system(size: 14, weight: .bold))
-                                    .foregroundColor(item.iWon ? .green : .orange)
-                                Spacer()
-                                Text(dateFormatter.string(from: item.playedAt))
-                                    .font(.caption)
-                                    .foregroundColor(.secondary)
-                            }
-                            Text("\(localizationManager.localizedString("Opponent")): \(item.opponentName)")
-                                .font(.system(size: 15, weight: .semibold))
-                            Text("\(localizationManager.localizedString("Score")): \(item.myScore) : \(item.opponentScore)")
-                                .font(.system(size: 14))
-                                .foregroundColor(.secondary)
-                        }
-                        .padding(.vertical, 4)
-                    }
+    var body: some View {
+        VStack(spacing: 0) {
+            // Табы с иконками
+            HStack(spacing: 12) {
+                ForEach([DuelHistoryFilter.all, .wins, .losses], id: \.rawValue) { tab in
+                    duelTabButton(tab: tab)
                 }
             }
+            .padding(.horizontal, 16)
+            .padding(.top, 12)
+            .padding(.bottom, 8)
+
+            duelOpponentFilterBar
+                .padding(.bottom, 6)
+
+            if filter == .all {
+                duelAllList
+            } else {
+                duelCompletedList
+            }
         }
+        .background(Color(UIColor.systemGroupedBackground))
         .navigationTitle(localizationManager.localizedString("Duel Summary"))
+        .onAppear {
+            _ = gameState.assignWinsForExpiredOutgoingDuels(profile: userProfile)
+            _ = gameState.assignWinsForExpiredIncomingDuels(profile: userProfile)
+            Task { await gameState.syncOutgoingDuelsWithServer(profile: userProfile) }
+            Task { await gameState.syncIncomingDuelsWithServer(profile: userProfile) }
+        }
+        .onChange(of: gameState.requestOutOfLivesAlert) { if $0 { gameState.requestOutOfLivesAlert = false; showingOutOfLives = true } }
+        .onReceive(duelSummaryAutoRefresh) { _ in
+            Task { await refreshDuelContent() }
+        }
+        .alert(LocalizationManager.shared.localizedString("Out of lives"), isPresented: $showingOutOfLives) {
+            Button(LocalizationManager.shared.localizedString("OK"), role: .cancel) { showingOutOfLives = false }
+            Button(LocalizationManager.shared.localizedString("Go Premium")) {
+                gameState.isPremium = true
+                showingOutOfLives = false
+            }
+        } message: {
+            Text(LocalizationManager.shared.localizedString("Unfortunately you ran out of lives this time. Try again or come back later."))
+        }
+        .sheetItemOrFullScreenOnIPad(item: $pendingUserProfileLink) { link in
+            ProfileByLinkView(friendCode: link.friendCode, gameState: gameState)
+                .environmentObject(userProfile)
+        }
         #if os(iOS)
         .toolbar {
             ToolbarItem(placement: .navigationBarTrailing) {
@@ -1518,10 +1690,516 @@ struct DuelSummaryView: View {
                 .disabled(filteredHistory.isEmpty)
             }
         }
-        .sheet(isPresented: $showShareSheet) {
+        .sheetOrFullScreenOnIPad(isPresented: $showShareSheet) {
             ShareSheet(activityItems: [makeShareText()])
         }
         #endif
+    }
+
+    private var duelOpponentFilterBar: some View {
+        ScrollView(.horizontal, showsIndicators: false) {
+            HStack(spacing: 8) {
+                Button(action: { selectedOpponent = nil }) {
+                    Text(localizationManager.localizedString("All"))
+                        .font(.system(size: 13, weight: .semibold))
+                        .foregroundColor(selectedOpponent == nil ? .white : .blue)
+                        .padding(.horizontal, 12)
+                        .padding(.vertical, 7)
+                        .background(Capsule().fill(selectedOpponent == nil ? Color.blue : Color.blue.opacity(0.14)))
+                }
+                .buttonStyle(.plain)
+
+                ForEach(opponentFilterOptionsOrdered, id: \.self) { opponent in
+                    Button(action: { selectedOpponent = opponent }) {
+                        Text(opponent)
+                            .font(.system(size: 13, weight: .semibold))
+                            .foregroundColor(selectedOpponent == opponent ? .white : .blue)
+                            .padding(.horizontal, 12)
+                            .padding(.vertical, 7)
+                            .background(Capsule().fill(selectedOpponent == opponent ? Color.blue : Color.blue.opacity(0.14)))
+                    }
+                    .buttonStyle(.plain)
+                }
+            }
+            .padding(.horizontal, 16)
+        }
+    }
+
+    private var opponentFilterOptionsOrdered: [String] {
+        guard let selected = selectedOpponent, !selected.isEmpty else { return opponentFilterOptions }
+        if opponentFilterOptions.contains(selected) {
+            return [selected] + opponentFilterOptions.filter { $0 != selected }
+        } else {
+            return [selected] + opponentFilterOptions
+        }
+    }
+
+    @ViewBuilder
+    private func duelTabButton(tab: DuelHistoryFilter) -> some View {
+        let isSelected = filter == tab
+        let (icon, label, color): (String, String, Color) = {
+            switch tab {
+            case .all:
+                return ("list.bullet.clipboard.fill", localizationManager.localizedString("All"), .blue)
+            case .wins:
+                return ("trophy.fill", localizationManager.localizedString("Wins"), .green)
+            case .losses:
+                return ("flame.fill", localizationManager.localizedString("Losses"), .orange)
+            }
+        }()
+        Button(action: { withAnimation(.easeInOut(duration: 0.2)) { filter = tab } }) {
+            HStack(spacing: 8) {
+                Image(systemName: icon)
+                    .font(.system(size: 16, weight: .semibold))
+                Text(label)
+                    .font(.system(size: 15, weight: .semibold))
+            }
+            .foregroundColor(isSelected ? .white : color)
+            .padding(.horizontal, 16)
+            .padding(.vertical, 10)
+            .background(
+                Capsule()
+                    .fill(isSelected ? color : color.opacity(0.12))
+            )
+        }
+        .buttonStyle(.plain)
+    }
+
+    private var duelAllList: some View {
+        ScrollView {
+            LazyVStack(spacing: 12) {
+                if allRows.isEmpty {
+                    Text(localizationManager.localizedString("No duel history yet"))
+                        .foregroundColor(.secondary)
+                        .padding(.top, 40)
+                } else {
+                    ForEach(allRows) { row in
+                        switch row {
+                        case .completed(let item):
+                            duelCompletedCard(entry: item)
+                        case .pending(let challenge):
+                            duelPendingCard(challenge: challenge)
+                        }
+                    }
+                }
+            }
+            .padding(.horizontal, 16)
+            .padding(.top, 16)
+            .padding(.bottom, 8)
+        }
+        .refreshable { await refreshDuelContent() }
+    }
+
+    private var duelCompletedList: some View {
+        ScrollView {
+            LazyVStack(spacing: 12) {
+                if filteredHistory.isEmpty {
+                    Text(localizationManager.localizedString("No duel history yet"))
+                        .foregroundColor(.secondary)
+                        .padding(.top, 40)
+                } else {
+                    ForEach(filteredHistory) { item in
+                        duelCompletedCard(entry: item)
+                    }
+                }
+            }
+            .padding(.horizontal, 16)
+            .padding(.top, 16)
+            .padding(.bottom, 8)
+        }
+        .refreshable { await refreshDuelContent() }
+    }
+
+    private func refreshDuelContent() async {
+        _ = gameState.assignWinsForExpiredOutgoingDuels(profile: userProfile)
+        _ = gameState.assignWinsForExpiredIncomingDuels(profile: userProfile)
+        await gameState.syncOutgoingDuelsWithServer(profile: userProfile)
+        await gameState.syncIncomingDuelsWithServer(profile: userProfile)
+    }
+
+    private func duelCompletedCard(entry: DuelHistoryEntry) -> some View {
+        HStack(spacing: 14) {
+            Image(systemName: entry.iWon ? "trophy.fill" : "flame.fill")
+                .font(.system(size: 24))
+                .foregroundStyle(
+                    LinearGradient(
+                        colors: entry.iWon ? [.yellow, .orange] : [.orange, .red.opacity(0.8)],
+                        startPoint: .topLeading,
+                        endPoint: .bottomTrailing
+                    )
+                )
+                .frame(width: 44, height: 44)
+                .background(
+                    RoundedRectangle(cornerRadius: 12)
+                        .fill(entry.iWon ? Color.green.opacity(0.15) : Color.orange.opacity(0.15))
+                )
+
+            VStack(alignment: .leading, spacing: 6) {
+                HStack {
+                    Text(entry.iWon ? localizationManager.localizedString("Victory") : localizationManager.localizedString("Defeat"))
+                        .font(.system(size: 15, weight: .bold))
+                        .foregroundColor(entry.iWon ? .green : .orange)
+                    Spacer()
+                    Text(dateFormatter.string(from: entry.playedAt))
+                        .font(.system(size: 12))
+                        .foregroundColor(.secondary)
+                }
+                Text(resolvedOpponentName(for: entry))
+                    .font(.system(size: 16, weight: .semibold))
+                    .foregroundColor(.primary)
+                Text("\(entry.myScore) : \(entry.opponentScore)")
+                    .font(.system(size: 14, weight: .medium))
+                    .foregroundColor(.secondary)
+                if entry.showsTieTimeBreakdown, let myT = entry.myTimeMs, let rT = entry.rivalTimeMs {
+                    DuelHistoryTieTimesLine(myTimeMs: myT, rivalTimeMs: rT, compact: true)
+                }
+            }
+            .padding(.vertical, 4)
+        }
+        .padding(14)
+        .background(
+            RoundedRectangle(cornerRadius: 16)
+                .fill(Color(UIColor.secondarySystemGroupedBackground))
+        )
+        .overlay(
+            RoundedRectangle(cornerRadius: 16)
+                .stroke(entry.iWon ? Color.green.opacity(0.3) : Color.orange.opacity(0.3), lineWidth: 1)
+        )
+        .contextMenu {
+            Button {
+                selectedOpponent = resolvedOpponentName(for: entry)
+                filter = .all
+            } label: {
+                Label(localizationManager.localizedString("Filter by name"), systemImage: "line.3.horizontal.decrease.circle")
+            }
+            Button {
+                openUserProfileByUsername(resolvedOpponentName(for: entry))
+            } label: {
+                Label(localizationManager.localizedString("Профиль пользователя"), systemImage: "person.crop.circle")
+            }
+        }
+        .onTapGesture {
+            selectedOpponent = resolvedOpponentName(for: entry)
+            filter = .all
+        }
+    }
+
+    private static let duelExpirySeconds: TimeInterval = 24 * 3600
+
+    private func duelPendingCard(challenge: DuelChallenge) -> some View {
+        let isIncoming = userProfile.incomingDuelChallenges.contains(where: { $0.id == challenge.id })
+        let displayOpponent = pendingOpponentDisplayName(challenge)
+        let yourScore = isIncoming ? (challenge.opponentScore ?? 0) : (challenge.challengerScore ?? 0)
+        
+        let scoreText: String = {
+            switch challenge.status {
+            case .challengerCompleted, .opponentCompleted:
+                return "\(yourScore) : —"
+            default:
+                return localizationManager.localizedString("Waiting for opponent")
+            }
+        }()
+        
+        let waitingForResult: Bool = {
+            switch challenge.status {
+            case .challengerCompleted, .opponentCompleted:
+                return true
+            default:
+                return false
+            }
+        }()
+        return TimelineView(.periodic(from: Date(), by: 60)) { context in
+            let now = context.date
+            let elapsed = now.timeIntervalSince(challenge.createdAt)
+            let remaining = max(0, Self.duelExpirySeconds - elapsed)
+            let isExpired = remaining <= 0
+            
+            let hours = Int(remaining) / 3600
+            let minutes = (Int(remaining) % 3600) / 60
+            let countdownText = remaining > 0
+                ? String(format: localizationManager.localizedString("Duel time left format"), hours, minutes)
+                : localizationManager.localizedString("Duel time expired")
+            HStack(spacing: 14) {
+                Image(systemName: "clock.badge.questionmark")
+                    .font(.system(size: 22))
+                    .foregroundColor(.blue)
+                    .frame(width: 44, height: 44)
+                    .background(
+                        RoundedRectangle(cornerRadius: 12)
+                            .fill(Color.blue.opacity(0.12))
+                    )
+                    .onTapGesture {
+                        selectedOpponent = displayOpponent
+                        filter = .all
+                    }
+
+                VStack(alignment: .leading, spacing: 6) {
+                    Text(waitingForResult
+                         ? localizationManager.localizedString("Waiting for result")
+                         : (isIncoming ? localizationManager.localizedString("Waiting for opponent") : localizationManager.localizedString("Waiting for result")))
+                        .font(.system(size: 13, weight: .bold))
+                        .foregroundColor(.blue)
+                    Text(displayOpponent)
+                        .font(.system(size: 16, weight: .semibold))
+                        .foregroundColor(.primary)
+                    Text(scoreText)
+                        .font(.system(size: 14))
+                        .foregroundColor(.secondary)
+                    Text(dateFormatter.string(from: challenge.createdAt))
+                        .font(.system(size: 12))
+                        .foregroundColor(Color(UIColor.tertiaryLabel))
+                    Text(countdownText)
+                        .font(.system(size: 12, weight: .semibold))
+                        .foregroundColor(remaining > 0 ? .blue : .orange)
+                }
+                .padding(.vertical, 4)
+                .onTapGesture {
+                    selectedOpponent = displayOpponent
+                    filter = .all
+                }
+                Spacer(minLength: 8)
+
+                if !isExpired {
+                    if isIncoming && (challenge.status == .pending || challenge.status == .challengerCompleted) {
+                        Button {
+                            Task { await acceptIncomingDuelFromSummary(challenge) }
+                        } label: {
+                            HStack(spacing: 8) {
+                                Text("⚔︎")
+                                    .font(.system(size: 14, weight: .bold))
+                                Text(localizationManager.localizedString("Start duel"))
+                                    .font(.system(size: 12, weight: .heavy, design: .rounded))
+                            }
+                            .foregroundColor(.white)
+                            .padding(.horizontal, 12)
+                            .padding(.vertical, 10)
+                            .background(
+                                Capsule()
+                                    .fill(LinearGradient(colors: [Color.green, Color.teal], startPoint: .leading, endPoint: .trailing))
+                            )
+                        }
+                        .buttonStyle(.plain)
+                        .disabled(acceptingIncomingChallengeId == challenge.id)
+                    } else {
+                        Button {
+                            Task { await remindOutgoingDuelFromSummary(challenge) }
+                        } label: {
+                            HStack(spacing: 8) {
+                                Image(systemName: "arrow.2.circlepath")
+                                    .font(.system(size: 14, weight: .semibold))
+                                Text(localizationManager.localizedString("Remind"))
+                                    .font(.system(size: 12, weight: .heavy, design: .rounded))
+                            }
+                            .foregroundColor(.white)
+                            .padding(.horizontal, 12)
+                            .padding(.vertical, 10)
+                            .background(
+                                Capsule()
+                                    .fill(Color.purple.opacity(0.35))
+                            )
+                        }
+                        .buttonStyle(.plain)
+                        .disabled(remindingChallengeId == challenge.id)
+                    }
+                }
+            }
+            .padding(14)
+            .background(
+                RoundedRectangle(cornerRadius: 16)
+                    .fill(Color(UIColor.secondarySystemGroupedBackground))
+            )
+            .overlay(
+                RoundedRectangle(cornerRadius: 16)
+                    .stroke(Color.blue.opacity(0.35), lineWidth: 1)
+            )
+            .onAppear {
+                // Когда истёк лимит сразу при рендере — обработаем один раз.
+                guard isExpired else { return }
+                guard !processedExpiredChallengeIds.contains(challenge.id) else { return }
+                processedExpiredChallengeIds.insert(challenge.id)
+                Task { @MainActor in
+                    _ = gameState.assignWinsForExpiredOutgoingDuels(profile: userProfile)
+                    _ = gameState.assignWinsForExpiredIncomingDuels(profile: userProfile)
+                }
+            }
+            .onChange(of: isExpired) { expired in
+                // Когда истёк лимит позже — обработаем в момент смены.
+                guard expired else { return }
+                guard !processedExpiredChallengeIds.contains(challenge.id) else { return }
+                processedExpiredChallengeIds.insert(challenge.id)
+                Task { @MainActor in
+                    _ = gameState.assignWinsForExpiredOutgoingDuels(profile: userProfile)
+                    _ = gameState.assignWinsForExpiredIncomingDuels(profile: userProfile)
+                }
+            }
+            .contextMenu {
+                Button {
+                    selectedOpponent = displayOpponent
+                    filter = .all
+                } label: {
+                    Label(localizationManager.localizedString("Filter by name"), systemImage: "line.3.horizontal.decrease.circle")
+                }
+                Button {
+                    openUserProfileFromChallenge(challenge, isIncoming: isIncoming, displayOpponent: displayOpponent)
+                } label: {
+                    Label(localizationManager.localizedString("Профиль пользователя"), systemImage: "person.crop.circle")
+                }
+            }
+        }
+    }
+
+    private func acceptIncomingDuelFromSummary(_ challenge: DuelChallenge) async {
+        guard acceptingIncomingChallengeId != challenge.id else { return }
+        acceptingIncomingChallengeId = challenge.id
+        defer { acceptingIncomingChallengeId = nil }
+
+        do {
+            let result = try await DuelAPIService.shared.acceptChallenge(
+                challengeId: challenge.id,
+                userId: userProfile.username
+            )
+            await MainActor.run {
+                gameState.selectedPlayMode = .duel
+                if let setup = result.duelSetup {
+                    gameState.applyDuelSetupFromServer(setup)
+                } else if
+                    let regions = challenge.duelRegions,
+                    let difficulty = challenge.duelDifficulty,
+                    let gameMode = challenge.duelGameMode {
+                    gameState.applyDuelSetupFromServer(
+                        .init(
+                            regions: regions,
+                            difficulty: difficulty,
+                            gameMode: gameMode,
+                            questionsCount: challenge.duelQuestionsCount ?? 0,
+                            optionsCount: challenge.duelOptionsCount ?? 0
+                        )
+                    )
+                }
+
+                gameState.duelSeed = result.seed
+                gameState.duelChallengeId = challenge.id
+                gameState.duelOpponentId = challenge.challengerId
+                gameState.duelRoleIsChallenger = false
+                gameState.duelChallengerName = result.challengerName
+                gameState.duelOpponentName = userProfile.username
+                // Не удаляем incoming-челлендж: он нужен для появления дуэли в «Сводке Дуэлей» (ожидание результата)
+                DuelInviteSuppression.clear(challenge.id)
+            }
+
+            await gameState.startNewGameWithCurrentRegions()
+        } catch {
+            print("[DuelSummary] accept incoming failed:", error, "challengeId=", challenge.id)
+        }
+    }
+
+    private func openUserProfileByUsername(_ username: String) {
+        let u = username.trimmingCharacters(in: .whitespacesAndNewlines)
+        guard !u.isEmpty else { return }
+        let normalized = canonicalFriendIdentity(u)
+        var candidates: [String] = [u]
+        if let friend = userProfile.friends.first(where: {
+            canonicalFriendIdentity($0.username) == normalized
+            || canonicalFriendIdentity($0.displayNameOrUsername) == normalized
+            || $0.displayNameOrUsername.caseInsensitiveCompare(u) == .orderedSame
+        }) {
+            candidates.append(friend.username)
+            candidates.append(friend.displayNameOrUsername)
+        }
+        candidates = Array(Set(candidates.map { $0.trimmingCharacters(in: .whitespacesAndNewlines) }.filter { !$0.isEmpty }))
+        Task {
+            for candidate in candidates {
+                do {
+                    if let apiUser = try await DuelAPIService.shared.fetchUserByUsername(candidate) {
+                        await MainActor.run {
+                            pendingUserProfileLink = PendingUserProfileLink(friendCode: apiUser.friendCode)
+                        }
+                        return
+                    }
+                } catch {
+                    continue
+                }
+            }
+            print("[DuelSummary] openUserProfileByUsername failed, candidates=", candidates)
+        }
+    }
+
+    private func openUserProfileFromChallenge(_ challenge: DuelChallenge, isIncoming: Bool, displayOpponent: String) {
+        let candidatesRaw: [String] = isIncoming
+            ? [challenge.challengerId, challenge.challengerName, displayOpponent]
+            : [challenge.opponentId, challenge.opponentName, displayOpponent]
+        let candidates = Array(Set(candidatesRaw
+            .map { $0.trimmingCharacters(in: .whitespacesAndNewlines) }
+            .filter { !$0.isEmpty }))
+
+        guard !candidates.isEmpty else { return }
+        Task {
+            for candidate in candidates {
+                do {
+                    if let apiUser = try await DuelAPIService.shared.fetchUserByUsername(candidate) {
+                        await MainActor.run {
+                            pendingUserProfileLink = PendingUserProfileLink(friendCode: apiUser.friendCode)
+                        }
+                        return
+                    }
+                } catch {
+                    continue
+                }
+            }
+            print("[DuelSummary] openUserProfileFromChallenge failed, challengeId=", challenge.id, "candidates=", candidates)
+        }
+    }
+
+    private func dedupedCompletedHistory(_ history: [DuelHistoryEntry]) -> [DuelHistoryEntry] {
+        var byChallenge = Set<String>()
+        var byComposite = Set<String>()
+        var result: [DuelHistoryEntry] = []
+        for item in history.sorted(by: { $0.playedAt > $1.playedAt }) {
+            if let cid = item.duelChallengeId, !cid.isEmpty {
+                if byChallenge.contains(cid) { continue }
+                byChallenge.insert(cid)
+                result.append(item)
+                continue
+            }
+            let minuteBucket = Int(item.playedAt.timeIntervalSince1970 / 60.0)
+            let key = "\(canonicalFriendIdentity(item.opponentName))|\(item.myScore)|\(item.opponentScore)|\(item.iWon ? 1 : 0)|\(minuteBucket)"
+            if byComposite.contains(key) { continue }
+            byComposite.insert(key)
+            result.append(item)
+        }
+        return result
+    }
+
+    private func resolvedOpponentName(for entry: DuelHistoryEntry) -> String {
+        let raw = entry.opponentName.trimmingCharacters(in: .whitespacesAndNewlines)
+        let normalized = canonicalFriendIdentity(raw)
+        if let friend = userProfile.friends.first(where: {
+            canonicalFriendIdentity($0.username) == normalized
+            || canonicalFriendIdentity($0.displayNameOrUsername) == normalized
+            || $0.displayNameOrUsername.caseInsensitiveCompare(raw) == .orderedSame
+        }) {
+            return friend.displayNameOrUsername
+        }
+        return raw
+    }
+
+    private func canonicalFriendIdentity(_ raw: String) -> String {
+        var s = raw.trimmingCharacters(in: .whitespacesAndNewlines).lowercased()
+        s = s.replacingOccurrences(of: "[-_ ]?\\d+$", with: "", options: .regularExpression)
+        s = s.replacingOccurrences(of: "[^a-zа-яёіїєґ0-9]", with: "", options: .regularExpression)
+        return s
+    }
+
+    private func remindOutgoingDuelFromSummary(_ challenge: DuelChallenge) async {
+        guard remindingChallengeId == nil else { return }
+        remindingChallengeId = challenge.id
+        defer { remindingChallengeId = nil }
+
+        do {
+            _ = try await DuelAPIService.shared.remindChallenge(challengeId: challenge.id, userId: userProfile.username)
+        } catch {
+            print("[DuelSummary] remind outgoing failed:", error, "challengeId=", challenge.id)
+        }
     }
 
     private func makeShareText() -> String {
@@ -1579,25 +2257,12 @@ private struct ProfileHideScrollContentBackgroundModifier: ViewModifier {
     }
 }
 
-// Computed property to get flag for selected language
+// Мини-флаг выбранной пользователем страны (Your country)
 @MainActor
-private var flagForSelectedLanguage: String {
-    let languageCode = LocalizationManager.shared.currentLocale.languageCode ?? "en"
-    switch languageCode {
-    case "ru": return "🇷🇺"
-    case "en": return "🇺🇸"
-    case "es": return "🇪🇸"
-    case "uk": return "🇺🇦"
-    case "ca": return "🇪🇸" // Catalan uses Spanish flag
-    case "zh": return "🇨🇳"
-    case "de": return "🇩🇪"
-    case "fr": return "🇫🇷"
-    case "it": return "🇮🇹"
-    case "pt": return "🇧🇷"
-    case "pl": return "🇵🇱"
-    case "nl": return "🇳🇱"
-    default: return "🇺🇸"
-    }
+private var flagForSelectedCountry: String {
+    guard let code = UserProfile.shared.selectedCountryCode?.trimmingCharacters(in: .whitespacesAndNewlines),
+          !code.isEmpty else { return "🏳️" }
+    return FriendsService.countryCodeToFlagEmoji(code)
 }
 
 #Preview {

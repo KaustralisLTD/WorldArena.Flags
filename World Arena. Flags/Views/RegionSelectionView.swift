@@ -23,6 +23,10 @@ struct RegionSelectionView: View {
             regions.append(.myMistakes)
         } else {
             print("No mistakes found")
+            // Раздел «Мои ошибки» исчез — снимаем его с выбора и ставим «Все регионы»
+            if gameState.selectedRegions.contains(.myMistakes) {
+                gameState.selectedRegions = [.all]
+            }
         }
         
         print("Final regions: \(regions.map { $0.rawValue })")

@@ -1,5 +1,21 @@
 import SwiftUI
 import AuthenticationServices
+#if os(iOS)
+import UIKit
+#endif
+#if canImport(GoogleSignIn)
+import GoogleSignIn
+#endif
+
+private struct AuthScrollDismissKeyboardModifier: ViewModifier {
+    func body(content: Content) -> some View {
+        if #available(iOS 16.0, *) {
+            content.scrollDismissesKeyboard(.interactively)
+        } else {
+            content
+        }
+    }
+}
 
 struct AuthGatewayView: View {
     enum Mode: String, CaseIterable {
@@ -20,10 +36,68 @@ struct AuthGatewayView: View {
     @State private var googleEmail = ""
     @State private var showGooglePrompt = false
     @State private var passwordVisible = false
+    @State private var isGoogleSigningIn = false
+    @Environment(\.colorScheme) private var colorScheme
 
-    var body: some View {
-        NavigationView {
-            ZStack {
+    private var fieldBackground: Color {
+        #if os(iOS)
+        return Color(UIColor.tertiarySystemFill)
+        #else
+        return Color(NSColor.controlBackgroundColor)
+        #endif
+    }
+
+    private func modeTitle(_ m: Mode) -> String {
+        switch m {
+        case .login: return localizationManager.localizedString("Login")
+        case .register: return localizationManager.localizedString("Register")
+        }
+    }
+
+    @ViewBuilder
+    private func modeChoiceButton(_ m: Mode) -> some View {
+        let selected = mode == m
+        Button {
+            withAnimation(.spring(response: 0.38, dampingFraction: 0.78)) {
+                mode = m
+            }
+        } label: {
+            Text(modeTitle(m))
+                .font(.system(size: 19, weight: .semibold, design: .rounded))
+                .tracking(0.2)
+                .frame(maxWidth: .infinity)
+                .frame(minHeight: 56)
+                .foregroundStyle(selected ? Color.white : Color.primary)
+                .background {
+                    if selected {
+                        RoundedRectangle(cornerRadius: 16, style: .continuous)
+                            .fill(
+                                LinearGradient(
+                                    colors: [Color(red: 0.22, green: 0.45, blue: 0.95), Color(red: 0.45, green: 0.28, blue: 0.92)],
+                                    startPoint: .topLeading,
+                                    endPoint: .bottomTrailing
+                                )
+                            )
+                            .shadow(color: Color.blue.opacity(0.35), radius: 8, x: 0, y: 4)
+                    } else {
+                        RoundedRectangle(cornerRadius: 16, style: .continuous)
+                            .fill(fieldBackground.opacity(colorScheme == .dark ? 0.55 : 0.9))
+                    }
+                }
+                .overlay(
+                    RoundedRectangle(cornerRadius: 16, style: .continuous)
+                        .stroke(
+                            selected ? Color.white.opacity(0.25) : Color.primary.opacity(0.06),
+                            lineWidth: 1
+                        )
+                )
+        }
+        .buttonStyle(.plain)
+        .accessibilityAddTraits(selected ? [.isSelected] : [])
+    }
+
+    private var authGatewayRoot: some View {
+        ZStack {
                 LinearGradient(
                     colors: [Color.blue.opacity(0.25), Color.purple.opacity(0.20), Color.cyan.opacity(0.18)],
                     startPoint: .topLeading,
@@ -32,12 +106,13 @@ struct AuthGatewayView: View {
                 .ignoresSafeArea()
 
                 ScrollView {
-                    VStack(spacing: 16) {
+                    VStack(spacing: 20) {
                         VStack(spacing: 8) {
-                            Text("⚡️")
+                            Image(systemName: "bolt.fill")
                                 .font(.system(size: 48))
                             Text(localizationManager.localizedString("Account login title"))
                                 .font(.system(size: 28, weight: .bold, design: .rounded))
+                                .foregroundColor(.primary)
                             Text(localizationManager.localizedString("Account login subtitle"))
                                 .font(.system(size: 14, weight: .medium))
                                 .foregroundColor(.secondary)
@@ -45,11 +120,20 @@ struct AuthGatewayView: View {
                         }
                         .padding(.top, 12)
 
-                        Picker("", selection: $mode) {
-                            Text(localizationManager.localizedString("Login")).tag(Mode.login)
-                            Text(localizationManager.localizedString("Register")).tag(Mode.register)
+                        HStack(spacing: 10) {
+                            modeChoiceButton(.login)
+                            modeChoiceButton(.register)
                         }
-                        .pickerStyle(.segmented)
+                        .padding(6)
+                        .background(
+                            RoundedRectangle(cornerRadius: 20, style: .continuous)
+                                .fill(.ultraThinMaterial)
+                        )
+                        .overlay(
+                            RoundedRectangle(cornerRadius: 20, style: .continuous)
+                                .stroke(Color.primary.opacity(colorScheme == .dark ? 0.12 : 0.08), lineWidth: 1)
+                        )
+                        .shadow(color: Color.black.opacity(colorScheme == .dark ? 0.35 : 0.08), radius: 12, x: 0, y: 4)
                         .padding(.horizontal, 12)
 
                         VStack(spacing: 10) {
@@ -57,8 +141,9 @@ struct AuthGatewayView: View {
                                 TextField(localizationManager.localizedString("Username"), text: $username)
                                     .textInputAutocapitalization(.never)
                                     .disableAutocorrection(true)
+                                    .foregroundColor(.primary)
                                     .padding(12)
-                                    .background(Color.white.opacity(0.85))
+                                    .background(fieldBackground)
                                     .cornerRadius(12)
                             }
 
@@ -67,8 +152,9 @@ struct AuthGatewayView: View {
                                 .textInputAutocapitalization(.never)
                                 .disableAutocorrection(true)
                                 .textContentType(mode == .login ? .username : .emailAddress)
+                                .foregroundColor(.primary)
                                 .padding(12)
-                                .background(Color.white.opacity(0.85))
+                                .background(fieldBackground)
                                 .cornerRadius(12)
 
                             HStack {
@@ -83,6 +169,7 @@ struct AuthGatewayView: View {
                                     }
                                 }
                                 .textContentType(mode == .login ? .password : .newPassword)
+                                .foregroundColor(.primary)
                                 .padding(12)
                                 Button {
                                     passwordVisible.toggle()
@@ -93,7 +180,7 @@ struct AuthGatewayView: View {
                                 }
                                 .padding(.trailing, 8)
                             }
-                            .background(Color.white.opacity(0.85))
+                            .background(fieldBackground)
                             .cornerRadius(12)
                         }
                         .padding(12)
@@ -111,28 +198,36 @@ struct AuthGatewayView: View {
                         Button {
                             Task { await submitEmailAuth() }
                         } label: {
-                            HStack {
+                            HStack(spacing: 10) {
                                 if loading {
                                     ProgressView().tint(.white)
                                 }
                                 Text(mode == .login
                                      ? localizationManager.localizedString("Login")
                                      : localizationManager.localizedString("Create account"))
-                                    .fontWeight(.bold)
+                                    .font(.system(size: 18, weight: .bold))
                             }
                             .frame(maxWidth: .infinity)
-                            .padding(.vertical, 14)
+                            .frame(height: 56)
                             .foregroundColor(.white)
-                            .background(LinearGradient(colors: [.blue, .purple], startPoint: .leading, endPoint: .trailing))
-                            .cornerRadius(14)
+                            .background(
+                                LinearGradient(colors: [.blue, .purple], startPoint: .leading, endPoint: .trailing)
+                            )
+                            .cornerRadius(16)
+                            .overlay(
+                                RoundedRectangle(cornerRadius: 16)
+                                    .stroke(Color.white.opacity(0.3), lineWidth: 1)
+                            )
                         }
                         .disabled(loading)
+                        .buttonStyle(.plain)
 
                         if mode == .login {
                             Button(localizationManager.localizedString("Forgot password?")) {
                                 showReset = true
                             }
                             .font(.subheadline)
+                            .foregroundColor(.secondary)
                         }
 
                         Divider().padding(.vertical, 6)
@@ -142,24 +237,26 @@ struct AuthGatewayView: View {
                         } onCompletion: { result in
                             Task { await handleAppleLogin(result) }
                         }
-                        .signInWithAppleButtonStyle(.black)
-                        .frame(height: 50)
-                        .cornerRadius(10)
+                        .signInWithAppleButtonStyle(colorScheme == .dark ? .white : .black)
+                        .frame(height: 54)
+                        .cornerRadius(14)
 
                         Button {
-                            showGooglePrompt = true
+                            Task { await startGoogleSignInFlow() }
                         } label: {
                             HStack(spacing: 10) {
                                 Text("G")
                                     .font(.system(size: 20, weight: .bold))
                                 Text(localizationManager.localizedString("Continue with Google"))
-                                    .font(.system(size: 16, weight: .semibold))
+                                    .font(.system(size: 17, weight: .semibold))
                             }
+                            .foregroundColor(.primary)
                             .frame(maxWidth: .infinity)
-                            .padding(.vertical, 12)
-                            .background(Color.white.opacity(0.92))
-                            .cornerRadius(12)
+                            .frame(height: 54)
+                            .background(fieldBackground)
+                            .cornerRadius(14)
                         }
+                        .disabled(isGoogleSigningIn || loading)
 
                         if auth.biometricEnabled || auth.hasBiometricRestoreAvailable {
                             Button {
@@ -171,17 +268,19 @@ struct AuthGatewayView: View {
                                 HStack(spacing: 10) {
                                     Image(systemName: "faceid")
                                     Text(localizationManager.localizedString("Login with biometrics"))
-                                        .font(.system(size: 15, weight: .semibold))
+                                        .font(.system(size: 16, weight: .semibold))
                                 }
+                                .foregroundColor(.primary)
                                 .frame(maxWidth: .infinity)
-                                .padding(.vertical, 10)
-                                .background(Color.white.opacity(0.8))
-                                .cornerRadius(12)
+                                .frame(height: 50)
+                                .background(fieldBackground)
+                                .cornerRadius(14)
                             }
                         }
                     }
                     .padding(16)
                 }
+                .modifier(AuthScrollDismissKeyboardModifier())
             }
             .navigationBarTitleDisplayMode(.inline)
             .toolbar {
@@ -200,6 +299,19 @@ struct AuthGatewayView: View {
                 Button(localizationManager.localizedString("Cancel"), role: .cancel) { }
             } message: {
                 Text(localizationManager.localizedString("Enter Google email"))
+            }
+    }
+
+    var body: some View {
+        Group {
+            if #available(iOS 16.0, *) {
+                NavigationStack {
+                    authGatewayRoot
+                }
+            } else {
+                NavigationView {
+                    authGatewayRoot
+                }
             }
         }
     }
@@ -227,6 +339,10 @@ struct AuthGatewayView: View {
             print("[Auth] Apple Sign In failed: \(error.localizedDescription)")
             if let authError = error as? ASAuthorizationError {
                 print("[Auth] Apple ASAuthorizationError code: \(authError.code.rawValue)")
+                if authError.code.rawValue == 1000 {
+                    errorText = localizationManager.localizedString("Sign in with Apple error 1000")
+                    return
+                }
             }
             errorText = error.localizedDescription
         case .success(let authResult):
@@ -264,6 +380,49 @@ struct AuthGatewayView: View {
             errorText = error.localizedDescription
         }
     }
+
+    @MainActor
+    private func startGoogleSignInFlow() async {
+        #if canImport(GoogleSignIn) && os(iOS)
+        guard !isGoogleSigningIn else { return }
+        isGoogleSigningIn = true
+        defer { isGoogleSigningIn = false }
+
+        func topMostViewController() -> UIViewController? {
+            let scenes = UIApplication.shared.connectedScenes
+                .compactMap { $0 as? UIWindowScene }
+                .filter { $0.activationState == .foregroundActive }
+            let window = scenes
+                .flatMap(\.windows)
+                .first(where: { $0.isKeyWindow }) ?? scenes.flatMap(\.windows).first
+            var top = window?.rootViewController
+            while let presented = top?.presentedViewController {
+                top = presented
+            }
+            return top
+        }
+
+        guard let presentingVC = topMostViewController() else {
+            showGooglePrompt = true
+            return
+        }
+
+        do {
+            let result = try await GIDSignIn.sharedInstance.signIn(withPresenting: presentingVC)
+            let user = result.user
+            let providerUserId = user.userID ?? user.profile?.email.lowercased() ?? UUID().uuidString
+            let email = user.profile?.email
+            let name = user.profile?.name
+            try await auth.loginWithSocial(provider: "google", providerUserId: providerUserId, email: email, displayName: name)
+            dismiss()
+        } catch {
+            errorText = error.localizedDescription
+        }
+        #else
+        // fallback, если SDK GoogleSignIn не подключён в проекте
+        showGooglePrompt = true
+        #endif
+    }
 }
 
 struct ChangePasswordView: View {
@@ -285,17 +444,20 @@ struct ChangePasswordView: View {
                 passwordRow(
                     label: localizationManager.localizedString("Current password"),
                     text: $currentPassword,
-                    visible: $currentPasswordVisible
+                    visible: $currentPasswordVisible,
+                    contentType: .password
                 )
                 passwordRow(
                     label: localizationManager.localizedString("New password"),
                     text: $newPassword,
-                    visible: $newPasswordVisible
+                    visible: $newPasswordVisible,
+                    contentType: .newPassword
                 )
                 passwordRow(
                     label: localizationManager.localizedString("Repeat new password"),
                     text: $repeatPassword,
-                    visible: $repeatPasswordVisible
+                    visible: $repeatPasswordVisible,
+                    contentType: .newPassword
                 )
 
                 if let errorText {
@@ -329,7 +491,7 @@ struct ChangePasswordView: View {
     }
 
     @ViewBuilder
-    private func passwordRow(label: String, text: Binding<String>, visible: Binding<Bool>) -> some View {
+    private func passwordRow(label: String, text: Binding<String>, visible: Binding<Bool>, contentType: UITextContentType = .password) -> some View {
         HStack {
             Group {
                 if visible.wrappedValue {
@@ -341,6 +503,7 @@ struct ChangePasswordView: View {
                         .textInputAutocapitalization(.never)
                 }
             }
+            .textContentType(contentType)
             Button {
                 visible.wrappedValue = !visible.wrappedValue
             } label: {
@@ -384,6 +547,7 @@ struct ResetPasswordView: View {
                                     .textInputAutocapitalization(.never)
                             }
                         }
+                        .textContentType(.newPassword)
                         Button {
                             newPasswordVisible.toggle()
                         } label: {

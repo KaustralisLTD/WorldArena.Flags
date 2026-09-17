@@ -42,13 +42,15 @@ struct CountryDatabase {
     
     // MARK: - Helper Functions
     static func getCountryData(for code: String) -> LocalizedCountryData? {
-        return allCountries.first { $0.ru.code == code }
+        let normalized = code.trimmingCharacters(in: .whitespaces).uppercased()
+        return allCountries.first { $0.en.code.uppercased() == normalized }
     }
     
     static func getLocalizedCountryData(for code: String, language: String) -> CountryData? {
         guard let localizedData = getCountryData(for: code) else { return nil }
         
-        switch language {
+        let lang = language.lowercased()
+        switch lang {
         case "ru":
             return localizedData.ru
         case "en":
@@ -59,12 +61,53 @@ struct CountryDatabase {
             return localizedData.uk
         case "ca":
             return localizedData.ca
-        case "zh":
+        case let l where l.hasPrefix("zh"):
             return localizedData.zh
         default:
-            // Для новых языков, которые еще не добавлены в БД стран, используем английский.
             return localizedData.en
         }
+    }
+    
+    /// Единая точка: название страны по коду и языку. Для de, fr, it, pl, nl, pt — из встроенных словарей, иначе из БД.
+    static func getLocalizedCountryName(for code: String, language: String, fallback: String) -> String {
+        let normalized = code.trimmingCharacters(in: .whitespaces).uppercased()
+        let lang = twoLetterKeyForExtraLocales(language)
+        if ["de", "fr", "it", "pl", "nl", "pt"].contains(lang),
+           let name = CountryNameLocalization.countryName(for: normalized, language: language) {
+            return name
+        }
+        if let data = getLocalizedCountryData(for: normalized, language: language) {
+            return data.name
+        }
+        if let name = CountryNameLocalization.countryName(for: normalized, language: language) {
+            return name
+        }
+        return fallback
+    }
+    
+    /// Единая точка: столица по коду и языку.
+    static func getLocalizedCapitalName(for code: String, language: String, fallback: String) -> String {
+        let normalized = code.trimmingCharacters(in: .whitespaces).uppercased()
+        let lang = twoLetterKeyForExtraLocales(language)
+        if ["de", "fr", "it", "pl", "nl", "pt"].contains(lang),
+           let capital = CountryNameLocalization.capitalName(for: normalized, language: language) {
+            return capital
+        }
+        if let data = getLocalizedCountryData(for: normalized, language: language) {
+            return data.capital
+        }
+        if let capital = CountryNameLocalization.capitalName(for: normalized, language: language) {
+            return capital
+        }
+        return fallback
+    }
+
+    /// Для словарей de/fr/it/pl/nl/pt: двухбуквенный ключ; `fil` не сводим к `fi` (финский).
+    private static func twoLetterKeyForExtraLocales(_ language: String) -> String {
+        let l = language.lowercased()
+        if l.hasPrefix("pt") { return "pt" }
+        if l == "fil" || l.hasPrefix("fil-") { return "en" }
+        return String(l.prefix(2))
     }
 }
 

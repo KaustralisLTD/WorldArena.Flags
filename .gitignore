@@ -1,3 +1,61 @@
 # Секреты сервера (Mailgun и др.)
 Server/.env
+Server/.env.*
+Server/*.env
+Server/*.pem
+Server/*.p8
+Server/*.p12
+Server/*credentials*.json
 Server/Server/
+
+# Firebase / Google (не коммитить ключи)
+World Arena. Flags/GoogleService-Info.plist
+**/GoogleService-Info.plist
+**/GoogleService-Info-*.plist
+**/GoogleService-Info (*).plist
+
+# CocoaPods / Ruby tooling (локально)
+Pods/
+.bundle/
+vendor/
+
+# Локальные артефакты сборки и кэши
+artifacts/
+temporary_examples/
+.derivedData/
+**/__pycache__/
+**/.translate_cache_*.json
+**/*.l10n-*.log
+
+# Apple APNs — ключ Auth Key (.p8), не коммитить (имя: AuthKey_<KeyID>.p8)
+**/AuthKey_*.p8
+
+# Общие секреты / ключи
+*.key
+*.mobileprovision
+*.cer
+*.crt
+*.jks
+*.keystore
+*secret*
+*apikey*
+*api_key*
+*token*
+
+# Аудио (гимны) — не хранить в git
+World Arena. Flags/Resources/Audio/**
+*.m4a
+*.mp3
+*.wav
+*.ogg
+*.oga
+*.aac
+*.flac
+*.caf
+
+# fastlane artifacts
+fastlane/report.xml
+fastlane/Preview.html
+fastlane/screenshots/**/*.png
+fastlane/test_output
+.derivedData/
