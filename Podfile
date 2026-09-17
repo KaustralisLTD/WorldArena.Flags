@@ -1,3 +1,5 @@
+
+# DEPRECATED: project uses Swift Package Manager. Keep for reference only.
 # Uncomment the next line to define a global platform for your project
 platform :ios, '15.0'
 
