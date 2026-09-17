@@ -41,6 +41,9 @@
 /* Begin PBXFileSystemSynchronizedRootGroup section */
 		3A73792C2D6F36E70075C1D9 /* World Arena. Flags */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
+			exceptions = (
+				A40000000000000000000001 /* Exceptions for "World Arena. Flags" folder in "World Arena. Flags" target */,
+			);
 			path = "World Arena. Flags";
 			sourceTree = "<group>";
 		};
@@ -53,6 +56,14 @@
 			isa = PBXFileSystemSynchronizedRootGroup;
 			path = Flags.WorldUITests;
 			sourceTree = "<group>";
+		};
+		A40000000000000000000001 /* Exceptions for "World Arena. Flags" folder in "World Arena. Flags" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				"Docs/AuthKey_BQM7UG6U9D.p8",
+				"Docs/AuthKey_KKAL3J897X.p8",
+			);
+			target = 3A7379292D6F36E70075C1D9 /* World Arena. Flags */;
 		};
 /* End PBXFileSystemSynchronizedRootGroup section */
 
