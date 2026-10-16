@@ -68,3 +68,15 @@ test('digest sends only a new milestone, obeys weekly cooldown and never invents
   db.prepare('UPDATE progress_mail SET games=50,enabled=0,last_sent=0,retry_after=0').run();await tick();assert.equal(sent.length,2,'opt-out is respected');
  } finally {db.close();for(const key of ['PROGRESS_EMAILS_ENABLED','MAILGUN_API_KEY','MAILGUN_DOMAIN']) {if(old[key]===undefined)delete process.env[key];else process.env[key]=old[key];}}
 });
+
+test('APNs setter-only alert preserves inbox and badge without reading a missing getter',()=>{
+ const db=new Database(':memory:');try{
+ db.exec("CREATE TABLE users(username TEXT PRIMARY KEY,device_token TEXT);INSERT INTO users VALUES('alice','device');");
+ const n={aps:{},payload:{type:'duel_challenge',challengeId:'real-apn'}};
+ Object.defineProperty(n,'alert',{set(value){this.aps.alert=value}});
+ const alert={title:'Duel',body:'A friend challenged you'};n.alert=alert;
+ assert.equal(n.alert,undefined);
+ require('../notification-inbox').record(db,'device',n,alert);
+ assert.equal(n.badge,1);assert.equal(db.prepare('SELECT title FROM notification_inbox').get().title,'Duel');
+ }finally{db.close()}
+});

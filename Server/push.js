@@ -59,6 +59,15 @@ function getProvider() {
  * @param {string} bodyText - текст фразы (для push)
  * @param {function(Error?)} callback
  */
+function recordInbox(deviceToken, notification, alert) {
+  try {
+    require('./notification-inbox').record(require('./db').db, deviceToken, notification, alert);
+  } catch (error) {
+    // A secondary inbox failure must never turn a saved duel into HTTP 500.
+    console.error('[push] inbox persistence failed', { code: error.code || error.name });
+  }
+}
+
 function sendNudgePush(deviceToken, fromUsername, bodyText, callback) {
   if (!deviceToken || typeof callback !== 'function') {
     if (callback) callback();
@@ -71,14 +80,15 @@ function sendNudgePush(deviceToken, fromUsername, bodyText, callback) {
     return;
   }
   const notification = new apnModule.Notification();
-  notification.alert = { title: `${fromUsername} reminds you`, body: bodyText };
+  const alert = { title: `${fromUsername} reminds you`, body: bodyText };
+  notification.alert = alert;
   notification.sound = 'default';
   notification.pushType = 'alert';
   notification.priority = 10;
   notification.topic = process.env.APNS_BUNDLE_ID || 'com.worldarena.flags';
   notification.payload = { type: 'nudge', fromUsername };
   // Persist the actual message and use its unread count, never a fixed badge.
-  require('./notification-inbox').record(require('./db').db, deviceToken, notification);
+  recordInbox(deviceToken, notification, alert);
   provider.send(notification, deviceToken).then((result) => {
     if (result.failed.length) {
       const err = result.failed[0].response?.reason || result.failed[0].status;
@@ -103,10 +113,11 @@ function sendDuelChallengePush(deviceToken, challengerName, callback, challengeI
     return;
   }
   const notification = new apnModule.Notification();
-  notification.alert = {
+  const alert = {
     title: 'Duel',
     body: `${challengerName} challenged you to a duel`
   };
+  notification.alert = alert;
   notification.sound = 'default';
   notification.pushType = 'alert';
   notification.priority = 10;
@@ -115,7 +126,7 @@ function sendDuelChallengePush(deviceToken, challengerName, callback, challengeI
   if (challengeId) notification.collapseId = `invite-${challengeId}`;
   const tokenHint = deviceToken.length > 14 ? `${deviceToken.slice(0, 14)}…` : deviceToken;
   // Persist the actual message and use its unread count, never a fixed badge.
-  require('./notification-inbox').record(require('./db').db, deviceToken, notification);
+  recordInbox(deviceToken, notification, alert);
   provider.send(notification, deviceToken).then((result) => {
     if (result.failed.length) {
       const f = result.failed[0];
@@ -140,10 +151,11 @@ function sendDuelResultPush(deviceToken, match, callback) {
   const provider = getProvider();
   if (!provider || !apnModule) return callback(new Error('APNs provider is not configured'));
   const notification = new apnModule.Notification();
-  notification.alert = {
+  const alert = {
     title: match.iWon ? 'Duel victory!' : 'Duel result',
     body: `${match.iWon ? 'You won' : 'You lost'} against ${match.opponentName}. Your score: ${match.myScore}; opponent: ${match.opponentScore}.`
   };
+  notification.alert = alert;
   notification.sound = 'default';
   notification.pushType = 'alert';
   notification.priority = 10;
@@ -151,7 +163,7 @@ function sendDuelResultPush(deviceToken, match, callback) {
   notification.collapseId = `result-${match.challengeId}`;
   notification.payload = { type: 'duel_result', challengeId: match.challengeId };
   // Persist the actual message and use its unread count, never a fixed badge.
-  require('./notification-inbox').record(require('./db').db, deviceToken, notification);
+  recordInbox(deviceToken, notification, alert);
   provider.send(notification, deviceToken).then(result => {
     const failed = result.failed[0];
     callback(failed ? new Error(String(failed.response?.reason || failed.status || 'Push failed')) : null);
@@ -162,14 +174,15 @@ function sendFriendRequestPush(deviceToken, senderName, callback) {
   const provider = getProvider();
   if (!provider || !apnModule) return callback(new Error('APNs provider is not configured'));
   const notification = new apnModule.Notification();
-  notification.alert = { title: 'World Arena', body: `${senderName} added you as a friend. Open the app to add them back or decline.` };
+  const alert = { title: 'World Arena', body: `${senderName} added you as a friend. Open the app to add them back or decline.` };
+  notification.alert = alert;
   notification.sound = 'default';
   notification.pushType = 'alert';
   notification.priority = 10;
   notification.topic = process.env.APNS_BUNDLE_ID || 'com.worldarena.flags';
   notification.payload = { type: 'friend_request' };
   // Persist the actual message and use its unread count, never a fixed badge.
-  require('./notification-inbox').record(require('./db').db, deviceToken, notification);
+  recordInbox(deviceToken, notification, alert);
   provider.send(notification, deviceToken).then(result => {
     const failed = result.failed[0];
     callback(failed ? new Error(String(failed.response?.reason || failed.status || 'Push failed')) : null);
