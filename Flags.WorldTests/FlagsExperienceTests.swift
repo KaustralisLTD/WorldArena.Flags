@@ -104,4 +104,12 @@ final class FlagsExperienceTests: XCTestCase {
         }
     }
 
+    func testIconDefaultsFollowAppLanguageWithEnglishFallback() {
+        XCTAssertEqual(AppIconChoice.preferred(language: "ru").id, "ru")
+        XCTAssertEqual(AppIconChoice.preferred(language: "uk-UA").id, "uk")
+        XCTAssertEqual(AppIconChoice.preferred(language: "pt_PT").id, "pt-BR")
+        XCTAssertEqual(AppIconChoice.preferred(language: "system", systemLanguage: "fr-CA").id, "fr")
+        XCTAssertEqual(AppIconChoice.preferred(language: "ja").id, "en")
+    }
+
 }

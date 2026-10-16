@@ -7,6 +7,12 @@ struct AppIconChoice: Identifiable, Equatable {
     let word: String
     var alternateName: String? { id == "en" ? nil : "AppIcon-" + id }
     var previewName: String { id == "en" ? "Logo" : "IconPreview-" + id }
+    static func preferred(language: String, systemLanguage: String = Locale.preferredLanguages.first ?? "en") -> AppIconChoice {
+        let source = language == "system" || language.isEmpty ? systemLanguage : language
+        let base = source.replacingOccurrences(of: "_", with: "-").lowercased().split(separator: "-").first.map(String.init) ?? "en"
+        let code = base == "pt" ? "pt-BR" : base
+        return all.first(where: { $0.id == code }) ?? all[0]
+    }
     static let all: [AppIconChoice] = [
         .init(id: "en", language: "English", word: "FLAGS"),
         .init(id: "ru", language: "Русский", word: "ФЛАГИ"),
@@ -70,12 +76,22 @@ struct AppIconSelectionView: View {
             .alert(localization.localizedString("appIcon.error"), isPresented: $showError) {
                 Button("OK", role: .cancel) { }
             }
-            .onAppear { selectedName = UIApplication.shared.alternateIconName }
+             .onAppear {
+                selectedName = UIApplication.shared.alternateIconName
+                if !UserDefaults.standard.bool(forKey: "appIcon.manualChoice") {
+                    let language = UserDefaults.standard.string(forKey: "selectedLanguage") ?? "system"
+                    changeIcon(to: AppIconChoice.preferred(language: language), manual: false)
+                }
+            }
         }
         .navigationViewStyle(.stack)
     }
 
-    private func changeIcon(to choice: AppIconChoice) {
+    private func changeIcon(to choice: AppIconChoice, manual: Bool = true) {
+        if UIApplication.shared.alternateIconName == choice.alternateName {
+            if manual { UserDefaults.standard.set(true, forKey: "appIcon.manualChoice") }
+            return
+        }
         guard !isChanging, UIApplication.shared.supportsAlternateIcons,
               UIApplication.shared.alternateIconName != choice.alternateName else { return }
         isChanging = true
@@ -84,6 +100,9 @@ struct AppIconSelectionView: View {
                 isChanging = false
                 selectedName = UIApplication.shared.alternateIconName
                 showError = error != nil
+                if error == nil && manual {
+                    UserDefaults.standard.set(true, forKey: "appIcon.manualChoice")
+                }
             }
         }
     }
