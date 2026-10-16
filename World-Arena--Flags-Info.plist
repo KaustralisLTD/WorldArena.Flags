@@ -14,6 +14,16 @@
 	<array>
 		<dict>
 			<key>CFBundleTypeRole</key>
+			<string>Viewer</string>
+			<key>CFBundleURLName</key>
+			<string>games.worldarena.flags.profile</string>
+			<key>CFBundleURLSchemes</key>
+			<array>
+				<string>worldarenaflags</string>
+			</array>
+		</dict>
+		<dict>
+			<key>CFBundleTypeRole</key>
 			<string>Editor</string>
 			<key>CFBundleURLName</key>
 			<string>GoogleSignIn</string>
