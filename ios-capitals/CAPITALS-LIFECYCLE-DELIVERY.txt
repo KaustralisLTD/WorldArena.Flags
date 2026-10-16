@@ -1,0 +1,24 @@
+Capitals: localized icons and lifecycle programme
+
+Native app:
+- 30 localized icon choices, language default, persistent manual override.
+- Separate account-scoped preferences, durable event outbox, gameplay telemetry.
+- Personalized banners, campaign links and server-verified capital bonus rounds.
+
+Server:
+- Eight localized journeys, real activity metrics, country facts and map guidance.
+- 30 languages, separate Capitals database and rewards.
+- Maximum two emails per seven days, 24-hour spacing, quiet hours, unsubscribe.
+- Progress and promotional preferences respected; registering does not override opt-outs.
+
+Preview:
+http://127.0.0.1:3123/capitals-lifecycle/?lang=ru&journey=weekly_passport
+http://127.0.0.1:3123/capitals-icons/
+
+Production installation (Mac terminal, prompts for existing SSH password):
+bash "/Users/spilberg/Flags.World 08.04.2026/ios-capitals/deploy-capitals-lifecycle.sh"
+
+Installer backs up Capitals code, environment and database, validates PM2 target,
+updates only capitals-api and checks health and map asset availability.
+Email delivery still requires a configured/authorized Mailgun sender.
+No production installation or TestFlight upload is confirmed by this document.

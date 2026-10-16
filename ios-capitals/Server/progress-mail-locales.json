@@ -1,0 +1,302 @@
+{
+  "en": {
+    "title": "Your world, your progress",
+    "games": "Games played",
+    "accuracy": "Accuracy",
+    "wins": "Duels won",
+    "cta": "Keep exploring",
+    "preferences": "Email preferences",
+    "saved": "Your progress is saved to your account.",
+    "milestone": "A new milestone. A stronger player."
+  },
+  "ru": {
+    "title": "Твой мир. Твой прогресс.",
+    "games": "Сыграно игр",
+    "accuracy": "Точность",
+    "wins": "Победы в дуэлях",
+    "cta": "Продолжить игру",
+    "preferences": "Настройки писем",
+    "saved": "Твой прогресс сохранён в аккаунте.",
+    "milestone": "Новый рубеж. Ещё больше знаний."
+  },
+  "uk": {
+    "title": "Твій світ. Твій прогрес.",
+    "games": "Зіграно ігор",
+    "accuracy": "Точність",
+    "wins": "Перемоги в дуелях",
+    "cta": "Продовжити гру",
+    "preferences": "Налаштування листів",
+    "saved": "Твій прогрес збережено в акаунті.",
+    "milestone": "Новий рубіж. Ще більше знань."
+  },
+  "de": {
+    "title": "Deine Welt. Dein Fortschritt.",
+    "games": "Gespielte Spiele",
+    "accuracy": "Genauigkeit",
+    "wins": "Gewonnene Duelle",
+    "cta": "Weiterspielen",
+    "preferences": "E-Mail-Einstellungen",
+    "saved": "Dein Fortschritt ist in deinem Konto gespeichert.",
+    "milestone": "Ein neuer Meilenstein. Noch mehr Wissen."
+  },
+  "es": {
+    "title": "Tu mundo. Tu progreso.",
+    "games": "Partidas jugadas",
+    "accuracy": "Precisión",
+    "wins": "Duelos ganados",
+    "cta": "Seguir jugando",
+    "preferences": "Preferencias de correo",
+    "saved": "Tu progreso está guardado en tu cuenta.",
+    "milestone": "Un nuevo hito. Más conocimientos."
+  },
+  "fr": {
+    "title": "Ton monde. Tes progrès.",
+    "games": "Parties jouées",
+    "accuracy": "Précision",
+    "wins": "Duels gagnés",
+    "cta": "Continuer à jouer",
+    "preferences": "Préférences des e-mails",
+    "saved": "Ta progression est enregistrée dans ton compte.",
+    "milestone": "Une nouvelle étape. Toujours plus de connaissances."
+  },
+  "it": {
+    "title": "Il tuo mondo. I tuoi progressi.",
+    "games": "Partite giocate",
+    "accuracy": "Precisione",
+    "wins": "Duelli vinti",
+    "cta": "Continua a giocare",
+    "preferences": "Preferenze email",
+    "saved": "I tuoi progressi sono salvati nel tuo account.",
+    "milestone": "Un nuovo traguardo. Sempre più conoscenze."
+  },
+  "pt-BR": {
+    "title": "Seu mundo. Seu progresso.",
+    "games": "Partidas jogadas",
+    "accuracy": "Precisão",
+    "wins": "Duelos vencidos",
+    "cta": "Continuar jogando",
+    "preferences": "Preferências de e-mail",
+    "saved": "Seu progresso está salvo na sua conta.",
+    "milestone": "Uma nova conquista. Ainda mais conhecimento."
+  },
+  "nl": {
+    "title": "Jouw wereld. Jouw vooruitgang.",
+    "games": "Gespeelde spellen",
+    "accuracy": "Nauwkeurigheid",
+    "wins": "Gewonnen duels",
+    "cta": "Verder spelen",
+    "preferences": "E-mailvoorkeuren",
+    "saved": "Je voortgang is opgeslagen in je account.",
+    "milestone": "Een nieuwe mijlpaal. Nog meer kennis."
+  },
+  "pl": {
+    "title": "Twój świat. Twoje postępy.",
+    "games": "Rozegrane gry",
+    "accuracy": "Celność",
+    "wins": "Wygrane pojedynki",
+    "cta": "Graj dalej",
+    "preferences": "Ustawienia e-maili",
+    "saved": "Twoje postępy są zapisane na koncie.",
+    "milestone": "Nowy etap. Jeszcze więcej wiedzy."
+  },
+  "ca": {
+    "title": "El teu món. El teu progrés.",
+    "games": "Partides jugades",
+    "accuracy": "Precisió",
+    "wins": "Duels guanyats",
+    "cta": "Continua jugant",
+    "preferences": "Preferències de correu",
+    "saved": "El teu progrés està desat al teu compte.",
+    "milestone": "Una nova fita. Més coneixements."
+  },
+  "cs": {
+    "title": "Tvůj svět. Tvůj pokrok.",
+    "games": "Odehrané hry",
+    "accuracy": "Přesnost",
+    "wins": "Vyhrané duely",
+    "cta": "Hrát dál",
+    "preferences": "Nastavení e-mailů",
+    "saved": "Tvůj pokrok je uložen na účtu.",
+    "milestone": "Nový milník. Ještě více znalostí."
+  },
+  "el": {
+    "title": "Ο κόσμος σου. Η πρόοδός σου.",
+    "games": "Παιχνίδια",
+    "accuracy": "Ακρίβεια",
+    "wins": "Νίκες σε μονομαχίες",
+    "cta": "Συνέχισε το παιχνίδι",
+    "preferences": "Ρυθμίσεις email",
+    "saved": "Η πρόοδός σου αποθηκεύτηκε στον λογαριασμό σου.",
+    "milestone": "Ένα νέο ορόσημο. Περισσότερες γνώσεις."
+  },
+  "sv": {
+    "title": "Din värld. Dina framsteg.",
+    "games": "Spelade spel",
+    "accuracy": "Träffsäkerhet",
+    "wins": "Vunna dueller",
+    "cta": "Fortsätt spela",
+    "preferences": "E-postinställningar",
+    "saved": "Dina framsteg är sparade på ditt konto.",
+    "milestone": "En ny milstolpe. Ännu mer kunskap."
+  },
+  "ro": {
+    "title": "Lumea ta. Progresul tău.",
+    "games": "Jocuri jucate",
+    "accuracy": "Precizie",
+    "wins": "Dueluri câștigate",
+    "cta": "Continuă jocul",
+    "preferences": "Preferințe e-mail",
+    "saved": "Progresul tău este salvat în cont.",
+    "milestone": "Un nou prag. Mai multe cunoștințe."
+  },
+  "hu": {
+    "title": "A te világod. A te fejlődésed.",
+    "games": "Lejátszott játékok",
+    "accuracy": "Pontosság",
+    "wins": "Megnyert párbajok",
+    "cta": "Játssz tovább",
+    "preferences": "E-mail-beállítások",
+    "saved": "A haladásodat elmentettük a fiókodba.",
+    "milestone": "Új mérföldkő. Még több tudás."
+  },
+  "tr": {
+    "title": "Senin dünyan. Senin gelişimin.",
+    "games": "Oynanan oyunlar",
+    "accuracy": "Doğruluk",
+    "wins": "Kazanılan düellolar",
+    "cta": "Oynamaya devam et",
+    "preferences": "E-posta tercihleri",
+    "saved": "İlerlemen hesabına kaydedildi.",
+    "milestone": "Yeni bir dönüm noktası. Daha fazla bilgi."
+  },
+  "ar": {
+    "title": "عالمك. تقدّمك.",
+    "games": "الألعاب المكتملة",
+    "accuracy": "الدقة",
+    "wins": "المبارزات الفائزة",
+    "cta": "تابع اللعب",
+    "preferences": "تفضيلات البريد",
+    "saved": "تم حفظ تقدّمك في حسابك.",
+    "milestone": "إنجاز جديد. معرفة أكبر."
+  },
+  "hi": {
+    "title": "आपकी दुनिया। आपकी प्रगति।",
+    "games": "खेले गए खेल",
+    "accuracy": "सटीकता",
+    "wins": "जीते गए द्वंद्व",
+    "cta": "खेलना जारी रखें",
+    "preferences": "ईमेल प्राथमिकताएँ",
+    "saved": "आपकी प्रगति आपके खाते में सुरक्षित है।",
+    "milestone": "एक नया पड़ाव। और अधिक ज्ञान।"
+  },
+  "bn": {
+    "title": "আপনার বিশ্ব। আপনার অগ্রগতি।",
+    "games": "খেলা হয়েছে",
+    "accuracy": "সঠিকতার হার",
+    "wins": "জেতা দ্বৈরথ",
+    "cta": "খেলা চালিয়ে যান",
+    "preferences": "ইমেইল পছন্দ",
+    "saved": "আপনার অগ্রগতি আপনার অ্যাকাউন্টে সংরক্ষিত।",
+    "milestone": "নতুন মাইলফলক। আরও জ্ঞান।"
+  },
+  "ta": {
+    "title": "உங்கள் உலகம். உங்கள் முன்னேற்றம்.",
+    "games": "விளையாடிய ஆட்டங்கள்",
+    "accuracy": "துல்லியம்",
+    "wins": "வென்ற இரட்டைப் போட்டிகள்",
+    "cta": "தொடர்ந்து விளையாடுங்கள்",
+    "preferences": "மின்னஞ்சல் விருப்பங்கள்",
+    "saved": "உங்கள் முன்னேற்றம் உங்கள் கணக்கில் சேமிக்கப்பட்டுள்ளது.",
+    "milestone": "புதிய மைல்கல். மேலும் அறிவு."
+  },
+  "te": {
+    "title": "మీ ప్రపంచం. మీ పురోగతి.",
+    "games": "ఆడిన ఆటలు",
+    "accuracy": "ఖచ్చితత్వం",
+    "wins": "గెలిచిన ద్వంద్వాలు",
+    "cta": "ఆడటం కొనసాగించండి",
+    "preferences": "ఇమెయిల్ ప్రాధాన్యతలు",
+    "saved": "మీ పురోగతి మీ ఖాతాలో భద్రపరచబడింది.",
+    "milestone": "కొత్త మైలురాయి. మరింత జ్ఞానం."
+  },
+  "th": {
+    "title": "โลกของคุณ ความก้าวหน้าของคุณ",
+    "games": "เกมที่เล่น",
+    "accuracy": "ความแม่นยำ",
+    "wins": "การดวลที่ชนะ",
+    "cta": "เล่นต่อ",
+    "preferences": "การตั้งค่าอีเมล",
+    "saved": "บันทึกความก้าวหน้าของคุณไว้ในบัญชีแล้ว",
+    "milestone": "ก้าวใหม่ ความรู้ที่มากขึ้น"
+  },
+  "vi": {
+    "title": "Thế giới của bạn. Tiến bộ của bạn.",
+    "games": "Trận đã chơi",
+    "accuracy": "Độ chính xác",
+    "wins": "Trận đấu thắng",
+    "cta": "Tiếp tục chơi",
+    "preferences": "Tùy chọn email",
+    "saved": "Tiến trình đã được lưu vào tài khoản của bạn.",
+    "milestone": "Cột mốc mới. Thêm kiến thức."
+  },
+  "id": {
+    "title": "Duniamu. Kemajuanmu.",
+    "games": "Permainan dimainkan",
+    "accuracy": "Akurasi",
+    "wins": "Duel dimenangkan",
+    "cta": "Lanjut bermain",
+    "preferences": "Preferensi email",
+    "saved": "Kemajuanmu tersimpan di akunmu.",
+    "milestone": "Pencapaian baru. Makin banyak pengetahuan."
+  },
+  "fil": {
+    "title": "Mundo mo. Pag-unlad mo.",
+    "games": "Mga larong nilaro",
+    "accuracy": "Katumpakan",
+    "wins": "Mga duel na napanalunan",
+    "cta": "Maglaro muli",
+    "preferences": "Mga kagustuhan sa email",
+    "saved": "Naka-save sa account mo ang iyong progreso.",
+    "milestone": "Bagong yugto. Mas maraming kaalaman."
+  },
+  "ja": {
+    "title": "あなたの世界、あなたの成長。",
+    "games": "プレイ回数",
+    "accuracy": "正答率",
+    "wins": "デュエル勝利数",
+    "cta": "プレイを続ける",
+    "preferences": "メール設定",
+    "saved": "進行状況はアカウントに保存されています。",
+    "milestone": "新たな節目。さらに広がる知識。"
+  },
+  "ko": {
+    "title": "당신의 세계, 당신의 성장.",
+    "games": "플레이한 게임",
+    "accuracy": "정답률",
+    "wins": "승리한 대결",
+    "cta": "계속 플레이하기",
+    "preferences": "이메일 설정",
+    "saved": "진행 상황이 계정에 저장되었습니다.",
+    "milestone": "새로운 이정표, 더 넓어진 지식."
+  },
+  "zh": {
+    "title": "你的世界，你的进步。",
+    "games": "已玩游戏",
+    "accuracy": "正确率",
+    "wins": "对决胜场",
+    "cta": "继续游戏",
+    "preferences": "邮件设置",
+    "saved": "你的进度已保存到账户。",
+    "milestone": "新的里程碑，更多的知识。"
+  },
+  "zh-Hant": {
+    "title": "你的世界，你的進步。",
+    "games": "已玩遊戲",
+    "accuracy": "正確率",
+    "wins": "對決勝場",
+    "cta": "繼續遊戲",
+    "preferences": "郵件設定",
+    "saved": "你的進度已儲存至帳戶。",
+    "milestone": "新的里程碑，更多的知識。"
+  }
+}

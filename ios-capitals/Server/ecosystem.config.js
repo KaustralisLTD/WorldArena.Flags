@@ -1,0 +1,1 @@
+module.exports = {apps: [{name: 'capitals-api', cwd: '/opt/worldarena-capitals-api', script: 'server.js', interpreter: process.env.CAPITALS_NODE_PATH || process.execPath, env: {PORT: 3002, NODE_ENV: 'production', APNS_BUNDLE_ID: 'games.worldarena.capitals'}}]};

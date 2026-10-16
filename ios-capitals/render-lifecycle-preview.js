@@ -1,0 +1,13 @@
+'use strict';
+const fs=require('node:fs'),path=require('node:path'),copy=require('./Server/lifecycle-copy'),languages=require('./shared/languages.json');
+const out=path.resolve(__dirname,'../artifacts/flags-experience/capitals-lifecycle');fs.mkdirSync(out,{recursive:true});
+const demos={habitDays:10,morningDays:8,games:12,accuracy:88,previousAccuracy:79,currentAccuracy:88,duels:6,wins:4,scoreWins:3,speedWins:1,activeDays:5,regionsPlayed:3,masteredCount:18,seenCountries:['JP','EG','IT','CA','NP','BR'],focusCountries:['JP','EG','IT'],periodStart:Date.parse('2026-10-09T12:00:00Z'),periodEnd:Date.parse('2026-10-16T12:00:00Z')};
+fs.mkdirSync(path.join(out,'assets'),{recursive:true});
+for(const file of fs.readdirSync(path.resolve(__dirname,'Server/lifecycle-assets')))fs.copyFileSync(path.resolve(__dirname,'Server/lifecycle-assets',file),path.join(out,'assets',file));
+for(const {code} of languages){fs.mkdirSync(path.join(out,code),{recursive:true});for(const journey of copy.readyTemplates()[code]){
+ const m={...copy.message(journey,code,demos),journey};
+ fs.writeFileSync(path.join(out,code,journey+'.html'),copy.email(m,code,'#preview-only','#preview-only',{assetBase:'../assets'}).html);
+}}
+const ids=copy.readyTemplates().en;
+fs.writeFileSync(path.join(out,'index.html'),`<!doctype html><html lang="ru"><meta charset="utf-8"><meta name="viewport" content="width=device-width"><title>World Arena · письма для игроков</title><style>body{font:16px system-ui;background:#edf1f3;color:#15343d;margin:0}header{padding:20px;display:flex;gap:14px;flex-wrap:wrap;align-items:center}select{font:inherit;padding:12px;max-width:90vw}iframe{display:block;width:min(100%,680px);height:2600px;border:0;margin:auto}p{padding:0 20px}</style><header><strong>CAPITALS · WORLD ARENA</strong><select id="lang">${languages.map(l=>`<option value="${l.code}" ${l.code==='ru'?'selected':''}>${l.name}</option>`).join('')}</select><select id="journey">${ids.map(x=>`<option value="${x}">${require('./Server/lifecycle-locales.json').ru[x]}</option>`).join('')}</select></header><p>Предпросмотр писем: числа приведены для примера. Отправка из этой страницы невозможна.</p><iframe title="Localized email"></iframe><script>const l=document.querySelector('#lang'),j=document.querySelector('#journey'),f=document.querySelector('iframe');const params=new URLSearchParams(location.search);l.value=params.get('lang')||'ru';j.value=params.get('journey')||'weekly_passport';function show(){f.src=l.value+'/'+j.value+'.html';history.replaceState(null,'','?lang='+l.value+'&journey='+j.value)}f.onload=()=>{f.style.height=(f.contentDocument.body.getBoundingClientRect().height+20)+"px"};l.onchange=j.onchange=show;show()</script></html>`);
+console.log('Rendered 240 localized email previews');

@@ -1,0 +1,76 @@
+{
+  "identifier": "fa16a6d9-868d-4271-afbf-afda145963f3",
+  "nonRenewingSubscriptions": [],
+  "products": [],
+  "settings": {
+    "_failTransactionsEnabled": false,
+    "_locale": "en_US",
+    "_storefront": "USA",
+    "_storeKitErrors": []
+  },
+  "subscriptionGroups": [
+    {
+      "id": "b95a441e-1476-4e9d-b16d-2a544ae9963d",
+      "localizations": [],
+      "name": "Premium",
+      "subscriptions": [
+        {
+          "adHocOffers": [],
+          "codeOffers": [],
+          "displayPrice": "3.99",
+          "familyShareable": false,
+          "groupNumber": 1,
+          "internalID": "648e3fa8-682d-409b-b0ea-25a60da1b28f",
+          "introductoryOffer": {
+            "internalID": "c4da5518-8979-44c4-947d-c17f613e817f",
+            "numberOfPeriods": 1,
+            "paymentMode": "free",
+            "subscriptionPeriod": "P1W"
+          },
+          "localizations": [
+            {
+              "description": "Unlimited hearts and premium learning tools",
+              "displayName": "Monthly Premium",
+              "locale": "en_US"
+            }
+          ],
+          "productID": "WorldArena.Capitals.MonthPremium2025",
+          "recurringSubscriptionPeriod": "P1M",
+          "referenceName": "Monthly Premium",
+          "subscriptionGroupID": "b95a441e-1476-4e9d-b16d-2a544ae9963d",
+          "type": "RecurringSubscription"
+        },
+        {
+          "adHocOffers": [],
+          "codeOffers": [],
+          "displayPrice": "19.99",
+          "familyShareable": false,
+          "groupNumber": 1,
+          "internalID": "f57e924a-899d-458b-bcbf-c060ed38766c",
+          "introductoryOffer": {
+            "internalID": "2b26f34a-d597-4910-ab6c-9e0e60d6f7af",
+            "numberOfPeriods": 1,
+            "paymentMode": "free",
+            "subscriptionPeriod": "P1W"
+          },
+          "localizations": [
+            {
+              "description": "Unlimited hearts and premium learning tools",
+              "displayName": "Yearly Premium",
+              "locale": "en_US"
+            }
+          ],
+          "productID": "WorldArena.Capitals.YearlyPremium2025",
+          "recurringSubscriptionPeriod": "P1Y",
+          "referenceName": "Yearly Premium",
+          "subscriptionGroupID": "b95a441e-1476-4e9d-b16d-2a544ae9963d",
+          "type": "RecurringSubscription"
+        }
+      ]
+    }
+  ],
+  "version": {
+    "major": 3,
+    "minor": 0
+  }
+}

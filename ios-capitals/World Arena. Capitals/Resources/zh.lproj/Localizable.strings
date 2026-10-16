@@ -1,0 +1,1696 @@
+"Open in Game Center" = "在 Game Center 中打开";
+"Заработай %d XP" = "赚取 %d XP";
+"F-BUCKS EARNED" = "获得 F-BUCKS";
+"Дай %d правильных ответов" = "答对 %d 题";
+"Наберите %d правильных ответов за месяц" = "本月答对 %d 题";
+"Сыграй %d идеальных игр" = "完成 %d 场完美对局";
+"Завершите %d игр без ошибок" = "完成 %d 场零失误对局";
+"Сыграй %d игр" = "进行 %d 场游戏";
+"Завершите %d игр в этом месяце" = "本月完成 %d 场游戏";
+"Точность %d%%" = "准确率 %d%%";
+"Достигните точности %d%% в играх" = "在游戏中达到 %d%% 的准确率";
+"Серия %d дней" = "%d 天连胜";
+"Поддерживайте серию %d дней подряд" = "保持连续 %d 天的连胜";
+/* Help Center Categories */
+"Игра" = "游戏";
+"Прогресс" = "进度";
+"Лиги" = "联赛";
+"Профиль" = "个人资料";
+"Социальные функции" = "社交功能";
+"Технические вопросы" = "技术问题";
+/* Settings screen */
+"Настройки" = "设置";
+"Аккаунт" = "账户";
+"Профиль пользователя" = "用户资料";
+"Поддержка" = "支持";
+"Настройки приложения" = "应用设置";
+"Обратная связь" = "反馈";
+"World Arena Premium" = "World Arena Premium";
+"Обратная связь по World Arena Capitals" = "关于 World Arena Capitals 的反馈";
+
+/* Achievements */
+"Достижения" = "成就";
+"Достижение" = "成就";
+"ЛИЧНЫЕ РЕКОРДЫ" = "个人纪录";
+"НАГРАДЫ" = "奖励";
+"Лучшая серия" = "最佳连胜";
+"Макс. лига" = "最高联赛";
+"Макс. XP" = "最高 XP";
+"Открыто" = "已解锁";
+
+/* Profile */
+"League" = "联赛";
+"Following" = "好友";
+"Days in a row" = "连续天数";
+"Текущая серия" = "当前连胜";
+"дней" = "天";
+"Joined in %@" = "加入于 %@";
+"Level %d • %d XP • %d-day streak" = "等级 %d • %d XP • 连胜 %d 天";
+"SUPER" = "超级";
+
+/* Leagues medals & labels */
+"1st" = "第1";
+"2nd" = "第2";
+"3rd" = "第3";
+"Бронза" = "青铜";
+"XP" = "XP";
+
+/* Monthly badges sample titles */
+"Алмазная лига" = "钻石联赛";
+"Серия мастера" = "大师连胜";
+"Чемпион месяца" = "月度冠军";
+"Идеальная неделя" = "完美一周";
+"Бронзовая лига" = "青铜联赛";
+"Лига Мастеров" = "大师联赛";
+// General
+"World Flags" = "世界国旗";
+"Learn flags of the world" = "学习世界各国国旗";
+
+/* Game Loading */
+"Loading flags..." = "正在加载国旗...";
+"Starting..." = "正在启动...";
+
+/* Main Tab Navigation */
+"Главная" = "首页";
+"Игра" = "游戏";
+"Квесты" = "任务";
+"Лиги" = "联赛";
+"Статистика" = "统计";
+"Профиль" = "个人资料";
+
+/* Profile Page */
+"ОБЗОР" = "概览";
+"Всего изучено флагов" = "已学习旗帜总数";
+"Текущая лига" = "当前联赛";
+"Общий опыт" = "总经验";
+"дней" = "天";
+"Текущая серия" = "当前连胜";
+"XP" = "经验值";
+"ДОБАВИТЬ ДРУЗЕЙ" = "添加朋友";
+"СЕРИИ ДРУЗЕЙ" = "朋友连胜";
+"МЕСЯЧНЫЕ ДОСТИЖЕНИЯ" = "月度成就";
+
+// Add Friends page
+"Ваш код друга" = "您的朋友代码";
+"Добавить по коду" = "通过代码添加";
+"Введите код друга" = "输入朋友代码";
+"Добавить" = "添加";
+"Добавить друзей" = "添加朋友";
+"Готово" = "完成";
+"Скопировано" = "已复制";
+"Мой код друга" = "我的朋友代码";
+"Добавить по имени (логину)" = "按用户名添加";
+"Введите имя пользователя" = "输入用户名";
+"Пользователь не найден или уже в друзьях. Проверьте имя." = "未找到用户或已在好友列表中。请检查用户名。";
+"Ваша страна (флаг в профиле)" = "您的国家（个人资料中的旗帜）";
+"Выберите страну — её флаг будет отображаться у вас в профиле у друзей." = "选择国家 — 其旗帜将显示在您个人资料中给好友看。";
+"Не выбрано" = "未选择";
+"Ваша страна" = "您的国家";
+
+// Settings page
+"Премиум" = "高级版";
+"World Arena Premium" = "World Arena Premium";
+"Премиум подписка активна" = "高级订阅已激活";
+"ВОССТАНОВИТЬ ПОДПИСКУ" = "恢复订阅";
+
+// Achievements – titles and descriptions
+"Ранняя птица" = "早起的鸟儿";
+"Достигните серии 5 дней" = "达到5天连续";
+"Стабильность" = "持之以恒";
+"Серия 10 дней" = "10天连续";
+"Железная воля" = "钢铁意志";
+"Серия 30 дней" = "30天连续";
+"Новичок XP" = "XP新手";
+"Наберите 1000 XP" = "获得1000 XP";
+"Олимпиец XP" = "XP奥运";
+"Наберите 5000 XP" = "获得5000 XP";
+"Легенда XP" = "XP传奇";
+"Наберите 10000 XP" = "获得10000 XP";
+"Исследователь" = "探索者";
+"Сыграйте 20 игр" = "进行20局游戏";
+"Ветеран" = "老将";
+"Сыграйте 100 игр" = "进行100局游戏";
+"Меткий стрелок" = "神枪手";
+"Точность 70%" = "达到70%准确率";
+"Снайпер" = "狙击手";
+"Точность 85%" = "达到85%准确率";
+"Серебряная лига" = "白银联赛";
+"Достигните Серебра" = "达到白银";
+"Золотая лига" = "黄金联赛";
+"Достигните Золота" = "达到黄金";
+"Платиновая лига" = "铂金联赛";
+"Достигните Платины" = "达到铂金";
+"Алмазная лига" = "钻石联赛";
+"Достигните Алмаза" = "达到钻石";
+"Мастер лиг" = "大师联赛";
+"Достигните Мастера" = "达到大师";
+"Первый друг" = "第一个好友";
+"Добавьте друга" = "添加一位好友";
+"Своя команда" = "自己的队伍";
+"Добавьте 5 друзей" = "添加5位好友";
+"Расскажите друзьям" = "告诉朋友们";
+"Поделитесь профилем" = "分享个人资料";
+"Спринтер" = "冲刺者";
+"Сыграйте 10 игр за день" = "一天内进行10局游戏";
+"XP Олимпиец" = "XP奥运";
+"Мастер Олимпиец XP" = "XP奥运大师";
+"Наберите 30000 XP" = "获得30000 XP";
+"Серия мастера" = "大师连胜";
+"Чемпион месяца" = "月度冠军";
+"Идеальная неделя" = "完美一周";
+
+/* Settings */
+"Выберите аватар" = "选择头像";
+"Редактировать аватар" = "编辑头像";
+"profile_upload_photo" = "上传照片";
+"profile_crop_photo_title" = "调整照片";
+"profile_crop_photo_subtitle" = "双指捏合缩放 · 拖动移动";
+"profile_crop_zoom_label" = "缩放";
+"profile_crop_cancel" = "取消";
+"profile_crop_done" = "完成";
+"Имя пользователя" = "用户名";
+"Статистика" = "统计";
+"Премиум подписка активна" = "高级订阅已激活";
+"ВОССТАНОВИТЬ ПОДПИСКУ" = "恢复订阅";
+"ВЫЙТИ" = "退出";
+"Удалить аккаунт" = "删除账户";
+"Это действие нельзя отменить. Все ваши данные будут удалены навсегда." = "此操作无法撤销。您的所有数据将被永久删除。";
+
+/* Language Selection */
+"Выберите язык игры" = "选择游戏语言";
+"Язык интерфейса игры и заданий" = "游戏界面和任务语言";
+
+/* Leagues */
+"Вы занимаете #%d место" = "您排名第 #%d 位";
+"Зона повышения - переход в следующую лигу!" = "晋级区 - 晋升到下一个联赛！";
+"Зона вылета - риск понижения лиги" = "降级区 - 有降级风险";
+"Безопасная зона - остаетесь в текущей лиге" = "安全区 - 保持当前联赛";
+"Конец недели через %d часов" = "本周将在 %d 小时后结束";
+"До конца лиги: %02dч %02dм (GMT)" = "联赛结束时间：%02d小时 %02d分钟 (GMT)";
+"До конца лиги: %@ (GMT)" = "联赛结束时间：%@ (GMT)";
+"д" = "天";
+"ч" = "小时";
+"м" = "分钟";
+"ЗОНА ВЫЛЕТА" = "降级区";
+"ЗОНА ПОВЫШЕНИЯ" = "晋级区";
+
+/* Monthly Quests */
+"Августовский Квест" = "八月任务";
+"Mision de Agosto" = "八月任务";
+"21 ДЕНЬ" = "21 天";
+"Заработай 40 очков квеста" = "获得 40 任务积分";
+"ЕЖЕДНЕВНЫЕ КВЕСТЫ" = "每日任务";
+"Месячные цели" = "每月目标";
+"МЕСЯЧНЫЕ ЦЕЛИ" = "每月目标";
+
+/* Help Center */
+"Популярные темы" = "热门主题";
+"Категории" = "分类";
+"Нужна дополнительная помощь?" = "需要额外帮助？";
+"Связаться с поддержкой" = "联系支持";
+"Результаты поиска" = "搜索结果";
+"Ничего не найдено" = "未找到任何内容";
+"Попробуйте другие ключевые слова" = "尝试其他关键词";
+"%d тем" = "%d 个主题";
+"Score" = "得分";
+"Exit" = "退出";
+"Error loading countries" = "加载国家时出错";
+"Retry" = "重试";
+"System" = "系统";
+
+// Start Screen
+"Select Language" = "选择语言";
+"Select Region" = "选择地区";
+"Select Regions" = "选择地区";
+"Multiple Regions" = "多个地区";
+"START GAME" = "开始游戏";
+"All Regions" = "所有地区";
+"Europe" = "欧洲";
+"Asia" = "亚洲";
+"Americas" = "美洲";
+"Africa" = "非洲";
+"Oceania" = "大洋洲";
+"North America" = "北美洲";
+"South America" = "南美洲";
+
+// Game Over
+"points" = "分";
+"Play Again" = "再玩一次";
+"Repeat Duel" = "再来一局对决";
+"Home" = "主页";
+
+// Statistics
+"Statistics" = "统计";
+"Total Games" = "总游戏数";
+"Best Score" = "最高分";
+"Correct Answers" = "正确答案";
+"Accuracy" = "准确率";
+"Best Time" = "最佳时间";
+"Time" = "时间";
+"Clear" = "清除";
+"Close" = "关闭";
+"Clear Statistics" = "清除统计";
+"Are you sure you want to clear all statistics?" = "您确定要清除所有统计数据吗？";
+"Cancel" = "取消";
+
+// Game Results
+"Excellent game!" = "🏆 太棒了！";
+"Great result!" = "🎯 优秀成绩！";
+"Good game!" = "👍 好游戏！";
+"Keep practicing!" = "💪 继续练习！";
+
+// Share Result
+"Share Result" = "分享";
+"Share" = "分享";
+"ACCURACY" = "准确率";
+"TOTAL XP" = "总经验";
+"CONTINUE" = "继续";
+"Perfect! You're unstoppable!" = "完美！你势不可挡！";
+"Excellent performance!" = "出色的表现！";
+"Well done! Keep practicing!" = "做得好！继续练习！";
+"Don't give up! Practice makes perfect!" = "不要放弃！熟能生巧！";
+"PERFECT" = "完美";
+"AMAZING" = "惊人";
+"GOOD" = "好";
+"KEEP GOING" = "继续加油";
+"Play Again" = "再玩一次";
+"Home" = "主页";
+"Quest Update!" = "任务更新！";
+"quest.play_again.duel" = "再战决斗";
+"Check your progress" = "检查你的进度";
+"2x XP for 10 min!" = "10分钟双倍经验！";
+"3x XP for 15 min!" = "15分钟三倍经验！";
+"Подарок за квесты" = "每日任务奖励";
+"Share Message" = "我在World Flags游戏中获得了%d分！🎮🌍\n下载并尝试打破我的记录！";
+"Statistics Share Promo" = "我在玩 World Arena Capitals — 学世界国旗、与好友对决、冲击联赛！🎮🌍\n我的数据：最高分 %d，正确率 %.1f%%，共玩 %d 局。\n想学国旗、挑战自己？加入我们！\n%@";
+
+// Post-Game Flow
+"CLAIM XP" = "领取经验";
+"TOTAL XP" = "总经验";
+"PERFECT" = "完美";
+"AMAZING" = "惊人";
+"GOOD" = "良好";
+"KEEP GOING" = "继续";
+"Perfect! You're unstoppable!" = "完美！你势不可挡！";
+"Excellent performance!" = "出色的表现！";
+"Well done! Keep practicing!" = "做得好！继续练习！";
+"Don't give up! Practice makes perfect!" = "不要放弃！熟能生巧！";
+"day streak" = "天连胜";
+"This Week" = "本周";
+"Incredible streak! You're on fire!" = "难以置信的连胜！你火力全开！";
+"Great job! Keep the momentum going!" = "干得好！保持势头！";
+"Nice start! Build your streak day by day!" = "好的开始！日复一日地建立你的连胜！";
+"Your Friend Streaks" = "你朋友的连胜";
+"See how your friends are doing" = "看看你的朋友表现如何";
+"No friends yet" = "还没有朋友";
+"Add friends to see their streaks and compete together!" = "添加朋友以查看他们的连胜并一起竞争！";
+"NUDGE" = "提醒";
+"Remind" = "提醒";
+"Reminder sent to %@" = "已向 %@ 发送提醒";
+"%@ reminds you" = "%@ 提醒你";
+"nudge_phrase_1" = "别放弃！你能行！";
+"nudge_phrase_2" = "你的连胜在等你。今天玩一局吧！";
+"nudge_phrase_3" = "每天一局，连胜不断！";
+"nudge_phrase_4" = "回来让旗帜看看谁才是老大！";
+"nudge_phrase_5" = "我们想你了！来局快的？";
+"nudge_phrase_6" = "朋友们在玩。一起来！";
+"nudge_phrase_7" = "今天一小步，明天大连胜！";
+"nudge_phrase_8" = "就差一点！别断连胜！";
+"nudge_phrase_9" = "旗帜在召唤。快去应战！";
+"nudge_phrase_10" = "起床啦——该玩旗帜了！";
+"nudge_phrase_11" = "练一练，进步大！";
+"nudge_phrase_12" = "今天就是保住连胜的日子！";
+"nudge_phrase_13" = "回到游戏里来！我们相信你！";
+"nudge_phrase_14" = "再玩一局，心情会更好！";
+"nudge_phrase_15" = "你的连胜想你了。快回来！";
+"CONTINUE" = "继续";
+"streak" = "连胜";
+"days" = "天";
+"Quest Update!" = "任务更新！";
+"Check your progress" = "检查你的进度";
+"Заблокировано" = "已锁定";
+"Базовый пакет" = "基础套餐";
+"Обучение" = "学习";
+"Изучай флаги и страны мира" = "学习世界国旗和国家";
+"Континенты" = "大洲";
+"Европа" = "欧洲";
+"Азия" = "亚洲";
+"Африка" = "非洲";
+"Северная Америка" = "北美洲";
+"Южная Америка" = "南美洲";
+"Океания" = "大洋洲";
+"стран" = "个国家";
+"Самый маленький континент" = "最小的大洲";
+"Самый большой континент" = "最大的大洲";
+"Колыбель человечества" = "人类文明的摇篮";
+"Новый свет" = "新大陆";
+"Земля контрастов" = "对比之地";
+"Острова Тихого океана" = "太平洋岛屿";
+"Статистика флагов" = "国旗统计";
+"Всего стран" = "国家总数";
+"Цветов на флагах" = "国旗颜色";
+"Самый популярный цвет" = "最受欢迎的颜色";
+"Красный" = "红色";
+"Флагов с крестом" = "带十字的国旗";
+"Интересные факты" = "有趣的事实";
+"Interesting facts study slides" = "幻灯片学习";
+"Interesting facts back to list" = "返回列表";
+"Самый старый флаг" = "最古老的国旗";
+"Флаг Дании используется с 1219 года" = "丹麦国旗自1219年开始使用";
+"Единственный квадратный флаг" = "唯一的方形国旗";
+"У Швейцарии единственный квадратный флаг в мире" = "瑞士拥有世界上唯一的方形国旗";
+"Самый сложный флаг" = "最复杂的国旗";
+"У Бутана на флаге изображен дракон" = "不丹国旗上有龙图案";
+"Go Premium" = "升级到高级版";
+"Мой профиль в World Arena Capitals" = "我的World Arena Capitals个人资料";
+"My Profile Share Title" = "我的World Arena Capitals个人资料";
+"Не удалось добавить друга. Проверьте код." = "添加朋友失败。请检查代码。";
+"Daily Quests" = "每日任务";
+"Monthly Quest" = "月度任务";
+
+// Exit confirmation
+"Exit Confirmation" = "您确定要退出吗？";
+"Yes" = "是";
+"No" = "否";
+
+// New translation
+"Tap to continue" = "点击继续";
+"Loading flag..." = "正在加载国旗...";
+"Select Difficulty" = "选择难度";
+"Game Mode" = "游戏模式";
+
+// Game Modes
+"Game Mode" = "游戏模式";
+"Classic" = "经典";
+"Time Challenge" = "限时挑战";
+"Time Challenge short" = "限时";
+"Survival" = "生存";
+"Duel" = "对决";
+"Challenge a friend to the same game, compare results" = "邀请好友进行同一场游戏，比较结果";
+"Challenge to Duel" = "发起对决";
+"You won the duel!" = "你赢得了对决！";
+"Duel challenge from %@" = "%@ 向你发起了对决";
+"Duel result" = "对决结果";
+"You won!" = "你赢了！";
+"won" = "赢了";
+"You" = "你";
+"Duel announcement title" = "对决";
+"vs" = "对战";
+"Friend add username not found" = "找不到用户「%@」。请检查登录名。";
+"Start duel" = "开始对决";
+"24h to accept" = "24小时内接受";
+"duel_invite_popup_title" = "决斗挑战";
+"duel_invite_popup_body_format" = "%@向你发起决斗";
+"duel_invite_popup_accept" = "接受";
+"duel_invite_popup_remind_1h" = "提醒 · 1小时";
+"duel_invite_popup_decline" = "拒绝";
+
+"Accept" = "接受";
+"Random opponent" = "随机对手";
+"No friends yet. Add friends in Profile." = "暂无好友。请在个人资料中添加好友。";
+"Standard multiple choice game" = "标准多选题游戏";
+"Answer quickly, time is limited" = "快速回答，时间有限";
+"Game until first mistake" = "游戏直到第一个错误";
+
+// Difficulty
+"Difficulty" = "难度";
+"Easy" = "简单";
+"Medium" = "中等";
+"Hard" = "困难";
+"Expert" = "专家";
+"Erudite" = "博学";
+"10 questions, 45 sec per answer" = "10个问题，每题45秒";
+"15 questions, 30 sec per answer" = "15道题，每题30秒";
+"20 questions, 15 sec per answer" = "20道题，每题15秒";
+"25 questions, 10 sec per answer" = "25道题，每题10秒";
+"30 questions, 5 sec per answer" = "30道题，每题5秒";
+
+"of" = "之";
+"flags" = "旗帜";
+
+// Theme
+"App Theme" = "外观";
+"System" = "系统";
+"Light" = "浅色";
+"Dark" = "深色";
+"Тема" = "主题";
+"Выберите тему оформления приложения" = "选择应用主题";
+"Следует системным настройкам" = "跟随系统设置";
+"Светлое оформление" = "浅色外观";
+"Темное оформление" = "深色外观";
+
+// Caribbean capitals
+"Philipsburg" = "菲利普斯堡";
+"Marigot" = "马里戈";
+"Fort-de-France" = "法兰西堡";
+"Cockburn Town" = "科克伯恩城";
+"Oranjestad" = "奥兰耶斯塔德";
+"Plymouth" = "普利茅斯";
+"Charlotte Amalie" = "夏洛特阿马利亚";
+"St. George's" = "圣乔治";
+"San Juan" = "圣胡安";
+"Basse-Terre" = "巴斯特尔";
+"The Valley" = "山谷城";
+"Road Town" = "罗德城";
+"Gustavia" = "古斯塔维亚";
+"Kralendijk" = "克拉伦代克";
+"George Town" = "乔治城";
+"Willemstad" = "威廉斯塔德";
+
+// Country names
+"Sint Maarten" = "圣马丁岛（荷兰）";
+"Saint Martin" = "圣马丁（法国）";
+"Martinique" = "马提尼克";
+"Turks and Caicos Islands" = "特克斯和凯科斯群岛";
+"Aruba" = "阿鲁巴";
+"Montserrat" = "蒙特塞拉特";
+"United States Virgin Islands" = "美属维尔京群岛";
+"Grenada" = "格林纳达";
+"Puerto Rico" = "波多黎各";
+"Guadeloupe" = "瓜德罗普";
+"Anguilla" = "安圭拉";
+"British Virgin Islands" = "英属维尔京群岛";
+"Saint Barthélemy" = "圣巴泰勒米";
+"Caribbean Netherlands" = "荷属加勒比区";
+"Cayman Islands" = "开曼群岛";
+"Curaçao" = "库拉索";
+"Kosovo" = "科索沃";
+
+"Flags" = "旗帜";
+
+"City of San Marino" = "圣马力诺城";
+
+"Douglas" = "道格拉斯";
+
+"Saint Helier" = "圣赫利尔";
+"Longyearbyen" = "朗伊尔城";
+"Gibraltar" = "直布罗陀";
+"Pristina" = "普里什蒂纳";
+"Mariehamn" = "玛丽港";
+"Nicosia" = "尼科西亚";
+"Tórshavn" = "托尔斯港";
+"Chișinău" = "基希讷乌";
+
+"My Mistakes" = "我的错误";
+
+/* Help Center topics */
+"Как играть в World Arena Capitals?" = "如何玩 World Arena Capitals？";
+"Основы игры и правила" = "基础与规则";
+"HELP_GAME_RULES" = "World Arena Capitals 是一款有趣的国旗学习游戏！\n\n规则：\n1. 你会看到一个国家的国旗\n2. 从选项中选择正确的国家名称\n3. 正确回答可获得 XP\n4. 保持每日连胜\n5. 提升等级并晋级联赛\n\n玩得越多，认识的国旗越多！";
+"Что такое серия дней?" = "什么是连胜？";
+"Как работает система серий" = "连胜系统如何运作";
+"HELP_STREAK_TEXT" = "连胜表示你连续多少天进行游戏。\n\n如何保持连胜：\n• 每天至少玩一局\n• 如果有一天未玩，连胜将重置\n• 更长的连胜获得更多额外 XP\n\n连胜有助于养成学习习惯！";
+"Как работают лиги?" = "联赛如何运作？";
+"Система рейтингов и соревнований" = "排名与竞赛系统";
+"HELP_LEAGUES_TEXT" = "联赛是与其他玩家的竞赛。\n\n联赛（从低到高）：\n• 青铜\n• 白银\n• 黄金\n• 白金\n• 钻石\n• 大师\n\n每周更新：\n• 前三名获得奖励\n• 第16–20名可能降级\n• 其余保持原联赛";
+
+/* Birthday */
+"День рождения" = "生日";
+"Birthday description F-bucks" = "允许我们在你生日这天为你送上 +10 F-bucks 的祝福";
+"Очистить" = "清除";
+"День рождения друга" = "好友生日";
+"Friend birthday push body" = "今天是 %@ 的生日——去祝贺 TA 吧！（送出 +10 分钟三倍 XP 或 +1 F-bucks）";
+"С днём рождения!" = "生日快乐！";
+"Birthday bonus already claimed" = "本年度生日奖励已领取";
+"Birthday bonus F-bucks message" = "你已获得 +10 F-bucks";
+"Friend birthday today" = "今天是 %@ 的生日";
+"Friends birthday today count" = "今天有 %d 位好友过生日";
+"Friend birthday congratulate hint" = "去祝贺他们：送出 +10 分钟三倍 XP 或 +1 F-bucks";
+"Подарок на ДР от друга" = "来自好友的生日礼物";
+
+/* Help Center – profile & skin */
+"Как изменить аватар?" = "如何更换头像？";
+"Персонализация профиля" = "个人资料个性化";
+"HELP_PROFILE_AVATAR" = "更换头像的方法：\n1. 打开「个人资料」标签页\n2. 点击齿轮图标（设置）\n3. 选择“用户资料”\n4. 选择新的头像或上传照片\n5. 点击“保存”";
+"Как работает создание скина?" = "皮肤编辑器如何工作？";
+"Редактор аватара и элементы" = "头像编辑器与部件";
+"HELP_PROFILE_SKIN_EDITOR" = "在皮肤编辑器中，你可以通过多种类别打造形象：\n• 服装（Clothing）\n• 配饰（Accessories）\n• 眼镜（Glasses）\n• 肤色（Skin Tone）\n• 头发（Hair）\n• 脸部（Face：眼睛、嘴巴等）\n\n使用方法：\n1. 打开 个人资料 → 设置 → 用户资料 → 编辑头像\n2. 切换到 “Create skin” 选项卡\n3. 在顶部栏选择类别（帽子、上衣、眼镜、调色板等图标）\n4. 在下方选择具体部件，它会立即出现在预览中\n5. 点击 “Save Avatar” 将皮肤应用到个人资料\n\n部分部件可能带有锁图标——表示需通过进度或 F‑bucks 解锁。";
+
+/* Help Center – friends & social */
+"Как добавить друзей?" = "如何添加好友？";
+"Социальные функции" = "社交功能";
+"HELP_SOCIAL_ADD_FRIENDS" = "添加好友的方法：\n1. 打开「个人资料」标签页\n2. 点击“添加好友”\n3. 分享你的好友码，或输入其他玩家的好友码 / 登录名\n4. 发送好友请求\n\n与好友一起你可以：\n• 对比统计数据\n• 查看他们的进度\n• 在联赛和决斗中相互竞争";
+"Как работают напоминания друзьям?" = "给好友的提醒如何工作？";
+"Пуш-уведомления о ежедневном уроке" = "关于每日课程的推送通知";
+"HELP_SOCIAL_REMINDERS" = "完成一局游戏后，你会看到好友及其连胜情况的界面：\n• 今天已经玩过的好友，会显示火焰图标和连续天数\n• 今天还没玩过的好友，会显示“提醒”按钮\n\n如何发送提醒：\n1. 比赛结束后，进入“提醒好友”界面\n2. 在某个好友旁点击“提醒”\n3. 如果 TA 开启了通知，就会收到一条推送，提示今天的每日课程尚未完成\n\n提醒可以帮助好友保持连胜并坚持学习。";
+
+/* Help Center – duel & progress */
+"Что такое дуэль и как её начать?" = "什么是决斗，如何开始？";
+"Режим соревнований 1 на 1" = "1 对 1 竞赛模式";
+"HELP_GAME_DUEL" = "决斗模式下，你和好友回答同一组问题，用成绩一较高下。\n\n如何发起决斗：\n1. 打开好友资料页（可从好友列表、联赛或提醒进入）\n2. 点击“Challenge to Duel”按钮\n3. 确认后，决斗会使用共同的问题集合\n\n结束后：\n• 你可以看到谁的得分更高\n• 决斗可以提升动力和进度，但不会重置你的每日连胜。";
+"Как зарабатывать и тратить F-bucks?" = "如何获取和使用 F‑bucks？";
+"Внутриигровая валюта" = "游戏内货币";
+"HELP_PROGRESS_FBUCKS" = "F‑bucks（Flags Bucks）是 World Arena Capitals 的游戏内货币。\n\n如何获取 F‑bucks：\n• 完成满分对局（全部回答正确）\n• 保持较长的每日连胜\n• 完成任务和成就\n\n可以用来：\n• 购买独特的皮肤与头像部件\n• 解锁稀有配饰和特效\n\n重要提示：F‑bucks 不是真实货币，不能提现或兑换为现实货币。";
+"Как работают квесты и достижения?" = "任务与成就如何运作？";
+"Месячные задания и артефакты" = "每月任务与藏品";
+"HELP_PROGRESS_QUESTS" = "在「任务」标签页你可以看到：\n• 每日任务（如果有）\n• 每月任务及 0–40 的总进度\n\n工作方式：\n1. 完成任务：例如玩指定局数、挑战特定地区的国旗等\n2. 每完成一项任务，都会获得进度和奖励\n3. 总体月度进度会在彩色标题区域以进度条形式显示\n\n成就（藏品）在特殊条件下解锁：\n• 较长的连胜\n• 较高的答题准确率\n• 联赛中的高排名\n已解锁的成就会显示在你的个人资料中。";
+
+/* Help Center – notifications */
+"Уведомления: какие бывают и как их настроить?" = "通知有哪些类型，如何设置？";
+"Ежедневный урок, дуэли и напоминания" = "每日课程、决斗与提醒";
+"HELP_NOTIFICATIONS_TYPES" = "应用可以发送多种通知：\n• 每日课程与连胜提醒\n• 给好友的提醒以及对你提醒的回复\n• 决斗邀请与决斗结果\n\n如何管理通知：\n1. 打开设备系统设置\n2. 找到 World Arena Capitals\n3. 按需开启或关闭不同类型的通知\n\n建议保持每日课程提醒开启，这样更不容易断掉连胜。";
+
+// iPad Main Screen
+"Challenge Yourself, Learn the World" = "挑战自己，学习世界";
+"WorldArena Description" = "WorldArena是一系列全球教育游戏，将学习转化为乐趣。在为所有年龄段设计的动态问答格式中猜测国旗、首都、边界等等。";
+
+// Push Notifications
+"Push Notification Title" = "练习时间到了！";
+"Push Notification Body" = "测试你的国旗知识并提高技能！🌍🎯";
+
+// Difficulty Descriptions
+"Easy" = "简单";
+"Medium" = "中等";
+"Hard" = "困难";
+"Expert" = "专家";
+"Erudite" = "博学";
+"10 questions, 45 sec per answer" = "10道题，每题45秒";
+"15 questions, 30 sec per answer" = "15道题，每题30秒";
+"20 questions, 15 sec per answer" = "20道题，每题15秒";
+"25 questions, 10 sec per answer" = "25道题，每题10秒";
+"30 questions, 5 sec per answer" = "30道题，每题5秒";
+"All %d countries of selected regions, 5 sec per answer" = "所选地区的全部%d个国家，每题5秒";
+"All 238 countries of the world, 5 sec per answer" = "全世界238个国家，每题5秒";
+
+/* Settings - Added */
+"Уведомления" = "通知";
+"Приватность" = "隐私";
+"Центр помощи" = "帮助中心";
+"Язык игры" = "游戏语言";
+"Звуковые эффекты" = "音效";
+"Вибрация" = "振动";
+
+/* Notification Settings - Sections */
+"Основные уведомления" = "主要通知";
+"Напоминания об игре" = "游戏提醒";
+"Ежедневные напоминания" = "每日提醒";
+"Напоминания о серии" = "连胜提醒";
+"Время напоминания" = "提醒时间";
+"Время" = "时间";
+"Достижения и прогресс" = "成就与进度";
+"Социальные уведомления" = "社交通知";
+"Друзья" = "好友";
+
+/* Privacy Settings */
+"Приватность профиля" = "个人资料隐私";
+"Публичный профиль" = "公开资料";
+"Показывать статистику" = "显示统计";
+"Заявки в друзья" = "好友请求";
+"Сбор данных" = "数据收集";
+"Аналитика использования" = "使用分析";
+"Отчеты о сбоях" = "崩溃报告";
+"Управление данными" = "数据管理";
+"Политика конфиденциальности" = "隐私政策";
+"Ознакомьтесь с нашей политикой конфиденциальности" = "查看我们的隐私政策";
+"Условия использования" = "服务条款";
+"Прочитайте наши условия использования" = "阅读我们的服务条款";
+"Экспорт данных" = "导出数据";
+"Скачать копию ваших данных" = "下载您的数据副本";
+"Удалить все данные" = "删除所有数据";
+"Безвозвратно удалить все ваши данные" = "永久删除您的所有数据";
+
+/* 生命与高级版 */
+"Lives" = "生命";
+"Next +%d in %02d:%02d" = "下一次 +%d 于 %02d:%02d";
+"Lives refill info" = "生命补充信息";
+"You will receive +%d new lives in %02d:%02d" = "您将在 %02d:%02d 后获得 +%d 条生命";
+"Unlimited hearts enabled" = "已启用无限生命";
+"Unlimited Hearts" = "无限生命";
+"Your Premium benefits" = "您的 Premium 权益";
+"Onboarding welcome message" = "在下方选择地区并开始您的第一局游戏！";
+"Onboarding first game done" = "第一局完成！再完成 4 局且正确率 70% 以上即可解锁您所在城市的排名。";
+"F-Bucks" = "F-Bucks";
+"Flags Bucks" = "Flags Bucks";
+
+/* F-Bucks Info Page */
+"О F-Bucks" = "关于 F-Bucks";
+"Как заработать" = "如何赚取";
+"История" = "历史";
+"Магазин" = "商店";
+"Что такое F-Bucks?" = "什么是 F-Bucks？";
+"F-Bucks (Flags Bucks) — это внутриигровая валюта, которую можно заработать, играя в World Arena Capitals. Используйте F-Bucks для покупки уникальных элементов аватара, скинов и других эксклюзивных предметов." = "F-Bucks (Flags Bucks) 是您可以通过玩 World Arena Capitals 赚取的游戏内货币。使用 F-Bucks 购买独特的头像物品、皮肤和其他独家物品。";
+"Особенности:" = "特点：";
+"Зарабатывайте за идеальные результаты в играх" = "通过完美的游戏结果赚取";
+"Получайте бонусы за длинные серии дней" = "获得长连续天数奖励";
+"Покупайте эксклюзивные элементы для аватара" = "购买独家头像物品";
+"Создавайте уникальный стиль" = "创造独特风格";
+"Как заработать F-Bucks" = "如何赚取 F-Bucks";
+"Идеальный результат" = "完美结果";
+"Идеальный результат игры" = "完美游戏结果";
+"Получите идеальный результат в игре (10/10 или 15/15)" = "在游戏中获得完美结果（10/10 或 15/15）";
+"Серия 10 дней" = "10 天连续";
+"Играйте 10 дней подряд" = "连续玩 10 天";
+"Серия 20 дней" = "20 天连续";
+"Играйте 20 дней подряд" = "连续玩 20 天";
+"Серия 50 дней" = "50 天连续";
+"Играйте 50 дней подряд" = "连续玩 50 天";
+"Серия 100 дней" = "100 天连续";
+"Играйте 100 дней подряд" = "连续玩 100 天";
+"История начислений" = "交易历史";
+"История пуста" = "历史为空";
+"Начните играть и зарабатывать F-Bucks!" = "开始游戏并赚取 F-Bucks！";
+"Магазин F-Bucks" = "F-Bucks 商店";
+"Потратьте F-Bucks на эксклюзивные элементы для вашего аватара" = "花费 F-Bucks 购买您头像的独家物品";
+"Одежда" = "服装";
+"Уникальные наряды и аксессуары" = "独特的服装和配饰";
+"Скины" = "皮肤";
+"Особые визуальные эффекты" = "特殊视觉效果";
+"Эффекты" = "效果";
+"Анимации и спецэффекты" = "动画和特效";
+"Футболка чемпиона" = "冠军 T 恤";
+"Кепка путешественника" = "旅行者帽";
+"Куртка исследователя" = "探险者夹克";
+"Золотой скин" = "金色皮肤";
+"Радужный скин" = "彩虹皮肤";
+"Неоновый скин" = "霓虹皮肤";
+"Эффект блёсток" = "闪光效果";
+"Огненный эффект" = "火焰效果";
+"Звёздный эффект" = "星星效果";
+"Купить" = "购买";
+"Покупка" = "购买";
+"Текст гимна" = "国歌歌词";
+"Continue playing with unlimited hearts!" = "继续使用无限生命游戏！";
+"No lives available" = "没有可用生命";
+"Unfortunately, the game is not available now: you have no lives. You can buy lives or go Premium." = "很遗憾，当前无法开始游戏：你没有生命。你可以购买生命或升级到高级版。";
+"Go Premium" = "升级到高级版";
+"Out of lives" = "生命已用尽";
+"Get Free Lives" = "免费 +5 生命";
+"Watch video for +3 lives" = "观看视频：+3 生命";
+"Unfortunately you ran out of lives this time. Try again or come back later." = "很遗憾，这次你的生命用完了。请再试一次或稍后再来。";
+"Out of lives headline 1" = "你快成功了！🚀";
+"Out of lives headline 2" = "要继续吗？";
+"Out of lives headline 3" = "还差最后一步！";
+"Out of lives headline 4" = "就差一点！";
+"Out of lives headline 5" = "别停下！";
+"Out of lives headline 6" = "再来一局？";
+"Out of lives headline 7" = "保持连胜！";
+"Out of lives continue subtitle" = "从这里继续？";
+"Continue with bonus lives" = "继续（+%d 条生命）";
+"Out of lives perk resume" = "+%d 条生命 — 从你离开的地方继续";
+"Out of lives perk progress" = "进度不会丢失";
+"Out of lives urgency" = "快点 — 保住进度！";
+"Ad-free with Premium" = "Premium 免广告";
+"Out of lives continue premium" = "使用 Premium 继续";
+"Ad unavailable" = "广告不可用";
+"Ad unavailable. Try again later." = "广告不可用，请稍后再试。";
+"OK" = "确定";
+
+/* 高级版页面 */
+"Learn all countries and flags in ~2 months with Premium" = "使用高级版约 2 个月学完所有国家和国旗";
+"Unlimited Hearts" = "无限生命";
+"Personalized Practice" = "个性化练习";
+"Explain My Answer" = "答案讲解";
+"Roleplay Scenarios" = "角色扮演场景";
+"Access 'My Mistakes'" = "访问“我的错误”";
+"Erudite Difficulty" = "博学难度";
+"Learning Section" = "学习专区";
+"UPGRADE TO PREMIUM" = "升级到高级版";
+"NO THANKS" = "暂不";
+
+/* 游戏页弹出提示 */
+"Total game time since start" = "自开始以来的总游戏时间";
+"Time limit per question depending on difficulty" = "Time limit per question depending on difficulty";
+"Total Game Time" = "游戏总时间";
+"Time Per Question" = "Time Per Question";
+
+/* Game header motivation (iPad) */
+"Game motivation 1" = "你能行！";
+"Game motivation 2" = "继续加油！";
+"Game motivation 3" = "每面旗帜都重要！";
+"Game motivation 4" = "状态火热！";
+"Game motivation 5" = "保持专注！";
+"Game motivation 6" = "再来一个！";
+"Game motivation 7" = "节奏很好！";
+"Game motivation 8" = "快到了！";
+"%d min %d sec" = "%d分%d秒";
+"%d sec" = "%d秒";
+
+// Friends messages
+"У вас пока нет друзей" = "您还没有朋友";
+"Добавьте друзей, чтобы видеть их серии" = "添加朋友以查看他们的连胜";
+
+// Quests page
+"Щоденні квести" = "每日任务";
+"Сыграй 3 игры" = "玩3局游戏";
+"Дай 10 правильных ответов" = "给出10个正确答案";
+"Заработай 500 XP" = "赚取500经验值";
+"%d/7 дней активности" = "%d/7 活跃天数";
+"Месячные цели" = "月度目标";
+"Сыграй 10 игр" = "玩10局游戏";
+"Завершите 10 игр в этом месяце" = "本月完成10局游戏";
+"Точность 62%" = "准确率62%";
+"Достигните точности 62% в играх" = "在游戏中达到62%准确率";
+"Серия 3 дней" = "连续3天";
+"Поддерживайте серию 3 дней подряд" = "保持连续3天的记录";
+
+// Profile page buttons
+"Отмена" = "取消";
+"Сохранить" = "保存";
+
+// Profile statistics
+"Статистика" = "统计";
+"Уровень" = "等级";
+"Опыт" = "经验";
+"Серия дней" = "连续天数";
+"Всего игр" = "总游戏数";
+"Точность" = "准确率";
+
+// Avatar Editor
+"Edit Avatar" = "编辑头像";
+"Upload photo" = "上传照片";
+"Photo" = "照片";
+"Create" = "创建";
+"Select photo" = "选择照片";
+"Upload your photo from gallery or take a new one" = "从相册上传照片或拍摄新照片";
+"Save Avatar" = "保存头像";
+
+// Learning Section
+"More facts" = "更多知识";
+"стран" = "个国家";
+"фактов о флагах и странах" = "关于国旗和国家的知识";
+"Столица" = "首都";
+
+// Continent names
+"Европа" = "欧洲";
+"Азия" = "亚洲";
+"Африка" = "非洲";
+"Северная Америка" = "北美洲";
+"Южная Америка" = "南美洲";
+"Океания" = "大洋洲";
+
+// Continent descriptions
+"Самый маленький континент" = "最小的大陆";
+"Самый большой континент" = "最大的大陆";
+"Колыбель человечества" = "人类摇篮";
+"Новый свет" = "新世界";
+"Земля контрастов" = "对比之地";
+"Острова Тихого океана" = "太平洋岛屿";
+
+/* Subscription Management */
+"Управление подпиской" = "订阅管理";
+"Ваша премиум подписка активна" = "您的高级订阅已激活";
+"Текущий план" = "当前计划";
+"Цена" = "价格";
+"месяц" = "月";
+"Информация о платежах" = "账单信息";
+"Дата начала" = "开始日期";
+"Следующий платеж" = "下次付款";
+"Статус" = "状态";
+"Активна" = "激活";
+"Премиум преимущества" = "高级特权";
+"Безлимитные жизни" = "无限生命";
+"Играйте без ожидания" = "无需等待即可游戏";
+"Раздел Обучения" = "学习专区";
+"Изучайте флаги и страны" = "学习旗帜和国家";
+"Сложность Эрудит" = "博学难度";
+"Продвинутые вопросы" = "高级问题";
+"Мои ошибки" = "我的错误";
+"Анализ ваших ошибок" = "分析您的错误";
+"Отменить подписку" = "取消订阅";
+"Закрыть" = "关闭";
+"Отмена" = "取消";
+"Вы уверены, что хотите отменить премиум подписку? Вы потеряете доступ ко всем премиум функциям." = "您确定要取消高级订阅吗？您将失去所有高级功能的访问权限。";
+
+"Manage subscription" = "管理订阅";
+"Your premium subscription is active" = "您的高级订阅已激活";
+"Current plan" = "当前计划";
+"Price" = "价格";
+"month" = "月";
+"year" = "年";
+"Billing information" = "账单信息";
+"Start date" = "开始日期";
+"Next payment" = "下次付款";
+"Status" = "状态";
+"Active" = "有效";
+"Premium benefits" = "高级权益";
+"My mistakes" = "我的错误";
+"Analysis of your mistakes" = "分析您的错误";
+"Premium tournaments" = "高级锦标赛";
+"Exclusive tournaments with F-Bucks prizes" = "独家F-Bucks奖励锦标赛";
+"Cancel subscription" = "取消订阅";
+"Keep subscription" = "保留订阅";
+"Yes, cancel" = "是的，取消";
+"Are you sure you want to cancel premium? You will lose access to all premium features." = "您确定要取消高级版吗？您将失去所有高级功能的访问权限。";
+"Close" = "关闭";
+"Red" = "红色";
+"Most popular color fact description" = "红色出现在世界上75%的国旗上，使其成为最受欢迎的国旗颜色。";
+
+/* Friend Management */
+"Флаг в профиле" = "个人资料中的旗帜";
+"Удалить из друзей" = "从好友中删除";
+"Удалить друга" = "删除好友";
+"Вы уверены, что хотите удалить %@ из друзей и перестать следить за его успехами?" = "您确定要从好友中删除 %@ 并停止关注他们的进度吗？";
+
+/* Subscription Cancellation */
+"Нам очень жаль, что вы отменили премиум подписку" = "很遗憾您取消了高级订阅";
+"Ваши результаты за период премиум подписки:" = "您在高级订阅期间的结果：";
+"Изучено флагов" = "学习的旗帜";
+"Лучший результат" = "最佳成绩";
+"очков" = "分";
+"Текущая серия" = "当前连胜";
+"дней" = "天";
+"Точность" = "准确率";
+"Теперь вы можете без единой ошибки отвечать на все наши вопросы с точностью в %d%%" = "现在您可以以 %d%% 的准确率无错误地回答我们所有的问题";
+"Мы будем рады, если вы захотите снова вернуться к нам!" = "如果您想再次回到我们这里，我们会很高兴！";
+"Продолжить" = "继续";
+
+/* Learning Section New Strings */
+"ВСЕ СТРАНЫ" = "所有国家";
+"Все страны" = "所有国家";
+"стран" = "个国家";
+"Столица" = "首都";
+
+/* Enhanced Game Results (post-game screen) */
+"PERFECT!" = "完美！";
+"EXCELLENT!" = "太棒了！";
+"GREAT JOB!" = "做得好！";
+"GOOD EFFORT!" = "不错！";
+"KEEP TRYING!" = "继续努力！";
+"XP EARNED" = "获得经验值";
+"XP boost time remaining" = "剩余 %d:%02d — 再玩一局！";
+"XP boost you have remaining" = "您还有 %@ %@";
+"double XP" = "双倍经验";
+"triple XP" = "三倍经验";
+"ACCURACY" = "准确率";
+"TIME" = "时间";
+"CONTINUE" = "继续";
+"Absolutely incredible! You're a true champion! 🎉" = "太不可思议了！你是真正的冠军！🎉";
+"Outstanding performance! You're almost perfect! ✨" = "表现突出！你几乎完美了！✨";
+"Fantastic work! You're doing amazing! 🚀" = "太棒了！你做得很好！🚀";
+"Nice job! Keep up the great work! 💫" = "干得好！继续保持！💫";
+"Don't give up! Every expert was once a beginner! 🌱" = "不要放弃！每个专家都曾是初学者！🌱";
+
+/* Premium restrictions */
+"Premium Feature" = "高级功能";
+"Erudite Level - Premium Only" = "博学级别 - 仅限高级版";
+"My Mistakes - Premium Only" = "我的错误 - 仅限高级版";
+"This feature is available only for Premium users" = "此功能仅适用于高级版用户";
+"Continue with Premium" = "使用高级版继续";
+"Get Premium access to unlock:" = "获取高级版访问权限以解锁：";
+"• Erudite difficulty level" = "• 博学难度级别";
+"• My Mistakes section" = "• 我的错误部分";
+"• Unlimited lives" = "• 无限生命";
+"• All premium features" = "• 所有高级功能";
+
+
+/* Monthly XP Quest */
+"Заработай %d XP за месяц" = "本月赚取 %d XP";
+"Заработайте %d XP играя минимум 7 дней в месяц" = "本月至少玩 7 天赚取 %d XP";
+
+/* League end popup */
+"Итоги лиги" = "联赛结果";
+"Вы заняли %d место." = "您获得了第 %d 名。";
+"Вы поднялись в лигу: %@" = "您晋级到 %@。";
+"Вы остались в текущей лиге." = "您留在当前联赛。";
+"Вы понижены в лигу: %@" = "您降级到 %@。";
+
+/* Premium placeholders when products not loaded */
+"Unable to load products" = "无法加载订阅产品";
+
+/* Home Lives Promo */
+"Unlock your full progress" = "解锁你的全部进度";
+"Get Premium tools for faster learning and better game results" = "获取 Premium 工具，更快学习并获得更好成绩";
+"Learning section" = "学习版块";
+"Train flags and countries in a structured mode" = "在结构化模式中训练国旗和国家知识";
+"Erudite difficulty" = "博学难度";
+"Advanced challenge with deeper knowledge checks" = "更深入知识检验的高级挑战";
+"My mistakes" = "我的错误";
+"Focus on weak topics and improve accuracy" = "聚焦薄弱主题并提升准确率";
+"Personalized practice" = "个性化练习";
+"Adaptive sessions based on your progress" = "基于你的进度进行自适应训练";
+"Explain my answer" = "解释我的答案";
+"Understand every mistake and learn faster" = "理解每个错误并学得更快";
+"Up to +750% faster flag learning with Premium" = "使用 Premium，国旗学习速度最高可提升 +750%";
+"Play without waiting and keep your learning momentum" = "无需等待持续游戏，保持学习节奏";
+"Train flags, listen to anthems, and explore detailed country profiles" = "训练国旗知识，聆听国歌，并查看国家详细资料";
+"Restore Purchases" = "恢复购买";
+"Have a promo code?" = "有优惠码吗？";
+"Redeem Offer Code" = "兑换优惠代码";
+"Auto-renewable subscription" = "自动续订订阅";
+"Monthly Premium Title" = "月度高级版：超值选择";
+"Yearly Premium Title" = "年度高级版：国旗与国家";
+"Duration: 1 month (auto-renewable)" = "时长：1个月（自动续订）";
+"Duration: 1 year (auto-renewable)" = "时长：1年（自动续订）";
+"Premium Monthly" = "月度高级版";
+"Yearly Premium" = "年度高级版";
+"Save %d%%" = "节省 %d%%";
+"Learn flags and countries of the World" = "学习世界各国国旗与国家";
+"Select Level" = "选择等级";
+"Level - %@" = "等级 - %@";
+"Exclusive tournaments with cash F-Bucks prizes" = "高级版专享锦标赛与 F-Bucks 现金奖励";
+"Survival Mode" = "Survival Mode";
+"One mistake = Game Over" = "一处错误 = 游戏结束";
+"Duel result push format" = "%@: %d — 你: %d。";
+"Duel motivation win" = "太棒了！继续保持连胜。";
+"Duel motivation lose" = "来一场复仇战吧！你一定可以。";
+"Opponent" = "对手";
+"vs %@" = "对战 %@";
+"Combo x%d" = "连击 x%d";
+"Combo x%d bonus" = "连击 x%d：奖励 +1";
+"Combo x%d +10 XP" = "连击 x%d +10 XP";
+"Speed bonus +1" = "速度奖励 +1";
+"Speed bonus +10 XP" = "速度奖励 +10 XP";
+"Global ranking by countries" = "按国家的全球排名";
+"Country rank line" = "%1$@ 你在%3$@排名第 #%2$d";
+"World rank line" = "🌎 你在全球排名第 #%d";
+"World rank line no emoji" = "你在全球排名第 #%d";
+"Friend country rank line" = "%1$@ %2$@ #%3$d · %4$@";
+"Friend world rank line" = "%1$@ #%2$d";
+"Spain" = "西班牙";
+"Poland" = "波兰";
+"Ukraine" = "乌克兰";
+"Russia" = "俄罗斯";
+"USA" = "美国";
+"Лига Чемпионов Мира" = "世界冠军联赛";
+"Price is loaded from the App Store on this screen" = "价格将在此页面从 App Store 加载";
+"Connecting to App Store..." = "正在连接 App Store...";
+"Version" = "版本";
+"Update" = "更新";
+"Login without @" = "不带@的用户名";
+"Add by username" = "按用户名添加";
+"Duel Summary" = "对决总结";
+"No duel history yet" = "暂无对决记录";
+"You already outranked %d%% of players in your city" = "你已超过你所在城市 %d%% 的玩家";
+"Goal: keep 90% accuracy in first challenge" = "目标：首个挑战保持 90% 正确率";
+"Challenge ends in %d sec" = "挑战将在 %d 秒后结束";
+"Defeat" = "失败";
+"Victory" = "胜利";
+"All" = "全部";
+"Wins" = "胜利";
+"Losses" = "失败";
+"Duel Summary Share Header" = "我在 World Arena Capitals 的对决结果";
+"View Detailed Results" = "查看详细结果";
+"Detailed Results" = "详细结果";
+"Correct" = "正确";
+"Wrong" = "错误";
+"Flag" = "国旗";
+"Your answer" = "你的答案";
+"Time is up" = "时间到";
+"Search" = "搜索";
+"3x XP for 10 min!" = "10分钟内3倍XP！";
+"КАРТА ПРОГРЕССА" = "进度地图";
+"Карта прогресса мира" = "世界进度地图";
+"World Progress Map" = "世界进度地图";
+"Tap a country to see your correct and wrong answers" = "点击国家查看正确与错误答题";
+"Greener country means better mastery" = "颜色越绿表示掌握越好";
+"Continent Mastery" = "大陆掌握";
+"Answered %d of %d countries" = "已答 %d/%d 国家";
+"Mastered %d of %d countries" = "已掌握 %d/%d 国家";
+"Total" = "总计";
+"Map" = "地图";
+"Weak countries" = "薄弱国家";
+"All countries" = "全部国家";
+"Only weak" = "仅薄弱";
+"Only mastered" = "仅已掌握";
+"TOP weak countries for review" = "需复习的薄弱国家排行";
+"No weak countries yet" = "暂无薄弱国家";
+"%@ Master" = "%@ 大师";
+"%@ Master unlocked" = "%@ 大师已解锁";
+"Continent mastered! Keep going." = "大陆已掌握！继续加油。";
+"Weekly challenge" = "每周挑战";
+"Weak country sessions this week" = "本周弱国训练次数";
+"Start Weak Countries Training" = "开始弱国训练";
+"Progress map subtitle" = "按国家和大陆查看您的进度";
+"How is Mastered calculated?" = "「已掌握」如何计算？";
+"Duel Summary subtitle" = "查看你的对决历史和详细结果";
+"F-Bucks subtitle" = "了解如何获取和使用 F-bucks（游戏内货币）";
+"Mastered explanation" = "当您对某国至少回答3次且正确率至少80%%时，该国计为已掌握。";
+"Name" = "名字";
+"Account login title" = "创建您的账户";
+"Account login subtitle" = "继续以访客身份或登录以保存身份与安全设置";
+"Login" = "登录";
+"Register" = "注册";
+"Username" = "用户名";
+"Password" = "密码";
+"Create account" = "创建账户";
+"Forgot password?" = "忘记密码？";
+"Continue with Google" = "使用 Google 继续";
+"Google login" = "Google 登录";
+"Continue" = "继续";
+"Enter Google email" = "输入您的 Google 邮箱";
+"Current password" = "当前密码";
+"New password" = "新密码";
+"Repeat new password" = "重复新密码";
+"Change password" = "修改密码";
+"Reset password" = "重置密码";
+"Reset code" = "重置码";
+"Send reset code" = "发送重置码";
+"No account with this email" = "没有与此邮箱关联的账户";
+"Login / Register" = "登录 / 注册";
+"Logged in" = "已登录";
+"Use Face ID / Touch ID" = "使用 Face ID / Touch ID";
+"Sign out" = "退出登录";
+"Active sessions" = "活跃会话";
+"My notifications" = "我的通知";
+"Other device" = "其他设备";
+"Login with biometrics" = "生物识别登录";
+"Biometric login prompt" = "确认生物识别登录";
+"Current Streak" = "当前连续";
+"days" = "天";
+
+/* 68 interesting facts */
+"FACT_01_TITLE" = "使用最久的国旗";
+"FACT_01_DESC" = "丹麦的丹尼布洛被认为是自1219年起连续使用最久的国旗。";
+"FACT_02_TITLE" = "唯一正方形国旗";
+"FACT_02_DESC" = "瑞士拥有世界上唯一正方形国旗。梵蒂冈也是正方形，但是城邦。";
+"FACT_03_TITLE" = "非矩形国旗";
+"FACT_03_DESC" = "尼泊尔拥有世界上唯一非矩形的国旗。";
+"FACT_04_TITLE" = "无红白蓝三色";
+"FACT_04_DESC" = "牙买加是唯一国旗上没有红、白、蓝三色的国家。";
+"FACT_05_TITLE" = "永不降半旗";
+"FACT_05_DESC" = "沙特阿拉伯国旗因上有神圣文字而从不下半旗。";
+"FACT_06_TITLE" = "年轻的国旗";
+"FACT_06_DESC" = "南苏丹国旗于2011年独立后采用。";
+"FACT_07_TITLE" = "带AK-47的国旗";
+"FACT_07_DESC" = "莫桑比克是唯一在国旗上出现现代武器——卡拉什尼科夫步枪的国家。";
+"FACT_08_TITLE" = "几乎相同的国旗";
+"FACT_08_DESC" = "罗马尼亚与乍得国旗非常相似，通常以蓝色深浅区分。";
+"FACT_09_TITLE" = "乌克兰的象征";
+"FACT_09_DESC" = "乌克兰蓝黄旗传统上被解读为麦田上的天空。";
+"FACT_10_TITLE" = "最简单的国旗";
+"FACT_10_DESC" = "利比亚国旗在1977至2011年间为纯绿色，无任何符号或图案。";
+"FACT_11_TITLE" = "带地图的国旗";
+"FACT_11_DESC" = "塞浦路斯国旗上有岛屿轮廓，在国旗中较为罕见。";
+"FACT_12_TITLE" = "带圣经的国旗";
+"FACT_12_DESC" = "多米尼加共和国国旗上有打开的圣经，是唯一带宗教书籍的国旗。";
+"FACT_13_TITLE" = "最常见的颜色";
+"FACT_13_DESC" = "红色是世界上国旗上最常见的颜色。";
+"FACT_14_TITLE" = "带文字的国旗";
+"FACT_14_DESC" = "国旗上出现文字很少见，著名一例是沙特阿拉伯。";
+"FACT_15_TITLE" = "国旗礼仪";
+"FACT_15_DESC" = "许多国家对国旗的使用有严格规定。";
+"FACT_16_TITLE" = "正反面不同的国旗";
+"FACT_16_DESC" = "巴拉圭拥有世界上唯一正反面图案不同的国旗。";
+"FACT_17_TITLE" = "奥运象征";
+"FACT_17_DESC" = "奥运五环颜色被设计为至少一种颜色出现在每个国家的国旗上。";
+"FACT_18_TITLE" = "徽章最复杂的国旗";
+"FACT_18_DESC" = "墨西哥国旗上有鹰立于仙人掌持蛇的图案，是细节最丰富的国旗徽章之一。";
+"FACT_19_TITLE" = "复制版国旗";
+"FACT_19_DESC" = "摩纳哥与印度尼西亚国旗几乎相同——上红下白，仅比例不同。";
+"FACT_20_TITLE" = "50星旗";
+"FACT_20_DESC" = "美国国旗有50颗星，每州一颗。自1777年以来设计变更了27次。";
+"FACT_21_TITLE" = "最北的国旗";
+"FACT_21_DESC" = "北极地区使用具有独特象征意义的国家和地区旗帜。";
+"FACT_22_TITLE" = "带十字的国旗";
+"FACT_22_DESC" = "29个国家国旗上有十字，是最常见的符号之一。";
+"FACT_23_TITLE" = "三色旗";
+"FACT_23_DESC" = "许多国家采用简单的三条纹设计作为历史上稳定的旗帜形式。";
+"FACT_24_TITLE" = "带新月的国旗";
+"FACT_24_DESC" = "新月出现在12国国旗上，多为穆斯林国家，象征伊斯兰信仰。";
+"FACT_25_TITLE" = "太阳象征";
+"FACT_25_DESC" = "太阳是亚洲和南美国旗上最常见的符号之一。";
+"FACT_26_TITLE" = "带树的国旗";
+"FACT_26_DESC" = "黎巴嫩是唯一国旗上有树（黎巴嫩雪松）的国家，象征永恒与和平。";
+"FACT_27_TITLE" = "最窄的国旗";
+"FACT_27_DESC" = "卡塔尔国旗的宽高比在所有国旗中最特别——11:28。";
+"FACT_28_TITLE" = "复杂徽章";
+"FACT_28_DESC" = "拉丁美洲国旗上的徽章常包含大量细节和历史符号。";
+"FACT_29_TITLE" = "彩虹旗";
+"FACT_29_DESC" = "玻利维亚有两面官方旗帜——传统三色旗与土著维帕拉彩虹旗。";
+"FACT_30_TITLE" = "带建筑的国旗";
+"FACT_30_DESC" = "柬埔寨国旗上有吴哥窟，是唯一带建筑的国旗。";
+"FACT_31_TITLE" = "历史争议";
+"FACT_31_DESC" = "部分国旗设计因历史与政治争议而改变。";
+"FACT_32_TITLE" = "带剑的国旗";
+"FACT_32_DESC" = "斯里兰卡国旗上有持剑狮子，象征僧伽罗人的勇气。";
+"FACT_33_TITLE" = "无蓝色的国旗";
+"FACT_33_DESC" = "仅四国国旗不用蓝色：牙买加、毛里塔尼亚、斯里兰卡和梵蒂冈。";
+"FACT_34_TITLE" = "国旗上的鸟";
+"FACT_34_DESC" = "鹰及其他鸟类在国旗上象征力量、独立与高贵。";
+"FACT_35_TITLE" = "南极象征";
+"FACT_35_DESC" = "南极洲没有官方国旗，但存在多种非官方设计。";
+"FACT_36_TITLE" = "国旗上的星";
+"FACT_36_DESC" = "星是全世界国旗上最普遍的符号之一。";
+"FACT_37_TITLE" = "相似配色";
+"FACT_37_DESC" = "部分国旗颜色相近但条纹顺序与徽章不同。";
+"FACT_38_TITLE" = "国际组织旗帜";
+"FACT_38_DESC" = "超国家组织也有反映共同价值的旗帜。";
+"FACT_39_TITLE" = "岛屿象征";
+"FACT_39_DESC" = "岛国国旗常出现海洋、太阳与航海符号。";
+"FACT_40_TITLE" = "随时间变化";
+"FACT_40_DESC" = "部分国旗随国家政治史变更过数十次。";
+"FACT_41_TITLE" = "北马其顿太阳";
+"FACT_41_DESC" = "北马其顿国旗上有八道光芒的太阳，象征新的开始。";
+"FACT_42_TITLE" = "伯利兹伐木工";
+"FACT_42_DESC" = "伯利兹国旗是少数出现人物的国旗之一：持工具的伐木工。";
+"FACT_43_TITLE" = "厄瓜多尔神鹰";
+"FACT_43_DESC" = "厄瓜多尔国旗上有安第斯神鹰，象征力量与主权。";
+"FACT_44_TITLE" = "玻利维亚双旗";
+"FACT_44_DESC" = "玻利维亚将维帕拉与三色旗并列为官方象征。";
+"FACT_45_TITLE" = "巴西27星";
+"FACT_45_DESC" = "巴西国旗有27颗星，每州和联邦区各一。";
+"FACT_46_TITLE" = "枫叶";
+"FACT_46_DESC" = "加拿大国旗上有唯一的11角枫叶，在各国国旗中独有。";
+"FACT_47_TITLE" = "米字旗";
+"FACT_47_DESC" = "英国国旗融合了三个圣徒的十字：英格兰、苏格兰与爱尔兰。";
+"FACT_48_TITLE" = "日本旭日";
+"FACT_48_DESC" = "白底上的红圈代表旭日，日本自7世纪起使用。";
+"FACT_49_TITLE" = "阿育王法轮";
+"FACT_49_DESC" = "印度国旗上有24辐法轮，象征法与动。";
+"FACT_50_TITLE" = "澳大利亚南十字";
+"FACT_50_DESC" = "澳大利亚国旗上有南十字星座，仅在南半球可见。";
+"FACT_51_TITLE" = "新西兰南十字";
+"FACT_51_DESC" = "新西兰国旗也有南十字，但为红星白边。";
+"FACT_52_TITLE" = "韩国太极";
+"FACT_52_DESC" = "韩国国旗上有传统太极（阴阳）与八卦。";
+"FACT_53_TITLE" = "葡萄牙浑天仪";
+"FACT_53_DESC" = "葡萄牙国旗上有浑天仪，古代航海仪器。";
+"FACT_54_TITLE" = "阿尔巴尼亚双头鹰";
+"FACT_54_DESC" = "阿尔巴尼亚国旗上有黑色双头鹰，象征主权。";
+"FACT_55_TITLE" = "肯尼亚盾";
+"FACT_55_DESC" = "肯尼亚国旗上有马赛盾与交叉长矛。";
+"FACT_56_TITLE" = "威尔士红龙";
+"FACT_56_DESC" = "威尔士红龙是世界上最古老的国家象征之一。";
+"FACT_57_TITLE" = "圣安德烈十字";
+"FACT_57_DESC" = "苏格兰国旗为蓝底白斜十字，即圣安德烈十字。";
+"FACT_58_TITLE" = "格陵兰圆";
+"FACT_58_DESC" = "格陵兰国旗上有红白圆，象征冰原上的太阳。";
+"FACT_59_TITLE" = "泛非色彩";
+"FACT_59_DESC" = "绿、黄、红常被称为泛非色，出现在许多非洲国旗上。";
+"FACT_60_TITLE" = "北欧十字";
+"FACT_60_DESC" = "五国使用北欧十字：丹麦、挪威、瑞典、芬兰与冰岛。";
+"FACT_61_TITLE" = "法国三色";
+"FACT_61_DESC" = "法国蓝白红三色旗成为许多革命与民族旗帜的范本。";
+"FACT_62_TITLE" = "联合国旗";
+"FACT_62_DESC" = "联合国旗为蓝底上地球与橄榄枝。";
+"FACT_63_TITLE" = "欧盟旗";
+"FACT_63_DESC" = "蓝底上12颗金星成环，象征欧盟团结。";
+"FACT_64_TITLE" = "奥运旗";
+"FACT_64_DESC" = "白底五环代表五大洲与奥运的全球性。";
+"FACT_65_TITLE" = "梵蒂冈方旗";
+"FACT_65_DESC" = "梵蒂冈与瑞士一样使用正方形国旗。";
+"FACT_66_TITLE" = "瑙鲁12芒";
+"FACT_66_DESC" = "瑙鲁国旗上有12芒星，代表岛上12个部落。";
+"FACT_67_TITLE" = "土库曼地毯纹";
+"FACT_67_DESC" = "土库曼斯坦国旗沿旗杆一侧有传统地毯图案。";
+"FACT_68_TITLE" = "阿富汗清真寺";
+"FACT_68_DESC" = "阿富汗国旗在不同时期曾出现清真寺图案。";
+
+/* Add friend & duel results */
+"Пользователь найден и добавлен" = "已找到并添加用户";
+"Этот пользователь уже является вашим другом." = "该用户已经是你的好友。";
+"Waiting for result" = "等待结果";
+"Duel time left format" = "剩余 %d 小时 %d 分钟";
+"Duel time expired" = "时间已到";
+"Waiting for opponent" = "等待对手";
+
+"league.weekly_result.title.win" = "你赢得了联赛";
+"league.weekly_result.title.promotion" = "你晋级了";
+"league.weekly_result.title.stayed" = "你留在当前联赛";
+"league.weekly_result.title.demotion" = "你降级了";
+"league.weekly_result.title.week_finished" = "联赛周结束";
+"league.weekly_result.body.win" = "你获得第#%d名，本周名列前茅。";
+"league.weekly_result.body.promotion" = "你获得第#%d名，晋级至%@。";
+"league.weekly_result.body.stayed" = "你获得第#%d名，留在%@。";
+"league.weekly_result.body.demotion" = "你获得第#%d名，降级至%@。";
+"league.weekly_result.body.top3" = "你本周进入前三名。";
+"league.weekly_result.label.rank" = "名次";
+"league.weekly_result.label.new_league" = "新联赛";
+"league.weekly_result.label.reward" = "奖励";
+"league.weekly_result.label.week" = "本周结果";
+"league.weekly_result.cta.view" = "查看结果";
+"league.weekly_result.cta.ok" = "确定";
+"league.weekly_result.cta.claim" = "领取";
+
+"league.weekly_result.promotion.tagline" = "🔥 新等级！";
+"league.weekly_result.promotion.title" = "🚀 你进入了%@！";
+"league.weekly_result.promotion.subtitle.top3_a" = "第%d名 — 成绩出色！";
+"league.weekly_result.promotion.subtitle.top3_b" = "前三 — 绝非偶然。";
+"league.weekly_result.promotion.subtitle.other" = "第%d名 — 升级了！";
+"league.weekly_result.win.hero" = "🏆 周联赛冠军！";
+"league.weekly_result.nice.title" = "前%d — 很棒的一周！";
+"league.weekly_result.reward.fbucks" = "+%d F-Bucks 💰";
+"league.weekly_result.next_goal" = "下一个目标 — %@ 🏆";
+"league.weekly_result.next_goal.alt" = "再进一步 — 巅峰联赛在等你！";
+"league.weekly_result.next_goal.pinnacle" = "你已跻身全球顶尖玩家！✨";
+"league.weekly_result.cta.keep_playing_arrow" = "继续游戏 →";
+"league.weekly_result.cta.toward_league_arrow" = "冲刺%@ →";
+"league.weekly_result.demotion.cta" = "知道了 →";
+"league.weekly_result.stayed.cta" = "前进 →";
+"home.league_banner.title" = "联赛周结束";
+"home.league_banner.body.win" = "你获得第#%d名并赢得了联赛。";
+"home.league_banner.body.promotion" = "你获得第#%d名，晋级至%@。";
+"home.league_banner.body.stayed" = "你获得第#%d名，留在%@。";
+"home.league_banner.body.demotion" = "你获得第#%d名，降级至%@。";
+"home.league_banner.cta" = "查看结果";
+/* Home layout (variant 2 / A-B) */
+"home.layout.section" = "主屏幕";
+"home.layout.classic" = "经典";
+"home.layout.variant2" = "专业";
+"home.continue" = "继续";
+"home.settings.change" = "更改";
+"home.settings.promo.title" = "你的对局，由你设定";
+"home.settings.promo.subtitle" = "地区、难度、决斗或经典 — 点按，按你的方式开局。";
+"home.settings.apply" = "应用";
+"home.settings.sheet_title" = "游戏设置";
+"home.league.xp_to_next_fmt" = "距离%@：%d XP";
+"home.league.max" = "已达最高联赛";
+"home.header.lives_max" = "最大";
+"home.lives.refill_in_fmt" = "+%d，%02d:%02d 后";
+"home.next_goal.title" = "下一个目标";
+"home.quick_modes.title" = "快速开始";
+"home.social.title" = "好友";
+"home.social.friend_streak_fmt" = "%@ — 连续 %lld 天";
+"home.social.catch_today" = "今天追上他们！";
+
+"home.goal.xp_left_fmt" = "还剩 %d XP";
+"home.daily.title" = "每日奖励";
+"home.daily.claim" = "领取 +1";
+"home.daily.claimed" = "已领取";
+"home.daily.tomorrow" = "明天再来";
+"home.streak_nudge.solo_title" = "你已连玩 %d 天！";
+"home.streak_nudge.solo_sub" = "别断档 — 现在就玩。";
+"home.streak_nudge.friend_title" = "%@ 已连 %d 天";
+"home.streak_nudge.friend_sub" = "你：%d 天";
+"home.streak_nudge.play" = "游玩";
+"home.streak_nudge.catch_up" = "追上";
+"home.hero.play_bonus" = "现在玩可得 +1 F-Bucks";
+"home.hero.streak_continue_fmt" = "保持连玩 — %d/%d";
+"home.hero.almost_perfect" = "完美对局 — 就差一点！";
+"home.hero.daily_ready" = "每日 +1 F-Bucks 可领取";
+"home.hero.catch_friend_fmt" = "追上 %@ — %d 天连玩";
+"home.earn.section" = "今天";
+"home.earn.perfect.almost" = "快完成了 — 打完它";
+"home.earn.perfect.start" = "现在开始 — 锁定";
+"home.earn.perfect.going" = "今天强势收尾";
+"home.earn.streak.almost" = "别现在丢掉";
+"home.earn.streak.start" = "现在玩否则会断连";
+"home.earn.streak.going" = "现在玩否则会断连";
+"home.earn.league.hint" = "冲击前三";
+"home.earn.league.almost" = "你很接近";
+"home.earn.done" = "完成！";
+"home.daily.subtitle.claim" = "今日可领 +1 F-Bucks";
+"home.daily.subtitle.claimed" = "今天的奖励已领";
+"home.goal.headline_almost_fmt" = "快达成 %@！";
+"home.goal.xp_remaining_detail" = "剩余：%d XP";
+"home.goal.claim_reward_cta" = "领取奖励 →";
+"home.goal.open_league" = "打开联赛 →";
+"home.pride.streak_fmt" = "连玩 %d 天 — 继续！";
+"home.pride.league_place_fmt" = "本周你在联赛中第 %d 名";
+"home.pride.section_title" = "你的进度";
+"home.pride.streak_line_one" = "连玩：1 天";
+"home.pride.streak_line_fmt" = "连玩：%d 天";
+"home.pride.rank_line_fmt" = "排名：本周第 %d";
+"home.pride.top10_hint" = "继续冲向前十";
+"home.pride.rank_headline_fmt" = "本周你第 %d 名";
+"home.hero.headline.streak_alive" = "保持连玩";
+"home.hero.headline.perfect_push" = "完美对局 — 差一点";
+"home.hero.headline.daily_up" = "每日奖励就绪";
+"home.hero.headline.keep_playing" = "下一局很关键";
+"home.hero.headline.friend" = "追上 %@";
+"home.hero.detail.streak_fmt" = "%d/%d 天";
+"home.hero.detail.perfect_fmt" = "%d/%d 完美";
+"home.hero.detail.day_fmt" = "连续第 %d 天";
+"home.hero.detail.friend_streak" = "对方连玩：%d 天";
+"home.hero.detail.start_streak" = "今天开始连玩";
+"home.hero.hook.reward_play" = "现在玩可得 +1 奖励";
+"home.hero.pressure" = "今天别丢进度";
+"home.hero.wow.tip" = "🔥 今日 +1 可用";
+"home.sticky.hook.reward" = "现在玩可得 +1 奖励";
+"home.sticky.hook.streak" = "继续连玩";
+"home.sticky.hook.play" = "下一局很关键";
+"home.pride.gap_top10_fmt" = "距前十还差 %d 名";
+"home.pride.close_top10_short" = "你离前十很近 🔥";
+"home.pride.streak_full_one" = "连玩：1 天 — 继续";
+"home.pride.streak_full_fmt" = "连玩：%d 天 — 继续";"home.pride.streak_full_fmt" = "连玩：%d 天 — 继续";"coins" = "金币";
+"league_motivation_win_01" = "本周你名列前茅。干得好——保持节奏。";
+"league_motivation_win_02" = "前三名不是偶然。这是稳定发挥和专注的结果。";
+"league_motivation_win_03" = "强势的一周。保持同样的节奏——下一级联赛在等你。";
+"league_motivation_promotion_01" = "晋级说明你在进步。下一级联赛会更难，但你已准备好。";
+"league_motivation_promotion_02" = "你迈出了一步。现在的目标不仅是爬得更高，还要站稳脚跟。";
+"league_motivation_stayed_01" = "你守住了位置。良好的基础——现在把稳定转化为成长。";
+"league_motivation_stayed_02" = "一周没有退步已经是成绩。下一步：冲击晋级区。";
+"league_motivation_demotion_01" = "不是最好的一周——难免的。重要的是不要停下：下一周可以更强。";
+"league_motivation_demotion_02" = "降级不是终点。这是重启点，之后往往会有更好的表现。";
+"league_motivation_general_01" = "每周都是更上一层楼的新机会。继续——进步会累积。";
+
+/* Onboarding (hook → reward → loop) */
+
+"onboarding_hook_title" = "这个国家的首都是哪里？";
+"onboarding_hook_subtitle" = "大多数人会答错";
+"onboarding_reward_correct" = "答对了！🎉";
+"onboarding_reward_almost" = "差一点——正确答案是%@";
+"onboarding_reward_plus_one" = "+1 奖励";
+"onboarding_reward_streak" = "开启你的连胜";
+"onboarding_loop_line1" = "每天只玩一分钟";
+"onboarding_loop_line2" = "解锁奖励";
+"onboarding_loop_line3" = "攀登联赛";
+"onboarding_start_playing" = "开始游戏";
+"onboarding_swipe_hint" = "滑动继续";
+"onboarding_search_language" = "搜索语言…";
+"onboarding_language_sheet_title" = "语言";
+"onboarding_switch_language_hint" = "切换到%@？";
+/* Avatar constructor (AvatarEditorView) */
+"avatar_editor_edit_avatar" = "编辑头像";
+"avatar_editor_done" = "完成";
+"avatar_editor_discard_title" = "放弃更改？";
+"avatar_editor_discard_action" = "放弃";
+"avatar_editor_continue_editing" = "继续编辑";
+"avatar_editor_discard_message" = "头像更改将不会保存。";
+"avatar_editor_skin_tone" = "肤色";
+"avatar_editor_body" = "身体";
+"avatar_editor_eye_color" = "眼睛颜色";
+"avatar_editor_expression" = "表情";
+"avatar_editor_main_hair_color" = "头发颜色";
+"avatar_editor_hairstyle" = "发型";
+"avatar_editor_glasses" = "眼镜";
+"avatar_editor_glasses_color" = "眼镜颜色";
+"avatar_editor_facial_hair" = "胡须";
+"avatar_editor_facial_hair_color" = "胡须颜色";
+"avatar_editor_headwear" = "头饰";
+"avatar_editor_headwear_color" = "头饰颜色";
+"avatar_editor_clothing_color" = "服装颜色";
+"avatar_editor_clothing_style" = "服装样式";
+"avatar_editor_background_color" = "背景颜色";
+"avatar_editor_none" = "无";
+"avatar_editor_round" = "圆形";
+"avatar_editor_square" = "方形";
+"avatar_editor_sunglasses" = "太阳镜";
+"avatar_editor_slim" = "细边";
+"avatar_editor_cap" = "棒球帽";
+"avatar_editor_beanie" = "针织帽";
+"avatar_editor_bandana" = "头巾";
+"avatar_editor_sport_cap" = "运动帽";
+"avatar_editor_hat_SilverLeague" = "Silver League";
+"avatar_editor_hat_10_day_streak" = "连续10天";
+"avatar_editor_hat_beginner" = "新手";
+"avatar_editor_hat_Premium" = "Premium";
+"avatar_editor_editor_section_coming_soon" = "该部分暂时不可用，即将恢复。";
+"avatar_editor_lock_item_title" = "不可用";
+"avatar_editor_lock_item_ok" = "好的";
+"avatar_editor_lock_headwear_premium_body" = "此头饰需 Premium 解锁。请在设置中订阅 Premium。";
+"avatar_editor_lock_headwear_shop_body" = "该物品将在自定义商店中提供（即将推出）。";
+"avatar_editor_lock_headwear_generic_body" = "此项目暂不可用。";
+"avatar_editor_opt_slim" = "苗条";
+"avatar_editor_opt_regular" = "标准";
+"avatar_editor_opt_hoodie" = "连帽衫";
+"avatar_editor_opt_tshirt" = "T恤";
+"avatar_editor_opt_sweater" = "毛衣";
+"avatar_editor_opt_wide" = "宽版";
+"avatar_editor_opt_bald" = "光头";
+"avatar_editor_opt_side_part" = "侧分";
+"avatar_editor_opt_short" = "短发";
+"avatar_editor_opt_curl" = "卷发";
+"avatar_editor_opt_modern" = "现代";
+"avatar_editor_opt_buzz" = "寸头";
+"avatar_editor_opt_hair_waves" = "波浪";
+"avatar_editor_opt_hair_spiky" = "刺猬头";
+"avatar_editor_opt_hair_slick" = "油头";
+"avatar_editor_opt_hair_pompadour" = "蓬巴杜";
+"avatar_editor_opt_moustache" = "小胡子";
+"avatar_editor_opt_trimmed" = "短胡茬";
+"avatar_editor_opt_goatee" = "山羊胡";
+"avatar_editor_opt_beard_full" = "浓胡须";
+"avatar_editor_opt_beard_light" = "浅棕胡须";
+"avatar_editor_opt_beard_bushy" = "大胡子";
+"avatar_editor_opt_jacket" = "夹克";
+
+"monthly_quest_mission_title" = "%@任务";
+"Friend profile progress title" = "STREAK AND PROGRESS";
+"Friend achievements placeholder" = "Friend achievements are shown as they are unlocked";
+
+"Answer as many flags as possible before time runs out" = "在时间结束前尽可能多地答对国旗";
+"Duration" = "时长";
+"Best score" = "Best score";
+"Wrong answer penalty" = "答错惩罚";
+"5 correct in a row bonus" = "连续答对 5 题奖励";
+"Best combo" = "最佳连击";
+"New record!" = "新纪录！";
+"Day leaderboard place" = "日榜名次";
+"Week leaderboard place" = "周榜名次";
+"Back to Modes" = "Back to Modes";
+"Start" = "开始";
+"TC correct answers headline" = "%d 题答对";
+"Difficulty description TC" = "%1$d%2$@一局 • 连续答对 5 题 +%3$d%2$@ • 答错 −%4$d%2$@";
+"Difficulty TC erudite all" = "全球所有国家/地区 • %1$d%2$@一局 • 连续答对 5 题 +%3$d%2$@ • 答错 −%4$d%2$@";
+"Difficulty TC erudite regions" = "%1$d 个国家/地区 • %2$d%3$@一局 • 连续答对 5 题 +%4$d%3$@ • 答错 −%5$d%3$@";
+"TC best correct record" = "历史最佳：%d 题答对";
+"TC intro best correct title" = "最佳（答对）";
+"TC intro combo5 bonus title" = "连对 5 题";
+"TC detail time penalty fmt" = "计时：−%1$d %2$@（错误）";
+"TC detail time combo fmt" = "计时：+%1$d %2$@（连续答对 5 题）";
+"TC detail points earned" = "Points for this answer: +%d";
+"TC detail xp earned" = "XP for this answer: +%d";
+"TC detail time penalty" = "Timer: −10 s (wrong answer)";
+"TC detail time combo bonus" = "Timer: +10 s (5 correct in a row)";
+"Share TC headline" = "Time Challenge: %d correct out of %d";
+
+"Time seconds unit short" = "秒";
+"Time to restart your streak! You can do it!" = "Time to restart your streak! You can do it!";
+"TC stat best combo" = "最佳连击";
+"Time TC delta seconds fmt" = "%+d %@";
+"Time intro duration seconds fmt" = "%1$d%2$@";
+"Time intro penalty seconds fmt" = "−%1$d%2$@";
+"Time intro bonus seconds fmt" = "+%1$d%2$@";
+"Share Survival headline" = "生存模式：存活 %d 面旗 • 答对 %d • 最高阶段 %d";
+"Survival mode short description" = "生命有限、难度递增——你能走多远？";
+"Survival difficulty blurb fmt" = "回合生命 · 阶段提升 · 连续答对 10 题 +1 生命";
+"Survival depth header" = "深度";
+"Survival stage fmt" = "第 %d 阶段";
+"Survival bonus life streak" = "+1 生命（连续答对 10 题）";
+"Survival milestone banner fmt" = "里程碑 %d！+30 XP • +1 F-Bucks";
+"Survival next milestone fmt" = "距离里程碑 %2$d 还需答对 %1$d 题";
+"Survival result best depth fmt" = "个人最佳深度：%d 面旗";
+"Survival result combo fmt" = "本局最佳连击：%d";
+"Survival result survived fmt" = "你挺过了 %d 面旗";
+"Survival result stage reached fmt" = "到达的最高阶段：%d";
+"Survival stat correct" = "正确";
+"Survival intro description" = "逐题辨认国旗。答错会失去生命，难度会上升——打破你的深度纪录。";
+"Survival intro lives title" = "起始生命";
+"Survival intro best depth title" = "最佳深度";
+"Survival intro choices title" = "选项";
+"Survival intro timer title" = "计时";
+"Survival intro timer value" = "与经典模式相同";
+"Survival weekly title" = "每周生存挑战";
+"Survival weekly target fmt" = "本周在一局内存活 %d 面旗。";
+"Survival weekly best fmt" = "本周最佳：%d 面旗";
+"Survival weekly all milestones met body" = "You've reached every weekly depth goal — up to 200 flags in one run. Brilliant!";
+"Survival weekly reward all claimed" = "All weekly survival bonuses claimed (up to +4000 XP).";
+"Survival weekly reward claimed" = "已领取每周奖励（+1000 XP）";
+"Survival weekly reward hint" = "Each milestone — 25, 50, 100, then 200 flags in one run — gives +1000 XP once per week.";
+
+"Survival result depth progress fmt" = "%1$d / %2$d";
+
+"Last login" = "上次登录";
+"Filter by name" = "按名称筛选";
+"Last played" = "最后一次玩";
+
+"1 hour" = "1小时";
+
+
+"Duel announcement subtitle" = "Same duel for both players. First to score wins!";
+"User 1" = "User 1";
+"User 2" = "User 2";
+"Number of Questions" = "Questions";
+
+/* F-Bucks screen */
+"fbucks.close" = "Close";
+"fbucks.currency.name" = "F-Bucks";
+"fbucks.hero.subtitle.enough" = "Enough for about %d items";
+"fbucks.hero.subtitle.rare" = "You can buy a rare item";
+"fbucks.hero.subtitle.save" = "Keep saving for something special";
+"fbucks.daily.title" = "Daily bonus";
+"fbucks.daily.subtitle" = "+1 F-Bucks";
+"fbucks.daily.claim" = "Claim";
+"fbucks.daily.claimed" = "Claimed today";
+"fbucks.daily.hint" = "+1 available today — tap Claim";
+"fbucks.earn.today.title" = "Earn today";
+"fbucks.earn.today.subtitle" = "Up to %d F-Bucks possible today";
+"fbucks.earn.perfect.title" = "Perfect game";
+"fbucks.earn.perfect.sub" = "+1 for 10/10 or 15/15";
+"fbucks.earn.streak" = "Streak";
+"fbucks.earn.streak.sub" = "Series (%d/10 days)";
+"fbucks.earn.league" = "Top of the week";
+"fbucks.earn.league.sub" = "Finish in the top 3 of your league";
+"fbucks.progress.title" = "Progress to next item";
+"fbucks.progress.percent" = "%d%%";
+"fbucks.progress.full" = "You can afford the next rewards — open the shop!";
+"fbucks.want.title" = "Next goal";
+"fbucks.want.price" = "Price: %d F-Bucks";
+"fbucks.want.you" = "You have: %d";
+"fbucks.want.need" = "Need %d more";
+"fbucks.earn_more" = "Earn more →";
+"fbucks.buy_for" = "Buy for %d";
+"fbucks.shop.title" = "Shop";
+"fbucks.shop.subtitle" = "Spend F-Bucks on exclusive avatar items";
+"fbucks.shop.tier.common" = "Common";
+"fbucks.shop.tier.rare" = "Rare";
+"fbucks.shop.tier.legendary" = "Legendary";
+"fbucks.shop.limited" = "LIMITED";
+"fbucks.perfect.badge" = "Perfect";
+"fbucks.tab.today" = "Today";
+"fbucks.tab.about" = "About";
+"fbucks.tab.history" = "History";
+"fbucks.tab.shop" = "Shop";
+"fbucks.about.title" = "What are F-Bucks?";
+"fbucks.about.body" = "F-Bucks (Flags Bucks) are in-game currency you earn by playing World Arena Capitals. Spend them on unique avatar pieces, skins, and other exclusive items.";
+"fbucks.about.how" = "How to earn F-Bucks";
+"fbucks.about.perfect.title" = "Perfect game";
+"fbucks.about.perfect.desc" = "Get a perfect score (10/10 or 15/15)";
+"fbucks.about.streak10.title" = "10-day streak";
+"fbucks.about.streak10.desc" = "Play 10 days in a row";
+"fbucks.about.streak20.title" = "20-day streak";
+"fbucks.about.streak20.desc" = "Play 20 days in a row";
+"fbucks.about.streak50.title" = "50-day streak";
+"fbucks.about.streak50.desc" = "Play 50 days in a row";
+"fbucks.about.streak100.title" = "100-day streak";
+"fbucks.about.streak100.desc" = "Play 100 days in a row";
+"fbucks.reward.plus1" = "+1 F-Bucks";
+"fbucks.reward.plus2" = "+2 F-Bucks";
+"fbucks.reward.plus5" = "+5 F-Bucks";
+"fbucks.reward.plus10" = "+10 F-Bucks";
+"fbucks.history.title" = "Transaction history";
+"fbucks.history.empty" = "No history yet";
+"fbucks.history.empty.hint" = "Play and earn F-Bucks!";
+"fbucks.item.traveler_cap" = "Traveler's cap";
+"fbucks.item.champion_shirt" = "Champion tee";
+"fbucks.item.socks" = "Socks";
+"fbucks.item.rainbow_skin" = "Rainbow skin";
+"fbucks.item.gold_skin" = "Gold skin";
+"fbucks.item.explorer_jacket" = "Explorer jacket";
+"fbucks.item.fire_effect" = "Fire effect";
+"fbucks.item.neon_skin" = "Neon skin";
+"fbucks.item.stars_effect" = "Star effect";
+"fbucks.item.champion_jacket" = "Champion jacket";
+"fbucks.tx.daily_bonus" = "Daily bonus";
+"friends.remind.status_sent" = "已发送提醒";
+
+/* Duel prepare error */
+"duel.error.alert.title" = "错误";
+"duel.error.prepare_questions" = "无法准备决斗题目。请检查地区或网络连接后重试。";
+
+/* Duel tiebreaker */
+"duel.tiebreaker.title" = "平分 — 用时更短者获胜";
+"duel.tiebreaker.history_line" = "用时：%@ · %@";
+
+/* Learning country lists */
+"learning.progress.label" = "已学习";
+"learning.search.placeholder" = "搜索国家或首都";
+"learning.filter.all" = "全部";
+"learning.filter.unlearned" = "未学习";
+"learning.filter.difficult" = "较难";
+"learning.filter.favorites" = "收藏";
+"learning.empty.search.title" = "未找到结果";
+"learning.empty.search.subtitle" = "请尝试其他国家或首都名称";
+"learning.empty.search.reset" = "清除搜索";
+"learning.empty.unlearned.title" = "太棒了！";
+"learning.empty.unlearned.message" = "此列表中的所有国家都已学习 🎉";
+"learning.empty.difficult.title" = "暂无较难国家";
+"learning.empty.difficult.message" = "您觉得难的国家会显示在这里——继续游戏，并在世界进度地图上查看。";
+"learning.status.learned" = "已学习";
+"learning.status.not_learned" = "未学习";
+"learning.status.difficult" = "困难";
+"learning.status.favorite_short" = "收藏";
+"learning.country.train_cta" = "加入下一局";
+"learning.country.playlist_status_added" = "已添加国家";
+"learning.country.playlist_play_cta" = "用队列开始游戏";
+"learning.country.playlist_added" = "已加入下一局";
+"learning.country.playlist_duplicate" = "已在队列中";
+"learning.country.playlist_queue_fmt" = "队列中 %d 国";
+"learning.country.playlist_min_progress_fmt" = "%d / %d";
+"learning.country.study_selected_flags" = "学习所选国旗";
+"learning.country.section.main" = "概览";
+"learning.country.section.gov" = "语言与政府";
+"learning.country.section.more" = "更多";
+"learning.country.region" = "地区";
+"learning.country.gallery.title" = "图库";
+"learning.country.gallery.tap_hint" = "点按图块可放大";
+"learning.country.a11y.favorite" = "收藏";
+"learning.country.a11y.difficult" = "标记为困难";
+"learning.country.a11y.next" = "下一个国家";
+"learning.country.a11y.previous" = "上一个国家";
+"learning.gallery.tile.flag" = "国旗";
+"learning.gallery.tile.landmark" = "地标";
+"learning.gallery.tile.nature" = "自然";
+"learning.gallery.tile.culture" = "文化";
+"learning.gallery.tile.government" = "政府";
+"learning.gallery.tile.coat" = "国徽";
+"learning.empty.favorites.title" = "暂无收藏";
+"learning.empty.favorites.message" = "打开国家并点星星即可加入此处。";
+
+/* Quiz game screen */
+"Quiz identify flag" = "这个国家的首都是哪里？";
+
+// Subscription introductory offer
+"premium.trial.start" = "免费试用7天";
+"premium.trial.monthly" = "免费试用7天，之后每月%@。";
+"premium.trial.yearly" = "免费试用7天，之后每年%@。";
+"premium.renewal" = "订阅将自动续订，直至取消。可在App Store订阅中管理或取消。";
+"premium.subscribe" = "订阅";
+
+/* Duel inbox */
+"duel.challenges.title" = "挑战";
+"duel.challenges.subtitle" = "邀请、进行中的对决和结果";
+
+"premium.restore.success" = "购买已恢复。";
+"premium.restore.empty" = "未找到此 Apple 账户的有效订阅。";
+"premium.access.until" = "访问有效期至";
+
+// Streak calendar and freeze inventory
+"streak.calendar.title" = "连续记录日历";
+"streak.calendar.played" = "已玩";
+"streak.calendar.frozen" = "已保护";
+"streak.calendar.missed" = "错过";
+"streak.calendar.open_day" = "尚未玩";
+"streak.calendar.previous" = "上个月";
+"streak.calendar.next" = "下个月";
+"streak.freeze.title" = "连续记录冻结卡";
+"streak.freeze.repair" = "恢复昨天 · 1张冻结卡";
+"streak.freeze.friends" = "帮助好友";
+"streak.freeze.give" = "赠送1张冻结卡";
+"streak.freeze.signin" = "登录后即可赠送和接收冻结卡。";
+"streak.freeze.unavailable" = "好友已不需要冻结卡，你的冻结卡已退回。";
+"streak.freeze.sent" = "冻结卡已送出！";
+"streak.freeze.retry" = "同步失败，请重试以完成待发送的礼物。";
+"streak.freeze.no_friends" = "目前没有冻结卡用完的好友。";
+"streak.freeze.explanation" = "一张冻结卡自动保护一个错过的日子，但不计为已玩。请提前储备，也可用一张恢复昨天的记录。";
+
+"Capital" = "首都";
+
+"Population" = "人口";
+
+"Area" = "面积";
+
+"Region" = "地区";
+
+"Subregion" = "次区域";
+
+// Avatar shop and wardrobe
+"shop.avatar" = "你的虚拟形象";
+"shop.preview_hint" = "购买前可试穿。应用后将用此形象替换个人资料照片。";
+"shop.wardrobe" = "衣柜";
+"shop.empty" = "购买的物品将显示在这里。";
+"shop.equipped" = "已装备";
+"shop.owned" = "已拥有";
+"shop.remove" = "卸下";
+"shop.equip" = "装备";
+"shop.save_error" = "已保存在此设备上。无法更新在线头像。";
+
+"home.lives.welcome" = "欢迎奖励：前7天每10分钟恢复3颗爱心，最多5颗，无需订阅。";
+
+"20 Capitals" = "20 capitals";
+"50 Capitals" = "50 capitals";
+"100 Capitals" = "100 capitals";
+"All Capitals" = "All capitals";
+
+/* Capital photograph */
+"Capital photo" = "首都照片";
+"Photo source and license" = "照片来源和许可";
+
+"Capitals Brand Title" = "首都";
+
+"Profile Share Headline" = "熟悉各国首都？\n证明你的实力。";
+
+"Profile Share CTA" = "扫描二维码，一起来玩！";
+
+"Progress emails" = "进度邮件";
+"Progress emails detail" = "个人成绩摘要，每周最多一次。不会在每场对决后发送邮件。可随时取消订阅。";
+"lifecycle.offers" = "任务与优惠";
+"lifecycle.offers.detail" = "奖励、任务和其他World Arena游戏介绍。每周邮件总数不超过两封。";
+"lifecycle.bonus.title" = "白天也来玩一局？";
+"lifecycle.bonus.body" = "在你所在时区的12:00至16:00之间全对完成一次奖励挑战，可额外获得1 F-Buck。";
+"lifecycle.bonus.unavailable" = "此挑战已不可用。已保存的进度保持不变。";
+"appIcon.title" = "应用图标";
+"appIcon.explanation" = "选择主屏幕图标大字的语言。这不会更改应用语言或 App Store 图标。iOS 可能会显示确认提示。";
+"appIcon.selected" = "已选择";
+"appIcon.error" = "无法更改图标，请重试。";

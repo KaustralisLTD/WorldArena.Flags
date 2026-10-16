@@ -1,0 +1,319 @@
+[
+  {
+    "id": "map-introduction-2026-10",
+    "enabled": true,
+    "action": "map",
+    "dismissible": true,
+    "copy": {
+      "en": {
+        "title": "World Progress Map",
+        "body": "See the countries you have mastered and choose your next challenge.",
+        "button": "World Progress Map"
+      },
+      "ru": {
+        "title": "Карта прогресса мира",
+        "body": "Посмотри, какие страны уже знаешь, и выбери следующий вызов.",
+        "button": "Карта прогресса мира"
+      },
+      "uk": {
+        "title": "Карта прогресу світу",
+        "body": "Переглянь країни, які вже знаєш, та обери наступний виклик.",
+        "button": "Карта прогресу світу"
+      },
+      "de": {
+        "title": "Welt-Fortschrittskarte",
+        "body": "Sieh dir die Länder an, die du schon beherrschst, und wähle deine nächste Herausforderung.",
+        "button": "Welt-Fortschrittskarte"
+      },
+      "es": {
+        "title": "Mapa de progreso mundial",
+        "body": "Mira los países que ya dominas y elige tu próximo reto.",
+        "button": "Mapa de progreso mundial"
+      },
+      "fr": {
+        "title": "Carte des progrès mondiaux",
+        "body": "Découvre les pays que tu maîtrises et choisis ton prochain défi.",
+        "button": "Carte des progrès mondiaux"
+      },
+      "it": {
+        "title": "Mappa progressi mondo",
+        "body": "Scopri i paesi che conosci già e scegli la prossima sfida.",
+        "button": "Mappa progressi mondo"
+      },
+      "pt-BR": {
+        "title": "Mapa de progresso mundial",
+        "body": "Veja os países que você já domina e escolha seu próximo desafio.",
+        "button": "Mapa de progresso mundial"
+      },
+      "nl": {
+        "title": "Wereldvoortgangskaart",
+        "body": "Bekijk welke landen je al kent en kies je volgende uitdaging.",
+        "button": "Wereldvoortgangskaart"
+      },
+      "pl": {
+        "title": "Mapa postępów świata",
+        "body": "Sprawdź, które kraje już znasz, i wybierz kolejne wyzwanie.",
+        "button": "Mapa postępów świata"
+      },
+      "ca": {
+        "title": "Mapa de progrés mundial",
+        "body": "Mira els països que ja domines i tria el teu proper repte.",
+        "button": "Mapa de progrés mundial"
+      },
+      "cs": {
+        "title": "Mapa světového pokroku",
+        "body": "Prohlédni si země, které už znáš, a vyber si další výzvu.",
+        "button": "Mapa světového pokroku"
+      },
+      "el": {
+        "title": "Χάρτης Παγκόσμιας Προόδου",
+        "body": "Δες τις χώρες που γνωρίζεις και διάλεξε την επόμενη πρόκληση.",
+        "button": "Χάρτης Παγκόσμιας Προόδου"
+      },
+      "sv": {
+        "title": "Karta över världens framsteg",
+        "body": "Se vilka länder du redan kan och välj din nästa utmaning.",
+        "button": "Karta över världens framsteg"
+      },
+      "ro": {
+        "title": "Harta progresului mondial",
+        "body": "Vezi țările pe care le cunoști deja și alege următoarea provocare.",
+        "button": "Harta progresului mondial"
+      },
+      "hu": {
+        "title": "Világfejlődési térkép",
+        "body": "Nézd meg, mely országokat ismered már, és válassz új kihívást.",
+        "button": "Világfejlődési térkép"
+      },
+      "tr": {
+        "title": "Dünya İlerleme Haritası",
+        "body": "Bildiğin ülkeleri gör ve sıradaki meydan okumayı seç.",
+        "button": "Dünya İlerleme Haritası"
+      },
+      "ar": {
+        "title": "خريطة التقدم العالمي",
+        "body": "شاهد البلدان التي أتقنتها واختر تحدّيك التالي.",
+        "button": "خريطة التقدم العالمي"
+      },
+      "hi": {
+        "title": "विश्व प्रगति मानचित्र",
+        "body": "देखें कि आप किन देशों को जान चुके हैं और अगली चुनौती चुनें।",
+        "button": "विश्व प्रगति मानचित्र"
+      },
+      "bn": {
+        "title": "বিশ্ব অগ্রগতির মানচিত্র",
+        "body": "যে দেশগুলো শিখেছেন তা দেখুন এবং পরবর্তী চ্যালেঞ্জ বেছে নিন।",
+        "button": "বিশ্ব অগ্রগতির মানচিত্র"
+      },
+      "ta": {
+        "title": "உலக முன்னேற்ற வரைபடம்",
+        "body": "நீங்கள் அறிந்த நாடுகளைப் பார்த்து அடுத்த சவாலைத் தேர்ந்தெடுங்கள்.",
+        "button": "உலக முன்னேற்ற வரைபடம்"
+      },
+      "te": {
+        "title": "ప్రపంచ ప్రగతి పటం",
+        "body": "మీకు తెలిసిన దేశాలను చూసి తదుపరి సవాలును ఎంచుకోండి.",
+        "button": "ప్రపంచ ప్రగతి పటం"
+      },
+      "th": {
+        "title": "แผนที่ความก้าวหน้าของโลก",
+        "body": "ดูประเทศที่คุณรู้จักแล้วและเลือกความท้าทายต่อไป",
+        "button": "แผนที่ความก้าวหน้าของโลก"
+      },
+      "vi": {
+        "title": "Bản đồ tiến bộ thế giới",
+        "body": "Xem các quốc gia bạn đã nắm vững và chọn thử thách tiếp theo.",
+        "button": "Bản đồ tiến bộ thế giới"
+      },
+      "id": {
+        "title": "Peta Kemajuan Dunia",
+        "body": "Lihat negara yang sudah kamu kuasai dan pilih tantangan berikutnya.",
+        "button": "Peta Kemajuan Dunia"
+      },
+      "fil": {
+        "title": "Mapa ng Pag-unlad ng Daigdig",
+        "body": "Tingnan ang mga bansang alam mo na at piliin ang susunod na hamon.",
+        "button": "Mapa ng Pag-unlad ng Daigdig"
+      },
+      "ja": {
+        "title": "世界の進歩マップ",
+        "body": "マスターした国を確認して、次のチャレンジを選ぼう。",
+        "button": "世界の進歩マップ"
+      },
+      "ko": {
+        "title": "세계 발전 지도",
+        "body": "익힌 나라를 확인하고 다음 도전을 선택하세요.",
+        "button": "세계 발전 지도"
+      },
+      "zh": {
+        "title": "世界进度地图",
+        "body": "看看你已掌握哪些国家，选择下一个挑战。",
+        "button": "世界进度地图"
+      },
+      "zh-Hant": {
+        "title": "世界進步圖",
+        "body": "看看你已掌握哪些國家，選擇下一個挑戰。",
+        "button": "世界進步圖"
+      }
+    }
+  },
+  {
+    "id": "capitals-launch-2026-10",
+    "enabled": false,
+    "action": "url",
+    "url": "https://capital.worldarena.games/",
+    "dismissible": true,
+    "copy": {
+      "en": {
+        "title": "Capitals Quiz: World Arena",
+        "body": "City photos & geography trivia",
+        "button": "Play the quiz"
+      },
+      "ru": {
+        "title": "Столицы: World Arena",
+        "body": "Узнавай города по фото",
+        "button": "Играть в квиз"
+      },
+      "uk": {
+        "title": "Столиці: World Arena",
+        "body": "Впізнавай міста за фото",
+        "button": "Грати у квіз"
+      },
+      "es": {
+        "title": "Capitales: Quiz World Arena",
+        "body": "Descubre ciudades con fotos",
+        "button": "Empezar"
+      },
+      "fr": {
+        "title": "Capitales: Quiz World Arena",
+        "body": "Découvrez les villes en photos",
+        "button": "Commencer"
+      },
+      "de": {
+        "title": "World Arena: Hauptstädte Quiz",
+        "body": "Städte auf Fotos entdecken",
+        "button": "Spiel starten"
+      },
+      "it": {
+        "title": "World Arena: Quiz Capitali",
+        "body": "Scopri le città con le foto",
+        "button": "Inizia"
+      },
+      "pt-BR": {
+        "title": "World Arena: Quiz de Capitais",
+        "body": "Descubra cidades pelas fotos",
+        "button": "Jogar"
+      },
+      "nl": {
+        "title": "World Arena: Hoofdsteden",
+        "body": "Ontdek steden met echte foto's",
+        "button": "Spelen"
+      },
+      "pl": {
+        "title": "World Arena: Quiz Stolice",
+        "body": "Odkrywaj miasta na zdjęciach",
+        "button": "Rozpocznij grę"
+      },
+      "sv": {
+        "title": "Huvudstäder Quiz: World Arena",
+        "body": "Upptäck städer med foton",
+        "button": "Spela"
+      },
+      "cs": {
+        "title": "Hlavní města: World Arena",
+        "body": "Poznávej města podle fotek",
+        "button": "Hrát"
+      },
+      "ca": {
+        "title": "Capitals Quiz: World Arena",
+        "body": "Descobreix ciutats amb fotos",
+        "button": "Comença"
+      },
+      "zh": {
+        "title": "首都问答：World Arena",
+        "body": "看城市照片，探索世界地理",
+        "button": "开始游戏"
+      },
+      "zh-Hant": {
+        "title": "首都問答：World Arena",
+        "body": "看城市照片，探索世界地理",
+        "button": "開始遊戲"
+      },
+      "ar": {
+        "title": "عواصم: World Arena",
+        "body": "اكتشف المدن بالصور",
+        "button": "ابدأ اللعب"
+      },
+      "hi": {
+        "title": "राजधानियाँ: World Arena",
+        "body": "तस्वीरों से शहरों को जानें",
+        "button": "खेल शुरू करें"
+      },
+      "bn": {
+        "title": "রাজধানী কুইজ: World Arena",
+        "body": "ছবিতে শহর চিনুন",
+        "button": "খেলা শুরু করুন"
+      },
+      "ja": {
+        "title": "世界の首都クイズ World Arena",
+        "body": "写真で都市を知り、世界を探検",
+        "button": "ゲーム開始"
+      },
+      "ko": {
+        "title": "세계 수도 퀴즈: World Arena",
+        "body": "도시 사진으로 세계를 발견하세요",
+        "button": "게임 시작"
+      },
+      "hu": {
+        "title": "Fővárosok Kvíz: World Arena",
+        "body": "Fedezz fel városokat képekkel",
+        "button": "Játék indítása"
+      },
+      "vi": {
+        "title": "Đố thủ đô: World Arena",
+        "body": "Khám phá thành phố qua ảnh",
+        "button": "Bắt đầu chơi"
+      },
+      "el": {
+        "title": "Πρωτεύουσες: World Arena",
+        "body": "Γνώρισε πόλεις με φωτογραφίες",
+        "button": "Έναρξη παιχνιδιού"
+      },
+      "id": {
+        "title": "Kuis Ibu Kota: World Arena",
+        "body": "Kenali kota lewat foto nyata",
+        "button": "Mulai bermain"
+      },
+      "ro": {
+        "title": "Capitale Quiz: World Arena",
+        "body": "Descoperă orașe în fotografii",
+        "button": "Începe jocul"
+      },
+      "th": {
+        "title": "เมืองหลวง: World Arena",
+        "body": "รู้จักเมืองจากภาพจริง",
+        "button": "เริ่มเล่น"
+      },
+      "ta": {
+        "title": "தலைநகரங்கள்: World Arena",
+        "body": "படங்களில் நகரங்களை அறியுங்கள்",
+        "button": "விளையாட்டைத் தொடங்கு"
+      },
+      "te": {
+        "title": "రాజధానులు: World Arena",
+        "body": "చిత్రాలతో నగరాలను తెలుసుకోండి",
+        "button": "ఆట ప్రారంభించు"
+      },
+      "tr": {
+        "title": "Başkentler Quiz: World Arena",
+        "body": "Fotoğraflarla şehirleri keşfet",
+        "button": "Oyuna başla"
+      },
+      "fil": {
+        "title": "Mga Kabisera: World Arena",
+        "body": "Mga lungsod sa larawan",
+        "button": "Simulan ang laro"
+      }
+    }
+  }
+]

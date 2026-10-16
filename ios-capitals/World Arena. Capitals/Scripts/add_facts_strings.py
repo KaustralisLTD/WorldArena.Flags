@@ -1,0 +1,177 @@
+#!/usr/bin/env python3
+# Generates FACT_01_TITLE/DESC ... FACT_68 for all 12 locales and appends to Localizable.strings
+
+import os
+
+BASE = os.path.join(os.path.dirname(__file__), "..", "Resources")
+LOCALES = ["en", "ru", "de", "fr", "it", "pl", "nl", "pt-BR", "es", "uk", "ca", "zh"]
+
+# 68 facts: (title, description) per locale. Index 0 = en, 1 = ru, 2 = de, ...
+FACTS_EN = [
+    ("Oldest continuously used flag", "Denmark's Dannebrog is considered the oldest national flag in continuous use since 1219."),
+    ("Only square national flag", "Switzerland has the only square national flag in the world. The Vatican also has a square flag but is a city-state."),
+    ("Non-rectangular flag", "Nepal has the only national flag in the world that is not rectangular."),
+    ("No red, white or blue", "Jamaica is the only country with a flag without red, white or blue."),
+    ("Flag that is never lowered", "Saudi Arabia's flag is never flown at half-mast because of the sacred text on it."),
+    ("Young national flag", "South Sudan's flag was adopted in 2011 after independence."),
+    ("Flag with AK-47", "Mozambique is the only country whose flag features a modern weapon—the Kalashnikov rifle."),
+    ("Almost identical flags", "The flags of Romania and Chad are very similar; they are usually distinguished by the shade of blue."),
+    ("Ukraine's symbolism", "Ukraine's blue and yellow flag is traditionally interpreted as the sky over a wheat field."),
+    ("Simplest flag", "Libya's flag from 1977 to 2011 was solid green with no symbols or patterns."),
+    ("Flag with a map", "Cyprus's flag shows the outline of the island—a rare case among national flags."),
+    ("Flag with a Bible", "The Dominican Republic's flag shows an open Bible, making it the only national flag with a religious book."),
+    ("Most popular colour", "Red is the most common colour on national flags worldwide."),
+    ("Flag with text", "Text on national flags is rare; one well-known example is Saudi Arabia."),
+    ("Flag etiquette", "Many countries have strict rules on how to treat the national flag."),
+    ("Flag with different sides", "Paraguay has the only national flag in the world with different designs on the obverse and reverse."),
+    ("Olympic symbolism", "Olympic ring colours were chosen so that at least one colour appears on every country's flag."),
+    ("Flag with the most complex coat of arms", "Mexico's flag shows an eagle perched on a cactus holding a snake—one of the most detailed coats of arms on any flag."),
+    ("Copycat flag", "The flags of Monaco and Indonesia are almost identical—red on top, white below. The only difference is the proportions."),
+    ("Flag with 50 stars", "The US flag has 50 stars, one for each state. The design has been changed 27 times since 1777."),
+    ("Northernmost flags", "Arctic regions use both national and regional flags with unique symbolism."),
+    ("Flag with a cross", "29 countries have a cross on their flag, making it one of the most popular symbols on national flags."),
+    ("Tricolours", "Many countries use a simple three-stripe design as a historically stable flag form."),
+    ("Flag with a crescent", "The crescent appears on the flags of 12 countries, mostly Muslim, symbolizing the Islamic faith."),
+    ("Sun symbol", "The sun is one of the most common symbols on flags in Asia and South America."),
+    ("Flag with a tree", "Lebanon is the only country with a tree (the Lebanese cedar) on its flag, symbolizing eternity and peace."),
+    ("Narrowest flag", "Qatar's flag has the most unusual aspect ratio of any national flag—11:28."),
+    ("Complex coats of arms", "Coats of arms on Latin American flags often include many details and historical symbols."),
+    ("Rainbow flag", "Bolivia has two official flags—the traditional tricolour and the indigenous Wiphala rainbow flag."),
+    ("Flag with a building", "Cambodia's flag shows Angkor Wat temple, making it the only national flag with a building."),
+    ("Historical disputes", "The design of some flags has changed due to historical and political disputes between countries."),
+    ("Flag with a sword", "Sri Lanka's flag shows a lion holding a sword, symbolizing the courage of the Sinhalese people."),
+    ("Flag without blue", "Only four countries do not use blue on their flags: Jamaica, Mauritania, Sri Lanka and the Vatican."),
+    ("Birds on flags", "The eagle and other birds on flags symbolize strength, independence and nobility of spirit."),
+    ("Antarctic symbol", "Antarctica has no official national flag, but several unofficial designs are used."),
+    ("Stars on flags", "The star is one of the most widespread symbols on flags around the world."),
+    ("Similar colour schemes", "Some flags are similar in colour but differ in the order of stripes and emblems."),
+    ("International union flags", "Supranational organizations also have their own flags reflecting shared values."),
+    ("Island symbolism", "Island nations' flags often feature symbols of the ocean, sun and navigation."),
+    ("Changes over time", "Some national flags have changed dozens of times with their country's political history."),
+    ("North Macedonia sun", "North Macedonia flag has a sun with eight rays for a new beginning."),
+    ("Belize woodcutters", "Belize flag is one of the few showing people: woodcutters with tools."),
+    ("Ecuador condor", "Ecuador flag includes the Andean condor for strength and sovereignty."),
+    ("Bolivia Wiphala", "Bolivia uses the Wiphala alongside the tricolour as an official symbol."),
+    ("Brazil's 27 stars", "The Brazilian flag has 27 stars, one for each state and the federal district."),
+    ("Maple leaf", "Canada's flag features a single 11-pointed maple leaf, unique among national flags."),
+    ("Union Jack", "The UK flag combines the crosses of three saints: England, Scotland and Ireland."),
+    ("Japan's rising sun", "The red circle on white represents the rising sun and has been used on Japan's flag since the 7th century."),
+    ("Ashoka Chakra", "India's flag features a 24-spoked wheel, symbolizing law and motion."),
+    ("Australia's Southern Cross", "Australia's flag shows the Southern Cross constellation, visible only in the Southern Hemisphere."),
+    ("New Zealand's Southern Cross", "New Zealand's flag also features the Southern Cross, but with red stars edged in white."),
+    ("South Korea's taegeuk", "South Korea's flag features the traditional taegeuk (yin-yang) symbol and trigrams."),
+    ("Portugal's armillary sphere", "Portugal's flag features an armillary sphere, an ancient navigational instrument."),
+    ("Albania's double-headed eagle", "Albania's flag shows a black double-headed eagle, a symbol of sovereignty."),
+    ("Kenya's shield", "Kenya's flag features a Maasai shield and crossed spears."),
+    ("Wales's dragon", "The red dragon on Wales's flag is one of the oldest national symbols in the world."),
+    ("St Andrew's cross", "Scotland's flag is a white diagonal cross on blue, the cross of St Andrew."),
+    ("Greenland's circle", "Greenland's flag has a red-and-white circle representing the sun over the ice."),
+    ("Pan-African colours", "Green, yellow and red are often called Pan-African colours and appear on many African flags."),
+    ("Nordic crosses", "Five countries use the Nordic cross: Denmark, Norway, Sweden, Finland and Iceland."),
+    ("French tricolor", "The French blue-white-red tricolor became a model for many revolutionary and national flags."),
+    ("UN flag", "The UN flag shows the world surrounded by olive branches on a blue background."),
+    ("EU flag", "Twelve golden stars in a circle on blue symbolize the unity of the European Union."),
+    ("Olympic flag", "The five rings on white represent the five inhabited continents and the global nature of the Games."),
+    ("Vatican square", "The Vatican has a square national flag like Switzerland."),
+    ("Nauru 12 points", "Nauru flag has a 12-pointed star for the 12 tribes."),
+    ("Turkmenistan carpet", "Turkmenistan flag has carpet patterns along the hoist."),
+    ("Afghanistan mosque", "Afghanistan flag has featured a mosque in its design."),
+]
+if len(FACTS_EN) != 68:
+    raise SystemExit("FACTS_EN has %d entries, need 68" % len(FACTS_EN))
+
+FACTS_RU = [
+    ("Самый старый флаг", "Флаг Дании (Данеброг) считается самым старым государственным флагом в мире, который используется непрерывно с 1219 года."),
+    ("Единственный квадратный флаг", "Швейцария имеет единственный квадратный национальный флаг в мире. Ватикан также имеет квадратный флаг, но это город-государство."),
+    ("Непрямоугольный флаг", "Флаг Непала — единственный национальный флаг в мире, который не является прямоугольным."),
+    ("Без красного, белого и синего", "Ямайка — единственная страна с флагом без красного, белого и синего цветов."),
+    ("Флаг, который не приспускают", "Флаг Саудовской Аравии не приспускается до полумачты из-за священной надписи."),
+    ("Молодой национальный флаг", "Флаг Южного Судана принят в 2011 году после обретения независимости."),
+    ("Флаг с AK-47", "Мозамбик — единственная страна в мире, на флаге которой изображено современное оружие — автомат Калашникова."),
+    ("Почти одинаковые флаги", "Флаги Румынии и Чада очень похожи; обычно их отличают по оттенку синего."),
+    ("Символика Украины", "Сине-жёлтый флаг Украины традиционно трактуют как небо над пшеничным полем."),
+    ("Самый простой флаг", "Флаг Ливии с 1977 по 2011 год состоял только из зелёного цвета без каких-либо символов или узоров."),
+    ("Флаг с картой", "На флаге Кипра изображён контур острова — редкий случай для государственных флагов."),
+    ("Флаг с Библией", "На флаге Доминиканской Республики изображена открытая Библия, что делает его единственным национальным флагом с религиозной книгой."),
+    ("Самый популярный цвет", "Красный — самый частый цвет на национальных флагах мира."),
+    ("Флаг с текстом", "Текст на национальном флаге встречается редко; один из известных примеров — Саудовская Аравия."),
+    ("Этикет использования флага", "Во многих странах действуют строгие правила обращения с государственным флагом."),
+    ("Флаг с разными сторонами", "Парагвай имеет единственный в мире национальный флаг с разными изображениями на лицевой и обратной сторонах."),
+    ("Олимпийская символика", "Цвета олимпийских колец подобраны так, чтобы хотя бы один цвет встречался на флаге каждой страны."),
+    ("Флаг с самым сложным гербом", "На флаге Мексики изображён орёл, сидящий на кактусе и держащий в клюве змею — один из самых детализированных гербов на флагах."),
+    ("Флаг-копия", "Флаг Монако и Индонезии почти идентичны — красная полоса сверху, белая снизу. Различие только в пропорциях."),
+    ("Флаг с 50 звёздами", "На флаге США 50 звёзд, по одной на каждый штат. Дизайн флага менялся 27 раз с момента принятия в 1777 году."),
+    ("Самые северные флаги", "В арктических регионах используются как государственные, так и региональные флаги с уникальной символикой."),
+    ("Флаг с крестом", "29 стран мира имеют крест на своём флаге, что делает его одним из самых популярных символов на национальных флагах."),
+    ("Триколоры", "Многие страны используют простой трёхполосный дизайн как исторически устойчивую форму флага."),
+    ("Флаг с полумесяцем", "Полумесяц присутствует на флагах 12 стран, в основном мусульманских, символизируя исламскую веру."),
+    ("Символ солнца", "Солнце — один из самых распространённых символов на флагах Азии и Южной Америки."),
+    ("Флаг с деревом", "Ливан — единственная страна, на флаге которой изображено дерево (ливанский кедр), символизирующее вечность и мир."),
+    ("Самый узкий флаг", "Флаг Катара имеет самое необычное соотношение сторон среди всех национальных флагов — 11:28."),
+    ("Сложные гербы", "Гербы на флагах Латинской Америки часто включают много деталей и исторических символов."),
+    ("Флаг-радуга", "Боливия имеет два официальных флага — традиционный трёхцветный и радужный флаг коренных народов Випала."),
+    ("Флаг с королевским символом", "На флаге Камбоджи изображён храм Ангкор-Ват, что делает его единственным национальным флагом со зданием."),
+    ("Исторические споры", "Дизайн некоторых флагов менялся из-за исторических и политических споров между странами."),
+    ("Флаг с мечом", "На флаге Шри-Ланки изображён лев, держащий меч, что символизирует храбрость сингальского народа."),
+    ("Флаг без синего", "Только 4 страны в мире не используют синий цвет на своих флагах: Ямайка, Мавритания, Шри-Ланка и Ватикан."),
+    ("Птицы на флагах", "Орёл и другие птицы на флагах символизируют силу, независимость и высоту духа."),
+    ("Антарктический символ", "У Антарктиды нет официального государственного флага, но используется несколько неофициальных вариантов."),
+    ("Звёзды на флагах", "Звезда — один из самых распространённых символов на флагах по всему миру."),
+    ("Похожие цветовые схемы", "Некоторые флаги похожи по цветам, но отличаются порядком полос и эмблемами."),
+    ("Флаги международных союзов", "Наднациональные объединения тоже имеют свои флаги, которые отражают общие ценности участников."),
+    ("Островная символика", "На флагах островных государств часто присутствуют символы океана, солнца и навигации."),
+    ("Изменения во времени", "Некоторые национальные флаги менялись десятки раз вместе с политической историей страны."),
+    ("27 звёзд Бразилии", "На флаге Бразилии 27 звёзд: по одной на каждый штат и федеральный округ."),
+    ("Кленовый лист", "Символ Канады — кленовый лист с 11 кончиками, он единственный на государственном флаге."),
+    ("Юнион Джек", "Флаг Великобритании объединяет кресты трёх святых: Англии, Шотландии и Ирландии."),
+    ("Восходящее солнце Японии", "Красный круг на белом фоне символизирует восходящее солнце и отражён на флаге Японии с VII века."),
+    ("Ашока Чакра", "На флаге Индии изображено колесо с 24 спицами — символ закона и движения."),
+    ("Южный Крест Австралии", "На флаге Австралии изображено созвездие Южного Креста, видимое только в Южном полушарии."),
+    ("Южный Крест Новой Зеландии", "Флаг Новой Зеландии тоже имеет Южный Крест, но с красными звёздами с белой обводкой."),
+    ("Инь и ян Южной Кореи", "На флаге Южной Кореи изображён традиционный символ тэгык (инь-ян) и триграммы."),
+    ("Сфера Португалии", "На флаге Португалии изображена армиллярная сфера — старинный навигационный инструмент."),
+    ("Двуглавый орёл Албании", "На флаге Албании изображён чёрный двуглавый орёл — символ суверенитета."),
+    ("Щит Кении", "На флаге Кении изображены щит и скрещённые копья масаи."),
+    ("Дракон Уэльса", "Красный дракон на флаге Уэльса — один из старейших национальных символов в мире."),
+    ("Крест Святого Андрея", "Шотландский флаг — белый диагональный крест на синем, символ святого Андрея."),
+    ("Круг Гренландии", "Флаг Гренландии — красно-белый круг на полотнище, символизирует солнце над льдами."),
+    ("Панафриканские цвета", "Зелёный, жёлтый и красный часто называют панафриканскими и встречаются на многих флагах Африки."),
+    ("Северные кресты", "Пять стран используют скандинавский крест: Дания, Норвегия, Швеция, Финляндия и Исландия."),
+    ("Французский триколор", "Французский сине-бело-красный флаг стал образцом для многих революционных и национальных флагов."),
+    ("Флаг ООН", "Флаг ООН изображает мир, окружённый оливковыми ветвями, на голубом фоне."),
+    ("Флаг ЕС", "12 золотых звёзд по кругу на синем — символ единства Европейского союза."),
+    ("Олимпийский флаг", "Пять колец на белом фоне представляют пять населённых континентов и всемирность Игр."),
+    ("Квадратный флаг Ватикана", "Ватикан наравне со Швейцарией имеет квадратный национальный флаг."),
+    ("12 лучей Науру", "На флаге Науру изображена 12-лучевая звезда по числу племён острова."),
+    ("Ковровые узоры Туркменистана", "На флаге Туркменистана вдоль древка изображены ковровые узоры."),
+    ("Мечеть на флаге Афганистана", "На флаге Афганистана в разные периоды изображалась мечеть."),
+]
+assert len(FACTS_RU) == 68
+
+def esc(s):
+    return s.replace("\\", "\\\\").replace('"', '\\"').replace("\n", "\\n")
+
+def block(lang_facts):
+    lines = ["\n/* Interesting facts (68) */"]
+    for i, (title, desc) in enumerate(lang_facts, 1):
+        key = "FACT_%02d" % i
+        lines.append('"%s_TITLE" = "%s";' % (key, esc(title)))
+        lines.append('"%s_DESC" = "%s";' % (key, esc(desc)))
+    return "\n".join(lines)
+
+def main():
+    # Build content per locale: en, ru use their list; others use EN for now, then we add real translations
+    contents = {
+        "en": block(FACTS_EN),
+        "ru": block(FACTS_RU),
+    }
+    # DE, FR, IT, PL, NL, pt-BR, ES, UK, CA, ZH: we'll add translated blocks
+    # For this script we only append EN to en and RU to ru; then manually or second script for other locales
+    for loc in ["en", "ru"]:
+        path = os.path.join(BASE, "%s.lproj" % loc, "Localizable.strings")
+        with open(path, "a", encoding="utf-8") as f:
+            f.write(contents[loc])
+        print("Appended %d fact keys to %s" % (68*2, path))
+
+if __name__ == "__main__":
+    main()

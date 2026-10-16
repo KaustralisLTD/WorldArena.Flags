@@ -1,0 +1,16 @@
+.build/
+Marketing/
+Design/
+**/node_modules/
+**/data/
+**/.env
+**/.env.*
+!**/.env.example
+**/*.pem
+**/*.p8
+**/*.p12
+**/xcuserdata/
+**/.DS_Store
+Server/Server/
+File.txt
+integration-status.json

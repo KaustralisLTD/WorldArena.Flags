@@ -1,0 +1,41 @@
+//
+//  Localizable.strings
+//  Flags.World
+//
+//  Created by Sergey Shchurenko on 26.02.2025.
+//
+
+
+// General
+"World Flags" = "World Flags";
+"Score" = "Score";
+"Exit" = "Exit";
+"Error loading countries" = "Error loading countries";
+"Retry" = "Retry";
+"System" = "System";
+
+// Start Screen
+"Select Language" = "Select Language";
+"Select Regions" = "Select Regions";
+"START GAME" = "START GAME";
+"All Regions" = "All Regions";
+"Europe" = "Europe";
+"Asia" = "Asia";
+"Americas" = "Americas";
+"Africa" = "Africa";
+"Oceania" = "Oceania";
+
+// Game Over
+"Game Over!" = "Game Over!";
+"points" = "points";
+"Play Again" = "Play Again";
+"Home" = "Home";
+
+// Statistics
+"Statistics" = "Statistics";
+"Total Games" = "Total Games";
+"Best Score" = "Best Score";
+"Correct Answers" = "Correct Answers";
+"Accuracy" = "Accuracy";
+"Clear" = "Clear";
+"Close" = "Close"; 
