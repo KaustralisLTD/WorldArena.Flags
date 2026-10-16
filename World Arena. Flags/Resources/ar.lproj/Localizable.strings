@@ -234,19 +234,16 @@
 "Request Timeout" = "مهلة الطلب";
 "Server Not Found" = "لم يتم العثور على الخادم";
 "Too Many Requests" = "طلبات كثيرة جدًا";
-"Server Error" = "خطأ في الخادم";
 "HTTP Error: %d" = "خطأ HTTP: %d";
-"Try Again" = "حاول ثانية";
 "Not enough countries in selected regions (found %d, need at least 4)" = "لا يوجد عدد كافٍ من البلدان في المناطق المحددة (تم العثور على %d، تحتاج إلى 4 على الأقل)";
 "Empty response from server" = "استجابة فارغة من الخادم";
 
 // New additions
-"Capital" = "عاصمة";
-"Population" = "سكان";
-"Area" = "منطقة";
-"Region" = "منطقة";
+"Capital" = "العاصمة";
+"Population" = "عدد السكان";
+"Area" = "المساحة";
+"Region" = "المنطقة";
 "Subregion" = "المنطقة الفرعية";
-
 // Language additions
 "system_language" = "نظام";
 "ru_language" = "الروسية";
@@ -1737,3 +1734,89 @@
 "premium.trial.yearly" = "7 أيام مجانًا، ثم %@ سنويًا.";
 "premium.renewal" = "يتجدد الاشتراك تلقائيًا ما لم يُلغَ. يمكنك إدارته أو إلغاؤه من اشتراكات App Store.";
 "premium.subscribe" = "اشترك";
+
+/* Duel inbox */
+"duel.challenges.title" = "التحديات";
+"duel.challenges.subtitle" = "الدعوات والمبارزات الجارية والنتائج";
+
+// Verified subscription status
+"premium.restore.success" = "تمت استعادة المشتريات.";
+"premium.restore.empty" = "لم يتم العثور على اشتراك نشط لحساب Apple هذا.";
+"premium.access.until" = "الوصول حتى";
+
+// Streak calendar and freeze inventory
+"streak.calendar.title" = "تقويم السلسلة";
+"streak.calendar.played" = "تم اللعب";
+"streak.calendar.frozen" = "مجمّد";
+"streak.calendar.missed" = "فائت";
+"streak.calendar.open_day" = "لم تلعب بعد";
+"streak.calendar.previous" = "الشهر السابق";
+"streak.calendar.next" = "الشهر التالي";
+"streak.freeze.title" = "تجميد السلسلة";
+"streak.freeze.repair" = "استعادة الأمس · تجميد واحد";
+"streak.freeze.friends" = "ساعد أصدقاءك";
+"streak.freeze.give" = "إهداء تجميد واحد";
+"streak.freeze.signin" = "سجّل الدخول لإرسال التجميد واستلامه.";
+"streak.freeze.unavailable" = "لم يعد صديقك بحاجة إليه. تمت إعادة التجميد إليك.";
+"streak.freeze.sent" = "تم إرسال التجميد!";
+"streak.freeze.retry" = "تعذرت المزامنة. أعد المحاولة لإكمال الهدية المعلقة.";
+"streak.freeze.no_friends" = "لا يوجد أصدقاء نفد مخزون التجميد لديهم الآن.";
+"streak.freeze.explanation" = "يحمي تجميد واحد يومًا فائتًا تلقائيًا دون احتسابه يوم لعب. جهّز مخزونك مسبقًا أو استخدمه لاستعادة الأمس.";
+
+// Avatar shop and wardrobe
+"shop.avatar" = "صورتك الرمزية";
+"shop.preview_hint" = "جرّب قبل الشراء. سيؤدي التطبيق إلى استبدال صورة ملفك بهذه الصورة الرمزية.";
+"shop.wardrobe" = "خزانة الملابس";
+"shop.empty" = "ستظهر مشترياتك هنا.";
+"shop.equipped" = "مُرتدى";
+"shop.owned" = "تم الشراء";
+"shop.remove" = "إزالة";
+"shop.equip" = "ارتداء";
+"shop.save_error" = "تم الحفظ على الجهاز. تعذر تحديث الصورة الرمزية عبر الإنترنت.";
+
+"home.lives.welcome" = "مكافأة الترحيب: +3 أرواح كل 10 دقائق خلال أول 7 أيام. حتى 5 أرواح، دون اشتراك.";
+
+"Profile Share CTA" = "امسح رمز QR. لنلعب!";
+
+
+"Profile Share Headline" = "هل تعرف الأعلام؟\nأثبت ذلك.";
+
+"Use current time" = "استخدام الوقت الحالي";
+
+"Progress emails" = "رسائل التقدّم";
+
+"Progress emails detail" = "ملخّصك الشخصي مرة واحدة أسبوعياً كحد أقصى. لا رسالة بعد كل مبارزة. يمكنك إلغاء الاشتراك في أي وقت.";
+
+"Server Error" = "الخادم غير متاح";
+
+"Try Again" = "حاول مجدداً";
+
+"Server error. Try again." = "الخادم غير متاح. حاول مجدداً";
+
+"Invalid server response." = "الخادم غير متاح";
+
+"duel.network.error" = "الخادم غير متاح. حاول مجدداً";
+
+"duel.reminder.sent" = "تم إرسال التذكير";
+
+"duel.reminder.cooldown" = "انتظر قبل إرسال تذكير آخر.";
+
+"duel.reminder.disabled" = "أوقف هذا اللاعب إشعارات المبارزات.";
+
+"duel.reminder.no_device" = "لا يملك هذا اللاعب جهازاً بإشعارات دفع مفعّلة.";
+
+"duel.reminder.completed" = "انتهت المبارزة بالفعل.";
+
+"duel.reminder.missing" = "لم تعد هذه المبارزة متاحة.";
+
+"Flags Brand Title" = "الأعلام";
+
+"lifecycle.offers" = "تحدّيات وعروض";
+
+"lifecycle.offers.detail" = "مكافآت وتحدّيات وألعاب World Arena الأخرى. رسالتان أسبوعياً كحد أقصى إجمالاً.";
+
+"lifecycle.bonus.title" = "ما رأيك باللعب نهاراً؟";
+
+"lifecycle.bonus.body" = "1 F-Buck إضافي مقابل تحدٍّ إضافي بلا أخطاء بين 12:00 و16:00 حسب منطقتك الزمنية.";
+
+"lifecycle.bonus.unavailable" = "لم يعد هذا التحدي متاحًا. تقدمك المحفوظ لم يتغير.";

@@ -234,19 +234,16 @@
 "Request Timeout" = "অনুরোধের সময়সীমা";
 "Server Not Found" = "সার্ভার পাওয়া যায়নি";
 "Too Many Requests" = "অনেক অনুরোধ";
-"Server Error" = "সার্ভার ত্রুটি";
 "HTTP Error: %d" = "HTTP ত্রুটি: %d";
-"Try Again" = "আবার চেষ্টা করুন";
 "Not enough countries in selected regions (found %d, need at least 4)" = "নির্বাচিত অঞ্চলে পর্যাপ্ত দেশ নেই (%d পাওয়া গেছে, কমপক্ষে 4টি প্রয়োজন)";
 "Empty response from server" = "সার্ভার থেকে খালি প্রতিক্রিয়া";
 
 // New additions
-"Capital" = "মূলধন";
+"Capital" = "রাজধানী";
 "Population" = "জনসংখ্যা";
-"Area" = "এলাকা";
+"Area" = "আয়তন";
 "Region" = "অঞ্চল";
-"Subregion" = "উপপ্রদেশ";
-
+"Subregion" = "উপঅঞ্চল";
 // Language additions
 "system_language" = "সিস্টেম";
 "ru_language" = "রুসস্কি";
@@ -1737,3 +1734,89 @@
 "premium.trial.yearly" = "৭ দিন বিনামূল্যে, তারপর প্রতি বছরে %@।";
 "premium.renewal" = "বাতিল না করা পর্যন্ত স্বয়ংক্রিয়ভাবে নবায়ন হবে। App Store-এর সাবস্ক্রিপশন থেকে পরিচালনা বা বাতিল করুন।";
 "premium.subscribe" = "সাবস্ক্রাইব করুন";
+
+/* Duel inbox */
+"duel.challenges.title" = "চ্যালেঞ্জ";
+"duel.challenges.subtitle" = "আমন্ত্রণ, চলমান দ্বৈরথ ও ফলাফল";
+
+// Verified subscription status
+"premium.restore.success" = "কেনাকাটা পুনরুদ্ধার করা হয়েছে।";
+"premium.restore.empty" = "এই Apple অ্যাকাউন্টে কোনো সক্রিয় সাবস্ক্রিপশন পাওয়া যায়নি।";
+"premium.access.until" = "অ্যাক্সেসের শেষ তারিখ";
+
+// Streak calendar and freeze inventory
+"streak.calendar.title" = "ধারাবাহিকতার ক্যালেন্ডার";
+"streak.calendar.played" = "খেলেছেন";
+"streak.calendar.frozen" = "সুরক্ষিত";
+"streak.calendar.missed" = "বাদ গেছে";
+"streak.calendar.open_day" = "এখনও খেলেননি";
+"streak.calendar.previous" = "আগের মাস";
+"streak.calendar.next" = "পরের মাস";
+"streak.freeze.title" = "স্ট্রিক ফ্রিজ";
+"streak.freeze.repair" = "গতকাল ফিরিয়ে আনুন · ১ ফ্রিজ";
+"streak.freeze.friends" = "বন্ধুদের সাহায্য করুন";
+"streak.freeze.give" = "১ ফ্রিজ উপহার দিন";
+"streak.freeze.signin" = "ফ্রিজ দিতে ও পেতে সাইন ইন করুন।";
+"streak.freeze.unavailable" = "বন্ধুর আর প্রয়োজন নেই। আপনার ফ্রিজ ফেরত দেওয়া হয়েছে।";
+"streak.freeze.sent" = "ফ্রিজ পাঠানো হয়েছে!";
+"streak.freeze.retry" = "সিঙ্ক হয়নি। অপেক্ষমান উপহার শেষ করতে আবার চেষ্টা করুন।";
+"streak.freeze.no_friends" = "এখন কোনো বন্ধুর ফ্রিজের মজুত খালি নেই।";
+"streak.freeze.explanation" = "একটি ফ্রিজ স্বয়ংক্রিয়ভাবে বাদ পড়া একটি দিন রক্ষা করে, তবে খেলার দিন হিসেবে গণনা করে না। আগে মজুত করুন বা গতকাল ফিরিয়ে আনুন।";
+
+// Avatar shop and wardrobe
+"shop.avatar" = "আপনার অবতার";
+"shop.preview_hint" = "কেনার আগে পরে দেখুন। প্রয়োগ করলে প্রোফাইল ছবির বদলে এই অবতার দেখাবে।";
+"shop.wardrobe" = "পোশাকের আলমারি";
+"shop.empty" = "কেনা জিনিস এখানে দেখা যাবে।";
+"shop.equipped" = "পরা আছে";
+"shop.owned" = "কেনা হয়েছে";
+"shop.remove" = "খুলুন";
+"shop.equip" = "পরুন";
+"shop.save_error" = "এই ডিভাইসে সংরক্ষিত। অনলাইন অবতার আপডেট করা যায়নি।";
+
+"home.lives.welcome" = "স্বাগতম বোনাস: প্রথম ৭ দিনে প্রতি ১০ মিনিটে +৩ জীবন। সর্বোচ্চ ৫ জীবন, সাবস্ক্রিপশন লাগবে না।";
+
+"Profile Share CTA" = "QR স্ক্যান করো। চলো খেলি!";
+
+
+"Profile Share Headline" = "পতাকা চেনেন?\nপ্রমাণ করুন।";
+
+"Use current time" = "বর্তমান সময় সেট করুন";
+
+"Progress emails" = "অগ্রগতির ইমেইল";
+
+"Progress emails detail" = "আপনার ব্যক্তিগত সারাংশ, সপ্তাহে সর্বোচ্চ একবার। প্রতিটি দ্বৈরথের পরে ইমেইল নয়। যেকোনো সময় বন্ধ করুন।";
+
+"Server Error" = "সার্ভার অনুপলব্ধ";
+
+"Try Again" = "আবার চেষ্টা করুন";
+
+"Server error. Try again." = "সার্ভার অনুপলব্ধ. আবার চেষ্টা করুন";
+
+"Invalid server response." = "সার্ভার অনুপলব্ধ";
+
+"duel.network.error" = "সার্ভার অনুপলব্ধ. আবার চেষ্টা করুন";
+
+"duel.reminder.sent" = "রিমাইন্ডার পাঠানো হয়েছে";
+
+"duel.reminder.cooldown" = "আরেকটি রিমাইন্ডার পাঠানোর আগে অপেক্ষা করুন।";
+
+"duel.reminder.disabled" = "এই খেলোয়াড় দ্বৈরথের বিজ্ঞপ্তি বন্ধ করেছেন।";
+
+"duel.reminder.no_device" = "এই খেলোয়াড়ের কোনো ডিভাইসে পুশ বিজ্ঞপ্তি চালু নেই।";
+
+"duel.reminder.completed" = "দ্বৈরথ ইতিমধ্যে শেষ হয়েছে।";
+
+"duel.reminder.missing" = "এই দ্বৈরথ আর উপলব্ধ নেই।";
+
+"Flags Brand Title" = "পতাকা";
+
+"lifecycle.offers" = "চ্যালেঞ্জ ও অফার";
+
+"lifecycle.offers.detail" = "বোনাস, চ্যালেঞ্জ ও অন্যান্য World Arena গেম। মোট সপ্তাহে সর্বোচ্চ দুটি ইমেইল।";
+
+"lifecycle.bonus.title" = "দিনেও একটু খেলবেন?";
+
+"lifecycle.bonus.body" = "আপনার সময় অঞ্চলে 12:00 থেকে 16:00-এর মধ্যে একটি বোনাস চ্যালেঞ্জ নির্ভুলভাবে শেষ করলে অতিরিক্ত 1 F-Buck।";
+
+"lifecycle.bonus.unavailable" = "এই চ্যালেঞ্জ আর পাওয়া যাচ্ছে না। তোমার সংরক্ষিত অগ্রগতি অক্ষত আছে।";

@@ -234,19 +234,16 @@
 "Request Timeout" = "リクエストのタイムアウト";
 "Server Not Found" = "サーバーが見つかりません";
 "Too Many Requests" = "リクエストが多すぎます";
-"Server Error" = "サーバーエラー";
 "HTTP Error: %d" = "HTTP エラー: %d";
-"Try Again" = "もう一度やり直してください";
 "Not enough countries in selected regions (found %d, need at least 4)" = "選択した地域に十分な国がありません (%d が見つかりました、少なくとも 4 つ必要です)";
 "Empty response from server" = "サーバーからの空の応答";
 
 // New additions
-"Capital" = "資本";
+"Capital" = "首都";
 "Population" = "人口";
-"Area" = "エリア";
+"Area" = "面積";
 "Region" = "地域";
-"Subregion" = "サブリージョン";
-
+"Subregion" = "小地域";
 // Language additions
 "system_language" = "システム";
 "ru_language" = "Русский";
@@ -1737,3 +1734,89 @@
 "premium.trial.yearly" = "7日間無料、その後は年額%@。";
 "premium.renewal" = "解約するまで自動更新されます。App Storeのサブスクリプションで管理・解約できます。";
 "premium.subscribe" = "登録する";
+
+/* Duel inbox */
+"duel.challenges.title" = "チャレンジ";
+"duel.challenges.subtitle" = "招待・対戦中のデュエル・結果";
+
+// Verified subscription status
+"premium.restore.success" = "購入を復元しました。";
+"premium.restore.empty" = "このApple Accountに有効なサブスクリプションはありません。";
+"premium.access.until" = "利用期限";
+
+// Streak calendar and freeze inventory
+"streak.calendar.title" = "連続記録カレンダー";
+"streak.calendar.played" = "プレイ済み";
+"streak.calendar.frozen" = "保護済み";
+"streak.calendar.missed" = "未達成";
+"streak.calendar.open_day" = "まだプレイしていません";
+"streak.calendar.previous" = "前の月";
+"streak.calendar.next" = "次の月";
+"streak.freeze.title" = "連続記録フリーズ";
+"streak.freeze.repair" = "昨日を復元 · フリーズ1個";
+"streak.freeze.friends" = "友達を助ける";
+"streak.freeze.give" = "フリーズ1個を贈る";
+"streak.freeze.signin" = "フリーズを贈ったり受け取ったりするにはログインしてください。";
+"streak.freeze.unavailable" = "友達にはもう必要ありません。フリーズを返却しました。";
+"streak.freeze.sent" = "フリーズを贈りました！";
+"streak.freeze.retry" = "同期できませんでした。再試行して保留中のギフトを完了してください。";
+"streak.freeze.no_friends" = "今はフリーズの在庫がない友達はいません。";
+"streak.freeze.explanation" = "フリーズ1個で休んだ1日を自動的に保護します。プレイした日には数えません。事前に準備するか、昨日の記録の復元に使えます。";
+
+// Avatar shop and wardrobe
+"shop.avatar" = "あなたのアバター";
+"shop.preview_hint" = "購入前に試着できます。適用するとプロフィール写真がこのアバターに置き換わります。";
+"shop.wardrobe" = "クローゼット";
+"shop.empty" = "購入したアイテムがここに表示されます。";
+"shop.equipped" = "装備中";
+"shop.owned" = "購入済み";
+"shop.remove" = "外す";
+"shop.equip" = "装備する";
+"shop.save_error" = "この端末に保存しました。オンラインのアバターを更新できませんでした。";
+
+"home.lives.welcome" = "ウェルカムボーナス：最初の7日間は10分ごとにライフが3回復。上限5、サブスクリプション不要。";
+
+"Profile Share CTA" = "QRを読み取って、一緒に遊ぼう！";
+
+
+"Profile Share Headline" = "国旗、わかる？\n挑戦しよう。";
+
+"Use current time" = "現在の時刻に設定";
+
+"Progress emails" = "進捗メール";
+
+"Progress emails detail" = "自分の成績を週1回までお届けします。対戦ごとのメールはありません。いつでも配信停止できます。";
+
+"Server Error" = "サーバーに接続できません";
+
+"Try Again" = "再試行";
+
+"Server error. Try again." = "サーバーに接続できません. 再試行";
+
+"Invalid server response." = "サーバーに接続できません";
+
+"duel.network.error" = "サーバーに接続できません. 再試行";
+
+"duel.reminder.sent" = "リマインダーを送信しました";
+
+"duel.reminder.cooldown" = "次のリマインダーを送信する前にお待ちください。";
+
+"duel.reminder.disabled" = "このプレイヤーは対戦通知をオフにしています。";
+
+"duel.reminder.no_device" = "このプレイヤーにはプッシュ通知が有効なデバイスがありません。";
+
+"duel.reminder.completed" = "対戦はすでに終了しています。";
+
+"duel.reminder.missing" = "この対戦は利用できなくなりました。";
+
+"Flags Brand Title" = "国旗";
+
+"lifecycle.offers" = "課題とお知らせ";
+
+"lifecycle.offers.detail" = "ボーナス、課題、ほかのWorld Arenaゲームのご案内。メールは合計で週2通まで。";
+
+"lifecycle.bonus.title" = "昼にもプレイしてみよう";
+
+"lifecycle.bonus.body" = "自分のタイムゾーンの12:00〜16:00にボーナス課題を全問正解すると、追加で1 F-Buckを獲得できます。";
+
+"lifecycle.bonus.unavailable" = "このチャレンジは終了しました。保存済みの進捗はそのままです。";

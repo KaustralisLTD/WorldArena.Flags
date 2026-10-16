@@ -8,6 +8,13 @@ import AppKit
 struct MainTabView: View {
     @EnvironmentObject var gameState: GameState
     @StateObject private var userProfile = UserProfile.shared
+    @ObservedObject private var guide = AppGuide.shared
+    @ObservedObject private var friendRequests = FriendRequestsInbox.shared
+    @Environment(\.scenePhase) private var scenePhase
+    @ObservedObject private var notificationRouter = NotificationService.shared
+    @State private var openingNotification = false
+    @State private var notificationResult: DuelHistoryEntry?
+    @State private var showNotificationInbox = false
     @State private var selectedTab = 0
     @State private var pendingNudgeAlert: NudgeFromAPI?
     @State private var incomingDuelPopup: DuelChallenge?
@@ -18,6 +25,18 @@ struct MainTabView: View {
     @Environment(\.horizontalSizeClass) private var horizontalSizeClass
     @Environment(\.verticalSizeClass) private var verticalSizeClass
     
+    init() {
+        #if os(iOS)
+        let appearance = UITabBarAppearance()
+        appearance.configureWithOpaqueBackground()
+        appearance.backgroundColor = .systemBackground
+        appearance.backgroundEffect = nil
+        UITabBar.appearance().backgroundColor = .systemBackground
+        UITabBar.appearance().standardAppearance = appearance
+        UITabBar.appearance().scrollEdgeAppearance = appearance
+        #endif
+    }
+
     private var systemGroupedBackground: Color {
         #if os(iOS)
         return Color(UIColor.systemGroupedBackground)
@@ -64,8 +83,9 @@ struct MainTabView: View {
                     iPhoneMainLayout()
                 }
             }
+            .accessibilityHidden(guide.step != nil)
             .overlay {
-                if let nudge = pendingNudgeAlert {
+                if guide.step == nil, let nudge = pendingNudgeAlert {
                     FriendNudgePopupView(
                         fromUsername: nudge.fromUsername,
                         phraseKey: nudge.phraseLocalizationKey,
@@ -82,7 +102,7 @@ struct MainTabView: View {
             }
             .animation(.spring(response: 0.4, dampingFraction: 0.86), value: pendingNudgeAlert?.id)
             .overlay(alignment: .top) {
-                if let duel = incomingDuelPopup {
+                if guide.step == nil, !showDuelAnnouncement, !gameState.isNavigatingToGame, let duel = incomingDuelPopup {
                     GlobalIncomingDuelPopupView(
                         challenge: duel,
                         isAccepting: isAcceptingIncomingDuel,
@@ -103,6 +123,48 @@ struct MainTabView: View {
             }
             .animation(.spring(response: 0.45, dampingFraction: 0.86), value: incomingDuelPopup?.id)
         }
+        .overlayPreferenceValue(GuideAnchors.self) { anchors in
+            if guide.step != nil { AppGuideOverlay(anchors: anchors) }
+        }
+        .onChange(of: guide.step) { step in
+            selectedTab = step == 4 ? 4 : 0
+        }
+        .alert(localizationManager.localizedString("Duel"), isPresented: Binding(get: { duelActionErrorText != nil }, set: { if !$0 { duelActionErrorText = nil } })) {
+            Button(localizationManager.localizedString("OK"), role: .cancel) { duelActionErrorText = nil }
+        } message: { Text(duelActionErrorText ?? "") }
+        .sheet(item: $notificationResult) { entry in
+            DuelNotificationResultView(entry: entry)
+        }
+        .sheet(isPresented: $showNotificationInbox) {
+            NavigationView { DuelSummaryView().environmentObject(gameState).environmentObject(userProfile) }
+        }
+        .onChange(of: gameState.isNavigatingToGame) { playing in
+            if !playing { Task { await openNotificationDuel() } }
+        }
+        .onReceive(notificationRouter.$pendingLeague) { open in
+            if open {
+                selectedTab = gameState.isPremium ? 3 : 2
+                notificationRouter.pendingLeague = false
+            }
+        }
+        .onReceive(notificationRouter.$pendingDuelID) { id in
+            if id != nil { Task { await openNotificationDuel() } }
+        }
+        .sheet(isPresented: $friendRequests.showInbox) { FriendRequestsView() }
+        .onReceive(NotificationCenter.default.publisher(for: Notification.Name("OpenFriendRequests"))) { _ in
+            friendRequests.showInbox = true
+        }
+        .onChange(of: scenePhase) { phase in
+            if phase == .active { Task {
+                await fetchIncomingDuelChallenges()
+                await gameState.syncIncomingDuelsWithServer(profile: userProfile)
+                await gameState.syncOutgoingDuelsWithServer(profile: userProfile)
+                await openNotificationDuel()
+                await registerAndSaveFriendCodeIfNeeded()
+                await refreshFriendsDisplayNames()
+                await friendRequests.refresh()
+            } }
+        }
         .environmentObject(gameState)
         .environmentObject(userProfile)
         .fullScreenCover(isPresented: isNavigatingToGameBinding) {
@@ -119,11 +181,14 @@ struct MainTabView: View {
             // Премиум: вкладка «Обучение» = 2, «Лиги» = 3. Раньше всегда ставили 2 → открывалось Обучение.
             selectedTab = gameState.isPremium ? 3 : 2
         }
+        .onReceive(NotificationCenter.default.publisher(for: Notification.Name("OpenLifecycleCampaign"))) { _ in
+            if !gameState.isGameInProgress { selectedTab = 0 }
+        }
         .onReceive(NotificationCenter.default.publisher(for: Notification.Name("SwitchToQuestsTab"))) { _ in
             selectedTab = 1
         }
         .onReceive(NotificationCenter.default.publisher(for: Notification.Name("OnboardingDidFinish"))) { _ in
-            Task { await checkNudgeInbox() }
+            DispatchQueue.main.asyncAfter(deadline: .now() + 0.6) { guide.start() }
         }
         .onReceive(NotificationCenter.default.publisher(for: Notification.Name("apnsDeviceTokenUpdated"))) { _ in
             Task { await registerAndSaveFriendCodeIfNeeded() }
@@ -134,13 +199,16 @@ struct MainTabView: View {
             userProfile.reloadFromPersistence()
         }
         .onAppear {
+            if UserDefaults.standard.bool(forKey: "guide.pending") || ProcessInfo.processInfo.arguments.contains("UITestingTour") { guide.start() }
             userProfile.checkAndAwardBirthdayBonusIfNeeded()
             Task {
                 await syncMyCountryToServer()
                 await fetchIncomingDuelChallenges()
+                await openNotificationDuel()
                 await registerAndSaveFriendCodeIfNeeded()
                 await refreshFriendsDisplayNames()
                 await checkNudgeInbox()
+                await friendRequests.refresh()
                 await checkBirthdayGiftsInbox()
                 #if os(iOS)
                 await MainActor.run {
@@ -153,8 +221,10 @@ struct MainTabView: View {
             Task {
                 await fetchIncomingDuelChallenges()
                 await gameState.syncIncomingDuelsWithServer(profile: userProfile)
+                await gameState.syncOutgoingDuelsWithServer(profile: userProfile)
                 await refreshFriendsDisplayNames()
                 await checkNudgeInbox()
+                await friendRequests.refresh()
             }
         }
         .onChange(of: userProfile.selectedCountryCode) { _ in
@@ -178,6 +248,33 @@ struct MainTabView: View {
                 }
             )
         }
+    }
+
+    @MainActor
+    private func openNotificationDuel() async {
+        guard !openingNotification, !gameState.isNavigatingToGame, let id = notificationRouter.pendingDuelID, !userProfile.username.isEmpty else { return }
+        openingNotification = true
+        defer { openingNotification = false }
+        selectedTab = 0
+        let incomingLoaded = await gameState.syncIncomingDuelsWithServer(profile: userProfile)
+        let outgoingLoaded = await gameState.syncOutgoingDuelsWithServer(profile: userProfile)
+        // A newer tap must never be consumed by an older request.
+        guard notificationRouter.pendingDuelID == id else { return }
+        if let entry = gameState.duelHistory.first(where: { $0.duelChallengeId == id }) {
+            incomingDuelPopup = nil
+            notificationResult = entry
+        } else if !notificationRouter.pendingDuelIsResult,
+                  let challenge = userProfile.incomingDuelChallenges.first(where: { $0.id == id }) {
+            acceptIncomingDuel(challenge)
+            return // Consumed only after the server accepts the invitation.
+        } else if !incomingLoaded || !outgoingLoaded {
+            duelActionErrorText = localizationManager.localizedString("Check your internet connection")
+            return // Keep the destination for the next activation / retry.
+        } else {
+            incomingDuelPopup = nil
+            showNotificationInbox = true
+        }
+        notificationRouter.pendingDuelID = nil
     }
 
     private func checkNudgeInbox() async {
@@ -267,7 +364,7 @@ struct MainTabView: View {
             defer { Task { @MainActor in isAcceptingIncomingDuel = false } }
             let result: (seed: Int, challengerName: String, challengerScore: Int?, duelSetup: DuelAPIService.DuelSetup?)
             do {
-                result = try await DuelAPIService.shared.acceptChallenge(challengeId: challenge.id)
+                result = try await DuelAPIService.shared.acceptChallenge(challengeId: challenge.id, userId: userProfile.username)
                 print("[MainTabView] acceptIncomingDuel success challengeId=", challenge.id, "seed=", result.seed)
             } catch {
                 let msg = (error as? LocalizedError)?.errorDescription ?? error.localizedDescription
@@ -311,6 +408,9 @@ struct MainTabView: View {
                 incomingDuelPopup = nil
                 selectedTab = 0
                 showDuelAnnouncement = true
+                if notificationRouter.pendingDuelID == challenge.id {
+                    notificationRouter.pendingDuelID = nil
+                }
             }
         }
     }
@@ -322,9 +422,11 @@ struct MainTabView: View {
         do {
             try await DuelAPIService.shared.declineChallenge(challengeId: challenge.id, userId: userProfile.username)
         } catch {
-            // даже если сервер не отработал — локально прячем, чтобы не надоедало
+            // Keep the invite actionable when the request fails.
             let msg = (error as? LocalizedError)?.errorDescription ?? error.localizedDescription
             print("[MainTabView] declineIncomingDuel failed:", msg, "challengeId=", challenge.id)
+            duelActionErrorText = msg
+            return
         }
         await MainActor.run {
             DuelInviteSuppression.decline(challenge.id)
@@ -439,6 +541,7 @@ struct MainTabView: View {
                         Text(LocalizationManager.shared.localizedString("Игра"))
                     }
                     .tag(0)
+                    .modifier(OpaqueMainTabBackground())
                 
                 MonthlyQuestsView()
                     .tabItem {
@@ -446,6 +549,7 @@ struct MainTabView: View {
                         Text(LocalizationManager.shared.localizedString("Квесты"))
                     }
                     .tag(1)
+                    .modifier(OpaqueMainTabBackground())
                 
                 LeaguesView()
                     .tabItem {
@@ -453,6 +557,7 @@ struct MainTabView: View {
                         Text(LocalizationManager.shared.localizedString("Лиги"))
                     }
                     .tag(2)
+                    .modifier(OpaqueMainTabBackground())
                 
                 StatisticsView()
                     .tabItem {
@@ -460,6 +565,7 @@ struct MainTabView: View {
                         Text(LocalizationManager.shared.localizedString("Статистика"))
                     }
                     .tag(3)
+                    .modifier(OpaqueMainTabBackground())
                 
                 NavigationView {
                     ProfileView(selectedTab: $selectedTab)
@@ -470,6 +576,7 @@ struct MainTabView: View {
                     Text(LocalizationManager.shared.localizedString("Профиль"))
                 }
                 .tag(4)
+                    .modifier(OpaqueMainTabBackground())
             } else {
                 // Премиум план
                 ContentView(gameState: gameState)
@@ -478,6 +585,7 @@ struct MainTabView: View {
                         Text(LocalizationManager.shared.localizedString("Игра"))
                     }
                     .tag(0)
+                    .modifier(OpaqueMainTabBackground())
                 
                 MonthlyQuestsView()
                     .tabItem {
@@ -485,6 +593,7 @@ struct MainTabView: View {
                         Text(LocalizationManager.shared.localizedString("Квесты"))
                     }
                     .tag(1)
+                    .modifier(OpaqueMainTabBackground())
                 
                 LearningView()
                     .tabItem {
@@ -492,6 +601,7 @@ struct MainTabView: View {
                         Text(LocalizationManager.shared.localizedString("Обучение"))
                     }
                     .tag(2)
+                    .modifier(OpaqueMainTabBackground())
                 
                 LeaguesView()
                     .tabItem {
@@ -499,6 +609,7 @@ struct MainTabView: View {
                         Text(LocalizationManager.shared.localizedString("Лиги"))
                     }
                     .tag(3)
+                    .modifier(OpaqueMainTabBackground())
                 
                 NavigationView {
                     ProfileView(selectedTab: $selectedTab)
@@ -509,6 +620,7 @@ struct MainTabView: View {
                     Text(LocalizationManager.shared.localizedString("Профиль"))
                 }
                 .tag(4)
+                    .modifier(OpaqueMainTabBackground())
             }
             }
             .accentColor(.blue)
@@ -673,6 +785,7 @@ struct MainTabView: View {
                         Text(LocalizationManager.shared.localizedString("Игра"))
                     }
                     .tag(0)
+                    .modifier(OpaqueMainTabBackground())
                 
                 MonthlyQuestsView()
                     .tabItem {
@@ -680,6 +793,7 @@ struct MainTabView: View {
                         Text(LocalizationManager.shared.localizedString("Квесты"))
                     }
                     .tag(1)
+                    .modifier(OpaqueMainTabBackground())
                 
                 LeaguesView()
                     .tabItem {
@@ -687,6 +801,7 @@ struct MainTabView: View {
                         Text(LocalizationManager.shared.localizedString("Лиги"))
                     }
                     .tag(2)
+                    .modifier(OpaqueMainTabBackground())
                 
                 StatisticsView()
                     .tabItem {
@@ -694,6 +809,7 @@ struct MainTabView: View {
                         Text(LocalizationManager.shared.localizedString("Статистика"))
                     }
                     .tag(3)
+                    .modifier(OpaqueMainTabBackground())
                 
                 NavigationView {
                     ProfileView(selectedTab: $selectedTab)
@@ -704,6 +820,7 @@ struct MainTabView: View {
                     Text(LocalizationManager.shared.localizedString("Профиль"))
                 }
                 .tag(4)
+                    .modifier(OpaqueMainTabBackground())
             } else {
                 // Премиум план
                 ContentView(gameState: gameState)
@@ -713,6 +830,7 @@ struct MainTabView: View {
                         Text(LocalizationManager.shared.localizedString("Игра"))
                     }
                     .tag(0)
+                    .modifier(OpaqueMainTabBackground())
                 
                 MonthlyQuestsView()
                     .tabItem {
@@ -720,6 +838,7 @@ struct MainTabView: View {
                         Text(LocalizationManager.shared.localizedString("Квесты"))
                     }
                     .tag(1)
+                    .modifier(OpaqueMainTabBackground())
                 
                 LearningView()
                     .tabItem {
@@ -727,6 +846,7 @@ struct MainTabView: View {
                         Text(LocalizationManager.shared.localizedString("Обучение"))
                     }
                     .tag(2)
+                    .modifier(OpaqueMainTabBackground())
                 
                 LeaguesView()
                     .tabItem {
@@ -734,6 +854,7 @@ struct MainTabView: View {
                         Text(LocalizationManager.shared.localizedString("Лиги"))
                     }
                     .tag(3)
+                    .modifier(OpaqueMainTabBackground())
                 
                 NavigationView {
                     ProfileView(selectedTab: $selectedTab)
@@ -744,6 +865,7 @@ struct MainTabView: View {
                     Text(LocalizationManager.shared.localizedString("Профиль"))
                 }
                 .tag(4)
+                    .modifier(OpaqueMainTabBackground())
             }
             }
             .accentColor(.blue)
@@ -767,7 +889,6 @@ private struct GlobalIncomingDuelPopupView: View {
     let onDecline: () -> Void
     let onDismiss: () -> Void
     @ObservedObject private var localizationManager = LocalizationManager.shared
-    @State private var glow = false
 
     var body: some View {
         VStack(alignment: .leading, spacing: 10) {
@@ -787,12 +908,13 @@ private struct GlobalIncomingDuelPopupView: View {
                     Text(String(format: localizationManager.localizedString("duel_invite_popup_body_format"), challenge.challengerName))
                         .font(.system(size: 15, weight: .heavy, design: .rounded))
                         .foregroundColor(.white)
-                        .lineLimit(1)
+                        .lineLimit(2)
                 }
                 Spacer(minLength: 8)
                 Button(action: onDismiss) {
                     Image(systemName: "xmark.circle.fill")
                         .font(.system(size: 18))
+                        .frame(width: 44, height: 44)
                         .foregroundColor(.white.opacity(0.9))
                 }
                 .buttonStyle(.plain)
@@ -811,13 +933,13 @@ private struct GlobalIncomingDuelPopupView: View {
                                 .frame(width: 12, height: 12)
                         }
                         Text(localizationManager.localizedString("duel_invite_popup_accept"))
-                            .font(.system(size: 11, weight: .bold))
+                            .font(.system(size: 13, weight: .semibold))
                             .lineLimit(1)
                             .minimumScaleFactor(0.75)
                     }
                     .foregroundColor(.white)
                     .frame(maxWidth: .infinity)
-                    .frame(minHeight: 36)
+                    .frame(minHeight: 44)
                     .padding(.horizontal, 4)
                     .background(
                         Capsule()
@@ -825,56 +947,57 @@ private struct GlobalIncomingDuelPopupView: View {
                     )
                 }
                 .disabled(isAccepting)
+                .accessibilityIdentifier("duel.invite.accept")
                 .buttonStyle(.plain)
 
                 Button(action: onRemind) {
                     Text(localizationManager.localizedString("duel_invite_popup_remind_1h"))
-                        .font(.system(size: 11, weight: .bold))
+                        .font(.system(size: 13, weight: .semibold))
                         .lineLimit(1)
                         .minimumScaleFactor(0.75)
                         .foregroundColor(.white)
                         .frame(maxWidth: .infinity)
-                        .frame(minHeight: 36)
+                        .frame(minHeight: 44)
                         .padding(.horizontal, 4)
                         .background(
                             Capsule()
                                 .fill(Color.blue.opacity(0.35))
                         )
                 }
+                .accessibilityIdentifier("duel.invite.remind")
+                .disabled(isAccepting)
                 .buttonStyle(.plain)
 
                 Button(action: onDecline) {
                     Text(localizationManager.localizedString("duel_invite_popup_decline"))
-                        .font(.system(size: 11, weight: .bold))
+                        .font(.system(size: 13, weight: .semibold))
                         .lineLimit(1)
                         .minimumScaleFactor(0.75)
                         .foregroundColor(.white)
                         .frame(maxWidth: .infinity)
-                        .frame(minHeight: 36)
+                        .frame(minHeight: 44)
                         .padding(.horizontal, 4)
                         .background(
                             Capsule()
                                 .fill(Color.red.opacity(0.72))
                         )
                 }
+                .accessibilityIdentifier("duel.invite.decline")
+                .disabled(isAccepting)
                 .buttonStyle(.plain)
             }
         }
         .padding(14)
         .background(
             RoundedRectangle(cornerRadius: 16, style: .continuous)
-                .fill(LinearGradient(colors: [Color.black.opacity(0.9), Color.indigo.opacity(0.82), Color.purple.opacity(0.74)], startPoint: .topLeading, endPoint: .bottomTrailing))
+                .fill(LinearGradient(colors: [Color(red: 0.08, green: 0.10, blue: 0.19), Color(red: 0.16, green: 0.18, blue: 0.32)], startPoint: .topLeading, endPoint: .bottomTrailing))
         )
         .overlay(
             RoundedRectangle(cornerRadius: 16, style: .continuous)
-                .stroke(Color.white.opacity(glow ? 0.36 : 0.18), lineWidth: 1.2)
+                .stroke(Color.white.opacity(0.18), lineWidth: 1)
+                .allowsHitTesting(false)
         )
         .shadow(color: Color.black.opacity(0.35), radius: 14, x: 0, y: 8)
-        .onAppear {
-            withAnimation(.easeInOut(duration: 1.4).repeatForever(autoreverses: true)) {
-                glow = true
-            }
-        }
     }
 }
 
@@ -968,3 +1091,74 @@ struct MoreMenuView: View {
     MainTabView()
         .environmentObject(GameState())
 }
+
+/// Keep the same solid surface on every tab, including at the scroll edge.
+private struct OpaqueMainTabBackground: ViewModifier {
+    func body(content: Content) -> some View {
+        #if os(iOS)
+        if #available(iOS 16.0, *) {
+            content
+                .toolbarBackground(Color(uiColor: .systemBackground), for: .tabBar)
+                .toolbarBackground(.visible, for: .tabBar)
+        } else {
+            content
+        }
+        #else
+        content
+        #endif
+    }
+}
+
+/// A specific finished match opened from a notification, with unambiguous score ownership.
+struct DuelNotificationResultView: View {
+    let entry: DuelHistoryEntry
+    @Environment(\.dismiss) private var dismiss
+    private let lm = LocalizationManager.shared
+    var body: some View {
+        NavigationView {
+            ScrollView {
+                VStack(spacing: 24) {
+                    Image(systemName: entry.iWon ? "trophy.fill" : "flag.checkered")
+                        .font(.system(size: 64)).foregroundStyle(entry.iWon ? .yellow : .indigo)
+                        .padding(30).background(Color.indigo.opacity(0.09), in: Circle())
+                    Text(lm.localizedString(entry.iWon ? "Victory" : "Defeat"))
+                        .font(.largeTitle.bold())
+                    Text("@\(UserProfile.shared.username) vs @\(entry.opponentName)")
+                        .font(.headline).multilineTextAlignment(.center)
+                    HStack {
+                        score(lm.localizedString("You"), entry.myScore)
+                        Text(":").font(.title).foregroundStyle(.secondary)
+                        score(entry.opponentName, entry.opponentScore)
+                    }
+                    if entry.showsTieTimeBreakdown, let mine = entry.myTimeMs, let other = entry.rivalTimeMs {
+                        DuelHistoryTieTimesLine(myTimeMs: mine, rivalTimeMs: other, compact: false)
+                    }
+                    Text(entry.playedAt, style: .date).foregroundStyle(.secondary)
+                }.padding(24).frame(maxWidth: .infinity)
+            }
+            .navigationTitle(lm.localizedString("Duel result"))
+            .toolbar { ToolbarItem(placement: .confirmationAction) { Button(lm.localizedString("Done")) { dismiss() } } }
+        }
+    }
+    private func score(_ name: String, _ value: Int) -> some View {
+        VStack(spacing: 12) { Text(name).font(.headline); Text("\(value)").font(.system(size: 48, weight: .bold, design: .rounded)) }
+            .frame(maxWidth: .infinity).padding().background(Color.indigo.opacity(0.08), in: RoundedRectangle(cornerRadius: 20))
+    }
+}
+
+#if DEBUG
+/// Exercises the production banner hit targets without sending invitations to real players.
+struct DuelNotificationInteractionPreview: View {
+    @State private var lastAction = "Ready"
+    private let challenge = DuelChallenge(id: "qa-invite", challengerId: "qa-rival", challengerName: "sspilberg", opponentId: "qa-player", opponentName: "You", seed: 42, createdAt: Date(), status: .pending)
+    var body: some View {
+        VStack(spacing: 30) {
+            GlobalIncomingDuelPopupView(challenge: challenge, isAccepting: false,
+                onAccept: { lastAction = "Accepted" }, onRemind: { lastAction = "Reminded" },
+                onDecline: { lastAction = "Declined" }, onDismiss: { lastAction = "Dismissed" })
+            Text(lastAction).accessibilityIdentifier("duel.qa.action")
+            Spacer()
+        }.padding().background(Color.black).foregroundColor(.white)
+    }
+}
+#endif

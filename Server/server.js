@@ -25,9 +25,31 @@ function getMailgunLocale(acceptLanguage) {
 
 const app = express();
 app.use(cors({ origin: true }));
+app.use(require('./request-diagnostics').requestDiagnostics());
 app.use(express.json({ limit: '3mb' }));
+// HTTP headers are byte-oriented. Preserve Unicode usernames through ASCII percent encoding.
+// Older clients sent UTF-8 bytes directly; Node exposes those bytes as Latin-1.
+app.use((req, _res, next) => {
+  const raw = req.headers['x-user-id'];
+  if (typeof raw === 'string') {
+    let decoded = raw;
+    try { decoded = decodeURIComponent(raw); } catch (_) { /* Leave malformed escapes unmatched. */ }
+    if (decoded === raw && /[^\x00-\x7f]/.test(raw) && [...raw].every(c => c.charCodeAt(0) <= 255)) {
+      const utf8 = Buffer.from(raw, 'latin1').toString('utf8');
+      if (!utf8.includes('\ufffd') && db.getCanonicalUsername(utf8)) decoded = utf8;
+    }
+    req.headers['x-user-id'] = decoded;
+  }
+  next();
+});
+
 // Статические файлы: `public/flags/AF.png` → GET /flags/AF.png (тот же хост, что и /api у nginx)
 app.use(express.static(path.join(__dirname, 'public')));
+app.get('/.well-known/apple-app-site-association', (_, res) => {
+  res.json({ applinks: { apps: [], details: [{ appID: '8QK64BF264.World-Arena.-Flags', paths: ['/profile/*'] }] } });
+});
+app.get('/profile/:code', require('./profile-page').profileHandler(db));
+
 
 /** Победитель при status=completed (счёт или ничья по времени). Поддержка snake_case и camelCase из SQLite alias. */
 function duelWinnerFromRow(c) {
@@ -150,6 +172,8 @@ function authFromRequest(req) {
   if (!token) return null;
   return db.getSession(token);
 }
+
+require('./streak-freezes').installStreakFreezes(app, db, authFromRequest);
 
 // ——— Auth ———
 // POST /api/v1/auth/register
@@ -350,6 +374,7 @@ app.post('/api/v1/users/register', (req, res) => {
       deviceToken: deviceToken || null,
       stats: req.body.stats || {},
     });
+    db.setDuelNotificationPreferences(result.username, req.body.duelResultsNotifications, req.body.duelInvitesNotifications);
     const worldRank = db.getWorldRank(result.username);
     res.json({ ok: true, username: result.username, friendCode: result.friendCode, worldRank });
   } catch (e) {
@@ -479,6 +504,13 @@ app.post('/api/v1/friends/add', (req, res) => {
     return res.status(400).json({ error: 'Invalid code or cannot add yourself' });
   }
   if (!friend) return res.status(400).json({ error: 'Invalid code or cannot add yourself' });
+  if (friend.createdFriendRequest) {
+    const recipient = db.getUserByUsername(friend.username);
+    const sender = db.getUserByUsername(myUsername);
+    if (recipient?.device_token) require('./push').sendFriendRequestPush(recipient.device_token, sender?.display_name || myUsername, (err) => {
+      if (err) console.warn('[friend-request] push failed:', err.message);
+    });
+  }
   const achievements = parseJSONSafe(friend.achievements_json, []);
   res.json({
     ok: true,
@@ -501,7 +533,22 @@ app.post('/api/v1/friends/add', (req, res) => {
   });
 });
 
-// POST /api/v1/friends/remove — удалить дружбу с обеих сторон
+// Inbox decisions require the recipient's authenticated session, never an arbitrary user header.
+app.get('/api/v1/friends/requests', (req, res) => {
+  const session = authFromRequest(req);
+  if (!session) return res.status(401).json({ error: 'Sign in required' });
+  res.json({ requests: db.getFriendRequests(session.username) });
+});
+app.post('/api/v1/friends/requests/respond', (req, res) => {
+  const session = authFromRequest(req);
+  if (!session) return res.status(401).json({ error: 'Sign in required' });
+  const { sender, accept } = req.body;
+  if (typeof sender !== 'string' || typeof accept !== 'boolean') return res.status(400).json({ error: 'sender and accept required' });
+  if (!db.respondToFriendRequest(session.username, sender, accept)) return res.status(404).json({ error: 'Request not found or already resolved' });
+  res.json({ ok: true });
+});
+
+// POST /api/v1/friends/remove — remove from the caller's list
 app.post('/api/v1/friends/remove', (req, res) => {
   const myUsername = resolveUserId(req.headers['x-user-id'] || req.body.userId);
   const { friendUsername } = req.body;
@@ -558,10 +605,10 @@ app.post('/api/v1/duel/challenge', (req, res) => {
     duelOptionsCount: Number.isFinite(duelOptionsCount) ? duelOptionsCount : null,
     ...duelPayloadLogSummary(duelQuestionsPayload),
   });
-  if (opponent && opponent.device_token) {
+  if (opponent && opponent.device_token && opponent.duel_invites_notifications !== 0) {
     sendDuelChallengePush(opponent.device_token, challengerName || 'Friend', (err) => {
       if (err) console.error('[duel/challenge] push failed', { challengeId: id, opponentId: opponentKey, message: err.message });
-    });
+    }, id);
     console.log('[duel/challenge] push enqueued', { challengeId: id, opponentId: opponentKey });
   } else {
     console.log(
@@ -663,6 +710,10 @@ app.post('/api/v1/duel/accept', (req, res) => {
   console.log('[duel/accept] request', { challengeId, userId: userId || '(empty)' });
   const c = db.getChallenge(challengeId);
   if (!c) return res.status(404).json({ error: 'Challenge not found' });
+  const recipient = db.getCanonicalUsername(userId) || userId;
+  if (!recipient || recipient.toLowerCase() !== c.opponent_id.toLowerCase()) {
+    return res.status(403).json({ error: 'Not your challenge' });
+  }
   const createdMs = c.created_at ? new Date(c.created_at).getTime() : 0;
   if (createdMs && Date.now() - createdMs > 24 * 60 * 60 * 1000) {
     return res.status(400).json({ error: 'Challenge expired' });
@@ -741,7 +792,7 @@ const duelRemindLastSent = new Map();
 
 // POST /api/v1/duel/remind
 app.post('/api/v1/duel/remind', (req, res) => {
-  const userIdRaw = (req.headers['x-user-id'] || '').trim();
+  const userIdRaw = authFromRequest(req)?.username || (req.headers['x-user-id'] || '').trim();
   const { challengeId } = req.body || {};
   if (!userIdRaw || !challengeId) return res.status(400).json({ error: 'userId and challengeId required' });
 
@@ -778,24 +829,40 @@ app.post('/api/v1/duel/remind', (req, res) => {
     return res.status(404).json({ error: 'Recipient not found' });
   }
 
+  if (recipient.duel_invites_notifications === 0) {
+    return res.json({ ok: true, status: c.status, pushSent: false, reason: 'notifications_disabled' });
+  }
+
   if (!recipient.device_token) {
     console.warn('[duel/remind] no device_token for recipient', { recipientUsername, challengeId });
     duelRemindLastSent.set(throttleKey, now);
     return res.json({ ok: true, status: c.status, pushSent: false, reason: 'no_device_token' });
   }
 
-  sendDuelChallengePush(recipient.device_token, c.challenger_name, (err) => {
-    if (err) console.error('[duel/remind] push failed:', err.message || err);
-    else console.log('[duel/remind] push ok', { challengeId, to: recipientUsername });
-  });
   duelRemindLastSent.set(throttleKey, now);
-
-  res.json({ ok: true, status: c.status, pushSent: true });
+  sendDuelChallengePush(recipient.device_token, c.challenger_name, (err) => {
+    if (err) {
+      duelRemindLastSent.delete(throttleKey);
+      console.error('[duel/remind] push failed:', err.message || err);
+      return res.status(502).json({ error: 'Push delivery failed', errorCode: 'Server error. Try again.' });
+    }
+    console.log('[duel/remind] push ok', { challengeId, to: recipientUsername });
+    res.json({ ok: true, status: c.status, pushSent: true });
+  }, challengeId);
 });
 
 // POST /api/v1/duel/submit
 app.post('/api/v1/duel/submit', (req, res) => {
   const { challengeId, score, side, elapsedMs } = req.body;
+  const before = db.getChallenge(challengeId);
+  if (!before) return res.status(404).json({ error: 'Challenge not found' });
+  const submitter = resolveUserId(req.headers['x-user-id'] || req.body.userId);
+  const expected = side === 'challenger' ? before.challenger_id : side === 'opponent' ? before.opponent_id : null;
+  // Compatibility for released builds through 85, which omit identity on submit.
+  // When supplied, identity must still match the submitted side.
+  if (!expected || (submitter && submitter !== resolveUserId(expected))) return res.status(403).json({ error: 'Not your match side' });
+  if (!Number.isInteger(score) || score < 0) return res.status(400).json({ error: 'Invalid score' });
+  if (before.status === 'completed') return res.json({ status: before.status, winner: duelWinnerFromRow(before), challengerScore: before.challenger_score, opponentScore: before.opponent_score, challengerTimeMs: before.challenger_time_ms, opponentTimeMs: before.opponent_time_ms });
   const updated = db.updateChallengeScore(challengeId, side, score, elapsedMs);
   if (!updated) return res.status(404).json({ error: 'Challenge not found' });
 
@@ -825,6 +892,20 @@ app.post('/api/v1/duel/submit', (req, res) => {
   let winner = null;
   if (updated.status === 'completed') {
     winner = duelWinnerFromRow(updated);
+    // Only the transition to completed sends a result. Retries cannot duplicate it.
+    if (before.status !== 'completed') {
+      for (const recipientSide of ['challenger', 'opponent']) {
+        const isChallenger = recipientSide === 'challenger';
+        const recipient = db.getUserByUsername(isChallenger ? updated.challenger_id : updated.opponent_id);
+        if (!recipient?.device_token || recipient.duel_results_notifications === 0) continue;
+        require('./push').sendDuelResultPush(recipient.device_token, {
+          challengeId, iWon: winner === recipientSide,
+          opponentName: isChallenger ? updated.opponent_name : updated.challenger_name,
+          myScore: isChallenger ? updated.challenger_score : updated.opponent_score,
+          opponentScore: isChallenger ? updated.opponent_score : updated.challenger_score
+        }, err => { if (err) console.error('[duel/result] push failed', { challengeId, message: err.message }); });
+      }
+    }
     const cs = updated.challenger_score || 0;
     const os = updated.opponent_score || 0;
     const winnerId = winner === 'challenger' ? updated.challenger_id : updated.opponent_id;
@@ -1035,3 +1116,11 @@ app.get('/api/v1/time-challenge/leaderboard', (req, res) => {
 app.listen(PORT, '127.0.0.1', () => {
   console.log(`Duel API listening on 127.0.0.1:${PORT}`);
 });
+
+// Optional server-managed content and opt-in progress digests.
+require("./engagement").install(app, db, authFromRequest, mailgun.sendMail);
+
+require('./notification-inbox').install(app, db.db, authFromRequest);
+
+// Behaviour-based, explicitly opted-in lifecycle programme.
+require("./lifecycle").install(app, db, authFromRequest, mailgun.sendMail);

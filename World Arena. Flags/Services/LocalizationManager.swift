@@ -183,8 +183,16 @@ class LocalizationManager: ObservableObject {
     }
 
     func localizedString(_ key: String) -> String {
-        return bundle?.localizedString(forKey: key, value: key, table: nil) 
-            ?? Bundle.main.localizedString(forKey: key, value: key, table: nil)
+        // A valid translation may equal its key (e.g. Ukrainian “Африка”).
+        // Use a sentinel to distinguish that case from an absent entry.
+        let missing = "__WORLD_ARENA_MISSING_TRANSLATION__"
+        let localized = (bundle ?? Bundle.main).localizedString(forKey: key, value: missing, table: nil)
+        if localized != missing { return localized }
+        // A missing translation must not expose an internal key to the player.
+        if let path = Bundle.main.path(forResource: "en", ofType: "lproj"), let english = Bundle(path: path) {
+            return english.localizedString(forKey: key, value: key, table: nil)
+        }
+        return key
     }
 
     /// Название страны для UI по ISO 3166-1 alpha-2 (детальные результаты игры).

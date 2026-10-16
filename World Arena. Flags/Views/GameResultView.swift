@@ -33,6 +33,14 @@ struct GameResultView: View {
     var onBackHome: (() -> Void)? = nil
     var onShare: (() -> Void)? = nil
     
+    @Environment(\.accessibilityReduceMotion) private var systemReduceMotion
+    private var reduceMotion: Bool {
+        #if DEBUG
+        systemReduceMotion || CommandLine.arguments.contains("UITestingReducedMotion")
+        #else
+        systemReduceMotion
+        #endif
+    }
     @State private var showContent = false
     @State private var showScore = false
     
@@ -339,7 +347,10 @@ struct GameResultView: View {
                         }
                         // Main result section with enhanced animations
                         VStack(spacing: 25) {
-                            // Animated character with glow effect
+                            // Duel outcomes follow the server winner, not quiz accuracy.
+                            if let duel = duelResult {
+                                DuelOutcomeArtwork(result: duel)
+                            } else {
                             ZStack {
                                 // Glow effect
                                 Circle()
@@ -394,6 +405,7 @@ struct GameResultView: View {
                                 }
                             }
                             
+                            }
                             // Score and message with enhanced styling
                             VStack(spacing: 12) {
                                 // Main score message
@@ -469,11 +481,7 @@ struct GameResultView: View {
                         .scaleEffect(showContent ? 1 : 0.8)
                         
                         // Enhanced stats cards
-                        LazyVGrid(columns: [
-                            GridItem(.flexible()),
-                            GridItem(.flexible()),
-                            GridItem(.flexible())
-                        ], spacing: 15) {
+                        LazyVGrid(columns: Array(repeating: GridItem(.flexible()), count: UIDevice.current.userInterfaceIdiom == .pad && earnedFBucks > 0 ? 4 : 3), spacing: 15) {
                             EnhancedStatCard(
                                 title: localizationManager.localizedString("XP EARNED"),
                                 value: "\(boostedXP)",
@@ -553,7 +561,9 @@ struct GameResultView: View {
                         }
                         Color.clear.frame(height: 24)
                     }
-                    .padding(.horizontal, 20)
+                    .padding(.horizontal, 28)
+                    .frame(maxWidth: 1200)
+                    .frame(maxWidth: .infinity)
                 }
                 .frame(maxHeight: .infinity)
                 
@@ -687,9 +697,9 @@ struct GameResultView: View {
                 }
                 .opacity(showButton ? 1 : 0)
                 .scaleEffect(showButton ? 1 : 0.8)
-                .scaleEffect(pulseAnimation ? 1.05 : 1.0)
-                .animation(.easeInOut(duration: 1.5).repeatForever(autoreverses: true), value: pulseAnimation)
                 .padding(.horizontal, 30)
+                .frame(maxWidth: 720)
+                .frame(maxWidth: .infinity)
                 .padding(.top, 12)
                 .padding(.bottom, 34)
                 .background(
@@ -725,6 +735,7 @@ struct GameResultView: View {
     }
     
     private var characterColor: Color {
+        if let duel = duelResult { return duel.iWon ? .orange : .indigo }
         let accuracy = resultAccuracyRatio
         if accuracy == 1.0 {
             return .yellow
@@ -740,6 +751,9 @@ struct GameResultView: View {
     }
     
     private var scoreMessage: String {
+        if let duel = duelResult {
+            return localizationManager.localizedString(duel.isPending ? "Waiting for result" : (duel.iWon ? "You won!" : "KEEP TRYING!"))
+        }
         let accuracy = resultAccuracyRatio
         if accuracy == 1.0 {
             return localizationManager.localizedString("PERFECT!")
@@ -755,6 +769,9 @@ struct GameResultView: View {
     }
     
     private var encouragementMessage: String {
+        if let duel = duelResult {
+            return localizationManager.localizedString(duel.isPending ? "Duel result" : (duel.iWon ? "Fantastic work! You're doing amazing! 🚀" : "Don't give up! Every expert was once a beginner! 🌱"))
+        }
         let accuracy = resultAccuracyRatio
         if accuracy == 1.0 {
             return localizationManager.localizedString("Absolutely incredible! You're a true champion! 🎉")
@@ -922,6 +939,11 @@ struct GameResultView: View {
     // MARK: - Enhanced Animations
     
     private func startEnhancedAnimations() {
+        if reduceMotion || duelResult != nil {
+            showContent = true; showStats = true; showButton = true
+            scoreScale = 1; characterScale = 1
+            return
+        }
         // Initial content appearance
         withAnimation(.spring(response: 0.8, dampingFraction: 0.7)) {
             showContent = true
@@ -1546,4 +1568,69 @@ struct ConfettiPiece: View {
         earnedFBucks: 1,
         onContinue: {}
     )
+}
+
+/// A single, cancellable entrance. Pending matches never play a defeat animation.
+struct DuelOutcomeArtwork: View {
+    let result: DuelResultInfo
+    var compact = false
+    @Environment(\.accessibilityReduceMotion) private var systemReduceMotion
+    private var reduceMotion: Bool {
+        #if DEBUG
+        systemReduceMotion || CommandLine.arguments.contains("UITestingReducedMotion")
+        #else
+        systemReduceMotion
+        #endif
+    }
+    @State private var appeared = false
+    @State private var particlesExpanded = false
+    @State private var particlesVisible = false
+    private var outcome: String { result.isPending ? "pending" : (result.iWon ? "won" : "lost") }
+    private var tint: Color { result.iWon ? .orange : .indigo }
+
+    var body: some View {
+        ZStack {
+            Circle().fill(tint.opacity(0.10))
+            Circle().stroke(tint.opacity(0.18), lineWidth: 1).padding(8)
+            if result.iWon && !reduceMotion {
+                ForEach(0..<12, id: \.self) { index in
+                    let angle = Double(index) * .pi / 6
+                    Capsule().fill(index.isMultiple(of: 2) ? Color.orange : Color.yellow)
+                        .frame(width: 4, height: 9)
+                        .rotationEffect(.radians(angle))
+                        .offset(x: cos(angle) * (particlesExpanded ? 78 : 25),
+                                y: sin(angle) * (particlesExpanded ? 78 : 25))
+                        .opacity(particlesVisible ? 1 : 0)
+                }
+            }
+            Image(systemName: result.isPending ? "hourglass" : (result.iWon ? "trophy.fill" : "flag.2.crossed.fill"))
+                .font(.system(size: compact ? 26 : 62, weight: .semibold))
+                .foregroundStyle(LinearGradient(colors: [tint, tint.opacity(0.7)], startPoint: .top, endPoint: .bottom))
+                .shadow(color: tint.opacity(0.2), radius: 8, y: 5)
+                .scaleEffect(appeared || reduceMotion ? 1 : (result.iWon ? 0.65 : 0.94))
+                .offset(y: appeared || reduceMotion ? 0 : (result.iWon ? 18 : -14))
+                .opacity(appeared || reduceMotion ? 1 : 0)
+        }
+        .frame(width: compact ? 64 : 160, height: compact ? 64 : 160)
+        .frame(maxWidth: .infinity)
+        .accessibilityElement(children: .ignore)
+        .accessibilityLabel(LocalizationManager.shared.localizedString(result.isPending ? "Waiting for result" : (result.iWon ? "You won!" : "KEEP TRYING!")))
+        .accessibilityIdentifier("duel.outcome." + outcome)
+        .task(id: outcome) {
+            appeared = false; particlesExpanded = false; particlesVisible = false
+            guard !reduceMotion, !result.isPending else { appeared = true; return }
+            do {
+                try await Task.sleep(nanoseconds: 80000000)
+                withAnimation(.spring(response: result.iWon ? 0.55 : 0.65, dampingFraction: result.iWon ? 0.65 : 1)) {
+                    appeared = true
+                }
+                if result.iWon && !compact {
+                    particlesVisible = true
+                    withAnimation(.easeOut(duration: 0.7)) { particlesExpanded = true }
+                    try await Task.sleep(nanoseconds: 450000000)
+                    withAnimation(.easeOut(duration: 0.3)) { particlesVisible = false }
+                }
+            } catch { /* Dismissal cancels the sequence. */ }
+        }
+    }
 }

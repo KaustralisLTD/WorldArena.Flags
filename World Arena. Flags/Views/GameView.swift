@@ -284,14 +284,14 @@ private struct HeartLoseAnimationView: View {
                 if p >= breakEnd {
                     let dissolveProgress = (p - breakEnd) / (1 - breakEnd)
                     ForEach(0..<Self.particleCount, id: \.self) { i in
+                        let angle: Double = Self.particleAngles[i]
+                        let x: CGFloat = CGFloat(cos(angle) * 30 * dissolveProgress)
+                        let y: CGFloat = CGFloat((18 + 8 * sin(angle)) * dissolveProgress)
                         Circle()
                             .fill(particleColors[i % particleColors.count].opacity(0.85))
                             .frame(width: 5, height: 5)
                             .opacity(1 - dissolveProgress)
-                            .offset(
-                                x: cos(Self.particleAngles[i]) * 30 * dissolveProgress,
-                                y: 18 * dissolveProgress + 8 * sin(Self.particleAngles[i]) * dissolveProgress
-                            )
+                            .offset(x: x, y: y)
                     }
                 }
             }
@@ -361,13 +361,17 @@ private struct HeartGainAnimationView: View {
                     let t = p / spawnEnd
                     let radius: CGFloat = 24 * (1 - t)
                     ForEach(0..<Self.spawnParticleCount, id: \.self) { i in
+                        let angle: Double = Self.spawnAngles[i]
+                        let x: CGFloat = radius * CGFloat(cos(angle))
+                        let y: CGFloat = radius * CGFloat(sin(angle))
+                        let scale: CGFloat = CGFloat(0.4 + 0.6 * t)
                         Circle()
                             .fill(particleColors[i % particleColors.count])
                             .frame(width: 6, height: 6)
-                            .scaleEffect(0.4 + 0.6 * t)
+                            .scaleEffect(scale)
                             .opacity(t)
                             .blur(radius: 6 * (1 - t))
-                            .offset(x: radius * CGFloat(cos(Self.spawnAngles[i])), y: radius * CGFloat(sin(Self.spawnAngles[i])))
+                            .offset(x: x, y: y)
                     }
                 }
 
@@ -1595,6 +1599,13 @@ private struct iPadGameLayout: View {
                     outOfLivesOverlayID = UUID()
                 }
             }
+            .onChange(of: gameState.lives) { lives in
+                if lives > 0 && viewModel.showingOutOfLives && gameState.hasWelcomeLivesBonus {
+                    viewModel.showingOutOfLives = false
+                    gameState.isPausedForOutOfLives = false
+                    gameState.resumeTimer()
+                }
+            }
             .onChange(of: gameState.requestOutOfLivesAlert) { if $0 { gameState.requestOutOfLivesAlert = false; viewModel.showingOutOfLives = true } }
             .alert(
                 LocalizationManager.shared.localizedString("Exit Confirmation"),
@@ -2245,24 +2256,12 @@ private struct phoneGameLayout: View {
             VStack(spacing: 0) {
                 gameHeaderSection
                     .zIndex(1)
-                ScrollView {
-                    if let currentFlag = viewModel.currentFlag {
-                        GameContentView(
-                            viewModel: viewModel,
-                            currentFlag: currentFlag,
-                            gameState: gameState,
-                            phoneFlagSize: CGSize(
-                                width: max(160, min(geometry.size.width - 72, 360)),
-                                height: max(140, min(190, geometry.size.height * 0.22))
-                            )
-                        )
-                        .padding(.top, 8)
-                        .padding(.bottom, 24)
-                    } else {
-                        LoadingView()
-                    }
+                if let currentFlag = viewModel.currentFlag {
+                    FittingPhoneQuizContent(viewModel: viewModel, country: currentFlag)
+                        .id(currentFlag.id)
+                } else {
+                    LoadingView().frame(maxWidth: .infinity, maxHeight: .infinity)
                 }
-                .accessibilityIdentifier("quiz.content")
             }
         }
     }
@@ -2428,6 +2427,106 @@ private struct phoneGameLayout: View {
             }
         }
         return Color.clear
+    }
+}
+
+/// The answer set fits the remaining viewport; only distractors may be removed.
+struct QuizAnswerFit {
+    /// Preserve the full-size flag unless the measured answer stack needs its space.
+    static func flagHeight(preferred: CGFloat, minimum: CGFloat, available: CGFloat, answerHeights: [CGFloat]) -> CGFloat {
+        let answers = answerHeights.reduce(0, +) + CGFloat(max(0, answerHeights.count - 1)) * 8
+        return min(preferred, max(minimum, available - answers))
+    }
+
+    static func indices(heights: [CGFloat], correctIndex: Int, budget: CGFloat, spacing: CGFloat = 8) -> [Int] {
+        var result = Array(heights.indices)
+        func total() -> CGFloat { result.reduce(0) { $0 + heights[$1] } + CGFloat(max(0, result.count - 1)) * spacing }
+        while result.count > 2 && total() > budget {
+            guard let removable = result.lastIndex(where: { $0 != correctIndex }) else { break }
+            result.remove(at: removable)
+        }
+        return result
+    }
+}
+
+private struct QuizContentMeasurements: PreferenceKey {
+    static var defaultValue: [String: CGFloat] = [:]
+    static func reduce(value: inout [String: CGFloat], nextValue: () -> [String: CGFloat]) {
+        value.merge(nextValue(), uniquingKeysWith: { _, new in new })
+    }
+}
+
+struct FittingPhoneQuizContent: View {
+    @ObservedObject var viewModel: GameViewModel
+    let country: Country
+    @State private var measurements: [String: CGFloat] = [:]
+    @State private var lockedIndices: [Int]?
+    @Environment(\.sizeCategory) private var sizeCategory
+    private var question: some View {
+        Text(LocalizationManager.shared.localizedString("Quiz identify flag"))
+            .font(.headline).multilineTextAlignment(.center)
+            .fixedSize(horizontal: false, vertical: true)
+            .frame(maxWidth: .infinity)
+    }
+    private func answer(_ option: Country, fitHeight: CGFloat? = nil) -> some View {
+        AnswerButton(country: option, isSelected: viewModel.selectedAnswer == option,
+            isCorrect: viewModel.isShowingResult ? option == country : nil,
+            isIncorrect: viewModel.isShowingResult ? viewModel.selectedAnswer == option && option != country : nil,
+            fitHeight: fitHeight, action: { viewModel.selectAnswer(option) })
+    }
+    var body: some View {
+        GeometryReader { geometry in
+            let width = max(120, geometry.size.width - 32)
+            let promptHeight = measurements["prompt"] ?? 60
+            let heights = viewModel.options.map { measurements[$0.id] ?? 60 }
+            let available = geometry.size.height - promptHeight - 60
+            let flagHeight = QuizAnswerFit.flagHeight(
+                preferred: min(width, 360) * 2 / 3,
+                minimum: sizeCategory >= .extraExtraLarge ? 90 : 130,
+                available: available, answerHeights: heights)
+            let budget = max(96, available - flagHeight)
+            let correctIndex = viewModel.options.firstIndex(of: country) ?? 0
+            let indices = (lockedIndices ?? QuizAnswerFit.indices(heights: heights, correctIndex: correctIndex, budget: budget)).filter { viewModel.options.indices.contains($0) }
+            let answerHeight = indices.reduce(CGFloat(0)) { $0 + heights[$1] } + CGFloat(max(0, indices.count - 1)) * 8
+            let emergencyHeight = answerHeight > budget ? max(48, (budget - CGFloat(max(0, indices.count - 1)) * 8) / CGFloat(max(1, indices.count))) : nil
+            VStack(spacing: 12) {
+                question.opacity(viewModel.isShowingResult ? 0 : 1)
+                    .overlay {
+                        if viewModel.isShowingResult {
+                            Text(LocalizationManager.shared.localizedString(viewModel.selectedAnswer == nil ? "Time is up" : (viewModel.selectedAnswer == country ? "Correct" : "Wrong")))
+                                .font(.headline).multilineTextAlignment(.center)
+                        }
+                    }
+                FlagCardView(country: country, isShowingInfo: $viewModel.isShowingInfo,
+                    flagScale: 1, flagRotation: 0, gameState: viewModel.gameState,
+                    onNextQuestion: {}, presentationSize: CGSize(width: min(width, 360),
+                        height: flagHeight), expandsForInfo: false)
+                VStack(spacing: 8) {
+                    ForEach(indices, id: \.self) { index in
+                        answer(viewModel.options[index], fitHeight: emergencyHeight)
+                    }
+                }
+                .disabled(viewModel.isShowingResult)
+                Spacer(minLength: 0)
+            }
+            .padding(.horizontal, 16).padding(.top, 8).padding(.bottom, 16)
+            .frame(width: geometry.size.width, height: geometry.size.height, alignment: .top)
+            .opacity(measurements.count >= viewModel.options.count + 1 ? 1 : 0)
+            .overlay(alignment: .top) {
+                VStack {
+                    question.background(GeometryReader { p in Color.clear.preference(key: QuizContentMeasurements.self, value: ["prompt": p.size.height]) })
+                    ForEach(viewModel.options, id: \.id) { option in
+                        answer(option).background(GeometryReader { p in Color.clear.preference(key: QuizContentMeasurements.self, value: [option.id: p.size.height]) })
+                    }
+                }
+                .frame(width: width).fixedSize(horizontal: false, vertical: true)
+                .hidden().accessibilityHidden(true).allowsHitTesting(false)
+            }
+            .onPreferenceChange(QuizContentMeasurements.self) { measurements = $0 }
+            .onChange(of: viewModel.isShowingResult) { result in
+                lockedIndices = result ? indices : nil
+            }
+        }
     }
 }
 

@@ -99,7 +99,7 @@ struct GameHomeStickyContinueView: View {
         #else
         let constrainStickyWidth = false
         #endif
-        let hook = QuickHomeUX.stickyHookSubtitle(userProfile: userProfile, loc: localizationManager)
+        let hook = gameState.homeMatchSummary
         VStack(spacing: 6) {
             HStack {
                 Spacer(minLength: 0)
@@ -118,7 +118,7 @@ struct GameHomeStickyContinueView: View {
                         } else {
                             Image(systemName: "play.fill")
                                 .font(.system(size: 20, weight: .bold))
-                            Text(localizationManager.localizedString("home.continue"))
+                            Text(localizationManager.localizedString("home.streak_nudge.play"))
                                 .font(.system(size: 17, weight: .heavy, design: .rounded))
                         }
                     }
@@ -133,6 +133,8 @@ struct GameHomeStickyContinueView: View {
                     .foregroundColor(.white)
                 }
                 .buttonStyle(ScaleButtonStyle())
+                .accessibilityIdentifier("home.play")
+                .appGuideTarget("play")
                 .disabled(gameState.selectedRegions.isEmpty || gameState.isStartingNewGame || gameState.isPreloadingFlags)
                 .scaleEffect(pulse)
                 Spacer(minLength: 0)
@@ -253,7 +255,7 @@ private struct QuickHomeLivesPillView: View {
                             .font(.system(size: 12, weight: .semibold, design: .rounded))
                             .foregroundColor(.secondary)
                     } else if remaining > 0 {
-                        Text(String(format: localizationManager.localizedString("home.lives.refill_in_fmt"), gameState.maxLives, minutes, seconds))
+                        Text(String(format: localizationManager.localizedString("home.lives.refill_in_fmt"), gameState.nextLivesRefillAmount, minutes, seconds))
                             .font(.system(size: 11, weight: .semibold, design: .rounded))
                             .foregroundColor(.secondary)
                             .lineLimit(1)
@@ -287,13 +289,7 @@ private struct QuickHomeLivesPillView: View {
             )
         }
         .sheetOrFullScreenOnIPad(isPresented: $showUpgradePromo) {
-            LivesUpgradePromoView(
-                onClose: { showUpgradePromo = false },
-                onGoPremium: {
-                    showUpgradePromo = false
-                    NotificationCenter.default.post(name: NSNotification.Name("showPremiumFromHome"), object: nil)
-                }
-            )
+            PremiumView(gameState: gameState)
         }
         .onAppear {
             if !gameState.isPremium {
@@ -352,6 +348,7 @@ struct GameHomeVariant2View: View {
     var onContinuePlay: (() -> Void)? = nil
 
     @State private var showSettingsSheet = false
+    @State private var showChallenges = false
     @State private var earnAnimatedStage: Int = 0
     @State private var goalVisible = false
     @State private var heroEntranceScale: CGFloat = 0.94
@@ -600,9 +597,73 @@ struct GameHomeVariant2View: View {
                 playHeroEntranceAndWow()
             }
         }
-        .sheet(isPresented: $showSettingsSheet) {
+        .sheetOrFullScreenOnIPad(isPresented: $showChallenges) {
+            NavigationView {
+                DuelSummaryView()
+                    .environmentObject(gameState)
+                    .environmentObject(userProfile)
+                    .toolbar {
+                        ToolbarItem(placement: .cancellationAction) {
+                            Button(localizationManager.localizedString("Close")) { showChallenges = false }
+                        }
+                    }
+            }
+            .navigationViewStyle(.stack)
+            .onChange(of: gameState.isGameInProgress) { if $0 { showChallenges = false } }
+        }
+        .sheetOrFullScreenOnIPad(isPresented: $showSettingsSheet) {
             GameHomeQuickSettingsSheet(gameState: gameState, isIPad: isIPad)
                 .modifier(QuickSettingsSheetPresentation())
+        }
+    }
+
+    private var pendingHomeChallenges: [DuelChallenge] {
+        userProfile.incomingDuelChallenges.filter {
+            ($0.status == .pending || $0.status == .challengerCompleted)
+                && !DuelInviteSuppression.isDeclined($0.id)
+                && Date().timeIntervalSince($0.createdAt) < 86400
+        }.sorted { $0.createdAt > $1.createdAt }
+    }
+
+    @ViewBuilder
+    private var challengesButton: some View {
+        let pending = pendingHomeChallenges
+        let count = pending.count
+        if let first = pending.first {
+            Button {
+                if count == 1 {
+                    NotificationService.shared.pendingDuelIsResult = false
+                    NotificationService.shared.pendingDuelID = first.id
+                } else { showChallenges = true }
+            } label: {
+                HStack(spacing: 10) {
+                    Image(systemName: "person.2.fill")
+                        .foregroundColor(.indigo)
+                        .frame(width: 32, height: 32)
+                        .background(Color.indigo.opacity(0.10), in: RoundedRectangle(cornerRadius: 10))
+                    VStack(alignment: .leading, spacing: 4) {
+                        Text(localizationManager.localizedString("duel.challenges.title"))
+                            .font(.subheadline.weight(.semibold))
+                            .foregroundColor(.primary)
+                        Text(String(format: localizationManager.localizedString("duel_invite_popup_body_format"), first.challengerName))
+                            .font(.caption).foregroundColor(.secondary)
+                            .fixedSize(horizontal: false, vertical: true)
+                    }
+                    Spacer(minLength: 8)
+                    Text("\(count)")
+                        .font(.subheadline.bold().monospacedDigit())
+                        .foregroundColor(.white)
+                        .padding(.horizontal, 9).padding(.vertical, 4)
+                        .background(Color.indigo, in: Capsule())
+                    Image(systemName: "chevron.right")
+                        .font(.caption.weight(.semibold))
+                        .foregroundColor(.secondary)
+                }
+                .padding(.horizontal, 14).padding(.vertical, 10)
+                .background(Color(UIColor.secondarySystemGroupedBackground), in: RoundedRectangle(cornerRadius: 16))
+            }
+            .buttonStyle(.plain)
+            .accessibilityIdentifier("home.challenges")
         }
     }
 
@@ -612,7 +673,7 @@ struct GameHomeVariant2View: View {
             #if os(iOS)
             if #available(iOS 16.0, *) {
                 content
-                    .presentationDetents([.medium, .large])
+                    .presentationDetents([.large])
                     .presentationDragIndicator(.visible)
             } else {
                 content
@@ -655,6 +716,7 @@ struct GameHomeVariant2View: View {
             .background(headerPillFill)
             .clipShape(Capsule())
             .shadow(color: Color.black.opacity(isDark ? 0.2 : 0.06), radius: 8, x: 0, y: 2)
+            .modifier(StreakCalendarLink())
             Button(action: onShowFBucks) {
                 HStack(spacing: 4) {
                     Image("FBucksLogo")
@@ -678,8 +740,27 @@ struct GameHomeVariant2View: View {
         .animation(.easeOut(duration: 0.4), value: showContent)
     }
 
+    @ViewBuilder
+    private var welcomeLivesNotice: some View {
+        if gameState.hasWelcomeLivesBonus {
+            Label(localizationManager.localizedString("home.lives.welcome"), systemImage: "heart.circle.fill")
+                .font(.subheadline.weight(.medium))
+                .foregroundStyle(.primary)
+                .fixedSize(horizontal: false, vertical: true)
+                .padding(16)
+                .frame(maxWidth: .infinity, alignment: .leading)
+                .background(Color.blue.opacity(0.09), in: RoundedRectangle(cornerRadius: 18))
+                .accessibilityIdentifier("home.lives.welcome")
+        }
+    }
+
     private var phoneStackMainColumn: some View {
         VStack(alignment: .leading, spacing: compactPhone ? 14 : 18) {
+            FriendRequestsHomeNotice()
+            FBucksFirstRewardCard()
+            welcomeLivesNotice
+            RemoteCampaignBanner()
+            challengesButton
             heroBlock
             settingsCompactRow
             if !(isDailyRewardTemporarilyHidden && !userProfile.canClaimDailyFBucksBonus()) || isDailyRewardDismissing {
@@ -696,6 +777,9 @@ struct GameHomeVariant2View: View {
     private var tabletWideMainColumn: some View {
         HStack(alignment: .top, spacing: 26) {
             VStack(alignment: .leading, spacing: 22) {
+                FriendRequestsHomeNotice()
+                FBucksFirstRewardCard()
+                RemoteCampaignBanner()
                 heroBlockTabletPrimary
                 if !(isDailyRewardTemporarilyHidden && !userProfile.canClaimDailyFBucksBonus()) || isDailyRewardDismissing {
                     dailyRewardBlockTablet
@@ -707,6 +791,8 @@ struct GameHomeVariant2View: View {
             .frame(width: tabletSplitLeftWidth, alignment: .leading)
             VStack(alignment: .leading, spacing: 22) {
                 nextGoalBlock(tabletEmphasis: true)
+                welcomeLivesNotice
+                challengesButton
                 quickPlayModesBlock
                 settingsCompactRow
                 gameSettingsPromoBanner
@@ -731,7 +817,7 @@ struct GameHomeVariant2View: View {
         let (ss, st) = streakProgress
         let t = max(1, st)
         let streakFill = min(1, Double(ss) / Double(t))
-        let hook = QuickHomeUX.stickyHookSubtitle(userProfile: userProfile, loc: localizationManager)
+        let hook = gameState.homeMatchSummary
         return VStack(alignment: .leading, spacing: 14) {
             if heroWowVisible {
                 Text(localizedOrFallback("home.hero.wow.tip", fallbackKey: "home.daily.subtitle.claim"))
@@ -789,7 +875,7 @@ struct GameHomeVariant2View: View {
                     } else {
                         Image(systemName: "play.fill")
                             .font(.system(size: 20, weight: .bold))
-                        Text(localizationManager.localizedString("home.continue"))
+                        Text(localizationManager.localizedString("home.streak_nudge.play"))
                             .font(.system(size: 18, weight: .heavy, design: .rounded))
                     }
                 }
@@ -806,8 +892,10 @@ struct GameHomeVariant2View: View {
                 .foregroundColor(.white)
             }
             .buttonStyle(ScaleButtonStyle())
+            .accessibilityIdentifier("home.play")
+                .appGuideTarget("play")
             .disabled(gameState.selectedRegions.isEmpty || gameState.isStartingNewGame || gameState.isPreloadingFlags)
-            Text(hook)
+            Text(gameState.homeMatchSummary)
                 .font(.system(size: 12, weight: .semibold, design: .rounded))
                 .foregroundColor(.white.opacity(0.75))
                 .multilineTextAlignment(.leading)
@@ -1113,6 +1201,7 @@ struct GameHomeVariant2View: View {
         }
         .buttonStyle(.plain)
         .accessibilityIdentifier("home.quickSettings")
+        .appGuideTarget("settings")
     }
 
     /// Второй вход на те же быстрые настройки, что и «Изменить» — под блоком «Следующая цель».
@@ -1833,31 +1922,50 @@ private struct GameHomeQuickSettingsSheet: View {
     @State private var didEditRegions = false
     @State private var discardChanges = false
     @State private var didCommit = false
-    @State private var availableRegions: [GameState.Region] = []
+    private var availableRegions: [GameState.Region] {
+        GameState.Region.allCases.filter { $0 != .myMistakes || gameState.hasMistakes }
+    }
 
     var body: some View {
         NavigationView {
+            GeometryReader { geometry in
+            ScrollViewReader { proxy in
+            VStack(spacing: 12) {
+                Text(localizationManager.localizedString("home.settings.sheet_title"))
+                    .font(.title2.bold())
+                    .multilineTextAlignment(.center)
+                    .fixedSize(horizontal: false, vertical: true)
+                HStack(spacing: 8) {
+                    ForEach(["Select Region", "Select Level", "Game Mode"], id: \.self) { key in
+                        Button {
+                            withAnimation(.easeInOut(duration: 0.2)) { proxy.scrollTo(key, anchor: .top) }
+                        } label: {
+                            Text(localizationManager.localizedString(key))
+                                .font(.subheadline.weight(.semibold))
+                                .multilineTextAlignment(.center)
+                                .frame(maxWidth: .infinity, minHeight: 44)
+                                .padding(.horizontal, 4)
+                                .background(Color.accentColor.opacity(0.12), in: RoundedRectangle(cornerRadius: 12))
+                        }
+                        .buttonStyle(.plain)
+                        .accessibilityIdentifier("quickSettings.jump." + key)
+                    }
+                }
+                .padding(.horizontal, 20)
             ScrollView {
                 VStack(alignment: .leading, spacing: 22) {
-                    sectionTitle("Select Region")
-                    LazyVGrid(columns: [GridItem(.flexible()), GridItem(.flexible())], spacing: 8) {
-                        ForEach(availableRegions, id: \.self) { region in
-                            regionChip(region)
+                    if isIPad && geometry.size.width > geometry.size.height {
+                        HStack(alignment: .top, spacing: 28) {
+                            regionsSection
+                            VStack(alignment: .leading, spacing: 24) {
+                                difficultySection
+                                modesSection
+                            }
                         }
-                    }
-
-                    sectionTitle("Select Level")
-                    LazyVGrid(columns: [GridItem(.flexible()), GridItem(.flexible()), GridItem(.flexible())], spacing: 8) {
-                        ForEach(GameState.Difficulty.allCases, id: \.self) { d in
-                            difficultyChip(d)
-                        }
-                    }
-
-                    sectionTitle("Game Mode")
-                    LazyVGrid(columns: [GridItem(.flexible()), GridItem(.flexible())], spacing: 8) {
-                        ForEach(gameState.availablePlayModes, id: \.self) { m in
-                            modeChip(m)
-                        }
+                    } else {
+                        regionsSection
+                        difficultySection
+                        modesSection
                     }
 
                     Button {
@@ -1885,11 +1993,16 @@ private struct GameHomeQuickSettingsSheet: View {
                     .buttonStyle(.plain)
                     .padding(.top, 8)
                 }
-                .padding(20)
-                .padding(.bottom, 28)
+                .padding(isIPad ? 32 : 20)
+                .frame(maxWidth: 1100)
+                .frame(maxWidth: .infinity)
+                .padding(.bottom, 20)
             }
             .accessibilityIdentifier("quickSettings.content")
-            .navigationTitle(localizationManager.localizedString("home.settings.sheet_title"))
+            }
+            }
+            }
+            .navigationTitle("")
             #if os(iOS)
             .navigationBarTitleDisplayMode(.inline)
             #endif
@@ -1921,6 +2034,44 @@ private struct GameHomeQuickSettingsSheet: View {
         }
         .onDisappear { commitDraft() }
         .onChange(of: gameState.mistakeCountries.count) { _ in refreshRegions() }
+    }
+
+    private var regionsSection: some View {
+        VStack(alignment: .leading, spacing: 12) {
+                    sectionTitle("Select Region").id("Select Region")
+                    LazyVGrid(columns: Array(repeating: GridItem(.flexible()), count: isIPad ? 4 : 2), spacing: 8) {
+                        ForEach(availableRegions, id: \.self) { region in
+                            regionChip(region)
+                        }
+                    }
+
+        }
+    }
+
+    private var difficultySection: some View {
+        VStack(alignment: .leading, spacing: 12) {
+
+                    sectionTitle("Select Level").id("Select Level")
+                    LazyVGrid(columns: Array(repeating: GridItem(.flexible()), count: isIPad ? 5 : 3), spacing: 8) {
+                        ForEach(GameState.Difficulty.allCases, id: \.self) { d in
+                            difficultyChip(d)
+                        }
+                    }
+
+        }
+    }
+
+    private var modesSection: some View {
+        VStack(alignment: .leading, spacing: 12) {
+
+                    sectionTitle("Game Mode").id("Game Mode")
+                    LazyVGrid(columns: Array(repeating: GridItem(.flexible()), count: isIPad ? 4 : 2), spacing: 8) {
+                        ForEach(gameState.availablePlayModes, id: \.self) { m in
+                            modeChip(m)
+                        }
+                    }
+
+        }
     }
 
     private func sectionTitle(_ key: String) -> some View {
@@ -2145,7 +2296,7 @@ private struct GameHomeQuickSettingsSheet: View {
         if gameState.hasMistakes {
             regions.append(.myMistakes)
         }
-        availableRegions = regions
+        // Region choices are derived from current game state.
     }
 
     /// В sheet один визуальный выбор региона; при множественном выборе с классической главной — берём первый осмысленный.
@@ -2183,94 +2334,26 @@ private struct GameHomeQuickSettingsSheet: View {
 
 // MARK: - Восстановление серии (главная quick + classic)
 struct StreakRecoveryOfferBanner: View {
+    @EnvironmentObject var userProfile: UserProfile
     let lost: Int
     let isDark: Bool
-    @EnvironmentObject var userProfile: UserProfile
     @ObservedObject private var localizationManager = LocalizationManager.shared
 
-    private var payGradient: LinearGradient {
-        LinearGradient(
-            colors: [
-                Color(red: 0, green: 122 / 255, blue: 1),
-                Color(red: 106 / 255, green: 92 / 255, blue: 1)
-            ],
-            startPoint: .leading,
-            endPoint: .trailing
-        )
-    }
-
     var body: some View {
-        let cost = userProfile.streakRecoveryFBucksCost() ?? 0
-        let canPay = cost > 0 && userProfile.fBucks >= cost
-        VStack(alignment: .leading, spacing: 10) {
-            HStack(spacing: 8) {
-                Image(systemName: "flame.fill")
-                    .font(.system(size: 22, weight: .bold))
-                    .foregroundStyle(.orange)
-                Text(localizationManager.localizedString("streak.recovery.title"))
-                    .font(.system(size: 17, weight: .bold, design: .rounded))
-            }
-            Text(String(format: localizationManager.localizedString("streak.recovery.body_fmt"), lost, cost))
-                .font(.system(size: 14, weight: .medium, design: .rounded))
-                .foregroundColor(.secondary)
-                .fixedSize(horizontal: false, vertical: true)
-            HStack(spacing: 10) {
-                Button(action: {
-                    if userProfile.restoreStreakWithFBucks() {
-                        #if os(iOS)
-                        UIImpactFeedbackGenerator(style: .medium).impactOccurred()
-                        #endif
-                    }
-                }) {
-                    Text(String(format: localizationManager.localizedString("streak.recovery.pay_btn_fmt"), cost))
-                        .font(.system(size: 14, weight: .bold, design: .rounded))
-                        .frame(maxWidth: .infinity)
-                        .padding(.vertical, 10)
-                        .background(
-                            Group {
-                                if canPay {
-                                    payGradient
-                                } else {
-                                    LinearGradient(
-                                        colors: [Color.gray.opacity(0.38), Color.gray.opacity(0.48)],
-                                        startPoint: .leading,
-                                        endPoint: .trailing
-                                    )
-                                }
-                            }
-                        )
-                        .foregroundColor(.white)
-                        .clipShape(RoundedRectangle(cornerRadius: 12, style: .continuous))
+        if userProfile.canRepairYesterdayWithFreeze {
+            HStack(spacing: 12) {
+                Image(systemName: "snowflake").font(.title2).foregroundColor(.cyan)
+                VStack(alignment: .leading, spacing: 4) {
+                    Text(localizationManager.localizedString("streak.freeze.repair")).font(.headline)
+                    Text(localizationManager.localizedString("streak.freeze.title") + ": \(userProfile.streakFreezes)")
+                        .font(.subheadline).foregroundColor(.secondary)
                 }
-                .buttonStyle(.plain)
-                .disabled(!canPay)
-                Button(action: {
-                    userProfile.chooseStreakRecoveryPlayPath()
-                    #if os(iOS)
-                    UIImpactFeedbackGenerator(style: .light).impactOccurred()
-                    #endif
-                }) {
-                    Text(localizationManager.localizedString("streak.recovery.play_btn"))
-                        .font(.system(size: 14, weight: .bold, design: .rounded))
-                        .frame(maxWidth: .infinity)
-                        .padding(.vertical, 10)
-                        .background(RoundedRectangle(cornerRadius: 12, style: .continuous).stroke(Color.accentColor, lineWidth: 1.5))
-                        .foregroundColor(Color.accentColor)
-                }
-                .buttonStyle(.plain)
+                Spacer()
+                Image(systemName: "chevron.right").foregroundColor(.secondary)
             }
-            Button(action: { userProfile.dismissStreakRecoveryOffer() }) {
-                Text(localizationManager.localizedString("streak.recovery.later_btn"))
-                    .font(.system(size: 13, weight: .semibold, design: .rounded))
-                    .foregroundColor(.secondary)
-            }
-            .buttonStyle(.plain)
+            .padding(16)
+            .background(Color.cyan.opacity(0.08), in: RoundedRectangle(cornerRadius: 16))
+            .modifier(StreakCalendarLink())
         }
-        .padding(14)
-        .background(
-            RoundedRectangle(cornerRadius: 16, style: .continuous)
-                .fill(isDark ? Color.white.opacity(0.06) : Color.white)
-                .shadow(color: Color.black.opacity(isDark ? 0.2 : 0.06), radius: 8, x: 0, y: 3)
-        )
     }
 }

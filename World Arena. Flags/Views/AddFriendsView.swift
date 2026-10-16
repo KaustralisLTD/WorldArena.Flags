@@ -3,6 +3,7 @@ import SwiftUI
 struct AddFriendsView: View {
     @Environment(\.presentationMode) private var presentationMode
     @EnvironmentObject var userProfile: UserProfile
+    @EnvironmentObject var gameState: GameState
     @StateObject private var friendsService = FriendsService.shared
     @AppStorage("user.serverFriendCode") private var serverFriendCodeStored: String = ""
     @State private var friendCodeToAdd: String = ""
@@ -13,6 +14,10 @@ struct AddFriendsView: View {
     @State private var successMessage: String = ""
     @State private var errorMessage: String = ""
     @State private var isAddingFriend: Bool = false
+
+    private func duelCount(with friend: Friend) -> Int {
+        gameState.completedDuels(with: friend).count
+    }
 
     private var lm: LocalizationManager { LocalizationManager.shared }
     private var myFriendCode: String {
@@ -42,6 +47,26 @@ struct AddFriendsView: View {
         NavigationView {
             ScrollView {
                 VStack(spacing: 24) {
+                    if !userProfile.friends.isEmpty {
+                        VStack(alignment: .leading, spacing: 16) {
+                            Text("\(lm.localizedString("Друзья")) · \(userProfile.friends.count)").font(.title2.bold())
+                            ForEach(userProfile.friends) { friend in
+                                NavigationLink { FriendProfileView(friend: friend, gameState: gameState) } label: {
+                                    HStack(spacing: 14) {
+                                        friendAvatarView(friend, size: 52)
+                                        VStack(alignment: .leading, spacing: 5) {
+                                            Text(friend.displayNameOrUsername).font(.headline).foregroundStyle(.primary)
+                                            Text("@\(friend.username)").font(.caption).foregroundStyle(.secondary)
+                                            Text("🔥 \(friend.streak) · \(friend.xp) XP · \(lm.localizedString("friends.duels.with_you")): \(duelCount(with: friend))")
+                                                .font(.subheadline).foregroundStyle(.secondary)
+                                        }
+                                        Spacer(minLength: 0)
+                                        Image(systemName: "chevron.right").foregroundStyle(.secondary)
+                                    }.padding(14).background(cardBackground, in: RoundedRectangle(cornerRadius: 18))
+                                }.buttonStyle(.plain)
+                            }
+                        }
+                    }
                     // Ваш код — герой-карточка
                     myCodeCard
                     // Добавить по коду
@@ -58,11 +83,13 @@ struct AddFriendsView: View {
             .background(systemBackground)
             .task {
                 await friendsService.syncServerFriendCode(for: userProfile)
+                await refreshFriends()
             }
+            .refreshable { await refreshFriends() }
             .onChange(of: userProfile.selectedCountryCode) { newCode in
                 Task { await syncSelectedCountryToServer(newCode) }
             }
-            .navigationTitle(lm.localizedString("Добавить друзей"))
+            .navigationTitle(lm.localizedString("Друзья"))
             .navigationBarTitleDisplayMode(.inline)
             .toolbar {
                 ToolbarItem(placement: .cancellationAction) {
@@ -84,6 +111,23 @@ struct AddFriendsView: View {
                 }
             }
         }
+    }
+
+    @MainActor
+    private func refreshFriends() async {
+        _ = await gameState.syncOutgoingDuelsWithServer(profile: userProfile)
+        _ = await gameState.syncIncomingDuelsWithServer(profile: userProfile)
+        guard !userProfile.username.isEmpty,
+              let rows = try? await DuelAPIService.shared.fetchMyFriends(userId: userProfile.username) else { return }
+        var seen = Set<String>()
+        userProfile.friends = rows.filter { seen.insert($0.username.lowercased()).inserted }.map { row in
+            var friend = row.toFriend()
+            if let previous = userProfile.friends.first(where: { $0.username.caseInsensitiveCompare(row.username) == .orderedSame }) {
+                friend.avatarPhotoBase64 = friend.avatarPhotoBase64 ?? previous.avatarPhotoBase64
+            }
+            return friend
+        }
+        userProfile.saveToStorage()
     }
 
     private var myCodeCard: some View {

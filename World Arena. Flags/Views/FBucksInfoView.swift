@@ -24,9 +24,11 @@ private struct ShopItem: Identifiable {
 
 struct FBucksInfoView: View {
     @Environment(\.dismiss) private var dismiss
+    @ObservedObject private var storeManager = StoreManager.shared
     @ObservedObject private var userProfile = UserProfile.shared
     @ObservedObject private var localizationManager = LocalizationManager.shared
     @State private var selectedTab = 0
+    init(initialTab: Int = 0) { _selectedTab = State(initialValue: initialTab) }
     @State private var heroScale: CGFloat = 0.65
     @State private var heroGlow: Double = 0.25
     @State private var showDailyToast = false
@@ -49,18 +51,11 @@ struct FBucksInfoView: View {
     }
 
     private var allShopItems: [ShopItem] {
-        [
-            ShopItem(id: "cap_1", name: localizationManager.localizedString("fbucks.item.traveler_cap"), price: 3, tier: .common, isLimited: false, icon: "", systemImageName: "cap.fill"),
-            ShopItem(id: "shirt_1", name: localizationManager.localizedString("fbucks.item.champion_shirt"), price: 5, tier: .common, isLimited: false, icon: "", systemImageName: "tshirt.fill"),
-            ShopItem(id: "socks_1", name: localizationManager.localizedString("fbucks.item.socks"), price: 4, tier: .common, isLimited: false, icon: "", systemImageName: "shoeprints.fill"),
-            ShopItem(id: "skin_rainbow", name: localizationManager.localizedString("fbucks.item.rainbow_skin"), price: 15, tier: .rare, isLimited: false, icon: "", systemImageName: "paintbrush.pointed.fill"),
-            ShopItem(id: "skin_gold", name: localizationManager.localizedString("fbucks.item.gold_skin"), price: 20, tier: .rare, isLimited: false, icon: "", systemImageName: "sparkles"),
-            ShopItem(id: "jacket_1", name: localizationManager.localizedString("fbucks.item.explorer_jacket"), price: 10, tier: .rare, isLimited: false, icon: "", systemImageName: "jacket.closed.fill"),
-            ShopItem(id: "effect_fire", name: localizationManager.localizedString("fbucks.item.fire_effect"), price: 12, tier: .rare, isLimited: false, icon: "", systemImageName: "flame.fill"),
-            ShopItem(id: "skin_neon", name: localizationManager.localizedString("fbucks.item.neon_skin"), price: 25, tier: .rare, isLimited: false, icon: "", systemImageName: "light.max"),
-            ShopItem(id: "effect_stars", name: localizationManager.localizedString("fbucks.item.stars_effect"), price: 50, tier: .legendary, isLimited: false, icon: "", systemImageName: "star.fill"),
-            ShopItem(id: "champion_jacket", name: localizationManager.localizedString("fbucks.item.champion_jacket"), price: 100, tier: .legendary, isLimited: true, icon: "", systemImageName: "crown.fill"),
-        ]
+        AvatarShopProduct.catalog.map { product in
+            ShopItem(id: product.id, name: localizationManager.localizedString(product.nameKey),
+                     price: product.price, tier: product.price >= 50 ? .legendary : product.price >= 10 ? .rare : .common,
+                     isLimited: false, icon: "", systemImageName: product.slot == .outfit ? "tshirt.fill" : "sparkles")
+        }
     }
 
     private var minItemPrice: Int { allShopItems.map(\.price).min() ?? 3 }
@@ -70,7 +65,7 @@ struct FBucksInfoView: View {
     }
 
     private var nextTargetItem: ShopItem? {
-        let sorted = allShopItems.sorted { $0.price < $1.price }
+        let sorted = allShopItems.filter { !userProfile.ownedAvatarItems.contains($0.id) }.sorted { $0.price < $1.price }
         return sorted.first { $0.price > userProfile.fBucks } ?? sorted.last
     }
 
@@ -88,7 +83,7 @@ struct FBucksInfoView: View {
     }
 
     private var featuredDreamItem: ShopItem? {
-        allShopItems.first { $0.id == "champion_jacket" }
+        allShopItems.first { $0.id == "champion_jacket" && !userProfile.ownedAvatarItems.contains($0.id) }
     }
 
     var body: some View {
@@ -99,7 +94,7 @@ struct FBucksInfoView: View {
                     overviewTab.tag(0)
                     aboutTab.tag(1)
                     historyTab.tag(2)
-                    shopTab.tag(3)
+                    shopTab.tag(3).accessibilityIdentifier("fbucks.shop.content")
                 }
                 .tabViewStyle(PageTabViewStyle(indexDisplayMode: .never))
             }
@@ -112,6 +107,7 @@ struct FBucksInfoView: View {
                 }
             }
         }
+        .navigationViewStyle(.stack)
         .onAppear {
             withAnimation(.spring(response: 0.55, dampingFraction: 0.68)) {
                 heroScale = 1.0
@@ -165,25 +161,63 @@ struct FBucksInfoView: View {
 
     // MARK: Overview
     private var overviewTab: some View {
-        ScrollView {
-            VStack(spacing: 22) {
-                heroBlock
-                dailyBonusBlock
-                if showDailyToast && userProfile.canClaimDailyFBucksBonus() {
-                    Text(localizationManager.localizedString("fbucks.daily.hint"))
-                        .font(.system(size: 14, weight: .bold, design: .rounded))
-                        .foregroundColor(.orange)
-                        .transition(.move(edge: .top).combined(with: .opacity))
+        GeometryReader { geometry in
+            ScrollView {
+                Group {
+                    if geometry.size.width >= 850 {
+                        HStack(alignment: .top, spacing: 28) {
+                            overviewBalance.frame(maxWidth: .infinity)
+                            overviewRewards.frame(maxWidth: .infinity)
+                        }
+                    } else {
+                        VStack(spacing: 22) {
+                            overviewBalance
+                            overviewRewards
+                        }
+                    }
                 }
-                earnTodaySection
-                progressSection
-                if let dream = featuredDreamItem, userProfile.fBucks < dream.price {
-                    wantItemBlock(dream)
-                }
+                .padding(24)
+                .frame(maxWidth: 1200)
+                .frame(maxWidth: .infinity)
             }
-            .padding(.horizontal, 20)
-            .padding(.bottom, 32)
-            .padding(.top, 8)
+        }
+    }
+
+    private var overviewBalance: some View {
+        VStack(spacing: 22) {
+            heroBlock
+            dailyBonusBlock
+            if storeManager.isPremium {
+                VStack(alignment: .leading, spacing: 8) {
+                    Label(localizationManager.localizedString("premium.benefit.weekly.title"), systemImage: "sparkles")
+                        .font(.headline)
+                    Text(localizationManager.localizedString("premium.benefit.weekly.body"))
+                        .font(.subheadline).foregroundColor(.secondary)
+                    if let reward = userProfile.premiumWeeklyRewards {
+                        let elapsed = max(0, Date().timeIntervalSince(reward.enrolledAt))
+                        let next = reward.enrolledAt.addingTimeInterval((floor(elapsed / PremiumWeeklyRewards.week) + 1) * PremiumWeeklyRewards.week)
+                        Text(String(format: localizationManager.localizedString("premium.weekly.next"), next.formatted(date: .abbreviated, time: .omitted)))
+                            .font(.caption.weight(.semibold))
+                    }
+                }
+                .frame(maxWidth: .infinity, alignment: .leading)
+                .padding(18)
+                .background(Color.purple.opacity(0.08), in: RoundedRectangle(cornerRadius: 20))
+            }
+            if showDailyToast && userProfile.canClaimDailyFBucksBonus() {
+                Text(localizationManager.localizedString("fbucks.daily.hint"))
+                    .font(.subheadline.weight(.bold)).foregroundColor(.orange)
+            }
+            progressSection
+        }
+    }
+
+    private var overviewRewards: some View {
+        VStack(spacing: 22) {
+            earnTodaySection
+            if let dream = featuredDreamItem, userProfile.fBucks < dream.price {
+                wantItemBlock(dream)
+            }
         }
     }
 
@@ -450,65 +484,7 @@ struct FBucksInfoView: View {
     }
 
     // MARK: Shop
-    private var shopTab: some View {
-        ScrollView {
-            VStack(alignment: .leading, spacing: 22) {
-                Text(localizationManager.localizedString("fbucks.shop.title"))
-                    .font(.system(size: 24, weight: .bold))
-                Text(localizationManager.localizedString("fbucks.shop.subtitle"))
-                    .font(.subheadline)
-                    .foregroundColor(.secondary)
-
-                ForEach(FBucksShopTier.allCases.sorted(), id: \.rawValue) { tier in
-                    let items = allShopItems.filter { $0.tier == tier }
-                    if !items.isEmpty {
-                        shopTierSection(tier: tier, items: items)
-                    }
-                }
-            }
-            .padding(20)
-        }
-    }
-
-    private func shopTierSection(tier: FBucksShopTier, items: [ShopItem]) -> some View {
-        VStack(alignment: .leading, spacing: 12) {
-            HStack(spacing: 8) {
-                Circle()
-                    .fill(tierColor(tier))
-                    .frame(width: 10, height: 10)
-                Text(tierTitle(tier))
-                    .font(.system(size: 18, weight: .heavy, design: .rounded))
-            }
-            ForEach(items) { item in
-                FBucksShopItemRow(item: item, tier: tier, onNeedEarn: { selectedTab = 0 })
-            }
-        }
-        .padding(14)
-        .background(
-            RoundedRectangle(cornerRadius: 18, style: .continuous)
-                .fill(secondaryBG)
-                .overlay(
-                    RoundedRectangle(cornerRadius: 18, style: .continuous)
-                        .stroke(tierColor(tier).opacity(tier == .legendary ? 0.55 : 0.2), lineWidth: tier == .legendary ? 2 : 1)
-                )
-        )
-    }
-
-    private func tierTitle(_ t: FBucksShopTier) -> String {
-        switch t {
-        case .common: return localizationManager.localizedString("fbucks.shop.tier.common")
-        case .rare: return localizationManager.localizedString("fbucks.shop.tier.rare")
-        case .legendary: return localizationManager.localizedString("fbucks.shop.tier.legendary")
-        }
-    }
-
-    private func tierColor(_ t: FBucksShopTier) -> Color {
-        switch t {
-        case .common: return .green
-        case .rare: return .blue
-        case .legendary: return .purple
-        }
-    }
+    private var shopTab: some View { AvatarShopView() }
 
     private func itemIconView(item: ShopItem, large: Bool) -> some View {
         let c = accentColorForIcon(item.systemImageName)
@@ -586,92 +562,6 @@ private struct FBucksEarnCard: View {
     }
 }
 
-// MARK: - Shop row
-private struct FBucksShopItemRow: View {
-    let item: ShopItem
-    let tier: FBucksShopTier
-    let onNeedEarn: () -> Void
-    @ObservedObject private var userProfile = UserProfile.shared
-    @ObservedObject private var localizationManager = LocalizationManager.shared
-
-    private var canBuy: Bool { userProfile.fBucks >= item.price }
-
-    var body: some View {
-        VStack(alignment: .leading, spacing: 10) {
-            if item.isLimited && tier == .legendary {
-                Text(localizationManager.localizedString("fbucks.shop.limited"))
-                    .font(.caption.weight(.black))
-                    .padding(.horizontal, 8)
-                    .padding(.vertical, 4)
-                    .background(Capsule().fill(Color.purple.opacity(0.25)))
-                    .foregroundColor(.purple)
-            }
-            HStack(spacing: 12) {
-                itemIconSmall
-                VStack(alignment: .leading, spacing: 4) {
-                    Text(item.name)
-                        .font(.system(size: 16, weight: .semibold))
-                    Text(String(format: localizationManager.localizedString("fbucks.want.price"), item.price))
-                        .font(.caption)
-                        .foregroundColor(.secondary)
-                }
-                Spacer()
-                if canBuy {
-                    Button(action: { purchase() }) {
-                        Text(String(format: localizationManager.localizedString("fbucks.buy_for"), item.price))
-                            .font(.system(size: 14, weight: .bold))
-                            .foregroundColor(.white)
-                            .padding(.horizontal, 12)
-                            .padding(.vertical, 10)
-                            .background(
-                                LinearGradient(colors: [Color.blue, Color.blue.opacity(0.75)], startPoint: .leading, endPoint: .trailing)
-                            )
-                            .clipShape(RoundedRectangle(cornerRadius: 12, style: .continuous))
-                    }
-                    .buttonStyle(.plain)
-                } else {
-                    Button(action: onNeedEarn) {
-                        Text(localizationManager.localizedString("fbucks.earn_more"))
-                            .font(.system(size: 14, weight: .bold))
-                            .foregroundColor(.white)
-                            .padding(.horizontal, 12)
-                            .padding(.vertical, 10)
-                            .background(Color.orange)
-                            .clipShape(RoundedRectangle(cornerRadius: 12, style: .continuous))
-                    }
-                    .buttonStyle(.plain)
-                }
-            }
-        }
-        .padding(.vertical, 6)
-    }
-
-    @ViewBuilder
-    private var itemIconSmall: some View {
-        let c = accentColorForIcon(item.systemImageName)
-        Group {
-            if let name = item.systemImageName {
-                Image(systemName: name)
-                    .font(.system(size: 22, weight: .semibold))
-            } else {
-                Text(item.icon).font(.system(size: 24))
-            }
-        }
-        .foregroundStyle(c)
-        .frame(width: 48, height: 48)
-        .background(c.opacity(0.15))
-        .clipShape(RoundedRectangle(cornerRadius: 12))
-    }
-
-    private func purchase() {
-        guard userProfile.fBucks >= item.price else { return }
-        #if os(iOS)
-        UIImpactFeedbackGenerator(style: .light).impactOccurred()
-        #endif
-        userProfile.addFBucks(-item.price, reason: .purchase)
-    }
-}
-
 // MARK: - Transaction row (achievements style)
 private struct FBucksTransactionRow: View {
     let transaction: FBucksTransaction
@@ -689,7 +579,7 @@ private struct FBucksTransactionRow: View {
             }
             VStack(alignment: .leading, spacing: 4) {
                 HStack(spacing: 6) {
-                    Text(transaction.reason.localizedDescription)
+                    Text(AvatarShopProduct.catalog.first(where: { $0.id == transaction.itemID }).map { localizationManager.localizedString($0.nameKey) } ?? transaction.reason.localizedDescription)
                         .font(.system(size: 15, weight: .semibold))
                     if transaction.reason == .perfectGame && transaction.amount > 0 {
                         Text(localizationManager.localizedString("fbucks.perfect.badge"))
@@ -724,6 +614,7 @@ private struct FBucksTransactionRow: View {
 
     private var rowSymbol: String {
         switch transaction.reason {
+        case .premiumWeekly, .lifecycleReward: return "sparkles"
         case .perfectGame: return "checkmark.seal.fill"
         case .streak10, .streak20, .streak50, .streak100: return "flame.fill"
         case .purchase: return "cart.fill"

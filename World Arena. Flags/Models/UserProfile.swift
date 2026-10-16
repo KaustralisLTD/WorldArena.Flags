@@ -6,8 +6,11 @@ struct FBucksTransaction: Identifiable, Codable {
     let amount: Int
     let reason: FBucksReason
     let date: Date
+    var itemID: String? = nil
     
     enum FBucksReason: String, Codable {
+        case premiumWeekly = "premium_weekly"
+        case lifecycleReward = "lifecycle_reward"
         case perfectGame = "perfect_game" // Идеальный результат игры
         case streak10 = "streak_10" // 10 дней подряд
         case streak20 = "streak_20" // 20 дней подряд
@@ -26,6 +29,8 @@ struct FBucksTransaction: Identifiable, Codable {
             return MainActor.assumeIsolated {
                 let L = LocalizationManager.shared
                 switch self {
+                case .premiumWeekly: return L.localizedString("premium.weekly.history")
+                case .lifecycleReward: return L.localizedString("lifecycle.bonus.title")
                 case .perfectGame: return L.localizedString("Идеальный результат игры")
                 case .streak10: return L.localizedString("Серия 10 дней")
                 case .streak20: return L.localizedString("Серия 20 дней")
@@ -132,6 +137,8 @@ class UserProfile: ObservableObject {
     @Published var streakRecoveryLostChain: Int? = nil { didSet { saveIfReady() } }
     @Published var streakRecoveryAwaitingPlay: Bool = false { didSet { saveIfReady() } }
     /// F-Bucks (Flags Bucks) — начисляются за идеальный результат игры (10/10 или 15/15) и за серии дней
+    @Published var ownedAvatarItems: Set<String> = [] { didSet { saveIfReady() } }
+    private(set) var premiumWeeklyRewards: PremiumWeeklyRewards.State?
     @Published var fBucks: Int = 0 { didSet { saveIfReady() } }
     /// История начислений F-bucks (для страницы статистики)
     @Published var fBucksHistory: [FBucksTransaction] = [] { didSet { saveIfReady() } }
@@ -257,14 +264,18 @@ class UserProfile: ObservableObject {
     }
     
     /// Начислить F-Bucks с записью в историю (amount может быть отрицательным для покупок)
-    func addFBucks(_ amount: Int, reason: FBucksTransaction.FBucksReason) {
+    func addFBucks(_ amount: Int, reason: FBucksTransaction.FBucksReason, itemID: String? = nil) {
         guard amount != 0 else { return }
+        if amount > 0 && !UserDefaults.standard.bool(forKey: "education.fbucks.seen") {
+            UserDefaults.standard.set(true, forKey: "education.fbucks.pending")
+        }
         fBucks = max(0, fBucks + amount) // Не даём уйти в минус
         let transaction = FBucksTransaction(
             id: UUID().uuidString,
             amount: amount,
             reason: reason,
-            date: Date()
+            date: Date(),
+            itemID: itemID
         )
         fBucksHistory.append(transaction)
         // Ограничиваем историю последними 100 записями
@@ -273,6 +284,35 @@ class UserProfile: ObservableObject {
         }
     }
     
+    /// Save the balance and permanent reward receipts together, never via separate didSet writes.
+    /// Receipts are part of the same Keychain/iCloud profile as the wallet and survive history pruning.
+    func reconcilePremiumWeeklyRewards(coverage: [PremiumWeeklyRewards.Coverage], hasActivePremium: Bool, now: Date = Date()) {
+        guard isLoadedFromStorage else { return }
+        var state = premiumWeeklyRewards
+        if state == nil, hasActivePremium {
+            state = PremiumWeeklyRewards.State(enrolledAt: now)
+        }
+        guard var updated = state else { return }
+        let due = PremiumWeeklyRewards.dueWeeks(state: updated, coverage: coverage, now: now)
+        guard premiumWeeklyRewards == nil || !due.isEmpty else { return }
+        isLoadedFromStorage = false
+        for index in due {
+            updated.creditedWeeks.insert(index)
+            fBucks += PremiumWeeklyRewards.amount
+            fBucksHistory.append(FBucksTransaction(
+                id: "premium-weekly-\(Int(updated.enrolledAt.timeIntervalSince1970))-\(index)",
+                amount: PremiumWeeklyRewards.amount,
+                reason: .premiumWeekly,
+                date: updated.enrolledAt.addingTimeInterval(Double(index + 1) * PremiumWeeklyRewards.week)
+            ))
+        }
+        if fBucksHistory.count > 100 { fBucksHistory.removeFirst(fBucksHistory.count - 100) }
+        premiumWeeklyRewards = updated
+        isLoadedFromStorage = true
+        saveToStorage()
+        objectWillChange.send()
+    }
+
     /// Начислить F-Bucks (за идеальный результат игры 10/10 или 15/15) — для обратной совместимости
     func addFBucks(_ amount: Int) {
         addFBucks(amount, reason: .perfectGame)
@@ -357,8 +397,79 @@ class UserProfile: ObservableObject {
         }
     }
     
+    // Freeze days protect continuity but never count as played days or earn XP.
+    static let freezePrice = 10
+    static let freezeCapacity = 3
+    @Published var streakFreezes: Int = 0
+    @Published var frozenDates: Set<String> = []
+    var freezeCheckedThrough: Date?
+    var lifecycleRewardReceipts: Set<String> = []
+    var lifecycleCompletionReceipts: Set<String> = []
+    private var applyingLifecycleReceipt = false
+    var freezeGiftReceipts: Set<String> = []
+    var pendingFreezeGiftID: String?
+    var pendingFreezeGiftRecipient: String?
+
+    func reconcileStreakFreezes(now: Date = Date()) {
+        let calendar = Calendar.current
+        let today = calendar.startOfDay(for: now)
+        guard let last = lastGameDate else { freezeCheckedThrough = today; return }
+        let start = calendar.startOfDay(for: max(last, freezeCheckedThrough ?? last))
+        guard let day = calendar.date(byAdding: .day, value: 1, to: start), day < today else { return }
+        let plan = StreakFreezePlan.evaluate(from: day, until: today, stock: streakFreezes,
+            active: streak > 0, calendar: calendar, isPlayed: hasPlayedOnDate, isFrozen: isFrozen)
+        let lost = streak
+        streakFreezes = plan.remaining
+        frozenDates.formUnion(plan.protectedDays.map(dateStringFromDate))
+        freezeCheckedThrough = plan.checkedThrough ?? freezeCheckedThrough
+        if plan.broken {
+            streak = 0
+            if lost > 0 { streakRecoveryLostChain = lost; streakRecoveryAwaitingPlay = false }
+        }
+        saveToStorage()
+    }
+
+    func isFrozen(_ date: Date) -> Bool { frozenDates.contains(dateStringFromDate(date)) }
+
+    @discardableResult
+    func buyStreakFreeze() -> Bool {
+        reconcileStreakFreezes()
+        guard pendingFreezeGiftID == nil, streakFreezes < Self.freezeCapacity, fBucks >= Self.freezePrice else { return false }
+        streakFreezes += 1
+        addFBucks(-Self.freezePrice, reason: .purchase)
+        saveToStorage()
+        return true
+    }
+
+    var canRepairYesterdayWithFreeze: Bool {
+        let cal = Calendar.current
+        let today = cal.startOfDay(for: Date())
+        guard let yesterday = cal.date(byAdding: .day, value: -1, to: today),
+              !hasPlayedOnDate(yesterday), !isFrozen(yesterday),
+              (streakRecoveryLostChain ?? 0) > 0 else { return false }
+        // Only a single missing day; older breaks cannot be erased by one freeze.
+        guard let before = cal.date(byAdding: .day, value: -1, to: yesterday) else { return false }
+        return hasPlayedOnDate(before) || isFrozen(before)
+    }
+
+    @discardableResult
+    func repairYesterdayWithFreeze() -> Bool {
+        reconcileStreakFreezes()
+        guard streakFreezes > 0, canRepairYesterdayWithFreeze,
+              let lost = streakRecoveryLostChain,
+              let yesterday = Calendar.current.date(byAdding: .day, value: -1, to: Date()) else { return false }
+        streakFreezes -= 1
+        frozenDates.insert(dateStringFromDate(yesterday))
+        streak = lost + (hasPlayedToday ? 1 : 0)
+        streakRecoveryLostChain = nil
+        streakRecoveryAwaitingPlay = false
+        saveToStorage()
+        return true
+    }
+
     // MARK: - Streak Management
     func updateStreak() {
+        reconcileStreakFreezes()
         let today = Calendar.current.startOfDay(for: Date())
         
         // Если это первая игра
@@ -380,7 +491,7 @@ class UserProfile: ObservableObject {
         // Проверяем, играли ли вчера
         let yesterday = Calendar.current.date(byAdding: .day, value: -1, to: today)!
         
-        if Calendar.current.isDate(lastGameDay, inSameDayAs: yesterday) {
+        if Calendar.current.isDate(lastGameDay, inSameDayAs: yesterday) || (isFrozen(yesterday) && streak > 0) {
             // Играли вчера - увеличиваем streak
             streak += 1
         } else {
@@ -388,9 +499,6 @@ class UserProfile: ObservableObject {
             let lost = streak
             if lost >= 2 {
                 streakRecoveryLostChain = lost
-                streakRecoveryAwaitingPlay = false
-            } else {
-                streakRecoveryLostChain = nil
                 streakRecoveryAwaitingPlay = false
             }
             streak = 1
@@ -528,6 +636,20 @@ class UserProfile: ObservableObject {
         return hasEnoughXP && hasEnoughDays
     }
 
+    /// Inventory and debit are persisted together; repeated taps cannot charge twice.
+    @discardableResult
+    func purchaseAvatarItem(_ id: String) -> Bool {
+        guard let item = AvatarShopProduct.catalog.first(where: { $0.id == id }),
+              !ownedAvatarItems.contains(id), fBucks >= item.price else { return false }
+        let wasLoaded = isLoadedFromStorage
+        isLoadedFromStorage = false
+        ownedAvatarItems.insert(id)
+        addFBucks(-item.price, reason: .purchase, itemID: id)
+        isLoadedFromStorage = wasLoaded
+        saveToStorage()
+        return true
+    }
+
     // MARK: - Persistence
     private struct PersistedProfile: Codable {
         let username: String
@@ -550,12 +672,50 @@ class UserProfile: ObservableObject {
         let achievements: [Achievement]
         let playedDates: Set<String>
         let dailyXP: [String: Int]
+        let ownedAvatarItems: Set<String>?
+        let premiumWeeklyRewards: PremiumWeeklyRewards.State?
         let fBucks: Int?
         let fBucksHistory: [FBucksTransaction]?
         let birthday: Date?
         let birthdayBonusClaimedYear: Int?
         let streakRecoveryLostChain: Int?
         let streakRecoveryAwaitingPlay: Bool?
+        let streakFreezes: Int?
+        let frozenDates: Set<String>?
+        let freezeCheckedThrough: Date?
+        let lifecycleRewardReceipts: Set<String>?
+        let lifecycleCompletionReceipts: Set<String>?
+        let freezeGiftReceipts: Set<String>?
+        let pendingFreezeGiftID: String?
+        let pendingFreezeGiftRecipient: String?
+    }
+
+    /// Balance and receipt IDs are persisted in the same profile snapshot.
+    @MainActor
+    func applyLifecycleResults(owner: String, rewards: [LifecycleService.Reward], completions: [LifecycleService.Completion]) {
+        guard AuthService.shared.authUsername == owner, !applyingLifecycleReceipt else { return }
+        applyingLifecycleReceipt = true
+        var changed = false
+        for reward in rewards where reward.amount == 2 && UUID(uuidString: reward.id) != nil {
+            let key = owner + ":" + reward.id
+            guard !lifecycleRewardReceipts.contains(key) else { continue }
+            lifecycleRewardReceipts.insert(key)
+            addFBucks(reward.amount, reason: .lifecycleReward, itemID: reward.id)
+            changed = true
+        }
+        for completion in completions where completion.total == 10 && (0...10).contains(completion.correct) && UUID(uuidString: completion.id) != nil {
+            let key = owner + ":" + completion.id
+            guard !lifecycleCompletionReceipts.contains(key) else { continue }
+            lifecycleCompletionReceipts.insert(key)
+            totalGamesPlayed += 1
+            totalAnswers += completion.total
+            correctAnswers += completion.correct
+            addXP(completion.correct * 10)
+            if Calendar.current.isDateInToday(Date(timeIntervalSince1970: Double(completion.completedAt) / 1000)) { updateStreak() }
+            changed = true
+        }
+        applyingLifecycleReceipt = false
+        if changed { saveToStorage() }
     }
 
     private func saveIfReady() {
@@ -565,6 +725,8 @@ class UserProfile: ObservableObject {
 
     @MainActor
     func saveToStorage() {
+        guard !applyingLifecycleReceipt else { return }
+        ProgressMailSync.schedule()
         let toSave = PersistedProfile(
             username: username,
             avatar: avatar,
@@ -586,12 +748,19 @@ class UserProfile: ObservableObject {
             achievements: achievements,
             playedDates: playedDates,
             dailyXP: dailyXP,
+            ownedAvatarItems: ownedAvatarItems,
+            premiumWeeklyRewards: premiumWeeklyRewards,
             fBucks: fBucks,
             fBucksHistory: fBucksHistory,
             birthday: birthday,
             birthdayBonusClaimedYear: birthdayBonusClaimedYear,
             streakRecoveryLostChain: streakRecoveryLostChain,
-            streakRecoveryAwaitingPlay: streakRecoveryAwaitingPlay
+            streakRecoveryAwaitingPlay: streakRecoveryAwaitingPlay,
+            streakFreezes: streakFreezes, frozenDates: frozenDates,
+            freezeCheckedThrough: freezeCheckedThrough,
+            lifecycleRewardReceipts: lifecycleRewardReceipts, lifecycleCompletionReceipts: lifecycleCompletionReceipts,
+            freezeGiftReceipts: freezeGiftReceipts,
+            pendingFreezeGiftID: pendingFreezeGiftID, pendingFreezeGiftRecipient: pendingFreezeGiftRecipient
         )
         do {
             let data = try JSONEncoder().encode(toSave)
@@ -646,12 +815,22 @@ class UserProfile: ObservableObject {
             self.achievements = obj.achievements
             self.playedDates = obj.playedDates
             self.dailyXP = obj.dailyXP
+            self.ownedAvatarItems = obj.ownedAvatarItems ?? []
+            self.premiumWeeklyRewards = obj.premiumWeeklyRewards
             self.fBucks = obj.fBucks ?? loadFBucksBackup()
             self.fBucksHistory = obj.fBucksHistory ?? loadFBucksHistoryBackup()
             self.birthday = obj.birthday
             self.birthdayBonusClaimedYear = obj.birthdayBonusClaimedYear
             self.streakRecoveryLostChain = obj.streakRecoveryLostChain
             self.streakRecoveryAwaitingPlay = obj.streakRecoveryAwaitingPlay ?? false
+            self.streakFreezes = min(Self.freezeCapacity, max(0, obj.streakFreezes ?? 0))
+            self.frozenDates = obj.frozenDates ?? []
+            self.freezeCheckedThrough = obj.freezeCheckedThrough ?? obj.lastGameDate
+            self.lifecycleRewardReceipts = obj.lifecycleRewardReceipts ?? []
+            self.lifecycleCompletionReceipts = obj.lifecycleCompletionReceipts ?? []
+            self.freezeGiftReceipts = obj.freezeGiftReceipts ?? []
+            self.pendingFreezeGiftID = obj.pendingFreezeGiftID
+            self.pendingFreezeGiftRecipient = obj.pendingFreezeGiftRecipient
             ensureNonNegativeCriticalFields()
         } catch {
             print("❌ Failed to load user profile:", error)
@@ -734,6 +913,14 @@ class UserProfile: ObservableObject {
         self.friends = obj.friends
         self.achievements = obj.achievements
         self.playedDates = []
+        self.streakFreezes = 0
+        self.frozenDates = []
+        self.freezeCheckedThrough = nil
+        self.lifecycleRewardReceipts = []
+        self.lifecycleCompletionReceipts = []
+        self.freezeGiftReceipts = []
+        self.pendingFreezeGiftID = nil
+        self.pendingFreezeGiftRecipient = nil
         self.dailyXP = [:]
         self.selectedCountryCode = nil
         self.fBucks = restoreFBucks
@@ -1357,6 +1544,7 @@ struct Friend: Identifiable, Codable {
         self.playedToday = playedToday
         self.birthday = birthday
         self.achievements = achievements
+        self.worldRankFromServer = worldRankFromServer
     }
 
     init(from decoder: Decoder) throws {
@@ -1426,4 +1614,30 @@ struct DuelChallenge: Identifiable, Codable {
     var duelOptionsCount: Int? = nil
     var duelQuestionsPayload: [DuelQuestionPayloadItem]? = nil
     enum Status: String, Codable { case pending, challengerCompleted, opponentCompleted, completed }
+}
+
+
+struct StreakFreezePlan {
+    var remaining: Int
+    var protectedDays: [Date] = []
+    var checkedThrough: Date?
+    var broken: Bool
+
+    static func evaluate(from firstDay: Date, until today: Date, stock: Int, active: Bool,
+                         calendar: Calendar, isPlayed: (Date) -> Bool, isFrozen: (Date) -> Bool) -> Self {
+        var result = Self(remaining: stock, broken: !active)
+        var day = firstDay
+        while day < today {
+            if !isPlayed(day) && !isFrozen(day) {
+                if !result.broken && result.remaining > 0 {
+                    result.remaining -= 1
+                    result.protectedDays.append(day)
+                } else { result.broken = true }
+            }
+            result.checkedThrough = day
+            guard let next = calendar.date(byAdding: .day, value: 1, to: day) else { break }
+            day = next
+        }
+        return result
+    }
 }

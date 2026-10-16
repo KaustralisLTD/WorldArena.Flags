@@ -1,4 +1,5 @@
 import Foundation
+import CryptoKit
 import SwiftUI
 #if os(iOS)
 import UIKit
@@ -51,6 +52,8 @@ class FriendsService: ObservableObject {
                 "level": userProfile.level,
                 "xp": userProfile.xp,
                 "streak": userProfile.streak,
+                "totalGamesPlayed": userProfile.totalGamesPlayed,
+                "correctAnswers": userProfile.correctAnswers,
                 "achievements": userProfile.achievements.compactMap(\.definitionId),
             ]
             var code: String?
@@ -73,6 +76,17 @@ class FriendsService: ObservableObject {
             }
             if let c = code?.trimmingCharacters(in: .whitespacesAndNewlines), !c.isEmpty {
                 UserDefaults.standard.set(c, forKey: "user.serverFriendCode")
+                // Repair missing/stale remote photos; only mark a revision after a successful upload.
+                if userProfile.avatar == "custom_photo", let photo = userProfile.customAvatarImageData {
+                    let fingerprint = SHA256.hash(data: photo).map { String(format: "%02x", $0) }.joined()
+                    let key = "avatar.syncedRevision." + name
+                    if UserDefaults.standard.string(forKey: key) != fingerprint {
+                        do {
+                            try await DuelAPIService.shared.updateMyCustomPhoto(userId: name, imageData: photo)
+                            UserDefaults.standard.set(fingerprint, forKey: key)
+                        } catch { print("Avatar sync will retry:", error.localizedDescription) }
+                    }
+                }
                 return
             }
         }
@@ -220,12 +234,12 @@ class FriendsService: ObservableObject {
     // MARK: - Profile URL Generation
     func generateProfileURL(for username: String) -> String {
         let friendCode = generateFriendCode(for: username)
-        return "https://worldarena.games/profile/\(friendCode)"
+        return "https://flags.worldarena.games/profile/\(friendCode)"
     }
 
     /// URL профиля по коду друга (серверный код — для шаринга).
     func profileURL(friendCode: String) -> String {
-        "https://worldarena.games/profile/\(friendCode)"
+        "https://flags.worldarena.games/profile/\(friendCode)"
     }
 
     // MARK: - Share Profile (картинка с фото/статами + ссылка; по ссылке — в приложение или в магазин)
@@ -321,28 +335,28 @@ class FriendsService: ObservableObject {
                 }
 
                 let usernameFont = UIFont.boldSystemFont(ofSize: 24)
-                let usernameAttrs: [NSAttributedString.Key: Any] = [.font: usernameFont, .foregroundColor: UIColor.label]
+                let usernameAttrs: [NSAttributedString.Key: Any] = [.font: usernameFont, .foregroundColor: UIColor.black]
                 let usernameSz = username.size(withAttributes: usernameAttrs)
                 (username as NSString).draw(at: CGPoint(x: 200 - usernameSz.width / 2, y: 240), withAttributes: usernameAttrs)
 
                 let statsFont = UIFont.systemFont(ofSize: 14)
-                let statsAttrs: [NSAttributedString.Key: Any] = [.font: statsFont, .foregroundColor: UIColor.secondaryLabel]
+                let statsAttrs: [NSAttributedString.Key: Any] = [.font: statsFont, .foregroundColor: UIColor.darkGray]
                 let statsSz = statsText.size(withAttributes: statsAttrs)
                 (statsText as NSString).draw(at: CGPoint(x: 200 - statsSz.width / 2, y: 275), withAttributes: statsAttrs)
 
                 if let qr = self.qrImage(from: profileURL) {
-                    qr.draw(in: CGRect(x: 170, y: 320, width: 60, height: 60))
+                    qr.draw(in: CGRect(x: 152, y: 310, width: 96, height: 96))
                 }
                 let appFont = UIFont.boldSystemFont(ofSize: 16)
                 let appAttrs: [NSAttributedString.Key: Any] = [.font: appFont, .foregroundColor: UIColor.systemBlue]
                 let appText = "World Arena Flags"
                 let appSz = appText.size(withAttributes: appAttrs)
-                (appText as NSString).draw(at: CGPoint(x: 200 - appSz.width / 2, y: 390), withAttributes: appAttrs)
+                (appText as NSString).draw(at: CGPoint(x: 200 - appSz.width / 2, y: 425), withAttributes: appAttrs)
                 let urlFont = UIFont.systemFont(ofSize: 12)
-                let urlAttrs: [NSAttributedString.Key: Any] = [.font: urlFont, .foregroundColor: UIColor.tertiaryLabel]
-                let urlText = "worldarena.games"
+                let urlAttrs: [NSAttributedString.Key: Any] = [.font: urlFont, .foregroundColor: UIColor.darkGray]
+                let urlText = "flags.worldarena.games"
                 let urlSz = urlText.size(withAttributes: urlAttrs)
-                (urlText as NSString).draw(at: CGPoint(x: 200 - urlSz.width / 2, y: 415), withAttributes: urlAttrs)
+                (urlText as NSString).draw(at: CGPoint(x: 200 - urlSz.width / 2, y: 455), withAttributes: urlAttrs)
             }
             completion(image)
         }
@@ -374,17 +388,12 @@ extension Friend {
     #endif
 
     var profileURL: String {
-        return "https://worldarena.games/profile/\(username.uppercased().replacingOccurrences(of: " ", with: ""))"
+        return "https://flags.worldarena.games/profile/\(username.uppercased().replacingOccurrences(of: " ", with: ""))"
     }
 
-    /// Флаг-эмодзи по коду страны (RU -> 🇷🇺) или текущий avatar
+    /// Country is profile metadata, never a replacement for the chosen avatar.
     var displayAvatar: String {
-        if let code = FriendsService.normalizeCountryCode(countryCode) {
-            return FriendsService.countryCodeToFlagEmoji(code)
-        }
-        if avatar.hasPrefix("custom_") {
-            return "👤"
-        }
+        if avatar.isEmpty || avatar.hasPrefix("custom_") || avatar.contains(".") { return "👤" }
         return avatar
     }
 

@@ -1,9 +1,16 @@
 import Foundation
+#if canImport(UIKit)
+import UIKit
+#endif
 
 /// Клиент API дуэлей на flags.worldarena.games
 final class DuelAPIService {
     static let shared = DuelAPIService()
     
+    private static func identityHeader(_ username: String) -> String {
+        username.addingPercentEncoding(withAllowedCharacters: CharacterSet(charactersIn: "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789-_.")) ?? ""
+    }
+
     private let baseURL = "https://flags.worldarena.games/api/v1"
     private let session: URLSession
 
@@ -60,7 +67,7 @@ final class DuelAPIService {
         var request = URLRequest(url: url)
         request.httpMethod = "POST"
         request.setValue("application/json", forHTTPHeaderField: "Content-Type")
-        request.setValue(challengerId, forHTTPHeaderField: "X-User-Id")
+        request.setValue(Self.identityHeader(challengerId), forHTTPHeaderField: "X-User-Id")
         let body: [String: Any] = [
             "opponentId": opponentId,
             "seed": seed,
@@ -83,7 +90,7 @@ final class DuelAPIService {
             throw DuelAPIError.serverError(String(data: data, encoding: .utf8) ?? "")
         }
         let json = try JSONSerialization.jsonObject(with: data) as? [String: Any]
-        guard let challengeId = json?["challengeId"] as? String else {
+        guard let challengeId = json?["challengeId"] as? String, !challengeId.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty else {
             throw DuelAPIError.invalidResponse
         }
         return challengeId
@@ -94,7 +101,7 @@ final class DuelAPIService {
         var components = URLComponents(string: "\(baseURL)/duel/incoming")!
         components.queryItems = [URLQueryItem(name: "userId", value: userId)]
         var request = URLRequest(url: components.url!)
-        request.setValue(userId, forHTTPHeaderField: "X-User-Id")
+        request.setValue(Self.identityHeader(userId), forHTTPHeaderField: "X-User-Id")
         let (data, response) = try await session.data(for: request)
         guard let http = response as? HTTPURLResponse, http.statusCode == 200 else {
             throw DuelAPIError.serverError(String(data: data, encoding: .utf8) ?? "")
@@ -109,7 +116,7 @@ final class DuelAPIService {
         var components = URLComponents(string: "\(baseURL)/duel/incoming-sync")!
         components.queryItems = [URLQueryItem(name: "userId", value: userId)]
         var request = URLRequest(url: components.url!)
-        request.setValue(userId, forHTTPHeaderField: "X-User-Id")
+        request.setValue(Self.identityHeader(userId), forHTTPHeaderField: "X-User-Id")
         let (data, response) = try await session.data(for: request)
         guard let http = response as? HTTPURLResponse, http.statusCode == 200 else {
             throw DuelAPIError.serverError(String(data: data, encoding: .utf8) ?? "")
@@ -130,7 +137,7 @@ final class DuelAPIService {
         request.httpMethod = "POST"
         request.setValue("application/json", forHTTPHeaderField: "Content-Type")
         if let userId, !userId.isEmpty {
-            request.setValue(userId, forHTTPHeaderField: "X-User-Id")
+            request.setValue(Self.identityHeader(userId), forHTTPHeaderField: "X-User-Id")
         }
         request.httpBody = try JSONSerialization.data(withJSONObject: ["challengeId": challengeId])
         let (data, response) = try await session.data(for: request)
@@ -178,7 +185,7 @@ final class DuelAPIService {
         var request = URLRequest(url: url)
         request.httpMethod = "POST"
         request.setValue("application/json", forHTTPHeaderField: "Content-Type")
-        request.setValue(userId, forHTTPHeaderField: "X-User-Id")
+        request.setValue(Self.identityHeader(userId), forHTTPHeaderField: "X-User-Id")
         request.httpBody = try JSONSerialization.data(withJSONObject: ["challengeId": challengeId])
 
         let (_, response) = try await session.data(for: request)
@@ -189,32 +196,42 @@ final class DuelAPIService {
 
     /// Remind отправляет push-сообщение сопернику ещё раз.
     /// Сервер вернёт 409, если результат уже доступен.
-    func remindChallenge(challengeId: String, userId: String) async throws -> String {
-        let url = URL(string: "\(baseURL)/duel/remind")!
-        var request = URLRequest(url: url)
-        request.httpMethod = "POST"
-        request.setValue("application/json", forHTTPHeaderField: "Content-Type")
-        request.setValue(userId, forHTTPHeaderField: "X-User-Id")
-        request.httpBody = try JSONSerialization.data(withJSONObject: ["challengeId": challengeId])
-
-        let (data, response) = try await session.data(for: request)
-        guard let http = response as? HTTPURLResponse else {
-            throw DuelAPIError.serverError("remind failed")
-        }
-        guard (200...299).contains(http.statusCode) else {
-            throw DuelAPIError.serverError(String(data: data, encoding: .utf8) ?? "remind failed")
-        }
-
-        let json = try JSONSerialization.jsonObject(with: data) as? [String: Any]
-        return json?["status"] as? String ?? "pending"
+    struct ReminderResult: Decodable {
+        let status: String
+        let pushSent: Bool?
+        let reason: String?
+        let throttled: Bool?
+        let retryAfterMs: Int?
     }
-    
+
+    func remindChallenge(challengeId: String, userId: String) async throws -> String {
+        try await remindChallengeResult(challengeId: challengeId, userId: userId).status
+    }
+
+    func remindChallengeResult(challengeId: String, userId: String) async throws -> ReminderResult {
+        var request = URLRequest(url: URL(string: "\(baseURL)/duel/remind")!)
+        request.httpMethod = "POST"
+        request.timeoutInterval = 15
+        request.setValue("application/json", forHTTPHeaderField: "Content-Type")
+        request.setValue(Self.identityHeader(userId), forHTTPHeaderField: "X-User-Id")
+        if let token = await MainActor.run(body: { AuthService.shared.authToken }) {
+            request.setValue("Bearer " + token, forHTTPHeaderField: "Authorization")
+        }
+        request.httpBody = try JSONSerialization.data(withJSONObject: ["challengeId": challengeId])
+        let (data, response) = try await session.data(for: request)
+        guard let http = response as? HTTPURLResponse, (200...299).contains(http.statusCode) else {
+            throw DuelAPIError.serverError(String(data: data, encoding: .utf8) ?? "")
+        }
+        return try JSONDecoder().decode(ReminderResult.self, from: data)
+    }
+
     /// Отправить результат (challenger или opponent). `elapsedMs` — время прохождения дуэли для ничьи по очкам (сервер).
     func submitScore(challengeId: String, score: Int, side: String, elapsedMs: Int? = nil) async throws -> DuelSubmitResult {
         let url = URL(string: "\(baseURL)/duel/submit")!
         var request = URLRequest(url: url)
         request.httpMethod = "POST"
         request.setValue("application/json", forHTTPHeaderField: "Content-Type")
+        request.setValue(Self.identityHeader(await MainActor.run { UserProfile.shared.username }), forHTTPHeaderField: "X-User-Id")
         var body: [String: Any] = ["challengeId": challengeId, "score": score, "side": side]
         if let ms = elapsedMs { body["elapsedMs"] = ms }
         request.httpBody = try JSONSerialization.data(withJSONObject: body)
@@ -238,7 +255,7 @@ final class DuelAPIService {
         var components = URLComponents(string: "\(baseURL)/duel/outgoing")!
         components.queryItems = [URLQueryItem(name: "userId", value: userId)]
         var request = URLRequest(url: components.url!)
-        request.setValue(userId, forHTTPHeaderField: "X-User-Id")
+        request.setValue(Self.identityHeader(userId), forHTTPHeaderField: "X-User-Id")
         let (data, response) = try await session.data(for: request)
         guard let http = response as? HTTPURLResponse, http.statusCode == 200 else {
             throw DuelAPIError.serverError(String(data: data, encoding: .utf8) ?? "")
@@ -254,7 +271,7 @@ final class DuelAPIService {
         var request = URLRequest(url: url)
         request.httpMethod = "POST"
         request.setValue("application/json", forHTTPHeaderField: "Content-Type")
-        request.setValue(myUserId, forHTTPHeaderField: "X-User-Id")
+        request.setValue(Self.identityHeader(myUserId), forHTTPHeaderField: "X-User-Id")
         request.httpBody = try JSONSerialization.data(withJSONObject: ["friendUsername": friendUsername])
         let (data, response) = try await session.data(for: request)
         guard let http = response as? HTTPURLResponse, (200...299).contains(http.statusCode) else {
@@ -269,6 +286,8 @@ final class DuelAPIService {
         request.httpMethod = "POST"
         request.setValue("application/json", forHTTPHeaderField: "Content-Type")
         var body: [String: Any] = ["userId": userId, "username": username]
+        body["duelResultsNotifications"] = UserDefaults.standard.object(forKey: "notificationsEnabled") as? Bool != false && ((UserDefaults.standard.object(forKey: "duelResultsNotifications") as? Bool) ?? true)
+        body["duelInvitesNotifications"] = UserDefaults.standard.object(forKey: "notificationsEnabled") as? Bool != false && ((UserDefaults.standard.object(forKey: "duelInvitesNotifications") as? Bool) ?? true)
         if let token = deviceToken { body["deviceToken"] = token }
         if let stats = stats { body["stats"] = stats }
         if let cc = countryCode, !cc.isEmpty { body["countryCode"] = cc }
@@ -322,7 +341,7 @@ final class DuelAPIService {
         var request = URLRequest(url: url)
         request.httpMethod = "POST"
         request.setValue("application/json", forHTTPHeaderField: "Content-Type")
-        request.setValue(myUserId, forHTTPHeaderField: "X-User-Id")
+        request.setValue(Self.identityHeader(myUserId), forHTTPHeaderField: "X-User-Id")
         request.httpBody = try JSONSerialization.data(withJSONObject: ["friendCode": friendCode])
         let (data, response) = try await session.data(for: request)
         guard let http = response as? HTTPURLResponse, (200...299).contains(http.statusCode) else {
@@ -339,7 +358,7 @@ final class DuelAPIService {
         var request = URLRequest(url: url)
         request.httpMethod = "PATCH"
         request.setValue("application/json", forHTTPHeaderField: "Content-Type")
-        request.setValue(userId, forHTTPHeaderField: "X-User-Id")
+        request.setValue(Self.identityHeader(userId), forHTTPHeaderField: "X-User-Id")
         request.httpBody = try JSONSerialization.data(withJSONObject: ["displayName": displayName])
         let (_, response) = try await session.data(for: request)
         guard let http = response as? HTTPURLResponse, (200...299).contains(http.statusCode) else {
@@ -353,7 +372,7 @@ final class DuelAPIService {
         var request = URLRequest(url: url)
         request.httpMethod = "PATCH"
         request.setValue("application/json", forHTTPHeaderField: "Content-Type")
-        request.setValue(userId, forHTTPHeaderField: "X-User-Id")
+        request.setValue(Self.identityHeader(userId), forHTTPHeaderField: "X-User-Id")
         request.httpBody = try JSONSerialization.data(withJSONObject: ["countryCode": countryCode])
         let (_, response) = try await session.data(for: request)
         guard let http = response as? HTTPURLResponse, (200...299).contains(http.statusCode) else {
@@ -367,10 +386,25 @@ final class DuelAPIService {
         var request = URLRequest(url: url)
         request.httpMethod = "PATCH"
         request.setValue("application/json", forHTTPHeaderField: "Content-Type")
-        request.setValue(userId, forHTTPHeaderField: "X-User-Id")
+        request.setValue(Self.identityHeader(userId), forHTTPHeaderField: "X-User-Id")
+        let uploadData: Data
+        #if canImport(UIKit)
+        uploadData = await MainActor.run {
+            guard let image = UIImage(data: imageData) else { return imageData }
+            let scale = min(1, 512 / max(image.size.width, image.size.height))
+            let size = CGSize(width: image.size.width * scale, height: image.size.height * scale)
+            let format = UIGraphicsImageRendererFormat(); format.scale = 1; format.opaque = true
+            return UIGraphicsImageRenderer(size: size, format: format).image { _ in
+                UIColor.white.setFill(); UIRectFill(CGRect(origin: .zero, size: size))
+                image.draw(in: CGRect(origin: .zero, size: size))
+            }.jpegData(compressionQuality: 0.85) ?? imageData
+        }
+        #else
+        uploadData = imageData
+        #endif
         let payload: [String: Any] = [
             "avatar": "custom_photo",
-            "customAvatarBase64": imageData.base64EncodedString()
+            "customAvatarBase64": uploadData.base64EncodedString()
         ]
         request.httpBody = try JSONSerialization.data(withJSONObject: payload)
         let (_, response) = try await session.data(for: request)
@@ -390,24 +424,9 @@ final class DuelAPIService {
         var request = URLRequest(url: url)
         request.httpMethod = "PATCH"
         request.setValue("application/json", forHTTPHeaderField: "Content-Type")
-        request.setValue(userId, forHTTPHeaderField: "X-User-Id")
-        let avatarConfig: [String: Any] = [
-            "skinTone": config.skinTone.rawValue,
-            "backgroundColor": config.backgroundColor.rawValue,
-            "clothingColor": config.clothingColor.rawValue,
-            "hairColor": config.hairColor.rawValue,
-            "eyeColor": config.eyeColor.rawValue,
-            "glassesColor": config.glassesColor?.rawValue as Any,
-            "facialHairColor": config.facialHairColor?.rawValue as Any,
-            "headwearColor": config.headwearColor?.rawValue as Any,
-            "bodyStyle": config.bodyStyle.rawValue,
-            "expression": config.expression.rawValue,
-            "hairstyle": config.hairstyle.rawValue,
-            "glassesStyle": config.glassesStyle.rawValue,
-            "facialHairStyle": config.facialHairStyle.rawValue,
-            "headwearStyle": config.headwearStyle.rawValue,
-            "clothingStyle": config.clothingStyle.rawValue
-        ]
+        request.setValue(Self.identityHeader(userId), forHTTPHeaderField: "X-User-Id")
+        // Use the Codable representation so optional wardrobe layers are included too.
+        let avatarConfig = try JSONSerialization.jsonObject(with: JSONEncoder().encode(config))
         var payload: [String: Any] = ["avatarConfig": avatarConfig]
         if let avatar {
             payload["avatar"] = avatar
@@ -422,12 +441,40 @@ final class DuelAPIService {
         }
     }
 
+    @MainActor
+    private func friendRequest(_ path: String, body: [String: Any]? = nil) async throws -> Data {
+        guard let token = AuthService.shared.authToken else { throw DuelAPIError.serverError("Sign in required") }
+        var request = URLRequest(url: URL(string: "\(baseURL)/friends/requests\(path)")!)
+        request.setValue("Bearer \(token)", forHTTPHeaderField: "Authorization")
+        if let body = body {
+            request.httpMethod = "POST"
+            request.setValue("application/json", forHTTPHeaderField: "Content-Type")
+            request.httpBody = try JSONSerialization.data(withJSONObject: body)
+        }
+        let (data, response) = try await session.data(for: request)
+        guard let http = response as? HTTPURLResponse, (200...299).contains(http.statusCode) else {
+            throw DuelAPIError.serverError("Friend request unavailable")
+        }
+        return data
+    }
+
+    @MainActor
+    func fetchFriendRequests() async throws -> [FriendRequestItem] {
+        struct Inbox: Decodable { let requests: [FriendRequestItem] }
+        return try JSONDecoder().decode(Inbox.self, from: await friendRequest("")).requests
+    }
+
+    @MainActor
+    func respondToFriendRequest(sender: String, accept: Bool) async throws {
+        _ = try await friendRequest("/respond", body: ["sender": sender, "accept": accept])
+    }
+
     /// Список друзей с сервера (для синхронизации).
     func fetchMyFriends(userId: String) async throws -> [FriendFromAPI] {
         var components = URLComponents(string: "\(baseURL)/users/me/friends")!
         components.queryItems = [URLQueryItem(name: "userId", value: userId)]
         var request = URLRequest(url: components.url!)
-        request.setValue(userId, forHTTPHeaderField: "X-User-Id")
+        request.setValue(Self.identityHeader(userId), forHTTPHeaderField: "X-User-Id")
         let (data, response) = try await session.data(for: request)
         guard let http = response as? HTTPURLResponse, http.statusCode == 200 else {
             throw DuelAPIError.serverError(String(data: data, encoding: .utf8) ?? "")
@@ -443,7 +490,7 @@ final class DuelAPIService {
         var request = URLRequest(url: url)
         request.httpMethod = "POST"
         request.setValue("application/json", forHTTPHeaderField: "Content-Type")
-        request.setValue(fromUsername, forHTTPHeaderField: "X-User-Id")
+        request.setValue(Self.identityHeader(fromUsername), forHTTPHeaderField: "X-User-Id")
         request.httpBody = try JSONSerialization.data(withJSONObject: [
             "toUsername": toUsername,
             "phraseId": phraseId
@@ -459,7 +506,7 @@ final class DuelAPIService {
         var components = URLComponents(string: "\(baseURL)/nudge/inbox")!
         components.queryItems = [URLQueryItem(name: "userId", value: userId)]
         var request = URLRequest(url: components.url!)
-        request.setValue(userId, forHTTPHeaderField: "X-User-Id")
+        request.setValue(Self.identityHeader(userId), forHTTPHeaderField: "X-User-Id")
         let (data, response) = try await session.data(for: request)
         guard let http = response as? HTTPURLResponse, http.statusCode == 200 else {
             throw DuelAPIError.serverError(String(data: data, encoding: .utf8) ?? "")
@@ -475,7 +522,7 @@ final class DuelAPIService {
         var request = URLRequest(url: url)
         request.httpMethod = "POST"
         request.setValue("application/json", forHTTPHeaderField: "Content-Type")
-        request.setValue(userId, forHTTPHeaderField: "X-User-Id")
+        request.setValue(Self.identityHeader(userId), forHTTPHeaderField: "X-User-Id")
         request.httpBody = try JSONSerialization.data(withJSONObject: ["userId": userId])
         let (data, response) = try await session.data(for: request)
         guard let http = response as? HTTPURLResponse, (200...299).contains(http.statusCode) else {
@@ -512,7 +559,7 @@ final class DuelAPIService {
         var request = URLRequest(url: url)
         request.httpMethod = "POST"
         request.setValue("application/json", forHTTPHeaderField: "Content-Type")
-        request.setValue(trimmedFrom, forHTTPHeaderField: "X-User-Id")
+        request.setValue(Self.identityHeader(trimmedFrom), forHTTPHeaderField: "X-User-Id")
         let body: [String: Any] = ["type": type]
         request.httpBody = try JSONSerialization.data(withJSONObject: body)
 
@@ -541,7 +588,7 @@ final class DuelAPIService {
         var components = URLComponents(string: "\(baseURL)/birthday-gifts/inbox")!
         components.queryItems = [URLQueryItem(name: "userId", value: userId)]
         var request = URLRequest(url: components.url!)
-        request.setValue(userId, forHTTPHeaderField: "X-User-Id")
+        request.setValue(Self.identityHeader(userId), forHTTPHeaderField: "X-User-Id")
         let (data, response) = try await session.data(for: request)
         guard let http = response as? HTTPURLResponse, http.statusCode == 200 else {
             throw DuelAPIError.serverError(String(data: data, encoding: .utf8) ?? "")
@@ -557,7 +604,7 @@ final class DuelAPIService {
         var request = URLRequest(url: url)
         request.httpMethod = "POST"
         request.setValue("application/json", forHTTPHeaderField: "Content-Type")
-        request.setValue(userId, forHTTPHeaderField: "X-User-Id")
+        request.setValue(Self.identityHeader(userId), forHTTPHeaderField: "X-User-Id")
         request.httpBody = try JSONSerialization.data(withJSONObject: ["userId": userId])
         let (data, response) = try await session.data(for: request)
         guard let http = response as? HTTPURLResponse, (200...299).contains(http.statusCode) else {
@@ -731,7 +778,7 @@ final class DuelAPIService {
         var request = URLRequest(url: url)
         request.httpMethod = "POST"
         request.setValue("application/json", forHTTPHeaderField: "Content-Type")
-        request.setValue(userId, forHTTPHeaderField: "X-User-Id")
+        request.setValue(Self.identityHeader(userId), forHTTPHeaderField: "X-User-Id")
         request.httpBody = try JSONSerialization.data(withJSONObject: [
             "score": score,
             "correctAnswers": correctAnswers,
@@ -878,7 +925,7 @@ struct FriendFromAPI {
             ?? (json["total_games_played"] as? Int) ?? 0
         self.correctAnswers = (json["correctAnswers"] as? Int)
             ?? (json["correct_answers"] as? Int) ?? 0
-        self.avatarPhotoBase64 = json["avatarPhotoBase64"] as? String
+        self.avatarPhotoBase64 = (json["avatarPhotoBase64"] as? String) ?? (json["customAvatarBase64"] as? String)
         self.avatar = json["avatar"] as? String
         self.achievements = json["achievements"] as? [String] ?? []
         if let w = json["worldRank"] as? Int {
@@ -914,28 +961,12 @@ struct FriendFromAPI {
     }
 
     func toFriend() -> Friend {
-        let avatarEmoji: String
-        let code: String?
-        if let twoLetter = Self.normalizeCountryCode(countryCode) {
-            avatarEmoji = Self.countryCodeToFlagEmoji(twoLetter)
-            code = twoLetter
-        } else {
-            let initial = String((displayName ?? username).prefix(1)).uppercased()
-            let emojiMap: [String: String] = [
-                "A": "🇦🇷", "B": "🇧🇷", "C": "🇨🇦", "D": "🇩🇰", "E": "🇪🇸", "F": "🇫🇷",
-                "G": "🇩🇪", "H": "🇭🇷", "I": "🇮🇹", "J": "🇯🇵", "K": "🇰🇷", "L": "🇱🇺",
-                "M": "🇲🇽", "N": "🇳🇱", "O": "🇳🇴", "P": "🇵🇱", "Q": "🇶🇦", "R": "🇷🇺",
-                "S": "🇸🇪", "T": "🇹🇷", "U": "🇺🇸", "V": "🇻🇳", "W": "🇬🇧", "X": "🇨🇳",
-                "Y": "🇾🇪", "Z": "🇿🇦"
-            ]
-            avatarEmoji = emojiMap[initial] ?? "👤"
-            code = nil
-        }
+        let code = Self.normalizeCountryCode(countryCode)
         return Friend(
             id: UUID(),
             username: username,
             displayName: displayName,
-            avatar: avatar ?? avatarEmoji,
+            avatar: avatar ?? "person.crop.circle.fill",
             avatarPhotoBase64: avatarPhotoBase64,
             countryCode: code,
             level: level,
@@ -1109,20 +1140,25 @@ enum DuelAPIError: Error, LocalizedError {
     case invalidResponse
 
     var errorDescription: String? {
+        let saved = UserDefaults.standard.string(forKey: "selectedLanguage")
+        let code = LocalizationLanguageResolver.resolveLanguageCode(saved: saved)
+        let bundle = Bundle.main.path(forResource: code, ofType: "lproj").flatMap(Bundle.init(path:)) ?? .main
+        func tr(_ key: String) -> String { bundle.localizedString(forKey: key, value: nil, table: nil) }
         switch self {
         case .serverError(let message):
             if let data = message.data(using: .utf8),
                let json = try? JSONSerialization.jsonObject(with: data) as? [String: Any] {
-                if let code = json["errorCode"] as? String {
-                    let localized = NSLocalizedString(code, comment: "API error code")
-                    if localized != code { return localized }
+                if let code = json["errorCode"] as? String, tr(code) != code { return tr(code) }
+                let error = json["error"] as? String ?? ""
+                if error == "Result already available" { return tr("duel.reminder.completed") }
+                if error == "Challenge not found" { return tr("duel.reminder.missing") }
+                // Preserve existing authentication feedback outside the duel flow.
+                if ["email", "password", "credentials", "registration", "sign in"].contains(where: { error.lowercased().contains($0) }) {
+                    return tr(error)
                 }
-                if let err = json["error"] as? String { return err }
             }
-            if !message.isEmpty, message.count < 300 { return message }
-            return NSLocalizedString("Server error. Try again.", comment: "DuelAPIError fallback")
-        case .invalidResponse:
-            return NSLocalizedString("Invalid server response.", comment: "DuelAPIError")
+            return tr("Server error. Try again.")
+        case .invalidResponse: return tr("Invalid server response.")
         }
     }
 }

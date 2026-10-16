@@ -16,6 +16,7 @@ struct AnswerButton: View {
     /// iPad альбом: минимальная высота ячейки из расчёта свободного места (кнопки заполняют экран)
     var iPadLandscapeMinCellHeight: CGFloat? = nil
     var tabletStyle = false
+    var fitHeight: CGFloat? = nil
     let action: () -> Void
     
     @Environment(\.accessibilityReduceMotion) private var reduceMotion
@@ -100,7 +101,8 @@ struct AnswerButton: View {
                     .font(answerFont)
                     .lineLimit(tabletStyle ? nil : (horizontalSizeClass == .regular ? 2 : nil))
                     .multilineTextAlignment(.leading)
-                    .fixedSize(horizontal: false, vertical: true)
+                    .minimumScaleFactor(fitHeight == nil ? 1 : 0.5)
+                    .fixedSize(horizontal: false, vertical: fitHeight == nil)
                     .frame(maxWidth: .infinity, alignment: .leading)
                 Image(systemName: isCorrect == true ? "checkmark.circle.fill" : (isIncorrect == true ? "xmark.circle.fill" : "circle"))
                     .font(.system(size: useCompactStyle ? 18 : 21, weight: .medium))
@@ -110,12 +112,14 @@ struct AnswerButton: View {
             .foregroundColor(foregroundColor)
             .padding(.horizontal, 16)
             .padding(.vertical, answerPadding)
+            .frame(height: fitHeight)
             .frame(minHeight: tabletStyle ? 72 : max(48, iPadLandscapeMinCellHeight ?? 0))
             .frame(maxWidth: .infinity)
             .background(RoundedRectangle(cornerRadius: 16, style: .continuous).fill(backgroundColor))
             .overlay(RoundedRectangle(cornerRadius: 16, style: .continuous).stroke(borderColor, lineWidth: isCorrect == true || isIncorrect == true ? 1.5 : 1))
             .contentShape(RoundedRectangle(cornerRadius: 16))
         }
+        .accessibilityIdentifier("quiz.answer.\(country.id)")
         .buttonStyle(QuizAnswerPressStyle(reduceMotion: reduceMotion))
         .animation(reduceMotion ? nil : .easeInOut(duration: 0.18), value: backgroundColor)
         .disabled(isCorrect != nil)

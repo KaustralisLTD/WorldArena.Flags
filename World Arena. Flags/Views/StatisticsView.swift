@@ -10,6 +10,9 @@ struct StatisticsView: View {
     @ObservedObject private var localizationManager = LocalizationManager.shared
     @State private var showingClearAlert = false
     @State private var showingShareSheet = false
+    @State private var showingStreak = false
+    @State private var showingFBucks = false
+    @State private var showingProgressMap = false
     @State private var shareItems: [Any] = []
 
     private func localized(_ key: String) -> String {
@@ -69,6 +72,25 @@ struct StatisticsView: View {
                 secondaryButton: .cancel(Text(localized("Cancel")))
             )
         }
+        .sheetOrFullScreenOnIPad(isPresented: $showingStreak) {
+            StreakCalendarView().environmentObject(userProfile)
+        }
+        .sheetOrFullScreenOnIPad(isPresented: $showingFBucks) {
+            FBucksInfoView().environmentObject(userProfile)
+        }
+        .sheetOrFullScreenOnIPad(isPresented: $showingProgressMap) {
+            NavigationView {
+                WorldProgressMapView()
+                    .environmentObject(gameState)
+                    .navigationBarHidden(false)
+                    .toolbar {
+                        ToolbarItem(placement: .cancellationAction) {
+                            Button(localized("Close")) { showingProgressMap = false }
+                        }
+                    }
+            }
+            .navigationViewStyle(.stack)
+        }
         .sheetOrFullScreenOnIPad(isPresented: $showingShareSheet) {
             ShareSheet(activityItems: shareItems)
         }
@@ -85,8 +107,7 @@ struct StatisticsView: View {
                 .accessibilityIdentifier("statistics.back")
             }
             HStack(spacing: 16) {
-                Image("IconStatistics")
-                    .resizable().scaledToFit()
+                ProfileFeatureIcon(name: "IconStatistics")
                     .frame(width: wide ? 80 : 60, height: wide ? 80 : 60)
                     .accessibilityHidden(true)
                 Text(localized("Statistics"))
@@ -106,9 +127,27 @@ struct StatisticsView: View {
         .clipShape(RoundedRectangle(cornerRadius: topInset == nil ? 24 : 0, style: .continuous))
     }
 
+    @ViewBuilder
     private func metric(_ id: String, image: String, title: String, value: String, unit: String? = nil, color: Color) -> some View {
-        StatisticsMetricCard(image: image, title: localized(title), value: value, unit: unit, accent: color)
+        let isInteractive = id == "streak" || id == "fbucks" || (id == "correct" && gameState.isPremium)
+        if isInteractive {
+            Button {
+                switch id {
+                case "streak": showingStreak = true
+                case "fbucks": showingFBucks = true
+                case "correct": if gameState.isPremium { showingProgressMap = true }
+                default: break
+                }
+            } label: {
+                StatisticsMetricCard(image: image, title: localized(title), value: value, unit: unit, accent: color, isInteractive: true)
+                    .contentShape(RoundedRectangle(cornerRadius: 20))
+            }
+            .buttonStyle(.plain)
             .accessibilityIdentifier("statistics.metric." + id)
+        } else {
+            StatisticsMetricCard(image: image, title: localized(title), value: value, unit: unit, accent: color)
+                .accessibilityIdentifier("statistics.metric." + id)
+        }
     }
 
     private var duelSummary: some View {
@@ -118,8 +157,7 @@ struct StatisticsView: View {
                 .environmentObject(userProfile)
         } label: {
             HStack(spacing: 14) {
-                Image("IconDuelSummary")
-                    .resizable().scaledToFit().frame(width: 56, height: 56)
+                ProfileFeatureIcon(name: "IconDuelSummary").frame(width: 56, height: 56)
                     .accessibilityHidden(true)
                 VStack(alignment: .leading, spacing: 6) {
                     Text(localized("Duel Summary"))
@@ -170,6 +208,7 @@ private struct StatisticsMetricCard: View {
     let value: String
     let unit: String?
     let accent: Color
+    var isInteractive = false
 
     private var compact: Bool { UIDevice.current.userInterfaceIdiom == .phone }
 
@@ -208,8 +247,17 @@ private struct StatisticsMetricCard: View {
         .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: compact ? .center : .topLeading)
         .background(Color(uiColor: .secondarySystemGroupedBackground), in: RoundedRectangle(cornerRadius: 20))
         .overlay(alignment: .topTrailing) {
-            Circle().fill(accent.opacity(0.65)).frame(width: 6, height: 6).padding(compact ? 14 : 20)
-                .accessibilityHidden(true)
+            Group {
+                if isInteractive {
+                    Image(systemName: "chevron.right")
+                        .font(.caption.weight(.semibold))
+                        .foregroundStyle(accent)
+                } else {
+                    Circle().fill(accent.opacity(0.65)).frame(width: 6, height: 6)
+                }
+            }
+            .padding(compact ? 14 : 20)
+            .accessibilityHidden(true)
         }
         .accessibilityElement(children: .combine)
     }

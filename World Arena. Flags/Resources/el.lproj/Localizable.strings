@@ -234,19 +234,16 @@
 "Request Timeout" = "Χρονικό όριο αιτήματος";
 "Server Not Found" = "Ο διακομιστής δεν βρέθηκε";
 "Too Many Requests" = "Πάρα πολλά αιτήματα";
-"Server Error" = "Σφάλμα διακομιστή";
 "HTTP Error: %d" = "Σφάλμα HTTP: %d";
-"Try Again" = "Δοκιμάστε ξανά";
 "Not enough countries in selected regions (found %d, need at least 4)" = "Δεν υπάρχουν αρκετές χώρες σε επιλεγμένες περιοχές (βρέθηκαν %d, χρειάζονται τουλάχιστον 4)";
 "Empty response from server" = "Κενή απάντηση από τον διακομιστή";
 
 // New additions
-"Capital" = "Κεφάλαιο";
+"Capital" = "Πρωτεύουσα";
 "Population" = "Πληθυσμός";
-"Area" = "Εκταση";
+"Area" = "Έκταση";
 "Region" = "Περιοχή";
 "Subregion" = "Υποπεριοχή";
-
 // Language additions
 "system_language" = "Σύστημα";
 "ru_language" = "Русский";
@@ -1737,3 +1734,89 @@
 "premium.trial.yearly" = "7 ημέρες δωρεάν, μετά %@ τον χρόνο.";
 "premium.renewal" = "Ανανεώνεται αυτόματα μέχρι να ακυρωθεί. Διαχείριση ή ακύρωση στις συνδρομές του App Store.";
 "premium.subscribe" = "Εγγραφή";
+
+/* Duel inbox */
+"duel.challenges.title" = "Προκλήσεις";
+"duel.challenges.subtitle" = "Προσκλήσεις, ενεργές μονομαχίες και αποτελέσματα";
+
+// Verified subscription status
+"premium.restore.success" = "Οι αγορές αποκαταστάθηκαν.";
+"premium.restore.empty" = "Δεν βρέθηκε ενεργή συνδρομή για αυτόν τον λογαριασμό Apple.";
+"premium.access.until" = "Πρόσβαση έως";
+
+// Streak calendar and freeze inventory
+"streak.calendar.title" = "Ημερολόγιο σερί";
+"streak.calendar.played" = "Έπαιξες";
+"streak.calendar.frozen" = "Παγωμένο";
+"streak.calendar.missed" = "Χάθηκε";
+"streak.calendar.open_day" = "Δεν έπαιξες ακόμα";
+"streak.calendar.previous" = "Προηγούμενος μήνας";
+"streak.calendar.next" = "Επόμενος μήνας";
+"streak.freeze.title" = "Παγώματα σερί";
+"streak.freeze.repair" = "Επαναφορά χθες · 1 πάγωμα";
+"streak.freeze.friends" = "Βοήθησε φίλους";
+"streak.freeze.give" = "Χάρισε 1 πάγωμα";
+"streak.freeze.signin" = "Συνδέσου για αποστολή και λήψη παγωμάτων.";
+"streak.freeze.unavailable" = "Ο φίλος σου δεν το χρειάζεται πια. Το πάγωμά σου επιστράφηκε.";
+"streak.freeze.sent" = "Το πάγωμα στάλθηκε!";
+"streak.freeze.retry" = "Αποτυχία συγχρονισμού. Δοκίμασε ξανά για να ολοκληρωθεί το δώρο.";
+"streak.freeze.no_friends" = "Κανένας φίλος δεν έχει άδειο απόθεμα τώρα.";
+"streak.freeze.explanation" = "Ένα πάγωμα προστατεύει αυτόματα μία χαμένη ημέρα χωρίς να τη μετρά ως παιχνίδι. Ετοίμασε απόθεμα πριν από διάλειμμα ή επανάφερε τη χθεσινή ημέρα.";
+
+// Avatar shop and wardrobe
+"shop.avatar" = "Το avatar σου";
+"shop.preview_hint" = "Δοκίμασε πριν αγοράσεις. Η εφαρμογή αντικαθιστά τη φωτογραφία προφίλ με αυτό το avatar.";
+"shop.wardrobe" = "Γκαρνταρόμπα";
+"shop.empty" = "Εδώ θα εμφανίζονται οι αγορές σου.";
+"shop.equipped" = "Φορεμένο";
+"shop.owned" = "Αγορασμένο";
+"shop.remove" = "Αφαίρεση";
+"shop.equip" = "Χρήση";
+"shop.save_error" = "Αποθηκεύτηκε στη συσκευή. Αποτυχία ενημέρωσης του διαδικτυακού avatar.";
+
+"home.lives.welcome" = "Μπόνους καλωσορίσματος: +3 ζωές κάθε 10 λεπτά τις πρώτες 7 ημέρες. Έως 5 ζωές, χωρίς συνδρομή.";
+
+"Profile Share CTA" = "Σκάναρε το QR. Πάμε να παίξουμε!";
+
+
+"Profile Share Headline" = "ΞΕΡΕΙΣ ΤΙΣ ΣΗΜΑΙΕΣ;\nΑΠΟΔΕΙΞΕ ΤΟ.";
+
+"Use current time" = "Χρήση τρέχουσας ώρας";
+
+"Progress emails" = "Email προόδου";
+
+"Progress emails detail" = "Η σύνοψή σου, το πολύ μία φορά την εβδομάδα. Κανένα email μετά από κάθε μονομαχία. Κατάργηση εγγραφής οποτεδήποτε.";
+
+"Server Error" = "Ο διακομιστής δεν είναι διαθέσιμος";
+
+"Try Again" = "Δοκίμασε ξανά";
+
+"Server error. Try again." = "Ο διακομιστής δεν είναι διαθέσιμος. Δοκίμασε ξανά";
+
+"Invalid server response." = "Ο διακομιστής δεν είναι διαθέσιμος";
+
+"duel.network.error" = "Ο διακομιστής δεν είναι διαθέσιμος. Δοκίμασε ξανά";
+
+"duel.reminder.sent" = "Η υπενθύμιση στάλθηκε";
+
+"duel.reminder.cooldown" = "Περίμενε πριν στείλεις άλλη υπενθύμιση.";
+
+"duel.reminder.disabled" = "Ο παίκτης απενεργοποίησε τις ειδοποιήσεις μονομαχίας.";
+
+"duel.reminder.no_device" = "Ο παίκτης δεν έχει συσκευή με ενεργές ειδοποιήσεις push.";
+
+"duel.reminder.completed" = "Η μονομαχία έχει ήδη τελειώσει.";
+
+"duel.reminder.missing" = "Αυτή η μονομαχία δεν είναι πλέον διαθέσιμη.";
+
+"Flags Brand Title" = "Σημαίες";
+
+"lifecycle.offers" = "Προκλήσεις και προσφορές";
+
+"lifecycle.offers.detail" = "Μπόνους, προκλήσεις και άλλα παιχνίδια World Arena. Έως δύο email την εβδομάδα συνολικά.";
+
+"lifecycle.bonus.title" = "Παίζουμε και μέσα στη μέρα;";
+
+"lifecycle.bonus.body" = "1 επιπλέον F-Buck για μία τέλεια δοκιμασία μπόνους από τις 12:00 έως τις 16:00 στη ζώνη ώρας σου.";
+
+"lifecycle.bonus.unavailable" = "Αυτή η πρόκληση δεν είναι πλέον διαθέσιμη. Η αποθηκευμένη πρόοδός σου παραμένει.";

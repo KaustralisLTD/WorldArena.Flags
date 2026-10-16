@@ -8,54 +8,17 @@ struct AppIcon: View {
     }
     
     var body: some View {
-        ZStack {
-            // Фон
-            Circle()
-                .fill(
-                    LinearGradient(
-                        gradient: Gradient(colors: [.blue, .cyan]),
-                        startPoint: .topLeading,
-                        endPoint: .bottomTrailing
-                    )
-                )
-                .shadow(radius: size * 0.1)
-            
-            // Флаги
-            ZStack {
-                // Задний флаг
-                Image(systemName: "flag.fill")
-                    .resizable()
-                    .scaledToFit()
-                    .frame(width: size * 0.6, height: size * 0.6)
-                    .foregroundColor(.white.opacity(0.8))
-                    .offset(x: -size * 0.15, y: 0)
-                    .rotationEffect(.degrees(-15))
-                
-                // Средний флаг
-                Image(systemName: "flag.fill")
-                    .resizable()
-                    .scaledToFit()
-                    .frame(width: size * 0.7, height: size * 0.7)
-                    .foregroundColor(.white)
-                    .offset(x: 0, y: 0)
-                
-                // Передний флаг
-                Image(systemName: "flag.fill")
-                    .resizable()
-                    .scaledToFit()
-                    .frame(width: size * 0.6, height: size * 0.6)
-                    .foregroundColor(.white.opacity(0.8))
-                    .offset(x: size * 0.15, y: 0)
-                    .rotationEffect(.degrees(15))
-            }
-        }
-        .frame(width: size, height: size)
+        Image("Logo")
+            .resizable()
+            .scaledToFit()
+            .frame(width: size, height: size)
+            .clipShape(RoundedRectangle(cornerRadius: size * 0.2))
     }
     
     // Функция для создания изображения (только для предпросмотра)
     @available(iOS 16.0, *)
     func generateImage(for size: CGFloat, scale: CGFloat = 1) -> Image {
-        return Image(systemName: "flag.circle.fill")
+        return Image("Logo")
     }
 }
 

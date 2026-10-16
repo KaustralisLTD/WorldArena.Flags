@@ -1,6 +1,11 @@
 import SwiftUI
 
 struct AvatarConfiguration: Codable, Equatable {
+    var shopOutfit: String? = nil
+    var shopBackdrop: String? = nil
+    var shopEffect: String? = nil
+    var shopHat: String? = nil
+
     var skinTone: AvatarColorToken
     var backgroundColor: AvatarColorToken
     var clothingColor: AvatarColorToken

@@ -4,6 +4,11 @@ import UIKit
 #endif
 
 struct FlagCardView: View {
+    @AppStorage("facts.capital") private var showCapital = true
+    @AppStorage("facts.population") private var showPopulation = true
+    @AppStorage("facts.area") private var showArea = true
+    @AppStorage("facts.region") private var showRegion = true
+    @AppStorage("facts.map") private var showMap = false
     let country: Country
     @Binding var isShowingInfo: Bool
     var flagScale: CGFloat
@@ -13,6 +18,8 @@ struct FlagCardView: View {
     /// iPad в альбомной: уменьшенная карточка флага, чтобы всё помещалось на один экран
     var compactForLandscape: Bool = false
     var presentationSize: CGSize? = nil
+    var expandsForInfo = true
+    var maximumInfoHeight: CGFloat? = nil
     @Environment(\.accessibilityReduceMotion) private var reduceMotion
 
     @State private var showTapHint = false
@@ -20,7 +27,17 @@ struct FlagCardView: View {
     @Environment(\.horizontalSizeClass) private var horizontalSizeClass
     @Environment(\.sizeCategory) private var sizeCategory
 
+    @State private var measuredInfoHeight: CGFloat = 0
+
     private var cardSize: CGSize {
+        var size = baseCardSize
+        if isShowingInfo && expandsForInfo {
+            size.height = min(maximumInfoHeight ?? .greatestFiniteMagnitude, max(size.height, measuredInfoHeight))
+        }
+        return size
+    }
+
+    private var baseCardSize: CGSize {
         if let presentationSize { return presentationSize }
         if compactForLandscape {
             return CGSize(width: 560, height: 240)
@@ -65,7 +82,9 @@ struct FlagCardView: View {
                 .background(Color(uiColor: .secondarySystemGroupedBackground))
                 .accessibilityLabel(LocalizationManager.shared.localizedString("Flag"))
                 .opacity(isShowingInfo ? 0 : 1)
+                .accessibilityHidden(isShowingInfo)
 
+                if isShowingInfo {
                 // Задняя сторона (информация)
                 let isCompact = compactForLandscape
                 let backTitleSize: CGFloat = isCompact ? 24 : (horizontalSizeClass == .regular ? 34 : 20)
@@ -82,7 +101,7 @@ struct FlagCardView: View {
                         // Остальная информация
                         Group {
                             // Столица
-                            if let capitals = country.capital, !capitals.isEmpty {
+                            if showCapital, let capitals = country.capital, !capitals.isEmpty {
                                 let capitalText = getLocalizedText("Capital")
                                 let localizedCapitals = capitals.map { getLocalizedCapital($0) }
                                 Text("\(capitalText): \(localizedCapitals.joined(separator: ", "))")
@@ -90,18 +109,21 @@ struct FlagCardView: View {
                             }
 
                             // Население
+                            if showPopulation {
                             let populationText = getLocalizedText("Population")
                             Text("\(populationText): \(formatPopulation(country.population))")
                                 .font(backInfoFont)
 
+                            }
                             // Площадь
-                            if let area = country.area {
+                            if showArea, let area = country.area {
                                 let areaText = getLocalizedText("Area")
                                 Text("\(areaText): \(formatArea(area))")
                                     .font(backInfoFont)
                             }
 
                             // Регион
+                            if showRegion {
                             let regionText = getLocalizedText("Region")
                             Text("\(regionText): \(getLocalizedRegion())")
                                 .font(backInfoFont)
@@ -111,8 +133,11 @@ struct FlagCardView: View {
                                 let subregionText = getLocalizedText("Subregion")
                                 Text("\(subregionText): \(getLocalizedSubregion(subregion))")
                                     .font(backInfoFont)
+                                    .accessibilityIdentifier("quiz.subregion")
                             }
 
+                            }
+                            if showMap { CountryFactMap(coordinates: country.latlng) }
                             // Подсказка сразу после субрегиона
                             if isShowingInfo && presentationSize == nil {
                                 HStack {
@@ -132,7 +157,15 @@ struct FlagCardView: View {
                     .padding(.horizontal, isCompact ? 16 : (horizontalSizeClass == .regular ? 32 : 16))
                     .padding(.bottom, isCompact ? 12 : (horizontalSizeClass == .regular ? 24 : 12))
                     .frame(maxWidth: .infinity, alignment: .leading)
+                    .fixedSize(horizontal: false, vertical: true)
+                    .background(GeometryReader { proxy in
+                        Color.clear.preference(key: FlagInfoHeightKey.self, value: proxy.size.height)
+                    })
                 }
+                .onPreferenceChange(FlagInfoHeightKey.self) { measuredInfoHeight = $0 }
+                .accessibilityIdentifier("quiz.countryDetails")
+                .accessibilityHidden(!isShowingInfo)
+                .allowsHitTesting(isShowingInfo)
                 .frame(width: cardSize.width, height: cardSize.height)
                 .background(Color(UIColor.secondarySystemGroupedBackground))
                 .overlay(
@@ -141,6 +174,7 @@ struct FlagCardView: View {
                 )
                 .opacity(isShowingInfo ? 1 : 0)
                 .rotation3DEffect(.degrees(reduceMotion ? 0 : 180), axis: (x: 0, y: 1, z: 0))
+                }
             }
             .frame(width: cardSize.width, height: cardSize.height, alignment: .center)
         }
@@ -188,64 +222,11 @@ struct FlagCardView: View {
     }
     
     private func getLocalizedText(_ key: String) -> String {
-        let currentLanguage = gameState.selectedLanguage.rawValue
-        if currentLanguage == "system" {
-            return LocalizationManager.shared.localizedString(key)
-        }
-        
-        switch currentLanguage {
-        case "ru":
-            switch key {
-            case "Capital": return "Столица"
-            case "Population": return "Население"
-            case "Area": return "Площадь"
-            case "Region": return "Регион"
-            case "Subregion": return "Субрегион"
-            default: return key
-            }
-        case "uk":
-            switch key {
-            case "Capital": return "Столиця"
-            case "Population": return "Населення"
-            case "Area": return "Площа"
-            case "Region": return "Регіон"
-            case "Subregion": return "Субрегіон"
-            default: return key
-            }
-        case "es":
-            switch key {
-            case "Capital": return "Capital"
-            case "Population": return "Población"
-            case "Area": return "Área"
-            case "Region": return "Región"
-            case "Subregion": return "Subregión"
-            default: return key
-            }
-        case "ca":
-            switch key {
-            case "Capital": return "Capital"
-            case "Population": return "Població"
-            case "Area": return "Àrea"
-            case "Region": return "Regió"
-            case "Subregion": return "Subregió"
-            default: return key
-            }
-        case "zh":
-            switch key {
-            case "Capital": return "首都"
-            case "Population": return "人口"
-            case "Area": return "面积"
-            case "Region": return "地区"
-            case "Subregion": return "子区域"
-            default: return key
-            }
-        default:
-            return LocalizationManager.shared.localizedString(key)
-        }
+        LocalizationManager.shared.localizedString(key)
     }
-    
+
     private func getLocalizedRegion() -> String {
-        let currentLanguage = gameState.selectedLanguage.rawValue
+        let currentLanguage = LocalizationManager.shared.currentLocale.languageCode ?? "en"
         if currentLanguage == "system" {
             return LocalizationManager.shared.localizedString(country.region)
         }
@@ -302,7 +283,7 @@ struct FlagCardView: View {
     }
     
     private func getLocalizedCapital(_ capital: String) -> String {
-        let currentLanguage = gameState.selectedLanguage.rawValue
+        let currentLanguage = LocalizationManager.shared.currentLocale.languageCode ?? "en"
         if currentLanguage == "system" { return capital }
         
         switch currentLanguage {
@@ -1424,7 +1405,7 @@ struct FlagCardView: View {
     }
     
     private func getLocalizedSubregion(_ subregion: String) -> String {
-        let currentLanguage = gameState.selectedLanguage.rawValue
+        let currentLanguage = LocalizationManager.shared.currentLocale.languageCode ?? "en"
         if currentLanguage == "system" { return subregion }
         
         switch currentLanguage {
@@ -1569,7 +1550,7 @@ struct FlagCardView: View {
     }
     
     private func formatPopulation(_ population: Int) -> String {
-        let currentLanguage = gameState.selectedLanguage.rawValue
+        let currentLanguage = LocalizationManager.shared.currentLocale.languageCode ?? "en"
         let formatter = NumberFormatter()
         formatter.numberStyle = .decimal
         formatter.groupingSeparator = " "
@@ -1619,7 +1600,7 @@ struct FlagCardView: View {
     }
     
     private func formatArea(_ area: Double) -> String {
-        let currentLanguage = gameState.selectedLanguage.rawValue
+        let currentLanguage = LocalizationManager.shared.currentLocale.languageCode ?? "en"
         let formatter = NumberFormatter()
         formatter.numberStyle = .decimal
         formatter.maximumFractionDigits = 0
@@ -1719,4 +1700,9 @@ private struct RacingFlagPlaceholder: View {
             #endif
         }
     }
+}
+
+private struct FlagInfoHeightKey: PreferenceKey {
+    static var defaultValue: CGFloat = 0
+    static func reduce(value: inout CGFloat, nextValue: () -> CGFloat) { value = max(value, nextValue()) }
 }

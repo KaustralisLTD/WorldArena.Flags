@@ -1617,3 +1617,98 @@
 "premium.trial.yearly" = "免费试用7天，之后每年%@。";
 "premium.renewal" = "订阅将自动续订，直至取消。可在App Store订阅中管理或取消。";
 "premium.subscribe" = "订阅";
+
+/* Duel inbox */
+"duel.challenges.title" = "挑战";
+"duel.challenges.subtitle" = "邀请、进行中的对决和结果";
+
+"premium.restore.success" = "购买已恢复。";
+"premium.restore.empty" = "未找到此 Apple 账户的有效订阅。";
+"premium.access.until" = "访问有效期至";
+
+// Streak calendar and freeze inventory
+"streak.calendar.title" = "连续记录日历";
+"streak.calendar.played" = "已玩";
+"streak.calendar.frozen" = "已保护";
+"streak.calendar.missed" = "错过";
+"streak.calendar.open_day" = "尚未玩";
+"streak.calendar.previous" = "上个月";
+"streak.calendar.next" = "下个月";
+"streak.freeze.title" = "连续记录冻结卡";
+"streak.freeze.repair" = "恢复昨天 · 1张冻结卡";
+"streak.freeze.friends" = "帮助好友";
+"streak.freeze.give" = "赠送1张冻结卡";
+"streak.freeze.signin" = "登录后即可赠送和接收冻结卡。";
+"streak.freeze.unavailable" = "好友已不需要冻结卡，你的冻结卡已退回。";
+"streak.freeze.sent" = "冻结卡已送出！";
+"streak.freeze.retry" = "同步失败，请重试以完成待发送的礼物。";
+"streak.freeze.no_friends" = "目前没有冻结卡用完的好友。";
+"streak.freeze.explanation" = "一张冻结卡自动保护一个错过的日子，但不计为已玩。请提前储备，也可用一张恢复昨天的记录。";
+
+"Capital" = "首都";
+
+"Population" = "人口";
+
+"Area" = "面积";
+
+"Region" = "地区";
+
+"Subregion" = "次区域";
+
+// Avatar shop and wardrobe
+"shop.avatar" = "你的虚拟形象";
+"shop.preview_hint" = "购买前可试穿。应用后将用此形象替换个人资料照片。";
+"shop.wardrobe" = "衣柜";
+"shop.empty" = "购买的物品将显示在这里。";
+"shop.equipped" = "已装备";
+"shop.owned" = "已拥有";
+"shop.remove" = "卸下";
+"shop.equip" = "装备";
+"shop.save_error" = "已保存在此设备上。无法更新在线头像。";
+
+"home.lives.welcome" = "欢迎奖励：前7天每10分钟恢复3颗爱心，最多5颗，无需订阅。";
+
+"Profile Share CTA" = "扫描二维码，一起来玩！";
+
+
+"Profile Share Headline" = "认识这些国旗？\n证明你的实力。";
+
+"Use current time" = "设为当前时间";
+
+"Progress emails" = "进度邮件";
+
+"Progress emails detail" = "个人成绩摘要，每周最多一次。不会在每场对决后发送邮件。可随时取消订阅。";
+
+"Server Error" = "服务器暂不可用";
+
+"Try Again" = "重试";
+
+"Server error. Try again." = "服务器暂不可用. 重试";
+
+"Invalid server response." = "服务器暂不可用";
+
+"duel.network.error" = "服务器暂不可用. 重试";
+
+"duel.reminder.sent" = "提醒已发送";
+
+"duel.reminder.cooldown" = "请稍后再发送提醒。";
+
+"duel.reminder.disabled" = "该玩家已关闭对决通知。";
+
+"duel.reminder.no_device" = "该玩家没有启用推送通知的设备。";
+
+"duel.reminder.completed" = "对决已结束。";
+
+"duel.reminder.missing" = "此对决已不可用。";
+
+"Flags Brand Title" = "国旗";
+
+"lifecycle.offers" = "任务与优惠";
+
+"lifecycle.offers.detail" = "奖励、任务和其他World Arena游戏介绍。每周邮件总数不超过两封。";
+
+"lifecycle.bonus.title" = "白天也来玩一局？";
+
+"lifecycle.bonus.body" = "在你所在时区的12:00至16:00之间全对完成一次奖励挑战，可额外获得1 F-Buck。";
+
+"lifecycle.bonus.unavailable" = "此挑战已不可用。已保存的进度保持不变。";

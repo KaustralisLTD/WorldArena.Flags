@@ -234,19 +234,16 @@
 "Request Timeout" = "Időtúllépés kérése";
 "Server Not Found" = "A szerver nem található";
 "Too Many Requests" = "Túl sok kérés";
-"Server Error" = "Szerver hiba";
 "HTTP Error: %d" = "HTTP-hiba: %d";
-"Try Again" = "Próbáld újra";
 "Not enough countries in selected regions (found %d, need at least 4)" = "Nincs elég ország a kiválasztott régiókban (%d található, legalább 4 kell)";
 "Empty response from server" = "Üres válasz a szervertől";
 
 // New additions
-"Capital" = "Tőke";
-"Population" = "Lakosság";
+"Capital" = "Főváros";
+"Population" = "Népesség";
 "Area" = "Terület";
 "Region" = "Régió";
 "Subregion" = "Alrégió";
-
 // Language additions
 "system_language" = "Rendszer";
 "ru_language" = "Русский";
@@ -1737,3 +1734,89 @@
 "premium.trial.yearly" = "7 nap ingyen, utána évente %@.";
 "premium.renewal" = "Lemondásig automatikusan megújul. Kezelés és lemondás az App Store-előfizetéseknél.";
 "premium.subscribe" = "Előfizetés";
+
+/* Duel inbox */
+"duel.challenges.title" = "Kihívások";
+"duel.challenges.subtitle" = "Meghívások, aktív párbajok és eredmények";
+
+// Verified subscription status
+"premium.restore.success" = "Vásárlások visszaállítva.";
+"premium.restore.empty" = "Ehhez az Apple-fiókhoz nem található aktív előfizetés.";
+"premium.access.until" = "Hozzáférés eddig";
+
+// Streak calendar and freeze inventory
+"streak.calendar.title" = "Sorozatnaptár";
+"streak.calendar.played" = "Játszott";
+"streak.calendar.frozen" = "Befagyasztva";
+"streak.calendar.missed" = "Kihagyva";
+"streak.calendar.open_day" = "Még nem játszott";
+"streak.calendar.previous" = "Előző hónap";
+"streak.calendar.next" = "Következő hónap";
+"streak.freeze.title" = "Sorozatfagyasztók";
+"streak.freeze.repair" = "Tegnap helyreállítása · 1 fagyasztó";
+"streak.freeze.friends" = "Segíts a barátaidnak";
+"streak.freeze.give" = "1 fagyasztó ajándékozása";
+"streak.freeze.signin" = "Jelentkezz be a fagyasztók küldéséhez és fogadásához.";
+"streak.freeze.unavailable" = "A barátodnak már nincs rá szüksége. Visszakaptad a fagyasztót.";
+"streak.freeze.sent" = "Fagyasztó elküldve!";
+"streak.freeze.retry" = "A szinkronizálás sikertelen. Próbáld újra a függő ajándék befejezéséhez.";
+"streak.freeze.no_friends" = "Most egyik barátod készlete sem üres.";
+"streak.freeze.explanation" = "Egy fagyasztó automatikusan véd egy kihagyott napot, de nem számítja játszott napnak. Töltsd fel előre a készletet, vagy állítsd helyre a tegnapot.";
+
+// Avatar shop and wardrobe
+"shop.avatar" = "Az avatarod";
+"shop.preview_hint" = "Próbáld fel vásárlás előtt. Az alkalmazás erre az avatarra cseréli a profilképedet.";
+"shop.wardrobe" = "Ruhatár";
+"shop.empty" = "Itt jelennek meg a megvásárolt tárgyak.";
+"shop.equipped" = "Felvéve";
+"shop.owned" = "Megvásárolva";
+"shop.remove" = "Levétel";
+"shop.equip" = "Felvétel";
+"shop.save_error" = "Mentve az eszközön. Az online avatar frissítése sikertelen.";
+
+"home.lives.welcome" = "Üdvözlő bónusz: +3 élet 10 percenként az első 7 napban. Legfeljebb 5 élet, előfizetés nélkül.";
+
+"Profile Share CTA" = "Olvasd be a QR-kódot. Játsszunk!";
+
+
+"Profile Share Headline" = "ISMERED A ZÁSZLÓKAT?\nBIZONYÍTSD BE.";
+
+"Use current time" = "Aktuális idő használata";
+
+"Progress emails" = "E-mailek a fejlődésről";
+
+"Progress emails detail" = "Személyes összefoglalód legfeljebb hetente egyszer. Nincs e-mail minden párbaj után. Bármikor leiratkozhatsz.";
+
+"Server Error" = "A szerver nem érhető el";
+
+"Try Again" = "Próbáld újra";
+
+"Server error. Try again." = "A szerver nem érhető el. Próbáld újra";
+
+"Invalid server response." = "A szerver nem érhető el";
+
+"duel.network.error" = "A szerver nem érhető el. Próbáld újra";
+
+"duel.reminder.sent" = "Emlékeztető elküldve";
+
+"duel.reminder.cooldown" = "Várj egy kicsit az újabb emlékeztető előtt.";
+
+"duel.reminder.disabled" = "Ez a játékos kikapcsolta a párbajértesítéseket.";
+
+"duel.reminder.no_device" = "A játékosnak nincs bekapcsolt pushértesítésű eszköze.";
+
+"duel.reminder.completed" = "A párbaj már véget ért.";
+
+"duel.reminder.missing" = "Ez a párbaj már nem érhető el.";
+
+"Flags Brand Title" = "Zászlók";
+
+"lifecycle.offers" = "Kihívások és ajánlatok";
+
+"lifecycle.offers.detail" = "Bónuszok, kihívások és további World Arena-játékok. Összesen legfeljebb heti két e-mail.";
+
+"lifecycle.bonus.title" = "Játsszunk napközben is?";
+
+"lifecycle.bonus.body" = "1 extra F-Buck egy hibátlan bónuszkihívásért 12:00 és 16:00 között a saját időzónádban.";
+
+"lifecycle.bonus.unavailable" = "Ez a kihívás már nem érhető el. A mentett eredményeid megmaradnak.";

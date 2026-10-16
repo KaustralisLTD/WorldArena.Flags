@@ -1,0 +1,30 @@
+const { test } = require('node:test');
+const assert = require('node:assert/strict');
+process.env.DUEL_DB_PATH = ':memory:';
+const store = require('../db');
+test('friendship requires reciprocal consent; declines persist and retries do not duplicate requests', () => {
+  for (const username of ['aliceqa','bobqa','carolqa']) store.registerUser({ userId: username, username });
+  const bob = store.getUserByUsername('bobqa');
+  const alice = store.getUserByUsername('aliceqa');
+  assert.equal(store.addFriend('aliceqa', bob.friend_code).createdFriendRequest, true);
+  assert.equal(store.getFriends('aliceqa').length, 1);
+  assert.equal(store.getFriends('bobqa').length, 0);
+  assert.equal(store.getFriendRequests('bobqa').length, 1);
+  assert.equal(store.addFriend('aliceqa', bob.friend_code).createdFriendRequest, false);
+  assert.equal(store.respondToFriendRequest('carolqa','aliceqa',true), false);
+  assert.equal(store.respondToFriendRequest('bobqa','aliceqa',false), true);
+  assert.equal(store.getFriends('bobqa').length, 0);
+  store.addFriend('aliceqa', bob.friend_code);
+  assert.equal(store.getFriendRequests('bobqa').length, 0);
+  store.addFriend('bobqa', alice.friend_code); // Explicit later add remains possible.
+  assert.equal(store.getFriends('bobqa').length, 1);
+  assert.equal(store.getFriendRequests('aliceqa').length, 0);
+  store.removeFriendship('bobqa','aliceqa');
+  assert.equal(store.getFriends('aliceqa').length, 1);
+  store.addFriend('carolqa', bob.friend_code);
+  assert.equal(store.respondToFriendRequest('bobqa','carolqa',true), true);
+  assert.equal(store.respondToFriendRequest('bobqa','carolqa',true), true);
+  assert.equal(store.getFriends('bobqa').length, 1);
+  assert.equal(store.getFriendRequests('bobqa').length, 0);
+  store.db.close();
+});

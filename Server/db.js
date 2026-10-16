@@ -9,7 +9,7 @@ const crypto = require('crypto');
 
 const dataDir = path.join(__dirname, 'data');
 if (!fs.existsSync(dataDir)) fs.mkdirSync(dataDir, { recursive: true });
-const dbPath = path.join(dataDir, 'duel.db');
+const dbPath = process.env.DUEL_DB_PATH || path.join(dataDir, 'duel.db');
 const db = new Database(dbPath);
 db.pragma('foreign_keys = ON');
 
@@ -37,6 +37,17 @@ db.exec(`
     FOREIGN KEY (friend_username) REFERENCES users(username),
     CHECK (user_username != friend_username)
   );
+
+  CREATE TABLE IF NOT EXISTS friend_requests (
+    sender TEXT NOT NULL REFERENCES users(username),
+    recipient TEXT NOT NULL REFERENCES users(username),
+    status TEXT NOT NULL DEFAULT 'pending' CHECK(status IN ('pending','accepted','declined')),
+    created_at TEXT DEFAULT (datetime('now')),
+    PRIMARY KEY(sender, recipient),
+    CHECK(sender != recipient)
+  );
+
+  CREATE INDEX IF NOT EXISTS idx_friend_requests_recipient ON friend_requests(recipient, status);
 
   CREATE TABLE IF NOT EXISTS duel_challenges (
     id TEXT PRIMARY KEY,
@@ -460,11 +471,20 @@ function registerUser({ userId, username, deviceToken = null, stats = {} }) {
   return { username: newKey, friendCode };
 }
 
+try { db.exec(`ALTER TABLE users ADD COLUMN duel_results_notifications INTEGER NOT NULL DEFAULT 1`); } catch (_) {}
+try { db.exec(`ALTER TABLE users ADD COLUMN duel_invites_notifications INTEGER NOT NULL DEFAULT 1`); } catch (_) {}
+function setDuelNotificationPreferences(username, results, invites) {
+  const u = getCanonicalUsername(username);
+  if (!u) return;
+  if (typeof results === 'boolean') db.prepare('UPDATE users SET duel_results_notifications = ? WHERE username = ?').run(results ? 1 : 0, u);
+  if (typeof invites === 'boolean') db.prepare('UPDATE users SET duel_invites_notifications = ? WHERE username = ?').run(invites ? 1 : 0, u);
+}
+
 function getUserByUsername(username) {
   const u = getCanonicalUsername(username);
   if (!u) return null;
   return db.prepare(
-    'SELECT username, friend_code, display_name, device_token, level, xp, streak, total_games_played, correct_answers, best_time, birthday, avatar, avatar_photo_base64, achievements_json, created_at FROM users WHERE username = ?'
+    'SELECT username, friend_code, display_name, device_token, duel_results_notifications, duel_invites_notifications, level, xp, streak, total_games_played, correct_answers, best_time, birthday, avatar, avatar_photo_base64, achievements_json, created_at FROM users WHERE username = ?'
   ).get(u);
 }
 
@@ -479,9 +499,7 @@ function getUserByFriendCode(code) {
 const addFriendship = db.prepare(`
   INSERT OR IGNORE INTO friendships (user_username, friend_username) VALUES (?, ?)
 `);
-const addFriendshipReverse = db.prepare(`
-  INSERT OR IGNORE INTO friendships (user_username, friend_username) VALUES (?, ?)
-`);
+
 
 /** Однозначный username в БД: точное совпадение или без учёта регистра (при дубликатах — самый ранний created_at). */
 function getCanonicalUsername(raw) {
@@ -513,8 +531,17 @@ function addFriend(myUsername, friendCode) {
   const friendKey = friendRow.username;
   if (friendKey === meKey) return null;
   try {
-    addFriendship.run(meKey, friendKey);
-    addFriendshipReverse.run(friendKey, meKey);
+    let createdRequest = false;
+    db.transaction(() => {
+      addFriendship.run(meKey, friendKey);
+      // Adding someone is an explicit decision for this user's list only.
+      db.prepare("UPDATE friend_requests SET status = 'accepted' WHERE sender = ? AND recipient = ? AND status = 'pending'").run(friendKey, meKey);
+      const reciprocated = db.prepare('SELECT 1 FROM friendships WHERE user_username = ? AND friend_username = ?').get(friendKey, meKey);
+      if (!reciprocated) {
+        createdRequest = db.prepare('INSERT OR IGNORE INTO friend_requests(sender, recipient) VALUES (?, ?)').run(meKey, friendKey).changes > 0;
+      }
+    })();
+    friend.createdFriendRequest = createdRequest;
   } catch (e) {
     const msg = e && e.message ? String(e.message) : '';
     const fk = e && (e.code === 'SQLITE_CONSTRAINT_FOREIGNKEY' || msg.includes('FOREIGN KEY'));
@@ -641,17 +668,19 @@ function getIncomingChallenges(opponentId) {
            duel_questions_count AS duelQuestionsCount, duel_options_count AS duelOptionsCount,
            duel_questions_payload AS duelQuestionsPayload
     FROM duel_challenges
-    WHERE opponent_id = ?
+    WHERE LOWER(opponent_id) = LOWER(?)
       AND datetime(created_at) >= datetime('now', '-24 hours')
       AND (
-        status = 'pending'
+        status IN ('pending','accepted')
         OR (status = 'challenger_completed' AND opponent_score IS NULL)
       )
     ORDER BY created_at DESC
-  `).all(opponentId);
+  `).all(oid);
 }
 
 function getIncomingChallengesForSync(opponentId) {
+  const oid = getCanonicalUsername(opponentId) || normalizeUsernameId(opponentId);
+  if (!oid) return [];
   return db.prepare(`
     SELECT
       id,
@@ -671,11 +700,11 @@ function getIncomingChallengesForSync(opponentId) {
       duel_options_count AS duelOptionsCount,
       duel_questions_payload AS duelQuestionsPayload
     FROM duel_challenges
-    WHERE opponent_id = ?
-      AND status IN ('pending','challenger_completed','opponent_completed','completed')
+    WHERE LOWER(opponent_id) = LOWER(?)
+      AND status IN ('pending','accepted','challenger_completed','opponent_completed','completed')
       AND datetime(created_at) >= datetime('now', '-24 hours')
     ORDER BY created_at DESC
-  `).all(opponentId);
+  `).all(oid);
 }
 
 function getOutgoingChallenges(challengerId) {
@@ -687,7 +716,7 @@ function getOutgoingChallenges(challengerId) {
            duel_questions_count AS duelQuestionsCount, duel_options_count AS duelOptionsCount,
            duel_questions_payload AS duelQuestionsPayload
     FROM duel_challenges
-    WHERE challenger_id = ?
+    WHERE LOWER(challenger_id) = LOWER(?)
       AND datetime(created_at) >= datetime('now', '-24 hours')
     ORDER BY created_at DESC
   `).all(challengerId);
@@ -697,12 +726,34 @@ function removeFriendship(userA, friendUsername) {
   const a = getCanonicalUsername(userA);
   const b = getCanonicalUsername(friendUsername);
   if (!a || !b || a === b) return false;
-  const r = db
-    .prepare(
-      'DELETE FROM friendships WHERE (user_username = ? AND friend_username = ?) OR (user_username = ? AND friend_username = ?)'
-    )
-    .run(a, b, b, a);
-  return r.changes > 0;
+  return db.transaction(() => {
+    const r = db.prepare('DELETE FROM friendships WHERE user_username = ? AND friend_username = ?').run(a, b);
+    db.prepare("UPDATE friend_requests SET status = 'declined' WHERE sender = ? AND recipient = ? AND status = 'pending'").run(a, b);
+    return r.changes > 0;
+  })();
+}
+
+function getFriendRequests(username) {
+  const recipient = getCanonicalUsername(username);
+  if (!recipient) return [];
+  return db.prepare(`SELECT r.sender AS username, COALESCE(u.display_name, u.username) AS displayName,
+    r.created_at AS createdAt FROM friend_requests r JOIN users u ON u.username = r.sender
+    WHERE r.recipient = ? AND r.status = 'pending' ORDER BY r.created_at, r.sender`).all(recipient);
+}
+
+function respondToFriendRequest(username, senderUsername, accept) {
+  const recipient = getCanonicalUsername(username);
+  const sender = getCanonicalUsername(senderUsername);
+  if (!recipient || !sender || recipient === sender) return false;
+  return db.transaction(() => {
+    const request = db.prepare('SELECT status FROM friend_requests WHERE sender = ? AND recipient = ?').get(sender, recipient);
+    if (!request) return false;
+    const status = accept ? 'accepted' : 'declined';
+    if (request.status !== 'pending') return request.status === status;
+    if (accept) addFriendship.run(recipient, sender);
+    db.prepare('UPDATE friend_requests SET status = ? WHERE sender = ? AND recipient = ?').run(status, sender, recipient);
+    return true;
+  })();
 }
 
 function updateChallengeScore(id, side, score, elapsedMs) {
@@ -825,6 +876,14 @@ function mergeUserInto(primary, dup) {
     )
   `).run();
 
+  // Preserve requests when consolidating legacy case-variant usernames; never overwrite an existing decision.
+  db.prepare(`INSERT OR IGNORE INTO friend_requests(sender, recipient, status, created_at)
+    SELECT CASE WHEN sender = ? THEN ? ELSE sender END,
+           CASE WHEN recipient = ? THEN ? ELSE recipient END, status, created_at
+    FROM friend_requests WHERE (sender = ? OR recipient = ?)
+      AND NOT (sender IN (?, ?) AND recipient IN (?, ?))`).run(dup, primary, dup, primary, dup, dup, dup, primary, dup, primary);
+  db.prepare('DELETE FROM friend_requests WHERE sender = ? OR recipient = ?').run(dup, dup);
+
   db.prepare('UPDATE duel_challenges SET challenger_id = ? WHERE challenger_id = ?').run(primary, dup);
   db.prepare('UPDATE duel_challenges SET opponent_id = ? WHERE opponent_id = ?').run(primary, dup);
 
@@ -938,6 +997,7 @@ function getTimeChallengeRank(period = 'daily', username, score) {
 }
 
 module.exports = {
+  setDuelNotificationPreferences,
   db,
   registerUser,
   getUserByUsername,
@@ -947,6 +1007,8 @@ module.exports = {
   getUserByFriendCode,
   addFriend,
   getFriends,
+  getFriendRequests,
+  respondToFriendRequest,
   setDisplayName,
   setUserAvatar,
   createChallenge,

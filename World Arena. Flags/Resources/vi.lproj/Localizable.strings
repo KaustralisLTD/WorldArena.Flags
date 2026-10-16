@@ -234,19 +234,16 @@
 "Request Timeout" = "Yêu cầu hết thời gian";
 "Server Not Found" = "Không tìm thấy máy chủ";
 "Too Many Requests" = "Quá nhiều yêu cầu";
-"Server Error" = "Lỗi máy chủ";
 "HTTP Error: %d" = "Lỗi HTTP: %d";
-"Try Again" = "Thử lại";
 "Not enough countries in selected regions (found %d, need at least 4)" = "Không đủ quốc gia ở các khu vực đã chọn (đã tìm thấy %d, cần ít nhất 4)";
 "Empty response from server" = "Phản hồi trống từ máy chủ";
 
 // New additions
 "Capital" = "Thủ đô";
 "Population" = "Dân số";
-"Area" = "Khu vực";
-"Region" = "Vùng đất";
+"Area" = "Diện tích";
+"Region" = "Khu vực";
 "Subregion" = "Tiểu vùng";
-
 // Language additions
 "system_language" = "Hệ thống";
 "ru_language" = "Русский";
@@ -1737,3 +1734,89 @@
 "premium.trial.yearly" = "Miễn phí 7 ngày, sau đó %@ mỗi năm.";
 "premium.renewal" = "Tự động gia hạn cho đến khi hủy. Quản lý hoặc hủy trong mục đăng ký của App Store.";
 "premium.subscribe" = "Đăng ký";
+
+/* Duel inbox */
+"duel.challenges.title" = "Thử thách";
+"duel.challenges.subtitle" = "Lời mời, trận đấu đang diễn ra và kết quả";
+
+// Verified subscription status
+"premium.restore.success" = "Đã khôi phục giao dịch mua.";
+"premium.restore.empty" = "Không tìm thấy gói đăng ký đang hoạt động cho Tài khoản Apple này.";
+"premium.access.until" = "Truy cập đến";
+
+// Streak calendar and freeze inventory
+"streak.calendar.title" = "Lịch chuỗi ngày";
+"streak.calendar.played" = "Đã chơi";
+"streak.calendar.frozen" = "Được bảo vệ";
+"streak.calendar.missed" = "Bỏ lỡ";
+"streak.calendar.open_day" = "Chưa chơi";
+"streak.calendar.previous" = "Tháng trước";
+"streak.calendar.next" = "Tháng sau";
+"streak.freeze.title" = "Vật phẩm bảo vệ chuỗi";
+"streak.freeze.repair" = "Khôi phục hôm qua · 1 vật phẩm";
+"streak.freeze.friends" = "Giúp bạn bè";
+"streak.freeze.give" = "Tặng 1 vật phẩm";
+"streak.freeze.signin" = "Đăng nhập để tặng và nhận vật phẩm bảo vệ chuỗi.";
+"streak.freeze.unavailable" = "Bạn của bạn không còn cần nữa. Vật phẩm đã được trả lại.";
+"streak.freeze.sent" = "Đã gửi vật phẩm!";
+"streak.freeze.retry" = "Không thể đồng bộ. Thử lại để hoàn tất quà đang chờ.";
+"streak.freeze.no_friends" = "Hiện không có bạn bè nào hết vật phẩm.";
+"streak.freeze.explanation" = "Một vật phẩm tự động bảo vệ một ngày bỏ lỡ nhưng không tính là ngày đã chơi. Hãy dự trữ trước hoặc dùng để khôi phục hôm qua.";
+
+// Avatar shop and wardrobe
+"shop.avatar" = "Ảnh đại diện của bạn";
+"shop.preview_hint" = "Thử trước khi mua. Áp dụng sẽ thay ảnh hồ sơ bằng nhân vật này.";
+"shop.wardrobe" = "Tủ đồ";
+"shop.empty" = "Vật phẩm đã mua sẽ xuất hiện ở đây.";
+"shop.equipped" = "Đang dùng";
+"shop.owned" = "Đã mua";
+"shop.remove" = "Tháo";
+"shop.equip" = "Trang bị";
+"shop.save_error" = "Đã lưu trên thiết bị. Không thể cập nhật ảnh đại diện trực tuyến.";
+
+"home.lives.welcome" = "Quà chào mừng: +3 mạng mỗi 10 phút trong 7 ngày đầu. Tối đa 5 mạng, không cần đăng ký trả phí.";
+
+"Profile Share CTA" = "Quét mã QR. Cùng chơi nhé!";
+
+
+"Profile Share Headline" = "BẠN BIẾT CÁC LÁ CỜ?\nHÃY CHỨNG MINH.";
+
+"Use current time" = "Đặt giờ hiện tại";
+
+"Progress emails" = "Email tiến bộ";
+
+"Progress emails detail" = "Bản tổng kết cá nhân, tối đa mỗi tuần một lần. Không gửi email sau mỗi trận đấu. Hủy đăng ký bất cứ lúc nào.";
+
+"Server Error" = "Máy chủ không khả dụng";
+
+"Try Again" = "Thử lại";
+
+"Server error. Try again." = "Máy chủ không khả dụng. Thử lại";
+
+"Invalid server response." = "Máy chủ không khả dụng";
+
+"duel.network.error" = "Máy chủ không khả dụng. Thử lại";
+
+"duel.reminder.sent" = "Đã gửi lời nhắc";
+
+"duel.reminder.cooldown" = "Vui lòng chờ trước khi gửi lời nhắc tiếp theo.";
+
+"duel.reminder.disabled" = "Người chơi này đã tắt thông báo đấu.";
+
+"duel.reminder.no_device" = "Người chơi này chưa bật thông báo đẩy trên thiết bị nào.";
+
+"duel.reminder.completed" = "Trận đấu đã kết thúc.";
+
+"duel.reminder.missing" = "Trận đấu này không còn khả dụng.";
+
+"Flags Brand Title" = "Quốc kỳ";
+
+"lifecycle.offers" = "Thử thách và ưu đãi";
+
+"lifecycle.offers.detail" = "Phần thưởng, thử thách và các trò chơi World Arena khác. Tổng cộng tối đa hai email mỗi tuần.";
+
+"lifecycle.bonus.title" = "Thử chơi cả ban ngày nhé?";
+
+"lifecycle.bonus.body" = "Thêm 1 F-Buck khi hoàn thành chính xác toàn bộ một thử thách thưởng trong khoảng 12:00–16:00 theo múi giờ của bạn.";
+
+"lifecycle.bonus.unavailable" = "Thử thách này không còn khả dụng. Tiến bộ đã lưu của bạn vẫn được giữ nguyên.";

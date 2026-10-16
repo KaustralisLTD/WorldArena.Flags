@@ -57,3 +57,10 @@ enum CountryLearningCatalog {
         }
     }
 }
+
+/// Locale collation keeps Ukrainian Є/І/Ї and Russian Ё in their alphabet positions.
+enum LearningAlphabetOrder {
+    static func precedes(_ lhs: String, _ rhs: String, locale: Locale) -> Bool {
+        lhs.compare(rhs, options: .caseInsensitive, locale: locale) == .orderedAscending
+    }
+}

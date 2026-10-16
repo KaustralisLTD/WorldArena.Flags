@@ -48,8 +48,10 @@ enum MotivationalRanking {
     static func countryRank(for inputs: Inputs, countryCode: String) -> Int {
         let upper = countryCode.uppercased()
         let pool = countryPool(for: upper)
-        let p = adjustedPercentile(inputs: inputs, salt: "COUNTRY_\(upper)")
-        return rankFromPercentile(p, pool: pool)
+        // Project the same worldwide position into the smaller country pool.
+        // A country rank can never be worse than the corresponding world rank.
+        let global = worldRank(for: inputs)
+        return 1 + (global - 1) * (pool - 1) / (maxGlobalParticipants - 1)
     }
 
     private static func rankFromPercentile(_ p: Double, pool: Int) -> Int {

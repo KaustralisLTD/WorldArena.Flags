@@ -5,6 +5,7 @@ import SwiftUI
 struct LearningCountryHeroView: View {
     let countryCode: String
     let countryName: String
+    var safeTop: CGFloat = 0
     let flagEmoji: String
     let regionName: String
     let isLearned: Bool
@@ -24,36 +25,28 @@ struct LearningCountryHeroView: View {
     }
 
     var body: some View {
-        GeometryReader { geo in
-            ZStack {
-                heroBackground
-                Color.black.opacity(0.28)
-                    .allowsHitTesting(false)
-                VStack(spacing: 0) {
-                    topBar(safeTop: geo.safeAreaInsets.top)
-                    Spacer(minLength: 8)
-                    centerContent
-                    Spacer(minLength: 12)
-                }
-            }
+        VStack(spacing: 0) {
+            topBar(safeTop: safeTop)
+            Spacer(minLength: 12)
+            centerContent
+            Spacer(minLength: 16)
         }
-        .frame(height: 288)
-        .ignoresSafeArea(.container, edges: .top)
+        .frame(height: 260 + safeTop)
+        .background(heroBackground.ignoresSafeArea(.container, edges: .top))
     }
 
     private var heroBackground: some View {
-        ZStack {
-            LinearGradient(
-                colors: headerStyle.gradientColors,
-                startPoint: .topLeading,
-                endPoint: .bottomTrailing
-            )
-            Text(flagEmoji)
-                .font(.system(size: 220))
-                .opacity(0.2)
-                .blur(radius: 18)
-                .offset(y: 10)
+        GeometryReader { geometry in
+            AsyncImage(url: URL(string: "https://flagcdn.com/w1280/\(countryCode.lowercased()).png")) { image in
+                image.resizable().scaledToFill()
+            } placeholder: {
+                Color(UIColor.secondarySystemBackground)
+            }
+            .frame(width: geometry.size.width, height: geometry.size.height)
+            .clipped()
+            .overlay(LinearGradient(colors: [.black.opacity(0.12), .black.opacity(0.68)], startPoint: .top, endPoint: .bottom))
         }
+        .accessibilityHidden(true)
     }
 
     private func topBar(safeTop: CGFloat) -> some View {
@@ -67,6 +60,7 @@ struct LearningCountryHeroView: View {
                     .clipShape(Circle())
             }
             .accessibilityLabel(Text(localizationManager.localizedString("Back")))
+            .accessibilityIdentifier("learning.country.back")
 
             Spacer(minLength: 8)
 
@@ -77,7 +71,7 @@ struct LearningCountryHeroView: View {
         }
         .padding(.horizontal, 16)
         // Ниже выреза/Dynamic Island и камеры — панель управления не перекрывается.
-        .padding(.top, safeTop + 68)
+        .padding(.top, safeTop + 12)
     }
 
     private func navCircleButton(icon: String, enabled: Bool, action: @escaping () -> Void) -> some View {
@@ -89,6 +83,7 @@ struct LearningCountryHeroView: View {
                 .background(Color.white.opacity(enabled ? 0.22 : 0.1))
                 .clipShape(Circle())
         }
+        .accessibilityIdentifier(icon == "chevron.right" ? "learning.country.next" : "learning.country.previous")
         .disabled(!enabled)
         .opacity(enabled ? 1 : 0.35)
         .accessibilityLabel(Text(icon == "chevron.right"
@@ -124,8 +119,6 @@ struct LearningCountryHeroView: View {
 
     private var centerContent: some View {
         VStack(spacing: 10) {
-            Text(flagEmoji)
-                .font(.system(size: 56))
             Text(countryName)
                 .font(.system(size: 28, weight: .bold, design: .rounded))
                 .foregroundColor(.white)
@@ -208,7 +201,7 @@ struct CountryStatCardView: View {
 
     var body: some View {
         VStack(alignment: .leading, spacing: 8) {
-            HStack(spacing: 8) {
+            VStack(alignment: .leading, spacing: 6) {
                 if let emojiFallback {
                     Text(emojiFallback).font(.system(size: 20))
                 } else {

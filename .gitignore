@@ -59,3 +59,9 @@ fastlane/Preview.html
 fastlane/screenshots/**/*.png
 fastlane/test_output
 .derivedData/
+
+# Native dependency build products
+Server/node_modules/better-sqlite3/build/
+
+# Private production diagnostics
+Server/flags-server-diagnostics.txt

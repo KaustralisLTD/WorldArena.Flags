@@ -234,9 +234,7 @@
 "Request Timeout" = "ขอหมดเวลา";
 "Server Not Found" = "ไม่พบเซิร์ฟเวอร์";
 "Too Many Requests" = "คำขอมากเกินไป";
-"Server Error" = "ข้อผิดพลาดของเซิร์ฟเวอร์";
 "HTTP Error: %d" = "ข้อผิดพลาด HTTP: %d";
-"Try Again" = "ลองอีกครั้ง";
 "Not enough countries in selected regions (found %d, need at least 4)" = "ประเทศในภูมิภาคที่เลือกมีไม่เพียงพอ (พบ %d ต้องการอย่างน้อย 4)";
 "Empty response from server" = "การตอบกลับว่างเปล่าจากเซิร์ฟเวอร์";
 
@@ -245,8 +243,7 @@
 "Population" = "ประชากร";
 "Area" = "พื้นที่";
 "Region" = "ภูมิภาค";
-"Subregion" = "อนุภูมิภาค";
-
+"Subregion" = "ภูมิภาคย่อย";
 // Language additions
 "system_language" = "ระบบ";
 "ru_language" = "รัสเซีย";
@@ -1736,3 +1733,89 @@
 "premium.trial.yearly" = "ฟรี 7 วัน จากนั้น %@ ต่อปี";
 "premium.renewal" = "ต่ออายุอัตโนมัติจนกว่าจะยกเลิก จัดการหรือยกเลิกได้ในรายการสมัครรับของ App Store";
 "premium.subscribe" = "สมัครรับ";
+
+/* Duel inbox */
+"duel.challenges.title" = "คำท้า";
+"duel.challenges.subtitle" = "คำเชิญ การดวลที่กำลังเล่น และผลการแข่งขัน";
+
+// Verified subscription status
+"premium.restore.success" = "กู้คืนการซื้อแล้ว";
+"premium.restore.empty" = "ไม่พบการสมัครสมาชิกที่ใช้งานอยู่สำหรับบัญชี Apple นี้";
+"premium.access.until" = "เข้าถึงได้จนถึง";
+
+// Streak calendar and freeze inventory
+"streak.calendar.title" = "ปฏิทินสถิติรายวัน";
+"streak.calendar.played" = "เล่นแล้ว";
+"streak.calendar.frozen" = "ป้องกันแล้ว";
+"streak.calendar.missed" = "พลาด";
+"streak.calendar.open_day" = "ยังไม่ได้เล่น";
+"streak.calendar.previous" = "เดือนก่อน";
+"streak.calendar.next" = "เดือนถัดไป";
+"streak.freeze.title" = "ตัวแช่แข็งสถิติ";
+"streak.freeze.repair" = "กู้คืนเมื่อวาน · 1 ชิ้น";
+"streak.freeze.friends" = "ช่วยเพื่อน";
+"streak.freeze.give" = "ให้ 1 ชิ้น";
+"streak.freeze.signin" = "เข้าสู่ระบบเพื่อส่งและรับตัวแช่แข็ง";
+"streak.freeze.unavailable" = "เพื่อนไม่ต้องการแล้ว คืนตัวแช่แข็งให้คุณแล้ว";
+"streak.freeze.sent" = "ส่งตัวแช่แข็งแล้ว!";
+"streak.freeze.retry" = "ซิงค์ไม่สำเร็จ ลองอีกครั้งเพื่อส่งของขวัญที่ค้างอยู่";
+"streak.freeze.no_friends" = "ตอนนี้ไม่มีเพื่อนที่ตัวแช่แข็งหมด";
+"streak.freeze.explanation" = "ตัวแช่แข็งหนึ่งชิ้นป้องกันวันที่พลาดหนึ่งวันโดยอัตโนมัติ แต่ไม่นับเป็นวันที่เล่น เตรียมไว้ก่อนหยุดพักหรือใช้กู้คืนเมื่อวาน";
+
+// Avatar shop and wardrobe
+"shop.avatar" = "อวตารของคุณ";
+"shop.preview_hint" = "ลองก่อนซื้อ เมื่อใช้จะเปลี่ยนรูปโปรไฟล์เป็นอวตารนี้";
+"shop.wardrobe" = "ตู้เสื้อผ้า";
+"shop.empty" = "สินค้าที่ซื้อจะแสดงที่นี่";
+"shop.equipped" = "สวมใส่อยู่";
+"shop.owned" = "ซื้อแล้ว";
+"shop.remove" = "ถอด";
+"shop.equip" = "สวมใส่";
+"shop.save_error" = "บันทึกในอุปกรณ์แล้ว ไม่สามารถอัปเดตอวตารออนไลน์ได้";
+
+"home.lives.welcome" = "โบนัสต้อนรับ: +3 ชีวิตทุก 10 นาทีใน 7 วันแรก สะสมได้สูงสุด 5 ชีวิต ไม่ต้องสมัครสมาชิก";
+
+"Profile Share CTA" = "สแกน QR แล้วมาเล่นกัน!";
+
+
+"Profile Share Headline" = "รู้จักธงไหม?\nพิสูจน์เลย";
+
+"Use current time" = "ตั้งเวลาปัจจุบัน";
+
+"Progress emails" = "อีเมลความก้าวหน้า";
+
+"Progress emails detail" = "สรุปส่วนตัวไม่เกินสัปดาห์ละครั้ง ไม่มีอีเมลหลังการดวลทุกครั้ง ยกเลิกได้ทุกเมื่อ";
+
+"Server Error" = "เซิร์ฟเวอร์ไม่พร้อมใช้งาน";
+
+"Try Again" = "ลองอีกครั้ง";
+
+"Server error. Try again." = "เซิร์ฟเวอร์ไม่พร้อมใช้งาน. ลองอีกครั้ง";
+
+"Invalid server response." = "เซิร์ฟเวอร์ไม่พร้อมใช้งาน";
+
+"duel.network.error" = "เซิร์ฟเวอร์ไม่พร้อมใช้งาน. ลองอีกครั้ง";
+
+"duel.reminder.sent" = "ส่งการเตือนแล้ว";
+
+"duel.reminder.cooldown" = "กรุณารอก่อนส่งการเตือนอีกครั้ง";
+
+"duel.reminder.disabled" = "ผู้เล่นคนนี้ปิดการแจ้งเตือนการดวล";
+
+"duel.reminder.no_device" = "ผู้เล่นคนนี้ไม่มีอุปกรณ์ที่เปิดการแจ้งเตือนแบบพุช";
+
+"duel.reminder.completed" = "การดวลจบแล้ว";
+
+"duel.reminder.missing" = "การดวลนี้ไม่พร้อมใช้งานแล้ว";
+
+"Flags Brand Title" = "ธง";
+
+"lifecycle.offers" = "ภารกิจและข้อเสนอ";
+
+"lifecycle.offers.detail" = "โบนัส ภารกิจ และเกม World Arena อื่น ๆ รวมไม่เกินสองอีเมลต่อสัปดาห์";
+
+"lifecycle.bonus.title" = "ลองเล่นตอนกลางวันด้วยไหม?";
+
+"lifecycle.bonus.body" = "รับ F-Buck เพิ่ม 1 หน่วยเมื่อทำภารกิจโบนัสหนึ่งครั้งได้ถูกทุกข้อระหว่าง 12:00–16:00 ตามเขตเวลาของคุณ";
+
+"lifecycle.bonus.unavailable" = "ความท้าทายนี้ไม่พร้อมใช้งานแล้ว ความคืบหน้าที่บันทึกไว้ยังคงอยู่";

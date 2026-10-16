@@ -6,6 +6,12 @@ import UIKit
 struct ShareService {
     static let shared = ShareService()
     
+    func profileURL(username: String) -> URL {
+        let safe = CharacterSet(charactersIn: "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789-._~")
+        let segment = username.addingPercentEncoding(withAllowedCharacters: safe) ?? ""
+        return URL(string: "https://flags.worldarena.games/profile/" + segment)!
+    }
+
     private let appStoreId = "6744296834"
     
     var appStoreURL: URL? {

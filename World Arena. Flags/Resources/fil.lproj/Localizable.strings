@@ -234,19 +234,16 @@
 "Request Timeout" = "Humiling ng Timeout";
 "Server Not Found" = "Hindi Nahanap ang Server";
 "Too Many Requests" = "Napakaraming Kahilingan";
-"Server Error" = "Error sa Server";
 "HTTP Error: %d" = "HTTP Error: %d";
-"Try Again" = "Subukan Muli";
 "Not enough countries in selected regions (found %d, need at least 4)" = "Hindi sapat na mga bansa sa mga napiling rehiyon (nahanap %d, kailangan ng hindi bababa sa 4)";
 "Empty response from server" = "Walang laman na tugon mula sa server";
 
 // New additions
-"Capital" = "Kapital";
+"Capital" = "Kabisera";
 "Population" = "Populasyon";
-"Area" = "Lugar";
+"Area" = "Lawak";
 "Region" = "Rehiyon";
-"Subregion" = "Subregion";
-
+"Subregion" = "Subrehiyon";
 // Language additions
 "system_language" = "Sistema";
 "ru_language" = "Русский";
@@ -1737,3 +1734,89 @@
 "premium.trial.yearly" = "Libre sa loob ng 7 araw, pagkatapos ay %@ bawat taon.";
 "premium.renewal" = "Awtomatikong mare-renew maliban kung kakanselahin. Pamahalaan o kanselahin sa iyong mga subscription sa App Store.";
 "premium.subscribe" = "Mag-subscribe";
+
+/* Duel inbox */
+"duel.challenges.title" = "Mga hamon";
+"duel.challenges.subtitle" = "Mga imbitasyon, aktibong duel at resulta";
+
+// Verified subscription status
+"premium.restore.success" = "Naibalik ang mga binili.";
+"premium.restore.empty" = "Walang aktibong subscription para sa Apple Account na ito.";
+"premium.access.until" = "Access hanggang";
+
+// Streak calendar and freeze inventory
+"streak.calendar.title" = "Kalendaryo ng streak";
+"streak.calendar.played" = "Naglaro";
+"streak.calendar.frozen" = "Naka-freeze";
+"streak.calendar.missed" = "Nalaktawan";
+"streak.calendar.open_day" = "Hindi pa naglaro";
+"streak.calendar.previous" = "Nakaraang buwan";
+"streak.calendar.next" = "Susunod na buwan";
+"streak.freeze.title" = "Mga streak freeze";
+"streak.freeze.repair" = "Ibalik ang kahapon · 1 freeze";
+"streak.freeze.friends" = "Tulungan ang mga kaibigan";
+"streak.freeze.give" = "Magbigay ng 1 freeze";
+"streak.freeze.signin" = "Mag-sign in para magbigay at tumanggap ng mga freeze.";
+"streak.freeze.unavailable" = "Hindi na kailangan ng kaibigan mo. Naibalik ang freeze mo.";
+"streak.freeze.sent" = "Naipadala ang freeze!";
+"streak.freeze.retry" = "Hindi ma-sync. Subukan muli upang tapusin ang nakabinbing regalo.";
+"streak.freeze.no_friends" = "Walang kaibigang ubos ang freeze ngayon.";
+"streak.freeze.explanation" = "Awtomatikong pinoprotektahan ng isang freeze ang isang araw na hindi naglaro. Hindi ito binibilang na araw ng paglalaro. Maghanda bago magpahinga o ibalik ang kahapon.";
+
+// Avatar shop and wardrobe
+"shop.avatar" = "Iyong avatar";
+"shop.preview_hint" = "Subukan bago bumili. Papalitan ng avatar na ito ang larawan ng profile kapag inilapat.";
+"shop.wardrobe" = "Garderoba";
+"shop.empty" = "Dito makikita ang mga binili mong item.";
+"shop.equipped" = "Suot";
+"shop.owned" = "Nabili na";
+"shop.remove" = "Alisin";
+"shop.equip" = "Isuot";
+"shop.save_error" = "Na-save sa device. Hindi ma-update ang avatar online.";
+
+"home.lives.welcome" = "Welcome bonus: +3 buhay bawat 10 minuto sa unang 7 araw. Hanggang 5 buhay; hindi kailangan ng subscription.";
+
+"Profile Share CTA" = "I-scan ang QR. Laro tayo!";
+
+
+"Profile Share Headline" = "ALAM MO ANG MGA WATAWAT?\nPATUNAYAN.";
+
+"Use current time" = "Gamitin ang kasalukuyang oras";
+
+"Progress emails" = "Mga email ng progreso";
+
+"Progress emails detail" = "Personal na buod, hanggang isang beses bawat linggo. Walang email pagkatapos ng bawat duel. Mag-unsubscribe anumang oras.";
+
+"Server Error" = "Hindi available ang server";
+
+"Try Again" = "Subukang muli";
+
+"Server error. Try again." = "Hindi available ang server. Subukang muli";
+
+"Invalid server response." = "Hindi available ang server";
+
+"duel.network.error" = "Hindi available ang server. Subukang muli";
+
+"duel.reminder.sent" = "Naipadala ang paalala";
+
+"duel.reminder.cooldown" = "Maghintay bago magpadala ng panibagong paalala.";
+
+"duel.reminder.disabled" = "Pinatay ng manlalarong ito ang mga abiso sa duel.";
+
+"duel.reminder.no_device" = "Walang device ang manlalarong ito na may aktibong push notification.";
+
+"duel.reminder.completed" = "Tapos na ang duel.";
+
+"duel.reminder.missing" = "Hindi na available ang duel na ito.";
+
+"Flags Brand Title" = "Mga Watawat";
+
+"lifecycle.offers" = "Mga hamon at alok";
+
+"lifecycle.offers.detail" = "Mga bonus, hamon at iba pang larong World Arena. Hanggang dalawang email sa kabuuan bawat linggo.";
+
+"lifecycle.bonus.title" = "Subukan ding maglaro sa araw?";
+
+"lifecycle.bonus.body" = "Dagdag na 1 F-Buck para sa isang perpektong bonus challenge mula 12:00 hanggang 16:00 sa iyong time zone.";
+
+"lifecycle.bonus.unavailable" = "Hindi na available ang hamong ito. Nananatili ang na-save mong progreso.";

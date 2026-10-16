@@ -57,6 +57,8 @@ struct FriendStreaksView: View {
         ZStack {
             pageBackground
             
+            GeometryReader { geometry in
+            ScrollView {
             VStack(spacing: 26) {
                 Spacer(minLength: 8)
                 
@@ -242,8 +244,14 @@ struct FriendStreaksView: View {
                     .opacity(showButtons ? 1 : 0)
                     .scaleEffect(showButtons ? 1 : 0.8)
                 }
-                .padding(.horizontal, 40)
-                .padding(.bottom, 40)
+                .padding(.horizontal, 32)
+                .frame(maxWidth: 640)
+                .padding(.bottom, 24)
+            }
+            .frame(maxWidth: 1000)
+            .frame(minHeight: geometry.size.height)
+            .frame(maxWidth: .infinity)
+            }
             }
         }
         .overlay(alignment: .bottom) {

@@ -61,7 +61,7 @@ class CountryDetailsService {
         let photoURLs = CountryPhotosService.shared.getPhotos(for: code).map(\.imageURL)
         
         if let api = try? await CountryService.shared.fetchCountryDetailByCode(code) {
-            let capital = api.capitalFirst ?? getCapitalName(for: code, language: language)
+            let capital = CountryDatabase.getLocalizedCapitalName(for: code, language: language, fallback: api.capitalFirst ?? getCapitalName(for: code, language: language))
             let population: String = {
                 guard let p = api.population else { return getPopulation(for: code) }
                 if p >= 1_000_000_000 { return String(format: "%.2fB", Double(p) / 1_000_000_000) }
@@ -391,20 +391,21 @@ class CountryDetailsService {
     @MainActor
     private func getDefaultCountryDetail(code: String, language: String, photoURLs: [String]? = nil) -> CountryDetail {
         let countryName = getLocalizedCountryName(for: code)
+        let local = CountryDatabase.getLocalizedCountryData(for: code, language: language)
         let photos = photoURLs ?? getDefaultPhotos(for: code)
         return CountryDetail(
             code: code,
             name: countryName,
             flag: getFlagEmoji(for: code),
-            capital: getCapitalName(for: code, language: language),
-            officialLanguage: getOfficialLanguage(for: code, language: language),
-            government: getGovernmentType(for: code, language: language),
-            leader: getLeaderName(for: code, language: language),
-            dialingCode: getDialingCode(for: code),
-            population: getPopulation(for: code),
-            currency: getCurrency(for: code, language: language),
-            independence: getIndependenceYear(for: code),
-            area: getArea(for: code),
+            capital: local?.capital ?? getCapitalName(for: code, language: language),
+            officialLanguage: local?.officialLanguage ?? getOfficialLanguage(for: code, language: language),
+            government: local?.government ?? getGovernmentType(for: code, language: language),
+            leader: local?.leader ?? getLeaderName(for: code, language: language),
+            dialingCode: local?.dialingCode ?? getDialingCode(for: code),
+            population: local?.population ?? getPopulation(for: code),
+            currency: local?.currency ?? getCurrency(for: code, language: language),
+            independence: local?.independence ?? getIndependenceYear(for: code),
+            area: local?.area ?? getArea(for: code),
             description: getCountryDescription(for: code, language: language),
             flagDescription: getFlagDescription(for: code, language: language),
             anthemDescription: getAnthemDescription(for: code, language: language),

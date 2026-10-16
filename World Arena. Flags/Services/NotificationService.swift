@@ -8,6 +8,10 @@ import AppKit
 
 class NotificationService: NSObject, ObservableObject {
     static let shared = NotificationService()
+    // Retained across cold launch until the main view has loaded the requested duel.
+    @Published var pendingDuelID: String?
+    @Published var pendingLeague = false
+    var pendingDuelIsResult = false
     
     private let userDefaults = UserDefaults.standard
     private let lastAppOpenKey = "lastAppOpenDate"
@@ -17,6 +21,28 @@ class NotificationService: NSObject, ObservableObject {
         setupNotificationCenter()
     }
     
+    static func savedReminderTime(defaults: UserDefaults = .standard, now: Date = Date()) -> Date {
+        (defaults.object(forKey: "reminderTime") as? Date)
+            ?? Calendar.current.date(bySettingHour: 19, minute: 0, second: 0, of: now)!
+    }
+
+    @MainActor
+    func scheduleLeagueReminder() {
+        let center = UNUserNotificationCenter.current()
+        center.removePendingNotificationRequests(withIdentifiers: ["league_weekly"])
+        guard userDefaults.object(forKey: "notificationsEnabled") as? Bool != false,
+              userDefaults.object(forKey: "leagueNotifications") as? Bool != false else { return }
+        let content = UNMutableNotificationContent()
+        content.title = LocalizationManager.shared.localizedString("Лиги")
+        content.body = LocalizationManager.shared.localizedString("league.weekly_result.title.week_finished")
+        content.sound = .default
+        content.userInfo = ["type": "league_weekly"]
+        var time = Calendar.current.dateComponents([.hour, .minute], from: Self.savedReminderTime())
+        time.weekday = 2
+        center.add(UNNotificationRequest(identifier: "league_weekly", content: content,
+            trigger: UNCalendarNotificationTrigger(dateMatching: time, repeats: true)))
+    }
+
     private func setupNotificationCenter() {
         UNUserNotificationCenter.current().delegate = self
     }
@@ -38,6 +64,70 @@ class NotificationService: NSObject, ObservableObject {
         }
     }
     
+    private struct RemoteInbox: Decodable {
+        struct Item: Decodable {
+            let id: String; let title: String; let body: String
+            let createdAt: Double; let readAt: Double?
+        }
+        let items: [Item]
+        let unread: Int
+    }
+
+    private func remoteInbox(markRead: Bool = false) async -> RemoteInbox? {
+        guard let token = await MainActor.run(body: { AuthService.shared.authToken }) else { return nil }
+        var request = URLRequest(url: URL(string: "https://flags.worldarena.games/api/v1/notifications" + (markRead ? "/read" : ""))!)
+        request.setValue("Bearer " + token, forHTTPHeaderField: "Authorization")
+        request.httpMethod = markRead ? "POST" : "GET"
+        guard let (data, response) = try? await URLSession.shared.data(for: request),
+              (response as? HTTPURLResponse)?.statusCode == 200 else { return nil }
+        return try? JSONDecoder().decode(RemoteInbox.self, from: data)
+    }
+
+    func refreshBadge() {
+        Task {
+            let remote = await remoteInbox()
+            let delivered = await UNUserNotificationCenter.current().deliveredNotifications()
+            let visible = delivered.filter { !$0.request.identifier.contains("reminder") && $0.request.identifier != "dailyReminder" }
+            let remoteIDs = Set(remote?.items.map(\.id) ?? [])
+            let localCount = visible.filter { item in
+                guard let id = item.request.content.userInfo["notificationId"] as? String else { return true }
+                return !remoteIDs.contains(id)
+            }.count
+            let count = localCount + (remote?.unread ?? 0)
+            if #available(iOS 16.0, *) {
+                try? await UNUserNotificationCenter.current().setBadgeCount(count)
+            } else {
+                await MainActor.run {
+                    #if os(iOS)
+                    UIApplication.shared.applicationIconBadgeNumber = count
+                    #endif
+                }
+            }
+        }
+    }
+
+    func markNotificationsRead() {
+        Task {
+            _ = await remoteInbox(markRead: true)
+            UNUserNotificationCenter.current().removeAllDeliveredNotifications()
+            refreshBadge()
+        }
+    }
+
+    @MainActor
+    func notifyProgress(id: String, title: String, body: String, preference: String) {
+        guard userDefaults.object(forKey: "notificationsEnabled") as? Bool != false,
+              userDefaults.object(forKey: preference) as? Bool != false else { return }
+        logInAppNotification(id: id, title: title, body: body, source: "progress")
+        let content = UNMutableNotificationContent()
+        content.title = title
+        content.body = body
+        content.sound = .default
+        let request = UNNotificationRequest(identifier: id, content: content,
+            trigger: UNTimeIntervalNotificationTrigger(timeInterval: 1, repeats: false))
+        UNUserNotificationCenter.current().add(request)
+    }
+
     // Обновление времени последнего открытия приложения
     func updateLastAppOpenDate() {
         userDefaults.set(Date(), forKey: lastAppOpenKey)
@@ -49,12 +139,14 @@ class NotificationService: NSObject, ObservableObject {
     
     // Планирование уведомления о неактивности (через 3 дня)
     private func scheduleInactivityNotification() {
+        guard userDefaults.object(forKey: "notificationsEnabled") as? Bool != false,
+              userDefaults.object(forKey: "streakReminders") as? Bool != false else { return }
         Task { @MainActor in
             let content = UNMutableNotificationContent()
             content.title = LocalizationManager.shared.localizedString("Push Notification Title")
             content.body = LocalizationManager.shared.localizedString("Push Notification Body")
             content.sound = .default
-            content.badge = 1
+            // A reminder is not an unread message; it must not set a badge.
             
             // Уведомление через 3 дня (259200 секунд)
             let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 259200, repeats: false)
@@ -162,7 +254,11 @@ class NotificationService: NSObject, ObservableObject {
 
     /// Push c результатом дуэли и мотивационным текстом.
     @MainActor
-    func scheduleDuelResultNotification(challengerName: String, challengerScore: Int, myScore: Int, iWon: Bool) {
+    func scheduleDuelResultNotification(challengerName: String, challengerScore: Int, myScore: Int, iWon: Bool, challengeId: String? = nil) {
+        guard (userDefaults.object(forKey: "duelResultsNotifications") as? Bool) ?? true else { return }
+        // Online duels are delivered by the server even when this device is closed.
+        // Do not also schedule a duplicate local alert after submitting a result.
+        if challengeId != nil { return }
         let content = UNMutableNotificationContent()
         content.title = LocalizationManager.shared.localizedString("Duel result")
         let base = String(
@@ -256,7 +352,11 @@ extension NotificationService {
     }
 
     func fetchMyNotifications() async -> [AppNotificationLogItem] {
-        let inAppItems: [AppNotificationLogItem] = loadInAppNotificationItems().map {
+        let remote = await remoteInbox()
+        let remoteItems = remote?.items.map {
+            AppNotificationLogItem(id: $0.id, title: $0.title, body: $0.body, date: Date(timeIntervalSince1970: $0.createdAt / 1000), source: "server")
+        } ?? []
+        let inAppItems: [AppNotificationLogItem] = remoteItems + loadInAppNotificationItems().map {
             AppNotificationLogItem(
                 id: $0.id,
                 title: $0.title,
@@ -300,6 +400,7 @@ extension NotificationService: UNUserNotificationCenterDelegate {
     
     // Обработка уведомлений когда приложение на переднем плане
     func userNotificationCenter(_ center: UNUserNotificationCenter, willPresent notification: UNNotification, withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Void) {
+        refreshBadge()
         let duelType = notification.request.content.userInfo["type"] as? String
         if duelType == "duel_challenge" {
             // Системный баннер и в foreground (плюс in-app popup по опросу /incoming).
@@ -320,11 +421,28 @@ extension NotificationService: UNUserNotificationCenterDelegate {
     // Обработка нажатия на уведомление
     func userNotificationCenter(_ center: UNUserNotificationCenter, didReceive response: UNNotificationResponse, withCompletionHandler completionHandler: @escaping () -> Void) {
         
+        let payload = response.notification.request.content.userInfo
+        if payload["type"] as? String == "league_weekly" {
+            Task { @MainActor in self.pendingLeague = true }
+        }
+        if let type = payload["type"] as? String, type == "duel_challenge" || type == "duel_result" {
+            Task { @MainActor in
+                self.pendingDuelIsResult = type == "duel_result"
+                self.pendingDuelID = payload["challengeId"] as? String ?? "inbox"
+            }
+        }
+        if response.notification.request.content.userInfo["type"] as? String == "friend_request" {
+            Task { @MainActor in
+                FriendRequestsInbox.shared.showInbox = true
+                await FriendRequestsInbox.shared.refresh()
+            }
+        }
         if response.notification.request.identifier == "inactivity_reminder" {
             // Пользователь нажал на уведомление - открываем приложение
             updateLastAppOpenDate()
         }
         
+        refreshBadge()
         completionHandler()
     }
 } 

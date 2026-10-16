@@ -171,7 +171,12 @@ struct AllCountriesView: View {
     @State private var searchDebounceWork: DispatchWorkItem?
 
     private var allCountries: [CountryInfo] {
-        CountryLearningCatalog.allCountryInfos.sorted { $0.name < $1.name }
+        CountryLearningCatalog.allCountryInfos.sorted {
+            let lhs = getLocalizedCountryName($0.code, $0.name)
+            let rhs = getLocalizedCountryName($1.code, $1.name)
+            let order = lhs.compare(rhs, options: .caseInsensitive, locale: localizationManager.currentLocale)
+            return order == .orderedSame ? $0.code < $1.code : order == .orderedAscending
+        }
     }
 
     private var filteredByFilter: [CountryInfo] {
@@ -187,7 +192,7 @@ struct AllCountriesView: View {
             let localizedName = getLocalizedCountryName(country.code, country.name)
             return String(localizedName.prefix(1).uppercased())
         }
-        return grouped.sorted { $0.key < $1.key }
+        return grouped.sorted { LearningAlphabetOrder.precedes($0.key, $1.key, locale: localizationManager.currentLocale) }
     }
 
     private var studiedCount: Int {
@@ -484,19 +489,18 @@ struct AllCountriesFlagImageView: View {
     let flagEmoji: String
     
     var body: some View {
-        ZStack {
-            RoundedRectangle(cornerRadius: 8)
-                .fill(Color.gray.opacity(0.1))
-                .overlay(
-                    RoundedRectangle(cornerRadius: 8)
-                        .stroke(Color.gray.opacity(0.3), lineWidth: 0.5)
-                )
-            
-            // Пока используем эмодзи, но в рамке как официальный флаг
-            Text(flagEmoji)
-                .font(.system(size: 28))
-                .shadow(color: .black.opacity(0.1), radius: 1, x: 0, y: 1)
+        GeometryReader { geometry in
+            AsyncImage(url: URL(string: "https://flagcdn.com/w320/\(countryCode.lowercased()).png")) { image in
+                image.resizable().scaledToFill()
+            } placeholder: {
+                Text(flagEmoji).font(.system(size: geometry.size.height * 0.9))
+                    .frame(maxWidth: .infinity, maxHeight: .infinity)
+            }
+            .frame(width: geometry.size.width, height: geometry.size.height)
+            .clipped()
         }
+        .clipShape(RoundedRectangle(cornerRadius: 8))
+        .accessibilityLabel(flagEmoji)
     }
 }
 

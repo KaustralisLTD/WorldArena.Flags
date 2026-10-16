@@ -234,19 +234,16 @@
 "Request Timeout" = "Solicitare Timeout";
 "Server Not Found" = "Serverul nu a fost găsit";
 "Too Many Requests" = "Prea Multe Cereri";
-"Server Error" = "Eroare de server";
 "HTTP Error: %d" = "Eroare HTTP: %d";
-"Try Again" = "Încearcă din nou";
 "Not enough countries in selected regions (found %d, need at least 4)" = "Nu sunt suficiente țări în regiunile selectate (găsit %d, au nevoie de cel puțin 4)";
 "Empty response from server" = "Răspuns gol de la server";
 
 // New additions
-"Capital" = "Capital";
-"Population" = "Populația";
-"Area" = "Zonă";
+"Capital" = "Capitală";
+"Population" = "Populație";
+"Area" = "Suprafață";
 "Region" = "Regiune";
 "Subregion" = "Subregiune";
-
 // Language additions
 "system_language" = "Sistem";
 "ru_language" = "Русский";
@@ -1737,3 +1734,89 @@
 "premium.trial.yearly" = "7 zile gratuite, apoi %@ pe an.";
 "premium.renewal" = "Se reînnoiește automat până la anulare. Gestionează sau anulează din abonamentele App Store.";
 "premium.subscribe" = "Abonează-te";
+
+/* Duel inbox */
+"duel.challenges.title" = "Provocări";
+"duel.challenges.subtitle" = "Invitații, dueluri active și rezultate";
+
+// Verified subscription status
+"premium.restore.success" = "Achizițiile au fost restaurate.";
+"premium.restore.empty" = "Nu s-a găsit niciun abonament activ pentru acest cont Apple.";
+"premium.access.until" = "Acces până la";
+
+// Streak calendar and freeze inventory
+"streak.calendar.title" = "Calendarul seriei";
+"streak.calendar.played" = "Jucat";
+"streak.calendar.frozen" = "Înghețat";
+"streak.calendar.missed" = "Ratat";
+"streak.calendar.open_day" = "Încă nejucat";
+"streak.calendar.previous" = "Luna anterioară";
+"streak.calendar.next" = "Luna următoare";
+"streak.freeze.title" = "Înghețări de serie";
+"streak.freeze.repair" = "Restabilește ieri · 1 înghețare";
+"streak.freeze.friends" = "Ajută-ți prietenii";
+"streak.freeze.give" = "Oferă 1 înghețare";
+"streak.freeze.signin" = "Conectează-te pentru a trimite și primi înghețări.";
+"streak.freeze.unavailable" = "Prietenul nu mai are nevoie. Înghețarea ta a fost returnată.";
+"streak.freeze.sent" = "Înghețare trimisă!";
+"streak.freeze.retry" = "Sincronizarea a eșuat. Reîncearcă pentru a finaliza cadoul în așteptare.";
+"streak.freeze.no_friends" = "Niciun prieten nu a rămas fără înghețări acum.";
+"streak.freeze.explanation" = "O înghețare protejează automat o zi ratată, fără a o considera jucată. Fă provizii înainte de pauză sau restabilește ziua de ieri.";
+
+// Avatar shop and wardrobe
+"shop.avatar" = "Avatarul tău";
+"shop.preview_hint" = "Probează înainte de cumpărare. Aplicarea înlocuiește fotografia de profil cu acest avatar.";
+"shop.wardrobe" = "Garderobă";
+"shop.empty" = "Obiectele cumpărate vor apărea aici.";
+"shop.equipped" = "Echipat";
+"shop.owned" = "Cumpărat";
+"shop.remove" = "Elimină";
+"shop.equip" = "Echipează";
+"shop.save_error" = "Salvat pe dispozitiv. Avatarul online nu a putut fi actualizat.";
+
+"home.lives.welcome" = "Bonus de bun venit: +3 vieți la fiecare 10 minute în primele 7 zile. Maximum 5 vieți, fără abonament.";
+
+"Profile Share CTA" = "Scanează codul QR. Hai să jucăm!";
+
+
+"Profile Share Headline" = "CUNOȘTI STEAGURILE?\nDOVEDEȘTE.";
+
+"Use current time" = "Folosește ora curentă";
+
+"Progress emails" = "E-mailuri despre progres";
+
+"Progress emails detail" = "Rezumatul tău, cel mult o dată pe săptămână. Fără e-mail după fiecare duel. Te poți dezabona oricând.";
+
+"Server Error" = "Server indisponibil";
+
+"Try Again" = "Încearcă din nou";
+
+"Server error. Try again." = "Server indisponibil. Încearcă din nou";
+
+"Invalid server response." = "Server indisponibil";
+
+"duel.network.error" = "Server indisponibil. Încearcă din nou";
+
+"duel.reminder.sent" = "Memento trimis";
+
+"duel.reminder.cooldown" = "Așteaptă înainte de a trimite alt memento.";
+
+"duel.reminder.disabled" = "Acest jucător a dezactivat notificările de duel.";
+
+"duel.reminder.no_device" = "Acest jucător nu are niciun dispozitiv cu notificări push activate.";
+
+"duel.reminder.completed" = "Duelul s-a încheiat deja.";
+
+"duel.reminder.missing" = "Acest duel nu mai este disponibil.";
+
+"Flags Brand Title" = "Steaguri";
+
+"lifecycle.offers" = "Provocări și oferte";
+
+"lifecycle.offers.detail" = "Bonusuri, provocări și alte jocuri World Arena. Cel mult două e-mailuri pe săptămână în total.";
+
+"lifecycle.bonus.title" = "Încercăm să jucăm și ziua?";
+
+"lifecycle.bonus.body" = "1 F-Buck suplimentar pentru o provocare bonus perfectă între 12:00 și 16:00 în fusul tău orar.";
+
+"lifecycle.bonus.unavailable" = "Această provocare nu mai este disponibilă. Progresul salvat se păstrează.";

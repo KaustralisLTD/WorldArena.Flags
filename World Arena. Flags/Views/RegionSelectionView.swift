@@ -2,7 +2,9 @@ import SwiftUI
 
 struct RegionSelectionView: View {
     @ObservedObject var gameState: GameState
-    @State private var availableRegions: [GameState.Region] = []
+    private var availableRegions: [GameState.Region] {
+        GameState.Region.allCases.filter { $0 != .myMistakes || gameState.hasMistakes }
+    }
     @Environment(\.horizontalSizeClass) private var horizontalSizeClass
     /// Количество колонок (2 по умолчанию, 3 для iPad горизонтально)
     var columnCount: Int = 2
@@ -30,7 +32,7 @@ struct RegionSelectionView: View {
         }
         
         print("Final regions: \(regions.map { $0.rawValue })")
-        availableRegions = regions
+        // The region grid is computed synchronously, including the first frame.
         print("=====================\n")
     }
     

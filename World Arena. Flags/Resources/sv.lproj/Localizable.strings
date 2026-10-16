@@ -234,19 +234,16 @@
 "Request Timeout" = "Begär timeout";
 "Server Not Found" = "Servern hittades inte";
 "Too Many Requests" = "För många förfrågningar";
-"Server Error" = "Serverfel";
 "HTTP Error: %d" = "HTTP-fel: %d";
-"Try Again" = "Försök igen";
 "Not enough countries in selected regions (found %d, need at least 4)" = "Inte tillräckligt många länder i valda regioner (hittade %d, behöver minst 4)";
 "Empty response from server" = "Tomt svar från servern";
 
 // New additions
-"Capital" = "Kapital";
+"Capital" = "Huvudstad";
 "Population" = "Befolkning";
-"Area" = "Område";
-"Region" = "Område";
-"Subregion" = "Subregion";
-
+"Area" = "Yta";
+"Region" = "Region";
+"Subregion" = "Delregion";
 // Language additions
 "system_language" = "System";
 "ru_language" = "Русский";
@@ -1737,3 +1734,89 @@
 "premium.trial.yearly" = "7 dagar gratis, därefter %@ per år.";
 "premium.renewal" = "Förnyas automatiskt tills du säger upp den. Hantera eller avsluta i dina App Store-prenumerationer.";
 "premium.subscribe" = "Prenumerera";
+
+/* Duel inbox */
+"duel.challenges.title" = "Utmaningar";
+"duel.challenges.subtitle" = "Inbjudningar, pågående dueller och resultat";
+
+// Verified subscription status
+"premium.restore.success" = "Köp återställda.";
+"premium.restore.empty" = "Ingen aktiv prenumeration hittades för detta Apple-konto.";
+"premium.access.until" = "Tillgång till";
+
+// Streak calendar and freeze inventory
+"streak.calendar.title" = "Svitkalender";
+"streak.calendar.played" = "Spelat";
+"streak.calendar.frozen" = "Fryst";
+"streak.calendar.missed" = "Missat";
+"streak.calendar.open_day" = "Inte spelat än";
+"streak.calendar.previous" = "Föregående månad";
+"streak.calendar.next" = "Nästa månad";
+"streak.freeze.title" = "Svitfrysningar";
+"streak.freeze.repair" = "Återställ igår · 1 frysning";
+"streak.freeze.friends" = "Hjälp dina vänner";
+"streak.freeze.give" = "Ge 1 frysning";
+"streak.freeze.signin" = "Logga in för att ge och ta emot frysningar.";
+"streak.freeze.unavailable" = "Din vän behöver ingen längre. Din frysning återställdes.";
+"streak.freeze.sent" = "Frysning skickad!";
+"streak.freeze.retry" = "Synkronisering misslyckades. Försök igen för att slutföra gåvan.";
+"streak.freeze.no_friends" = "Ingen vän har slut på frysningar just nu.";
+"streak.freeze.explanation" = "En frysning skyddar automatiskt en missad dag. Dagen räknas inte som spelad. Fyll på före en paus eller återställ gårdagen.";
+
+// Avatar shop and wardrobe
+"shop.avatar" = "Din avatar";
+"shop.preview_hint" = "Prova före köp. När du använder föremålet ersätts din profilbild med denna avatar.";
+"shop.wardrobe" = "Garderob";
+"shop.empty" = "Dina köpta föremål visas här.";
+"shop.equipped" = "På";
+"shop.owned" = "Köpt";
+"shop.remove" = "Ta av";
+"shop.equip" = "Ta på";
+"shop.save_error" = "Sparat på enheten. Kunde inte uppdatera din avatar online.";
+
+"home.lives.welcome" = "Välkomstbonus: +3 liv var 10:e minut under dina första 7 dagar. Upp till 5 liv, utan prenumeration.";
+
+"Profile Share CTA" = "Skanna QR-koden. Nu spelar vi!";
+
+
+"Profile Share Headline" = "KAN DU FLAGGORNA?\nVISA DET.";
+
+"Use current time" = "Använd aktuell tid";
+
+"Progress emails" = "E-post om framsteg";
+
+"Progress emails detail" = "Din sammanfattning, högst en gång i veckan. Ingen e-post efter varje duell. Avsluta när som helst.";
+
+"Server Error" = "Servern är inte tillgänglig";
+
+"Try Again" = "Försök igen";
+
+"Server error. Try again." = "Servern är inte tillgänglig. Försök igen";
+
+"Invalid server response." = "Servern är inte tillgänglig";
+
+"duel.network.error" = "Servern är inte tillgänglig. Försök igen";
+
+"duel.reminder.sent" = "Påminnelse skickad";
+
+"duel.reminder.cooldown" = "Vänta innan du skickar en ny påminnelse.";
+
+"duel.reminder.disabled" = "Spelaren har stängt av duellaviseringar.";
+
+"duel.reminder.no_device" = "Spelaren har ingen enhet med pushaviseringar aktiverade.";
+
+"duel.reminder.completed" = "Duellen är redan avslutad.";
+
+"duel.reminder.missing" = "Duellen är inte längre tillgänglig.";
+
+"Flags Brand Title" = "Flaggor";
+
+"lifecycle.offers" = "Utmaningar och erbjudanden";
+
+"lifecycle.offers.detail" = "Bonusar, utmaningar och andra World Arena-spel. Högst två e-postmeddelanden per vecka totalt.";
+
+"lifecycle.bonus.title" = "Ska vi spela en stund på dagen?";
+
+"lifecycle.bonus.body" = "1 extra F-Buck för en felfri bonusutmaning mellan kl. 12 och 16 i din tidszon.";
+
+"lifecycle.bonus.unavailable" = "Den här utmaningen är inte längre tillgänglig. Dina sparade framsteg finns kvar.";

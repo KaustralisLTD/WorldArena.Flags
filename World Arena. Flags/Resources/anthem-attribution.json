@@ -1,0 +1,493 @@
+{
+  "AI": {
+    "country": "AI",
+    "sharedNationalAnthemOf": "GB",
+    "source": "https://en.wikipedia.org/wiki/Anguilla",
+    "recordingSource": "https://flags.worldarena.games/anthems/anthem_gb.m4a?v=2",
+    "note": "National anthem; regional anthem may be different.",
+    "duration": 61.35,
+    "sha256": "cd47dd14c6fe02f50c458ff82af5f56c15a2d3e3e8fdd22ac1c76d1fa71e1285"
+  },
+  "AM": {
+    "country": "AM",
+    "anthem": "Mer Hayrenik",
+    "wikidata": "https://www.wikidata.org/wiki/Q164259",
+    "source": "https://commons.wikimedia.org/wiki/File:Mer_Hayrenik_instrumental.ogg",
+    "license": "Public domain",
+    "licenseURL": null,
+    "author": "",
+    "original": "https://upload.wikimedia.org/wikipedia/commons/c/c7/Mer_Hayrenik_instrumental.ogg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+    "duration": 27.96,
+    "sha256": "b8f26f83b7abc8e3dab87b0cc699eb1d43ec0c00ff8b3cbbdec229145ff82702"
+  },
+  "AS": {
+    "country": "AS",
+    "sharedNationalAnthemOf": "US",
+    "source": "https://en.wikipedia.org/wiki/American%20Samoa",
+    "recordingSource": "https://flags.worldarena.games/anthems/anthem_us.m4a?v=2",
+    "note": "National anthem; regional anthem may be different.",
+    "duration": 83.06,
+    "sha256": "2eff7ddcf9d46f6cf560b14a78721d4413b1840366a6a4813afd56021bc3d14d"
+  },
+  "AW": {
+    "country": "AW",
+    "anthem": "Aruba Dushi Tera",
+    "wikidata": "https://www.wikidata.org/wiki/Q716364",
+    "source": "https://commons.wikimedia.org/wiki/File:Aruba_Dushi_Tera_instrumental.ogg",
+    "license": "Public domain",
+    "licenseURL": null,
+    "author": "United States Navy Band, uploaded to Wikimedia by Keith Lehwald",
+    "original": "https://upload.wikimedia.org/wikipedia/commons/9/92/Aruba_Dushi_Tera_instrumental.ogg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+    "duration": 126.59,
+    "sha256": "48b67e0bf0de16f2357c01a31955815ba4e1d0e111040469125a72b07176754c"
+  },
+  "AZ": {
+    "country": "AZ",
+    "anthem": "Azərbaycan marşı",
+    "wikidata": "https://www.wikidata.org/wiki/Q483968",
+    "source": "https://commons.wikimedia.org/wiki/File:Azerbaijan_national_anthem_(vocal_version).ogg",
+    "license": "Public domain",
+    "licenseURL": null,
+    "author": "Government of Azerbaijan",
+    "original": "https://upload.wikimedia.org/wikipedia/commons/3/31/Azerbaijan_national_anthem_%28vocal_version%29.ogg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+    "duration": 133.34,
+    "sha256": "1cac48a4d0d804a2a1580ccbea3c1d51a853d647a7a1e43f17d5de9990ca8c9c"
+  },
+  "BL": {
+    "country": "BL",
+    "sharedNationalAnthemOf": "FR",
+    "source": "https://en.wikipedia.org/wiki/Saint%20Barth%C3%A9lemy",
+    "recordingSource": "https://flags.worldarena.games/anthems/anthem_fr.m4a?v=2",
+    "note": "National anthem; regional anthem may be different.",
+    "duration": 79.37,
+    "sha256": "2eaf078c0fc34c26559aee841b437fbd9f6dd4524b303b1df9515ff2c0cba017"
+  },
+  "BM": {
+    "country": "BM",
+    "sharedNationalAnthemOf": "GB",
+    "source": "https://en.wikipedia.org/wiki/Bermuda",
+    "recordingSource": "https://flags.worldarena.games/anthems/anthem_gb.m4a?v=2",
+    "note": "National anthem; regional anthem may be different.",
+    "duration": 61.35,
+    "sha256": "cd47dd14c6fe02f50c458ff82af5f56c15a2d3e3e8fdd22ac1c76d1fa71e1285"
+  },
+  "BQ": {
+    "country": "BQ",
+    "sharedNationalAnthemOf": "NL",
+    "source": "https://en.wikipedia.org/wiki/Caribbean%20Netherlands",
+    "recordingSource": "https://flags.worldarena.games/anthems/anthem_nl.m4a?v=2",
+    "note": "National anthem; regional anthem may be different.",
+    "duration": 117.77,
+    "sha256": "8f12b353551603e879f0f7eac5332309da5ca623dfae6415a27ea0d046ea3fed"
+  },
+  "CC": {
+    "country": "CC",
+    "sharedNationalAnthemOf": "AU",
+    "source": "https://en.wikipedia.org/wiki/Cocos%20%28Keeling%29%20Islands",
+    "recordingSource": "https://flags.worldarena.games/anthems/anthem_au.m4a?v=2",
+    "note": "National anthem; regional anthem may be different.",
+    "duration": 78.86,
+    "sha256": "9cb7b1aa44f52b3f4f0e0754aaaefe1defe530ae9cfa1517ed4fb772ee3107b8"
+  },
+  "CK": {
+    "country": "CK",
+    "anthem": "Te Atua Mou E",
+    "wikidata": "https://www.wikidata.org/wiki/Q1147730",
+    "source": "https://commons.wikimedia.org/wiki/File:National_Anthem_of_the_Cook_Islands.ogg",
+    "license": "Public domain",
+    "licenseURL": null,
+    "author": "US Navy Band",
+    "original": "https://upload.wikimedia.org/wikipedia/commons/c/c3/National_Anthem_of_the_Cook_Islands.ogg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+    "duration": 65.46,
+    "sha256": "d3d114e871e44aa6d8d0f39e78f8ce7164927d59a36f04b424592acb4b1190d7"
+  },
+  "CW": {
+    "country": "CW",
+    "anthem": "Himno di Kòrsou",
+    "wikidata": "https://www.wikidata.org/wiki/Q1074993",
+    "source": "https://commons.wikimedia.org/wiki/File:Curacaoanthem.ogg",
+    "license": "CC0",
+    "licenseURL": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+    "author": "MLDGuaDimana",
+    "original": "https://upload.wikimedia.org/wikipedia/commons/7/7a/Curacaoanthem.ogg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+    "duration": 93.71,
+    "sha256": "2bcf02aa56a48949dbf6a78105ecce42254dd818acde9114c03d65798434bc22"
+  },
+  "CX": {
+    "country": "CX",
+    "sharedNationalAnthemOf": "AU",
+    "source": "https://en.wikipedia.org/wiki/Christmas%20Island",
+    "recordingSource": "https://flags.worldarena.games/anthems/anthem_au.m4a?v=2",
+    "note": "National anthem; regional anthem may be different.",
+    "duration": 78.86,
+    "sha256": "9cb7b1aa44f52b3f4f0e0754aaaefe1defe530ae9cfa1517ed4fb772ee3107b8"
+  },
+  "FK": {
+    "country": "FK",
+    "sharedNationalAnthemOf": "GB",
+    "source": "https://en.wikipedia.org/wiki/Falkland%20Islands",
+    "recordingSource": "https://flags.worldarena.games/anthems/anthem_gb.m4a?v=2",
+    "note": "National anthem; regional anthem may be different.",
+    "duration": 61.35,
+    "sha256": "cd47dd14c6fe02f50c458ff82af5f56c15a2d3e3e8fdd22ac1c76d1fa71e1285"
+  },
+  "FO": {
+    "country": "FO",
+    "anthem": "Tú alfagra land mítt",
+    "wikidata": "https://www.wikidata.org/wiki/Q212973",
+    "source": "https://commons.wikimedia.org/wiki/File:T%C3%BA_alfagra_land_m%C3%ADtt.ogg",
+    "license": "CC BY-SA 4.0",
+    "licenseURL": "https://creativecommons.org/licenses/by-sa/4.0",
+    "author": "Wikijahnn",
+    "original": "https://upload.wikimedia.org/wikipedia/commons/b/b1/T%C3%BA_alfagra_land_m%C3%ADtt.ogg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+    "duration": 69.83,
+    "sha256": "e8ce74d2d2faa17dcee4edee22761004cc888107b343d357b296f16537ec2026"
+  },
+  "GF": {
+    "country": "GF",
+    "sharedNationalAnthemOf": "FR",
+    "source": "https://en.wikipedia.org/wiki/French%20Guiana",
+    "recordingSource": "https://flags.worldarena.games/anthems/anthem_fr.m4a?v=2",
+    "note": "National anthem; regional anthem may be different.",
+    "duration": 79.37,
+    "sha256": "2eaf078c0fc34c26559aee841b437fbd9f6dd4524b303b1df9515ff2c0cba017"
+  },
+  "GG": {
+    "country": "GG",
+    "sharedNationalAnthemOf": "GB",
+    "source": "https://en.wikipedia.org/wiki/Guernsey",
+    "recordingSource": "https://flags.worldarena.games/anthems/anthem_gb.m4a?v=2",
+    "note": "National anthem; regional anthem may be different.",
+    "duration": 61.35,
+    "sha256": "cd47dd14c6fe02f50c458ff82af5f56c15a2d3e3e8fdd22ac1c76d1fa71e1285"
+  },
+  "GI": {
+    "country": "GI",
+    "sharedNationalAnthemOf": "GB",
+    "source": "https://en.wikipedia.org/wiki/Gibraltar",
+    "recordingSource": "https://flags.worldarena.games/anthems/anthem_gb.m4a?v=2",
+    "note": "National anthem; regional anthem may be different.",
+    "duration": 61.35,
+    "sha256": "cd47dd14c6fe02f50c458ff82af5f56c15a2d3e3e8fdd22ac1c76d1fa71e1285"
+  },
+  "GP": {
+    "country": "GP",
+    "sharedNationalAnthemOf": "FR",
+    "source": "https://en.wikipedia.org/wiki/Guadeloupe",
+    "recordingSource": "https://flags.worldarena.games/anthems/anthem_fr.m4a?v=2",
+    "note": "National anthem; regional anthem may be different.",
+    "duration": 79.37,
+    "sha256": "2eaf078c0fc34c26559aee841b437fbd9f6dd4524b303b1df9515ff2c0cba017"
+  },
+  "GU": {
+    "country": "GU",
+    "sharedNationalAnthemOf": "US",
+    "source": "https://en.wikipedia.org/wiki/Guam",
+    "recordingSource": "https://flags.worldarena.games/anthems/anthem_us.m4a?v=2",
+    "note": "National anthem; regional anthem may be different.",
+    "duration": 83.06,
+    "sha256": "2eff7ddcf9d46f6cf560b14a78721d4413b1840366a6a4813afd56021bc3d14d"
+  },
+  "HK": {
+    "country": "HK",
+    "sharedNationalAnthemOf": "CN",
+    "source": "https://en.wikipedia.org/wiki/Hong%20Kong",
+    "recordingSource": "https://flags.worldarena.games/anthems/anthem_cn.m4a?v=2",
+    "note": "National anthem; regional anthem may be different.",
+    "duration": 49.25,
+    "sha256": "cb0b2d854d6d2749d3de478afdde337c84c0601e66c3c06f915f94d7d53bf955"
+  },
+  "IM": {
+    "country": "IM",
+    "anthem": "Arrane Ashoonagh Vannin",
+    "wikidata": "https://www.wikidata.org/wiki/Q699190",
+    "source": "https://commons.wikimedia.org/wiki/File:Arrane_Ashoonagh_Vannin.ogg",
+    "license": "Public domain",
+    "licenseURL": null,
+    "author": "Kirkworld",
+    "original": "https://upload.wikimedia.org/wikipedia/commons/9/99/Arrane_Ashoonagh_Vannin.ogg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+    "duration": 41.27,
+    "sha256": "587cc2aa3a07487f340e4a7cbb196339ca1e93a03d60624d7eb7252f41a6246b"
+  },
+  "IO": {
+    "country": "IO",
+    "sharedNationalAnthemOf": "GB",
+    "source": "https://en.wikipedia.org/wiki/British%20Indian%20Ocean%20Territory",
+    "recordingSource": "https://flags.worldarena.games/anthems/anthem_gb.m4a?v=2",
+    "note": "National anthem; regional anthem may be different.",
+    "duration": 61.35,
+    "sha256": "cd47dd14c6fe02f50c458ff82af5f56c15a2d3e3e8fdd22ac1c76d1fa71e1285"
+  },
+  "JE": {
+    "country": "JE",
+    "sharedNationalAnthemOf": "GB",
+    "source": "https://en.wikipedia.org/wiki/Jersey",
+    "recordingSource": "https://flags.worldarena.games/anthems/anthem_gb.m4a?v=2",
+    "note": "National anthem; regional anthem may be different.",
+    "duration": 61.35,
+    "sha256": "cd47dd14c6fe02f50c458ff82af5f56c15a2d3e3e8fdd22ac1c76d1fa71e1285"
+  },
+  "KY": {
+    "country": "KY",
+    "sharedNationalAnthemOf": "GB",
+    "source": "https://en.wikipedia.org/wiki/Cayman%20Islands",
+    "recordingSource": "https://flags.worldarena.games/anthems/anthem_gb.m4a?v=2",
+    "note": "National anthem; regional anthem may be different.",
+    "duration": 61.35,
+    "sha256": "cd47dd14c6fe02f50c458ff82af5f56c15a2d3e3e8fdd22ac1c76d1fa71e1285"
+  },
+  "MF": {
+    "country": "MF",
+    "sharedNationalAnthemOf": "FR",
+    "source": "https://en.wikipedia.org/wiki/Collectivity%20of%20Saint%20Martin",
+    "recordingSource": "https://flags.worldarena.games/anthems/anthem_fr.m4a?v=2",
+    "note": "National anthem; regional anthem may be different.",
+    "duration": 79.37,
+    "sha256": "2eaf078c0fc34c26559aee841b437fbd9f6dd4524b303b1df9515ff2c0cba017"
+  },
+  "MO": {
+    "country": "MO",
+    "sharedNationalAnthemOf": "CN",
+    "source": "https://en.wikipedia.org/wiki/Macau",
+    "recordingSource": "https://flags.worldarena.games/anthems/anthem_cn.m4a?v=2",
+    "note": "National anthem; regional anthem may be different.",
+    "duration": 49.25,
+    "sha256": "cb0b2d854d6d2749d3de478afdde337c84c0601e66c3c06f915f94d7d53bf955"
+  },
+  "MP": {
+    "country": "MP",
+    "anthem": "Gi Talo Gi Halom Tasi",
+    "wikidata": "https://www.wikidata.org/wiki/Q1522013",
+    "source": "https://commons.wikimedia.org/wiki/File:Regional_anthem_of_the_Northern_Mariana_Islands,_performed_by_the_United_States_Navy_Band.oga",
+    "license": "Public domain",
+    "licenseURL": null,
+    "author": "",
+    "original": "https://upload.wikimedia.org/wikipedia/commons/3/34/Regional_anthem_of_the_Northern_Mariana_Islands%2C_performed_by_the_United_States_Navy_Band.oga?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+    "duration": 87.61,
+    "sha256": "088ec60d03b66cbfb106a51be69c3f1f5e23e2e45cc6f41fd25975d587cef2c9"
+  },
+  "MQ": {
+    "country": "MQ",
+    "sharedNationalAnthemOf": "FR",
+    "source": "https://en.wikipedia.org/wiki/Martinique",
+    "recordingSource": "https://flags.worldarena.games/anthems/anthem_fr.m4a?v=2",
+    "note": "National anthem; regional anthem may be different.",
+    "duration": 79.37,
+    "sha256": "2eaf078c0fc34c26559aee841b437fbd9f6dd4524b303b1df9515ff2c0cba017"
+  },
+  "MS": {
+    "country": "MS",
+    "sharedNationalAnthemOf": "GB",
+    "source": "https://en.wikipedia.org/wiki/Montserrat",
+    "recordingSource": "https://flags.worldarena.games/anthems/anthem_gb.m4a?v=2",
+    "note": "National anthem; regional anthem may be different.",
+    "duration": 61.35,
+    "sha256": "cd47dd14c6fe02f50c458ff82af5f56c15a2d3e3e8fdd22ac1c76d1fa71e1285"
+  },
+  "NC": {
+    "country": "NC",
+    "sharedNationalAnthemOf": "FR",
+    "source": "https://en.wikipedia.org/wiki/New%20Caledonia",
+    "recordingSource": "https://flags.worldarena.games/anthems/anthem_fr.m4a?v=2",
+    "note": "National anthem; regional anthem may be different.",
+    "duration": 79.37,
+    "sha256": "2eaf078c0fc34c26559aee841b437fbd9f6dd4524b303b1df9515ff2c0cba017"
+  },
+  "NF": {
+    "country": "NF",
+    "sharedNationalAnthemOf": "AU",
+    "source": "https://en.wikipedia.org/wiki/Norfolk%20Island",
+    "recordingSource": "https://flags.worldarena.games/anthems/anthem_au.m4a?v=2",
+    "note": "National anthem; regional anthem may be different.",
+    "duration": 78.86,
+    "sha256": "9cb7b1aa44f52b3f4f0e0754aaaefe1defe530ae9cfa1517ed4fb772ee3107b8"
+  },
+  "NU": {
+    "country": "NU",
+    "anthem": "Ko e Iki he Lagi",
+    "wikidata": "https://www.wikidata.org/wiki/Q179078",
+    "source": "https://commons.wikimedia.org/wiki/File:Ko_e_Iki_he_Lagi_-_Anthem_of_Niue_(Instrumental).ogg",
+    "license": "CC BY-SA 4.0",
+    "licenseURL": "https://creativecommons.org/licenses/by-sa/4.0",
+    "author": "Jlapsjlaps",
+    "original": "https://upload.wikimedia.org/wikipedia/commons/4/48/Ko_e_Iki_he_Lagi_-_Anthem_of_Niue_%28Instrumental%29.ogg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+    "duration": 63.24,
+    "sha256": "0e86ff35c0178354bf037eb7b58720cf9cfd399605824adc7a0d4fa3a6779f5b"
+  },
+  "PF": {
+    "country": "PF",
+    "sharedNationalAnthemOf": "FR",
+    "source": "https://en.wikipedia.org/wiki/French%20Polynesia",
+    "recordingSource": "https://flags.worldarena.games/anthems/anthem_fr.m4a?v=2",
+    "note": "National anthem; regional anthem may be different.",
+    "duration": 79.37,
+    "sha256": "2eaf078c0fc34c26559aee841b437fbd9f6dd4524b303b1df9515ff2c0cba017"
+  },
+  "PM": {
+    "country": "PM",
+    "sharedNationalAnthemOf": "FR",
+    "source": "https://en.wikipedia.org/wiki/Saint%20Pierre%20and%20Miquelon",
+    "recordingSource": "https://flags.worldarena.games/anthems/anthem_fr.m4a?v=2",
+    "note": "National anthem; regional anthem may be different.",
+    "duration": 79.37,
+    "sha256": "2eaf078c0fc34c26559aee841b437fbd9f6dd4524b303b1df9515ff2c0cba017"
+  },
+  "PN": {
+    "country": "PN",
+    "sharedNationalAnthemOf": "GB",
+    "source": "https://en.wikipedia.org/wiki/Pitcairn%20Islands",
+    "recordingSource": "https://flags.worldarena.games/anthems/anthem_gb.m4a?v=2",
+    "note": "National anthem; regional anthem may be different.",
+    "duration": 61.35,
+    "sha256": "cd47dd14c6fe02f50c458ff82af5f56c15a2d3e3e8fdd22ac1c76d1fa71e1285"
+  },
+  "PR": {
+    "country": "PR",
+    "anthem": "La Borinqueña",
+    "wikidata": "https://www.wikidata.org/wiki/Q1075941",
+    "source": "https://commons.wikimedia.org/wiki/File:United_States_Navy_Band_-_La_Borinque%C3%B1a.ogg",
+    "license": "Public domain",
+    "licenseURL": null,
+    "author": "",
+    "original": "https://upload.wikimedia.org/wikipedia/commons/8/8d/United_States_Navy_Band_-_La_Borinque%C3%B1a.ogg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+    "duration": 93.07,
+    "sha256": "bbe7ebbe522d57a6f5866cfde2dd37136f08009062e4b78e4d3d4f45e8b4c680"
+  },
+  "RE": {
+    "country": "RE",
+    "sharedNationalAnthemOf": "FR",
+    "source": "https://en.wikipedia.org/wiki/R%C3%A9union",
+    "recordingSource": "https://flags.worldarena.games/anthems/anthem_fr.m4a?v=2",
+    "note": "National anthem; regional anthem may be different.",
+    "duration": 79.37,
+    "sha256": "2eaf078c0fc34c26559aee841b437fbd9f6dd4524b303b1df9515ff2c0cba017"
+  },
+  "SH": {
+    "country": "SH",
+    "sharedNationalAnthemOf": "GB",
+    "source": "https://en.wikipedia.org/wiki/Saint%20Helena%2C%20Ascension%20and%20Tristan%20da%20Cunha",
+    "recordingSource": "https://flags.worldarena.games/anthems/anthem_gb.m4a?v=2",
+    "note": "National anthem; regional anthem may be different.",
+    "duration": 61.35,
+    "sha256": "cd47dd14c6fe02f50c458ff82af5f56c15a2d3e3e8fdd22ac1c76d1fa71e1285"
+  },
+  "SJ": {
+    "country": "SJ",
+    "sharedNationalAnthemOf": "NO",
+    "source": "https://en.wikipedia.org/wiki/Svalbard%20and%20Jan%20Mayen",
+    "recordingSource": "https://flags.worldarena.games/anthems/anthem_no.m4a?v=2",
+    "note": "National anthem; regional anthem may be different.",
+    "duration": 58.98,
+    "sha256": "bfbec711f39fdb326e5fd72a99b6c1441a0406826967888c50b618e4113c393c"
+  },
+  "SX": {
+    "country": "SX",
+    "sharedNationalAnthemOf": "NL",
+    "source": "https://en.wikipedia.org/wiki/Sint%20Maarten",
+    "recordingSource": "https://flags.worldarena.games/anthems/anthem_nl.m4a?v=2",
+    "note": "National anthem; regional anthem may be different.",
+    "duration": 117.77,
+    "sha256": "8f12b353551603e879f0f7eac5332309da5ca623dfae6415a27ea0d046ea3fed"
+  },
+  "TC": {
+    "country": "TC",
+    "sharedNationalAnthemOf": "GB",
+    "source": "https://en.wikipedia.org/wiki/Turks%20and%20Caicos%20Islands",
+    "recordingSource": "https://flags.worldarena.games/anthems/anthem_gb.m4a?v=2",
+    "note": "National anthem; regional anthem may be different.",
+    "duration": 61.35,
+    "sha256": "cd47dd14c6fe02f50c458ff82af5f56c15a2d3e3e8fdd22ac1c76d1fa71e1285"
+  },
+  "TK": {
+    "country": "TK",
+    "sharedNationalAnthemOf": "NZ",
+    "source": "https://en.wikipedia.org/wiki/Tokelau",
+    "recordingSource": "https://flags.worldarena.games/anthems/anthem_nz.m4a?v=2",
+    "note": "National anthem; regional anthem may be different.",
+    "duration": 141.22,
+    "sha256": "979f1abe46a499f76a19fd14d00010c82a61eec5ace1322974d2b0f89d414b49"
+  },
+  "TW": {
+    "country": "TW",
+    "anthem": "National Anthem of the Republic of China",
+    "wikidata": "https://www.wikidata.org/wiki/Q864979",
+    "source": "https://commons.wikimedia.org/wiki/File:National_anthem_of_the_Republic_of_China_(Taiwan)_%E4%B8%AD%E8%8F%AF%E6%B0%91%E5%9C%8B%E5%9C%8B%E6%AD%8C(%E6%BC%94%E5%A5%8F%E7%89%88).ogg",
+    "license": "Public domain",
+    "licenseURL": null,
+    "author": "",
+    "original": "https://upload.wikimedia.org/wikipedia/commons/b/be/National_anthem_of_the_Republic_of_China_%28Taiwan%29_%E4%B8%AD%E8%8F%AF%E6%B0%91%E5%9C%8B%E5%9C%8B%E6%AD%8C%28%E6%BC%94%E5%A5%8F%E7%89%88%29.ogg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+    "duration": 80.88,
+    "sha256": "a9259990d404bbb838dc92455da2fad987baa02bade79daefb874d845a96f753"
+  },
+  "VG": {
+    "country": "VG",
+    "sharedNationalAnthemOf": "GB",
+    "source": "https://en.wikipedia.org/wiki/British%20Virgin%20Islands",
+    "recordingSource": "https://flags.worldarena.games/anthems/anthem_gb.m4a?v=2",
+    "note": "National anthem; regional anthem may be different.",
+    "duration": 61.35,
+    "sha256": "cd47dd14c6fe02f50c458ff82af5f56c15a2d3e3e8fdd22ac1c76d1fa71e1285"
+  },
+  "VI": {
+    "country": "VI",
+    "anthem": "Virgin Islands March",
+    "wikidata": "https://www.wikidata.org/wiki/Q1209589",
+    "source": "https://commons.wikimedia.org/wiki/File:Regional_anthem_of_the_United_States_Virgin_Islands.wav",
+    "license": "Public domain",
+    "licenseURL": null,
+    "author": "",
+    "original": "https://upload.wikimedia.org/wikipedia/commons/7/74/Regional_anthem_of_the_United_States_Virgin_Islands.wav?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+    "duration": 143.52,
+    "sha256": "91d00682c3b38088c33c7651a80f628e10ac6f049e2419ae12f8b1e19d152e44"
+  },
+  "WF": {
+    "country": "WF",
+    "sharedNationalAnthemOf": "FR",
+    "source": "https://en.wikipedia.org/wiki/Wallis%20and%20Futuna",
+    "recordingSource": "https://flags.worldarena.games/anthems/anthem_fr.m4a?v=2",
+    "note": "National anthem; regional anthem may be different.",
+    "duration": 79.37,
+    "sha256": "2eaf078c0fc34c26559aee841b437fbd9f6dd4524b303b1df9515ff2c0cba017"
+  },
+  "XK": {
+    "country": "XK",
+    "anthem": "Europe",
+    "wikidata": "https://www.wikidata.org/wiki/Q579160",
+    "source": "https://commons.wikimedia.org/wiki/File:National_Anthem_of_the_Republic_of_Kosovo.ogg",
+    "license": "Public domain",
+    "licenseURL": null,
+    "author": "",
+    "original": "https://upload.wikimedia.org/wikipedia/commons/0/0a/National_Anthem_of_the_Republic_of_Kosovo.ogg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+    "duration": 57.18,
+    "sha256": "bfabc75f169691e495361a5fcb102910046115cbea6c587dd771376a8f287da5"
+  },
+  "YT": {
+    "country": "YT",
+    "sharedNationalAnthemOf": "FR",
+    "source": "https://en.wikipedia.org/wiki/Mayotte",
+    "recordingSource": "https://flags.worldarena.games/anthems/anthem_fr.m4a?v=2",
+    "note": "National anthem; regional anthem may be different.",
+    "duration": 79.37,
+    "sha256": "2eaf078c0fc34c26559aee841b437fbd9f6dd4524b303b1df9515ff2c0cba017"
+  },
+  "GL": {
+    "country": "GL",
+    "anthem": "Nunarput utoqqarsuanngoravit",
+    "source": "https://commons.wikimedia.org/wiki/File:Nunarput.ogg",
+    "license": "CC0",
+    "author": "Government of Greenland",
+    "original": "https://upload.wikimedia.org/wikipedia/commons/e/e1/Nunarput.ogg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+    "duration": 36.879002,
+    "sha256": "9ec3fb9d0157d9aa9b5354f27c32185e2d542df585a48a023b5ed31c6056322b"
+  },
+  "EH": {
+    "country": "EH",
+    "anthem": "Yā Banīy As-Saharā",
+    "source": "https://commons.wikimedia.org/wiki/File:Yabaniy_es-sahara_SADR_anthem.ogg",
+    "license": "CC0",
+    "author": "The original uploader was Koavf at English Wikipedia.",
+    "original": "https://upload.wikimedia.org/wikipedia/commons/0/0d/Yabaniy_es-sahara_SADR_anthem.ogg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+    "duration": 63.401995,
+    "sha256": "0fd2e036e82c6772f6454159886f6b1136608e12da4b02a9f7ba9374f4e4b00e"
+  }
+}

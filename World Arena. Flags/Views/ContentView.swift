@@ -117,12 +117,10 @@ struct ContentView: View {
         return true
     }
     private var pendingIncomingDuel: DuelChallenge? {
-        let duelInvitesEnabled = (UserDefaults.standard.object(forKey: "duelInvitesNotifications") as? Bool) ?? true
-        guard duelInvitesEnabled else { return nil }
         return userProfile.incomingDuelChallenges.first { c in
             (c.status == .pending || c.status == .challengerCompleted)
                 && Date().timeIntervalSince(c.createdAt) < Self.duelExpiryHours
-                && !DuelInviteSuppression.isSuppressed(c.id)
+                && !DuelInviteSuppression.isDeclined(c.id)
         }
     }
 
@@ -429,7 +427,7 @@ struct ContentView: View {
                             .padding(.bottom, landscapeIPad ? 20 : 10)
                             .frame(maxWidth: .infinity)
                             .background(Color(UIColor.systemGroupedBackground))
-                        } else if !landscapeIPad {
+                        } else if !useQuickHomeLayout && !landscapeIPad {
                             startGameButtonContent(compactPhone: compactPhone)
                                 .padding(.horizontal, 20)
                                 .padding(.top, 12)
@@ -700,6 +698,8 @@ struct ContentView: View {
             .frame(maxWidth: .infinity, minHeight: unifiedBlockHeight)
             .padding(.horizontal, 10)
             .background(RoundedRectangle(cornerRadius: 12).fill(.ultraThinMaterial))
+            .modifier(StreakCalendarLink())
+            .appGuideTarget("streak")
             Button(action: { showFBucksInfo = true }) {
                 HStack(spacing: 4) {
                     Image("FBucksLogo")
@@ -714,6 +714,7 @@ struct ContentView: View {
                     .background(RoundedRectangle(cornerRadius: 12).fill(.ultraThinMaterial))
             }
             .buttonStyle(.plain)
+            .appGuideTarget("fbucks")
         }
         .frame(maxWidth: quickHomePinnedHeaderMaxWidth)
         .frame(maxWidth: .infinity)
@@ -935,7 +936,7 @@ struct ContentView: View {
         guard gameState.duelRoleIsChallenger else { return true }
         let opponentUsername = (gameState.duelOpponentId ?? "").trimmingCharacters(in: .whitespacesAndNewlines)
         let myName = userProfile.username.trimmingCharacters(in: .whitespacesAndNewlines)
-        guard !opponentUsername.isEmpty, !myName.isEmpty else { return true }
+        guard !opponentUsername.isEmpty, !myName.isEmpty else { return false }
 
         let seed = gameState.duelSeed ?? Int.random(in: 0..<Int.max)
         await MainActor.run {
@@ -954,23 +955,25 @@ struct ContentView: View {
             optionsCount: optionsCount
         )
         guard let questionsPayload, !questionsPayload.isEmpty else { return false }
-        var challengeId = UUID().uuidString
-        if let serverId = try? await DuelAPIService.shared.createChallenge(
-            opponentId: opponentUsername,
-            opponentName: opponentUsername,
-            seed: seed,
-            challengerName: myName,
-            challengerId: myName,
-            duelSetup: .init(
-                regions: regions,
-                difficulty: difficulty,
-                gameMode: gameMode,
-                questionsCount: questionsCount,
-                optionsCount: optionsCount,
-                questionsPayload: questionsPayload
+        let challengeId: String
+        do {
+            challengeId = try await DuelAPIService.shared.createChallenge(
+                opponentId: opponentUsername,
+                opponentName: opponentUsername,
+                seed: seed,
+                challengerName: myName,
+                challengerId: myName,
+                duelSetup: .init(
+                    regions: regions,
+                    difficulty: difficulty,
+                    gameMode: gameMode,
+                    questionsCount: questionsCount,
+                    optionsCount: optionsCount,
+                    questionsPayload: questionsPayload
+                )
             )
-        ) {
-            challengeId = serverId
+        } catch {
+            return false
         }
 
         await MainActor.run {
@@ -2150,6 +2153,7 @@ struct DuelResultBannerView: View {
         let rewardTextColor: Color = result.iWon ? .green : (isPending ? .orange : .primary)
         
         VStack(alignment: .leading, spacing: 8) {
+            DuelOutcomeArtwork(result: result, compact: true)
             HStack {
                 Text(localizationManager.localizedString("Duel result"))
                     .font(.system(size: 14, weight: .semibold))
@@ -2465,14 +2469,7 @@ struct PremiumBenefitsSheetView: View {
     var onClose: () -> Void
     var onManageSubscription: () -> Void
 
-    /// Иконка: сердце (lifeHeartAssetName 30×30) или SF Symbol. Тексты локализуются в body.
-    private static let benefitRows: [(useHeart: Bool, sfSymbol: String?, titleKey: String, subtitleKey: String)] = [
-        (true, nil, "Unlimited Hearts", "Играйте без ожидания"),
-        (false, "star.fill", "Personalized Practice", "Study flags and countries"),
-        (false, "text.bubble.fill", "Explain My Answer", "Analysis of your mistakes"),
-        (false, "list.bullet", "Access 'My Mistakes'", "Analysis of your mistakes"),
-        (false, "brain.head.profile", "Erudite Difficulty", "Advanced questions"),
-    ]
+    private static let benefitRows = PremiumBenefitsCatalog.all
 
     private var benefitsScrollContent: some View {
         ScrollView {
@@ -2482,20 +2479,14 @@ struct PremiumBenefitsSheetView: View {
                     .foregroundColor(.primary)
                     .padding(.horizontal, 4)
 
+                PremiumFamilyBanner()
+
                 VStack(spacing: 0) {
                     ForEach(Array(Self.benefitRows.enumerated()), id: \.offset) { _, row in
                         HStack(spacing: 12) {
-                            Group {
-                                if row.useHeart {
-                                        Image(localizationManager.lifeHeartAssetName(forCountryCode: userProfile.selectedCountryCode))
-                                        .resizable()
-                                        .scaledToFit()
-                                } else if let sf = row.sfSymbol {
-                                    Image(systemName: sf)
-                                        .font(.body.weight(.semibold))
-                                        .foregroundColor(.blue)
-                                }
-                            }
+                            Image(systemName: row.icon)
+                                .font(.body.weight(.semibold))
+                                .foregroundColor(.blue)
                             .frame(width: 30, height: 30)
 
                             VStack(alignment: .leading, spacing: 2) {
@@ -2521,7 +2512,7 @@ struct PremiumBenefitsSheetView: View {
                 .background(RoundedRectangle(cornerRadius: 14, style: .continuous).fill(Color(UIColor.secondarySystemGroupedBackground)))
                 .overlay(RoundedRectangle(cornerRadius: 14, style: .continuous).stroke(Color.primary.opacity(0.06), lineWidth: 1))
 
-                Text(localizationManager.localizedString("Up to +750% faster flag learning with Premium"))
+                Text(localizationManager.localizedString("Get Premium tools for faster learning and better game results"))
                     .font(.subheadline.weight(.medium))
                     .foregroundColor(.secondary)
                     .multilineTextAlignment(.leading)
@@ -2639,7 +2630,7 @@ struct LivesInfoBar: View {
                        gameState.lives < gameState.maxLives {
                         let minutes = Int(remaining) / 60
                         let seconds = Int(remaining) % 60
-                        Text("+\(gameState.maxLives) \(localizationManager.localizedString("через")) \(String(format: "%02d:%02d", minutes, seconds))")
+                        Text("+\(gameState.nextLivesRefillAmount) \(localizationManager.localizedString("через")) \(String(format: "%02d:%02d", minutes, seconds))")
                             .font(.system(size: largeText ? 14 : 11, weight: .regular))
                             .foregroundColor(.secondary)
                             .lineLimit(1)
@@ -2670,13 +2661,7 @@ struct LivesInfoBar: View {
             )
         }
         .sheetOrFullScreenOnIPad(isPresented: $showUpgradePromo) {
-            LivesUpgradePromoView(
-                onClose: { showUpgradePromo = false },
-                onGoPremium: {
-                    showUpgradePromo = false
-                    NotificationCenter.default.post(name: NSNotification.Name("showPremiumFromHome"), object: nil)
-                }
-            )
+            PremiumView(gameState: gameState)
         }
         .onAppear {
             if !gameState.isPremium {
@@ -2713,139 +2698,7 @@ struct LivesInfoBar: View {
     }
 }
 
-struct LivesUpgradePromoView: View {
-    let onClose: () -> Void
-    let onGoPremium: () -> Void
-    @ObservedObject private var localizationManager = LocalizationManager.shared
 
-    var body: some View {
-        NavigationView {
-            ZStack {
-                LinearGradient(
-                    colors: [
-                        Color.blue.opacity(0.22),
-                        Color.purple.opacity(0.20),
-                        Color.orange.opacity(0.12)
-                    ],
-                    startPoint: .topLeading,
-                    endPoint: .bottomTrailing
-                )
-                .ignoresSafeArea()
-
-                ScrollView {
-                    VStack(spacing: 18) {
-                        VStack(spacing: 8) {
-                            Image(systemName: "star.circle.fill")
-                                .font(.system(size: 52))
-                            Text(localizationManager.localizedString("Unlock your full progress"))
-                                .font(.system(size: 28, weight: .bold, design: .rounded))
-                                .multilineTextAlignment(.center)
-                            Text(localizationManager.localizedString("Get Premium tools for faster learning and better game results"))
-                                .font(.system(size: 15, weight: .medium))
-                                .foregroundColor(.secondary)
-                                .multilineTextAlignment(.center)
-                                .padding(.horizontal, 8)
-                        }
-                        .padding(.top, 8)
-
-                        HStack(spacing: 8) {
-                            Image(systemName: "chart.line.uptrend.xyaxis")
-                                .foregroundColor(.green)
-                            Text(localizationManager.localizedString("Up to +750% faster flag learning with Premium"))
-                                .font(.system(size: 14, weight: .semibold))
-                                .foregroundColor(.primary)
-                                .multilineTextAlignment(.leading)
-                            Spacer(minLength: 0)
-                        }
-                        .padding(12)
-                        .background(
-                            RoundedRectangle(cornerRadius: 12)
-                                .fill(Color.green.opacity(0.12))
-                        )
-
-                        VStack(spacing: 12) {
-                            PromoFeatureRow(
-                                icon: "heart.fill",
-                                iconImageName: localizationManager.lifeHeartAssetName(forCountryCode: UserProfile.shared.selectedCountryCode),
-                                color: .red,
-                                title: localizationManager.localizedString("Unlimited Hearts"),
-                                subtitle: localizationManager.localizedString("Play without waiting and keep your learning momentum")
-                            )
-                            PromoFeatureRow(
-                                icon: "book.fill",
-                                color: .blue,
-                                title: localizationManager.localizedString("Learning section"),
-                                subtitle: localizationManager.localizedString("Train flags, listen to anthems, and explore detailed country profiles")
-                            )
-                            PromoFeatureRow(
-                                icon: "brain.head.profile",
-                                color: .purple,
-                                title: localizationManager.localizedString("Erudite difficulty"),
-                                subtitle: localizationManager.localizedString("Advanced challenge with deeper knowledge checks")
-                            )
-                            PromoFeatureRow(
-                                icon: "exclamationmark.bubble.fill",
-                                color: .orange,
-                                title: localizationManager.localizedString("My mistakes"),
-                                subtitle: localizationManager.localizedString("Focus on weak topics and improve accuracy")
-                            )
-                            PromoFeatureRow(
-                                icon: "sparkles",
-                                color: .green,
-                                title: localizationManager.localizedString("Personalized practice"),
-                                subtitle: localizationManager.localizedString("Adaptive sessions based on your progress")
-                            )
-                            PromoFeatureRow(
-                                icon: "text.bubble.fill",
-                                color: .indigo,
-                                title: localizationManager.localizedString("Explain my answer"),
-                                subtitle: localizationManager.localizedString("Understand every mistake and learn faster")
-                            )
-                        }
-                        .padding(16)
-                        .background(
-                            RoundedRectangle(cornerRadius: 18)
-                                .fill(.ultraThinMaterial)
-                                .overlay(
-                                    RoundedRectangle(cornerRadius: 18)
-                                        .stroke(Color.white.opacity(0.35), lineWidth: 1)
-                                )
-                        )
-
-                        Button(action: onGoPremium) {
-                            HStack(spacing: 10) {
-                                Image(systemName: "crown.fill")
-                                Text(localizationManager.localizedString("Go Premium"))
-                                    .fontWeight(.bold)
-                            }
-                            .foregroundColor(.white)
-                            .frame(maxWidth: .infinity)
-                            .frame(height: 56)
-                            .background(
-                                LinearGradient(
-                                    colors: [Color.blue, Color.purple],
-                                    startPoint: .leading,
-                                    endPoint: .trailing
-                                )
-                            )
-                            .cornerRadius(16)
-                            .shadow(color: .blue.opacity(0.35), radius: 10, x: 0, y: 6)
-                        }
-                        .padding(.top, 4)
-                    }
-                    .padding(.horizontal, 20)
-                    .padding(.bottom, 24)
-                }
-            }
-            .navigationBarTitleDisplayMode(.inline)
-            .toolbar {
-                ToolbarItem(placement: .navigationBarLeading) {
-                    Button(localizationManager.localizedString("Close")) { onClose() }
-                }
-            }
-        }
-    }
-}
 
 private struct PromoFeatureRow: View {
     let icon: String

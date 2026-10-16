@@ -33,43 +33,29 @@ class CountryPhotosService {
         }
     }
 
-    /// Галерея для экрана «Обучение»: только курируемые фото с сервера; иначе три emoji-плитки без битых URL.
+    private lazy var preparedGallery: [String: [CountryPhoto]] = {
+        guard let url = Bundle.main.url(forResource: "learning-gallery", withExtension: "json"),
+              let data = try? Data(contentsOf: url),
+              let gallery = try? JSONDecoder().decode([String: [CountryPhoto]].self, from: data) else { return [:] }
+        return gallery
+    }()
+
     func galleryPhotosForLearning(for countryCode: String) -> [CountryPhoto] {
-        let curated = getPhotos(for: countryCode)
-        if !curated.isEmpty { return curated }
-        return emojiFallbackGallery(for: countryCode)
+        let code = countryCode.uppercased()
+        let flag = CountryPhoto(id: "\(code)_flag", type: .flag, title: "Flag", description: "", imageURL: "https://flagcdn.com/w1280/\(code.lowercased()).png", localImage: "")
+        return [flag] + (preparedGallery[code] ?? [])
     }
 
-    private func emojiFallbackGallery(for countryCode: String) -> [CountryPhoto] {
-        let c = countryCode.uppercased()
-        return [
-            CountryPhoto(
-                id: "\(c)_learn_flag",
-                type: .flag,
-                title: "Flag",
-                description: "",
-                imageURL: "",
-                localImage: getFlagEmoji(for: c)
-            ),
-            CountryPhoto(
-                id: "\(c)_learn_landmark",
-                type: .landmark,
-                title: "Landmark",
-                description: "",
-                imageURL: "",
-                localImage: "🏛️"
-            ),
-            CountryPhoto(
-                id: "\(c)_learn_nature",
-                type: .nature,
-                title: "Nature",
-                description: "",
-                imageURL: "",
-                localImage: "🌄"
-            )
-        ]
+    @MainActor
+    func loadLearningGallery(code: String, englishName: String, onUpdate: (([CountryPhoto]) -> Void)? = nil) async -> [CountryPhoto] {
+        // The bundled, attributed manifest is available immediately, including offline.
+        // Photos load independently from our CDN; opening a country no longer performs
+        // a chain of Wikipedia/category searches which may be rate limited.
+        let photos = galleryPhotosForLearning(for: code)
+        onUpdate?(photos)
+        return photos
     }
-    
+
     // MARK: - USA Photos
     private var usaPhotos: [CountryPhoto] {
         [
@@ -1191,13 +1177,25 @@ class CountryPhotosService {
 }
 
 // MARK: - Country Photo Model
-struct CountryPhoto: Identifiable, Equatable {
+struct CountryPhoto: Identifiable, Equatable, Codable {
     let id: String
     let type: PhotoType
     let title: String
     let description: String
     let imageURL: String
     let localImage: String
+    var sourceURL: String? = nil
+    var story: String? = nil
+    var articleURL: String? = nil
+    var localizedTitles: [String: String]? = nil
+    var localizedStories: [String: String]? = nil
+
+    @MainActor var displayTitle: String {
+        localizedTitles?[LocalizationManager.shared.currentLocale.languageCode ?? "en"] ?? title
+    }
+    @MainActor var displayStory: String {
+        localizedStories?[LocalizationManager.shared.currentLocale.languageCode ?? "en"] ?? story ?? ""
+    }
     
     static func == (lhs: CountryPhoto, rhs: CountryPhoto) -> Bool {
         lhs.id == rhs.id
@@ -1205,7 +1203,7 @@ struct CountryPhoto: Identifiable, Equatable {
 }
 
 // MARK: - Photo Types
-enum PhotoType: String, CaseIterable {
+enum PhotoType: String, CaseIterable, Codable {
     case flag = "flag"
     case landmark = "landmark"
     case nature = "nature"

@@ -234,19 +234,16 @@
 "Request Timeout" = "అభ్యర్థన గడువు ముగిసింది";
 "Server Not Found" = "సర్వర్ కనుగొనబడలేదు";
 "Too Many Requests" = "చాలా ఎక్కువ అభ్యర్థనలు";
-"Server Error" = "సర్వర్ లోపం";
 "HTTP Error: %d" = "HTTP లోపం: %d";
-"Try Again" = "మళ్లీ ప్రయత్నించండి";
 "Not enough countries in selected regions (found %d, need at least 4)" = "ఎంచుకున్న ప్రాంతాలలో తగినంత దేశాలు లేవు (%d కనుగొనబడింది, కనీసం 4 అవసరం)";
 "Empty response from server" = "సర్వర్ నుండి ఖాళీ ప్రతిస్పందన";
 
 // New additions
 "Capital" = "రాజధాని";
 "Population" = "జనాభా";
-"Area" = "ప్రాంతం";
+"Area" = "విస్తీర్ణం";
 "Region" = "ప్రాంతం";
 "Subregion" = "ఉపప్రాంతం";
-
 // Language additions
 "system_language" = "వ్యవస్థ";
 "ru_language" = "రస్కియ్";
@@ -1736,3 +1733,89 @@
 "premium.trial.yearly" = "7 రోజులు ఉచితం, ఆ తర్వాత సంవత్సరానికి %@.";
 "premium.renewal" = "రద్దు చేసే వరకు స్వయంచాలకంగా పునరుద్ధరించబడుతుంది. App Store సబ్‌స్క్రిప్షన్‌లలో నిర్వహించండి లేదా రద్దు చేయండి.";
 "premium.subscribe" = "సబ్‌స్క్రైబ్ చేయండి";
+
+/* Duel inbox */
+"duel.challenges.title" = "సవాళ్లు";
+"duel.challenges.subtitle" = "ఆహ్వానాలు, కొనసాగుతున్న పోటీలు మరియు ఫలితాలు";
+
+// Verified subscription status
+"premium.restore.success" = "కొనుగోళ్లు పునరుద్ధరించబడ్డాయి.";
+"premium.restore.empty" = "ఈ Apple ఖాతాకు క్రియాశీల సభ్యత్వం కనుగొనబడలేదు.";
+"premium.access.until" = "యాక్సెస్ ముగింపు తేదీ";
+
+// Streak calendar and freeze inventory
+"streak.calendar.title" = "వరుస రోజుల క్యాలెండర్";
+"streak.calendar.played" = "ఆడారు";
+"streak.calendar.frozen" = "రక్షించబడింది";
+"streak.calendar.missed" = "మిస్ అయింది";
+"streak.calendar.open_day" = "ఇంకా ఆడలేదు";
+"streak.calendar.previous" = "గత నెల";
+"streak.calendar.next" = "తదుపరి నెల";
+"streak.freeze.title" = "స్ట్రీక్ ఫ్రీజ్‌లు";
+"streak.freeze.repair" = "నిన్నటిని పునరుద్ధరించు · 1 ఫ్రీజ్";
+"streak.freeze.friends" = "స్నేహితులకు సహాయం";
+"streak.freeze.give" = "1 ఫ్రీజ్ బహుమతిగా ఇవ్వు";
+"streak.freeze.signin" = "ఫ్రీజ్‌లు పంపడానికి, పొందడానికి సైన్ ఇన్ చేయండి.";
+"streak.freeze.unavailable" = "స్నేహితుడికి ఇక అవసరం లేదు. మీ ఫ్రీజ్ తిరిగి ఇవ్వబడింది.";
+"streak.freeze.sent" = "ఫ్రీజ్ పంపబడింది!";
+"streak.freeze.retry" = "సింక్ కాలేదు. పెండింగ్ బహుమతిని పూర్తి చేయడానికి మళ్లీ ప్రయత్నించండి.";
+"streak.freeze.no_friends" = "ఇప్పుడు ఫ్రీజ్‌లు అయిపోయిన స్నేహితులు లేరు.";
+"streak.freeze.explanation" = "ఒక ఫ్రీజ్ మిస్ అయిన ఒక రోజును ఆటోమేటిక్‌గా కాపాడుతుంది, కానీ ఆడిన రోజుగా లెక్కించదు. ముందే కొనండి లేదా నిన్నటిని పునరుద్ధరించండి.";
+
+// Avatar shop and wardrobe
+"shop.avatar" = "మీ అవతార్";
+"shop.preview_hint" = "కొనే ముందు ధరించి చూడండి. వర్తింపజేస్తే ప్రొఫైల్ ఫోటో స్థానంలో ఈ అవతార్ కనిపిస్తుంది.";
+"shop.wardrobe" = "దుస్తుల అలమర";
+"shop.empty" = "కొన్న వస్తువులు ఇక్కడ కనిపిస్తాయి.";
+"shop.equipped" = "ధరించారు";
+"shop.owned" = "కొనుగోలు చేశారు";
+"shop.remove" = "తీయండి";
+"shop.equip" = "ధరించండి";
+"shop.save_error" = "ఈ పరికరంలో సేవ్ అయింది. ఆన్‌లైన్ అవతార్‌ను నవీకరించలేకపోయాము.";
+
+"home.lives.welcome" = "స్వాగత బోనస్: మొదటి 7 రోజుల్లో ప్రతి 10 నిమిషాలకు +3 ప్రాణాలు. గరిష్ఠంగా 5 ప్రాణాలు; సబ్‌స్క్రిప్షన్ అవసరం లేదు.";
+
+"Profile Share CTA" = "QR కోడ్ స్కాన్ చేయి. ఆడుదాం!";
+
+
+"Profile Share Headline" = "జెండాలు తెలుసా?\nనిరూపించండి.";
+
+"Use current time" = "ప్రస్తుత సమయాన్ని సెట్ చేయండి";
+
+"Progress emails" = "పురోగతి ఇమెయిల్‌లు";
+
+"Progress emails detail" = "మీ వ్యక్తిగత సారాంశం, వారానికి గరిష్ఠంగా ఒకసారి. ప్రతి ద్వంద్వం తర్వాత ఇమెయిల్ లేదు. ఎప్పుడైనా నిలిపివేయవచ్చు.";
+
+"Server Error" = "సర్వర్ అందుబాటులో లేదు";
+
+"Try Again" = "మళ్లీ ప్రయత్నించండి";
+
+"Server error. Try again." = "సర్వర్ అందుబాటులో లేదు. మళ్లీ ప్రయత్నించండి";
+
+"Invalid server response." = "సర్వర్ అందుబాటులో లేదు";
+
+"duel.network.error" = "సర్వర్ అందుబాటులో లేదు. మళ్లీ ప్రయత్నించండి";
+
+"duel.reminder.sent" = "రిమైండర్ పంపబడింది";
+
+"duel.reminder.cooldown" = "మరో రిమైండర్ పంపే ముందు వేచి ఉండండి.";
+
+"duel.reminder.disabled" = "ఈ ఆటగాడు ద్వంద్వ నోటిఫికేషన్‌లను ఆపివేశారు.";
+
+"duel.reminder.no_device" = "ఈ ఆటగాడి ఏ పరికరంలోనూ పుష్ నోటిఫికేషన్‌లు లేవు.";
+
+"duel.reminder.completed" = "ద్వంద్వం ఇప్పటికే ముగిసింది.";
+
+"duel.reminder.missing" = "ఈ ద్వంద్వం ఇక అందుబాటులో లేదు.";
+
+"Flags Brand Title" = "జెండాలు";
+
+"lifecycle.offers" = "సవాళ్లు మరియు ఆఫర్లు";
+
+"lifecycle.offers.detail" = "బోనస్‌లు, సవాళ్లు మరియు ఇతర World Arena ఆటలు. వారానికి మొత్తం గరిష్ఠంగా రెండు ఇమెయిల్‌లు.";
+
+"lifecycle.bonus.title" = "పగలు కూడా ఆడదామా?";
+
+"lifecycle.bonus.body" = "మీ సమయ మండలంలో 12:00 నుంచి 16:00 మధ్య ఒక బోనస్ సవాలును తప్పులేకుండా పూర్తి చేస్తే అదనంగా 1 F-Buck.";
+
+"lifecycle.bonus.unavailable" = "ఈ సవాలు ఇప్పుడు అందుబాటులో లేదు. సేవ్ చేసిన పురోగతి అలాగే ఉంది.";

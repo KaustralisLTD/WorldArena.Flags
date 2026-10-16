@@ -8,14 +8,21 @@ import AppKit
 
 struct NotificationSettingsView: View {
     @Environment(\.presentationMode) var presentationMode
-    @State private var notificationsEnabled = true
-    @State private var dailyReminders = true
-    @State private var streakReminders = true
-    @State private var achievementNotifications = true
-    @State private var leagueNotifications = true
-    @State private var friendsNotifications = false
+    @State private var notificationsEnabled = (UserDefaults.standard.object(forKey: "notificationsEnabled") as? Bool) ?? true
+    @State private var dailyReminders = (UserDefaults.standard.object(forKey: "dailyReminders") as? Bool) ?? true
+    @State private var streakReminders = (UserDefaults.standard.object(forKey: "streakReminders") as? Bool) ?? true
+    @State private var achievementNotifications = (UserDefaults.standard.object(forKey: "achievementNotifications") as? Bool) ?? true
+    @State private var leagueNotifications = (UserDefaults.standard.object(forKey: "leagueNotifications") as? Bool) ?? true
+    @State private var friendsNotifications = (UserDefaults.standard.object(forKey: "friendsNotifications") as? Bool) ?? false
+    @State private var duelResultsNotifications = (UserDefaults.standard.object(forKey: "duelResultsNotifications") as? Bool) ?? true
     @State private var duelInvitesNotifications = (UserDefaults.standard.object(forKey: "duelInvitesNotifications") as? Bool) ?? true
-    @State private var reminderTime = Date()
+    @State private var reminderTime = NotificationService.savedReminderTime()
+    @AppStorage private var progressEmailEnabled: Bool
+    @AppStorage private var lifecycleOffers: Bool
+    init() {
+        _progressEmailEnabled = AppStorage(wrappedValue: false, ProgressMailSync.preferenceKey)
+        _lifecycleOffers = AppStorage(wrappedValue: false, LifecycleService.offersKey)
+    }
     @State private var showMyNotifications = false
     
     private var systemGroupedBackground: Color {
@@ -86,6 +93,10 @@ struct NotificationSettingsView: View {
                                 #endif
                                 .padding(.horizontal, 16)
                                 .padding(.vertical, 8)
+                                Button(LocalizationManager.shared.localizedString("Use current time")) {
+                                    reminderTime = Date()
+                                }
+                                .padding(16)
                             }
                         }
                         
@@ -117,10 +128,29 @@ struct NotificationSettingsView: View {
                                 icon: "bolt.fill",
                                 isOn: $duelInvitesNotifications
                             )
+                            SettingsToggleRow(
+                                title: LocalizationManager.shared.localizedString("Duel result"),
+                                icon: "trophy.fill",
+                                isOn: $duelResultsNotifications
+                            )
                         }
 
                     }
                     
+                    if AuthService.shared.isAuthenticated {
+                        settingsSection(title: LocalizationManager.shared.localizedString("Progress emails")) {
+                            SettingsToggleRow(title: LocalizationManager.shared.localizedString("Progress emails"), icon: "envelope", isOn: $progressEmailEnabled)
+                            Text(LocalizationManager.shared.localizedString("Progress emails detail"))
+                                .font(.footnote).foregroundColor(.secondary).padding(16)
+                        }
+                    }
+                    if AuthService.shared.isAuthenticated {
+                        settingsSection(title: LocalizationManager.shared.localizedString("lifecycle.offers")) {
+                            SettingsToggleRow(title: LocalizationManager.shared.localizedString("lifecycle.offers"), icon: "sparkles", isOn: $lifecycleOffers)
+                            Text(LocalizationManager.shared.localizedString("lifecycle.offers.detail"))
+                                .font(.footnote).foregroundColor(.secondary).padding(16)
+                        }
+                    }
                     Spacer(minLength: 50)
                 }
             }
@@ -152,6 +182,12 @@ struct NotificationSettingsView: View {
         .onAppear {
             loadCurrentSettings()
         }
+        .onChange(of: progressEmailEnabled) { enabled in
+            Task { await ProgressMailSync.sync(explicitConsent: enabled) }
+        }
+        .onChange(of: lifecycleOffers) { enabled in
+            Task { await ProgressMailSync.sync(explicitConsent: enabled) }
+        }
         .sheet(isPresented: $showMyNotifications) {
             MyNotificationsView()
         }
@@ -182,14 +218,15 @@ struct NotificationSettingsView: View {
         // Загрузить текущие настройки из UserDefaults или другого хранилища
         UNUserNotificationCenter.current().getNotificationSettings { settings in
             DispatchQueue.main.async {
-                self.notificationsEnabled = settings.authorizationStatus == .authorized
+                self.notificationsEnabled = self.notificationsEnabled && (settings.authorizationStatus == .authorized || settings.authorizationStatus == .provisional)
                 self.duelInvitesNotifications = (UserDefaults.standard.object(forKey: "duelInvitesNotifications") as? Bool) ?? true
             }
         }
     }
     
     private func saveSettings() {
-        // Сохранить настройки
+        UserDefaults.standard.set(notificationsEnabled, forKey: "notificationsEnabled")
+        UNUserNotificationCenter.current().removePendingNotificationRequests(withIdentifiers: ["dailyReminder", "inactivity_reminder"])
         if notificationsEnabled {
             requestNotificationPermission()
         }
@@ -201,7 +238,10 @@ struct NotificationSettingsView: View {
         UserDefaults.standard.set(leagueNotifications, forKey: "leagueNotifications")
         UserDefaults.standard.set(friendsNotifications, forKey: "friendsNotifications")
         UserDefaults.standard.set(duelInvitesNotifications, forKey: "duelInvitesNotifications")
+        UserDefaults.standard.set(duelResultsNotifications, forKey: "duelResultsNotifications")
+        Task { await ProgressMailSync.sync(); await FriendsService.shared.syncServerFriendCode(for: UserProfile.shared, maxAttempts: 1) }
         UserDefaults.standard.set(reminderTime, forKey: "reminderTime")
+        NotificationService.shared.scheduleLeagueReminder()
         
         presentationMode.wrappedValue.dismiss()
     }
@@ -268,6 +308,7 @@ private struct MyNotificationsView: View {
         }
         .task {
             items = await NotificationService.shared.fetchMyNotifications()
+            NotificationService.shared.markNotificationsRead()
             loading = false
         }
     }

@@ -38,8 +38,15 @@ struct AvatarDuolingoCanvasComposer: View {
                         .resizable()
                         .scaledToFit()
                         .frame(width: fw, height: fh)
+                        .mask(alignment: .top) {
+                            Rectangle().frame(height: configuration.shopOutfit == nil ? fh : (fh - fw) / 2 + fw * 0.71)
+                        }
                         .offset(y: torsoDrop)
                         .accessibilityHidden(true)
+
+                    if let outfit = configuration.shopOutfit {
+                        AvatarShopGarment(id: outfit).frame(width: fw, height: fw).frame(width: fw, height: fh).offset(y: torsoDrop)
+                    }
 
                     Group {
                         duolingoHairLayer(fw: fw, fh: fh, headW: headW, headH: headH)
@@ -67,7 +74,12 @@ struct AvatarDuolingoCanvasComposer: View {
                         duolingoFacialHairLayer(fw: fw, fh: fh, headW: headW, headH: headH)
 
                         duolingoGlasses(headW: headW, headH: headH)
-                        duolingoHeadwear(headW: headW, headH: headH, fw: fw, fh: fh)
+                        if configuration.shopHat == nil {
+                            duolingoHeadwear(headW: headW, headH: headH, fw: fw, fh: fh)
+                        }
+                        if configuration.shopHat == "cap_1" {
+                            Image("avatar_hat_beginner").resizable().scaledToFit().frame(width: fw, height: fh)
+                        }
                     }
                     .offset(y: headClusterLift)
                 }

@@ -11,6 +11,8 @@ struct ProfileView: View {
     @EnvironmentObject var gameState: GameState
     @State private var showingSettings = false
     @State private var showingShareSheet = false
+    @State private var verifiedProfileShareURL: URL?
+    @State private var profileShareFailed = false
     /// Редактирование профиля (имя, день рождения, аватар) — тап по аватарке в шапке.
     @State private var showingUserProfileEdit = false
     @State private var showFullNameAlert = false
@@ -21,9 +23,7 @@ struct ProfileView: View {
     @State private var profileCardImage: NSImage?
     #endif
     @ObservedObject private var localizationManager = LocalizationManager.shared
-    @State private var safeTopInset: CGFloat = 0
     @Environment(\.sizeCategory) private var sizeCategory
-    @State private var containerSize: CGSize = .zero
     @Binding var selectedTab: Int
     @State private var lightweightFriendsSyncTask: Task<Void, Never>?
     #if os(iOS)
@@ -36,22 +36,6 @@ struct ProfileView: View {
         #else
         return false
         #endif
-    }
-    
-    private var isIPadLandscape: Bool {
-        guard isIPad else { return false }
-        #if os(iOS)
-        if verticalSizeClass == .compact { return true }
-        let size = containerSize.width > 0 ? containerSize : UIScreen.main.bounds.size
-        return size.width > size.height
-        #else
-        return false
-        #endif
-    }
-    
-    private var headerHeightLandscape: CGFloat {
-        // Под большой аватар 264pt в одной строке
-        288 + safeTopInset
     }
     
     private var systemGroupedBackground: Color {
@@ -78,79 +62,42 @@ struct ProfileView: View {
         #endif
     }
 
-    private var profileUsernameFontSize: CGFloat {
-        if sizeCategory >= .accessibilityMedium, !isIPad { return 18 }
-        return isIPad ? 26 : 22
-    }
-
     var body: some View {
         ZStack(alignment: .top) {
             // Базовый фон
             systemGroupedBackground
                 .ignoresSafeArea()
 
-            if isIPad {
-                // iPad: скролл на весь экран, оверлей шапки через .overlay — тапы ниже шапки попадают в ScrollView
-                Group {
-                    if isIPadLandscape {
-                        ZStack(alignment: .top) {
-                            ScrollView {
-                                ipadScrollContent
-                            }
-                            .refreshable {
-                                await refreshProfileData()
-                            }
-                            .modifier(ProfileHideScrollContentBackgroundModifier())
-                            .background(systemGroupedBackground)
-                            ipadOverlayLandscape
-                        }
-                    } else {
-                        ZStack(alignment: .top) {
-                            ScrollView {
-                                ipadScrollContent
-                            }
-                            .refreshable {
-                                await refreshProfileData()
-                            }
-                            .modifier(ProfileHideScrollContentBackgroundModifier())
-                            .background(systemGroupedBackground.ignoresSafeArea())
-                            ipadOverlayPortrait
-                        }
-                    }
-                }
-            } else {
-                GeometryReader { geometry in
-                    ScrollView {
-                        VStack(spacing: 20) {
-                            phoneHeader
-                                .padding(.top, geometry.safeAreaInsets.top)
-                                .background(
-                                    LinearGradient(colors: [.cyan, .blue], startPoint: .topLeading, endPoint: .bottomTrailing)
-                                )
+            GeometryReader { geometry in
+                ScrollView {
+                    VStack(spacing: 24) {
+                        profileHero
+                            .background(profileGradient.ignoresSafeArea(.container, edges: .top))
+                        VStack(spacing: 24) {
                             statisticsSection
-                            addFriendsButton
                             overviewSection
-                            friendStreaksSection
+                            FriendRequestsEntry()
+                            addFriendsButton.appGuideTarget("friends")
+                            AppGuideReplay()
+                            CountryFactsSettingsEntry()
                             monthlyBadgesSection
                         }
-                        .padding(.bottom, 28)
+                        .frame(maxWidth: 1040)
+                        .frame(maxWidth: .infinity)
                     }
-                    .ignoresSafeArea(.container, edges: .top)
-                    .accessibilityIdentifier("profile.scroll")
-                    .refreshable { await refreshProfileData() }
-                    .modifier(ProfileHideScrollContentBackgroundModifier())
+                    .padding(.bottom, 32)
                 }
+                .overlay(alignment: .top) {
+                    profileGradient
+                        .frame(height: geometry.safeAreaInsets.top)
+                        .offset(y: -geometry.safeAreaInsets.top)
+                        .allowsHitTesting(false)
+                }
+                .accessibilityIdentifier("profile.scroll")
+                .refreshable { await refreshProfileData() }
+                .modifier(ProfileHideScrollContentBackgroundModifier())
             }
         }
-        .background(
-            GeometryReader { geo in
-                Color.clear
-                    .preference(key: SafeTopInsetKeyProfile.self, value: geo.safeAreaInsets.top)
-                    .preference(key: ProfileContainerSizeKey.self, value: geo.size)
-            }
-        )
-        .onPreferenceChange(SafeTopInsetKeyProfile.self) { safeTopInset = $0 }
-        .onPreferenceChange(ProfileContainerSizeKey.self) { containerSize = $0 }
         .navigationTitle("")
         #if os(iOS)
         .navigationBarTitleDisplayMode(.inline)
@@ -203,6 +150,11 @@ struct ProfileView: View {
                     .environmentObject(gameState)
             }
             #endif
+            .alert(localizationManager.localizedString("Server Error"), isPresented: $profileShareFailed) {
+                Button(localizationManager.localizedString("OK"), role: .cancel) { }
+            } message: {
+                Text(localizationManager.localizedString("Server error. Try again."))
+            }
             .alert(localizationManager.localizedString("Name"), isPresented: $showFullNameAlert) {
                 Button(localizationManager.localizedString("Close"), role: .cancel) { }
             } message: {
@@ -231,22 +183,21 @@ struct ProfileView: View {
                 .padding(.horizontal, isIPad ? 40 : 20)
             
             VStack(spacing: isIPad ? 16 : 12) {
+                LazyVGrid(columns: Array(repeating: GridItem(.flexible()), count: sizeCategory.isAccessibilityCategory ? 1 : (isIPad ? 4 : 2)), spacing: 12) {
                 StatisticRow(icon: "", iconImageName: "StatDayStreak", systemImageName: "flame.fill", title: "\(userProfile.streak) " + LocalizationManager.shared.localizedString("дней"), subtitle: LocalizationManager.shared.localizedString("Текущая серия"), isIPad: isIPad)
-                Button(action: { showingCountryPicker = true }) {
-                    StatisticRow(
-                        icon: flagForSelectedCountry,
-                        title: "\(userProfile.totalGamesPlayed * 10)",
-                        subtitle: LocalizationManager.shared.localizedString("Всего изучено флагов"),
-                        isIPad: isIPad
-                    )
+                    .modifier(StreakCalendarLink())
+                StatisticRow(icon: "", systemImageName: "flag.checkered", title: "\(userProfile.totalGamesPlayed)", subtitle: localizationManager.localizedString("Всего игр"), isIPad: isIPad)
+                StatisticRow(icon: "", systemImageName: "scope", title: "\(Int(userProfile.accuracy))%", subtitle: localizationManager.localizedString("Accuracy"), isIPad: isIPad)
+                Button { showingAddFriends = true } label: {
+                    StatisticRow(icon: "", systemImageName: "person.2.fill", title: "\(userProfile.friends.count)", subtitle: localizationManager.localizedString("Following"), isIPad: isIPad)
                 }
                 .buttonStyle(.plain)
-                StatisticRow(icon: "", iconImageName: userProfile.currentLeague.imageAssetName, systemImageName: "diamond.fill", title: userProfile.currentLeague.localizedFullName, subtitle: LocalizationManager.shared.localizedString("Текущая лига"), isIPad: isIPad)
-                StatisticRow(icon: "", systemImageName: "bolt.fill", title: "\(userProfile.xp) " + LocalizationManager.shared.localizedString("XP"), subtitle: LocalizationManager.shared.localizedString("Общий опыт"), isIPad: isIPad)
                 
+                }
+
                 // Глобальный рейтинг по странам и миру (мотивационный блок)
                 VStack(alignment: .leading, spacing: 8) {
-                    Text(LocalizationManager.shared.localizedString("Global ranking by countries"))
+                    Text(LocalizationManager.shared.localizedString("ranking.motivational.title"))
                         .font(.system(size: isIPad ? 16 : 14, weight: .semibold))
                         .foregroundColor(.secondary)
                     Button(action: { showingCountryPicker = true }) {
@@ -260,13 +211,17 @@ struct ProfileView: View {
                         }
                     }
                     .buttonStyle(.plain)
+                    Text(LocalizationManager.shared.localizedString("ranking.motivational.explanation"))
+                        .font(.caption).foregroundStyle(.secondary)
                     Text(worldRankLine())
                         .font(.system(size: isIPad ? 16 : 14, weight: .bold))
                 }
                 .frame(maxWidth: .infinity, alignment: .leading)
-                .padding(.top, 2)
+                .padding(16)
+                .background(secondarySystemGroupedBackground, in: RoundedRectangle(cornerRadius: 20, style: .continuous))
 
-                // Три карточки одного размера: World Progress Map, Duel Summary, Statistics
+                LazyVGrid(columns: Array(repeating: GridItem(.flexible(), spacing: 12), count: isIPad && !sizeCategory.isAccessibilityCategory ? 2 : 1), spacing: 12) {
+                // Navigation destinations
                 profileOverviewCard(
                     iconName: "IconWorldProgressMap",
                     title: LocalizationManager.shared.localizedString("Карта прогресса мира"),
@@ -282,18 +237,19 @@ struct ProfileView: View {
                 profileOverviewCard(
                     iconName: "IconStatistics",
                     title: LocalizationManager.shared.localizedString("Статистика"),
-                    subtitle: LocalizationManager.shared.localizedString("Progress map subtitle"),
+                    subtitle: LocalizationManager.shared.localizedString("Accuracy") + " · " + LocalizationManager.shared.localizedString("Best Score"),
                     destination: { StatisticsView(isPushedFromProfile: true) }
                 )
                 // F-Bucks в том же формате карточки, по тапу — страница о F-Bucks
                 profileOverviewCardFBucks()
+                }
             }
             .padding(.horizontal, isIPad ? 40 : 20)
         }
     }
 
     /// Размер миниатюры в карточках (чуть уменьшен, чтобы визуально не доминировать)
-    private var profileCardIconSize: (w: CGFloat, h: CGFloat) { isIPad ? (80, 80) : (68, 68) }
+    private var profileCardIconSize: (w: CGFloat, h: CGFloat) { isIPad ? (48, 48) : (42, 42) }
 
     /// Карточка одного размера для World Progress Map / Duel Summary / Statistics
     private func profileOverviewCard<Destination: View>(
@@ -304,21 +260,19 @@ struct ProfileView: View {
     ) -> some View {
         NavigationLink(destination: destination()) {
             HStack(spacing: 14) {
-                Image(iconName)
-                    .resizable()
-                    .scaledToFit()
+                ProfileFeatureIcon(name: iconName)
                     .frame(width: profileCardIconSize.w, height: profileCardIconSize.h)
                 VStack(alignment: .leading, spacing: 4) {
                     Text(title)
-                        .font(.system(size: isIPad ? 18 : 16, weight: .bold))
+                        .font(.headline)
                         .foregroundColor(.primary)
                     Text(subtitle)
-                        .font(.system(size: isIPad ? 14 : 12, weight: .medium))
+                        .font(.caption)
                         .foregroundColor(.secondary)
                 }
                 Spacer()
-                Image(systemName: "chevron.right.circle.fill")
-                    .font(.system(size: isIPad ? 22 : 20))
+                Image(systemName: "chevron.right")
+                    .font(.system(size: 12, weight: .bold))
                     .foregroundColor(.secondary)
             }
             .padding(isIPad ? 16 : 14)
@@ -329,7 +283,7 @@ struct ProfileView: View {
                     .fill(secondarySystemGroupedBackground)
                     .overlay(
                         RoundedRectangle(cornerRadius: 16, style: .continuous)
-                            .stroke(Color.gray.opacity(0.25), lineWidth: 1)
+                            .stroke(Color.primary.opacity(0.05), lineWidth: 1)
                     )
             )
         }
@@ -346,15 +300,15 @@ struct ProfileView: View {
                     .frame(width: profileCardIconSize.w, height: profileCardIconSize.h)
                 VStack(alignment: .leading, spacing: 4) {
                     Text(LocalizationManager.shared.localizedString("F-Bucks"))
-                        .font(.system(size: isIPad ? 18 : 16, weight: .bold))
+                        .font(.headline)
                         .foregroundColor(.primary)
                     Text(LocalizationManager.shared.localizedString("F-Bucks subtitle"))
-                        .font(.system(size: isIPad ? 14 : 12, weight: .medium))
+                        .font(.caption)
                         .foregroundColor(.secondary)
                 }
                 Spacer()
-                Image(systemName: "chevron.right.circle.fill")
-                    .font(.system(size: isIPad ? 22 : 20))
+                Image(systemName: "chevron.right")
+                    .font(.system(size: 12, weight: .bold))
                     .foregroundColor(.secondary)
             }
             .padding(isIPad ? 16 : 14)
@@ -365,7 +319,7 @@ struct ProfileView: View {
                     .fill(secondarySystemGroupedBackground)
                     .overlay(
                         RoundedRectangle(cornerRadius: 16, style: .continuous)
-                            .stroke(Color.gray.opacity(0.25), lineWidth: 1)
+                            .stroke(Color.primary.opacity(0.05), lineWidth: 1)
                     )
             )
         }
@@ -381,21 +335,19 @@ struct ProfileView: View {
             showingAddFriends = true
         }) {
             HStack(spacing: 12) {
-                Image("IconAddFriends")
-                    .resizable()
-                    .scaledToFit()
-                    .frame(width: isIPad ? 56 : 48, height: isIPad ? 56 : 48)
+                Image(systemName: "person.badge.plus")
+                    .font(.title3)
                 Text(LocalizationManager.shared.localizedString("ДОБАВИТЬ ДРУЗЕЙ"))
                     .font(.system(size: isIPad ? 18 : 16, weight: .semibold))
             }
-            .foregroundColor(.primary)
+            .foregroundColor(.indigo)
             .frame(maxWidth: .infinity)
-            .padding(.vertical, isIPad ? 18 : 16)
-            .background(secondarySystemGroupedBackground)
+            .padding(.vertical, 16)
+            .background(Color.indigo.opacity(0.08))
             .cornerRadius(isIPad ? 16 : 12)
             .overlay(
                 RoundedRectangle(cornerRadius: isIPad ? 16 : 12)
-                    .stroke(Color.gray.opacity(0.3), lineWidth: 1)
+                    .stroke(Color.indigo.opacity(0.10), lineWidth: 1)
             )
         }
         .padding(.horizontal, isIPad ? 40 : 20)
@@ -421,7 +373,7 @@ struct ProfileView: View {
             Text(LocalizationManager.shared.localizedString("СЕРИИ ДРУЗЕЙ"))
                 .font(.system(size: 14, weight: .bold))
                 .foregroundColor(.secondary)
-                .padding(.horizontal, 20)
+                .padding(.horizontal, isIPad ? 40 : 20)
             
             if userProfile.friends.isEmpty {
                 VStack(spacing: 6) { // Сделали еще более компактно
@@ -438,18 +390,18 @@ struct ProfileView: View {
                 }
                 .frame(maxWidth: .infinity)
                 .padding(.vertical, 8) // Сделали еще более компактно
-                .padding(.horizontal, 20)
+                .padding(.horizontal, isIPad ? 40 : 20)
             } else {
                 ScrollView(.horizontal, showsIndicators: false) {
                     HStack(spacing: 16) {
-                        ForEach(userProfile.friends.prefix(5), id: \.id) { friend in
+                        ForEach(userProfile.friends, id: \.id) { friend in
                             NavigationLink(destination: FriendProfileView(friend: friend, gameState: gameState)) {
                                 FriendStreakCard(friend: friend, isPlaceholder: false)
                             }
                             .buttonStyle(PlainButtonStyle())
                         }
                     }
-                    .padding(.horizontal, 20)
+                    .padding(.horizontal, isIPad ? 40 : 20)
                 }
             }
         }
@@ -471,7 +423,7 @@ struct ProfileView: View {
                         .foregroundColor(.secondary)
                 }
             }
-            .padding(.horizontal, 20)
+            .padding(.horizontal, isIPad ? 40 : 20)
             
             ScrollView(.horizontal, showsIndicators: false) {
                 HStack(alignment: .top, spacing: 16) {
@@ -484,7 +436,7 @@ struct ProfileView: View {
                         )
                     }
                 }
-                .padding(.horizontal, 20)
+                .padding(.horizontal, isIPad ? 40 : 20)
             }
         }
     }
@@ -492,7 +444,7 @@ struct ProfileView: View {
 
 extension ProfileView {
     /// Аватар с бейджем лиги в правом верхнем углу. Квадрат с закруглением.
-    private func profileAvatarWithLeagueBadge(size: CGFloat, innerSize: CGFloat, onAvatarTap: (() -> Void)? = nil) -> some View {
+    private func profileAvatarWithLeagueBadge(size: CGFloat, innerSize: CGFloat) -> some View {
         let cornerRadius = size * 0.22
         let avatarPlate = ZStack {
                 RoundedRectangle(cornerRadius: cornerRadius)
@@ -525,11 +477,6 @@ extension ProfileView {
                 #endif
         }
         .contentShape(Rectangle())
-        #if os(iOS)
-        .onTapGesture {
-            onAvatarTap?()
-        }
-        #endif
         return ZStack(alignment: .topTrailing) {
             avatarPlate
             Image(userProfile.currentLeague.imageAssetName)
@@ -542,416 +489,140 @@ extension ProfileView {
         }
     }
 
-    // MARK: - Закреплённая шапка (фон)
-    private var headerBackground: some View {
-        LinearGradient(
-            colors: [Color.cyan.opacity(1), Color.blue.opacity(1)],
-            startPoint: .topLeading,
-            endPoint: .bottomTrailing
-        )
-        .frame(height: headerHeight)
-        .clipShape(RoundedRectangle(cornerRadius: 20, style: .continuous))
-        .ignoresSafeArea(.container, edges: .top)
+    private var profileGradient: LinearGradient {
+        LinearGradient(colors: [Color(red: 0.13, green: 0.32, blue: 0.86), Color(red: 0.32, green: 0.22, blue: 0.75)],
+                       startPoint: .leading, endPoint: .trailing)
     }
 
-    private var headerHeight: CGFloat {
-        // Под большой квадратный аватар (≈3×): телефон 138pt, iPad 168pt + отступы
-        if isIPad {
-            return 168 + safeTopInset + 50
-        }
-        return 138 + safeTopInset + 44
-    }
-    
-    /// Отступ контента скролла: строго под шапкой + небольшой зазор, чтобы «Огляд» не наплывал на шапку.
-    private var contentTopInset: CGFloat {
-        headerHeight + 12
-    }
-
-    /// Контент скролла для iPad (общий для альбомной и портретной).
-    private var ipadScrollContent: some View {
-        VStack(spacing: isIPad ? 24 : 20) {
-            statisticsSection
-            addFriendsButton
-            overviewSection
-            friendStreaksSection
-            monthlyBadgesSection
-        }
-        .padding(.bottom, 100)
-        .padding(.top, isIPadLandscape ? (headerHeightLandscape - 20) : (headerHeight - 28))
-    }
-
-    /// Оверлей для iPad альбомная: шапка рисуется, но не ловит тапы; тапы ниже шапки идут в ScrollView.
-    private var ipadOverlayLandscape: some View {
-        ZStack(alignment: .topLeading) {
-            headerContentCompact
-            VStack(spacing: 0) {
-                HStack(spacing: 16) {
-                    Spacer(minLength: 0)
-                    Button(action: { shareProfile() }) {
-                        Image(systemName: "square.and.arrow.up")
-                            .foregroundColor(.white)
-                            .font(.system(size: 22))
-                            .padding(12)
-                            .background(Color.white.opacity(0.15))
-                            .clipShape(Circle())
-                    }
-                    .buttonStyle(PlainButtonStyle())
-                    Button(action: { showingSettings = true }) {
-                        Image(systemName: "gearshape.fill")
-                            .foregroundColor(.white)
-                            .font(.system(size: 22))
-                            .padding(12)
-                            .background(Color.white.opacity(0.15))
-                            .clipShape(Circle())
-                    }
-                    .buttonStyle(PlainButtonStyle())
-                }
-                .padding(.trailing, 24)
-                .padding(.top, max(0, safeTopInset - 8))
-                .frame(height: 56)
-                Color.clear
-                    .frame(maxWidth: .infinity, maxHeight: .infinity)
-                    .allowsHitTesting(false)
-            }
-        }
-        .frame(height: headerHeightLandscape)
-        .ignoresSafeArea(.container, edges: .top)
-    }
-
-    /// Оверлей для iPad портрет: одна вью с фиксированной высотой.
-    private var ipadOverlayPortrait: some View {
-        ZStack(alignment: .topLeading) {
-            ZStack(alignment: .top) {
-                headerBackground
-                headerContentNoButtons
-            }
-            VStack(spacing: 0) {
-                profileHeaderButtonsPortrait
-                Spacer(minLength: 0)
-                    .allowsHitTesting(false)
-            }
-        }
-        .frame(height: headerHeight)
-    }
-
-    /// Шапка для iPad альбомная: аватар, справа — имя, логин, лига, друзья, серия, joined в одну строку.
-    private var headerContentCompact: some View {
-        HStack(alignment: .top, spacing: 16) {
-            profileAvatarWithLeagueBadge(size: 264, innerSize: 228, onAvatarTap: {
-                #if os(iOS)
-                showingUserProfileEdit = true
-                #endif
-            })
-                .padding(.leading, 12)
-            VStack(alignment: .leading, spacing: 6) {
-                Text(userProfile.username)
-                    .font(.system(size: sizeCategory >= .accessibilityMedium ? 24 : 32, weight: .bold))
-                    .foregroundColor(.white)
-                    .lineLimit(1)
-                    .truncationMode(.tail)
-                    .contentShape(Rectangle())
-                    .onTapGesture { showFullNameAlert = true }
-                Text("@\(userProfile.username.uppercased())")
-                    .font(.system(size: 14, weight: .medium))
-                    .foregroundColor(.white.opacity(0.9))
-                HStack(spacing: 8) {
-                    Image(systemName: "person.2.fill")
-                        .font(.system(size: 17))
-                        .foregroundColor(.white)
-                    Text("\(userProfile.friends.count) " + LocalizationManager.shared.localizedString("Following"))
-                        .font(.system(size: 17, weight: .semibold))
-                        .foregroundColor(.white.opacity(0.95))
-                }
-                HStack(spacing: 8) {
-                    Image(systemName: "flame.fill")
-                        .font(.system(size: 17))
-                        .foregroundColor(.orange)
-                    Text("\(userProfile.streak) " + LocalizationManager.shared.localizedString("дней"))
-                        .font(.system(size: 17, weight: .semibold))
-                        .foregroundColor(.white.opacity(0.95))
-                }
-                Text(profileJoinDateText)
-                    .font(.system(size: 13, weight: .medium))
-                    .foregroundColor(.white.opacity(0.85))
-                    .lineLimit(1)
-            }
-            .frame(maxWidth: .infinity, alignment: .leading)
-            Spacer(minLength: 16)
-            Color.clear.frame(width: 100, height: 44)
-        }
-        .padding(.horizontal, 12)
-        .padding(.top, max(0, safeTopInset - 16))
-        .padding(.bottom, 16)
-        .frame(height: headerHeightLandscape, alignment: .top)
-        .background(
-            ZStack {
-                Color(red: 0.2, green: 0.6, blue: 0.85)
-                LinearGradient(
-                    colors: [Color.cyan.opacity(0.9), Color.blue.opacity(0.75)],
-                    startPoint: .topLeading,
-                    endPoint: .bottomTrailing
-                )
-            }
-        )
-        .clipShape(RoundedRectangle(cornerRadius: 20, style: .continuous))
-        .ignoresSafeArea(.container, edges: .top)
-    }
-
-    /// Только кнопки назад/Share/Settings для iPad портрет — отдельный слой
-    private var profileHeaderButtonsPortrait: some View {
-        HStack {
-            #if os(iOS)
-            if let windowScene = UIApplication.shared.connectedScenes.first as? UIWindowScene,
-               let window = windowScene.windows.first,
-               let navigationController = window.rootViewController?.navigationController,
-               navigationController.viewControllers.count > 1 {
-                Button(action: { navigationController.popViewController(animated: true) }) {
-                    Image(systemName: "chevron.left")
-                        .foregroundColor(.white)
-                        .font(.system(size: 18, weight: .semibold))
-                        .padding(8)
-                        .background(Color.white.opacity(0.15))
-                        .clipShape(Circle())
-                }
-                .padding(.leading, 20)
-                .padding(.top, safeTopInset + 20)
-            }
-            #endif
-            Spacer()
-            Button(action: { shareProfile() }) {
-                Image(systemName: "square.and.arrow.up")
-                    .foregroundColor(.white)
-                    .font(.system(size: 20))
-                    .padding(10)
-                    .background(Color.white.opacity(0.15))
-                    .clipShape(Circle())
-            }
-            .buttonStyle(PlainButtonStyle())
-            Button(action: { showingSettings = true }) {
-                Image(systemName: "gearshape.fill")
-                    .foregroundColor(.white)
-                    .font(.system(size: 20))
-                    .padding(10)
-                    .background(Color.white.opacity(0.15))
-                    .clipShape(Circle())
-            }
-            .buttonStyle(PlainButtonStyle())
-        }
-        .padding(.horizontal, 40)
-        .padding(.top, max(0, safeTopInset - 52))
-        .frame(height: 72)
-        .frame(maxWidth: .infinity, alignment: .top)
-    }
-
-    // MARK: - Закреплённая шапка (контент, без кнопок — для iPad портрет)
-    private var headerContentNoButtons: some View {
-        VStack(spacing: 0) {
-            HStack(alignment: .top) {
-                profileAvatarWithLeagueBadge(size: 168, innerSize: 150, onAvatarTap: {
-                    #if os(iOS)
-                    showingUserProfileEdit = true
-                    #endif
-                })
-                    .padding(.leading, 4)
-                VStack(alignment: .leading, spacing: 6) {
-                    Text(userProfile.username)
-                        .font(.system(size: 28, weight: .bold))
-                        .foregroundColor(.white)
-                    Text("@\(userProfile.username.uppercased())")
-                        .font(.system(size: 14, weight: .medium))
-                        .foregroundColor(.white.opacity(0.9))
-                    HStack(spacing: 8) {
-                        Image(systemName: "person.2.fill")
-                            .foregroundColor(.white)
-                            .font(.system(size: 14))
-                        Text("\(userProfile.friends.count) " + LocalizationManager.shared.localizedString("Following"))
-                            .foregroundColor(.white.opacity(0.95))
-                            .font(.system(size: 14, weight: .semibold))
-                    }
-                    HStack(spacing: 8) {
-                        Image(systemName: "flame.fill")
-                            .foregroundColor(.orange)
-                            .font(.system(size: 14))
-                        Text("\(userProfile.streak) " + LocalizationManager.shared.localizedString("дней"))
-                            .foregroundColor(.white.opacity(0.95))
-                            .font(.system(size: 14, weight: .semibold))
-                    }
-                    Text(profileJoinDateText)
-                        .font(.system(size: 13, weight: .medium))
-                        .foregroundColor(.white.opacity(0.85))
-                        .lineLimit(1)
-                }
-                .padding(.leading, 8)
-                .frame(maxWidth: .infinity, alignment: .leading)
-                .allowsHitTesting(false)
-                Spacer()
-            }
-            .padding(.horizontal, 12)
-            .padding(.top, max(0, safeTopInset - 52))
-            .padding(.bottom, 20)
-        }
-        .frame(height: headerHeight, alignment: .top)
-    }
-
-    // MARK: - Закреплённая шапка (контент, с оверлеем кнопок — только для телефона)
-    private var phoneHeader: some View {
-        VStack(spacing: 14) {
-            HStack(spacing: 8) {
-                Spacer()
+    private var profileHero: some View {
+        VStack(alignment: .leading, spacing: 20) {
+            HStack(spacing: 10) {
+                Text(localizationManager.localizedString("Профиль"))
+                    .font(.headline)
+                    .foregroundStyle(.white.opacity(0.8))
+                Spacer(minLength: 8)
                 Button(action: shareProfile) {
                     Image(systemName: "square.and.arrow.up")
+                        .font(.system(size: 20, weight: .semibold))
                         .frame(width: 44, height: 44)
-                        .background(.white.opacity(0.16), in: Circle())
+                        .background(.white.opacity(0.12), in: Circle())
                 }
                 .accessibilityLabel(localizationManager.localizedString("Share Result"))
                 .accessibilityIdentifier("profile.share")
-                Button(action: { showingSettings = true }) {
-                    Image(systemName: "gearshape.fill")
+                Button { showingSettings = true } label: {
+                    Image(systemName: "gearshape")
+                        .font(.system(size: 20, weight: .semibold))
                         .frame(width: 44, height: 44)
-                        .background(.white.opacity(0.16), in: Circle())
+                        .background(.white.opacity(0.12), in: Circle())
                 }
                 .accessibilityLabel(localizationManager.localizedString("Settings"))
                 .accessibilityIdentifier("profile.settings")
             }
-            HStack(alignment: .center, spacing: 16) {
-                profileAvatarWithLeagueBadge(size: 112, innerSize: 98, onAvatarTap: {
-                    showingUserProfileEdit = true
-                })
-                .accessibilityIdentifier("profile.avatar")
-                VStack(alignment: .leading, spacing: 5) {
-                    Text(userProfile.username)
-                        .font(.title2.bold())
-                        .lineLimit(2)
-                        .onTapGesture { showFullNameAlert = true }
-                        .accessibilityIdentifier("profile.name")
-                    Text("@\(userProfile.username.uppercased())")
-                        .font(.caption).lineLimit(1).truncationMode(.middle)
-                        .foregroundStyle(.white.opacity(0.85))
-                    Label("\(userProfile.friends.count) " + localizationManager.localizedString("Following"), systemImage: "person.2.fill")
-                        .font(.caption.weight(.semibold))
-                    Label("\(userProfile.streak) " + localizationManager.localizedString("дней"), systemImage: "flame.fill")
-                        .font(.caption.weight(.semibold))
-                    Text(profileJoinDateText)
-                        .font(.caption).foregroundStyle(.white.opacity(0.85))
-                        .accessibilityIdentifier("profile.joinDate")
+            if isIPad && horizontalSizeClass == .regular && !sizeCategory.isAccessibilityCategory {
+                HStack(spacing: 24) {
+                    heroAvatar
+                    heroIdentity
+                    heroLeagueStatus.frame(width: 280)
                 }
-                .fixedSize(horizontal: false, vertical: true)
-                .frame(maxWidth: .infinity, alignment: .leading)
+            } else {
+                if sizeCategory.isAccessibilityCategory {
+                    heroAvatar
+                    heroIdentity
+                } else {
+                    HStack(alignment: .center, spacing: 20) {
+                        heroAvatar
+                        heroIdentity
+                    }
+                }
+                heroLeagueStatus
             }
         }
         .buttonStyle(.plain)
         .foregroundStyle(.white)
-        .padding(.horizontal, 20)
+        .padding(.horizontal, isIPad ? 40 : 20)
         .padding(.top, 8)
         .padding(.bottom, 24)
+        .frame(maxWidth: 1040)
+        .frame(maxWidth: .infinity)
     }
 
-    private var headerContent: some View {
-        VStack(spacing: 8) {
-            HStack(alignment: .top) {
-                profileAvatarWithLeagueBadge(size: isIPad ? 168 : 138, innerSize: isIPad ? 150 : 120, onAvatarTap: {
-                    #if os(iOS)
-                    showingUserProfileEdit = true
-                    #endif
-                })
-                    .padding(.leading, isIPad ? 4 : 2)
-
-                VStack(alignment: .leading, spacing: isIPad ? 6 : 4) {
-                    Text(userProfile.username)
-                        .font(.system(size: profileUsernameFontSize, weight: .bold))
-                        .foregroundColor(.white)
-                        .lineLimit(1)
-                        .truncationMode(.tail)
-                        .contentShape(Rectangle())
-                        .onTapGesture { showFullNameAlert = true }
-                    Text("@\(userProfile.username.uppercased())")
-                        .font(.system(size: isIPad ? 14 : 12, weight: .medium))
-                        .foregroundColor(.white.opacity(0.9))
-                    HStack(spacing: isIPad ? 8 : 6) {
-                        Image(systemName: "person.2.fill")
-                            .foregroundColor(.white)
-                            .font(.system(size: isIPad ? 14 : 12))
-                        Text("\(userProfile.friends.count) " + LocalizationManager.shared.localizedString("Following"))
-                            .foregroundColor(.white.opacity(0.95))
-                            .font(.system(size: isIPad ? 14 : 12, weight: .semibold))
-                    }
-                    HStack(spacing: isIPad ? 8 : 6) {
-                        Image(systemName: "flame.fill")
-                            .foregroundColor(.orange)
-                            .font(.system(size: isIPad ? 14 : 12))
-                        Text("\(userProfile.streak) " + LocalizationManager.shared.localizedString("дней"))
-                            .foregroundColor(.white.opacity(0.95))
-                            .font(.system(size: isIPad ? 14 : 12, weight: .semibold))
-                    }
-                    Text(profileJoinDateText)
-                        .font(.system(size: isIPad ? 13 : 11, weight: .medium))
-                        .foregroundColor(.white.opacity(0.85))
-                        .lineLimit(1)
+    private var heroLeagueStatus: some View {
+        Button {
+            selectedTab = gameState.isPremium ? 3 : 2
+        } label: {
+        Group {
+            if sizeCategory.isAccessibilityCategory {
+                VStack(alignment: .leading, spacing: 12) {
+                    Image(userProfile.currentLeague.imageAssetName)
+                        .resizable().scaledToFit().frame(width: 38, height: 38)
+                    Text(userProfile.currentLeague.localizedFullName)
+                        .font(.subheadline.weight(.bold))
+                        .fixedSize(horizontal: false, vertical: true)
+                    Text("\(userProfile.xp) XP")
+                        .font(.subheadline).monospacedDigit()
                 }
-                .padding(.leading, isIPad ? 8 : 4)
                 .frame(maxWidth: .infinity, alignment: .leading)
-                .padding(.trailing, isIPad ? 0 : 72)
-
-                Spacer()
-            }
-            .padding(.horizontal, isIPad ? 12 : 8)
-            .padding(.top, max(0, safeTopInset - (isIPad ? 52 : 20)))
-            .padding(.bottom, isIPad ? 20 : 12)
-        }
-        .frame(height: headerHeight, alignment: .top)
-        .overlay(
-            VStack(spacing: 0) {
-                HStack {
-                    #if os(iOS)
-                    if let windowScene = UIApplication.shared.connectedScenes.first as? UIWindowScene,
-                       let window = windowScene.windows.first,
-                       let navigationController = window.rootViewController?.navigationController,
-                       navigationController.viewControllers.count > 1 {
-                        Button(action: {
-                            navigationController.popViewController(animated: true)
-                        }) {
-                            Image(systemName: "chevron.left")
-                                .foregroundColor(.white)
-                                .font(.system(size: 18, weight: .semibold))
-                                .padding(8)
-                                .background(Color.white.opacity(0.15))
-                                .clipShape(Circle())
-                        }
-                        .padding(.leading, 20)
-                        .padding(.top, safeTopInset + 20)
-                    }
-                    #endif
-                    Spacer()
-                    Button(action: { shareProfile() }) {
-                        Image(systemName: "square.and.arrow.up")
-                            .foregroundColor(.white)
-                            .font(.system(size: isIPad ? 20 : 18))
-                            .padding(isIPad ? 10 : 8)
-                            .background(Color.white.opacity(0.15))
-                            .clipShape(Circle())
-                    }
-                    .buttonStyle(PlainButtonStyle())
-                    Button(action: { showingSettings = true }) {
-                        Image(systemName: "gearshape.fill")
-                            .foregroundColor(.white)
-                            .font(.system(size: isIPad ? 20 : 18))
-                            .padding(isIPad ? 10 : 8)
-                            .background(Color.white.opacity(0.15))
-                            .clipShape(Circle())
-                    }
-                    .buttonStyle(PlainButtonStyle())
+            } else {
+                HStack(spacing: 12) {
+                    Image(userProfile.currentLeague.imageAssetName)
+                        .resizable().scaledToFit().frame(width: 38, height: 38)
+                    Text(userProfile.currentLeague.localizedFullName)
+                        .font(.subheadline.weight(.bold))
+                        .fixedSize(horizontal: false, vertical: true)
+                    Spacer(minLength: 0)
+                    Image(systemName: "chevron.right")
+                        .font(.system(size: 12, weight: .semibold))
+                        .accessibilityHidden(true)
+                    Text("\(userProfile.xp) XP")
+                        .font(.subheadline.weight(.semibold)).monospacedDigit()
+                        .fixedSize(horizontal: false, vertical: true)
                 }
-                .padding(.horizontal, isIPad ? 40 : 20)
-                .padding(.top, max(0, safeTopInset - (isIPad ? 52 : 20)))
-                .frame(height: 72)
-                Color.clear
-                    .frame(maxWidth: .infinity, maxHeight: .infinity)
-                    .allowsHitTesting(false)
             }
-            .frame(height: headerHeight),
-            alignment: .top
-        )
+        }
+        .padding(12)
+        .background(.white.opacity(0.10), in: RoundedRectangle(cornerRadius: 18, style: .continuous))
+        .overlay(RoundedRectangle(cornerRadius: 18).strokeBorder(.white.opacity(0.12)))
+        }
+        .buttonStyle(.plain)
+        .accessibilityIdentifier("profile.league")
+        .accessibilityHint(localizationManager.localizedString("home.goal.open_league"))
     }
+
+    private var heroAvatar: some View {
+        Button { showingUserProfileEdit = true } label: {
+            profileAvatarWithLeagueBadge(size: isIPad ? 104 : 84, innerSize: isIPad ? 94 : 74)
+                .overlay(alignment: .bottomTrailing) {
+                    Image(systemName: "pencil")
+                        .font(.system(size: 11, weight: .bold))
+                        .foregroundStyle(.indigo)
+                        .frame(width: 26, height: 26)
+                        .background(.white, in: Circle())
+                        .offset(x: 5, y: 5)
+                }
+        }
+        .accessibilityLabel(localizationManager.localizedString("Редактировать аватар"))
+        .accessibilityIdentifier("profile.avatar")
+    }
+
+    private var heroIdentity: some View {
+        VStack(alignment: .leading, spacing: 6) {
+            Text(userProfile.username)
+                .font(.title2.weight(.bold))
+                .fixedSize(horizontal: false, vertical: true)
+                .accessibilityIdentifier("profile.name")
+            Text("@\(userProfile.username)")
+                .font(.subheadline)
+                .foregroundStyle(.white.opacity(0.75))
+                .lineLimit(1).truncationMode(.middle)
+            Text(profileJoinDateText)
+                .font(.caption)
+                .foregroundStyle(.white.opacity(0.75))
+                .fixedSize(horizontal: false, vertical: true)
+                .accessibilityIdentifier("profile.joinDate")
+        }
+        .frame(maxWidth: .infinity, alignment: .leading)
+    }
+
 }
 
 // MARK: - Share Profile Functions
@@ -963,15 +634,13 @@ extension ProfileView {
     fileprivate func countryRankLine(code: String) -> String {
         let upper = code.uppercased()
         let flag = FriendsService.countryCodeToFlagEmoji(upper)
-        let inputs = userProfile.motivationalRankInputs(league: userProfile.currentLeague)
-        let rank = MotivationalRanking.countryRank(for: inputs, countryCode: upper)
+        let rank = MotivationalRanking.countryRank(for: userProfile.motivationalRankInputs(league: userProfile.currentLeague), countryCode: upper)
         let format = LocalizationManager.shared.localizedString("Country rank line")
         return String(format: format, flag, rank, LocalizationManager.shared.localizedString(countryNameByCode(upper)))
     }
 
     fileprivate func worldRankLine() -> String {
-        let inputs = userProfile.motivationalRankInputs(league: userProfile.currentLeague)
-        let rank = userProfile.serverWorldRank ?? MotivationalRanking.worldRank(for: inputs)
+        let rank = MotivationalRanking.worldRank(for: userProfile.motivationalRankInputs(league: userProfile.currentLeague))
         let format = LocalizationManager.shared.localizedString("World rank line")
         return String(format: format, rank)
     }
@@ -1020,7 +689,8 @@ extension ProfileView {
                         joinDate: api.joinDateFromServer ?? old.joinDate,
                         playedToday: mapped.playedToday,
                         birthday: mapped.birthday ?? old.birthday,
-                        achievements: mapped.achievements
+                        achievements: mapped.achievements,
+                        worldRankFromServer: mapped.worldRankFromServer
                     ))
                 } else {
                     result.append(mapped)
@@ -1083,7 +753,7 @@ extension ProfileView {
                     playedToday: mapped.playedToday,
                     birthday: mapped.birthday ?? old.birthday,
                     achievements: mapped.achievements,
-                    worldRankFromServer: api.worldRank ?? old.worldRankFromServer
+                    worldRankFromServer: api.worldRank
                 )
                 if friendDataChanged(old: old, new: updated) { changed = true }
                 merged.append(updated)
@@ -1153,18 +823,25 @@ extension ProfileView {
     }
 
     private func generateProfileURL() -> String {
-        return "https://worldarena.games/profile/\(userProfile.username)"
+        return (verifiedProfileShareURL ?? ShareService.shared.profileURL(username: AuthService.shared.authUsername ?? userProfile.username)).absoluteString
     }
     
     #if os(iOS)
     private func shareProfile() {
-        generateProfileCard { image in
-            DispatchQueue.main.async {
-                self.profileCardImage = image
-                self.showingShareSheet = true
+        Task { @MainActor in
+            await FriendsService.shared.syncServerFriendCode(for: userProfile, maxAttempts: 1)
+            let name = AuthService.shared.authUsername ?? userProfile.username
+            if let remote = try? await DuelAPIService.shared.fetchUserByUsername(name), !remote.friendCode.isEmpty {
+                verifiedProfileShareURL = ShareService.shared.profileURL(username: remote.friendCode)
+            } else {
+                profileShareFailed = true
+                return
+            }
+            generateProfileCard { image in
+                profileCardImage = image
+                showingShareSheet = true
                 let key = "profileShareCount"
-                let c = UserDefaults.standard.integer(forKey: key)
-                UserDefaults.standard.set(c + 1, forKey: key)
+                UserDefaults.standard.set(UserDefaults.standard.integer(forKey: key) + 1, forKey: key)
                 userProfile.evaluateAchievementsAndUnlock()
             }
         }
@@ -1182,7 +859,7 @@ extension ProfileView {
     /// Тот же рекламный текст, что и при шаринге со страницы Статистика (скрин + QR и текст).
     private func makeProfileShareMessage() -> String {
         let format = LocalizationManager.shared.localizedString("Statistics Share Promo")
-        let link = ShareService.shared.appStoreURL?.absoluteString ?? "World Arena Flags"
+        let link = generateProfileURL()
         return String(format: format, userProfile.bestScore, userProfile.accuracy, userProfile.totalGamesPlayed, link)
     }
     
@@ -1205,97 +882,11 @@ extension ProfileView {
     }
     
     private func generateProfileCard(completion: @escaping (UIImage?) -> Void) {
-        let renderer = UIGraphicsImageRenderer(size: CGSize(width: 400, height: 600))
-        
-        let image = renderer.image { context in
-            let cgContext = context.cgContext
-            
-            // Background gradient
-            let gradient = CGGradient(colorsSpace: CGColorSpaceCreateDeviceRGB(),
-                                    colors: [UIColor.systemBlue.cgColor, UIColor.systemCyan.cgColor] as CFArray,
-                                    locations: [0.0, 1.0])!
-            
-            cgContext.drawLinearGradient(gradient,
-                                       start: CGPoint(x: 0, y: 0),
-                                       end: CGPoint(x: 400, y: 600),
-                                       options: [])
-            
-            // White card background
-            cgContext.setFillColor(UIColor.white.cgColor)
-            let cardRect = CGRect(x: 20, y: 80, width: 360, height: 440)
-            let path = UIBezierPath(roundedRect: cardRect, cornerRadius: 20)
-            cgContext.addPath(path.cgPath)
-            cgContext.fillPath()
-            
-            // Avatar circle
-            cgContext.setFillColor(UIColor.systemBlue.withAlphaComponent(0.2).cgColor)
-            let avatarRect = CGRect(x: 150, y: 120, width: 100, height: 100)
-            cgContext.fillEllipse(in: avatarRect)
-            
-            // Avatar
-            let avatarText = self.userProfile.avatar.starts(with: "custom_") ? "👨‍💻" : "👤"
-            let avatarFont = UIFont.systemFont(ofSize: 50)
-            let avatarAttributes = [NSAttributedString.Key.font: avatarFont]
-            let avatarSize = avatarText.size(withAttributes: avatarAttributes)
-            let avatarPoint = CGPoint(x: 200 - avatarSize.width/2, y: 145)
-            avatarText.draw(at: avatarPoint, withAttributes: avatarAttributes)
-            
-            // Username
-            let usernameText = userProfile.username
-            let usernameFont = UIFont.boldSystemFont(ofSize: 24)
-            let usernameAttributes = [
-                NSAttributedString.Key.font: usernameFont,
-                NSAttributedString.Key.foregroundColor: UIColor.label
-            ]
-            let usernameSize = usernameText.size(withAttributes: usernameAttributes)
-            let usernamePoint = CGPoint(x: 200 - usernameSize.width/2, y: 240)
-            usernameText.draw(at: usernamePoint, withAttributes: usernameAttributes)
-            
-            // Stats
-            let statsText = String(
-                format: LocalizationManager.shared.localizedString("Level %d • %d XP • %d-day streak"),
-                userProfile.level, userProfile.xp, userProfile.streak
-            )
-            let statsFont = UIFont.systemFont(ofSize: 14)
-            let statsAttributes = [
-                NSAttributedString.Key.font: statsFont,
-                NSAttributedString.Key.foregroundColor: UIColor.secondaryLabel
-            ]
-            let statsSize = statsText.size(withAttributes: statsAttributes)
-            let statsPoint = CGPoint(x: 200 - statsSize.width/2, y: 275)
-            statsText.draw(at: statsPoint, withAttributes: statsAttributes)
-            
-            // QR Code
-            if let qrImage = generateQRCode(from: generateProfileURL()) {
-                let qrRect = CGRect(x: 300, y: 320, width: 60, height: 60)
-                qrImage.draw(in: qrRect)
-            }
-            
-            // App branding
-            let appText = "World Arena Flags"
-            let appFont = UIFont.boldSystemFont(ofSize: 16)
-            let appAttributes = [
-                NSAttributedString.Key.font: appFont,
-                NSAttributedString.Key.foregroundColor: UIColor.systemBlue
-            ]
-            let appSize = appText.size(withAttributes: appAttributes)
-            let appPoint = CGPoint(x: 200 - appSize.width/2, y: 320)
-            appText.draw(at: appPoint, withAttributes: appAttributes)
-            
-            // URL
-            let urlText = "worldarena.games"
-            let urlFont = UIFont.systemFont(ofSize: 12)
-            let urlAttributes = [
-                NSAttributedString.Key.font: urlFont,
-                NSAttributedString.Key.foregroundColor: UIColor.tertiaryLabel
-            ]
-            let urlSize = urlText.size(withAttributes: urlAttributes)
-            let urlPoint = CGPoint(x: 200 - urlSize.width/2, y: 350)
-            urlText.draw(at: urlPoint, withAttributes: urlAttributes)
-        }
-        
-        completion(image)
+        guard let url = URL(string: generateProfileURL()) else { completion(nil); return }
+        completion(ProfileShareBanner.render(username: userProfile.username,
+            level: userProfile.level, xp: userProfile.xp, streak: userProfile.streak, url: url))
     }
+
     #else
     private func shareProfile() {
         // macOS implementation would go here
@@ -1338,10 +929,10 @@ struct StatisticRow: View {
     var isIPad: Bool = false
 
     private var iconSize: CGFloat { isIPad ? 28 : 24 }
-    private var iconFrame: CGFloat { isIPad ? 48 : 40 }
+    private var iconFrame: CGFloat { isIPad ? 36 : 30 }
 
     var body: some View {
-        HStack(spacing: isIPad ? 20 : 16) {
+        VStack(alignment: .leading, spacing: 8) {
             Group {
                 if let name = iconImageName {
                     Image(name)
@@ -1350,7 +941,8 @@ struct StatisticRow: View {
                         .frame(width: iconFrame, height: iconFrame)
                 } else if let sys = systemImageName {
                     Image(systemName: sys)
-                        .font(.system(size: iconSize))
+                        .foregroundStyle(.indigo)
+                        .font(.system(size: iconSize, weight: .semibold))
                         .frame(width: iconFrame, height: iconFrame)
                 } else {
                     Text(icon)
@@ -1361,17 +953,22 @@ struct StatisticRow: View {
 
             VStack(alignment: .leading, spacing: isIPad ? 4 : 2) {
                 Text(title)
-                    .font(.system(size: isIPad ? 20 : 18, weight: .semibold))
+                    .font(.title3.weight(.bold))
+                    .monospacedDigit()
+                    .fixedSize(horizontal: false, vertical: true)
                     .foregroundColor(.primary)
 
                 Text(subtitle)
-                    .font(.system(size: isIPad ? 16 : 14))
+                    .font(.caption)
+                    .fixedSize(horizontal: false, vertical: true)
                     .foregroundColor(.secondary)
             }
 
-            Spacer()
+
         }
-        .padding(.vertical, isIPad ? 12 : 8)
+        .frame(maxWidth: .infinity, minHeight: 92, alignment: .topLeading)
+        .padding(12)
+        .background(Color(UIColor.secondarySystemGroupedBackground), in: RoundedRectangle(cornerRadius: 20, style: .continuous))
     }
 }
 
@@ -1523,11 +1120,16 @@ struct DuelSummaryView: View {
     @EnvironmentObject var gameState: GameState
     @EnvironmentObject var userProfile: UserProfile
     @ObservedObject private var localizationManager = LocalizationManager.shared
+    @State private var syncFailed = false
+    @State private var isRefreshingDuels = false
+    @State private var reminderNotice: String?
+    @State private var actionError: String?
     @State private var filter: DuelHistoryFilter = .all
     @State private var selectedOpponent: String? = nil
     @State private var acceptingIncomingChallengeId: String? = nil
     @State private var remindingChallengeId: String? = nil
     @State private var showingOutOfLives = false
+    @State private var showDuelPremium = false
     @State private var processedExpiredChallengeIds: Set<String> = []
     private let duelSummaryAutoRefresh = Timer.publish(every: 8, on: .main, in: .common).autoconnect()
     private struct PendingUserProfileLink: Identifiable {
@@ -1562,7 +1164,7 @@ struct DuelSummaryView: View {
             names.insert(challenge.opponentName)
         }
         for challenge in userProfile.incomingDuelChallenges where challenge.status == .pending || challenge.status == .challengerCompleted {
-            if !DuelInviteSuppression.isSuppressed(challenge.id) {
+            if !DuelInviteSuppression.isDeclined(challenge.id) {
                 names.insert(challenge.challengerName)
             }
         }
@@ -1585,7 +1187,7 @@ struct DuelSummaryView: View {
         let incomingWaiting = userProfile.incomingDuelChallenges.filter { c in
             (c.status == .pending || c.status == .opponentCompleted || c.status == .challengerCompleted)
                 && now.timeIntervalSince(c.createdAt) < Self.duelExpirySeconds
-                && !DuelInviteSuppression.isSuppressed(c.id)
+                && !DuelInviteSuppression.isDeclined(c.id)
         }
         rows.append(contentsOf: incomingWaiting.map { .pending($0) })
 
@@ -1650,6 +1252,19 @@ struct DuelSummaryView: View {
             duelOpponentFilterBar
                 .padding(.bottom, 6)
 
+            if let reminderNotice {
+                Text(reminderNotice).font(.subheadline).padding(16).accessibilityIdentifier("duel.reminder.feedback")
+            }
+            if syncFailed {
+                HStack {
+                    Label(localizationManager.localizedString("Server Error"), systemImage: "wifi.exclamationmark")
+                        .foregroundColor(.secondary)
+                    Spacer()
+                    Button(localizationManager.localizedString("Try Again")) {
+                        Task { await refreshDuelContent() }
+                    }
+                }.padding(16)
+            }
             if filter == .all {
                 duelAllList
             } else {
@@ -1657,12 +1272,17 @@ struct DuelSummaryView: View {
             }
         }
         .background(Color(UIColor.systemGroupedBackground))
-        .navigationTitle(localizationManager.localizedString("Duel Summary"))
+        .navigationTitle(localizationManager.localizedString("duel.challenges.title"))
+        .alert(localizationManager.localizedString("duel.error.alert.title"), isPresented: Binding(get: { actionError != nil }, set: { if !$0 { actionError = nil } })) {
+            Button(localizationManager.localizedString("OK"), role: .cancel) { actionError = nil }
+        } message: { Text(actionError ?? "") }
         .onAppear {
-            _ = gameState.assignWinsForExpiredOutgoingDuels(profile: userProfile)
+            guard !isRefreshingDuels else { return }
+        isRefreshingDuels = true
+        defer { isRefreshingDuels = false }
+        _ = gameState.assignWinsForExpiredOutgoingDuels(profile: userProfile)
             _ = gameState.assignWinsForExpiredIncomingDuels(profile: userProfile)
-            Task { await gameState.syncOutgoingDuelsWithServer(profile: userProfile) }
-            Task { await gameState.syncIncomingDuelsWithServer(profile: userProfile) }
+            Task { await refreshDuelContent() }
         }
         .onChange(of: gameState.requestOutOfLivesAlert) { if $0 { gameState.requestOutOfLivesAlert = false; showingOutOfLives = true } }
         .onReceive(duelSummaryAutoRefresh) { _ in
@@ -1671,12 +1291,13 @@ struct DuelSummaryView: View {
         .alert(LocalizationManager.shared.localizedString("Out of lives"), isPresented: $showingOutOfLives) {
             Button(LocalizationManager.shared.localizedString("OK"), role: .cancel) { showingOutOfLives = false }
             Button(LocalizationManager.shared.localizedString("Go Premium")) {
-                gameState.isPremium = true
                 showingOutOfLives = false
+                showDuelPremium = true
             }
         } message: {
             Text(LocalizationManager.shared.localizedString("Unfortunately you ran out of lives this time. Try again or come back later."))
         }
+        .modifier(PremiumPresentationModifier(showPremium: $showDuelPremium, gameState: gameState))
         .sheetItemOrFullScreenOnIPad(item: $pendingUserProfileLink) { link in
             ProfileByLinkView(friendCode: link.friendCode, gameState: gameState)
                 .environmentObject(userProfile)
@@ -1813,8 +1434,9 @@ struct DuelSummaryView: View {
     private func refreshDuelContent() async {
         _ = gameState.assignWinsForExpiredOutgoingDuels(profile: userProfile)
         _ = gameState.assignWinsForExpiredIncomingDuels(profile: userProfile)
-        await gameState.syncOutgoingDuelsWithServer(profile: userProfile)
-        await gameState.syncIncomingDuelsWithServer(profile: userProfile)
+        let outgoingOK = await gameState.syncOutgoingDuelsWithServer(profile: userProfile)
+        let incomingOK = await gameState.syncIncomingDuelsWithServer(profile: userProfile)
+        syncFailed = !outgoingOK || !incomingOK
     }
 
     private func duelCompletedCard(entry: DuelHistoryEntry) -> some View {
@@ -1844,10 +1466,10 @@ struct DuelSummaryView: View {
                         .font(.system(size: 12))
                         .foregroundColor(.secondary)
                 }
-                Text(resolvedOpponentName(for: entry))
+                Text("\(localizationManager.localizedString("You")) · @\(userProfile.username) vs \(resolvedOpponentName(for: entry))")
                     .font(.system(size: 16, weight: .semibold))
                     .foregroundColor(.primary)
-                Text("\(entry.myScore) : \(entry.opponentScore)")
+                Text("\(localizationManager.localizedString("You")): \(entry.myScore)  •  \(resolvedOpponentName(for: entry)): \(entry.opponentScore)")
                     .font(.system(size: 14, weight: .medium))
                     .foregroundColor(.secondary)
                 if entry.showsTieTimeBreakdown, let myT = entry.myTimeMs, let rT = entry.rivalTimeMs {
@@ -1889,25 +1511,21 @@ struct DuelSummaryView: View {
     private func duelPendingCard(challenge: DuelChallenge) -> some View {
         let isIncoming = userProfile.incomingDuelChallenges.contains(where: { $0.id == challenge.id })
         let displayOpponent = pendingOpponentDisplayName(challenge)
-        let yourScore = isIncoming ? (challenge.opponentScore ?? 0) : (challenge.challengerScore ?? 0)
+        let mySubmittedScore = isIncoming ? challenge.opponentScore : challenge.challengerScore
+        let rivalSubmittedScore = isIncoming ? challenge.challengerScore : challenge.opponentScore
+        let yourScore = mySubmittedScore.map(String.init) ?? "—"
+        let rivalScore = rivalSubmittedScore.map(String.init) ?? "—"
         
         let scoreText: String = {
             switch challenge.status {
             case .challengerCompleted, .opponentCompleted:
-                return "\(yourScore) : —"
+                return "\(localizationManager.localizedString("You")): \(yourScore) • \(displayOpponent): \(rivalScore)"
             default:
                 return localizationManager.localizedString("Waiting for opponent")
             }
         }()
         
-        let waitingForResult: Bool = {
-            switch challenge.status {
-            case .challengerCompleted, .opponentCompleted:
-                return true
-            default:
-                return false
-            }
-        }()
+        let waitingForResult = mySubmittedScore != nil
         return TimelineView(.periodic(from: Date(), by: 60)) { context in
             let now = context.date
             let elapsed = now.timeIntervalSince(challenge.createdAt)
@@ -1936,10 +1554,10 @@ struct DuelSummaryView: View {
                 VStack(alignment: .leading, spacing: 6) {
                     Text(waitingForResult
                          ? localizationManager.localizedString("Waiting for result")
-                         : (isIncoming ? localizationManager.localizedString("Waiting for opponent") : localizationManager.localizedString("Waiting for result")))
+                         : (isIncoming ? localizationManager.localizedString("duel_invite_popup_title") : localizationManager.localizedString("Waiting for opponent")))
                         .font(.system(size: 13, weight: .bold))
                         .foregroundColor(.blue)
-                    Text(displayOpponent)
+                    Text("\(localizationManager.localizedString("You")) · @\(userProfile.username) vs \(displayOpponent)")
                         .font(.system(size: 16, weight: .semibold))
                         .foregroundColor(.primary)
                     Text(scoreText)
@@ -1995,7 +1613,7 @@ struct DuelSummaryView: View {
                             .padding(.vertical, 10)
                             .background(
                                 Capsule()
-                                    .fill(Color.purple.opacity(0.35))
+                                    .fill(Color.purple)
                             )
                         }
                         .buttonStyle(.plain)
@@ -2077,6 +1695,7 @@ struct DuelSummaryView: View {
                     )
                 }
 
+                gameState.duelQuestionsPayload = result.duelSetup?.questionsPayload ?? challenge.duelQuestionsPayload
                 gameState.duelSeed = result.seed
                 gameState.duelChallengeId = challenge.id
                 gameState.duelOpponentId = challenge.challengerId
@@ -2089,7 +1708,7 @@ struct DuelSummaryView: View {
 
             await gameState.startNewGameWithCurrentRegions()
         } catch {
-            print("[DuelSummary] accept incoming failed:", error, "challengeId=", challenge.id)
+            actionError = error.localizedDescription
         }
     }
 
@@ -2196,8 +1815,16 @@ struct DuelSummaryView: View {
         defer { remindingChallengeId = nil }
 
         do {
-            _ = try await DuelAPIService.shared.remindChallenge(challengeId: challenge.id, userId: userProfile.username)
+            let result = try await DuelAPIService.shared.remindChallengeResult(challengeId: challenge.id, userId: AuthService.shared.authUsername ?? userProfile.username)
+            let key: String
+            if result.throttled == true { key = "duel.reminder.cooldown" }
+            else if result.reason == "notifications_disabled" { key = "duel.reminder.disabled" }
+            else if result.reason == "no_device_token" { key = "duel.reminder.no_device" }
+            else if result.pushSent == true { key = "duel.reminder.sent" }
+            else { key = "Server error. Try again." }
+            reminderNotice = localizationManager.localizedString(key)
         } catch {
+            actionError = error is URLError ? localizationManager.localizedString("duel.network.error") : error.localizedDescription
             print("[DuelSummary] remind outgoing failed:", error, "challengeId=", challenge.id)
         }
     }
@@ -2268,4 +1895,35 @@ private var flagForSelectedCountry: String {
 #Preview {
     ProfileView(selectedTab: .constant(0))
         .environmentObject(UserProfile.shared)
+}
+
+/// Lightweight vector icons: consistent silhouette and legible at small sizes.
+struct ProfileFeatureIcon: View {
+    let name: String
+    private var tint: Color {
+        name == "IconWorldProgressMap" ? .teal : name == "IconDuelSummary" ? .indigo : .blue
+    }
+    var body: some View {
+        GeometryReader { geometry in
+            let side = min(geometry.size.width, geometry.size.height)
+            ZStack {
+                RoundedRectangle(cornerRadius: side * 0.28, style: .continuous)
+                    .fill(LinearGradient(colors: [tint.opacity(0.85), tint], startPoint: .topLeading, endPoint: .bottomTrailing))
+                RoundedRectangle(cornerRadius: side * 0.28, style: .continuous)
+                    .strokeBorder(.white.opacity(0.25), lineWidth: 1)
+                if name == "IconDuelSummary" {
+                    HStack(spacing: -side * 0.08) {
+                        Image(systemName: "flag.fill").rotationEffect(.degrees(-16))
+                        Image(systemName: "flag.fill").scaleEffect(x: -1, y: 1).rotationEffect(.degrees(16))
+                    }
+                    .font(.system(size: side * 0.39, weight: .semibold))
+                } else {
+                    Image(systemName: name == "IconWorldProgressMap" ? "globe.europe.africa.fill" : "chart.bar.fill")
+                        .font(.system(size: side * 0.53, weight: .semibold))
+                }
+            }
+            .foregroundStyle(.white)
+        }
+        .accessibilityHidden(true)
+    }
 }

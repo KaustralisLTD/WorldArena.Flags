@@ -55,6 +55,12 @@ final class GameCenterAchievementsService {
     }
 
     func authenticateIfNeeded(completion: ((Bool) -> Void)? = nil) {
+        #if DEBUG
+        if ProcessInfo.processInfo.arguments.contains("UITesting") {
+            completion?(false)
+            return
+        }
+        #endif
         let localPlayer = GKLocalPlayer.local
         if localPlayer.isAuthenticated {
             isAuthenticated = true

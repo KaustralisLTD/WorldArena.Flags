@@ -234,19 +234,16 @@
 "Request Timeout" = "요청 시간 초과";
 "Server Not Found" = "서버를 찾을 수 없음";
 "Too Many Requests" = "요청이 너무 많습니다";
-"Server Error" = "서버 오류";
 "HTTP Error: %d" = "HTTP 오류: %d";
-"Try Again" = "다시 시도";
 "Not enough countries in selected regions (found %d, need at least 4)" = "선택한 지역의 국가가 충분하지 않습니다(%d개 발견, 최소 4개 필요).";
 "Empty response from server" = "서버의 빈 응답";
 
 // New additions
 "Capital" = "수도";
 "Population" = "인구";
-"Area" = "영역";
+"Area" = "면적";
 "Region" = "지역";
-"Subregion" = "소지역";
-
+"Subregion" = "하위 지역";
 // Language additions
 "system_language" = "체계";
 "ru_language" = "러시아인";
@@ -1737,3 +1734,89 @@
 "premium.trial.yearly" = "7일 무료 체험 후 매년 %@.";
 "premium.renewal" = "취소할 때까지 자동 갱신됩니다. App Store 구독에서 관리하거나 취소할 수 있습니다.";
 "premium.subscribe" = "구독하기";
+
+/* Duel inbox */
+"duel.challenges.title" = "도전";
+"duel.challenges.subtitle" = "초대, 진행 중인 대결 및 결과";
+
+// Verified subscription status
+"premium.restore.success" = "구매가 복원되었습니다.";
+"premium.restore.empty" = "이 Apple 계정에 활성 구독이 없습니다.";
+"premium.access.until" = "이용 만료일";
+
+// Streak calendar and freeze inventory
+"streak.calendar.title" = "연속 기록 달력";
+"streak.calendar.played" = "플레이함";
+"streak.calendar.frozen" = "보호됨";
+"streak.calendar.missed" = "놓침";
+"streak.calendar.open_day" = "아직 플레이하지 않음";
+"streak.calendar.previous" = "이전 달";
+"streak.calendar.next" = "다음 달";
+"streak.freeze.title" = "연속 기록 보호권";
+"streak.freeze.repair" = "어제 복원 · 보호권 1개";
+"streak.freeze.friends" = "친구 돕기";
+"streak.freeze.give" = "보호권 1개 선물";
+"streak.freeze.signin" = "보호권을 주고받으려면 로그인하세요.";
+"streak.freeze.unavailable" = "친구에게 더 이상 필요하지 않아 보호권이 반환되었습니다.";
+"streak.freeze.sent" = "보호권을 보냈어요!";
+"streak.freeze.retry" = "동기화하지 못했어요. 다시 시도해 대기 중인 선물을 완료하세요.";
+"streak.freeze.no_friends" = "지금은 보호권이 없는 친구가 없어요.";
+"streak.freeze.explanation" = "보호권 하나가 놓친 하루를 자동으로 보호해요. 플레이한 날로 세지는 않아요. 미리 준비하거나 어제 기록을 복원할 수 있어요.";
+
+// Avatar shop and wardrobe
+"shop.avatar" = "내 아바타";
+"shop.preview_hint" = "구매 전에 착용해 보세요. 적용하면 프로필 사진이 이 아바타로 바뀝니다.";
+"shop.wardrobe" = "옷장";
+"shop.empty" = "구매한 아이템이 여기에 표시됩니다.";
+"shop.equipped" = "착용 중";
+"shop.owned" = "구매 완료";
+"shop.remove" = "해제";
+"shop.equip" = "착용";
+"shop.save_error" = "기기에 저장했습니다. 온라인 아바타를 업데이트하지 못했습니다.";
+
+"home.lives.welcome" = "환영 보너스: 첫 7일 동안 10분마다 하트 +3개. 최대 5개까지, 구독 없이 제공됩니다.";
+
+"Profile Share CTA" = "QR을 스캔하고 함께 플레이해요!";
+
+
+"Profile Share Headline" = "국기를 알고 있나요?\n실력을 보여주세요.";
+
+"Use current time" = "현재 시간으로 설정";
+
+"Progress emails" = "성장 이메일";
+
+"Progress emails detail" = "개인 성적 요약을 주 1회 이하로 받습니다. 대결마다 이메일을 보내지 않습니다. 언제든 구독을 취소할 수 있습니다.";
+
+"Server Error" = "서버에 연결할 수 없습니다";
+
+"Try Again" = "다시 시도";
+
+"Server error. Try again." = "서버에 연결할 수 없습니다. 다시 시도";
+
+"Invalid server response." = "서버에 연결할 수 없습니다";
+
+"duel.network.error" = "서버에 연결할 수 없습니다. 다시 시도";
+
+"duel.reminder.sent" = "알림을 보냈습니다";
+
+"duel.reminder.cooldown" = "다음 알림을 보내기 전에 잠시 기다려 주세요.";
+
+"duel.reminder.disabled" = "이 플레이어는 대결 알림을 껐습니다.";
+
+"duel.reminder.no_device" = "이 플레이어는 푸시 알림이 켜진 기기가 없습니다.";
+
+"duel.reminder.completed" = "대결이 이미 종료되었습니다.";
+
+"duel.reminder.missing" = "이 대결은 더 이상 이용할 수 없습니다.";
+
+"Flags Brand Title" = "국기";
+
+"lifecycle.offers" = "과제 및 제안";
+
+"lifecycle.offers.detail" = "보너스, 과제 및 다른 World Arena 게임 안내. 이메일은 총 주 2회 이하입니다.";
+
+"lifecycle.bonus.title" = "낮에도 플레이해 볼까요?";
+
+"lifecycle.bonus.body" = "내 시간대의 12:00~16:00에 보너스 과제를 모두 맞히면 F-Buck 1개를 추가로 받습니다.";
+
+"lifecycle.bonus.unavailable" = "이 도전은 더 이상 이용할 수 없어요. 저장된 진행 상황은 그대로예요.";

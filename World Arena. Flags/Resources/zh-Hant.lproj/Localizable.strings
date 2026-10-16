@@ -234,19 +234,16 @@
 "Request Timeout" = "請求超時";
 "Server Not Found" = "找不到伺服器";
 "Too Many Requests" = "請求過多";
-"Server Error" = "伺服器錯誤";
 "HTTP Error: %d" = "HTTP 錯誤：%d";
-"Try Again" = "再試一次";
 "Not enough countries in selected regions (found %d, need at least 4)" = "所選區域中沒有足夠的國家（找到 %d 個，至少需要 4 個）";
 "Empty response from server" = "來自伺服器的空響應";
 
 // New additions
 "Capital" = "首都";
 "Population" = "人口";
-"Area" = "區域";
+"Area" = "面積";
 "Region" = "地區";
 "Subregion" = "次區域";
-
 // Language additions
 "system_language" = "系統";
 "ru_language" = "俄羅斯";
@@ -1736,3 +1733,89 @@
 "premium.trial.yearly" = "免費試用7天，之後每年%@。";
 "premium.renewal" = "訂閱將自動續訂，直到取消。可在App Store訂閱中管理或取消。";
 "premium.subscribe" = "訂閱";
+
+/* Duel inbox */
+"duel.challenges.title" = "挑戰";
+"duel.challenges.subtitle" = "邀請、進行中的對決和結果";
+
+// Verified subscription status
+"premium.restore.success" = "已回復購買項目。";
+"premium.restore.empty" = "找不到此 Apple 帳號的有效訂閱。";
+"premium.access.until" = "使用期限";
+
+// Streak calendar and freeze inventory
+"streak.calendar.title" = "連續紀錄日曆";
+"streak.calendar.played" = "已玩";
+"streak.calendar.frozen" = "已保護";
+"streak.calendar.missed" = "錯過";
+"streak.calendar.open_day" = "尚未玩";
+"streak.calendar.previous" = "上個月";
+"streak.calendar.next" = "下個月";
+"streak.freeze.title" = "連續紀錄凍結卡";
+"streak.freeze.repair" = "恢復昨天 · 1張凍結卡";
+"streak.freeze.friends" = "幫助好友";
+"streak.freeze.give" = "贈送1張凍結卡";
+"streak.freeze.signin" = "登入後即可贈送和接收凍結卡。";
+"streak.freeze.unavailable" = "好友已不需要凍結卡，你的凍結卡已退回。";
+"streak.freeze.sent" = "凍結卡已送出！";
+"streak.freeze.retry" = "同步失敗，請重試以完成待傳送的禮物。";
+"streak.freeze.no_friends" = "目前沒有凍結卡用完的好友。";
+"streak.freeze.explanation" = "一張凍結卡自動保護一個錯過的日子，但不計為已玩。請提前儲備，也可用一張恢復昨天的紀錄。";
+
+// Avatar shop and wardrobe
+"shop.avatar" = "你的虛擬形象";
+"shop.preview_hint" = "購買前可試穿。套用後將以此形象取代個人資料照片。";
+"shop.wardrobe" = "衣櫃";
+"shop.empty" = "購買的物品將顯示於此。";
+"shop.equipped" = "已裝備";
+"shop.owned" = "已擁有";
+"shop.remove" = "卸下";
+"shop.equip" = "裝備";
+"shop.save_error" = "已儲存在此裝置上。無法更新線上頭像。";
+
+"home.lives.welcome" = "歡迎獎勵：前7天每10分鐘恢復3顆愛心，最多5顆，無需訂閱。";
+
+"Profile Share CTA" = "掃描 QR 碼，一起來玩！";
+
+
+"Profile Share Headline" = "認識這些國旗？\n證明你的實力。";
+
+"Use current time" = "設為目前時間";
+
+"Progress emails" = "進度郵件";
+
+"Progress emails detail" = "個人成績摘要，每週最多一次。不會在每場對決後寄送郵件。可隨時取消訂閱。";
+
+"Server Error" = "伺服器暫時無法使用";
+
+"Try Again" = "重試";
+
+"Server error. Try again." = "伺服器暫時無法使用. 重試";
+
+"Invalid server response." = "伺服器暫時無法使用";
+
+"duel.network.error" = "伺服器暫時無法使用. 重試";
+
+"duel.reminder.sent" = "提醒已傳送";
+
+"duel.reminder.cooldown" = "請稍後再傳送提醒。";
+
+"duel.reminder.disabled" = "該玩家已關閉對決通知。";
+
+"duel.reminder.no_device" = "該玩家沒有啟用推播通知的裝置。";
+
+"duel.reminder.completed" = "對決已結束。";
+
+"duel.reminder.missing" = "此對決已無法使用。";
+
+"Flags Brand Title" = "國旗";
+
+"lifecycle.offers" = "任務與優惠";
+
+"lifecycle.offers.detail" = "獎勵、任務和其他World Arena遊戲介紹。每週郵件總數不超過兩封。";
+
+"lifecycle.bonus.title" = "白天也來玩一局？";
+
+"lifecycle.bonus.body" = "在你所在時區的12:00至16:00之間全對完成一次獎勵挑戰，可額外獲得1 F-Buck。";
+
+"lifecycle.bonus.unavailable" = "此挑戰已無法使用。已儲存的進度保持不變。";

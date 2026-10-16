@@ -233,9 +233,7 @@
 "Request Timeout" = "Request Timeout";
 "Server Not Found" = "Server Not Found";
 "Too Many Requests" = "Too Many Requests";
-"Server Error" = "Server Error";
 "HTTP Error: %d" = "HTTP Error: %d";
-"Try Again" = "Try Again";
 "Not enough countries in selected regions (found %d, need at least 4)" = "Not enough countries in selected regions (found %d, need at least 4)";
 "Empty response from server" = "Empty response from server";
 
@@ -245,7 +243,6 @@
 "Area" = "Area";
 "Region" = "Region";
 "Subregion" = "Subregion";
-
 // Language additions
 "system_language" = "System";
 "ru_language" = "Русский";
@@ -1751,3 +1748,188 @@
 "premium.trial.yearly" = "7 days free, then %@ per year.";
 "premium.renewal" = "Renews automatically unless canceled. Manage or cancel in your App Store subscriptions.";
 "premium.subscribe" = "Subscribe";
+
+/* Duel inbox */
+"duel.challenges.title" = "Challenges";
+"duel.challenges.subtitle" = "Invitations, active duels and results";
+
+// Verified subscription status
+"premium.restore.success" = "Purchases restored.";
+"premium.restore.empty" = "No active subscription found for this Apple Account.";
+"premium.access.until" = "Access until";
+
+// Streak calendar and freeze inventory
+"streak.calendar.title" = "Streak calendar";
+"streak.calendar.played" = "Played";
+"streak.calendar.frozen" = "Frozen";
+"streak.calendar.missed" = "Missed";
+"streak.calendar.open_day" = "Not played yet";
+"streak.calendar.previous" = "Previous month";
+"streak.calendar.next" = "Next month";
+"streak.freeze.title" = "Streak freezes";
+"streak.freeze.repair" = "Restore yesterday · 1 freeze";
+"streak.freeze.friends" = "Help your friends";
+"streak.freeze.give" = "Give 1 freeze";
+"streak.freeze.signin" = "Sign in to send and receive freezes.";
+"streak.freeze.unavailable" = "This friend no longer needs a freeze. Your freeze was returned.";
+"streak.freeze.sent" = "Freeze sent!";
+"streak.freeze.retry" = "Could not sync. Retry to finish any pending gift.";
+"streak.freeze.no_friends" = "No friends with an empty freeze stock right now.";
+"streak.freeze.explanation" = "One freeze protects one missed day automatically. Frozen days do not count as played days. Stock up before a break, or use one freeze to restore yesterday.";
+
+// Avatar shop and wardrobe
+"shop.avatar" = "Your avatar";
+"shop.preview_hint" = "Try items on before buying. Applying an item replaces your profile picture with this avatar.";
+"shop.wardrobe" = "Wardrobe";
+"shop.empty" = "Your purchased items will appear here.";
+"shop.equipped" = "Equipped";
+"shop.owned" = "Owned";
+"shop.remove" = "Remove";
+"shop.equip" = "Equip";
+"shop.save_error" = "Saved on this device. Could not update your online avatar.";
+
+"home.lives.welcome" = "Welcome bonus: +3 hearts every 10 minutes during your first 7 days. Up to 5 hearts; no subscription needed.";
+
+// Explicit friend request consent
+"friends.requests.title" = "Friend requests";
+"friends.requests.body" = "Added you as a friend. Would you like to add them back?";
+"friends.requests.accept" = "Add back";
+"friends.requests.decline" = "Decline";
+"friends.requests.empty" = "No new friend requests";
+"friends.requests.error" = "Could not complete the action. Please try again.";
+"friends.requests.done" = "Done";
+
+// First-run education
+"guide.replay" = "App guide";
+"guide.skip" = "Skip";
+"guide.back" = "Back";
+"guide.next" = "Next";
+"guide.done" = "Let’s play";
+"guide.play.title" = "Your next game";
+"guide.play.body" = "Tap Play to start. Continue appears when you have an unfinished game.";
+"guide.settings.title" = "Make it your game";
+"guide.settings.body" = "Tap here to choose a region, difficulty and game mode.";
+"guide.streak.title" = "Every day counts";
+"guide.streak.body" = "Tap your streak to see your calendar, played days and streak freezes.";
+"guide.fbucks.title" = "Meet F-Bucks";
+"guide.fbucks.body" = "Earn F-Bucks by playing and completing quests. Tap your balance to explore rewards, avatar items and freezes.";
+"guide.friends.title" = "Play with friends";
+"guide.friends.body" = "Add a friend from their profile or friend code. Open their profile to challenge them to a duel. Invitations appear in Challenges; friend requests let you add back or decline.";
+"education.fbucks.title" = "You earned F-Bucks!";
+"education.fbucks.body" = "This is your in-game currency. Earn it through games and quests, then spend it on avatar items and streak freezes.";
+"education.fbucks.shop" = "View shop";
+"education.fbucks.done" = "Got it";
+"facts.settings" = "Country facts";
+"facts.explanation" = "Choose what appears on the back of the country card after answering.";
+"facts.capital" = "Capital";
+"facts.population" = "Population";
+"facts.area" = "Area";
+"facts.region" = "Region and subregion";
+"facts.map" = "Map";
+
+"friends.requests.signin" = "Sign in to view and respond to friend requests.";
+
+// Verified Premium benefits and Apple Family Sharing
+"premium.benefit.lives.title" = "Unlimited Hearts";
+"premium.benefit.lives.body" = "Classic and Time Challenge without waiting for lives. Survival keeps its own rules.";
+"premium.benefit.map.title" = "World progress map";
+"premium.benefit.map.body" = "See your progress by country and continent, and find flags to practise.";
+"premium.benefit.countries.title" = "Detailed country slides";
+"premium.benefit.countries.body" = "Explore capitals, population, area, languages, currencies and interesting facts.";
+"premium.benefit.anthems.title" = "National anthems";
+"premium.benefit.anthems.body" = "Listen to available anthem recordings and discover their history and meaning.";
+"premium.benefit.learning.title" = "Learning library";
+"premium.benefit.learning.body" = "Browse countries and continents at your own pace between games.";
+"premium.benefit.mistakes.title" = "Practice your mistakes";
+"premium.benefit.mistakes.body" = "Play with flags you previously answered incorrectly.";
+"premium.benefit.erudite.title" = "Erudite difficulty";
+"premium.benefit.erudite.body" = "Unlock the highest difficulty for a greater challenge.";
+"premium.benefit.avatar.title" = "Premium avatar accessory";
+"premium.benefit.avatar.body" = "Wear the Premium headwear while your subscription is active.";
+"premium.family.title" = "One subscription for your family";
+"premium.family.body" = "Share Premium with up to 6 people, including you, through Apple Family Sharing. Enable subscription sharing in your Apple family settings. Each player keeps their own progress.";
+
+// Premium learning stories and earned weekly reward
+"premium.weekly.history" = "Weekly Premium bonus";
+"premium.benefit.weekly.title" = "10 F-Bucks every week";
+"premium.benefit.weekly.body" = "Automatically earned for each full 7 days of Premium, starting when this bonus is activated. Earned rewards sync when you open the app.";
+"premium.weekly.next" = "Next weekly bonus: %@";
+"premium.story.headline" = "Learn the flags. Remember the world.";
+"premium.story.intro" = "Make every session count: practise difficult flags, understand the countries behind them and see what to learn next.";
+"premium.story.practice.title" = "More practice. Fewer gaps.";
+"premium.story.practice.body" = "Keep practising without waiting for hearts. My Mistakes helps you focus on the flags that need another try.";
+"premium.story.countries.title" = "Give each flag a story.";
+"premium.story.countries.body" = "Explore country slides, capitals, currencies and anthem recordings. Connect a flag with the country it represents.";
+"premium.story.map.title" = "Know what to learn next.";
+"premium.story.map.body" = "Your world progress map shows mastered and weaker countries, so you can choose your next practice session.";
+"premium.story.example" = "Example screen · English";
+"premium.story.enlarge" = "Enlarge example screen";
+
+"Check your internet connection" = "Check your internet connection and try again.";
+
+"premium.details.expanded" = "Expanded";
+
+"premium.details.collapsed" = "Collapsed";
+
+"ranking.motivational.title" = "Motivational ranking";
+"ranking.motivational.explanation" = "Progress-based positions among virtual opponents.";
+"friends.duels.with_you" = "Duels with you";
+
+"premium.story.progress.title" = "See your progress";
+
+"premium.story.progress.body" = "Turn regular practice into visible results. Review your accuracy and correct answers, then use the Premium world map to choose what to practise next.";
+
+"learning.anthem.unavailable" = "The anthem could not be loaded. Check your connection and tap Play to try again.";
+
+"learning.country.discover" = "A closer look";
+
+"learning.anthem.shared_fmt" = "National anthem shared with %@. The regional song may differ.";
+"learning.anthem.recording_source" = "Recording and source ↗";
+
+"learning.anthem.excerpt" = "Original lyrics · excerpt";
+"learning.anthem.full_lyrics_source" = "Full lyrics and history";
+
+"Profile Share CTA" = "Scan the QR. Let’s play!";
+
+
+"Profile Share Headline" = "KNOW THE FLAGS?\nPROVE IT.";
+
+"Use current time" = "Use current time";
+
+"Progress emails" = "Progress emails";
+
+"Progress emails detail" = "Personal progress summaries, at most once a week. No email after every duel. Unsubscribe anytime.";
+
+"Server Error" = "Server unavailable";
+
+"Try Again" = "Try again";
+
+"Server error. Try again." = "Server unavailable. Try again";
+
+"Invalid server response." = "Server unavailable";
+
+"duel.network.error" = "Server unavailable. Try again";
+
+"duel.reminder.sent" = "Reminder sent";
+
+"duel.reminder.cooldown" = "Please wait before sending another reminder.";
+
+"duel.reminder.disabled" = "This player has disabled duel notifications.";
+
+"duel.reminder.no_device" = "This player has not enabled push notifications on a device.";
+
+"duel.reminder.completed" = "The duel is already finished.";
+
+"duel.reminder.missing" = "This duel is no longer available.";
+
+"Flags Brand Title" = "Flags";
+
+"lifecycle.offers" = "Tasks and offers";
+
+"lifecycle.offers.detail" = "Offers, challenges and other World Arena games. At most two emails per week in total.";
+
+"lifecycle.bonus.title" = "A new daytime ritual";
+
+"lifecycle.bonus.body" = "An extra 1 F-Buck for one perfect bonus game, from 12:00 to 16:00 in your time zone.";
+
+"lifecycle.bonus.unavailable" = "This challenge is no longer available. Your saved progress is unchanged.";

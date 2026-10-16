@@ -20,6 +20,13 @@ class StoreManager: ObservableObject {
     @Published var purchasedProductIDs: Set<String> = []
     @Published var isLoading = false
     @Published var errorMessage: String?
+    @Published var restoreMessageKey: String?
+    @Published private(set) var subscriptionStartDate: Date?
+    @Published private(set) var subscriptionExpirationDate: Date?
+    private var reconcilingWeeklyRewards = false
+    private var transactionUpdatesTask: Task<Void, Never>?
+    private var entitlementRefreshTask: Task<Void, Never>?
+
     
     // Mock products for development
     private var mockProducts: [MockProduct] = []
@@ -40,6 +47,22 @@ class StoreManager: ObservableObject {
         // Загружаем сохраненные покупки
         loadPurchasedProductsFromStorage()
         
+        // Listen before loading products, including purchases completed outside this app.
+        transactionUpdatesTask = Task { [weak self] in
+            for await result in Transaction.updates {
+                guard let self else { return }
+                if case .verified(let transaction) = result {
+                    await self.updatePurchasedProducts()
+                    await transaction.finish()
+                }
+            }
+        }
+        entitlementRefreshTask = Task { [weak self] in
+            while !Task.isCancelled {
+                do { try await Task.sleep(nanoseconds: 60_000_000_000) } catch { return }
+                await self?.updatePurchasedProducts()
+            }
+        }
         // Инициализация
         Task {
             await updatePurchasedProducts()
@@ -193,7 +216,7 @@ class StoreManager: ObservableObject {
         }
         
         do {
-            let result = try await purchaseWithTimeout(product)
+            let result = try await product.purchase()
             
             switch result {
             case .success(let verificationResult):
@@ -212,8 +235,7 @@ class StoreManager: ObservableObject {
                 return true
                 
             case .userCancelled:
-                print("⚠️ User cancelled purchase")
-                errorMessage = "Purchase cancelled"
+                errorMessage = nil
                 
             case .pending:
                 print("⏳ Purchase pending")
@@ -255,13 +277,15 @@ class StoreManager: ObservableObject {
     // MARK: - Restore Purchases
     
     func restorePurchases() async {
+        guard !isLoading else { return }
+        restoreMessageKey = nil
         isLoading = true
         errorMessage = nil
         
         do {
             try await AppStore.sync()
             await updatePurchasedProducts()
-            print("✅ Purchases restored")
+            restoreMessageKey = isPremium ? "premium.restore.success" : "premium.restore.empty"
         } catch {
             print("❌ Failed to restore purchases: \(error)")
             errorMessage = "Failed to restore purchases: \(error.localizedDescription)"
@@ -274,34 +298,56 @@ class StoreManager: ObservableObject {
     
     func updatePurchasedProducts() async {
         var purchasedIDs: Set<String> = []
+        var activeTransaction: Transaction?
         
         for await result in Transaction.currentEntitlements {
             do {
                 let transaction = try checkVerified(result)
                 
                 // Проверяем, что транзакция активна
-                if transaction.productType == .autoRenewable {
+                if transaction.productType == .autoRenewable,
+                   productIDs.contains(transaction.productID),
+                   transaction.revocationDate == nil, !transaction.isUpgraded {
                     purchasedIDs.insert(transaction.productID)
+                    if activeTransaction == nil || (transaction.expirationDate ?? .distantPast) > (activeTransaction?.expirationDate ?? .distantPast) {
+                        activeTransaction = transaction
+                    }
                 }
             } catch {
                 print("❌ Failed to verify transaction: \(error)")
             }
         }
         
-        // Если используем mock продукты, сохраняем существующие mock покупки
-        if isUsingMockProducts && !purchasedProductIDs.isEmpty {
-            // Добавляем реальные покупки к существующим mock покупкам
-            purchasedIDs = purchasedIDs.union(purchasedProductIDs)
-            print("🔧 Preserving mock purchases: \(purchasedProductIDs)")
-        }
-        
+        subscriptionStartDate = activeTransaction?.originalPurchaseDate
+        subscriptionExpirationDate = activeTransaction?.expirationDate
         self.purchasedProductIDs = purchasedIDs
         print("✅ Updated purchased products: \(purchasedIDs)")
         
         // Сохраняем изменения в UserDefaults
         savePurchasedProductsToStorage()
+        await reconcileWeeklyRewards()
     }
-    
+
+    private func reconcileWeeklyRewards() async {
+        guard !reconcilingWeeklyRewards else { return }
+        reconcilingWeeklyRewards = true
+        defer { reconcilingWeeklyRewards = false }
+        var coverage: [PremiumWeeklyRewards.Coverage] = []
+        let now = Date()
+        // History reconciles earned weeks after time away, including a subscription that expired
+        // while the app was closed. Unverified/refunded purchases never create new rewards.
+        for await result in Transaction.all {
+            guard case .verified(let transaction) = result,
+                  productIDs.contains(transaction.productID),
+                  transaction.productType == .autoRenewable,
+                  transaction.revocationDate == nil,
+                  let end = transaction.expirationDate else { continue }
+            coverage.append(.init(start: transaction.purchaseDate, end: end))
+        }
+        let active = isPremium && coverage.contains { $0.start <= now && $0.end > now }
+        UserProfile.shared.reconcilePremiumWeeklyRewards(coverage: coverage, hasActivePremium: active, now: now)
+    }
+
     // MARK: - Verification
     
     private func checkVerified<T>(_ result: VerificationResult<T>) throws -> T {

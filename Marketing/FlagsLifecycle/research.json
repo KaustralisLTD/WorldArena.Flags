@@ -1,0 +1,17 @@
+{
+  "researchedAt": "2026-10-16",
+  "sources": [
+    {"url":"https://blog.duolingo.com/hi-its-duo-the-ai-behind-the-meme/","finding":"Choose reminders by observed response, compare like cohorts, and penalize recent repetitions. Historical technical case study, not proof of a current exact algorithm."},
+    {"url":"https://blog.duolingo.com/improving-the-streak/","finding":"Separating the minimal streak action from the daily goal improved retention in their reported experiment. Avoid making a habit dependent on a demanding perfect score."},
+    {"url":"https://blog.duolingo.com/year-in-review-behind-the-scenes/","finding":"Behavioural learner styles, varied achievements and language-specific creative work make reports more personal and shareable."},
+    {"url":"https://blog.duolingo.com/back-from-the-brink-what-duolingo-learned-about-its-resurrected-users/","finding":"Returning users need a distinct re-onboarding experience, not only a reminder to return."},
+    {"url":"https://www.braze.com/resources/articles/customer-lifecycle-management","finding":"Use live behaviour to segment, orchestrate channels, personalize content and timing, and evaluate controlled experiments."},
+    {"url":"https://www.braze.com/docs/user_guide/messaging/messaging_fundamentals/conversion_events","finding":"Measure the intended subsequent action, not only message opens."}
+  ],
+  "interpretation": "Eligibility thresholds, contact limits, rewards and experiments in this program are proposed Flags product decisions. They are not claimed to be Duolingo settings or proven results for Flags.",
+  "codeAudit": {
+    "currentReward":"First eligible daily game: +1 F-Buck, or +2 if perfect. Subsequent eligible perfect games: +1. Timed play, duels and mistake-review are excluded from this reward rule.",
+    "currencyStorage":"UserProfile.addFBucks records a local balance/history. A campaign offer needs an authoritative server reward receipt and idempotent app application before reward emails can go live.",
+    "missingData":"The existing aggregate progress endpoint has no session timestamps, local play hours, per-country answer windows, marketing consent, or campaign conversion events. These cannot be inferred retrospectively from total games and XP."
+  }
+}

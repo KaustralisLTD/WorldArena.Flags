@@ -234,19 +234,16 @@
 "Request Timeout" = "Časový limit požadavku";
 "Server Not Found" = "Server nenalezen";
 "Too Many Requests" = "Příliš mnoho požadavků";
-"Server Error" = "Chyba serveru";
 "HTTP Error: %d" = "Chyba HTTP: %d";
-"Try Again" = "Zkuste to znovu";
 "Not enough countries in selected regions (found %d, need at least 4)" = "Ve vybraných regionech není dostatek zemí (nalezeno %d, potřebujete alespoň 4)";
 "Empty response from server" = "Prázdná odpověď ze serveru";
 
 // New additions
-"Capital" = "Kapitál";
-"Population" = "Populace";
-"Area" = "Plocha";
-"Region" = "Kraj";
-"Subregion" = "Subregion";
-
+"Capital" = "Hlavní město";
+"Population" = "Počet obyvatel";
+"Area" = "Rozloha";
+"Region" = "Region";
+"Subregion" = "Podregion";
 // Language additions
 "system_language" = "Systém";
 "ru_language" = "Русский";
@@ -1737,3 +1734,89 @@
 "premium.trial.yearly" = "7 dní zdarma, poté %@ ročně.";
 "premium.renewal" = "Automaticky se obnovuje až do zrušení. Spravujte nebo zrušte v předplatných App Storu.";
 "premium.subscribe" = "Předplatit";
+
+/* Duel inbox */
+"duel.challenges.title" = "Výzvy";
+"duel.challenges.subtitle" = "Pozvánky, probíhající duely a výsledky";
+
+// Verified subscription status
+"premium.restore.success" = "Nákupy obnoveny.";
+"premium.restore.empty" = "Pro tento účet Apple nebylo nalezeno aktivní předplatné.";
+"premium.access.until" = "Přístup do";
+
+// Streak calendar and freeze inventory
+"streak.calendar.title" = "Kalendář série";
+"streak.calendar.played" = "Hráno";
+"streak.calendar.frozen" = "Zmrazeno";
+"streak.calendar.missed" = "Vynecháno";
+"streak.calendar.open_day" = "Zatím nehráno";
+"streak.calendar.previous" = "Předchozí měsíc";
+"streak.calendar.next" = "Další měsíc";
+"streak.freeze.title" = "Zmrazení série";
+"streak.freeze.repair" = "Obnovit včerejšek · 1 zmrazení";
+"streak.freeze.friends" = "Pomozte přátelům";
+"streak.freeze.give" = "Darovat 1 zmrazení";
+"streak.freeze.signin" = "Přihlaste se pro posílání a přijímání zmrazení.";
+"streak.freeze.unavailable" = "Přítel už zmrazení nepotřebuje. Vaše bylo vráceno.";
+"streak.freeze.sent" = "Zmrazení odesláno!";
+"streak.freeze.retry" = "Synchronizace selhala. Opakováním dokončíte čekající dárek.";
+"streak.freeze.no_friends" = "Žádný přítel teď nemá prázdnou zásobu.";
+"streak.freeze.explanation" = "Jedno zmrazení automaticky chrání jeden vynechaný den, ale nepočítá jej jako odehraný. Doplňte zásobu před pauzou nebo obnovte včerejšek.";
+
+// Avatar shop and wardrobe
+"shop.avatar" = "Tvůj avatar";
+"shop.preview_hint" = "Vyzkoušej před nákupem. Použití nahradí profilovou fotku tímto avatarem.";
+"shop.wardrobe" = "Šatník";
+"shop.empty" = "Zde se objeví zakoupené předměty.";
+"shop.equipped" = "Nasazeno";
+"shop.owned" = "Zakoupeno";
+"shop.remove" = "Sundat";
+"shop.equip" = "Nasadit";
+"shop.save_error" = "Uloženo v zařízení. Online avatar se nepodařilo aktualizovat.";
+
+"home.lives.welcome" = "Uvítací bonus: +3 životy každých 10 minut během prvních 7 dní. Nejvýše 5 životů, bez předplatného.";
+
+"Profile Share CTA" = "Naskenuj QR. Pojď si zahrát!";
+
+
+"Profile Share Headline" = "ZNÁŠ VLAJKY?\nDOKAŽ TO.";
+
+"Use current time" = "Použít aktuální čas";
+
+"Progress emails" = "E-maily o pokroku";
+
+"Progress emails detail" = "Tvůj přehled nejvýše jednou týdně. Žádný e-mail po každém duelu. Odběr lze kdykoli zrušit.";
+
+"Server Error" = "Server není dostupný";
+
+"Try Again" = "Zkusit znovu";
+
+"Server error. Try again." = "Server není dostupný. Zkusit znovu";
+
+"Invalid server response." = "Server není dostupný";
+
+"duel.network.error" = "Server není dostupný. Zkusit znovu";
+
+"duel.reminder.sent" = "Připomínka odeslána";
+
+"duel.reminder.cooldown" = "Před další připomínkou chvíli počkej.";
+
+"duel.reminder.disabled" = "Tento hráč vypnul oznámení o duelech.";
+
+"duel.reminder.no_device" = "Tento hráč nemá zařízení se zapnutými push oznámeními.";
+
+"duel.reminder.completed" = "Duel už skončil.";
+
+"duel.reminder.missing" = "Tento duel již není dostupný.";
+
+"Flags Brand Title" = "Vlajky";
+
+"lifecycle.offers" = "Úkoly a nabídky";
+
+"lifecycle.offers.detail" = "Bonusy, úkoly a další hry World Arena. Celkem nejvýše dva e-maily týdně.";
+
+"lifecycle.bonus.title" = "Co si zahrát i přes den?";
+
+"lifecycle.bonus.body" = "1 F-Buck navíc za jeden bezchybný bonusový úkol mezi 12:00 a 16:00 ve tvém časovém pásmu.";
+
+"lifecycle.bonus.unavailable" = "Tato výzva už není dostupná. Tvůj uložený pokrok zůstává zachován.";

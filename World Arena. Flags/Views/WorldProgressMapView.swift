@@ -29,6 +29,11 @@ struct WorldProgressMapView: View {
     /// Сохранённое значение AppleLanguages до входа на экран карты (для восстановления при уходе).
     @State private var savedAppleLanguages: [String]?
 
+    init(showWeakCountries: Bool = false) {
+        _selectedTab = State(initialValue: showWeakCountries ? .weak : .map)
+        _mapFilter = State(initialValue: showWeakCountries ? .weak : .all)
+    }
+
     private enum DisplayTab: String, CaseIterable, Identifiable {
         case map = "Map"
         case weak = "Weak countries"

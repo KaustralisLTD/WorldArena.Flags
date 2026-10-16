@@ -87,6 +87,9 @@ extension UserProfile {
                     rarity: .rare
                 )
                 updated.append(record)
+                NotificationService.shared.notifyProgress(id: "achievement_" + def.id,
+                    title: LocalizationManager.shared.localizedString("Достижения"),
+                    body: LocalizationManager.shared.localizedString(def.titleKey), preference: "achievementNotifications")
             }
         }
         if updated.count != achievements.count {

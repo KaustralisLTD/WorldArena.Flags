@@ -13,7 +13,12 @@ struct ContinentDetailView: View {
     @State private var searchDebounceWork: DispatchWorkItem?
 
     private var baseCountriesSorted: [CountryInfo] {
-        countriesForContinent(continentName).sorted { $0.name < $1.name }
+        countriesForContinent(continentName).sorted {
+            let lhs = getLocalizedCountryName($0.code, $0.name)
+            let rhs = getLocalizedCountryName($1.code, $1.name)
+            let order = lhs.compare(rhs, options: .caseInsensitive, locale: localizationManager.currentLocale)
+            return order == .orderedSame ? $0.code < $1.code : order == .orderedAscending
+        }
     }
 
     private var filteredByFilter: [CountryInfo] {
@@ -29,7 +34,7 @@ struct ContinentDetailView: View {
             let localizedName = getLocalizedCountryName(country.code, country.name)
             return String(localizedName.prefix(1).uppercased())
         }
-        return grouped.sorted { $0.key < $1.key }
+        return grouped.sorted { LearningAlphabetOrder.precedes($0.key, $1.key, locale: localizationManager.currentLocale) }
     }
 
     private var studiedCount: Int {
@@ -217,55 +222,34 @@ struct ContinentDetailView: View {
     /// Та же геометрия шапки, что и на экране «Все страны».
     private var headerHeight: CGFloat {
         let safe = max(safeTopInset, 44)
-        return safe + 96
+        return safe + 56
     }
 
     private var headerSection: some View {
-        ZStack(alignment: .topLeading) {
-            LinearGradient(
-                colors: [Color.purple.opacity(0.9), Color.blue.opacity(0.75)],
-                startPoint: .topLeading,
-                endPoint: .bottomTrailing
-            )
-            .frame(height: headerHeight)
-            .clipShape(RoundedRectangle(cornerRadius: 25, style: .continuous))
-            .ignoresSafeArea(.container, edges: .top)
-
-            VStack(spacing: 10) {
-                HStack(alignment: .center, spacing: 10) {
-                    Button(action: { dismiss() }) {
-                        Image(systemName: "chevron.left")
-                            .font(.system(size: 20, weight: .semibold))
-                            .foregroundColor(.white)
-                            .padding(8)
-                            .background(Color.black.opacity(0.25))
-                            .clipShape(Circle())
-                    }
-                    .buttonStyle(.plain)
-                    HStack(spacing: 10) {
-                        Text(continentEmoji)
-                            .font(.system(size: 28))
-                        VStack(alignment: .leading, spacing: 3) {
-                            Text(localizationManager.localizedString(continentName))
-                                .font(.system(size: 22, weight: .bold, design: .rounded))
-                                .foregroundColor(.white)
-                            Text("\(totalCount) \(localizationManager.localizedString("стран"))")
-                                .font(.system(size: 14, weight: .medium))
-                                .foregroundColor(.white.opacity(0.9))
-                        }
-                    }
-                    .padding(.leading, 8)
-                    Spacer()
-                }
-                .padding(.horizontal, 20)
-                // ~Две строки выше, чем max(safe,44)+8 (как на «Все страны»)
-                .padding(.top, max(safeTopInset, 44) + 8 - 28)
+        HStack(spacing: 16) {
+            Button(action: { dismiss() }) {
+                Image(systemName: "chevron.left")
+                    .font(.system(size: 20, weight: .semibold))
+                    .frame(width: 44, height: 44)
+                    .background(Color.black.opacity(0.18), in: Circle())
             }
-            .frame(maxWidth: .infinity, alignment: .top)
+            .buttonStyle(.plain)
+            Text(continentEmoji).font(.system(size: 28))
+            VStack(alignment: .leading, spacing: 4) {
+                Text(localizationManager.localizedString(continentName))
+                    .font(.system(size: 24, weight: .bold, design: .rounded))
+                Text("\(totalCount) \(localizationManager.localizedString("стран"))")
+                    .font(.subheadline).opacity(0.9)
+            }
+            Spacer(minLength: 0)
         }
-        .frame(height: headerHeight)
+        .foregroundColor(.white)
+        .padding(.horizontal, 20)
+        .padding(.top, 12)
+        .padding(.bottom, 20)
+        .background(LinearGradient(colors: [Color.purple.opacity(0.9), Color.blue.opacity(0.75)], startPoint: .topLeading, endPoint: .bottomTrailing).ignoresSafeArea(.container, edges: .top))
     }
-    
+
     // MARK: - Countries Data (из CountryDatabase + country_regions.json)
     private func countriesForContinent(_ continent: String) -> [CountryInfo] {
         CountryLearningCatalog.countries(forContinentName: continent)
@@ -330,24 +314,8 @@ struct FlagImageView: View {
     let flagEmoji: String
     
     var body: some View {
-        ZStack {
-            RoundedRectangle(cornerRadius: 8)
-                .fill(Color.gray.opacity(0.1))
-                .overlay(
-                    RoundedRectangle(cornerRadius: 8)
-                        .stroke(Color.gray.opacity(0.3), lineWidth: 0.5)
-                )
-            
-            // Флаг масштабируется под размер контейнера
-            GeometryReader { geometry in
-                Text(flagEmoji)
-                    .font(.system(size: min(geometry.size.width, geometry.size.height) * 0.6))
-                    .shadow(color: .black.opacity(0.1), radius: 1, x: 0, y: 1)
-                    .frame(width: geometry.size.width, height: geometry.size.height)
-                    .position(x: geometry.size.width / 2, y: geometry.size.height / 2)
-            }
-        }
-        .frame(width: 120, height: 80) // Размер подложки
+        AllCountriesFlagImageView(countryCode: countryCode, flagEmoji: flagEmoji)
+            .frame(width: 120, height: 80)
     }
 }
 

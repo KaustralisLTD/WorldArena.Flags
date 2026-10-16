@@ -395,6 +395,7 @@ struct OnboardingView: View {
         #if os(iOS)
         UIImpactFeedbackGenerator(style: .medium).impactOccurred()
         #endif
+        UserDefaults.standard.set(true, forKey: "guide.pending")
         OnboardingView.markCompleted()
         NotificationCenter.default.post(name: Notification.Name("OnboardingDidFinish"), object: nil)
         withAnimation(.easeOut(duration: 0.35)) {

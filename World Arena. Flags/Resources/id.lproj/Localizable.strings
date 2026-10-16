@@ -234,19 +234,16 @@
 "Request Timeout" = "Batas Waktu Permintaan";
 "Server Not Found" = "Server Tidak Ditemukan";
 "Too Many Requests" = "Terlalu Banyak Permintaan";
-"Server Error" = "Kesalahan Server";
 "HTTP Error: %d" = "Kesalahan HTTP: %d";
-"Try Again" = "Coba Lagi";
 "Not enough countries in selected regions (found %d, need at least 4)" = "Jumlah negara di wilayah tertentu tidak mencukupi (ditemukan %d, memerlukan setidaknya 4)";
 "Empty response from server" = "Respons kosong dari server";
 
 // New additions
-"Capital" = "Modal";
+"Capital" = "Ibu kota";
 "Population" = "Populasi";
-"Area" = "Daerah";
+"Area" = "Luas";
 "Region" = "Wilayah";
 "Subregion" = "Subwilayah";
-
 // Language additions
 "system_language" = "Sistem";
 "ru_language" = "Русский";
@@ -1737,3 +1734,89 @@
 "premium.trial.yearly" = "Gratis 7 hari, lalu %@ per tahun.";
 "premium.renewal" = "Diperpanjang otomatis hingga dibatalkan. Kelola atau batalkan di langganan App Store Anda.";
 "premium.subscribe" = "Berlangganan";
+
+/* Duel inbox */
+"duel.challenges.title" = "Tantangan";
+"duel.challenges.subtitle" = "Undangan, duel aktif, dan hasil";
+
+// Verified subscription status
+"premium.restore.success" = "Pembelian dipulihkan.";
+"premium.restore.empty" = "Tidak ada langganan aktif untuk Akun Apple ini.";
+"premium.access.until" = "Akses hingga";
+
+// Streak calendar and freeze inventory
+"streak.calendar.title" = "Kalender streak";
+"streak.calendar.played" = "Dimainkan";
+"streak.calendar.frozen" = "Dibekukan";
+"streak.calendar.missed" = "Terlewat";
+"streak.calendar.open_day" = "Belum bermain";
+"streak.calendar.previous" = "Bulan sebelumnya";
+"streak.calendar.next" = "Bulan berikutnya";
+"streak.freeze.title" = "Pembeku streak";
+"streak.freeze.repair" = "Pulihkan kemarin · 1 pembeku";
+"streak.freeze.friends" = "Bantu temanmu";
+"streak.freeze.give" = "Beri 1 pembeku";
+"streak.freeze.signin" = "Masuk untuk memberi dan menerima pembeku.";
+"streak.freeze.unavailable" = "Temanmu tidak membutuhkannya lagi. Pembekumu dikembalikan.";
+"streak.freeze.sent" = "Pembeku terkirim!";
+"streak.freeze.retry" = "Gagal menyinkronkan. Coba lagi untuk menyelesaikan hadiah tertunda.";
+"streak.freeze.no_friends" = "Belum ada teman yang kehabisan pembeku.";
+"streak.freeze.explanation" = "Satu pembeku melindungi satu hari terlewat secara otomatis tanpa menghitungnya sebagai hari bermain. Siapkan sebelum jeda atau pulihkan kemarin.";
+
+// Avatar shop and wardrobe
+"shop.avatar" = "Avatarmu";
+"shop.preview_hint" = "Coba sebelum membeli. Menerapkan akan mengganti foto profil dengan avatar ini.";
+"shop.wardrobe" = "Lemari";
+"shop.empty" = "Barang yang dibeli akan muncul di sini.";
+"shop.equipped" = "Dipakai";
+"shop.owned" = "Dimiliki";
+"shop.remove" = "Lepas";
+"shop.equip" = "Pakai";
+"shop.save_error" = "Disimpan di perangkat ini. Gagal memperbarui avatar online.";
+
+"home.lives.welcome" = "Bonus selamat datang: +3 nyawa setiap 10 menit selama 7 hari pertama. Maksimal 5 nyawa, tanpa langganan.";
+
+"Profile Share CTA" = "Pindai QR. Ayo main!";
+
+
+"Profile Share Headline" = "TAHU BENDERA DUNIA?\nBUKTIKAN.";
+
+"Use current time" = "Gunakan waktu saat ini";
+
+"Progress emails" = "Email kemajuan";
+
+"Progress emails detail" = "Ringkasan pribadimu, paling sering seminggu sekali. Tidak ada email setelah setiap duel. Berhenti berlangganan kapan saja.";
+
+"Server Error" = "Server tidak tersedia";
+
+"Try Again" = "Coba lagi";
+
+"Server error. Try again." = "Server tidak tersedia. Coba lagi";
+
+"Invalid server response." = "Server tidak tersedia";
+
+"duel.network.error" = "Server tidak tersedia. Coba lagi";
+
+"duel.reminder.sent" = "Pengingat terkirim";
+
+"duel.reminder.cooldown" = "Tunggu sebelum mengirim pengingat berikutnya.";
+
+"duel.reminder.disabled" = "Pemain ini menonaktifkan notifikasi duel.";
+
+"duel.reminder.no_device" = "Pemain ini tidak memiliki perangkat dengan notifikasi push aktif.";
+
+"duel.reminder.completed" = "Duel sudah selesai.";
+
+"duel.reminder.missing" = "Duel ini tidak lagi tersedia.";
+
+"Flags Brand Title" = "Bendera";
+
+"lifecycle.offers" = "Tantangan dan penawaran";
+
+"lifecycle.offers.detail" = "Bonus, tantangan, dan game World Arena lainnya. Total paling banyak dua email per minggu.";
+
+"lifecycle.bonus.title" = "Coba bermain di siang hari?";
+
+"lifecycle.bonus.body" = "Tambahan 1 F-Buck untuk satu tantangan bonus tanpa kesalahan antara pukul 12.00–16.00 di zona waktumu.";
+
+"lifecycle.bonus.unavailable" = "Tantangan ini sudah tidak tersedia. Kemajuan yang tersimpan tetap aman.";

@@ -234,19 +234,16 @@
 "Request Timeout" = "கோரிக்கை நேரம் முடிந்தது";
 "Server Not Found" = "சர்வர் கிடைக்கவில்லை";
 "Too Many Requests" = "மிக அதிகமான கோரிக்கைகள்";
-"Server Error" = "சர்வர் பிழை";
 "HTTP Error: %d" = "HTTP பிழை: %d";
-"Try Again" = "மீண்டும் முயற்சிக்கவும்";
 "Not enough countries in selected regions (found %d, need at least 4)" = "தேர்ந்தெடுக்கப்பட்ட பிராந்தியங்களில் போதுமான நாடுகள் இல்லை (%d கண்டறியப்பட்டது, குறைந்தது 4 தேவை)";
 "Empty response from server" = "சேவையகத்திலிருந்து வெற்று பதில்";
 
 // New additions
-"Capital" = "மூலதனம்";
+"Capital" = "தலைநகரம்";
 "Population" = "மக்கள் தொகை";
-"Area" = "பகுதி";
+"Area" = "பரப்பளவு";
 "Region" = "பிராந்தியம்";
-"Subregion" = "துணைப்பகுதி";
-
+"Subregion" = "துணைப் பிராந்தியம்";
 // Language additions
 "system_language" = "அமைப்பு";
 "ru_language" = "ருஸ்கி";
@@ -1737,3 +1734,89 @@
 "premium.trial.yearly" = "7 நாட்கள் இலவசம், பின்னர் ஆண்டிற்கு %@.";
 "premium.renewal" = "ரத்து செய்யும் வரை தானாகப் புதுப்பிக்கப்படும். App Store சந்தாக்களில் நிர்வகிக்கவும் அல்லது ரத்து செய்யவும்.";
 "premium.subscribe" = "சந்தா பெறவும்";
+
+/* Duel inbox */
+"duel.challenges.title" = "சவால்கள்";
+"duel.challenges.subtitle" = "அழைப்புகள், நடப்பு போட்டிகள் மற்றும் முடிவுகள்";
+
+// Verified subscription status
+"premium.restore.success" = "வாங்கியவை மீட்டமைக்கப்பட்டன.";
+"premium.restore.empty" = "இந்த Apple கணக்கில் செயலில் உள்ள சந்தா எதுவும் இல்லை.";
+"premium.access.until" = "அணுகல் முடியும் தேதி";
+
+// Streak calendar and freeze inventory
+"streak.calendar.title" = "தொடர் நாட்காட்டி";
+"streak.calendar.played" = "விளையாடியது";
+"streak.calendar.frozen" = "பாதுகாக்கப்பட்டது";
+"streak.calendar.missed" = "தவறியது";
+"streak.calendar.open_day" = "இன்னும் விளையாடவில்லை";
+"streak.calendar.previous" = "முந்தைய மாதம்";
+"streak.calendar.next" = "அடுத்த மாதம்";
+"streak.freeze.title" = "தொடர் பாதுகாப்புகள்";
+"streak.freeze.repair" = "நேற்றை மீட்டமை · 1 பாதுகாப்பு";
+"streak.freeze.friends" = "நண்பர்களுக்கு உதவுங்கள்";
+"streak.freeze.give" = "1 பாதுகாப்பை பரிசளி";
+"streak.freeze.signin" = "பாதுகாப்புகளை அனுப்பவும் பெறவும் உள்நுழையுங்கள்.";
+"streak.freeze.unavailable" = "நண்பருக்கு இனி தேவையில்லை. உங்கள் பாதுகாப்பு திருப்பித் தரப்பட்டது.";
+"streak.freeze.sent" = "பாதுகாப்பு அனுப்பப்பட்டது!";
+"streak.freeze.retry" = "ஒத்திசைக்க முடியவில்லை. நிலுவைப் பரிசை முடிக்க மீண்டும் முயலுங்கள்.";
+"streak.freeze.no_friends" = "இப்போது பாதுகாப்பு தீர்ந்த நண்பர்கள் இல்லை.";
+"streak.freeze.explanation" = "ஒரு பாதுகாப்பு தவறிய ஒரு நாளை தானாகக் காக்கும்; விளையாடிய நாளாக எண்ணாது. முன்கூட்டியே வாங்குங்கள் அல்லது நேற்றை மீட்டமையுங்கள்.";
+
+// Avatar shop and wardrobe
+"shop.avatar" = "உங்கள் அவதார்";
+"shop.preview_hint" = "வாங்கும் முன் அணிந்து பாருங்கள். பயன்படுத்தினால் சுயவிவரப் படம் இந்த அவதாராக மாறும்.";
+"shop.wardrobe" = "அலமாரி";
+"shop.empty" = "வாங்கிய பொருட்கள் இங்கே தோன்றும்.";
+"shop.equipped" = "அணிந்துள்ளது";
+"shop.owned" = "வாங்கியது";
+"shop.remove" = "அகற்று";
+"shop.equip" = "அணி";
+"shop.save_error" = "சாதனத்தில் சேமிக்கப்பட்டது. இணைய அவதாரைப் புதுப்பிக்க முடியவில்லை.";
+
+"home.lives.welcome" = "வரவேற்பு போனஸ்: முதல் 7 நாட்களில் ஒவ்வொரு 10 நிமிடங்களுக்கும் +3 உயிர்கள். அதிகபட்சம் 5 உயிர்கள்; சந்தா தேவையில்லை.";
+
+"Profile Share CTA" = "QR குறியீட்டை ஸ்கேன் செய். விளையாடலாம்!";
+
+
+"Profile Share Headline" = "கொடிகளை அறிவீர்களா?\nநிரூபியுங்கள்.";
+
+"Use current time" = "தற்போதைய நேரத்தை அமை";
+
+"Progress emails" = "முன்னேற்ற மின்னஞ்சல்கள்";
+
+"Progress emails detail" = "உங்கள் தனிப்பட்ட சுருக்கம், வாரத்திற்கு அதிகபட்சம் ஒருமுறை. ஒவ்வொரு போட்டிக்குப் பிறகும் மின்னஞ்சல் இல்லை. எப்போது வேண்டுமானாலும் விலகலாம்.";
+
+"Server Error" = "சேவையகம் கிடைக்கவில்லை";
+
+"Try Again" = "மீண்டும் முயல்க";
+
+"Server error. Try again." = "சேவையகம் கிடைக்கவில்லை. மீண்டும் முயல்க";
+
+"Invalid server response." = "சேவையகம் கிடைக்கவில்லை";
+
+"duel.network.error" = "சேவையகம் கிடைக்கவில்லை. மீண்டும் முயல்க";
+
+"duel.reminder.sent" = "நினைவூட்டல் அனுப்பப்பட்டது";
+
+"duel.reminder.cooldown" = "மற்றொரு நினைவூட்டலை அனுப்பும் முன் காத்திருக்கவும்.";
+
+"duel.reminder.disabled" = "இந்த வீரர் போட்டி அறிவிப்புகளை முடக்கியுள்ளார்.";
+
+"duel.reminder.no_device" = "இந்த வீரரின் எந்தச் சாதனத்திலும் புஷ் அறிவிப்புகள் இயக்கப்படவில்லை.";
+
+"duel.reminder.completed" = "போட்டி ஏற்கனவே முடிந்துவிட்டது.";
+
+"duel.reminder.missing" = "இந்தப் போட்டி இனி கிடைக்காது.";
+
+"Flags Brand Title" = "கொடிகள்";
+
+"lifecycle.offers" = "சவால்களும் சலுகைகளும்";
+
+"lifecycle.offers.detail" = "போனஸ்கள், சவால்கள் மற்றும் பிற World Arena விளையாட்டுகள். வாரத்திற்கு மொத்தம் அதிகபட்சம் இரண்டு மின்னஞ்சல்கள்.";
+
+"lifecycle.bonus.title" = "பகலிலும் விளையாடலாமா?";
+
+"lifecycle.bonus.body" = "உங்கள் நேர மண்டலத்தில் 12:00 முதல் 16:00 வரை ஒரு போனஸ் சவாலைப் பிழையின்றி முடித்தால் கூடுதலாக 1 F-Buck.";
+
+"lifecycle.bonus.unavailable" = "இந்தச் சவால் இனி கிடைக்காது. சேமித்த முன்னேற்றம் மாறவில்லை.";

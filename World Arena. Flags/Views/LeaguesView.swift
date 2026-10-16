@@ -293,6 +293,9 @@ struct LeaguesView: View {
             outcome = .demoted
         }
         userProfile.currentLeague = newLeague
+        NotificationService.shared.notifyProgress(id: "league_" + String(Calendar.current.component(.weekOfYear, from: Date())) + "_" + String(Calendar.current.component(.yearForWeekOfYear, from: Date())),
+            title: LocalizationManager.shared.localizedString("Лиги"),
+            body: newLeague.localizedFullName, preference: "leagueNotifications")
         leaguesService.buildAndSaveWeeklyResult(
             position: place,
             leagueBefore: league,
@@ -494,10 +497,13 @@ struct LeagueWeeklyResultModalView: View {
     let onDismiss: () -> Void
     @ObservedObject private var localizationManager = LocalizationManager.shared
 
-    @State private var badgeScale: CGFloat = 0.78
+    @Environment(\.accessibilityReduceMotion) private var reduceMotion
+    @State private var demotionFinished = false
+    @State private var trophyOpacity = 1.0
+    @State private var trophyOffset: CGFloat = 0
+    @State private var badgeScale: CGFloat = 0.94
     @State private var badgeGlow: Double = 0.35
     @State private var showRewardLine = false
-    @State private var ctaPulse = false
     @State private var didPlayCelebrationFeedback = false
 
     private var tier: LeagueWeeklyModalTier {
@@ -585,10 +591,10 @@ struct LeagueWeeklyResultModalView: View {
         ZStack {
             LeagueWeeklyModalBackground(tier: tier)
 
-            if tier == .hero {
+            if tier == .hero && !reduceMotion {
                 LeagueWeeklyConfettiView(pieceCount: 52, seed: confettiSeed)
                     .ignoresSafeArea()
-            } else if tier == .nice {
+            } else if tier == .nice && !reduceMotion {
                 LeagueWeeklyConfettiView(pieceCount: 22, seed: confettiSeed &+ 17)
                     .ignoresSafeArea()
             }
@@ -598,6 +604,7 @@ struct LeagueWeeklyResultModalView: View {
                     VStack(spacing: 0) {
                         Spacer(minLength: 0)
                         VStack(spacing: 18) {
+                            leagueArtwork
                             if tier == .hero || tier == .nice {
                                 celebrationHeader
                             } else {
@@ -623,6 +630,8 @@ struct LeagueWeeklyResultModalView: View {
                                     .italic()
                                     .multilineTextAlignment(.center)
                                     .foregroundColor(.white.opacity(0.65))
+                                    .opacity(tier == .demoted && !demotionFinished && !reduceMotion ? 0 : 1)
+                                    .animation(reduceMotion ? nil : .easeOut(duration: 0.3), value: demotionFinished)
                                     .padding(.horizontal, 20)
                             }
 
@@ -640,8 +649,20 @@ struct LeagueWeeklyResultModalView: View {
             }
             .frame(maxWidth: .infinity, maxHeight: .infinity)
         }
-        .onAppear {
+        .preferredColorScheme(.dark)
+        .task {
             runEntranceAnimations()
+            guard tier == .demoted, !reduceMotion else { demotionFinished = true; return }
+            do {
+                try await Task.sleep(nanoseconds: 350000000)
+                withAnimation(.easeIn(duration: 0.3)) { trophyOffset = 28; trophyOpacity = 0 }
+                try await Task.sleep(nanoseconds: 320000000)
+                demotionFinished = true
+                trophyOffset = -12
+                withAnimation(.spring(response: 0.5, dampingFraction: 0.85)) {
+                    trophyOffset = 0; trophyOpacity = 1
+                }
+            } catch { /* Dismissal cancels the sequence. */ }
         }
     }
 
@@ -674,31 +695,6 @@ struct LeagueWeeklyResultModalView: View {
                 .foregroundColor(.white)
                 .multilineTextAlignment(.center)
                 .padding(.horizontal, 16)
-        }
-
-        if let after = result.leagueAfter {
-            ZStack {
-                Circle()
-                    .fill(
-                        RadialGradient(
-                            colors: [after.color.opacity(0.55), .clear],
-                            center: .center,
-                            startRadius: 10,
-                            endRadius: 110
-                        )
-                    )
-                    .frame(width: 200, height: 200)
-                    .opacity(badgeGlow)
-
-                Image(after.imageAssetName)
-                    .resizable()
-                    .scaledToFit()
-                    .frame(width: tier == .nice ? 100 : 124, height: tier == .nice ? 100 : 124)
-                    .scaleEffect(badgeScale)
-                    .shadow(color: after.color.opacity(0.85), radius: 28, x: 0, y: 10)
-                    .shadow(color: .white.opacity(0.35), radius: 12, x: 0, y: 0)
-            }
-            .padding(.vertical, 8)
         }
 
         if tier == .hero {
@@ -742,7 +738,7 @@ struct LeagueWeeklyResultModalView: View {
                     .font(.system(size: 22, weight: .heavy, design: .rounded))
                     .foregroundColor(Color(red: 1, green: 0.92, blue: 0.45))
                     .shadow(color: .black.opacity(0.35), radius: 4, x: 0, y: 2)
-                    .scaleEffect(showRewardLine ? 1 : 0.3)
+                    .scaleEffect(showRewardLine ? 1 : 0.94)
                     .opacity(showRewardLine ? 1 : 0)
             }
             HStack(spacing: 14) {
@@ -760,90 +756,73 @@ struct LeagueWeeklyResultModalView: View {
         }
     }
 
+    private var leagueArtwork: some View {
+        ZStack {
+            Circle()
+                .fill(RadialGradient(colors: [(result.leagueAfter?.color ?? .blue).opacity(0.5), .clear], center: .center, startRadius: 12, endRadius: 140))
+                .frame(width: 280, height: 280)
+                .opacity(badgeGlow)
+            Circle().stroke(.white.opacity(0.12), lineWidth: 1)
+                .frame(width: 220, height: 220)
+            Circle().stroke(.white.opacity(0.06), lineWidth: 1)
+                .frame(width: 264, height: 264)
+            if let league = (tier == .demoted && !demotionFinished && !reduceMotion ? result.leagueBefore : result.leagueAfter) ?? result.leagueAfter {
+                Image(league.imageAssetName)
+                    .resizable().scaledToFit()
+                    .frame(width: 172, height: 172)
+                    .shadow(color: .black.opacity(0.25), radius: 18, y: 12)
+                    .scaleEffect(badgeScale)
+                    .offset(y: trophyOffset)
+                    .opacity(trophyOpacity)
+            }
+            Text("#\(result.finalRank)")
+                .font(.title3.bold().monospacedDigit())
+                .foregroundStyle(.white)
+                .padding(.horizontal, 20).padding(.vertical, 10)
+                .background(.ultraThinMaterial, in: Capsule())
+                .offset(y: 110)
+        }
+        .accessibilityElement(children: .ignore)
+        .accessibilityLabel(bodyText)
+        .accessibilityIdentifier("league.result.artwork")
+    }
+
     private var primaryButton: some View {
         Button(action: onDismiss) {
-            Group {
-                if tier == .demoted {
-                    HStack(spacing: 8) {
-                        Text(primaryCtaTitle)
-                            .font(.system(size: 18, weight: .bold, design: .rounded))
-                        Image(systemName: "arrow.right")
-                            .font(.system(size: 16, weight: .bold))
-                    }
-                    .foregroundColor(.white)
-                    .frame(maxWidth: .infinity)
-                    .padding(.vertical, 16)
-                    .background(
-                        RoundedRectangle(cornerRadius: 16, style: .continuous)
-                            .fill(Color.white.opacity(0.18))
-                    )
-                    .overlay(
-                        RoundedRectangle(cornerRadius: 16, style: .continuous)
-                            .stroke(Color.white.opacity(0.28), lineWidth: 1)
-                    )
-                } else {
-                    ZStack {
-                        LinearGradient(
-                            colors: [Color.orange, Color.red.opacity(0.92)],
-                            startPoint: .leading,
-                            endPoint: .trailing
-                        )
-                        HStack(spacing: 8) {
-                            Text(primaryCtaTitle)
-                                .font(.system(size: 18, weight: .bold, design: .rounded))
-                            Image(systemName: "arrow.right")
-                                .font(.system(size: 16, weight: .bold))
-                        }
-                        .foregroundColor(.white)
-                        .frame(maxWidth: .infinity)
-                        .padding(.vertical, 16)
-                    }
-                    .clipShape(RoundedRectangle(cornerRadius: 16, style: .continuous))
-                    .shadow(color: Color.orange.opacity(ctaPulse ? 0.55 : 0.32), radius: ctaPulse ? 20 : 12, x: 0, y: ctaPulse ? 10 : 6)
-                    .scaleEffect(ctaPulse ? 1.03 : 1.0)
-                }
+            HStack(spacing: 10) {
+                Text(primaryCtaTitle.replacingOccurrences(of: "→", with: "").trimmingCharacters(in: .whitespaces))
+                    .fixedSize(horizontal: false, vertical: true)
+                Image(systemName: "arrow.right")
             }
-            .frame(maxWidth: .infinity)
+            .font(.system(size: 17, weight: .bold, design: .rounded))
+            .foregroundStyle(.white)
+            .frame(maxWidth: .infinity, minHeight: 24)
+            .padding(16)
+            .background(LinearGradient(colors: [.blue, .indigo], startPoint: .leading, endPoint: .trailing), in: RoundedRectangle(cornerRadius: 18))
         }
         .buttonStyle(.plain)
         .padding(.horizontal, 24)
+        .accessibilityIdentifier("league.result.continue")
     }
 
     private func runEntranceAnimations() {
-        let h = tier == .hero
-        if h || tier == .nice {
-            if h && !didPlayCelebrationFeedback {
-                didPlayCelebrationFeedback = true
-                DispatchQueue.main.asyncAfter(deadline: .now() + 0.42) {
-                    leagueWeeklyModalPlayCelebrationFeedback()
-                }
-            }
-            withAnimation(.spring(response: 0.5, dampingFraction: 0.62)) {
-                badgeScale = 1.22
-                badgeGlow = 0.95
-            }
-            DispatchQueue.main.asyncAfter(deadline: .now() + 0.38) {
-                withAnimation(.spring(response: 0.45, dampingFraction: 0.72)) {
-                    badgeScale = 1.0
-                }
-            }
-            DispatchQueue.main.asyncAfter(deadline: .now() + 0.2) {
-                withAnimation(.spring(response: 0.55, dampingFraction: 0.75)) {
-                    showRewardLine = true
-                }
-            }
-        } else {
-            badgeScale = 1.0
-            badgeGlow = 0.5
+        guard !reduceMotion else {
+            badgeScale = 1
+            badgeGlow = 1
+            showRewardLine = true
+            return
+        }
+        withAnimation(.spring(response: 0.55, dampingFraction: 0.78)) {
+            badgeScale = 1
+            badgeGlow = 1
             showRewardLine = true
         }
-
-        DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
-            withAnimation(.easeInOut(duration: 0.85).repeatForever(autoreverses: true)) {
-                ctaPulse = true
-            }
+        if tier == .hero && !didPlayCelebrationFeedback {
+            didPlayCelebrationFeedback = true
+            leagueWeeklyModalPlayCelebrationFeedback()
         }
     }
+
 }
 
 enum LeagueEndOutcome {

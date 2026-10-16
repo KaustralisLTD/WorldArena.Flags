@@ -8,6 +8,9 @@ import SwiftUI
 class AudioManager: NSObject, ObservableObject {
     static let shared = AudioManager()
     
+    @Published var playbackError: String?
+    private var downloadTask: URLSessionDataTask?
+    private var playbackRequest = UUID()
     @Published var isPlaying = false
     @Published var currentProgress: Double = 0.0
     @Published var duration: Double = 0.0
@@ -21,7 +24,7 @@ class AudioManager: NSObject, ObservableObject {
     private var progressTimer: Timer?
     private var currentAudioFile: String?
     /// Увеличить при замене файлов на CDN — сбрасывает старый кэш по URL и подтягивает актуальный гимн.
-    private static let anthemCDNVersion = 2
+    private static let anthemCDNVersion = 3
 
     private override init() {
         super.init()
@@ -42,6 +45,7 @@ class AudioManager: NSObject, ObservableObject {
     func playAnthem(for countryCode: String) {
         // Останавливаем текущее воспроизведение
         stopAudio()
+        playbackError = nil
         
         let code = countryCode.lowercased()
         // Формируем URL для загрузки с сервера
@@ -65,16 +69,7 @@ class AudioManager: NSObject, ObservableObject {
             return
         }
         
-        // Проверяем доступность сервера
-        checkServerAvailability { [weak self] isAvailable in
-            if isAvailable {
-                print("🌐 Сервер доступен, загружаем гимн")
-                self?.downloadAndPlayAnthem(from: serverURL, countryCode: countryCode)
-            } else {
-                print("❌ Сервер недоступен, включаем симуляцию")
-                self?.playSimulatedAudio()
-            }
-        }
+        downloadAndPlayAnthem(from: serverURL, countryCode: countryCode)
     }
 
     /// Проверка, что это похоже на ISO BMFF (.m4a), а не случайные байты с «писком» при декоде.
@@ -114,13 +109,18 @@ class AudioManager: NSObject, ObservableObject {
     
     func resumeAudio() {
         #if os(iOS)
-        audioPlayer?.play()
-        #endif
+        guard audioPlayer?.play() == true else { reportPlaybackFailure(); return }
         isPlaying = true
         startProgressTimer()
+        #endif
     }
     
     func stopAudio() {
+        playbackError = nil
+        playbackRequest = UUID()
+        downloadTask?.cancel()
+        downloadTask = nil
+        isDownloading = false
         #if os(iOS)
         audioPlayer?.stop()
         audioPlayer = nil
@@ -167,25 +167,11 @@ class AudioManager: NSObject, ObservableObject {
         progressTimer = nil
     }
     
-    private func playSimulatedAudio() {
-        print("🎵 Симуляция воспроизведения гимна")
-        isPlaying = true
-        duration = 90.0 // 1:30 минуты
-        
-        progressTimer = Timer.scheduledTimer(withTimeInterval: 0.1, repeats: true) { [weak self] _ in
-            Task { @MainActor in
-                guard let self = self else { return }
-                
-                if self.currentProgress < 1.0 {
-                    self.currentProgress += 0.001 // Медленное увеличение
-                    self.currentTime = self.duration * self.currentProgress
-                } else {
-                    self.stopAudio()
-                }
-            }
-        }
+    private func reportPlaybackFailure() {
+        stopAudio()
+        playbackError = LocalizationManager.shared.localizedString("learning.anthem.unavailable")
     }
-    
+
     func formatTime(_ seconds: Double) -> String {
         let minutes = Int(seconds) / 60
         let secs = Int(seconds) % 60
@@ -325,11 +311,11 @@ class AudioManager: NSObject, ObservableObject {
             guard duration >= 2.5 else {
                 print("❌ Аудио слишком короткое для гимна (\(duration)s), отмена")
                 stopAudio()
-                playSimulatedAudio()
+                reportPlaybackFailure()
                 return
             }
             
-            audioPlayer?.play()
+            guard audioPlayer?.play() == true else { reportPlaybackFailure(); return }
             isPlaying = true
             
             startProgressTimer()
@@ -338,18 +324,18 @@ class AudioManager: NSObject, ObservableObject {
             
         } catch {
             print("❌ Ошибка воспроизведения аудио из кэша: \(error)")
-            playSimulatedAudio()
+            reportPlaybackFailure()
         }
         #else
         // macOS implementation would go here
-        playSimulatedAudio()
+        reportPlaybackFailure()
         #endif
     }
     
     private func downloadAndPlayAnthem(from serverURL: String, countryCode: String) {
         guard let url = URL(string: serverURL) else {
             print("❌ Неверный URL сервера: \(serverURL)")
-            playSimulatedAudio()
+            reportPlaybackFailure()
             return
         }
         
@@ -358,15 +344,16 @@ class AudioManager: NSObject, ObservableObject {
         // Показываем индикатор загрузки
         isDownloading = true
         
-        URLSession.shared.dataTask(with: url) { [weak self] data, response, error in
+        let requestID = playbackRequest
+        downloadTask = URLSession.shared.dataTask(with: url) { [weak self] data, response, error in
             Task { @MainActor in
-                guard let self = self else { return }
+                guard let self = self, self.playbackRequest == requestID else { return }
                 
                 self.isDownloading = false
                 
                 if let error = error {
                     print("❌ Ошибка загрузки: \(error)")
-                    self.playSimulatedAudio()
+                    self.reportPlaybackFailure()
                     return
                 }
                 
@@ -374,26 +361,26 @@ class AudioManager: NSObject, ObservableObject {
                 if let httpResponse = response as? HTTPURLResponse {
                     if httpResponse.statusCode != 200 {
                         print("❌ HTTP ошибка: \(httpResponse.statusCode)")
-                        self.playSimulatedAudio()
+                        self.reportPlaybackFailure()
                         return
                     }
                 }
                 
                 guard let data = data, !data.isEmpty else {
                     print("❌ Пустые данные от сервера")
-                    self.playSimulatedAudio()
+                    self.reportPlaybackFailure()
                     return
                 }
                 
                 // Проверяем размер файла (минимум 10KB)
                 if data.count < 10240 {
                     print("❌ Файл слишком маленький: \(data.count) байт")
-                    self.playSimulatedAudio()
+                    self.reportPlaybackFailure()
                     return
                 }
                 if !self.isLikelyM4AHeader(data) {
                     print("❌ Ответ не похож на m4a (нет ftyp), возможно HTML/ошибка CDN")
-                    self.playSimulatedAudio()
+                    self.reportPlaybackFailure()
                     return
                 }
 
@@ -404,10 +391,11 @@ class AudioManager: NSObject, ObservableObject {
                     self.playAudioFromURL(cachedURL)
                 } else {
                     print("❌ Ошибка сохранения в кэш")
-                    self.playSimulatedAudio()
+                    self.reportPlaybackFailure()
                 }
             }
-        }.resume()
+        }
+        downloadTask?.resume()
     }
     
     private func saveAudioToCache(data: Data, countryCode: String) -> URL? {
@@ -456,7 +444,7 @@ extension AudioManager: AVAudioPlayerDelegate {
     nonisolated func audioPlayerDecodeErrorDidOccur(_ player: AVAudioPlayer, error: Error?) {
         print("❌ Ошибка декодирования аудио: \(error?.localizedDescription ?? "Неизвестная ошибка")")
         Task { @MainActor in
-            self.stopAudio()
+            self.reportPlaybackFailure()
         }
     }
 }

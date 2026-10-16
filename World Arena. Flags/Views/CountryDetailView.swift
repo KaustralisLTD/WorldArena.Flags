@@ -18,7 +18,8 @@ struct CountryDetailView: View {
 
     @StateObject private var localizationManager = LocalizationManager.shared
     @EnvironmentObject private var gameState: GameState
-    @Environment(\.dismiss) private var dismiss
+    @Environment(\.presentationMode) private var presentationMode
+    @State private var detailTask: Task<Void, Never>?
     @State private var countryDetail: CountryDetail?
     @State private var isLoadingDetail = false
     @State private var currentPhotoIndex = 0
@@ -35,9 +36,8 @@ struct CountryDetailView: View {
     /// Минимум стран в очереди для старта классики по выбранным флагам.
     private static let learningPlaylistMinCountriesForGame: Int = 6
 
-    private var galleryPhotos: [CountryPhoto] {
-        CountryPhotosService.shared.galleryPhotosForLearning(for: countryCode)
-    }
+    @State private var galleryPhotos: [CountryPhoto] = []
+    @State private var loadingGallery = false
 
     private var isLearned: Bool {
         LearningCountryProgressLogic.isMastered(gameState.learningProgress(forISO2: countryCode))
@@ -115,14 +115,21 @@ struct CountryDetailView: View {
     }
 
     var body: some View {
+        GeometryReader { geometry in
         ZStack(alignment: .top) {
             Color(UIColor.systemGroupedBackground)
                 .ignoresSafeArea()
 
             VStack(spacing: 0) {
+
+
+                ScrollViewReader { proxy in
+                    ScrollView {
+                        VStack(spacing: 22) {
                 LearningCountryHeroView(
                     countryCode: countryCode,
-                    countryName: countryDetail?.name ?? countryName,
+                    countryName: countryName,
+                    safeTop: geometry.safeAreaInsets.top,
                     flagEmoji: flagEmoji,
                     regionName: regionDisplayName,
                     isLearned: isLearned,
@@ -130,7 +137,7 @@ struct CountryDetailView: View {
                     isDifficult: gameState.isLearningCountryDifficult(iso2: countryCode),
                     canGoPrevious: canGoPrevious,
                     canGoNext: canGoNext,
-                    onBack: { dismiss() },
+                    onBack: { presentationMode.wrappedValue.dismiss() },
                     onPrevious: { navigateToPreviousCountry() },
                     onNext: { navigateToNextCountry() },
                     onToggleFavorite: {
@@ -142,24 +149,25 @@ struct CountryDetailView: View {
                         gameState.toggleLearningManualDifficult(iso2: countryCode)
                     }
                 )
-
-                ScrollViewReader { proxy in
-                    ScrollView {
-                        VStack(spacing: 22) {
                             statCardsRow
                                 .padding(.horizontal, 16)
                                 .padding(.top, 12)
                                 .padding(.bottom, 4)
 
                             photoGallerySection
-                            countryInfoGroupedSections
+                            editorialIntroduction
+                            DisclosureGroup(localizationManager.localizedString("learning.country.section.main")) {
+                                countryInfoGroupedSections
+                            }.font(.headline).padding(20)
+                                .background(Color(UIColor.secondarySystemGroupedBackground), in: RoundedRectangle(cornerRadius: 18))
+                                .padding(.horizontal, 16)
                             interestingFactsSection
                             flagDescriptionSection
                             anthemSection
                             playlistActionBlock
                                 .id("learningPlaylistAnchor")
                         }
-                        .padding(.top, 4)
+                        .padding(.top, 0)
                     }
                     .onChange(of: gameState.learningPracticePlaylistAlpha3) { newSet in
                         let newCount = newSet.count
@@ -178,9 +186,11 @@ struct CountryDetailView: View {
                         .fill(Color(UIColor.systemGroupedBackground))
                         .ignoresSafeArea(.container, edges: .bottom)
                 )
-                .clipShape(RoundedRectangle(cornerRadius: 22, style: .continuous))
-                .padding(.top, -14)
+
+
             }
+        }
+        .ignoresSafeArea(.container, edges: .top)
         }
         .overlay(alignment: .bottom) {
             if let msg = playlistToast {
@@ -198,7 +208,7 @@ struct CountryDetailView: View {
         .animation(.easeInOut(duration: 0.22), value: playlistToast)
         .sheet(isPresented: $showingPhotoGallery) {
             PhotoGalleryModal(
-                photos: galleryPhotos.map(\.imageURL).filter { !$0.isEmpty },
+                photos: galleryPhotos.filter { !$0.imageURL.isEmpty },
                 currentIndex: $currentPhotoIndex,
                 isPresented: $showingPhotoGallery
             )
@@ -206,14 +216,27 @@ struct CountryDetailView: View {
         .sheet(item: $emojiDetailPhoto) { photo in
             emojiDetailSheet(photo)
         }
-        .overlay {
+        .overlay(alignment: .topTrailing) {
             if isLoadingDetail {
-                Color.black.opacity(0.3).ignoresSafeArea()
-                ProgressView().scaleEffect(1.5).tint(.white)
+                ProgressView().padding().allowsHitTesting(false)
             }
+        }
+        .task(id: countryCode) {
+            galleryPhotos = CountryPhotosService.shared.galleryPhotosForLearning(for: countryCode)
+            loadingGallery = true
+            let code = countryCode
+            let name = CountryLearningCatalog.allCountryInfos.first { $0.code == code }?.name ?? countryName
+            let photos = await CountryPhotosService.shared.loadLearningGallery(code: code, englishName: name) { photos in
+                guard !Task.isCancelled, code == countryCode else { return }
+                galleryPhotos = photos
+            }
+            guard !Task.isCancelled, code == countryCode else { return }
+            galleryPhotos = photos
+            loadingGallery = false
         }
         .navigationBarTitleDisplayMode(.inline)
         .navigationBarBackButtonHidden(true)
+        .navigationBarHidden(true)
         .onAppear {
             previousPlaylistCount = learningPlaylistCount
             loadCountryDetail()
@@ -221,8 +244,9 @@ struct CountryDetailView: View {
         }
         .onDisappear {
             audioManager.stopAudio()
+            detailTask?.cancel()
         }
-        .gesture(
+        .simultaneousGesture(
             DragGesture(minimumDistance: 20)
                 .onEnded { value in
                     let horizontal = value.translation.width
@@ -230,7 +254,7 @@ struct CountryDetailView: View {
                     guard abs(horizontal) > abs(vertical) else { return }
                     if horizontal > 80 {
                         if value.startLocation.x < 80 {
-                            dismiss()
+                            presentationMode.wrappedValue.dismiss()
                         } else {
                             navigateToPreviousCountry()
                         }
@@ -264,6 +288,26 @@ struct CountryDetailView: View {
         }
     }
 
+    private var editorialIntroduction: some View {
+        Group {
+            if let story = CountryEditorialContent.story(code: countryCode, language: localizationManager.currentLocale.languageCode ?? "en") {
+                VStack(alignment: .leading, spacing: 12) {
+                    Text(localizationManager.localizedString("learning.country.discover"))
+                        .font(.title3.weight(.bold))
+                    Text(story.text).font(.subheadline).foregroundColor(.secondary)
+                        .fixedSize(horizontal: false, vertical: true)
+                    if let url = URL(string: story.url) {
+                        Link("Wikipedia · CC BY-SA ↗", destination: url).font(.caption.weight(.medium))
+                    }
+                }
+                .padding(20)
+                .frame(maxWidth: .infinity, alignment: .leading)
+                .background(Color(UIColor.secondarySystemGroupedBackground), in: RoundedRectangle(cornerRadius: 20))
+                .padding(.horizontal, 16)
+            }
+        }
+    }
+
     // MARK: - Gallery
 
     private var photoGallerySection: some View {
@@ -276,13 +320,15 @@ struct CountryDetailView: View {
                 .foregroundColor(.secondary)
                 .padding(.horizontal, 20)
 
-            let columns = [GridItem(.flexible(), spacing: 10), GridItem(.flexible(), spacing: 10), GridItem(.flexible(), spacing: 10)]
-            LazyVGrid(columns: columns, spacing: 10) {
+            if loadingGallery { ProgressView().padding(.horizontal, 20) }
+            let columns = [GridItem(.adaptive(minimum: 155, maximum: 320), spacing: 14)]
+            LazyVGrid(columns: columns, spacing: 18) {
                 ForEach(Array(galleryPhotos.enumerated()), id: \.element.id) { index, photo in
                     learningPhotoTile(photo: photo, index: index)
                 }
             }
             .padding(.horizontal, 20)
+
         }
         .padding(.vertical, 8)
     }
@@ -301,25 +347,31 @@ struct CountryDetailView: View {
                 ZStack {
                     RoundedRectangle(cornerRadius: 14, style: .continuous)
                         .fill(Color(UIColor.secondarySystemGroupedBackground))
-                        .frame(height: 96)
+                        .frame(height: 160)
                     if photo.imageURL.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty {
                         Text(photo.localImage)
                             .font(.system(size: 40))
                     } else if let u = URL(string: photo.imageURL) {
+                        GeometryReader { tile in
                         AsyncImage(url: u) { phase in
                             switch phase {
                             case .success(let img):
-                                img.resizable().scaledToFill()
+                                if photo.type == .flag || photo.type == .coatOfArms {
+                                    img.resizable().scaledToFit().padding(12)
+                                } else {
+                                    img.resizable().scaledToFill()
+                                }
                             case .failure:
-                                Text(photo.localImage).font(.system(size: 36))
+                                Image(systemName: "photo.badge.exclamationmark").foregroundColor(.secondary)
                             case .empty:
                                 ProgressView()
                             @unknown default:
                                 EmptyView()
                             }
                         }
-                        .frame(maxWidth: .infinity, maxHeight: 96)
+                        .frame(width: tile.size.width, height: 160)
                         .clipped()
+                        }.frame(height: 160)
                     }
                 }
                 .frame(maxWidth: .infinity)
@@ -329,12 +381,12 @@ struct CountryDetailView: View {
                         .stroke(Color.primary.opacity(0.06), lineWidth: 1)
                 )
 
-                Text(photoGalleryCategoryTitle(for: photo.type))
-                    .font(.system(size: 11, weight: .semibold))
+                Text(photo.type == .flag || photo.type == .coatOfArms ? photoGalleryCategoryTitle(for: photo.type) : photo.displayTitle)
+                    .font(.system(size: 14, weight: .semibold))
                     .foregroundColor(.secondary)
                     .lineLimit(2)
-                    .multilineTextAlignment(.center)
-                    .minimumScaleFactor(0.85)
+                    .multilineTextAlignment(.leading)
+                    .frame(maxWidth: .infinity, alignment: .leading)
             }
         }
         .buttonStyle(.plain)
@@ -428,42 +480,22 @@ struct CountryDetailView: View {
 
     private var interestingFactsSection: some View {
         VStack(alignment: .leading, spacing: 16) {
-            Text(localizationManager.localizedString("Интересные факты"))
-                .font(.system(size: 20, weight: .bold))
-                .padding(.horizontal, 20)
-
-            VStack(spacing: 12) {
-                if let facts = countryDetail?.interestingFacts {
-                    ForEach(Array(facts.enumerated()), id: \.offset) { index, fact in
-                        factCard(
-                            icon: getFactIcon(for: index),
-                            title: localizationManager.localizedString("Факт") + " \(index + 1)",
-                            fact: fact
-                        )
-                    }
-                } else {
-                    factCard(
-                        icon: "🏛️",
-                        title: localizationManager.localizedString("История"),
-                        fact: countryDetail?.description ?? localizationManager.localizedString("Историческая информация о стране")
-                    )
-
-                    factCard(
-                        icon: "🎵",
-                        title: localizationManager.localizedString("Музыка"),
-                        fact: countryDetail?.anthemDescription ?? localizationManager.localizedString("Музыкальная культура страны")
-                    )
-
-                    factCard(
-                        icon: "🏔️",
-                        title: localizationManager.localizedString("Природа"),
-                        fact: localizationManager.localizedString("Уникальная природа и ландшафты этой страны")
-                    )
+            if let facts = CountryReadingLibrary.facts(code: countryCode, language: localizationManager.currentLocale.languageCode ?? "en"), !facts.items.isEmpty {
+                Text(localizationManager.localizedString("Интересные факты"))
+                    .font(.title3.bold())
+                ForEach(Array(facts.items.enumerated()), id: \.offset) { index, fact in
+                    factCard(icon: getFactIcon(for: index), title: localizationManager.localizedString("Факт") + " \(index + 1)", fact: fact)
+                }
+                if let url = URL(string: facts.url) {
+                    Link("Wikipedia · CC BY-SA ↗", destination: url).font(.caption)
+                    if let extra = facts.extraSource, let extraURL = URL(string: extra) { Link("UNESCO ↗", destination: extraURL).font(.caption) }
                 }
             }
-            .padding(.horizontal, 20)
-        }
-        .padding(.vertical, 16)
+        }.padding(20)
+    }
+
+    private var anthemStory: CountryAnthemStory? {
+        CountryReadingLibrary.anthem(code: countryCode, language: localizationManager.currentLocale.languageCode ?? "en")
     }
 
     private func getFactIcon(for index: Int) -> String {
@@ -517,9 +549,25 @@ struct CountryDetailView: View {
 
     private var anthemSection: some View {
         VStack(alignment: .leading, spacing: 16) {
+            if let error = audioManager.playbackError {
+                Text(error).font(.footnote).foregroundColor(.secondary).padding(.horizontal, 20)
+            }
             Text(localizationManager.localizedString("Гимн страны"))
                 .font(.system(size: 20, weight: .bold))
                 .padding(.horizontal, 20)
+
+            if let credit = AnthemRecordingCredits.all[countryCode.uppercased()] {
+                VStack(alignment: .leading, spacing: 6) {
+                    if let parent = credit.sharedNationalAnthemOf {
+                        let name = localizationManager.currentLocale.localizedString(forRegionCode: parent) ?? parent
+                        Text(String(format: localizationManager.localizedString("learning.anthem.shared_fmt"), name))
+                    } else if let anthem = credit.anthem { Text(anthem).fontWeight(.semibold) }
+                    if let author = credit.author, let license = credit.license { Text("\(author) · \(license)") }
+                    if let url = URL(string: credit.source) {
+                        Link(localizationManager.localizedString("learning.anthem.recording_source"), destination: url)
+                    }
+                }.font(.caption).foregroundColor(.secondary).padding(.horizontal, 20)
+            }
 
             VStack(spacing: 12) {
                 HStack {
@@ -543,11 +591,11 @@ struct CountryDetailView: View {
                     .disabled(audioManager.isDownloading)
 
                     VStack(alignment: .leading, spacing: 4) {
-                        Text(localizationManager.localizedString("Национальный гимн"))
+                        Text(anthemStory?.title ?? localizationManager.localizedString("Национальный гимн"))
                             .font(.system(size: 16, weight: .semibold))
                             .foregroundColor(.primary)
 
-                        Text(countryDetail?.anthemDescription ?? "")
+                        Text(anthemStory?.text ?? "")
                             .font(.system(size: 12))
                             .foregroundColor(.secondary)
                     }
@@ -575,35 +623,26 @@ struct CountryDetailView: View {
                 }
                 .padding(.horizontal, 20)
 
-                VStack(alignment: .leading, spacing: 8) {
-                    Text(localizationManager.localizedString("Значение гимна"))
-                        .font(.system(size: 16, weight: .semibold))
-                        .foregroundColor(.primary)
-
-                    Text(countryDetail?.anthemMeaning ?? "")
-                        .font(.system(size: 14))
-                        .foregroundColor(.secondary)
-                        .lineLimit(nil)
-                }
-                .padding(.horizontal, 20)
-
-                if let anthemText = countryDetail?.anthemText, !anthemText.isEmpty {
+                if let excerpt = anthemStory?.excerpt {
                     VStack(alignment: .leading, spacing: 8) {
-                        Text(localizationManager.localizedString("Текст гимна"))
-                            .font(.system(size: 16, weight: .semibold))
-                            .foregroundColor(.primary)
-
-                        Text(anthemText)
-                            .font(.system(size: 14))
-                            .foregroundColor(.primary)
-                            .lineLimit(nil)
-                            .multilineTextAlignment(.leading)
-                            .padding(12)
-                            .background(Color(UIColor.secondarySystemGroupedBackground))
-                            .cornerRadius(8)
-                    }
-                    .padding(.horizontal, 20)
+                        Text(localizationManager.localizedString("learning.anthem.excerpt")).font(.headline)
+                        Text(excerpt).font(.title3).textSelection(.enabled)
+                    }.padding(20).frame(maxWidth: .infinity, alignment: .leading)
+                        .background(Color(UIColor.secondarySystemGroupedBackground), in: RoundedRectangle(cornerRadius: 14))
+                        .padding(.horizontal, 20)
                 }
+                if let story = anthemStory, let url = URL(string: story.url) {
+                    Link(destination: url) {
+                        HStack {
+                            Text(localizationManager.localizedString("learning.anthem.full_lyrics_source"))
+                            Spacer()
+                            Image(systemName: "arrow.up.right.square")
+                        }.font(.headline).padding(16)
+                            .background(Color(UIColor.secondarySystemGroupedBackground), in: RoundedRectangle(cornerRadius: 14))
+                    }.padding(.horizontal, 20)
+                    Text(story.attribution ?? "Wikipedia · CC BY-SA").font(.caption).foregroundColor(.secondary).padding(.horizontal, 20)
+                }
+
             }
         }
         .padding(.vertical, 16)
@@ -644,7 +683,7 @@ struct CountryDetailView: View {
         Task {
             await gameState.startNewGameWithCurrentRegions()
             await MainActor.run {
-                dismiss()
+                presentationMode.wrappedValue.dismiss()
             }
         }
     }
@@ -685,9 +724,15 @@ struct CountryDetailView: View {
     }
 
     private func loadCountryDetail() {
-        Task { @MainActor in
+        detailTask?.cancel()
+        countryName = CountryDetailsService.shared.getLocalizedCountryName(for: countryCode)
+        countryDetail = CountryDetailsService.shared.getCountryDetail(for: countryCode)
+        detailTask = Task { @MainActor in
             isLoadingDetail = true
-            countryDetail = await CountryDetailsService.shared.getCountryDetailAsync(for: countryCode)
+            let requestedCode = countryCode
+            let detail = await CountryDetailsService.shared.getCountryDetailAsync(for: requestedCode)
+            guard !Task.isCancelled, requestedCode == countryCode else { return }
+            countryDetail = detail
             isLoadingDetail = false
         }
     }
@@ -710,7 +755,7 @@ struct CountryDetailView: View {
         guard !allCountries.isEmpty, currentCountryIndex < allCountries.count else { return }
         let country = allCountries[currentCountryIndex]
         countryCode = country.countryCode
-        countryName = country.name.common
+        countryName = CountryDetailsService.shared.getLocalizedCountryName(for: country.countryCode)
         flagEmoji = country.flagEmoji
         currentAlpha3 = country.id
         regionDisplayName = localizedRegion(from: country.region)
@@ -748,7 +793,7 @@ struct CountryDetailView: View {
 // MARK: - Photo Gallery Modal
 
 struct PhotoGalleryModal: View {
-    let photos: [String]
+    let photos: [CountryPhoto]
     @Binding var currentIndex: Int
     @Binding var isPresented: Bool
     @ObservedObject private var localizationManager = LocalizationManager.shared
@@ -777,11 +822,11 @@ struct PhotoGalleryModal: View {
                 .padding()
 
                 TabView(selection: $currentIndex) {
-                    ForEach(Array(photos.enumerated()), id: \.offset) { index, urlString in
+                    ForEach(Array(photos.enumerated()), id: \.offset) { index, photo in
                         ZStack {
                             RoundedRectangle(cornerRadius: 12)
                                 .fill(Color.gray.opacity(0.3))
-                            if let url = URL(string: urlString) {
+                            if let url = URL(string: photo.imageURL) {
                                 AsyncImage(url: url) { phase in
                                     switch phase {
                                     case .success(let image):
@@ -807,6 +852,23 @@ struct PhotoGalleryModal: View {
                     }
                 }
                 .tabViewStyle(PageTabViewStyle(indexDisplayMode: .never))
+                if photos.indices.contains(currentIndex) {
+                    let photo = photos[currentIndex]
+                    if let source = photo.sourceURL, let url = URL(string: source) {
+                        VStack(spacing: 6) {
+                            Text(photo.displayTitle.replacingOccurrences(of: "_", with: " ")).font(.headline).lineLimit(3)
+                            if !photo.displayStory.isEmpty {
+                                ScrollView { Text(photo.displayStory).font(.subheadline).fixedSize(horizontal: false, vertical: true) }.frame(maxHeight: 160)
+                            }
+                            if let article = photo.articleURL, let articleURL = URL(string: article) {
+                                Link("Wikipedia · CC BY-SA ↗", destination: articleURL).font(.caption).foregroundColor(.cyan)
+                            }
+                            Text(photo.description).font(.caption2).lineLimit(4)
+                            Link("Wikimedia Commons ↗", destination: url).font(.caption.bold()).foregroundColor(.cyan)
+                        }
+                        .foregroundColor(.white).padding()
+                    }
+                }
             }
         }
     }

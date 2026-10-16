@@ -234,19 +234,16 @@
 "Request Timeout" = "Zaman Aşımı İsteği";
 "Server Not Found" = "Sunucu Bulunamadı";
 "Too Many Requests" = "Çok Fazla İstek";
-"Server Error" = "Sunucu Hatası";
 "HTTP Error: %d" = "HTTP Hatası: %d";
-"Try Again" = "Tekrar deneyin";
 "Not enough countries in selected regions (found %d, need at least 4)" = "Seçilen bölgelerde yeterli ülke yok (%d bulundu, en az 4 tane gerekiyor)";
 "Empty response from server" = "Sunucudan boş yanıt";
 
 // New additions
 "Capital" = "Başkent";
 "Population" = "Nüfus";
-"Area" = "Alan";
+"Area" = "Yüzölçümü";
 "Region" = "Bölge";
 "Subregion" = "Alt bölge";
-
 // Language additions
 "system_language" = "Sistem";
 "ru_language" = "Rusça";
@@ -1736,3 +1733,89 @@
 "premium.trial.yearly" = "7 gün ücretsiz, ardından yılda %@.";
 "premium.renewal" = "İptal edilene kadar otomatik yenilenir. App Store aboneliklerinizden yönetin veya iptal edin.";
 "premium.subscribe" = "Abone ol";
+
+/* Duel inbox */
+"duel.challenges.title" = "Meydan okumalar";
+"duel.challenges.subtitle" = "Davetler, aktif düellolar ve sonuçlar";
+
+// Verified subscription status
+"premium.restore.success" = "Satın almalar geri yüklendi.";
+"premium.restore.empty" = "Bu Apple Hesabı için etkin abonelik bulunamadı.";
+"premium.access.until" = "Erişim bitişi";
+
+// Streak calendar and freeze inventory
+"streak.calendar.title" = "Seri takvimi";
+"streak.calendar.played" = "Oynandı";
+"streak.calendar.frozen" = "Donduruldu";
+"streak.calendar.missed" = "Kaçırıldı";
+"streak.calendar.open_day" = "Henüz oynanmadı";
+"streak.calendar.previous" = "Önceki ay";
+"streak.calendar.next" = "Sonraki ay";
+"streak.freeze.title" = "Seri dondurucuları";
+"streak.freeze.repair" = "Dünü geri yükle · 1 dondurucu";
+"streak.freeze.friends" = "Arkadaşlarına yardım et";
+"streak.freeze.give" = "1 dondurucu hediye et";
+"streak.freeze.signin" = "Dondurucu gönderip almak için giriş yap.";
+"streak.freeze.unavailable" = "Arkadaşının artık ihtiyacı yok. Dondurucun iade edildi.";
+"streak.freeze.sent" = "Dondurucu gönderildi!";
+"streak.freeze.retry" = "Eşitleme başarısız. Bekleyen hediyeyi tamamlamak için tekrar dene.";
+"streak.freeze.no_friends" = "Şu anda dondurucusu biten arkadaşın yok.";
+"streak.freeze.explanation" = "Bir dondurucu kaçırılan bir günü otomatik korur; o gün oynanmış sayılmaz. Aradan önce stok yap veya dünü geri yükle.";
+
+// Avatar shop and wardrobe
+"shop.avatar" = "Avatarın";
+"shop.preview_hint" = "Satın almadan önce dene. Uygulama, profil fotoğrafını bu avatarla değiştirir.";
+"shop.wardrobe" = "Gardırop";
+"shop.empty" = "Satın aldığın ürünler burada görünür.";
+"shop.equipped" = "Takılı";
+"shop.owned" = "Satın alındı";
+"shop.remove" = "Çıkar";
+"shop.equip" = "Kullan";
+"shop.save_error" = "Bu cihaza kaydedildi. Çevrimiçi avatar güncellenemedi.";
+
+"home.lives.welcome" = "Hoş geldin bonusu: İlk 7 gün boyunca her 10 dakikada +3 can. En fazla 5 can; abonelik gerekmez.";
+
+"Profile Share CTA" = "QR kodunu tara. Hadi oynayalım!";
+
+
+"Profile Share Headline" = "BAYRAKLARI BİLİYOR MUSUN?\nKANITLA.";
+
+"Use current time" = "Geçerli saati kullan";
+
+"Progress emails" = "Gelişim e-postaları";
+
+"Progress emails detail" = "Kişisel özetin, haftada en fazla bir kez. Her düellodan sonra e-posta gönderilmez. İstediğin zaman abonelikten çıkabilirsin.";
+
+"Server Error" = "Sunucuya ulaşılamıyor";
+
+"Try Again" = "Tekrar dene";
+
+"Server error. Try again." = "Sunucuya ulaşılamıyor. Tekrar dene";
+
+"Invalid server response." = "Sunucuya ulaşılamıyor";
+
+"duel.network.error" = "Sunucuya ulaşılamıyor. Tekrar dene";
+
+"duel.reminder.sent" = "Hatırlatma gönderildi";
+
+"duel.reminder.cooldown" = "Yeni hatırlatma göndermeden önce bekle.";
+
+"duel.reminder.disabled" = "Bu oyuncu düello bildirimlerini kapattı.";
+
+"duel.reminder.no_device" = "Bu oyuncunun anlık bildirimleri açık bir cihazı yok.";
+
+"duel.reminder.completed" = "Düello zaten sona erdi.";
+
+"duel.reminder.missing" = "Bu düello artık kullanılamıyor.";
+
+"Flags Brand Title" = "Bayraklar";
+
+"lifecycle.offers" = "Görevler ve teklifler";
+
+"lifecycle.offers.detail" = "Bonuslar, görevler ve diğer World Arena oyunları. Haftada toplam en fazla iki e-posta.";
+
+"lifecycle.bonus.title" = "Gündüz de oynayalım mı?";
+
+"lifecycle.bonus.body" = "Kendi saat diliminde 12:00–16:00 arasında kusursuz tamamlanan bir bonus görevi için fazladan 1 F-Buck.";
+
+"lifecycle.bonus.unavailable" = "Bu görev artık kullanılamıyor. Kaydedilen ilerlemen korunuyor.";

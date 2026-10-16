@@ -246,9 +246,7 @@
 "Request Timeout" = "Превышено время ожидания";
 "Server Not Found" = "Сервер не найден";
 "Too Many Requests" = "Слишком много запросов";
-"Server Error" = "Ошибка сервера";
 "HTTP Error: %d" = "Ошибка HTTP: %d";
-"Try Again" = "Повторить попытку";
 "Not enough countries in selected regions (found %d, need at least 4)" = "Недостаточно стран в выбранных регионах (найдено %d, нужно минимум 4)";
 "Empty response from server" = "Пустой ответ от сервера";
 
@@ -258,7 +256,6 @@
 "Area" = "Площадь";
 "Region" = "Регион";
 "Subregion" = "Субрегион";
-
 // Exit confirmation
 "Exit Confirmation" = "Вы уверены, что хотите выйти?";
 "Yes" = "Да";
@@ -1802,3 +1799,188 @@
 "premium.trial.yearly" = "7 дней бесплатно, затем %@ в год.";
 "premium.renewal" = "Подписка продлевается автоматически, пока не отменена. Управление и отмена — в подписках App Store.";
 "premium.subscribe" = "Оформить подписку";
+
+/* Duel inbox */
+"duel.challenges.title" = "Вызовы";
+"duel.challenges.subtitle" = "Приглашения, активные дуэли и результаты";
+
+// Verified subscription status
+"premium.restore.success" = "Покупки восстановлены.";
+"premium.restore.empty" = "Для этого Аккаунта Apple не найдена действующая подписка.";
+"premium.access.until" = "Доступ до";
+
+// Streak calendar and freeze inventory
+"streak.calendar.title" = "Календарь серии";
+"streak.calendar.played" = "Играл";
+"streak.calendar.frozen" = "Заморожено";
+"streak.calendar.missed" = "Пропуск";
+"streak.calendar.open_day" = "Ещё не играл";
+"streak.calendar.previous" = "Предыдущий месяц";
+"streak.calendar.next" = "Следующий месяц";
+"streak.freeze.title" = "Заморозки серии";
+"streak.freeze.repair" = "Восстановить вчера · 1 заморозка";
+"streak.freeze.friends" = "Помощь друзьям";
+"streak.freeze.give" = "Подарить 1 заморозку";
+"streak.freeze.signin" = "Войдите, чтобы дарить и получать заморозки.";
+"streak.freeze.unavailable" = "Другу больше не нужна заморозка. Ваша заморозка возвращена.";
+"streak.freeze.sent" = "Заморозка отправлена!";
+"streak.freeze.retry" = "Не удалось синхронизировать. Повторите, чтобы завершить отправку подарка.";
+"streak.freeze.no_friends" = "Сейчас нет друзей с пустым запасом заморозок.";
+"streak.freeze.explanation" = "Одна заморозка автоматически защищает один пропущенный день. Он не считается сыгранным. Пополните запас заранее или используйте заморозку для восстановления вчерашнего дня.";
+
+// Avatar shop and wardrobe
+"shop.avatar" = "Ваш аватар";
+"shop.preview_hint" = "Примерьте перед покупкой. Применение заменит фото профиля этим аватаром.";
+"shop.wardrobe" = "Гардероб";
+"shop.empty" = "Здесь появятся купленные предметы.";
+"shop.equipped" = "Надето";
+"shop.owned" = "Куплено";
+"shop.remove" = "Снять";
+"shop.equip" = "Надеть";
+"shop.save_error" = "Сохранено на устройстве. Не удалось обновить аватар онлайн.";
+
+"home.lives.welcome" = "Бонус новичка: +3 жизни каждые 10 минут в первые 7 дней. Запас до 5 жизней, подписка не нужна.";
+
+// Explicit friend request consent
+"friends.requests.title" = "Запросы в друзья";
+"friends.requests.body" = "Добавил(а) вас в друзья. Добавить в ответ?";
+"friends.requests.accept" = "Добавить в ответ";
+"friends.requests.decline" = "Отклонить";
+"friends.requests.empty" = "Новых запросов в друзья нет";
+"friends.requests.error" = "Не удалось выполнить действие. Попробуйте ещё раз.";
+"friends.requests.done" = "Готово";
+
+// First-run education
+"guide.replay" = "Обучение приложению";
+"guide.skip" = "Пропустить";
+"guide.back" = "Назад";
+"guide.next" = "Далее";
+"guide.done" = "Начнём";
+"guide.play.title" = "Твоя следующая игра";
+"guide.play.body" = "Нажми «Играть», чтобы начать. «Продолжить» появляется, если есть незавершённая игра.";
+"guide.settings.title" = "Игра по твоим правилам";
+"guide.settings.body" = "Здесь можно выбрать регион, сложность и режим игры.";
+"guide.streak.title" = "Каждый день важен";
+"guide.streak.body" = "Нажми на серию, чтобы открыть календарь, увидеть игровые дни и заморозки.";
+"guide.fbucks.title" = "Знакомься: F-баксы";
+"guide.fbucks.body" = "Зарабатывай F-баксы в играх и квестах. Нажми на баланс, чтобы посмотреть награды, предметы для аватара и заморозки.";
+"guide.friends.title" = "Играй с друзьями";
+"guide.friends.body" = "Добавь друга по профилю или коду. Открой его профиль, чтобы вызвать на дуэль. Приглашения — в «Вызовах». Запрос в друзья можно принять или отклонить.";
+"education.fbucks.title" = "Ты заработал F-баксы!";
+"education.fbucks.body" = "Это игровая валюта. Получай её за игры и квесты, покупай предметы для аватара и заморозки серии.";
+"education.fbucks.shop" = "В магазин";
+"education.fbucks.done" = "Понятно";
+"facts.settings" = "Факты о странах";
+"facts.explanation" = "Выбери, что показывать на обороте карточки страны после ответа.";
+"facts.capital" = "Столица";
+"facts.population" = "Население";
+"facts.area" = "Площадь";
+"facts.region" = "Регион и субрегион";
+"facts.map" = "Карта";
+
+"friends.requests.signin" = "Войди в аккаунт, чтобы видеть запросы в друзья и отвечать на них.";
+
+// Verified Premium benefits and Apple Family Sharing
+"premium.benefit.lives.title" = "Безлимитные жизни";
+"premium.benefit.lives.body" = "Классика и игра на время без ожидания жизней. В Выживании действуют свои правила.";
+"premium.benefit.map.title" = "Карта прогресса мира";
+"premium.benefit.map.body" = "Следите за прогрессом по странам и континентам и находите флаги для тренировки.";
+"premium.benefit.countries.title" = "Подробные слайды о странах";
+"premium.benefit.countries.body" = "Изучайте столицы, население, площадь, языки, валюты и интересные факты.";
+"premium.benefit.anthems.title" = "Гимны стран";
+"premium.benefit.anthems.body" = "Слушайте доступные записи гимнов, узнавайте их историю и смысл.";
+"premium.benefit.learning.title" = "Библиотека обучения";
+"premium.benefit.learning.body" = "Изучайте страны и континенты в своём темпе между играми.";
+"premium.benefit.mistakes.title" = "Работа над ошибками";
+"premium.benefit.mistakes.body" = "Тренируйтесь на флагах, в которых раньше ошибались.";
+"premium.benefit.erudite.title" = "Сложность «Эрудит»";
+"premium.benefit.erudite.body" = "Откройте самый высокий уровень сложности.";
+"premium.benefit.avatar.title" = "Premium-аксессуар для аватара";
+"premium.benefit.avatar.body" = "Носите головной убор Premium, пока подписка активна.";
+"premium.family.title" = "Одна подписка для всей семьи";
+"premium.family.body" = "Premium для 6 участников, включая вас, через Семейный доступ Apple. Включите общий доступ к подписке в настройках семьи Apple. У каждого игрока — свой прогресс.";
+
+// Premium learning stories and earned weekly reward
+"premium.weekly.history" = "Еженедельный бонус Premium";
+"premium.benefit.weekly.title" = "10 F-bucks каждую неделю";
+"premium.benefit.weekly.body" = "Начисляются автоматически за каждые полные 7 дней Premium с момента включения бонуса. Заработанные бонусы обновляются при открытии приложения.";
+"premium.weekly.next" = "Следующий бонус: %@";
+"premium.story.headline" = "Изучай флаги. Запоминай мир.";
+"premium.story.intro" = "Приближайся к знанию всех флагов: закрепляй сложные, узнавай страны и понимай, что учить дальше.";
+"premium.story.practice.title" = "Больше практики. Меньше пробелов.";
+"premium.story.practice.body" = "Тренируйся без ожидания жизней. «Мои ошибки» помогает сосредоточиться на флагах, которые ещё путаешь.";
+"premium.story.countries.title" = "За каждым флагом — история.";
+"premium.story.countries.body" = "Изучай слайды о странах, столицы, валюты и записи гимнов. Связывай флаг со страной, которую он представляет.";
+"premium.story.map.title" = "Знай, что учить дальше.";
+"premium.story.map.body" = "Карта прогресса показывает освоенные страны и слабые места — выбирай следующую тренировку осознанно.";
+"premium.story.example" = "Пример экрана · английский";
+"premium.story.enlarge" = "Увеличить пример экрана";
+
+"Check your internet connection" = "Проверьте подключение к интернету и попробуйте снова.";
+
+"premium.details.expanded" = "Развёрнуто";
+
+"premium.details.collapsed" = "Свёрнуто";
+
+"ranking.motivational.title" = "Мотивационный рейтинг";
+"ranking.motivational.explanation" = "Позиции по прогрессу среди виртуальных соперников.";
+"friends.duels.with_you" = "Дуэли с вами";
+
+"premium.story.progress.title" = "Видьте свой результат";
+
+"premium.story.progress.body" = "Следите за точностью и правильными ответами. Карта мира Premium поможет выбрать, какие флаги повторить дальше.";
+
+"learning.anthem.unavailable" = "Не удалось загрузить гимн. Проверьте соединение и нажмите «Воспроизвести» ещё раз.";
+
+"learning.country.discover" = "Открой страну";
+
+"learning.anthem.shared_fmt" = "Используется государственный гимн: %@. Региональный гимн может отличаться.";
+"learning.anthem.recording_source" = "Запись и источник ↗";
+
+"learning.anthem.excerpt" = "Текст на языке оригинала · отрывок";
+"learning.anthem.full_lyrics_source" = "Полный текст и история гимна";
+
+"Profile Share CTA" = "Сканируй QR. Давай играть!";
+
+
+"Profile Share Headline" = "ЗНАЕШЬ ФЛАГИ?\nДОКАЖИ.";
+
+"Use current time" = "Установить текущее время";
+
+"Progress emails" = "Письма о прогрессе";
+
+"Progress emails detail" = "Личная статистика — не чаще раза в неделю. Без писем после каждой дуэли. Отписаться можно в любой момент.";
+
+"Server Error" = "Сервер недоступен";
+
+"Try Again" = "Повторить";
+
+"Server error. Try again." = "Сервер недоступен. Повторить";
+
+"Invalid server response." = "Сервер недоступен";
+
+"duel.network.error" = "Сервер недоступен. Повторить";
+
+"duel.reminder.sent" = "Напоминание отправлено";
+
+"duel.reminder.cooldown" = "Подождите перед повторной отправкой.";
+
+"duel.reminder.disabled" = "Игрок отключил уведомления о дуэлях.";
+
+"duel.reminder.no_device" = "У игрока нет устройства с включёнными push-уведомлениями.";
+
+"duel.reminder.completed" = "Дуэль уже завершена.";
+
+"duel.reminder.missing" = "Эта дуэль больше недоступна.";
+
+"Flags Brand Title" = "Флаги";
+
+"lifecycle.offers" = "Задания и предложения";
+
+"lifecycle.offers.detail" = "Бонусы, задания и другие игры World Arena. Всего не больше двух писем за неделю.";
+
+"lifecycle.bonus.title" = "Попробуем сыграть днём?";
+
+"lifecycle.bonus.body" = "Дополнительный 1 F-Buck за одно идеальное бонусное задание с 12:00 до 16:00 по твоему времени.";
+
+"lifecycle.bonus.unavailable" = "Это задание больше недоступно. Сохранённый прогресс остаётся с тобой.";

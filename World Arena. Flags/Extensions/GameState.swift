@@ -1,4 +1,15 @@
 import Foundation
+enum WelcomeLivesPolicy {
+    static func isActive(joinedAt: Date, now: Date) -> Bool {
+        let age = now.timeIntervalSince(joinedAt)
+        return age >= 0 && age < 7 * 24 * 60 * 60
+    }
+    static func elapsedRefills(since last: TimeInterval, now: TimeInterval) -> Int {
+        guard last > 0, now >= last else { return 0 }
+        return Int(min(2, floor((now - last) / 600)))
+    }
+}
+
 import StoreKit
 import SwiftUI
 #if canImport(UIKit)
@@ -98,6 +109,13 @@ struct CountryLearningProgress: Codable, Hashable {
 
 @MainActor
 class GameState: ObservableObject {
+    var homeMatchSummary: String {
+        let region = selectedRegions.count == 1
+            ? (selectedRegions.first?.displayName ?? localizationManager.localizedString("All Regions"))
+            : localizationManager.localizedString("Multiple Regions")
+        return "\(region) · \(selectedDifficulty.displayName) · \(selectedPlayMode.homeDisplayName)"
+    }
+
     @Published var score = 0
     @Published var currentQuestion = 0
     @Published var selectedRegions: Set<Region> = [.all] {
@@ -151,7 +169,8 @@ class GameState: ObservableObject {
             print("\n=== Play Mode Changed ===")
             print("New mode: \(selectedPlayMode.displayName)")
             print("=====================\n")
-            // Режим не персистим как домашний (см. persistClassicSetupPrefsIfNeeded).
+            guard !isLoadingClassicSetupPrefs, oldValue != selectedPlayMode else { return }
+            persistClassicSetupPrefsIfNeeded()
         }
     }
     
@@ -202,10 +221,10 @@ class GameState: ObservableObject {
 
     private func persistClassicSetupPrefsIfNeeded() {
         guard !isLoadingClassicSetupPrefs else { return }
-        // Режим (дуэль/survival) не пишем как «домашний» — иначе Continue открывает пикер вместо квиза.
+        // Keep the player’s selected mode alongside difficulty and regions.
         // Сохраняем сложность, регионы и лимит флагов — то, что юзер просил переживать между днями.
         let payload = StoredClassicSetup(
-            playMode: nil,
+            playMode: selectedPlayMode.rawValue,
             difficulty: selectedDifficulty.rawValue,
             gameMode: selectedGameMode.rawValue,
             regions: selectedRegions.map(\.rawValue).sorted()
@@ -219,8 +238,8 @@ class GameState: ObservableObject {
         defer { isLoadingClassicSetupPrefs = false }
         guard let data = UserDefaults.standard.data(forKey: Self.classicSetupPrefsKey),
               let s = try? JSONDecoder().decode(StoredClassicSetup.self, from: data) else { return }
-        // playMode из старых снимков игнорируем — домашний старт всегда classic.
-        selectedPlayMode = .classic
+        // Older snapshots without a mode keep the classic default.
+        selectedPlayMode = s.playMode.flatMap(PlayMode.init(rawValue:)) ?? .classic
         if let d = Difficulty(rawValue: s.difficulty) { selectedDifficulty = d }
         if let gm = GameMode(rawValue: s.gameMode) { selectedGameMode = gm }
         let regs = Set(s.regions.compactMap { Region(rawValue: $0) })
@@ -418,8 +437,14 @@ class GameState: ObservableObject {
     private var lastProcessedAnswer: (id: String, time: Date)?
     
     /// Игра идёт (таймер можно ставить на паузу при уходе с экрана и возобновлять при возврате).
+    private var lifecycleSessionID = UUID().uuidString
+    private var lifecycleOwner: String?
     private(set) var isGameInProgress = false {
         didSet {
+            if isGameInProgress && !oldValue {
+                lifecycleSessionID = UUID().uuidString
+                lifecycleOwner = AuthService.shared.authUsername
+            }
             #if os(iOS)
             UIApplication.shared.isIdleTimerDisabled = isGameInProgress
             #endif
@@ -466,7 +491,14 @@ class GameState: ObservableObject {
         Calendar.current.startOfDay(for: date).timeIntervalSince1970
     }
 
+    var hasWelcomeLivesBonus: Bool {
+        return !isPremium && WelcomeLivesPolicy.isActive(joinedAt: UserProfile.shared.joinDate, now: Date())
+    }
+
+    var nextLivesRefillAmount: Int { hasWelcomeLivesBonus ? 3 : maxLives }
+
     private func refillIntervalForCurrentDailyStep() -> TimeInterval {
+        if hasWelcomeLivesBonus { return 600 }
         let count = UserDefaults.standard.integer(forKey: dailyRefillCountStorageKey)
         switch count {
         case 0: return firstDailyRefillInterval
@@ -497,7 +529,7 @@ class GameState: ObservableObject {
         // НЕ загружаем isPremium из UserDefaults - он будет синхронизирован с StoreManager
         // isPremium = defaults.bool(forKey: premiumStorageKey)
 
-        resetDailyRefillProgressIfNeeded()
+        if !hasWelcomeLivesBonus { resetDailyRefillProgressIfNeeded() }
         
         refillLivesIfNeeded()
         startLivesRefillTimer()
@@ -527,11 +559,26 @@ class GameState: ObservableObject {
 
     func refillLivesIfNeeded() {
         guard !isPremium else { return }
-        // Во время активной игры не пополняем жизни автоматически:
-        // иначе при ошибке life уменьшается и тут же возвращается до maxLives, что выглядит как баг.
-        guard !isGameInProgress else { return }
+        // Welcome refills use a fixed ten-minute clock, including while a game is paused.
+        // The regular refill policy remains inactive during a game.
+        guard !isGameInProgress || hasWelcomeLivesBonus else { return }
         let defaults = UserDefaults.standard
         let nowDate = Date()
+        if hasWelcomeLivesBonus {
+            let last = defaults.double(forKey: lastRefillStorageKey)
+            let now = nowDate.timeIntervalSince1970
+            if last == 0 || lives >= maxLives {
+                defaults.set(now, forKey: lastRefillStorageKey)
+                return
+            }
+            let periods = WelcomeLivesPolicy.elapsedRefills(since: last, now: now)
+            if periods > 0 {
+                lives = min(maxLives, lives + min(periods, 2) * 3)
+                defaults.set(lives == maxLives ? now : last + Double(periods) * 600, forKey: lastRefillStorageKey)
+                saveLivesState()
+            }
+            return
+        }
         resetDailyRefillProgressIfNeeded(now: nowDate)
         let now = nowDate.timeIntervalSince1970
         let last = defaults.double(forKey: lastRefillStorageKey)
@@ -557,7 +604,7 @@ class GameState: ObservableObject {
         guard !isGameInProgress else { return nil }
         let defaults = UserDefaults.standard
         let nowDate = Date()
-        resetDailyRefillProgressIfNeeded(now: nowDate)
+        if !hasWelcomeLivesBonus { resetDailyRefillProgressIfNeeded(now: nowDate) }
         let last = defaults.double(forKey: lastRefillStorageKey)
         let now = nowDate.timeIntervalSince1970
         let interval = refillIntervalForCurrentDailyStep()
@@ -569,6 +616,9 @@ class GameState: ObservableObject {
     func consumeLifeOnWrongAnswer() {
         guard !isPremium else { return }
         if lives > 0 {
+            if hasWelcomeLivesBonus && lives == maxLives {
+                UserDefaults.standard.set(Date().timeIntervalSince1970, forKey: lastRefillStorageKey)
+            }
             lives -= 1
             saveLivesState()
             print("💔 Life consumed. Lives left: \(lives)")
@@ -1148,13 +1198,7 @@ class GameState: ObservableObject {
         loadLearningPreferences()
         refreshSurvivalWeeklyChallengeState()
         loadClassicSetupPreferencesFromStorage()
-        // Домашний Continue всегда стартует классический квиз; дуэль/survival выбираются явно на главной.
-        if selectedPlayMode != .classic && duelSeed == nil {
-            selectedPlayMode = .classic
-        }
-        if selectedDifficulty == .erudite && !StoreManager.shared.isPremium {
-            selectedDifficulty = .medium
-        }
+        // Preserve the saved setup; do not downgrade premium difficulty before StoreKit finishes loading.
     }
 
     /// Синхронизация недельного Survival-челленджа с UserDefaults (смена ISO-недели сбравает прогресс).
@@ -1534,10 +1578,16 @@ class GameState: ObservableObject {
     }
 
     /// Подтянуть с сервера исходящие дуэли (когда соперник уже отправил счёт / завершено) — убирает «Waiting for result».
-    func syncOutgoingDuelsWithServer(profile: UserProfile) async {
-        let uid = profile.username.trimmingCharacters(in: .whitespacesAndNewlines)
-        guard !uid.isEmpty else { return }
-        guard let rows = try? await DuelAPIService.shared.fetchOutgoingChallenges(userId: uid) else { return }
+    @discardableResult
+    func syncOutgoingDuelsWithServer(profile: UserProfile) async -> Bool {
+        let uid = (AuthService.shared.authUsername ?? profile.username).trimmingCharacters(in: .whitespacesAndNewlines)
+        guard !uid.isEmpty else { return false }
+        let rows: [DuelOutgoingChallengeFromAPI]
+        do { rows = try await DuelAPIService.shared.fetchOutgoingChallenges(userId: uid) }
+        catch {
+            print("[DuelSync] fetchOutgoingChallenges failed:", String(describing: error))
+            return false
+        }
         await MainActor.run {
             for row in rows {
                 let opponentNameForSync: String
@@ -1569,13 +1619,20 @@ class GameState: ObservableObject {
                 }
             }
         }
+        return true
     }
 
     /// Синхронизация с сервером: входящие дуэли для оппонента (нужно, чтобы статус ожидания и финальный результат обновлялись).
-    func syncIncomingDuelsWithServer(profile: UserProfile) async {
-        let uid = profile.username.trimmingCharacters(in: .whitespacesAndNewlines)
-        guard !uid.isEmpty else { return }
-        guard let rows = try? await DuelAPIService.shared.fetchIncomingChallengesForSync(userId: uid) else { return }
+    @discardableResult
+    func syncIncomingDuelsWithServer(profile: UserProfile) async -> Bool {
+        let uid = (AuthService.shared.authUsername ?? profile.username).trimmingCharacters(in: .whitespacesAndNewlines)
+        guard !uid.isEmpty else { return false }
+        let rows: [DuelChallengeFromAPI]
+        do { rows = try await DuelAPIService.shared.fetchIncomingChallengesForSync(userId: uid) }
+        catch {
+            print("[DuelSync] fetchIncomingChallengesForSync failed:", String(describing: error))
+            return false
+        }
         
         await MainActor.run {
             for row in rows {
@@ -1585,6 +1642,8 @@ class GameState: ObservableObject {
                     if let os = row.opponentScore { local.opponentScore = os }
                     local.status = mapDuelServerStatusToLocal(row.status)
                     profile.incomingDuelChallenges[idx] = local
+                } else if row.status != "completed", let challenge = row.toDuelChallenge(opponentId: uid, opponentName: uid) {
+                    profile.incomingDuelChallenges.append(challenge)
                 }
 
                 if row.status == "completed" {
@@ -1605,6 +1664,7 @@ class GameState: ObservableObject {
                 }
             }
         }
+        return true
     }
 
     private func mapDuelServerStatusToLocal(_ status: String) -> DuelChallenge.Status {
@@ -2204,6 +2264,18 @@ class GameState: ObservableObject {
                 handleDuelFinish(score: score, challengeId: cid, profile: profile, durationMs: duelMs)
             }
         }
+        LifecycleService.record(
+            id: lifecycleSessionID, owner: lifecycleOwner,
+            answers: totalQuestionsForStats, correct: correctAnswersThisGame,
+            mode: selectedPlayMode.rawValue, difficulty: selectedDifficulty.rawValue,
+            region: selectedRegions.map(\.rawValue).sorted().joined(separator: ","),
+            questions: currentGameResults.compactMap { result in
+                guard let code = result.correctCountryCode, code.count == 2 else { return nil }
+                return LifecycleService.Question(code: code.uppercased(), correct: result.isCorrect)
+            },
+            weakCountries: countryLearningProgress.filter { LearningCountryProgressLogic.isWeak($0.value) }.keys.compactMap { ISO3166.alpha3ToAlpha2[$0] },
+            masteredCountries: countryLearningProgress.filter { LearningCountryProgressLogic.isMastered($0.value) }.keys.compactMap { ISO3166.alpha3ToAlpha2[$0] }
+        )
         // Сохраняем обновлённый профиль
         profile.saveToStorage()
         // Обновляем ежедневные квесты
@@ -2478,7 +2550,8 @@ class GameState: ObservableObject {
                 challengerName: challDisplay,
                 challengerScore: cs,
                 myScore: cs,
-                iWon: iWon
+                iWon: iWon,
+                challengeId: challengeId
             )
         } else {
             // pending-случай: показываем верхний блок, но без победителя
@@ -2547,7 +2620,8 @@ class GameState: ObservableObject {
                 challengerName: challengerName,
                 challengerScore: cs,
                 myScore: os,
-                iWon: iWon
+                iWon: iWon,
+                challengeId: challengeId
             )
             return true
         }
@@ -3397,6 +3471,8 @@ class GameState: ObservableObject {
 
     // Мягкий сброс без изменения флага навигации при перезапуске внутри GameView
     func resetGameState(preserveNavigation: Bool, preserveDuelContext: Bool = false) {
+        lifecycleSessionID = UUID().uuidString
+        lifecycleOwner = AuthService.shared.authUsername
         print("\n=== Resetting Game State ===")
         score = 0
         currentQuestion = 0
@@ -3597,7 +3673,10 @@ class GameState: ObservableObject {
     )? {
         let profile = UserProfile.shared
         let myName = profile.username.trimmingCharacters(in: .whitespacesAndNewlines)
-        guard let opponentUsername = resolvedDuelOpponentUsernameForAPI(), !myName.isEmpty else { return nil }
+        guard let opponentUsername = resolvedDuelOpponentUsernameForAPI(), !myName.isEmpty else {
+            duelPrepareErrorMessage = LocalizationManager.shared.localizedString("duel.error.prepare_questions")
+            return nil
+        }
 
         let seed = Int.random(in: 0..<Int.max)
         let regions = duelRegionsServerStrings()
@@ -3613,23 +3692,26 @@ class GameState: ObservableObject {
             return nil
         }
 
-        var challengeId = UUID().uuidString
-        if let serverId = try? await DuelAPIService.shared.createChallenge(
-            opponentId: opponentUsername,
-            opponentName: opponentUsername,
-            seed: seed,
-            challengerName: myName,
-            challengerId: myName,
-            duelSetup: .init(
-                regions: regions,
-                difficulty: difficulty,
-                gameMode: gameMode,
-                questionsCount: questionsCount,
-                optionsCount: options,
-                questionsPayload: questionsPayload
+        let challengeId: String
+        do {
+            challengeId = try await DuelAPIService.shared.createChallenge(
+                opponentId: opponentUsername,
+                opponentName: opponentUsername,
+                seed: seed,
+                challengerName: myName,
+                challengerId: myName,
+                duelSetup: .init(
+                    regions: regions,
+                    difficulty: difficulty,
+                    gameMode: gameMode,
+                    questionsCount: questionsCount,
+                    optionsCount: options,
+                    questionsPayload: questionsPayload
+                )
             )
-        ) {
-            challengeId = serverId
+        } catch {
+            self.duelPrepareErrorMessage = error.localizedDescription
+            return nil
         }
 
         let challenge = DuelChallenge(
@@ -4084,7 +4166,7 @@ class GameState: ObservableObject {
         await StoreManager.shared.updatePurchasedProducts()
         let oldPremium = self.isPremium
         let storePremium = StoreManager.shared.isPremium
-        let newPremium = storePremium && !Self.userDidCancelSubscription
+        let newPremium = storePremium
         self.isPremium = newPremium
         enforceLivesAfterPremiumStatusUpdate(oldPremium: oldPremium, newPremium: newPremium)
         print("✅ Premium status synced: \(isPremium)")
@@ -4113,8 +4195,7 @@ class GameState: ObservableObject {
             Task { @MainActor in
                 guard let self = self else { return }
                 let storePremium = StoreManager.shared.isPremium
-                let cancelled = Self.userDidCancelSubscription
-                let newPremiumStatus = storePremium && !cancelled
+                let newPremiumStatus = storePremium
                 let oldPremium = self.isPremium
                 if self.isPremium != newPremiumStatus {
                     self.isPremium = newPremiumStatus
@@ -4142,4 +4223,17 @@ extension Notification.Name {
     static let languageChanged = Notification.Name("languageChanged")
 }
 
-// Все остальные объявления уже существуют в других местах кода 
+// Все остальные объявления уже существуют в других местах кода
+
+
+extension GameState {
+    /// Shared by the friend list and friend profile so their totals agree.
+    func completedDuels(with friend: Friend) -> [DuelHistoryEntry] {
+        let names = [friend.username, friend.displayNameOrUsername].map {
+            $0.trimmingCharacters(in: .whitespacesAndNewlines).lowercased()
+        }
+        return duelHistory.filter {
+            names.contains($0.opponentName.trimmingCharacters(in: .whitespacesAndNewlines).lowercased())
+        }.sorted { $0.playedAt > $1.playedAt }
+    }
+}

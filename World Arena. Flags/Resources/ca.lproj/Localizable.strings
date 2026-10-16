@@ -1600,3 +1600,99 @@
 "premium.trial.yearly" = "7 dies gratis, després %@ a l’any.";
 "premium.renewal" = "Es renova automàticament fins que es cancel·la. Gestiona o cancel·la a les subscripcions de l’App Store.";
 "premium.subscribe" = "Subscriu-te";
+
+/* Duel inbox */
+"duel.challenges.title" = "Reptes";
+"duel.challenges.subtitle" = "Invitacions, duels actius i resultats";
+
+// Verified subscription status
+"premium.restore.success" = "Compres restaurades.";
+"premium.restore.empty" = "No s’ha trobat cap subscripció activa per a aquest compte d’Apple.";
+"premium.access.until" = "Accés fins al";
+
+// Streak calendar and freeze inventory
+"streak.calendar.title" = "Calendari de ratxa";
+"streak.calendar.played" = "Jugat";
+"streak.calendar.frozen" = "Congelat";
+"streak.calendar.missed" = "Perdut";
+"streak.calendar.open_day" = "Encara no has jugat";
+"streak.calendar.previous" = "Mes anterior";
+"streak.calendar.next" = "Mes següent";
+"streak.freeze.title" = "Protectors de ratxa";
+"streak.freeze.repair" = "Restaura ahir · 1 protector";
+"streak.freeze.friends" = "Ajuda els amics";
+"streak.freeze.give" = "Regala 1 protector";
+"streak.freeze.signin" = "Inicia sessió per enviar i rebre protectors.";
+"streak.freeze.unavailable" = "El teu amic ja no en necessita. T’hem retornat el protector.";
+"streak.freeze.sent" = "Protector enviat!";
+"streak.freeze.retry" = "No s’ha pogut sincronitzar. Torna-ho a provar per completar el regal pendent.";
+"streak.freeze.no_friends" = "Ara no hi ha amics sense protectors.";
+"streak.freeze.explanation" = "Un protector cobreix automàticament un dia perdut sense comptar-lo com a jugat. Fes-ne reserva abans d’una pausa o restaura ahir.";
+
+"Capital" = "Capital";
+
+"Population" = "Població";
+
+"Area" = "Superfície";
+
+"Region" = "Regió";
+
+"Subregion" = "Subregió";
+
+// Avatar shop and wardrobe
+"shop.avatar" = "El teu avatar";
+"shop.preview_hint" = "Emprova abans de comprar. Aplicar substitueix la foto de perfil per aquest avatar.";
+"shop.wardrobe" = "Armari";
+"shop.empty" = "Els articles comprats apareixeran aquí.";
+"shop.equipped" = "Equipat";
+"shop.owned" = "Comprat";
+"shop.remove" = "Treu";
+"shop.equip" = "Equipa";
+"shop.save_error" = "Desat al dispositiu. No s’ha pogut actualitzar l’avatar en línia.";
+
+"home.lives.welcome" = "Bonificació de benvinguda: +3 vides cada 10 minuts durant els primers 7 dies. Fins a 5 vides, sense subscripció.";
+
+"Profile Share CTA" = "Escaneja el QR. Juguem!";
+
+
+"Profile Share Headline" = "CONEIXES LES BANDERES?\nDEMOSTRA-HO.";
+
+"Use current time" = "Fes servir l’hora actual";
+
+"Progress emails" = "Correus de progrés";
+
+"Progress emails detail" = "El teu resum personal, com a màxim un cop per setmana. Sense correus després de cada duel. Cancel·la quan vulguis.";
+
+"Server Error" = "Servidor no disponible";
+
+"Try Again" = "Torna-ho a provar";
+
+"Server error. Try again." = "Servidor no disponible. Torna-ho a provar";
+
+"Invalid server response." = "Servidor no disponible";
+
+"duel.network.error" = "Servidor no disponible. Torna-ho a provar";
+
+"duel.reminder.sent" = "Recordatori enviat";
+
+"duel.reminder.cooldown" = "Espera abans d’enviar un altre recordatori.";
+
+"duel.reminder.disabled" = "Aquest jugador ha desactivat les notificacions de duels.";
+
+"duel.reminder.no_device" = "Aquest jugador no té notificacions push activades en cap dispositiu.";
+
+"duel.reminder.completed" = "El duel ja ha acabat.";
+
+"duel.reminder.missing" = "Aquest duel ja no està disponible.";
+
+"Flags Brand Title" = "Banderes";
+
+"lifecycle.offers" = "Reptes i ofertes";
+
+"lifecycle.offers.detail" = "Bonificacions, reptes i altres jocs World Arena. Com a màxim dos correus setmanals en total.";
+
+"lifecycle.bonus.title" = "I si juguem durant el dia?";
+
+"lifecycle.bonus.body" = "1 F-Buck extra per un repte de bonificació perfecte entre les 12:00 i les 16:00 del teu fus horari.";
+
+"lifecycle.bonus.unavailable" = "Aquest repte ja no està disponible. El teu progrés desat es conserva.";

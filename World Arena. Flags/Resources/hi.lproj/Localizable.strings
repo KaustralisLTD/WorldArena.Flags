@@ -234,19 +234,16 @@
 "Request Timeout" = "ब्रेक का अनुरोध";
 "Server Not Found" = "सर्वर नहीं मिल रहा";
 "Too Many Requests" = "बहुत सारे अनुरोध";
-"Server Error" = "सर्वर त्रुटि";
 "HTTP Error: %d" = "HTTP त्रुटि: %d";
-"Try Again" = "पुनः प्रयास करें";
 "Not enough countries in selected regions (found %d, need at least 4)" = "चयनित क्षेत्रों में पर्याप्त देश नहीं हैं (%d मिला, कम से कम 4 की आवश्यकता है)";
 "Empty response from server" = "सर्वर से खाली प्रतिक्रिया";
 
 // New additions
-"Capital" = "पूंजी";
+"Capital" = "राजधानी";
 "Population" = "जनसंख्या";
-"Area" = "क्षेत्र";
+"Area" = "क्षेत्रफल";
 "Region" = "क्षेत्र";
 "Subregion" = "उपक्षेत्र";
-
 // Language additions
 "system_language" = "प्रणाली";
 "ru_language" = "Русский";
@@ -1737,3 +1734,89 @@
 "premium.trial.yearly" = "7 दिन मुफ़्त, फिर प्रति वर्ष %@।";
 "premium.renewal" = "रद्द करने तक सदस्यता अपने आप नवीनीकृत होती है। App Store की सदस्यताओं में प्रबंधित या रद्द करें।";
 "premium.subscribe" = "सदस्यता लें";
+
+/* Duel inbox */
+"duel.challenges.title" = "चुनौतियाँ";
+"duel.challenges.subtitle" = "निमंत्रण, जारी मुकाबले और नतीजे";
+
+// Verified subscription status
+"premium.restore.success" = "खरीदारियाँ बहाल की गईं।";
+"premium.restore.empty" = "इस Apple खाते के लिए कोई सक्रिय सदस्यता नहीं मिली।";
+"premium.access.until" = "ऐक्सेस की अंतिम तारीख";
+
+// Streak calendar and freeze inventory
+"streak.calendar.title" = "लगातार दिनों का कैलेंडर";
+"streak.calendar.played" = "खेला";
+"streak.calendar.frozen" = "सुरक्षित";
+"streak.calendar.missed" = "छूटा";
+"streak.calendar.open_day" = "अभी नहीं खेला";
+"streak.calendar.previous" = "पिछला महीना";
+"streak.calendar.next" = "अगला महीना";
+"streak.freeze.title" = "स्ट्रीक फ़्रीज़";
+"streak.freeze.repair" = "कल बहाल करें · 1 फ़्रीज़";
+"streak.freeze.friends" = "दोस्तों की मदद करें";
+"streak.freeze.give" = "1 फ़्रीज़ दें";
+"streak.freeze.signin" = "फ़्रीज़ भेजने और पाने के लिए साइन इन करें।";
+"streak.freeze.unavailable" = "दोस्त को अब इसकी ज़रूरत नहीं है। आपका फ़्रीज़ लौटा दिया गया।";
+"streak.freeze.sent" = "फ़्रीज़ भेज दिया!";
+"streak.freeze.retry" = "सिंक नहीं हुआ। लंबित उपहार पूरा करने के लिए फिर कोशिश करें।";
+"streak.freeze.no_friends" = "अभी किसी दोस्त का फ़्रीज़ भंडार खाली नहीं है।";
+"streak.freeze.explanation" = "एक फ़्रीज़ अपने आप एक छूटे दिन की रक्षा करता है, लेकिन उसे खेला हुआ दिन नहीं गिनता। पहले से जमा करें या कल का दिन बहाल करें।";
+
+// Avatar shop and wardrobe
+"shop.avatar" = "आपका अवतार";
+"shop.preview_hint" = "खरीदने से पहले आज़माएँ। लागू करने पर प्रोफ़ाइल फ़ोटो की जगह यह अवतार दिखेगा।";
+"shop.wardrobe" = "अलमारी";
+"shop.empty" = "आपकी खरीदी हुई वस्तुएँ यहाँ दिखेंगी।";
+"shop.equipped" = "पहना हुआ";
+"shop.owned" = "खरीदा गया";
+"shop.remove" = "उतारें";
+"shop.equip" = "पहनें";
+"shop.save_error" = "इस डिवाइस पर सहेजा गया। ऑनलाइन अवतार अपडेट नहीं हो सका।";
+
+"home.lives.welcome" = "स्वागत बोनस: पहले 7 दिनों में हर 10 मिनट पर +3 जीवन। अधिकतम 5 जीवन, सदस्यता ज़रूरी नहीं।";
+
+"Profile Share CTA" = "QR स्कैन करो। चलो खेलें!";
+
+
+"Profile Share Headline" = "झंडे पहचानते हैं?\nसाबित करें।";
+
+"Use current time" = "वर्तमान समय सेट करें";
+
+"Progress emails" = "प्रगति ईमेल";
+
+"Progress emails detail" = "आपका व्यक्तिगत सारांश, सप्ताह में अधिकतम एक बार। हर द्वंद्व के बाद ईमेल नहीं। कभी भी सदस्यता रद्द करें।";
+
+"Server Error" = "सर्वर उपलब्ध नहीं है";
+
+"Try Again" = "फिर कोशिश करें";
+
+"Server error. Try again." = "सर्वर उपलब्ध नहीं है. फिर कोशिश करें";
+
+"Invalid server response." = "सर्वर उपलब्ध नहीं है";
+
+"duel.network.error" = "सर्वर उपलब्ध नहीं है. फिर कोशिश करें";
+
+"duel.reminder.sent" = "रिमाइंडर भेजा गया";
+
+"duel.reminder.cooldown" = "अगला रिमाइंडर भेजने से पहले प्रतीक्षा करें।";
+
+"duel.reminder.disabled" = "इस खिलाड़ी ने द्वंद्व सूचनाएँ बंद की हैं।";
+
+"duel.reminder.no_device" = "इस खिलाड़ी के किसी डिवाइस पर पुश सूचनाएँ चालू नहीं हैं।";
+
+"duel.reminder.completed" = "द्वंद्व पहले ही समाप्त हो चुका है।";
+
+"duel.reminder.missing" = "यह द्वंद्व अब उपलब्ध नहीं है।";
+
+"Flags Brand Title" = "झंडे";
+
+"lifecycle.offers" = "चुनौतियाँ और प्रस्ताव";
+
+"lifecycle.offers.detail" = "बोनस, चुनौतियाँ और अन्य World Arena खेल। कुल मिलाकर सप्ताह में अधिकतम दो ईमेल।";
+
+"lifecycle.bonus.title" = "दिन में भी खेलें?";
+
+"lifecycle.bonus.body" = "अपने समय क्षेत्र में 12:00 से 16:00 के बीच एक बोनस चुनौती बिना गलती पूरी करने पर 1 अतिरिक्त F-Buck।";
+
+"lifecycle.bonus.unavailable" = "यह चुनौती अब उपलब्ध नहीं है। तुम्हारी सहेजी गई प्रगति बनी हुई है।";

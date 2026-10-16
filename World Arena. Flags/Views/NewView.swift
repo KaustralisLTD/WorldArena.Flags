@@ -259,9 +259,7 @@ struct DuelOpponentPickerView: View {
 
                     NavigationLink(destination: DuelSummaryView().environmentObject(gameState).environmentObject(userProfile)) {
                         HStack(spacing: 6) {
-                            Image("IconDuelSummary")
-                                .resizable()
-                                .scaledToFit()
+                            ProfileFeatureIcon(name: "IconDuelSummary")
                                 .frame(width: 32, height: 32)
                             Text(localizationManager.localizedString("Duel Summary"))
                                 .font(.system(size: 20, weight: .bold))
@@ -296,6 +294,7 @@ struct DuelOpponentPickerView: View {
                     .environmentObject(userProfile)
             }
         }
+        .navigationViewStyle(.stack)
     }
     
     private func startDuel(with friend: Friend) {
@@ -339,23 +338,27 @@ struct DuelOpponentPickerView: View {
                 }
                 return
             }
-            var challengeId = UUID().uuidString
-            if let serverId = try? await DuelAPIService.shared.createChallenge(
-                opponentId: friend.username,
-                opponentName: friend.username,
-                seed: seed,
-                challengerName: myName,
-                challengerId: myName,
-                duelSetup: .init(
-                    regions: regions,
-                    difficulty: difficulty,
-                    gameMode: gameMode,
-                    questionsCount: questionsCount,
-                    optionsCount: optionsCount,
-                    questionsPayload: questionsPayload
+            let challengeId: String
+            do {
+                challengeId = try await DuelAPIService.shared.createChallenge(
+                    opponentId: friend.username,
+                    opponentName: friend.username,
+                    seed: seed,
+                    challengerName: myName,
+                    challengerId: myName,
+                    duelSetup: .init(
+                        regions: regions,
+                        difficulty: difficulty,
+                        gameMode: gameMode,
+                        questionsCount: questionsCount,
+                        optionsCount: optionsCount,
+                        questionsPayload: questionsPayload
+                    )
                 )
-            ) {
-                challengeId = serverId
+            } catch {
+                isStarting = false
+                showDuelPrepareFailedAlert = true
+                return
             }
             let challenge = DuelChallenge(
                 id: challengeId,
@@ -440,7 +443,7 @@ struct DuelOpponentPickerView: View {
 
 
 @ViewBuilder
-private func friendAvatarView(_ friend: Friend, size: CGFloat) -> some View {
+func friendAvatarView(_ friend: Friend, size: CGFloat) -> some View {
     ZStack {
         Circle().fill(Color.blue.opacity(0.2)).frame(width: size, height: size)
         #if os(iOS)
@@ -450,9 +453,13 @@ private func friendAvatarView(_ friend: Friend, size: CGFloat) -> some View {
                 .scaledToFill()
                 .frame(width: size, height: size)
                 .clipShape(Circle())
+        } else if UIImage(systemName: friend.avatar) != nil {
+            Image(systemName: friend.avatar)
+                .font(.system(size: size * 0.46, weight: .semibold))
+                .foregroundColor(.blue)
         } else {
             Text(friend.displayAvatar)
-                .font(.system(size: friend.countryCode != nil ? size * 0.6 : size * 0.46, weight: .semibold))
+                .font(.system(size: size * 0.46, weight: .semibold))
         }
         #else
         Text(friend.displayAvatar)
@@ -481,6 +488,7 @@ struct FriendProfileView: View {
     @Environment(\.dismiss) private var dismiss
     @EnvironmentObject var userProfile: UserProfile
     @ObservedObject private var localizationManager = LocalizationManager.shared
+    @State private var refreshedFriend: Friend?
     @State private var showDeleteAlert = false
     @State private var isStartingDuel = false
     @State private var showDuelPrepareFailedAlert = false
@@ -493,7 +501,7 @@ struct FriendProfileView: View {
             VStack(spacing: 24) {
                 // Аватар (миниатюра как у друга: флаг или эмодзи)
                 ZStack {
-                    friendAvatarView(friend, size: 100)
+                    friendAvatarView(refreshedFriend ?? friend, size: 100)
                 }
                 Text(friend.displayNameOrUsername)
                     .font(.system(size: 24, weight: .bold))
@@ -520,13 +528,15 @@ struct FriendProfileView: View {
 
                 // Рейтинг (оценка по данным друга, без «You are…»)
                 VStack(alignment: .leading, spacing: 8) {
-                    Text(localizationManager.localizedString("Global ranking by countries"))
+                    Text(localizationManager.localizedString("ranking.motivational.title"))
                         .font(.system(size: 14, weight: .semibold))
                         .foregroundColor(.secondary)
                     if let cc = friend.countryCode, !cc.isEmpty {
                         Text(friendCountryRankLineDisplay(code: cc))
                             .font(.system(size: 15, weight: .bold))
                     }
+                    Text(localizationManager.localizedString("ranking.motivational.explanation"))
+                        .font(.caption).foregroundStyle(.secondary)
                     Text(friendWorldRankLineDisplay())
                         .font(.system(size: 15, weight: .bold))
                 }
@@ -565,6 +575,11 @@ struct FriendProfileView: View {
             }
         }
         .padding(.top, 24)
+        .task(id: friend.username) {
+            if let fresh = try? await DuelAPIService.shared.fetchUserByUsername(friend.username) {
+                refreshedFriend = fresh.toFriend()
+            }
+        }
         .navigationTitle(friend.displayNameOrUsername)
         .navigationBarTitleDisplayMode(.inline)
         #if os(iOS)
@@ -690,23 +705,27 @@ struct FriendProfileView: View {
                 }
                 return
             }
-            var challengeId = UUID().uuidString
-            if let serverId = try? await DuelAPIService.shared.createChallenge(
-                opponentId: friend.username,
-                opponentName: friend.username,
-                seed: seed,
-                challengerName: myName,
-                challengerId: myName,
-                duelSetup: .init(
-                    regions: regions,
-                    difficulty: difficulty,
-                    gameMode: gameMode,
-                    questionsCount: questionsCount,
-                    optionsCount: optionsCount,
-                    questionsPayload: questionsPayload
+            let challengeId: String
+            do {
+                challengeId = try await DuelAPIService.shared.createChallenge(
+                    opponentId: friend.username,
+                    opponentName: friend.username,
+                    seed: seed,
+                    challengerName: myName,
+                    challengerId: myName,
+                    duelSetup: .init(
+                        regions: regions,
+                        difficulty: difficulty,
+                        gameMode: gameMode,
+                        questionsCount: questionsCount,
+                        optionsCount: optionsCount,
+                        questionsPayload: questionsPayload
+                    )
                 )
-            ) {
-                challengeId = serverId
+            } catch {
+                isStartingDuel = false
+                showDuelPrepareFailedAlert = true
+                return
             }
             let challenge = DuelChallenge(
                 id: challengeId,
@@ -771,7 +790,7 @@ struct FriendProfileView: View {
     }
 
     private func friendWorldRankLineDisplay() -> String {
-        let rank = friend.worldRankFromServer ?? MotivationalRanking.worldRank(for: friend.motivationalRankInputs())
+        let rank = MotivationalRanking.worldRank(for: friend.motivationalRankInputs())
         let format = localizationManager.localizedString("Friend world rank line")
         return String(format: format, friend.displayNameOrUsername, rank)
     }
@@ -789,9 +808,7 @@ struct FriendProfileView: View {
     }
 
     private var friendDuelEntries: [DuelHistoryEntry] {
-        gameState.duelHistory
-            .filter { $0.opponentName == friend.username || $0.opponentName == friend.displayNameOrUsername }
-            .sorted { $0.playedAt > $1.playedAt }
+        gameState.completedDuels(with: friend)
     }
 
     private var friendDuelsWonCount: Int {
@@ -1034,8 +1051,11 @@ struct ProfileByLinkView: View {
 
 struct PremiumView: View {
     @ObservedObject var gameState: GameState
+    @Environment(\.dynamicTypeSize) private var dynamicTypeSize
     @Environment(\.dismiss) private var dismiss
     @Environment(\.horizontalSizeClass) private var horizontalSizeClass
+    @State private var expandedBenefit: String?
+    @Environment(\.accessibilityReduceMotion) private var reduceMotion
     @StateObject private var storeManager = StoreManager.shared
     private let privacyPolicyURL = URL(string: "https://worldarena.games/privacy-policy.html")!
     private let termsOfUseURL = URL(string: "https://worldarena.games/terms-of-use.html")!
@@ -1051,49 +1071,52 @@ struct PremiumView: View {
     var body: some View {
         NavigationView {
             ZStack {
-                LinearGradient(colors: [Color.purple.opacity(0.5), Color.black.opacity(0.9)], startPoint: .topLeading, endPoint: .bottomTrailing)
+                LinearGradient(colors: [Color(red: 0.12, green: 0.10, blue: 0.27), Color(red: 0.04, green: 0.06, blue: 0.14)], startPoint: .topLeading, endPoint: .bottomTrailing)
                     .ignoresSafeArea()
+                ScrollViewReader { scroll in
                 ScrollView {
                     VStack(spacing: isIPad ? 30 : 20) {
-                        // Simple youth animation
-                        ZStack {
-                            Circle()
-                                .fill(LinearGradient(colors: [.purple, .blue], startPoint: .top, endPoint: .bottom))
-                                .frame(width: isIPad ? 240 : 180, height: isIPad ? 240 : 180)
-                                .opacity(0.9)
+                        HStack(spacing: 14) {
                             Image(systemName: "sparkles")
-                                .font(.system(size: isIPad ? 80 : 64, weight: .bold))
-                                .foregroundColor(.white)
+                                .font(.system(size: 26, weight: .semibold))
+                                .foregroundStyle(.white)
+                                .frame(width: 56, height: 56)
+                                .background(LinearGradient(colors: [.purple, .blue], startPoint: .topLeading, endPoint: .bottomTrailing), in: RoundedRectangle(cornerRadius: 18))
+                            Text(LocalizationManager.shared.localizedString("Go Premium"))
+                                .font(.largeTitle.weight(.heavy))
+                                .foregroundStyle(.white)
                         }
-                        .padding(.top, isIPad ? 40 : 30)
-                        .onAppear { 
-                            Task {
-                                await storeManager.loadProducts()
+                        .padding(.top, 16)
+                        .task { await storeManager.loadProducts() }
+
+                        PremiumLearningStories()
+                            .padding(.horizontal, isIPad ? 40 : 20)
+
+                        Button {
+                            withAnimation(reduceMotion ? nil : .easeOut(duration: 0.22)) {
+                                scroll.scrollTo("premium.benefits", anchor: .top)
+                            }
+                        } label: {
+                            Label(LocalizationManager.shared.localizedString("Premium benefits"), systemImage: "chevron.down")
+                                .font(.subheadline.weight(.semibold))
+                                .foregroundColor(.white)
+                                .padding(.horizontal, 18).frame(minHeight: 44)
+                                .background(Color.white.opacity(0.10), in: Capsule())
+                        }
+                        .buttonStyle(.plain)
+                        .accessibilityIdentifier("premium.scroll.more")
+
+                        PremiumFamilyBanner(onDarkBackground: true)
+                            .padding(.horizontal, isIPad ? 40 : 20)
+
+                        VStack(spacing: 8) {
+                            ForEach(PremiumBenefitsCatalog.all) { benefit in
+                                premiumRow(title: benefit.titleKey, subtitle: benefit.subtitleKey, icon: benefit.icon)
                             }
                         }
-                        
-                        Text(LocalizationManager.shared.localizedString("Go Premium"))
-                            .font(.system(size: isIPad ? 44 : 32, weight: .heavy, design: .rounded))
-                            .foregroundColor(.white)
-                            .shadow(radius: 6)
-                        Text(LocalizationManager.shared.localizedString("Learn all countries and flags in ~2 months with Premium"))
-                            .multilineTextAlignment(.center)
-                            .foregroundColor(.white.opacity(0.8))
-                            .font(.system(size: isIPad ? 20 : 16))
-                            .padding(.horizontal, isIPad ? 40 : 24)
-                        
-                        VStack(alignment: .leading, spacing: isIPad ? 18 : 14) {
-                            premiumRow(title: "Unlimited Hearts", icon: "infinity")
-                            premiumRow(title: "Personalized Practice", icon: "dumbbell.fill")
-                            premiumRow(title: "Explain My Answer", icon: "text.bubble.fill")
-                            premiumRow(title: "Roleplay Scenarios", icon: "theatermasks.fill")
-                            premiumRow(title: "Access 'My Mistakes'", icon: "exclamationmark.bubble.fill")
-                            premiumRow(title: "Erudite Difficulty", icon: "brain.head.profile")
-                            premiumRow(title: "Learning Section", icon: "book.fill")
-                            premiumRow(title: "Exclusive tournaments with cash F-Bucks prizes", icon: "trophy.fill")
-                        }
+                        .id("premium.benefits")
                         .padding(isIPad ? 24 : 16)
-                        .background(.ultraThinMaterial)
+                        .background(Color.white.opacity(0.07))
                         .cornerRadius(isIPad ? 20 : 16)
                         .padding(.horizontal, isIPad ? 40 : 20)
                         
@@ -1185,7 +1208,7 @@ struct PremiumView: View {
                                 .padding()
                             } else {
                                 // Показываем реальные продукты, если есть
-                                ForEach(storeManager.products, id: \.id) { product in
+                                ForEach(storeManager.products.sorted { $0.subscription?.subscriptionPeriod.unit == .year && $1.subscription?.subscriptionPeriod.unit != .year }, id: \.id) { product in
                                     PremiumProductButton(
                                         product: product, 
                                         storeManager: storeManager, 
@@ -1211,6 +1234,12 @@ struct PremiumView: View {
                                 #endif
                             }
 
+                            Text(LocalizationManager.shared.localizedString("premium.renewal"))
+                                .font(.footnote)
+                                .foregroundStyle(.white.opacity(0.8))
+                                .multilineTextAlignment(.center)
+                                .fixedSize(horizontal: false, vertical: true)
+
                             Button(LocalizationManager.shared.localizedString("Redeem Offer Code")) {
                                 #if os(iOS)
                                 SKPaymentQueue.default().presentCodeRedemptionSheet()
@@ -1228,6 +1257,12 @@ struct PremiumView: View {
                                 .foregroundColor(.white.opacity(0.85))
                                 .multilineTextAlignment(.center)
                             
+                            if let messageKey = storeManager.restoreMessageKey {
+                                Text(LocalizationManager.shared.localizedString(messageKey))
+                                    .foregroundColor(.white)
+                                    .multilineTextAlignment(.center)
+                                    .accessibilityIdentifier("premium.restore.result")
+                            }
                             // Restore Purchases
                             Button(LocalizationManager.shared.localizedString("Restore Purchases")) {
                                 Task {
@@ -1239,6 +1274,7 @@ struct PremiumView: View {
                                     }
                                 }
                             }
+                            .disabled(storeManager.isLoading)
                             .foregroundColor(.white.opacity(0.7))
                             .font(.system(size: isIPad ? 20 : 14, weight: .semibold))
                             .padding(.top, 8)
@@ -1266,29 +1302,49 @@ struct PremiumView: View {
                     .frame(maxWidth: .infinity)
                 }
             }
+            }
             .navigationBarTitleDisplayMode(.inline)
             .toolbar {
                 ToolbarItem(placement: .cancellationAction) {
                     Button(action: { dismiss() }) { Image(systemName: "xmark.circle.fill").foregroundColor(.white).font(.title2) }
+                        .accessibilityIdentifier("premium.close")
                 }
             }
         }
+        .navigationViewStyle(.stack)
     }
     
-    @ViewBuilder
-    private func premiumRow(title: String, icon: String) -> some View {
-        let fontSize: CGFloat = isIPad ? 20 : 16
-        let iconSize: CGFloat = isIPad ? 24 : 20
-        HStack(spacing: isIPad ? 16 : 12) {
-            Image(systemName: icon)
-                .foregroundColor(.white)
-                .font(.system(size: iconSize, weight: .semibold))
-                .frame(width: isIPad ? 32 : 28)
-            Text(LocalizationManager.shared.localizedString(title))
-                .foregroundColor(.white)
-                .font(.system(size: fontSize, weight: .semibold))
-            Spacer()
+    private func premiumRow(title: String, subtitle: String, icon: String) -> some View {
+        let expanded = expandedBenefit == title
+        return VStack(alignment: .leading, spacing: 10) {
+            Button {
+                withAnimation(reduceMotion ? nil : .easeOut(duration: 0.2)) {
+                    expandedBenefit = expanded ? nil : title
+                }
+            } label: {
+                HStack(spacing: 12) {
+                    Image(systemName: icon).font(.system(size: 20, weight: .semibold))
+                        .foregroundColor(expanded ? .cyan : .white).frame(width: 28)
+                    Text(LocalizationManager.shared.localizedString(title))
+                        .font(.subheadline.weight(.semibold))
+                        .fixedSize(horizontal: false, vertical: true)
+                        .frame(maxWidth: .infinity, alignment: .leading)
+                    Image(systemName: expanded ? "chevron.up" : "chevron.down").font(.caption.bold())
+                }.foregroundColor(.white).frame(minHeight: 44).contentShape(Rectangle())
+            }
+            .buttonStyle(.plain)
+            .accessibilityIdentifier(title)
+            .accessibilityValue(LocalizationManager.shared.localizedString(expanded ? "premium.details.expanded" : "premium.details.collapsed"))
+            if expanded {
+                Text(LocalizationManager.shared.localizedString(subtitle))
+                    .font(.subheadline).foregroundColor(.white.opacity(0.85))
+                    .fixedSize(horizontal: false, vertical: true)
+                    .padding(.leading, 40)
+                    .accessibilityIdentifier(subtitle)
+            }
         }
+        .padding(12)
+        .background((expanded ? Color.indigo.opacity(0.4) : Color.white.opacity(0.04)), in: RoundedRectangle(cornerRadius: 14))
     }
 
 }
@@ -1449,26 +1505,9 @@ struct ManageSubscriptionView: View {
     @State private var showCancelAlert = false
     @State private var showCancellationView = false
     
-    // Даты и статус — можно в будущем брать из Transaction или Subscription API
-    @State private var subscriptionData = SubscriptionData(
-        planName: "", // заполняется из продукта
-        price: "",
-        nextBillingDate: Date().addingTimeInterval(30 * 24 * 3600),
-        startDate: Date().addingTimeInterval(-7 * 24 * 3600),
-        isActive: true
-    )
-
-    /// Текущий план (годовой или месячный) — название и цена для отображения
-    private var currentPlanDisplayPrice: String {
-        if let p = storeManager.currentSubscriptionProduct { return p.displayPrice }
-        if let m = storeManager.currentSubscriptionMockProduct { return m.displayPrice }
-        return storeManager.isCurrentPlanYearly ? "$5.99" : "$1.99"
-    }
-
     private var currentPlanDisplayName: String {
         if let p = storeManager.currentSubscriptionProduct { return p.displayName }
-        if let m = storeManager.currentSubscriptionMockProduct { return m.displayName }
-        return storeManager.isCurrentPlanYearly
+                return storeManager.isCurrentPlanYearly
             ? localizationManager.localizedString("Yearly Premium")
             : localizationManager.localizedString("Premium Monthly")
     }
@@ -1492,7 +1531,7 @@ struct ManageSubscriptionView: View {
                             .fontWeight(.bold)
                             .multilineTextAlignment(.center)
                         
-                        Text(localizationManager.localizedString("Your premium subscription is active"))
+                        Text(localizationManager.localizedString(storeManager.isPremium ? "Your premium subscription is active" : "premium.restore.empty"))
                             .font(.headline)
                             .foregroundColor(.green)
                     }
@@ -1510,9 +1549,9 @@ struct ManageSubscriptionView: View {
                                     .font(.title3)
                                     .fontWeight(.semibold)
                                 
-                                Text("\(localizationManager.localizedString("Price")): \(currentPlanDisplayPrice)/\(localizationManager.localizedString(currentPlanPeriodKey))")
+                                Link(localizationManager.localizedString("Manage subscription"), destination: URL(string: "https://apps.apple.com/account/subscriptions")!)
                                     .font(.subheadline)
-                                    .foregroundColor(.secondary)
+
                             }
                             
                             Spacer()
@@ -1535,19 +1574,19 @@ struct ManageSubscriptionView: View {
                         VStack(spacing: 12) {
                             InfoRow(
                                 title: localizationManager.localizedString("Start date"),
-                                value: formatDate(subscriptionData.startDate),
+                                value: storeManager.subscriptionStartDate.map(formatDate) ?? "—",
                                 icon: "calendar.badge.plus"
                             )
                             
                             InfoRow(
-                                title: localizationManager.localizedString("Next payment"),
-                                value: formatDate(subscriptionData.nextBillingDate),
+                                title: localizationManager.localizedString("premium.access.until"),
+                                value: storeManager.subscriptionExpirationDate.map(formatDate) ?? "—",
                                 icon: "calendar.badge.clock"
                             )
                             
                             InfoRow(
                                 title: localizationManager.localizedString("Status"),
-                                value: localizationManager.localizedString("Active"),
+                                value: localizationManager.localizedString(storeManager.isPremium ? "Active" : "premium.restore.empty"),
                                 icon: "checkmark.shield.fill",
                                 valueColor: .green
                             )
@@ -1564,41 +1603,15 @@ struct ManageSubscriptionView: View {
                             .fontWeight(.semibold)
                         
                         VStack(spacing: 12) {
-                            PremiumFeatureRow(
-                                title: localizationManager.localizedString("Безлимитные жизни"),
-                                description: localizationManager.localizedString("Играйте без ожидания"),
-                                icon: "heart.fill",
-                                iconImageName: localizationManager.lifeHeartAssetName(forCountryCode: userProfile.selectedCountryCode),
-                                color: Color.red
-                            )
-                            
-                            PremiumFeatureRow(
-                                title: localizationManager.localizedString("Раздел Обучения"),
-                                description: localizationManager.localizedString("Изучайте флаги и страны"),
-                                icon: "book.fill",
-                                color: Color.blue
-                            )
-                            
-                            PremiumFeatureRow(
-                                title: localizationManager.localizedString("Сложность Эрудит"),
-                                description: localizationManager.localizedString("Продвинутые вопросы"),
-                                icon: "brain.head.profile",
-                                color: Color.purple
-                            )
-                            
-                            PremiumFeatureRow(
-                                title: localizationManager.localizedString("My mistakes"),
-                                description: localizationManager.localizedString("Analysis of your mistakes"),
-                                icon: "exclamationmark.bubble.fill",
-                                color: Color.orange
-                            )
-                            
-                            PremiumFeatureRow(
-                                title: localizationManager.localizedString("Premium tournaments"),
-                                description: localizationManager.localizedString("Exclusive tournaments with F-Bucks prizes"),
-                                icon: "trophy.fill",
-                                color: Color.yellow
-                            )
+                            PremiumFamilyBanner()
+                            ForEach(PremiumBenefitsCatalog.all) { benefit in
+                                PremiumFeatureRow(
+                                    title: localizationManager.localizedString(benefit.titleKey),
+                                    description: localizationManager.localizedString(benefit.subtitleKey),
+                                    icon: benefit.icon,
+                                    color: .blue
+                                )
+                            }
                         }
                         .padding()
                         .background(Color(UIColor.secondarySystemGroupedBackground))
@@ -1607,7 +1620,9 @@ struct ManageSubscriptionView: View {
                     
                     // Cancel Subscription Button
                     Button(action: {
-                        showCancelAlert = true
+                        if let url = URL(string: "https://apps.apple.com/account/subscriptions") {
+                            UIApplication.shared.open(url)
+                        }
                     }) {
                         HStack {
                             Image(systemName: "xmark.circle.fill")
@@ -1641,18 +1656,8 @@ struct ManageSubscriptionView: View {
                 }
             }
         }
-        .alert(localizationManager.localizedString("Cancel subscription"), isPresented: $showCancelAlert) {
-            Button(localizationManager.localizedString("Keep subscription"), role: .cancel) { }
-            Button(localizationManager.localizedString("Yes, cancel"), role: .destructive) {
-                print("Cancel subscription")
-                showCancellationView = true
-            }
-        } message: {
-            Text(localizationManager.localizedString("Are you sure you want to cancel premium? You will lose access to all premium features."))
-        }
-        .fullScreenCover(isPresented: $showCancellationView) {
-            SubscriptionCancellationView(gameState: gameState, userProfile: userProfile)
-        }
+        .task { await storeManager.updatePurchasedProducts() }
+
     }
     
     private func formatDate(_ date: Date) -> String {
@@ -1733,6 +1738,7 @@ struct PremiumProductButton: View {
     let onPurchaseComplete: () -> Void
     
     @Environment(\.scenePhase) private var scenePhase
+    @Environment(\.dynamicTypeSize) private var dynamicTypeSize
     @State private var hasEligibleWeekTrial = false
     @ObservedObject private var localizationManager = LocalizationManager.shared
 
@@ -1759,40 +1765,41 @@ struct PremiumProductButton: View {
                 }
             }
         } label: {
-            VStack(spacing: 12) {
-                Text(productTitle)
-                    .font(.system(size: isIPad ? 22 : 18, weight: .bold))
-
-                Text(product.displayPrice)
-                    .font(.system(size: isIPad ? 32 : 26, weight: .heavy))
-                    .monospacedDigit()
-
-                Text(durationText)
+            VStack(alignment: .leading, spacing: 10) {
+                if dynamicTypeSize.isAccessibilitySize {
+                    VStack(alignment: .leading, spacing: 6) {
+                        Text(productTitle).font(.headline)
+                        Text(product.displayPrice).font(.title2.bold()).monospacedDigit()
+                    }
+                } else {
+                    HStack(alignment: .firstTextBaseline) {
+                        Text(productTitle).font(.headline)
+                        Spacer(minLength: 12)
+                        Text(product.displayPrice).font(.title2.bold()).monospacedDigit()
+                    }
+                }
+                if product.isFamilyShareable {
+                    Label(localizationManager.localizedString("premium.family.title"), systemImage: "person.3.fill")
+                        .font(.subheadline.weight(.semibold))
+                }
+                Text(showsTrial
+                     ? String(format: localizationManager.localizedString(isYearlyProduct ? "premium.trial.yearly" : "premium.trial.monthly"), product.displayPrice)
+                     : durationText)
                     .font(.subheadline)
-                    .foregroundColor(.white.opacity(0.9))
-
+                    .foregroundStyle(.white.opacity(0.9))
                 if isYearlyProduct && savingsPercentage > 0 {
                     Text(String(format: localizationManager.localizedString("Save %d%%"), savingsPercentage))
-                        .font(.subheadline.weight(.semibold))
-                        .padding(.horizontal, 12)
+                        .font(.caption.weight(.bold))
+                        .padding(.horizontal, 10)
                         .padding(.vertical, 5)
-                        .background(Color.white.opacity(0.15), in: Capsule())
+                        .background(Color.white.opacity(0.12), in: Capsule())
                 }
-
                 Text(localizationManager.localizedString(showsTrial ? "premium.trial.start" : "premium.subscribe"))
                     .font(.headline)
                     .frame(maxWidth: .infinity)
                     .padding(.vertical, 12)
                     .padding(.horizontal, 8)
-                    .background(Color.white.opacity(0.18), in: RoundedRectangle(cornerRadius: 12))
-
-                if showsTrial {
-                    Text(String(format: localizationManager.localizedString(isYearlyProduct ? "premium.trial.yearly" : "premium.trial.monthly"), product.displayPrice))
-                        .font(.subheadline.weight(.semibold))
-                }
-                Text(localizationManager.localizedString("premium.renewal"))
-                    .font(.footnote)
-                    .foregroundColor(.white.opacity(0.9))
+                    .background(Color.white.opacity(0.16), in: RoundedRectangle(cornerRadius: 12))
             }
             .foregroundColor(.white)
             .multilineTextAlignment(.center)
@@ -1833,7 +1840,7 @@ struct PremiumProductButton: View {
     }
     
     private var productTitle: String {
-        localizationManager.localizedString(isYearlyProduct ? "Yearly Premium Title" : "Monthly Premium Title")
+        localizationManager.localizedString(isYearlyProduct ? "Yearly Premium" : "Premium Monthly")
     }
 
     private var durationText: String {
@@ -1846,15 +1853,7 @@ struct PremiumProductButton: View {
     
     private var savingsPercentage: Int {
         guard isYearlyProduct else { return 0 }
-        guard let monthlyProduct = storeManager.monthlyProduct else {
-            if let mock = storeManager.monthlyMockProduct {
-                let monthly12 = NSDecimalNumber(decimal: mock.price).doubleValue * 12
-                let yearly = NSDecimalNumber(decimal: product.price).doubleValue
-                guard monthly12 > 0 else { return 0 }
-                return Int((monthly12 - yearly) / monthly12 * 100)
-            }
-            return 0
-        }
+        guard let monthlyProduct = storeManager.monthlyProduct else { return 0 }
         let monthly12 = NSDecimalNumber(decimal: monthlyProduct.price).doubleValue * 12
         let yearly = NSDecimalNumber(decimal: product.price).doubleValue
         guard monthly12 > 0 else { return 0 }
@@ -2004,9 +2003,7 @@ struct SubscriptionCancellationView: View {
                         
                         // Continue button — сброс подписки после dismiss
                         Button(action: {
-                            GameState.userDidCancelSubscription = true
-                            StoreManager.shared.cancelMockSubscription()
-                            gameState.isPremium = false
+                            Task { await gameState.syncPremiumStatus() }
                             dismiss()
                         }) {
                             Text(localizationManager.localizedString("Продолжить"))

@@ -529,7 +529,13 @@ struct AvatarLayeredComposerView: View {
 
 struct AvatarRendererView: View {
     let configuration: AvatarConfiguration
-    var body: some View { AvatarLayeredComposerView(configuration: configuration) }
+    var body: some View {
+        ZStack {
+            AvatarShopBackdrop(configuration: configuration)
+            AvatarLayeredComposerView(configuration: configuration)
+            if let effect = configuration.shopEffect { AvatarShopEffect(id: effect) }
+        }
+    }
 }
 
 // MARK: - Фигуры торса / запасные контуры

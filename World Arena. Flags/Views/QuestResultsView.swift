@@ -67,7 +67,7 @@ struct QuestResultsView: View {
                 .offset(y: showContent ? 0 : -30)
                 
                 ScrollView {
-                    VStack(spacing: 24) {
+                    LazyVGrid(columns: [GridItem(.adaptive(minimum: 340), alignment: .top)], alignment: .center, spacing: 24) {
                         // Daily Quests Section
                         VStack(alignment: .leading, spacing: 16) {
                             Text(localizationManager.localizedString("Daily Quests"))
@@ -113,7 +113,9 @@ struct QuestResultsView: View {
                         .opacity(showMonthlyQuests ? 1 : 0)
                         .offset(y: showMonthlyQuests ? 0 : 30)
                     }
-                    .padding(.bottom, 0)
+                    .frame(maxWidth: 1000)
+                    .frame(maxWidth: .infinity)
+                    .padding(.bottom, 20)
                 }
                 
                 Spacer(minLength: 0)
@@ -174,7 +176,9 @@ struct QuestResultsView: View {
                     }
                 }
             }
-            .padding(.horizontal, 40)
+            .padding(.horizontal, 32)
+            .frame(maxWidth: 720)
+            .frame(maxWidth: .infinity)
             .padding(.top, 8)
             .padding(.bottom, 18)
             #if os(iOS)

@@ -1087,7 +1087,7 @@ function escapeHtml(s) {
     .replace(/"/g, '&quot;');
 }
 
-function sendMail(toEmail, subject, text, html) {
+function sendMail(toEmail, subject, text, html, options = {}) {
   if (!apiKey || !domain) return Promise.resolve();
   return new Promise((resolve, reject) => {
     const from = process.env.MAILGUN_FROM || `World Arena <noreply@${domain}>`;
@@ -1097,6 +1097,11 @@ function sendMail(toEmail, subject, text, html) {
     form.append('subject', subject);
     form.append('text', text);
     if (html) form.append('html', Buffer.from(html, 'utf8'), { contentType: 'text/html; charset=utf-8' });
+    if (options.tag === 'lifecycle') form.append('o:tag', 'lifecycle');
+    if (typeof options.unsubscribeURL === 'string' && /^https:\/\/flags\.worldarena\.games\/api\/v1\/lifecycle\/preferences\/[a-f0-9]{64}$/.test(options.unsubscribeURL)) {
+      form.append('h:List-Unsubscribe', '<' + options.unsubscribeURL + '>');
+      form.append('h:List-Unsubscribe-Post', 'List-Unsubscribe=One-Click');
+    }
 
     const opts = {
       host,
@@ -1126,6 +1131,7 @@ function sendMail(toEmail, subject, text, html) {
       console.error('[mailgun] Request error to=%s subject=%s err=%s', toEmail, subject, err.message);
       reject(err);
     });
+    req.setTimeout(20000, () => req.destroy(new Error('Mail delivery timeout')));
     form.pipe(req);
   });
 }
@@ -1336,6 +1342,7 @@ function sendNudgeReminderEmail(toEmail, username, fromUsername, phraseText, loc
 }
 
 module.exports = {
+  sendMail,
   sendResetEmail,
   sendWelcomeEmail,
   sendPasswordChangedEmail,

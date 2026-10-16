@@ -234,19 +234,16 @@
 "Request Timeout" = "Limit czasu żądania";
 "Server Not Found" = "Nie znaleziono serwera";
 "Too Many Requests" = "Zbyt wiele żądań";
-"Server Error" = "Błąd serwera";
 "HTTP Error: %d" = "Błąd HTTP: %d";
-"Try Again" = "Spróbuj ponownie";
 "Not enough countries in selected regions (found %d, need at least 4)" = "Za mało krajów w wybranych regionach (znaleziono %d, potrzebne są co najmniej 4)";
 "Empty response from server" = "Pusta odpowiedź z serwera";
 
 // New additions
-"Capital" = "Kapitał";
-"Population" = "Populacja";
-"Area" = "Obszar";
+"Capital" = "Stolica";
+"Population" = "Ludność";
+"Area" = "Powierzchnia";
 "Region" = "Region";
 "Subregion" = "Podregion";
-
 // Language additions
 "system_language" = "System";
 "ru_language" = "Rosyjski";
@@ -1720,3 +1717,89 @@
 "premium.trial.yearly" = "7 dni za darmo, potem %@ rocznie.";
 "premium.renewal" = "Odnawia się automatycznie do czasu anulowania. Zarządzaj lub anuluj w subskrypcjach App Store.";
 "premium.subscribe" = "Subskrybuj";
+
+/* Duel inbox */
+"duel.challenges.title" = "Wyzwania";
+"duel.challenges.subtitle" = "Zaproszenia, aktywne pojedynki i wyniki";
+
+// Verified subscription status
+"premium.restore.success" = "Zakupy odtworzone.";
+"premium.restore.empty" = "Nie znaleziono aktywnej subskrypcji dla tego konta Apple.";
+"premium.access.until" = "Dostęp do";
+
+// Streak calendar and freeze inventory
+"streak.calendar.title" = "Kalendarz serii";
+"streak.calendar.played" = "Rozegrano";
+"streak.calendar.frozen" = "Zamrożono";
+"streak.calendar.missed" = "Pominięto";
+"streak.calendar.open_day" = "Jeszcze nie grano";
+"streak.calendar.previous" = "Poprzedni miesiąc";
+"streak.calendar.next" = "Następny miesiąc";
+"streak.freeze.title" = "Zamrożenia serii";
+"streak.freeze.repair" = "Przywróć wczoraj · 1 zamrożenie";
+"streak.freeze.friends" = "Pomóż znajomym";
+"streak.freeze.give" = "Podaruj 1 zamrożenie";
+"streak.freeze.signin" = "Zaloguj się, aby wysyłać i odbierać zamrożenia.";
+"streak.freeze.unavailable" = "Znajomy już go nie potrzebuje. Zamrożenie zostało zwrócone.";
+"streak.freeze.sent" = "Wysłano zamrożenie!";
+"streak.freeze.retry" = "Synchronizacja nie powiodła się. Ponów, aby dokończyć wysyłanie prezentu.";
+"streak.freeze.no_friends" = "Żaden znajomy nie ma teraz pustego zapasu.";
+"streak.freeze.explanation" = "Jedno zamrożenie automatycznie chroni jeden pominięty dzień, ale nie zalicza go jako rozegranego. Zrób zapas przed przerwą lub przywróć wczorajszy dzień.";
+
+// Avatar shop and wardrobe
+"shop.avatar" = "Twój awatar";
+"shop.preview_hint" = "Przymierz przed zakupem. Zastosowanie zastąpi zdjęcie profilowe tym awatarem.";
+"shop.wardrobe" = "Garderoba";
+"shop.empty" = "Tutaj pojawią się kupione przedmioty.";
+"shop.equipped" = "Założono";
+"shop.owned" = "Kupiono";
+"shop.remove" = "Zdejmij";
+"shop.equip" = "Załóż";
+"shop.save_error" = "Zapisano na urządzeniu. Nie udało się zaktualizować awatara online.";
+
+"home.lives.welcome" = "Bonus powitalny: +3 życia co 10 minut przez pierwsze 7 dni. Maksymalnie 5 żyć, bez subskrypcji.";
+
+"Profile Share CTA" = "Zeskanuj kod QR. Zagrajmy!";
+
+
+"Profile Share Headline" = "ZNASZ FLAGI?\nUDOWODNIJ.";
+
+"Use current time" = "Ustaw aktualny czas";
+
+"Progress emails" = "E-maile o postępach";
+
+"Progress emails detail" = "Twoje statystyki, najwyżej raz w tygodniu. Bez e-maili po każdym pojedynku. Zrezygnuj w dowolnej chwili.";
+
+"Server Error" = "Serwer niedostępny";
+
+"Try Again" = "Spróbuj ponownie";
+
+"Server error. Try again." = "Serwer niedostępny. Spróbuj ponownie";
+
+"Invalid server response." = "Serwer niedostępny";
+
+"duel.network.error" = "Serwer niedostępny. Spróbuj ponownie";
+
+"duel.reminder.sent" = "Wysłano przypomnienie";
+
+"duel.reminder.cooldown" = "Poczekaj przed wysłaniem kolejnego przypomnienia.";
+
+"duel.reminder.disabled" = "Ten gracz wyłączył powiadomienia o pojedynkach.";
+
+"duel.reminder.no_device" = "Ten gracz nie ma urządzenia z włączonymi powiadomieniami push.";
+
+"duel.reminder.completed" = "Pojedynek już się zakończył.";
+
+"duel.reminder.missing" = "Ten pojedynek nie jest już dostępny.";
+
+"Flags Brand Title" = "Flagi";
+
+"lifecycle.offers" = "Zadania i oferty";
+
+"lifecycle.offers.detail" = "Bonusy, zadania i inne gry World Arena. Łącznie najwyżej dwa e-maile tygodniowo.";
+
+"lifecycle.bonus.title" = "Może gra w ciągu dnia?";
+
+"lifecycle.bonus.body" = "1 dodatkowy F-Buck za jedno bezbłędne zadanie bonusowe między 12:00 a 16:00 w twojej strefie czasowej.";
+
+"lifecycle.bonus.unavailable" = "To wyzwanie nie jest już dostępne. Twój zapisany postęp pozostaje bez zmian.";

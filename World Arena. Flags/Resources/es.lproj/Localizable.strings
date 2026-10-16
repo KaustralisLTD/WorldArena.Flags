@@ -1694,3 +1694,99 @@
 "premium.trial.yearly" = "7 días gratis, después %@ al año.";
 "premium.renewal" = "Se renueva automáticamente salvo cancelación. Gestiona o cancela en tus suscripciones del App Store.";
 "premium.subscribe" = "Suscribirse";
+
+/* Duel inbox */
+"duel.challenges.title" = "Desafíos";
+"duel.challenges.subtitle" = "Invitaciones, duelos activos y resultados";
+
+// Verified subscription status
+"premium.restore.success" = "Compras restauradas.";
+"premium.restore.empty" = "No se encontró ninguna suscripción activa para esta cuenta de Apple.";
+"premium.access.until" = "Acceso hasta";
+
+// Streak calendar and freeze inventory
+"streak.calendar.title" = "Calendario de racha";
+"streak.calendar.played" = "Jugado";
+"streak.calendar.frozen" = "Congelado";
+"streak.calendar.missed" = "Omitido";
+"streak.calendar.open_day" = "Aún sin jugar";
+"streak.calendar.previous" = "Mes anterior";
+"streak.calendar.next" = "Mes siguiente";
+"streak.freeze.title" = "Protectores de racha";
+"streak.freeze.repair" = "Restaurar ayer · 1 protector";
+"streak.freeze.friends" = "Ayuda a tus amigos";
+"streak.freeze.give" = "Regalar 1 protector";
+"streak.freeze.signin" = "Inicia sesión para enviar y recibir protectores.";
+"streak.freeze.unavailable" = "Tu amigo ya no necesita un protector. Se te ha devuelto.";
+"streak.freeze.sent" = "¡Protector enviado!";
+"streak.freeze.retry" = "No se pudo sincronizar. Reintenta para completar el regalo pendiente.";
+"streak.freeze.no_friends" = "Ahora no hay amigos sin protectores.";
+"streak.freeze.explanation" = "Un protector cubre automáticamente un día sin jugar. Ese día no cuenta como jugado. Consíguelos antes de una pausa o usa uno para restaurar ayer.";
+
+"Capital" = "Capital";
+
+"Population" = "Población";
+
+"Area" = "Superficie";
+
+"Region" = "Región";
+
+"Subregion" = "Subregión";
+
+// Avatar shop and wardrobe
+"shop.avatar" = "Tu avatar";
+"shop.preview_hint" = "Pruébalo antes de comprar. Al aplicarlo, este avatar sustituye tu foto de perfil.";
+"shop.wardrobe" = "Armario";
+"shop.empty" = "Aquí aparecerán tus artículos comprados.";
+"shop.equipped" = "Equipado";
+"shop.owned" = "Comprado";
+"shop.remove" = "Quitar";
+"shop.equip" = "Equipar";
+"shop.save_error" = "Guardado en este dispositivo. No se pudo actualizar el avatar en línea.";
+
+"home.lives.welcome" = "Bono de bienvenida: +3 vidas cada 10 minutos durante tus primeros 7 días. Hasta 5 vidas, sin suscripción.";
+
+"Profile Share CTA" = "Escanea el QR. ¡Vamos a jugar!";
+
+
+"Profile Share Headline" = "¿CONOCES LAS BANDERAS?\nDEMUÉSTRALO.";
+
+"Use current time" = "Usar la hora actual";
+
+"Progress emails" = "Correos de progreso";
+
+"Progress emails detail" = "Tu resumen personal, como máximo una vez por semana. Sin correos tras cada duelo. Cancela cuando quieras.";
+
+"Server Error" = "Servidor no disponible";
+
+"Try Again" = "Reintentar";
+
+"Server error. Try again." = "Servidor no disponible. Reintentar";
+
+"Invalid server response." = "Servidor no disponible";
+
+"duel.network.error" = "Servidor no disponible. Reintentar";
+
+"duel.reminder.sent" = "Recordatorio enviado";
+
+"duel.reminder.cooldown" = "Espera antes de enviar otro recordatorio.";
+
+"duel.reminder.disabled" = "Este jugador ha desactivado las notificaciones de duelos.";
+
+"duel.reminder.no_device" = "Este jugador no tiene notificaciones push activadas en ningún dispositivo.";
+
+"duel.reminder.completed" = "El duelo ya ha terminado.";
+
+"duel.reminder.missing" = "Este duelo ya no está disponible.";
+
+"Flags Brand Title" = "Banderas";
+
+"lifecycle.offers" = "Retos y ofertas";
+
+"lifecycle.offers.detail" = "Bonificaciones, retos y otros juegos World Arena. Como máximo dos correos por semana en total.";
+
+"lifecycle.bonus.title" = "Una nueva pausa para jugar";
+
+"lifecycle.bonus.body" = "1 F-Buck extra por un reto de bonificación perfecto entre las 12:00 y las 16:00 de tu zona horaria.";
+
+"lifecycle.bonus.unavailable" = "Este reto ya no está disponible. Tu progreso guardado se conserva.";

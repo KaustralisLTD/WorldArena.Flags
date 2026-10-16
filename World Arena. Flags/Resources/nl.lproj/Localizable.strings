@@ -234,19 +234,16 @@
 "Request Timeout" = "Time-out aanvragen";
 "Server Not Found" = "Server niet gevonden";
 "Too Many Requests" = "Te veel verzoeken";
-"Server Error" = "Serverfout";
 "HTTP Error: %d" = "HTTP-fout: %d";
-"Try Again" = "Probeer het opnieuw";
 "Not enough countries in selected regions (found %d, need at least 4)" = "Niet genoeg landen in geselecteerde regio's (%d gevonden, minimaal 4 nodig)";
 "Empty response from server" = "Lege reactie van server";
 
 // New additions
 "Capital" = "Hoofdstad";
 "Population" = "Bevolking";
-"Area" = "Gebied";
+"Area" = "Oppervlakte";
 "Region" = "Regio";
 "Subregion" = "Subregio";
-
 // Language additions
 "system_language" = "Systeem";
 "ru_language" = "Russisch";
@@ -1724,3 +1721,89 @@
 "premium.trial.yearly" = "7 dagen gratis, daarna %@ per jaar.";
 "premium.renewal" = "Wordt automatisch verlengd totdat je opzegt. Beheer of annuleer via je App Store-abonnementen.";
 "premium.subscribe" = "Abonneren";
+
+/* Duel inbox */
+"duel.challenges.title" = "Uitdagingen";
+"duel.challenges.subtitle" = "Uitnodigingen, actieve duels en resultaten";
+
+// Verified subscription status
+"premium.restore.success" = "Aankopen hersteld.";
+"premium.restore.empty" = "Geen actief abonnement gevonden voor dit Apple Account.";
+"premium.access.until" = "Toegang tot";
+
+// Streak calendar and freeze inventory
+"streak.calendar.title" = "Reekskalender";
+"streak.calendar.played" = "Gespeeld";
+"streak.calendar.frozen" = "Bevroren";
+"streak.calendar.missed" = "Gemist";
+"streak.calendar.open_day" = "Nog niet gespeeld";
+"streak.calendar.previous" = "Vorige maand";
+"streak.calendar.next" = "Volgende maand";
+"streak.freeze.title" = "Reeksbevriezingen";
+"streak.freeze.repair" = "Herstel gisteren · 1 bevriezing";
+"streak.freeze.friends" = "Help je vrienden";
+"streak.freeze.give" = "Geef 1 bevriezing";
+"streak.freeze.signin" = "Log in om bevriezingen te geven en te ontvangen.";
+"streak.freeze.unavailable" = "Je vriend heeft er geen meer nodig. Je bevriezing is teruggegeven.";
+"streak.freeze.sent" = "Bevriezing verstuurd!";
+"streak.freeze.retry" = "Synchroniseren mislukt. Probeer opnieuw om het cadeau af te ronden.";
+"streak.freeze.no_friends" = "Er zijn nu geen vrienden zonder bevriezingen.";
+"streak.freeze.explanation" = "Eén bevriezing beschermt automatisch één gemiste dag. Die telt niet als gespeeld. Sla ze vooraf in of herstel gisteren met één bevriezing.";
+
+// Avatar shop and wardrobe
+"shop.avatar" = "Je avatar";
+"shop.preview_hint" = "Pas voor aankoop. Toepassen vervangt je profielfoto door deze avatar.";
+"shop.wardrobe" = "Garderobe";
+"shop.empty" = "Je gekochte items verschijnen hier.";
+"shop.equipped" = "Aan";
+"shop.owned" = "Gekocht";
+"shop.remove" = "Uittrekken";
+"shop.equip" = "Aantrekken";
+"shop.save_error" = "Op dit apparaat opgeslagen. Online avatar bijwerken mislukt.";
+
+"home.lives.welcome" = "Welkomstbonus: +3 levens elke 10 minuten tijdens je eerste 7 dagen. Maximaal 5 levens, zonder abonnement.";
+
+"Profile Share CTA" = "Scan de QR-code. Speel mee!";
+
+
+"Profile Share Headline" = "KEN JIJ DE VLAGGEN?\nBEWIJS HET.";
+
+"Use current time" = "Huidige tijd gebruiken";
+
+"Progress emails" = "Voortgang per e-mail";
+
+"Progress emails detail" = "Je persoonlijke overzicht, maximaal één keer per week. Geen e-mail na elk duel. Altijd af te melden.";
+
+"Server Error" = "Server niet beschikbaar";
+
+"Try Again" = "Opnieuw proberen";
+
+"Server error. Try again." = "Server niet beschikbaar. Opnieuw proberen";
+
+"Invalid server response." = "Server niet beschikbaar";
+
+"duel.network.error" = "Server niet beschikbaar. Opnieuw proberen";
+
+"duel.reminder.sent" = "Herinnering verzonden";
+
+"duel.reminder.cooldown" = "Wacht even voordat je nog een herinnering stuurt.";
+
+"duel.reminder.disabled" = "Deze speler heeft duelmeldingen uitgeschakeld.";
+
+"duel.reminder.no_device" = "Deze speler heeft geen apparaat met pushmeldingen ingeschakeld.";
+
+"duel.reminder.completed" = "Het duel is al afgelopen.";
+
+"duel.reminder.missing" = "Dit duel is niet meer beschikbaar.";
+
+"Flags Brand Title" = "Vlaggen";
+
+"lifecycle.offers" = "Uitdagingen en aanbiedingen";
+
+"lifecycle.offers.detail" = "Bonussen, uitdagingen en andere World Arena-spellen. In totaal maximaal twee e-mails per week.";
+
+"lifecycle.bonus.title" = "Een nieuw speelmoment overdag";
+
+"lifecycle.bonus.body" = "1 extra F-Buck voor één foutloze bonusuitdaging tussen 12.00 en 16.00 uur in jouw tijdzone.";
+
+"lifecycle.bonus.unavailable" = "Deze uitdaging is niet meer beschikbaar. Je opgeslagen voortgang blijft behouden.";

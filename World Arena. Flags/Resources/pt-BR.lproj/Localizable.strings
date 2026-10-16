@@ -233,9 +233,7 @@
 "Request Timeout" = "Solicitar tempo limite";
 "Server Not Found" = "Servidor não encontrado";
 "Too Many Requests" = "Muitas solicitações";
-"Server Error" = "Erro no servidor";
 "HTTP Error: %d" = "Erro HTTP: %d";
-"Try Again" = "Tente novamente";
 "Not enough countries in selected regions (found %d, need at least 4)" = "Não há países suficientes em regiões selecionadas (encontrado %d, são necessários pelo menos 4)";
 "Empty response from server" = "Resposta vazia do servidor";
 
@@ -245,7 +243,6 @@
 "Area" = "Área";
 "Region" = "Região";
 "Subregion" = "Sub-região";
-
 // Language additions
 "system_language" = "Sistema";
 "ru_language" = "Russo";
@@ -1722,3 +1719,89 @@
 "premium.trial.yearly" = "7 dias grátis, depois %@ por ano.";
 "premium.renewal" = "Renovação automática até o cancelamento. Gerencie ou cancele nas suas assinaturas da App Store.";
 "premium.subscribe" = "Assinar";
+
+/* Duel inbox */
+"duel.challenges.title" = "Desafios";
+"duel.challenges.subtitle" = "Convites, duelos ativos e resultados";
+
+// Verified subscription status
+"premium.restore.success" = "Compras restauradas.";
+"premium.restore.empty" = "Nenhuma assinatura ativa encontrada para esta Conta Apple.";
+"premium.access.until" = "Acesso até";
+
+// Streak calendar and freeze inventory
+"streak.calendar.title" = "Calendário da sequência";
+"streak.calendar.played" = "Jogou";
+"streak.calendar.frozen" = "Congelado";
+"streak.calendar.missed" = "Perdido";
+"streak.calendar.open_day" = "Ainda não jogou";
+"streak.calendar.previous" = "Mês anterior";
+"streak.calendar.next" = "Próximo mês";
+"streak.freeze.title" = "Congelamentos de sequência";
+"streak.freeze.repair" = "Restaurar ontem · 1 congelamento";
+"streak.freeze.friends" = "Ajude seus amigos";
+"streak.freeze.give" = "Dar 1 congelamento";
+"streak.freeze.signin" = "Entre para enviar e receber congelamentos.";
+"streak.freeze.unavailable" = "Seu amigo não precisa mais. Seu congelamento foi devolvido.";
+"streak.freeze.sent" = "Congelamento enviado!";
+"streak.freeze.retry" = "Falha ao sincronizar. Tente novamente para concluir o presente pendente.";
+"streak.freeze.no_friends" = "Nenhum amigo está sem congelamentos agora.";
+"streak.freeze.explanation" = "Um congelamento protege automaticamente um dia perdido, sem contá-lo como jogado. Faça uma reserva antes de uma pausa ou restaure ontem.";
+
+// Avatar shop and wardrobe
+"shop.avatar" = "Seu avatar";
+"shop.preview_hint" = "Experimente antes de comprar. Ao aplicar, este avatar substitui sua foto de perfil.";
+"shop.wardrobe" = "Guarda-roupa";
+"shop.empty" = "Seus itens comprados aparecerão aqui.";
+"shop.equipped" = "Equipado";
+"shop.owned" = "Comprado";
+"shop.remove" = "Remover";
+"shop.equip" = "Equipar";
+"shop.save_error" = "Salvo neste dispositivo. Não foi possível atualizar o avatar online.";
+
+"home.lives.welcome" = "Bônus de boas-vindas: +3 vidas a cada 10 minutos nos primeiros 7 dias. Até 5 vidas, sem assinatura.";
+
+"Profile Share CTA" = "Leia o QR. Vamos jogar!";
+
+
+"Profile Share Headline" = "CONHECE AS BANDEIRAS?\nPROVE.";
+
+"Use current time" = "Usar horário atual";
+
+"Progress emails" = "E-mails de progresso";
+
+"Progress emails detail" = "Seu resumo pessoal, no máximo uma vez por semana. Sem e-mails após cada duelo. Cancele quando quiser.";
+
+"Server Error" = "Servidor indisponível";
+
+"Try Again" = "Tentar novamente";
+
+"Server error. Try again." = "Servidor indisponível. Tentar novamente";
+
+"Invalid server response." = "Servidor indisponível";
+
+"duel.network.error" = "Servidor indisponível. Tentar novamente";
+
+"duel.reminder.sent" = "Lembrete enviado";
+
+"duel.reminder.cooldown" = "Aguarde antes de enviar outro lembrete.";
+
+"duel.reminder.disabled" = "Este jogador desativou as notificações de duelos.";
+
+"duel.reminder.no_device" = "Este jogador não ativou notificações push em nenhum dispositivo.";
+
+"duel.reminder.completed" = "O duelo já terminou.";
+
+"duel.reminder.missing" = "Este duelo não está mais disponível.";
+
+"Flags Brand Title" = "Bandeiras";
+
+"lifecycle.offers" = "Desafios e ofertas";
+
+"lifecycle.offers.detail" = "Bônus, desafios e outros jogos World Arena. No máximo dois e-mails por semana no total.";
+
+"lifecycle.bonus.title" = "Que tal jogar durante o dia?";
+
+"lifecycle.bonus.body" = "1 F-Buck extra por um desafio bônus perfeito entre 12h e 16h no seu fuso horário.";
+
+"lifecycle.bonus.unavailable" = "Este desafio não está mais disponível. Seu progresso salvo foi mantido.";
