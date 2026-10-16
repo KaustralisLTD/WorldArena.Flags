@@ -1820,3 +1820,9 @@
 "lifecycle.bonus.body" = "1 F-Buck إضافي مقابل تحدٍّ إضافي بلا أخطاء بين 12:00 و16:00 حسب منطقتك الزمنية.";
 
 "lifecycle.bonus.unavailable" = "لم يعد هذا التحدي متاحًا. تقدمك المحفوظ لم يتغير.";
+
+// Alternate Home Screen icons
+"appIcon.title" = "أيقونة التطبيق";
+"appIcon.explanation" = "اختر لغة النص الكبير على أيقونة الشاشة الرئيسية. لن تتغير لغة التطبيق أو أيقونة App Store. قد يعرض iOS رسالة تأكيد.";
+"appIcon.selected" = "محدد";
+"appIcon.error" = "تعذّر تغيير الأيقونة. حاول مجددًا.";

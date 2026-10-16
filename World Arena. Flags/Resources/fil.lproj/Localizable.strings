@@ -1820,3 +1820,9 @@
 "lifecycle.bonus.body" = "Dagdag na 1 F-Buck para sa isang perpektong bonus challenge mula 12:00 hanggang 16:00 sa iyong time zone.";
 
 "lifecycle.bonus.unavailable" = "Hindi na available ang hamong ito. Nananatili ang na-save mong progreso.";
+
+// Alternate Home Screen icons
+"appIcon.title" = "Icon ng app";
+"appIcon.explanation" = "Piliin ang wika ng malaking teksto sa icon ng Home Screen. Hindi magbabago ang wika ng app o icon sa App Store. Maaaring magpakita ng kumpirmasyon ang iOS.";
+"appIcon.selected" = "Napili";
+"appIcon.error" = "Hindi mabago ang icon. Subukan muli.";

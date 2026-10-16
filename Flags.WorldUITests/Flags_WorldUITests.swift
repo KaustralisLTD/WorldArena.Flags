@@ -10,6 +10,19 @@ import StoreKitTest
 
 final class Flags_WorldUITests: XCTestCase {
     @MainActor
+    func testAppIconPickerDisplaysLocalizedChoices() throws {
+        let app = XCUIApplication()
+        app.launchArguments = ["UITesting", "AppIconQA", "-selectedLanguage", "ru"]
+        app.launch()
+        XCTAssertTrue(app.buttons["appIcon.choice.ru"].waitForExistence(timeout: 20))
+        XCTAssertTrue(app.buttons["appIcon.choice.en"].exists)
+        let screenshot = XCTAttachment(screenshot: app.screenshot())
+        screenshot.name = "Flags localized app icon selection"
+        screenshot.lifetime = .keepAlways
+        add(screenshot)
+    }
+
+    @MainActor
     func testCaptureLifecycleMapsForThirtyLanguages() throws {
         XCUIDevice.shared.orientation = .portrait
         defer { XCUIDevice.shared.orientation = .portrait }

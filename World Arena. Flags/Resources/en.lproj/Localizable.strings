@@ -1933,3 +1933,9 @@
 "lifecycle.bonus.body" = "An extra 1 F-Buck for one perfect bonus game, from 12:00 to 16:00 in your time zone.";
 
 "lifecycle.bonus.unavailable" = "This challenge is no longer available. Your saved progress is unchanged.";
+
+// Alternate Home Screen icons
+"appIcon.title" = "App icon";
+"appIcon.explanation" = "Choose the language of the large label on your Home Screen icon. This does not change the app language or the App Store icon. iOS may display a confirmation.";
+"appIcon.selected" = "Selected";
+"appIcon.error" = "The icon could not be changed. Please try again.";

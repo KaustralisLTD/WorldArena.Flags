@@ -1820,3 +1820,9 @@
 "lifecycle.bonus.body" = "1 extra F-Buck egy hibátlan bónuszkihívásért 12:00 és 16:00 között a saját időzónádban.";
 
 "lifecycle.bonus.unavailable" = "Ez a kihívás már nem érhető el. A mentett eredményeid megmaradnak.";
+
+// Alternate Home Screen icons
+"appIcon.title" = "Alkalmazásikon";
+"appIcon.explanation" = "Válaszd ki a főképernyő ikonján látható nagy felirat nyelvét. Az alkalmazás nyelve és az App Store ikonja nem változik. Az iOS megerősítést kérhet.";
+"appIcon.selected" = "Kiválasztva";
+"appIcon.error" = "Nem sikerült módosítani az ikont. Próbáld újra.";

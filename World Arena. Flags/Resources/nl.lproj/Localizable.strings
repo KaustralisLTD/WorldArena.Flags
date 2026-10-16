@@ -1807,3 +1807,9 @@
 "lifecycle.bonus.body" = "1 extra F-Buck voor één foutloze bonusuitdaging tussen 12.00 en 16.00 uur in jouw tijdzone.";
 
 "lifecycle.bonus.unavailable" = "Deze uitdaging is niet meer beschikbaar. Je opgeslagen voortgang blijft behouden.";
+
+// Alternate Home Screen icons
+"appIcon.title" = "Appicoon";
+"appIcon.explanation" = "Kies de taal van de grote tekst op het beginschermicoon. De apptaal en het App Store-icoon blijven gelijk. iOS kan om bevestiging vragen.";
+"appIcon.selected" = "Geselecteerd";
+"appIcon.error" = "Het icoon kon niet worden gewijzigd. Probeer opnieuw.";

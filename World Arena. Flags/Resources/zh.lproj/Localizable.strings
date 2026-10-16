@@ -1712,3 +1712,9 @@
 "lifecycle.bonus.body" = "在你所在时区的12:00至16:00之间全对完成一次奖励挑战，可额外获得1 F-Buck。";
 
 "lifecycle.bonus.unavailable" = "此挑战已不可用。已保存的进度保持不变。";
+
+// Alternate Home Screen icons
+"appIcon.title" = "应用图标";
+"appIcon.explanation" = "选择主屏幕图标大字的语言。这不会更改应用语言或 App Store 图标。iOS 可能会显示确认提示。";
+"appIcon.selected" = "已选择";
+"appIcon.error" = "无法更改图标，请重试。";

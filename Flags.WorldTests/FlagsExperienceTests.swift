@@ -88,4 +88,20 @@ final class FlagsExperienceTests: XCTestCase {
         XCTAssertNil(saved.first?.masteredCountries)
     }
 
+    func testAlternateIconsAreRegisteredForPhoneAndPad() throws {
+        let choices = AppIconChoice.all
+        XCTAssertEqual(choices.count, 8)
+        XCTAssertNil(choices.first?.alternateName)
+        // Installed simulator apps are thinned for the current device family.
+        let keys = UIDevice.current.userInterfaceIdiom == .pad ? ["CFBundleIcons~ipad"] : ["CFBundleIcons"]
+        for key in keys {
+            let icons = try XCTUnwrap(Bundle.main.infoDictionary?[key] as? [String: Any], key)
+            let alternate = try XCTUnwrap(icons["CFBundleAlternateIcons"] as? [String: Any], key)
+            for choice in choices.dropFirst() {
+                XCTAssertNotNil(alternate[choice.alternateName!], choice.id)
+                XCTAssertNotNil(UIImage(named: choice.previewName), choice.id)
+            }
+        }
+    }
+
 }

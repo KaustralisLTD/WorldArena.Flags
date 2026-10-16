@@ -1820,3 +1820,9 @@
 "lifecycle.bonus.body" = "Tambahan 1 F-Buck untuk satu tantangan bonus tanpa kesalahan antara pukul 12.00–16.00 di zona waktumu.";
 
 "lifecycle.bonus.unavailable" = "Tantangan ini sudah tidak tersedia. Kemajuan yang tersimpan tetap aman.";
+
+// Alternate Home Screen icons
+"appIcon.title" = "Ikon aplikasi";
+"appIcon.explanation" = "Pilih bahasa tulisan besar pada ikon Layar Utama. Bahasa aplikasi dan ikon App Store tidak berubah. iOS mungkin menampilkan konfirmasi.";
+"appIcon.selected" = "Dipilih";
+"appIcon.error" = "Ikon tidak dapat diubah. Coba lagi.";

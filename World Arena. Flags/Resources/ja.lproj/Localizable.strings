@@ -1820,3 +1820,9 @@
 "lifecycle.bonus.body" = "自分のタイムゾーンの12:00〜16:00にボーナス課題を全問正解すると、追加で1 F-Buckを獲得できます。";
 
 "lifecycle.bonus.unavailable" = "このチャレンジは終了しました。保存済みの進捗はそのままです。";
+
+// Alternate Home Screen icons
+"appIcon.title" = "アプリアイコン";
+"appIcon.explanation" = "ホーム画面アイコンの大きな文字の言語を選びます。アプリの言語や App Store のアイコンは変わりません。iOS が確認を表示する場合があります。";
+"appIcon.selected" = "選択済み";
+"appIcon.error" = "アイコンを変更できませんでした。もう一度お試しください。";

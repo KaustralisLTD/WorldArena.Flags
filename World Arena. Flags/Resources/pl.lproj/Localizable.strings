@@ -1803,3 +1803,9 @@
 "lifecycle.bonus.body" = "1 dodatkowy F-Buck za jedno bezbłędne zadanie bonusowe między 12:00 a 16:00 w twojej strefie czasowej.";
 
 "lifecycle.bonus.unavailable" = "To wyzwanie nie jest już dostępne. Twój zapisany postęp pozostaje bez zmian.";
+
+// Alternate Home Screen icons
+"appIcon.title" = "Ikona aplikacji";
+"appIcon.explanation" = "Wybierz język dużego napisu na ikonie ekranu początkowego. Język aplikacji i ikona App Store nie zmienią się. iOS może wyświetlić potwierdzenie.";
+"appIcon.selected" = "Wybrano";
+"appIcon.error" = "Nie udało się zmienić ikony. Spróbuj ponownie.";

@@ -456,6 +456,8 @@
 		3A7379502D6F36EA0075C1D9 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ASSETCATALOG_COMPILER_ALTERNATE_APPICON_NAMES = "AppIcon-ru AppIcon-uk AppIcon-es AppIcon-fr AppIcon-de AppIcon-it AppIcon-pt-BR";
+				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = "World Arena. Flags/World_Arena_Flags.entitlements";
@@ -519,6 +521,8 @@
 		3A7379512D6F36EA0075C1D9 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ASSETCATALOG_COMPILER_ALTERNATE_APPICON_NAMES = "AppIcon-ru AppIcon-uk AppIcon-es AppIcon-fr AppIcon-de AppIcon-it AppIcon-pt-BR";
+				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = "World Arena. Flags/World_Arena_Flags.entitlements";

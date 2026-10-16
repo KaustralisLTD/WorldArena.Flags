@@ -1820,3 +1820,9 @@
 "lifecycle.bonus.body" = "अपने समय क्षेत्र में 12:00 से 16:00 के बीच एक बोनस चुनौती बिना गलती पूरी करने पर 1 अतिरिक्त F-Buck।";
 
 "lifecycle.bonus.unavailable" = "यह चुनौती अब उपलब्ध नहीं है। तुम्हारी सहेजी गई प्रगति बनी हुई है।";
+
+// Alternate Home Screen icons
+"appIcon.title" = "ऐप आइकन";
+"appIcon.explanation" = "होम स्क्रीन आइकन पर बड़े अक्षरों की भाषा चुनें। ऐप की भाषा और App Store का आइकन नहीं बदलेंगे। iOS पुष्टि दिखा सकता है।";
+"appIcon.selected" = "चयनित";
+"appIcon.error" = "आइकन नहीं बदला जा सका। फिर कोशिश करें।";

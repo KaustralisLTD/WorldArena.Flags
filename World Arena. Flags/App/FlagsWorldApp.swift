@@ -116,7 +116,9 @@ struct FlagsWorldApp: App {
 
     @ViewBuilder private var launchContent: some View {
         #if targetEnvironment(simulator)
-        if CommandLine.arguments.contains("LifecycleBonusQA") {
+        if CommandLine.arguments.contains("AppIconQA") {
+            AppIconSelectionView()
+        } else if CommandLine.arguments.contains("LifecycleBonusQA") {
             LifecycleBonusView(contactID: "preview", loadState: {
                 .init(sessionId: "preview", question: .init(index: 0, total: 10, flag: "FR", options: ["FR", "DE", "ES", "IT"]), done: false, correct: nil, total: 10, reward: nil)
             }, submitAnswer: { _, index, _ in

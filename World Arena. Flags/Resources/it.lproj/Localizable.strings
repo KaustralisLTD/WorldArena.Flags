@@ -1803,3 +1803,9 @@
 "lifecycle.bonus.body" = "1 F-Buck extra per una sfida bonus perfetta tra le 12:00 e le 16:00 nel tuo fuso orario.";
 
 "lifecycle.bonus.unavailable" = "Questa sfida non è più disponibile. I tuoi progressi salvati restano al sicuro.";
+
+// Alternate Home Screen icons
+"appIcon.title" = "Icona dell’app";
+"appIcon.explanation" = "Scegli la lingua della scritta grande sull’icona Home. La lingua dell’app e l’icona dell’App Store non cambiano. iOS può mostrare una conferma.";
+"appIcon.selected" = "Selezionata";
+"appIcon.error" = "Impossibile cambiare l’icona. Riprova.";

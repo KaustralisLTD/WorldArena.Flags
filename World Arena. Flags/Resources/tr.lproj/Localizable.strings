@@ -1819,3 +1819,9 @@
 "lifecycle.bonus.body" = "Kendi saat diliminde 12:00–16:00 arasında kusursuz tamamlanan bir bonus görevi için fazladan 1 F-Buck.";
 
 "lifecycle.bonus.unavailable" = "Bu görev artık kullanılamıyor. Kaydedilen ilerlemen korunuyor.";
+
+// Alternate Home Screen icons
+"appIcon.title" = "Uygulama simgesi";
+"appIcon.explanation" = "Ana ekran simgesindeki büyük yazının dilini seç. Uygulama dili ve App Store simgesi değişmez. iOS bir onay gösterebilir.";
+"appIcon.selected" = "Seçili";
+"appIcon.error" = "Simge değiştirilemedi. Tekrar dene.";

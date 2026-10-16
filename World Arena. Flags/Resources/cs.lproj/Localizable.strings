@@ -1820,3 +1820,9 @@
 "lifecycle.bonus.body" = "1 F-Buck navíc za jeden bezchybný bonusový úkol mezi 12:00 a 16:00 ve tvém časovém pásmu.";
 
 "lifecycle.bonus.unavailable" = "Tato výzva už není dostupná. Tvůj uložený pokrok zůstává zachován.";
+
+// Alternate Home Screen icons
+"appIcon.title" = "Ikona aplikace";
+"appIcon.explanation" = "Vyberte jazyk velkého nápisu na ikoně plochy. Jazyk aplikace ani ikona App Storu se nezmění. iOS může zobrazit potvrzení.";
+"appIcon.selected" = "Vybráno";
+"appIcon.error" = "Ikonu se nepodařilo změnit. Zkuste to znovu.";

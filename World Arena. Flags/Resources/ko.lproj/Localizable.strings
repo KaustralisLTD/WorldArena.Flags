@@ -1820,3 +1820,9 @@
 "lifecycle.bonus.body" = "내 시간대의 12:00~16:00에 보너스 과제를 모두 맞히면 F-Buck 1개를 추가로 받습니다.";
 
 "lifecycle.bonus.unavailable" = "이 도전은 더 이상 이용할 수 없어요. 저장된 진행 상황은 그대로예요.";
+
+// Alternate Home Screen icons
+"appIcon.title" = "앱 아이콘";
+"appIcon.explanation" = "홈 화면 아이콘의 큰 글자 언어를 선택하세요. 앱 언어와 App Store 아이콘은 바뀌지 않습니다. iOS에서 확인 메시지가 표시될 수 있습니다.";
+"appIcon.selected" = "선택됨";
+"appIcon.error" = "아이콘을 변경하지 못했습니다. 다시 시도하세요.";

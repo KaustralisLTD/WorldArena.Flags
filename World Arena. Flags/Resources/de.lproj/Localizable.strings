@@ -1804,3 +1804,9 @@
 "lifecycle.bonus.body" = "1 zusätzlicher F-Buck für eine fehlerfreie Bonusaufgabe zwischen 12 und 16 Uhr in deiner Zeitzone.";
 
 "lifecycle.bonus.unavailable" = "Diese Aufgabe ist nicht mehr verfügbar. Dein gespeicherter Fortschritt bleibt erhalten.";
+
+// Alternate Home Screen icons
+"appIcon.title" = "App-Symbol";
+"appIcon.explanation" = "Wähle die Sprache der großen Beschriftung auf dem Home-Bildschirm. Die App-Sprache und das App-Store-Symbol bleiben gleich. iOS kann eine Bestätigung anzeigen.";
+"appIcon.selected" = "Ausgewählt";
+"appIcon.error" = "Das Symbol konnte nicht geändert werden. Bitte erneut versuchen.";

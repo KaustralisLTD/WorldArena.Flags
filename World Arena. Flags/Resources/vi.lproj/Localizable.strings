@@ -1820,3 +1820,9 @@
 "lifecycle.bonus.body" = "Thêm 1 F-Buck khi hoàn thành chính xác toàn bộ một thử thách thưởng trong khoảng 12:00–16:00 theo múi giờ của bạn.";
 
 "lifecycle.bonus.unavailable" = "Thử thách này không còn khả dụng. Tiến bộ đã lưu của bạn vẫn được giữ nguyên.";
+
+// Alternate Home Screen icons
+"appIcon.title" = "Biểu tượng ứng dụng";
+"appIcon.explanation" = "Chọn ngôn ngữ chữ lớn trên biểu tượng màn hình chính. Ngôn ngữ ứng dụng và biểu tượng App Store không đổi. iOS có thể hiển thị xác nhận.";
+"appIcon.selected" = "Đã chọn";
+"appIcon.error" = "Không thể đổi biểu tượng. Hãy thử lại.";

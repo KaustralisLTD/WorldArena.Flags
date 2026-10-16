@@ -21,6 +21,7 @@ struct SettingsView: View {
     @State private var showingPrivacy = false
     @State private var showingHelp = false
     @State private var showingLanguageSelection = false
+    @State private var showingIconSelection = false
     @State private var showingThemeSelection = false
     @State private var showingPremium = false
     @State private var showingAuth = false
@@ -191,6 +192,14 @@ struct SettingsView: View {
                         }
                         
                         SettingsRow(
+                            title: LocalizationManager.shared.localizedString("appIcon.title"),
+                            icon: "app.badge",
+                            hasArrow: true
+                        ) {
+                            showingIconSelection = true
+                        }
+
+                        SettingsRow(
                             title: LocalizationManager.shared.localizedString("Тема"),
                             icon: "paintbrush",
                             hasArrow: true,
@@ -337,6 +346,9 @@ struct SettingsView: View {
         .sheetOrFullScreenOnIPad(isPresented: $showingLanguageSelection) {
             LanguageSelectionView()
                 .environmentObject(gameState)
+        }
+        .sheetOrFullScreenOnIPad(isPresented: $showingIconSelection) {
+            AppIconSelectionView()
         }
         .sheetOrFullScreenOnIPad(isPresented: $showingThemeSelection) {
             ThemeSelectionView()

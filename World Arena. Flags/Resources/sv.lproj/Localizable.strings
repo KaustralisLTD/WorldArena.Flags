@@ -1820,3 +1820,9 @@
 "lifecycle.bonus.body" = "1 extra F-Buck för en felfri bonusutmaning mellan kl. 12 och 16 i din tidszon.";
 
 "lifecycle.bonus.unavailable" = "Den här utmaningen är inte längre tillgänglig. Dina sparade framsteg finns kvar.";
+
+// Alternate Home Screen icons
+"appIcon.title" = "Appikon";
+"appIcon.explanation" = "Välj språk för den stora texten på hemskärmsikonen. Appens språk och App Store-ikonen ändras inte. iOS kan visa en bekräftelse.";
+"appIcon.selected" = "Vald";
+"appIcon.error" = "Ikonen kunde inte ändras. Försök igen.";

@@ -1805,3 +1805,9 @@
 "lifecycle.bonus.body" = "1 F-Buck supplémentaire pour un défi bonus sans faute entre 12 h et 16 h dans ton fuseau horaire.";
 
 "lifecycle.bonus.unavailable" = "Ce défi n’est plus disponible. Tes progrès enregistrés sont conservés.";
+
+// Alternate Home Screen icons
+"appIcon.title" = "Icône de l’app";
+"appIcon.explanation" = "Choisissez la langue du grand texte sur l’icône d’accueil. La langue de l’app et l’icône de l’App Store restent identiques. iOS peut demander une confirmation.";
+"appIcon.selected" = "Sélectionné";
+"appIcon.error" = "Impossible de modifier l’icône. Réessayez.";

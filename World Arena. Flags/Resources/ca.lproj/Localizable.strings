@@ -1696,3 +1696,9 @@
 "lifecycle.bonus.body" = "1 F-Buck extra per un repte de bonificació perfecte entre les 12:00 i les 16:00 del teu fus horari.";
 
 "lifecycle.bonus.unavailable" = "Aquest repte ja no està disponible. El teu progrés desat es conserva.";
+
+// Alternate Home Screen icons
+"appIcon.title" = "Icona de l’app";
+"appIcon.explanation" = "Tria l’idioma del text gran de la icona d’inici. No canvia l’idioma de l’app ni la icona de l’App Store. iOS pot mostrar una confirmació.";
+"appIcon.selected" = "Seleccionada";
+"appIcon.error" = "No s’ha pogut canviar la icona. Torna-ho a provar.";

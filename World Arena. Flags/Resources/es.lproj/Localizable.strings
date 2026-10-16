@@ -1790,3 +1790,9 @@
 "lifecycle.bonus.body" = "1 F-Buck extra por un reto de bonificación perfecto entre las 12:00 y las 16:00 de tu zona horaria.";
 
 "lifecycle.bonus.unavailable" = "Este reto ya no está disponible. Tu progreso guardado se conserva.";
+
+// Alternate Home Screen icons
+"appIcon.title" = "Icono de la app";
+"appIcon.explanation" = "Elige el idioma del texto grande del icono de inicio. No cambia el idioma de la app ni el icono del App Store. iOS puede mostrar una confirmación.";
+"appIcon.selected" = "Seleccionado";
+"appIcon.error" = "No se pudo cambiar el icono. Inténtalo de nuevo.";

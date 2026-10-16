@@ -1820,3 +1820,9 @@
 "lifecycle.bonus.body" = "1 F-Buck suplimentar pentru o provocare bonus perfectă între 12:00 și 16:00 în fusul tău orar.";
 
 "lifecycle.bonus.unavailable" = "Această provocare nu mai este disponibilă. Progresul salvat se păstrează.";
+
+// Alternate Home Screen icons
+"appIcon.title" = "Pictograma aplicației";
+"appIcon.explanation" = "Alege limba textului mare de pe pictograma ecranului principal. Limba aplicației și pictograma App Store nu se schimbă. iOS poate afișa o confirmare.";
+"appIcon.selected" = "Selectat";
+"appIcon.error" = "Pictograma nu a putut fi schimbată. Încearcă din nou.";
