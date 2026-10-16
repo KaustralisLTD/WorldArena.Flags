@@ -327,8 +327,8 @@ struct MainTabView: View {
         let newOnes = list.compactMap { $0.toDuelChallenge(opponentId: userId, opponentName: userId) }
             .filter { !existingIds.contains($0.id) }
         await MainActor.run {
+            userProfile.reconcileIncomingDuelInvites(list.compactMap { $0.toDuelChallenge(opponentId: userId, opponentName: userId) })
             if !newOnes.isEmpty {
-                userProfile.incomingDuelChallenges.append(contentsOf: newOnes)
                 for duel in newOnes {
                     NotificationService.shared.logDuelChallengeNotificationIfNeeded(
                         challengeId: duel.id,
@@ -351,7 +351,7 @@ struct MainTabView: View {
                     }
                     .sorted { $0.createdAt > $1.createdAt }
                     .first
-            } else if let current = incomingDuelPopup, DuelInviteSuppression.isSuppressed(current.id) {
+            } else if let current = incomingDuelPopup, (DuelInviteSuppression.isSuppressed(current.id) || !list.contains(where: { $0.id == current.id })) {
                 incomingDuelPopup = nil
             }
         }
@@ -371,6 +371,10 @@ struct MainTabView: View {
                 print("[MainTabView] acceptIncomingDuel failed:", msg, "challengeId=", challenge.id)
                 await MainActor.run {
                     duelActionErrorText = msg
+                    if (error as? DuelAPIError)?.isUnavailableChallenge == true {
+                        DuelInviteSuppression.markAccepted(challenge.id)
+                        incomingDuelPopup = nil
+                    }
                     isAcceptingIncomingDuel = false
                 }
                 return
@@ -404,7 +408,7 @@ struct MainTabView: View {
                 gameState.duelChallengerName = result.challengerName
                 gameState.duelOpponentName = userProfile.username
                 // Не удаляем incoming-челлендж: он нужен для ожидания результата и для отправки счёта после игры.
-                DuelInviteSuppression.clear(challenge.id)
+                DuelInviteSuppression.markAccepted(challenge.id)
                 incomingDuelPopup = nil
                 selectedTab = 0
                 showDuelAnnouncement = true

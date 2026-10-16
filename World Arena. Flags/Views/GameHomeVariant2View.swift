@@ -620,7 +620,7 @@ struct GameHomeVariant2View: View {
     private var pendingHomeChallenges: [DuelChallenge] {
         userProfile.incomingDuelChallenges.filter {
             ($0.status == .pending || $0.status == .challengerCompleted)
-                && !DuelInviteSuppression.isDeclined($0.id)
+                && !DuelInviteSuppression.isSuppressed($0.id)
                 && Date().timeIntervalSince($0.createdAt) < 86400
         }.sorted { $0.createdAt > $1.createdAt }
     }

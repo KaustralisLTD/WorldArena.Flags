@@ -120,7 +120,7 @@ struct ContentView: View {
         return userProfile.incomingDuelChallenges.first { c in
             (c.status == .pending || c.status == .challengerCompleted)
                 && Date().timeIntervalSince(c.createdAt) < Self.duelExpiryHours
-                && !DuelInviteSuppression.isDeclined(c.id)
+                && !DuelInviteSuppression.isSuppressed(c.id)
         }
     }
 
@@ -851,11 +851,8 @@ struct ContentView: View {
         let userId = userProfile.username
         guard !userId.isEmpty else { return }
         guard let list = try? await DuelAPIService.shared.fetchIncomingChallenges(userId: userId) else { return }
-        let existingIds = Set(userProfile.incomingDuelChallenges.map(\.id))
-        let newOnes = list.compactMap { $0.toDuelChallenge(opponentId: userId, opponentName: userId) }
-            .filter { !existingIds.contains($0.id) }
         await MainActor.run {
-            userProfile.incomingDuelChallenges.append(contentsOf: newOnes)
+            userProfile.reconcileIncomingDuelInvites(list.compactMap { $0.toDuelChallenge(opponentId: userId, opponentName: userId) })
         }
     }
 
@@ -874,7 +871,12 @@ struct ContentView: View {
             } catch {
                 let msg = (error as? LocalizedError)?.errorDescription ?? error.localizedDescription
                 print("[ContentView] acceptIncomingDuel failed:", msg, "challengeId=", challenge.id)
-                await MainActor.run { isAcceptingIncomingDuel = false }
+                await MainActor.run {
+                    isAcceptingIncomingDuel = false
+                    if (error as? DuelAPIError)?.isUnavailableChallenge == true {
+                        DuelInviteSuppression.markAccepted(challenge.id)
+                    }
+                }
                 return
             }
             await MainActor.run {
@@ -902,7 +904,7 @@ struct ContentView: View {
                 gameState.duelRoleIsChallenger = false
                 gameState.duelChallengerName = result.challengerName
                 gameState.duelOpponentName = userProfile.username
-                DuelInviteSuppression.clear(challenge.id)
+                DuelInviteSuppression.markAccepted(challenge.id)
                 // Не удаляем incoming-челлендж: он нужен, чтобы после игры дуэль появилась в «Сводке Дуэлей» и чтобы оппонент мог отправить свой счёт.
                 dismissedIncomingDuelIds.remove(challenge.id)
             }

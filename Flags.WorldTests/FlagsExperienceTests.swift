@@ -112,4 +112,22 @@ final class FlagsExperienceTests: XCTestCase {
         XCTAssertEqual(AppIconChoice.preferred(language: "ja").id, "en")
     }
 
+    func testAcceptedDuelNeverReturnsAsANewInvitation() {
+        let id = "accepted-invite-test-" + UUID().uuidString
+        defer { UserDefaults.standard.removeObject(forKey: "duelInvite.accepted." + id) }
+        XCTAssertFalse(DuelInviteSuppression.isSuppressed(id))
+        DuelInviteSuppression.markAccepted(id)
+        XCTAssertTrue(DuelInviteSuppression.isSuppressed(id))
+        DuelInviteSuppression.clear(id)
+        XCTAssertTrue(DuelInviteSuppression.isSuppressed(id), "Clearing a snooze must not restore an accepted invite")
+    }
+
+    func testFinishedDuelErrorsAreNotClassifiedAsServerOutages() {
+        for message in ["Challenge already completed", "Challenge expired", "Challenge declined", "Opponent already submitted", "Challenge not found"] {
+            let payload = String(data: try! JSONSerialization.data(withJSONObject: ["error": message]), encoding: .utf8)!
+            XCTAssertTrue(DuelAPIError.serverError(payload).isUnavailableChallenge)
+        }
+        XCTAssertFalse(DuelAPIError.serverError("upstream unavailable").isUnavailableChallenge)
+    }
+
 }

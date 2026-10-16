@@ -145,6 +145,30 @@ class UserProfile: ObservableObject {
     /// Исходящие вызовы на дуэль (я создал)
     @Published var outgoingDuelChallenges: [DuelChallenge] = [] { didSet { saveDuelChallenges() } }
     /// Входящие вызовы на дуэль (мне бросили; заполняется с push/сервера)
+    /// Reconcile the authoritative active inbox while keeping played duels in history.
+    func reconcileIncomingDuelInvites(_ fresh: [DuelChallenge]) {
+        let activeIDs = Set(fresh.map(\.id))
+        for old in incomingDuelChallenges where !activeIDs.contains(old.id) {
+            DuelInviteSuppression.markAccepted(old.id)
+        }
+        var merged = incomingDuelChallenges
+        for duel in fresh {
+            if let index = merged.firstIndex(where: { $0.id == duel.id }) {
+                let old = merged[index]
+                // A request started before submit must not resurrect a locally played duel.
+                if old.opponentScore != nil || old.status == .completed || old.status == .opponentCompleted {
+                    DuelInviteSuppression.markAccepted(old.id)
+                    continue
+                }
+                merged[index] = duel
+            } else { merged.append(duel) }
+            if duel.opponentScore != nil || duel.status == .completed || duel.status == .opponentCompleted {
+                DuelInviteSuppression.markAccepted(duel.id)
+            }
+        }
+        incomingDuelChallenges = merged
+    }
+
     @Published var incomingDuelChallenges: [DuelChallenge] = [] { didSet { saveDuelChallenges() } }
     /// День рождения (опционально); используется для поздравления +10 F-bucks раз в год
     @Published var birthday: Date? = nil { didSet { saveIfReady() } }

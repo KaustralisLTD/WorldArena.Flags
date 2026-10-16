@@ -2581,6 +2581,7 @@ class GameState: ObservableObject {
         let os = result.opponentScore ?? myScore
         let st = result.status ?? ""
 
+        DuelInviteSuppression.markAccepted(challengeId)
         // Обновляем локальный статус входящей дуэли до того, как сервер даст winner
         if let idx = profile.incomingDuelChallenges.firstIndex(where: { $0.id == challengeId }) {
             var c = profile.incomingDuelChallenges[idx]

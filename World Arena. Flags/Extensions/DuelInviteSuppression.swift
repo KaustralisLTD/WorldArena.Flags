@@ -9,6 +9,14 @@ enum DuelInviteSuppression {
         "duelInvite.declined.\(challengeId)"
     }
 
+    static func markAccepted(_ challengeId: String) {
+        UserDefaults.standard.set(true, forKey: "duelInvite.accepted." + challengeId)
+    }
+
+    static func wasAccepted(_ challengeId: String) -> Bool {
+        UserDefaults.standard.bool(forKey: "duelInvite.accepted." + challengeId)
+    }
+
     static func isDeclined(_ challengeId: String) -> Bool {
         UserDefaults.standard.bool(forKey: declinedKey(challengeId))
     }
@@ -20,7 +28,7 @@ enum DuelInviteSuppression {
     }
 
     static func isSuppressed(_ challengeId: String, now: Date = Date()) -> Bool {
-        if isDeclined(challengeId) { return true }
+        if isDeclined(challengeId) || wasAccepted(challengeId) { return true }
         guard let until = suppressUntil(challengeId) else { return false }
         return until > now
     }

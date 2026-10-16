@@ -700,13 +700,7 @@ extension ProfileView {
         }
 
         if let incoming = try? await DuelAPIService.shared.fetchIncomingChallenges(userId: userId) {
-            let existingIds = Set(userProfile.incomingDuelChallenges.map(\.id))
-            let newOnes = incoming
-                .compactMap { $0.toDuelChallenge(opponentId: userId, opponentName: userId) }
-                .filter { !existingIds.contains($0.id) }
-            if !newOnes.isEmpty {
-                userProfile.incomingDuelChallenges.append(contentsOf: newOnes)
-            }
+            userProfile.reconcileIncomingDuelInvites(incoming.compactMap { $0.toDuelChallenge(opponentId: userId, opponentName: userId) })
         }
 
         // Лёгкий тик лиги и переоценка достижений, чтобы карточки на профиле были актуальны.
@@ -1703,7 +1697,7 @@ struct DuelSummaryView: View {
                 gameState.duelChallengerName = result.challengerName
                 gameState.duelOpponentName = userProfile.username
                 // Не удаляем incoming-челлендж: он нужен для появления дуэли в «Сводке Дуэлей» (ожидание результата)
-                DuelInviteSuppression.clear(challenge.id)
+                DuelInviteSuppression.markAccepted(challenge.id)
             }
 
             await gameState.startNewGameWithCurrentRegions()

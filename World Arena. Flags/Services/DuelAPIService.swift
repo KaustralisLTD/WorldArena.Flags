@@ -1139,6 +1139,14 @@ enum DuelAPIError: Error, LocalizedError {
     case serverError(String)
     case invalidResponse
 
+    var isUnavailableChallenge: Bool {
+        guard case .serverError(let message) = self,
+              let data = message.data(using: .utf8),
+              let json = try? JSONSerialization.jsonObject(with: data) as? [String: Any],
+              let error = json["error"] as? String else { return false }
+        return ["Challenge not found", "Challenge expired", "Challenge declined", "Challenge already completed", "Challenge already in progress", "Opponent already submitted"].contains(error)
+    }
+
     var errorDescription: String? {
         let saved = UserDefaults.standard.string(forKey: "selectedLanguage")
         let code = LocalizationLanguageResolver.resolveLanguageCode(saved: saved)
@@ -1150,7 +1158,8 @@ enum DuelAPIError: Error, LocalizedError {
                let json = try? JSONSerialization.jsonObject(with: data) as? [String: Any] {
                 if let code = json["errorCode"] as? String, tr(code) != code { return tr(code) }
                 let error = json["error"] as? String ?? ""
-                if error == "Result already available" { return tr("duel.reminder.completed") }
+                if ["Result already available", "Challenge already completed", "Challenge already in progress", "Opponent already submitted"].contains(error) { return tr("duel.reminder.completed") }
+                if ["Challenge expired", "Challenge declined"].contains(error) { return tr("duel.reminder.missing") }
                 if error == "Challenge not found" { return tr("duel.reminder.missing") }
                 // Preserve existing authentication feedback outside the duel flow.
                 if ["email", "password", "credentials", "registration", "sign in"].contains(where: { error.lowercased().contains($0) }) {
