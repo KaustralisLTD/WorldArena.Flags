@@ -110,6 +110,7 @@ struct MyNotificationsView: View {
                 }.navigationViewStyle(.stack)
             }
         }.navigationViewStyle(.stack)
+        .environment(\.layoutDirection, language.currentBundleLanguageCode == "ar" ? .rightToLeft : .leftToRight)
         .task { await inbox.refreshInbox() }
     }
     private func dateText(_ date: Date) -> String {

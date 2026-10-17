@@ -76,7 +76,6 @@ struct ProfileView: View {
                         profileHero
                             .background(profileGradient.ignoresSafeArea(.container, edges: .top))
                         VStack(spacing: 24) {
-                            statisticsSection
                             Button { showingInbox = true } label: {
                                 HStack(spacing: 14) {
                                     Image(systemName: "bell.badge.fill").font(.title2).foregroundColor(.blue)
@@ -89,6 +88,7 @@ struct ProfileView: View {
                                     Image(systemName: "chevron.right").font(.caption.bold()).foregroundColor(.secondary)
                                 }.padding(18).background(secondarySystemGroupedBackground,in:RoundedRectangle(cornerRadius:20))
                             }.buttonStyle(.plain).padding(.horizontal, isIPad ? 40 : 20).accessibilityIdentifier("profile.notifications")
+                            statisticsSection
                             overviewSection
                             FriendRequestsEntry()
                             addFriendsButton.appGuideTarget("friends")
