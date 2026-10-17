@@ -415,6 +415,25 @@ final class Flags_WorldUITests: XCTestCase {
     }
 
     @MainActor
+    func testCountryBoundaryScreenshot() throws {
+        let app = XCUIApplication()
+        app.launchArguments = ["UITesting", "UITestingLargeQuiz", "UITestingNormalText",
+                               "-selectedLanguage", "ru", "-facts.map", "YES"]
+        app.launch()
+        XCTAssertTrue(app.buttons["qa.flip"].waitForExistence(timeout: 20))
+        app.buttons["qa.flip"].tap()
+        let details = app.scrollViews["quiz.countryDetails"]
+        XCTAssertTrue(details.waitForExistence(timeout: 10))
+        details.swipeUp()
+        let map = app.descendants(matching: .any)["quiz.countryMap"].firstMatch
+        XCTAssertTrue(map.waitForExistence(timeout: 10))
+        let ready = expectation(for: NSPredicate(format: "value == %@", "ready"), evaluatedWith: map)
+        wait(for: [ready], timeout: 45)
+        let shot = XCTAttachment(screenshot: XCUIScreen.main.screenshot())
+        shot.name = "Country facts with highlighted border"; shot.lifetime = .keepAlways; add(shot)
+    }
+
+    @MainActor
     func testQuizMapSurvivesTapsAndCardRemoval() throws {
         let app = XCUIApplication()
         app.launchArguments = ["UITesting", "UITestingLargeQuiz", "UITestingNormalText",

@@ -137,7 +137,7 @@ struct FlagCardView: View {
                             }
 
                             }
-                            if showMap { CountryFactMap(coordinates: country.latlng) }
+                            if showMap { CountryFactMap(coordinates: country.latlng, countryCode: country.id) }
                             // Подсказка сразу после субрегиона
                             if isShowingInfo && presentationSize == nil {
                                 HStack {

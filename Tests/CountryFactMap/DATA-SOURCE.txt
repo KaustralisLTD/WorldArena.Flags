@@ -1,0 +1,8 @@
+Country facts boundary data
+Source: Natural Earth, Admin 0 Countries, 1:50m
+https://github.com/nvkelso/natural-earth-vector/blob/master/geojson/ne_50m_admin_0_countries.geojson
+Downloaded 2026-10-17. Geometry retained without simplification; properties removed.
+Indexed by ISO_A3_EH, falling back to ADM0_A3. XKX resolves to KOS.
+Natural Earth data is public domain: https://www.naturalearthdata.com/about/terms-of-use/
+Checks: every country in Resources/countries.json has a polygon; Swift MapKit
+geometry checks include mainland France, Fiji/date-line and tiny countries.

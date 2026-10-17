@@ -6,6 +6,45 @@ import UIKit
 import AppKit
 #endif
 
+// The legacy journal had no account identifier. Claim it once for the signed-in
+// account on this device; retain the original data as a recovery copy.
+enum LegacyNotificationJournalMigration {
+    static func migrate(defaults: UserDefaults, username: String?) {
+        guard let username, !username.isEmpty else { return }
+        let legacyKey = "notifications.inapp.log.v1"
+        let ownerKey = legacyKey + ".migrationOwner.v2"
+        guard defaults.string(forKey: ownerKey) == nil,
+              let original = defaults.data(forKey: legacyKey),
+              let legacy = try? JSONSerialization.jsonObject(with: original) as? [[String: Any]],
+              legacy.allSatisfy({ $0["id"] is String && $0["title"] is String && $0["body"] is String && $0["date"] is NSNumber && $0["source"] is String }) else { return }
+        let destination = legacyKey + "." + username
+        var current = [[String: Any]]()
+        if let data = defaults.data(forKey: destination) {
+            guard let decoded = try? JSONSerialization.jsonObject(with: data) as? [[String: Any]] else { return }
+            current = decoded
+        }
+        var known = Set(current.compactMap { $0["id"] as? String })
+        let inboxKey = "notifications.inbox.v2." + username
+        var read = Set(defaults.stringArray(forKey: inboxKey + ".read") ?? [])
+        for item in legacy {
+            guard let id = item["id"] as? String, known.insert(id).inserted else { continue }
+            current.append(item)
+            // Old storage did not track read status. Import as history, without
+            // turning past events into a new badge or replaying notifications.
+            read.insert(id)
+            if id.hasPrefix("duel_challenge_") {
+                read.insert("duel_challenge:" + String(id.dropFirst(15)))
+            } else if let kind = item["kind"] as? String, kind.hasPrefix("duel"), let target = item["target"] as? String {
+                read.insert(kind + ":" + target)
+            }
+        }
+        guard let merged = try? JSONSerialization.data(withJSONObject: current) else { return }
+        defaults.set(merged, forKey: destination)
+        defaults.set(Array(read), forKey: inboxKey + ".read")
+        defaults.set(username, forKey: ownerKey)
+    }
+}
+
 class NotificationService: NSObject, ObservableObject {
     static let shared = NotificationService()
     // Retained across cold launch until the main view has loaded the requested duel.
@@ -108,6 +147,7 @@ class NotificationService: NSObject, ObservableObject {
         #if targetEnvironment(simulator)
         if CommandLine.arguments.contains("NotificationInboxQA") { return }
         #endif
+        LegacyNotificationJournalMigration.migrate(defaults: userDefaults, username: AuthService.shared.authUsername)
         let account = accountKey
         if loadedInboxAccount != account {
             loadedInboxAccount = account; inboxRefreshing = false; supportsSelectiveRead = false
@@ -474,6 +514,7 @@ extension NotificationService {
 
     @MainActor
     private func loadInAppNotificationItems() -> [StoredInAppNotificationLogItem] {
+        LegacyNotificationJournalMigration.migrate(defaults: userDefaults, username: AuthService.shared.authUsername)
         guard let data = userDefaults.data(forKey: Self.inAppLogKey + "." + (AuthService.shared.authUsername ?? "guest")) else { return [] }
         return (try? JSONDecoder().decode([StoredInAppNotificationLogItem].self, from: data)) ?? []
     }
