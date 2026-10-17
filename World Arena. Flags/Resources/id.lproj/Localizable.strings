@@ -1826,3 +1826,12 @@
 "appIcon.explanation" = "Pilih bahasa tulisan besar pada ikon Layar Utama. Bahasa aplikasi dan ikon App Store tidak berubah. iOS mungkin menampilkan konfirmasi.";
 "appIcon.selected" = "Dipilih";
 "appIcon.error" = "Ikon tidak dapat diubah. Coba lagi.";
+
+"inbox.subtitle" = "Aktivitasmu";
+"inbox.explanation" = "Duel, pencapaian, dan kabar di satu tempat.";
+"inbox.unread" = "Belum dibaca";
+"inbox.readAll" = "Tandai semua sudah dibaca";
+"inbox.empty" = "Semua sudah dibaca";
+"inbox.cached" = "Pesan tersimpan. Tarik untuk menyegarkan.";
+"inbox.open" = "Buka";
+"inbox.syncFailed" = "Hasil duel tidak dapat diperbarui";

@@ -1826,3 +1826,12 @@
 "appIcon.explanation" = "Välj språk för den stora texten på hemskärmsikonen. Appens språk och App Store-ikonen ändras inte. iOS kan visa en bekräftelse.";
 "appIcon.selected" = "Vald";
 "appIcon.error" = "Ikonen kunde inte ändras. Försök igen.";
+
+"inbox.subtitle" = "Din aktivitet";
+"inbox.explanation" = "Dueller, prestationer och nyheter på ett ställe.";
+"inbox.unread" = "Olästa";
+"inbox.readAll" = "Markera alla som lästa";
+"inbox.empty" = "Du är uppdaterad";
+"inbox.cached" = "Sparade meddelanden. Dra för att uppdatera.";
+"inbox.open" = "Öppna";
+"inbox.syncFailed" = "Kunde inte uppdatera duellresultaten";

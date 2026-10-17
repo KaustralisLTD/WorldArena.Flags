@@ -1826,3 +1826,12 @@
 "appIcon.explanation" = "홈 화면 아이콘의 큰 글자 언어를 선택하세요. 앱 언어와 App Store 아이콘은 바뀌지 않습니다. iOS에서 확인 메시지가 표시될 수 있습니다.";
 "appIcon.selected" = "선택됨";
 "appIcon.error" = "아이콘을 변경하지 못했습니다. 다시 시도하세요.";
+
+"inbox.subtitle" = "내 활동";
+"inbox.explanation" = "대결, 업적, 소식을 한곳에서 확인하세요.";
+"inbox.unread" = "읽지 않음";
+"inbox.readAll" = "모두 읽음으로 표시";
+"inbox.empty" = "모든 소식을 확인했어요";
+"inbox.cached" = "저장된 메시지입니다. 당겨서 새로고침하세요.";
+"inbox.open" = "열기";
+"inbox.syncFailed" = "대결 결과를 새로고침할 수 없습니다";

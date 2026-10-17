@@ -1810,3 +1810,12 @@
 "appIcon.explanation" = "Wähle die Sprache der großen Beschriftung auf dem Home-Bildschirm. Die App-Sprache und das App-Store-Symbol bleiben gleich. iOS kann eine Bestätigung anzeigen.";
 "appIcon.selected" = "Ausgewählt";
 "appIcon.error" = "Das Symbol konnte nicht geändert werden. Bitte erneut versuchen.";
+
+"inbox.subtitle" = "Deine Aktivitäten";
+"inbox.explanation" = "Duelle, Erfolge und Neuigkeiten an einem Ort.";
+"inbox.unread" = "Ungelesen";
+"inbox.readAll" = "Alle als gelesen markieren";
+"inbox.empty" = "Alles gelesen";
+"inbox.cached" = "Gespeicherte Nachrichten. Zum Aktualisieren ziehen.";
+"inbox.open" = "Öffnen";
+"inbox.syncFailed" = "Duellergebnisse konnten nicht aktualisiert werden";

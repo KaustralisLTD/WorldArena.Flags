@@ -80,3 +80,33 @@ test('APNs setter-only alert preserves inbox and badge without reading a missing
  assert.equal(n.badge,1);assert.equal(db.prepare('SELECT title FROM notification_inbox').get().title,'Duel');
  }finally{db.close()}
 });
+
+test('individual read receipts preserve other unread items and recipient isolation',()=>{
+ const db=new Database(':memory:'),inbox=require('../notification-inbox');
+ try{
+ db.exec("CREATE TABLE users(username TEXT PRIMARY KEY,device_token TEXT);INSERT INTO users VALUES('alice','a'),('bob','b')");
+ inbox.recordForUser(db,'alice',{id:'one',title:'Result',body:'Won',kind:'duel_result',target:'match'});
+ inbox.recordForUser(db,'alice',{id:'two',title:'News',body:'New feature'});
+ inbox.recordForUser(db,'bob',{id:'three',title:'Private',body:'For Bob'});
+ const routes=new Map();inbox.install({get:(p,h)=>routes.set('GET '+p,h),post:(p,h)=>routes.set('POST '+p,h)},db,r=>r.user?{username:r.user}:null);
+ function call(method,body,user='alice'){const res={code:200,status(c){this.code=c;return this},json(x){this.body=x;return this},set(){return this}};routes.get(method+' /api/v1/notifications'+(method==='POST'?'/read':''))({user,body},res);return res;}
+ call('POST',{ids:['one','three']});let r=call('GET');assert.equal(r.body.unread,1);assert.equal(r.body.items.find(x=>x.id==='one').target,'match');
+ assert.equal(call('GET',{},'bob').body.unread,1);assert.equal(call('POST',{ids:'all'}).code,400);
+ call('POST',{ids:[]});assert.equal(call('GET').body.unread,1);
+ inbox.recordForUser(db,'alice',{id:'one',title:'Retry',body:'Same event'});assert.equal(call('GET').body.unread,1,'delivery retry does not reopen a read event');
+ }finally{db.close()}
+});
+
+test('accepted invitations stop counting as new while the result stays unread',()=>{
+ const db=new Database(':memory:'),inbox=require('../notification-inbox');
+ try{
+ db.exec("CREATE TABLE users(username TEXT PRIMARY KEY,device_token TEXT);INSERT INTO users VALUES('alice','a');CREATE TABLE duel_challenges(id TEXT PRIMARY KEY,status TEXT,opponent_score INTEGER);INSERT INTO duel_challenges VALUES('match','pending',NULL)");
+ inbox.recordForUser(db,'alice',{id:'invite',title:'Duel',body:'Invitation',kind:'duel_challenge',target:'match'});
+ const routes=new Map();inbox.install({get:(p,h)=>routes.set(p,h),post(){}},db,()=>({username:'alice'}));
+ const res={set(){return this},json(x){this.body=x;return this}};
+ routes.get('/api/v1/notifications')({},res);assert.equal(res.body.unread,1);
+ db.prepare("UPDATE duel_challenges SET status='completed',opponent_score=10").run();
+ inbox.recordForUser(db,'alice',{id:'result',title:'Result',body:'10 : 8',kind:'duel_result',target:'match'});
+ routes.get('/api/v1/notifications')({},res);assert.equal(res.body.unread,1);assert.equal(res.body.items.find(x=>x.id==='invite').readAt!==null,true);assert.equal(res.body.items.find(x=>x.id==='result').readAt,null);
+ }finally{db.close()}
+});

@@ -1826,3 +1826,12 @@
 "appIcon.explanation" = "ホーム画面アイコンの大きな文字の言語を選びます。アプリの言語や App Store のアイコンは変わりません。iOS が確認を表示する場合があります。";
 "appIcon.selected" = "選択済み";
 "appIcon.error" = "アイコンを変更できませんでした。もう一度お試しください。";
+
+"inbox.subtitle" = "あなたのアクティビティ";
+"inbox.explanation" = "対戦、実績、お知らせをまとめて確認。";
+"inbox.unread" = "未読";
+"inbox.readAll" = "すべて既読にする";
+"inbox.empty" = "すべて確認済みです";
+"inbox.cached" = "保存されたメッセージです。下に引いて更新。";
+"inbox.open" = "開く";
+"inbox.syncFailed" = "対戦結果を更新できませんでした";

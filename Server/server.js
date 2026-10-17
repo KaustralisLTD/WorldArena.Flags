@@ -605,6 +605,7 @@ app.post('/api/v1/duel/challenge', (req, res) => {
     duelOptionsCount: Number.isFinite(duelOptionsCount) ? duelOptionsCount : null,
     ...duelPayloadLogSummary(duelQuestionsPayload),
   });
+  if(opponent)try{require('./notification-inbox').recordForUser(db.db,opponentKey,{id:`duel_challenge:${id}:${opponentKey}`,title:'Duel',body:`${challengerName || 'Friend'} challenged you to a duel`,kind:'duel_challenge',target:id,details:{opponentName:challengerName || 'Friend'}})}catch(e){console.error('[inbox] invitation',e.message)}
   if (opponent && opponent.device_token && opponent.duel_invites_notifications !== 0) {
     sendDuelChallengePush(opponent.device_token, challengerName || 'Friend', (err) => {
       if (err) console.error('[duel/challenge] push failed', { challengeId: id, opponentId: opponentKey, message: err.message });
@@ -897,6 +898,7 @@ app.post('/api/v1/duel/submit', (req, res) => {
       for (const recipientSide of ['challenger', 'opponent']) {
         const isChallenger = recipientSide === 'challenger';
         const recipient = db.getUserByUsername(isChallenger ? updated.challenger_id : updated.opponent_id);
+        if(recipient)try{require('./notification-inbox').recordForUser(db.db,recipient.username,{id:`duel_result:${challengeId}:${recipient.username}`,title:'Duel result',body:`${updated.challenger_name}: ${updated.challenger_score} · ${updated.opponent_name}: ${updated.opponent_score}`,kind:'duel_result',target:challengeId,details:{opponentName:isChallenger?updated.opponent_name:updated.challenger_name,myScore:isChallenger?updated.challenger_score:updated.opponent_score,opponentScore:isChallenger?updated.opponent_score:updated.challenger_score,iWon:winner===recipientSide}})}catch(e){console.error('[inbox] result',e.message)}
         if (!recipient?.device_token || recipient.duel_results_notifications === 0) continue;
         require('./push').sendDuelResultPush(recipient.device_token, {
           challengeId, iWon: winner === recipientSide,

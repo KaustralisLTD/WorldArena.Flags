@@ -11,6 +11,7 @@ class NotificationService: NSObject, ObservableObject {
     // Retained across cold launch until the main view has loaded the requested duel.
     @Published var pendingDuelID: String?
     @Published var pendingLeague = false
+    @Published var pendingInbox = false
     var pendingDuelIsResult = false
     
     private let userDefaults = UserDefaults.standard
@@ -64,61 +65,166 @@ class NotificationService: NSObject, ObservableObject {
         }
     }
     
+    @Published private(set) var inboxItems: [AppNotificationLogItem] = []
+    @Published private(set) var unreadCount = 0
+    @Published private(set) var inboxRefreshFailed = false
+    private var inboxRefreshing = false
+    private var loadedInboxAccount: String?
+    private var supportsSelectiveRead = false
+
     private struct RemoteInbox: Decodable {
         struct Item: Decodable {
             let id: String; let title: String; let body: String
+            let kind: String?; let target: String?
+            let details: AppNotificationLogItem.Details?
             let createdAt: Double; let readAt: Double?
         }
         let items: [Item]
         let unread: Int
+        let selectiveRead: Bool?
     }
 
-    private func remoteInbox(markRead: Bool = false) async -> RemoteInbox? {
-        guard let token = await MainActor.run(body: { AuthService.shared.authToken }) else { return nil }
-        var request = URLRequest(url: URL(string: "https://flags.worldarena.games/api/v1/notifications" + (markRead ? "/read" : ""))!)
+    @MainActor private var accountKey: String {
+        "notifications.inbox.v2." + (AuthService.shared.authUsername ?? "guest")
+    }
+    @MainActor var unreadDuelCount: Int { inboxItems.filter { $0.isUnread && $0.isDuel }.count }
+    @MainActor func unreadForDuel(_ id: String) -> Bool {
+        inboxItems.contains { $0.isUnread && $0.isDuel && $0.target == id }
+    }
+    @MainActor func markDuelRead(_ id: String) {
+        markRead(ids: inboxItems.filter { $0.isDuel && $0.target == id }.map(\.id))
+    }
+
+    @MainActor private func remoteInbox(token: String) async -> RemoteInbox? {
+        var request = URLRequest(url: URL(string: "https://flags.worldarena.games/api/v1/notifications")!)
         request.setValue("Bearer " + token, forHTTPHeaderField: "Authorization")
-        request.httpMethod = markRead ? "POST" : "GET"
+        request.timeoutInterval = 15
         guard let (data, response) = try? await URLSession.shared.data(for: request),
               (response as? HTTPURLResponse)?.statusCode == 200 else { return nil }
         return try? JSONDecoder().decode(RemoteInbox.self, from: data)
     }
 
-    func refreshBadge() {
-        Task {
-            let remote = await remoteInbox()
-            let delivered = await UNUserNotificationCenter.current().deliveredNotifications()
-            let visible = delivered.filter { !$0.request.identifier.contains("reminder") && $0.request.identifier != "dailyReminder" }
-            let remoteIDs = Set(remote?.items.map(\.id) ?? [])
-            let localCount = visible.filter { item in
-                guard let id = item.request.content.userInfo["notificationId"] as? String else { return true }
-                return !remoteIDs.contains(id)
-            }.count
-            let count = localCount + (remote?.unread ?? 0)
-            if #available(iOS 16.0, *) {
-                try? await UNUserNotificationCenter.current().setBadgeCount(count)
-            } else {
-                await MainActor.run {
-                    #if os(iOS)
-                    UIApplication.shared.applicationIconBadgeNumber = count
-                    #endif
-                }
-            }
+    @MainActor func refreshInbox() async {
+        #if targetEnvironment(simulator)
+        if CommandLine.arguments.contains("NotificationInboxQA") { return }
+        #endif
+        let account = accountKey
+        if loadedInboxAccount != account {
+            loadedInboxAccount = account; inboxRefreshing = false; supportsSelectiveRead = false
+            inboxItems = (userDefaults.data(forKey: account).flatMap { try? JSONDecoder().decode([AppNotificationLogItem].self,from:$0) }) ?? []
+            persistInbox()
+        }
+        guard !inboxRefreshing else { return }
+        inboxRefreshing = true
+        defer { if loadedInboxAccount == account { inboxRefreshing = false } }
+        var cached = (userDefaults.data(forKey: account).flatMap { try? JSONDecoder().decode([AppNotificationLogItem].self, from: $0) }) ?? []
+        let token = AuthService.shared.authToken
+        let remote = token == nil ? nil : await remoteInbox(token: token!)
+        guard account == accountKey else { return }
+        inboxRefreshFailed = token != nil && remote == nil
+        var readIDs = Set(userDefaults.stringArray(forKey: account + ".read") ?? [])
+        if let remote {
+            supportsSelectiveRead = remote.selectiveRead == true
+            cached = remote.items.map { r in
+                var target = r.target
+                if target == nil && r.kind?.hasPrefix("duel_") == true { target = r.id.split(separator: ":").dropFirst().first.map(String.init) }
+                if r.readAt != nil { readIDs.insert(r.id) }
+                return AppNotificationLogItem(id:r.id,title:r.title,body:r.body,date:Date(timeIntervalSince1970:r.createdAt/1000),source:"server",kind:r.kind ?? "message",target:target,readAt:r.readAt.map { Date(timeIntervalSince1970:$0/1000) },details:r.details)
+            } + cached.filter { $0.source != "server" }
+        }
+        // Scheduled reminders are future requests, not unread events.
+        let delivered = await UNUserNotificationCenter.current().deliveredNotifications()
+        guard account == accountKey else { return }
+        var combined = cached + loadInAppNotificationItems().map {
+            AppNotificationLogItem(id:$0.id,title:$0.title,body:$0.body,date:$0.date,source:$0.source,kind:$0.kind ?? ($0.source == "duel" ? "duel_challenge" : $0.source),target:$0.target ?? ($0.id.hasPrefix("duel_challenge_") ? String($0.id.dropFirst(15)) : nil),details:$0.details)
+        }
+        for n in delivered {
+            let p=n.request.content.userInfo
+            let type=p["type"] as? String ?? "message"
+            if n.request.identifier.contains("reminder") || n.request.identifier == "dailyReminder" { continue }
+            combined.append(AppNotificationLogItem(id:p["notificationId"] as? String ?? n.request.identifier,title:n.request.content.title,body:n.request.content.body,date:n.date,source:"delivered",kind:type,target:p["challengeId"] as? String))
+        }
+        readIDs.formUnion(userDefaults.stringArray(forKey:account + ".read") ?? [])
+        var seen=Set<String>()
+        inboxItems = combined.sorted {
+            if ($0.source == "server") != ($1.source == "server") { return $0.source == "server" }
+            return ($0.date ?? .distantPast) > ($1.date ?? .distantPast)
+        }.filter { item in
+            let semantic=item.isDuel && item.target != nil ? item.kind + ":" + item.target! : item.id
+            return seen.insert(semantic).inserted
+        }.sorted { ($0.date ?? .distantPast) > ($1.date ?? .distantPast) }.prefix(200).map { item in
+            var item=item
+            let semantic=item.isDuel && item.target != nil ? item.kind + ":" + item.target! : item.id
+            if readIDs.contains(item.id) || readIDs.contains(semantic) { item.readAt = item.readAt ?? Date() }
+            return item
+        }
+        userDefaults.set(Array(readIDs),forKey:account + ".read")
+        persistInbox()
+        var queue=Set(userDefaults.stringArray(forKey:account + ".readQueue") ?? [])
+        for item in inboxItems where item.source == "server" && item.readAt != nil {
+            if remote?.items.first(where: { $0.id == item.id })?.readAt == nil { queue.insert(item.id) }
+        }
+        userDefaults.set(Array(queue),forKey:account + ".readQueue")
+        if let token { await flushReadQueue(account:account,token:token) }
+    }
+
+    @MainActor private func persistInbox() {
+        if let data=try? JSONEncoder().encode(inboxItems) { userDefaults.set(data,forKey:accountKey) }
+        unreadCount=inboxItems.filter(\.isUnread).count
+        let count=unreadCount
+        if #available(iOS 16.0, *) { Task { try? await UNUserNotificationCenter.current().setBadgeCount(count) } }
+        else {
+            #if os(iOS)
+            UIApplication.shared.applicationIconBadgeNumber=count
+            #endif
         }
     }
 
-    func markNotificationsRead() {
-        Task {
-            _ = await remoteInbox(markRead: true)
-            UNUserNotificationCenter.current().removeAllDeliveredNotifications()
-            refreshBadge()
+    @MainActor func markRead(ids: [String]) {
+        guard !ids.isEmpty else { return }
+        #if targetEnvironment(simulator)
+        if CommandLine.arguments.contains("NotificationInboxQA") {
+            for i in inboxItems.indices where ids.contains(inboxItems[i].id) { inboxItems[i].readAt=Date() }
+            unreadCount=inboxItems.filter(\.isUnread).count
+            return
         }
+        #endif
+        let ids=Set(ids), account=accountKey
+        var reads=Set(userDefaults.stringArray(forKey:account + ".read") ?? [])
+        reads.formUnion(ids)
+        for item in inboxItems where ids.contains(item.id) && item.isDuel {
+            if let target=item.target { reads.insert(item.kind + ":" + target) }
+        }
+        userDefaults.set(Array(reads),forKey:account + ".read")
+        let serverIDs=inboxItems.filter { ids.contains($0.id) && $0.source == "server" }.map(\.id)
+        var queue=Set(userDefaults.stringArray(forKey:account + ".readQueue") ?? [])
+        queue.formUnion(serverIDs);userDefaults.set(Array(queue),forKey:account + ".readQueue")
+        for i in inboxItems.indices where ids.contains(inboxItems[i].id) { inboxItems[i].readAt=Date() }
+        UNUserNotificationCenter.current().removeDeliveredNotifications(withIdentifiers:Array(ids))
+        persistInbox()
+        if let token=AuthService.shared.authToken { Task { await flushReadQueue(account:account,token:token) } }
     }
+    @MainActor private func flushReadQueue(account:String,token:String) async {
+        guard supportsSelectiveRead else { return } // Older servers only support marking everything read.
+        let ids=Array((userDefaults.stringArray(forKey:account + ".readQueue") ?? []).prefix(200))
+        guard !ids.isEmpty else { return }
+        var r=URLRequest(url:URL(string:"https://flags.worldarena.games/api/v1/notifications/read")!)
+        r.httpMethod="POST";r.timeoutInterval=15
+        r.setValue("Bearer " + token,forHTTPHeaderField:"Authorization")
+        r.setValue("application/json",forHTTPHeaderField:"Content-Type")
+        r.httpBody=try? JSONEncoder().encode(["ids":ids])
+        guard let (_,response)=try? await URLSession.shared.data(for:r),(response as? HTTPURLResponse)?.statusCode==200 else { return }
+        var pending=Set(userDefaults.stringArray(forKey:account + ".readQueue") ?? []);pending.subtract(ids)
+        userDefaults.set(Array(pending),forKey:account + ".readQueue")
+    }
+    func refreshBadge() { Task { @MainActor in await self.refreshInbox() } }
+    func markNotificationsRead() { Task { @MainActor in self.markRead(ids:self.inboxItems.map(\.id)) } }
 
     @MainActor
     func notifyProgress(id: String, title: String, body: String, preference: String) {
+        logInAppNotification(id: id, title: title, body: body, source: "progress")
         guard userDefaults.object(forKey: "notificationsEnabled") as? Bool != false,
               userDefaults.object(forKey: preference) as? Bool != false else { return }
-        logInAppNotification(id: id, title: title, body: body, source: "progress")
         let content = UNMutableNotificationContent()
         content.title = title
         content.body = body
@@ -297,12 +403,33 @@ class NotificationService: NSObject, ObservableObject {
     }
 }
 
-struct AppNotificationLogItem: Identifiable {
+struct AppNotificationLogItem: Identifiable, Codable {
     let id: String
     let title: String
     let body: String
     let date: Date?
     let source: String
+    var kind: String = "message"
+    var target: String? = nil
+    var readAt: Date? = nil
+    struct Details: Codable { var opponentName: String?; var myScore: Int?; var opponentScore: Int?; var iWon: Bool? }
+    var details: Details? = nil
+    var isUnread: Bool { readAt == nil }
+    @MainActor var displayTitle: String {
+        let lm=LocalizationManager.shared
+        if kind == "duel_result" { return lm.localizedString(details?.iWon == true ? "Victory" : "Duel result") }
+        if kind == "duel_challenge" { return lm.localizedString("Duel") }
+        return title
+    }
+    @MainActor var displayBody: String {
+        let lm=LocalizationManager.shared
+        if kind == "duel_challenge", let name=details?.opponentName { return String(format:lm.localizedString("Duel challenge from %@"),name) }
+        if kind == "duel_result", let d=details,let own=d.myScore,let other=d.opponentScore {
+            return "\(lm.localizedString("You")): \(own) · \(d.opponentName ?? "—"): \(other)"
+        }
+        return body
+    }
+    var isDuel: Bool { kind.hasPrefix("duel") || source == "duel" }
 }
 
 extension NotificationService {
@@ -315,17 +442,21 @@ extension NotificationService {
         let body: String
         let date: Date
         let source: String
+        var kind: String? = nil
+        var target: String? = nil
+        var details: AppNotificationLogItem.Details? = nil
     }
 
     @MainActor
-    func logInAppNotification(id: String = UUID().uuidString, title: String, body: String, source: String = "in-app") {
+    func logInAppNotification(id: String = UUID().uuidString, title: String, body: String, source: String = "in-app", kind: String? = nil, target: String? = nil, details: AppNotificationLogItem.Details? = nil) {
         var items = loadInAppNotificationItems()
         if items.contains(where: { $0.id == id }) { return }
-        items.append(.init(id: id, title: title, body: body, date: Date(), source: source))
+        items.append(.init(id: id, title: title, body: body, date: Date(), source: source, kind: kind, target: target, details: details))
         if items.count > 200 {
             items = Array(items.suffix(200))
         }
         saveInAppNotificationItems(items)
+        refreshBadge()
     }
 
     @MainActor
@@ -341,58 +472,24 @@ extension NotificationService {
         logInAppNotification(id: "duel_challenge_\(challengeId)", title: title, body: body, source: "duel")
     }
 
+    @MainActor
     private func loadInAppNotificationItems() -> [StoredInAppNotificationLogItem] {
-        guard let data = userDefaults.data(forKey: Self.inAppLogKey) else { return [] }
+        guard let data = userDefaults.data(forKey: Self.inAppLogKey + "." + (AuthService.shared.authUsername ?? "guest")) else { return [] }
         return (try? JSONDecoder().decode([StoredInAppNotificationLogItem].self, from: data)) ?? []
     }
 
+    @MainActor
     private func saveInAppNotificationItems(_ items: [StoredInAppNotificationLogItem]) {
         guard let data = try? JSONEncoder().encode(items) else { return }
-        userDefaults.set(data, forKey: Self.inAppLogKey)
+        userDefaults.set(data, forKey: Self.inAppLogKey + "." + (AuthService.shared.authUsername ?? "guest"))
     }
 
+    @MainActor
     func fetchMyNotifications() async -> [AppNotificationLogItem] {
-        let remote = await remoteInbox()
-        let remoteItems = remote?.items.map {
-            AppNotificationLogItem(id: $0.id, title: $0.title, body: $0.body, date: Date(timeIntervalSince1970: $0.createdAt / 1000), source: "server")
-        } ?? []
-        let inAppItems: [AppNotificationLogItem] = remoteItems + loadInAppNotificationItems().map {
-            AppNotificationLogItem(
-                id: $0.id,
-                title: $0.title,
-                body: $0.body,
-                date: $0.date,
-                source: $0.source
-            )
-        }
-        return await withCheckedContinuation { continuation in
-            UNUserNotificationCenter.current().getDeliveredNotifications { delivered in
-                UNUserNotificationCenter.current().getPendingNotificationRequests { pending in
-                    let deliveredItems = delivered.map { n in
-                        AppNotificationLogItem(
-                            id: n.request.identifier,
-                            title: n.request.content.title,
-                            body: n.request.content.body,
-                            date: n.date,
-                            source: "delivered"
-                        )
-                    }
-                    let pendingItems = pending.map { r in
-                        AppNotificationLogItem(
-                            id: r.identifier,
-                            title: r.content.title,
-                            body: r.content.body,
-                            date: nil,
-                            source: "pending"
-                        )
-                    }
-                    let combined = (deliveredItems + pendingItems + inAppItems)
-                        .sorted { ($0.date ?? .distantPast) > ($1.date ?? .distantPast) }
-                    continuation.resume(returning: combined)
-                }
-            }
-        }
+        await refreshInbox()
+        return inboxItems
     }
+
 }
 
 // MARK: - UNUserNotificationCenterDelegate
@@ -422,6 +519,15 @@ extension NotificationService: UNUserNotificationCenterDelegate {
     func userNotificationCenter(_ center: UNUserNotificationCenter, didReceive response: UNNotificationResponse, withCompletionHandler completionHandler: @escaping () -> Void) {
         
         let payload = response.notification.request.content.userInfo
+        let notificationType=payload["type"] as? String ?? "message"
+        if !["duel_challenge","duel_result","league_weekly","friend_request"].contains(notificationType),
+           !response.notification.request.identifier.contains("reminder"), response.notification.request.identifier != "dailyReminder" {
+            Task { @MainActor in self.pendingInbox = true }
+        }
+        Task { @MainActor in
+            await self.refreshInbox()
+            if let id=payload["notificationId"] as? String { self.markRead(ids:[id]) }
+        }
         if payload["type"] as? String == "league_weekly" {
             Task { @MainActor in self.pendingLeague = true }
         }
@@ -445,4 +551,16 @@ extension NotificationService: UNUserNotificationCenterDelegate {
         refreshBadge()
         completionHandler()
     }
-} 
+}
+#if targetEnvironment(simulator)
+extension NotificationService {
+    @MainActor func seedInboxPreview() {
+        inboxItems = [
+            .init(id:"preview-duel",title:LocalizationManager.shared.localizedString("Victory"),body:"Sergii · 20 : 14 · Nadiia",date:Date(),source:"preview",kind:"duel_result",target:"preview-match"),
+            .init(id:"preview-achievement",title:LocalizationManager.shared.localizedString("Достижения"),body:LocalizationManager.shared.localizedString("Ранняя птица") + " · " + LocalizationManager.shared.localizedString("Достигните серии 5 дней"),date:Date().addingTimeInterval(-900),source:"preview",kind:"progress"),
+            .init(id:"preview-message",title:"World Arena",body:LocalizationManager.shared.localizedString("inbox.explanation"),date:Date().addingTimeInterval(-86400),source:"preview",kind:"message",readAt:Date())
+        ]
+        unreadCount=2
+    }
+}
+#endif

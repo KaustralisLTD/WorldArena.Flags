@@ -1825,3 +1825,12 @@
 "appIcon.explanation" = "選擇主畫面圖示大字的語言。這不會更改 App 語言或 App Store 圖示。iOS 可能會顯示確認提示。";
 "appIcon.selected" = "已選取";
 "appIcon.error" = "無法更改圖示，請再試一次。";
+
+"inbox.subtitle" = "你的動態";
+"inbox.explanation" = "對決、成就和消息，盡在這裡。";
+"inbox.unread" = "未讀";
+"inbox.readAll" = "全部標為已讀";
+"inbox.empty" = "已讀完所有消息";
+"inbox.cached" = "顯示已儲存的消息。下拉重新整理。";
+"inbox.open" = "開啟";
+"inbox.syncFailed" = "無法更新對決結果";

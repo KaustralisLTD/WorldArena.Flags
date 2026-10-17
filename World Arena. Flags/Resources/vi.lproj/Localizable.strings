@@ -1826,3 +1826,12 @@
 "appIcon.explanation" = "Chọn ngôn ngữ chữ lớn trên biểu tượng màn hình chính. Ngôn ngữ ứng dụng và biểu tượng App Store không đổi. iOS có thể hiển thị xác nhận.";
 "appIcon.selected" = "Đã chọn";
 "appIcon.error" = "Không thể đổi biểu tượng. Hãy thử lại.";
+
+"inbox.subtitle" = "Hoạt động của bạn";
+"inbox.explanation" = "Đấu tay đôi, thành tích và tin tức ở một nơi.";
+"inbox.unread" = "Chưa đọc";
+"inbox.readAll" = "Đánh dấu tất cả đã đọc";
+"inbox.empty" = "Bạn đã đọc hết";
+"inbox.cached" = "Tin nhắn đã lưu. Kéo để làm mới.";
+"inbox.open" = "Mở";
+"inbox.syncFailed" = "Không thể cập nhật kết quả đấu";

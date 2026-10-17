@@ -1826,3 +1826,12 @@
 "appIcon.explanation" = "اختر لغة النص الكبير على أيقونة الشاشة الرئيسية. لن تتغير لغة التطبيق أو أيقونة App Store. قد يعرض iOS رسالة تأكيد.";
 "appIcon.selected" = "محدد";
 "appIcon.error" = "تعذّر تغيير الأيقونة. حاول مجددًا.";
+
+"inbox.subtitle" = "نشاطك";
+"inbox.explanation" = "المبارزات والإنجازات والأخبار في مكان واحد.";
+"inbox.unread" = "غير مقروءة";
+"inbox.readAll" = "تحديد الكل كمقروء";
+"inbox.empty" = "قرأت كل الرسائل";
+"inbox.cached" = "رسائل محفوظة. اسحب للتحديث.";
+"inbox.open" = "فتح";
+"inbox.syncFailed" = "تعذّر تحديث نتائج المبارزات";

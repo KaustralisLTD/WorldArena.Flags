@@ -1811,3 +1811,12 @@
 "appIcon.explanation" = "Escolha o idioma do texto grande no ícone da Tela de Início. O idioma do app e o ícone da App Store não mudam. O iOS pode mostrar uma confirmação.";
 "appIcon.selected" = "Selecionado";
 "appIcon.error" = "Não foi possível alterar o ícone. Tente novamente.";
+
+"inbox.subtitle" = "Sua atividade";
+"inbox.explanation" = "Duelos, conquistas e novidades em um só lugar.";
+"inbox.unread" = "Não lidas";
+"inbox.readAll" = "Marcar todas como lidas";
+"inbox.empty" = "Tudo em dia";
+"inbox.cached" = "Mensagens salvas. Puxe para atualizar.";
+"inbox.open" = "Abrir";
+"inbox.syncFailed" = "Não foi possível atualizar os duelos";

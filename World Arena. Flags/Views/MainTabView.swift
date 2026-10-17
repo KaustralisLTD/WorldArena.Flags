@@ -15,6 +15,7 @@ struct MainTabView: View {
     @State private var openingNotification = false
     @State private var notificationResult: DuelHistoryEntry?
     @State private var showNotificationInbox = false
+    @State private var showUnifiedInbox = false
     @State private var selectedTab = 0
     @State private var pendingNudgeAlert: NudgeFromAPI?
     @State private var incomingDuelPopup: DuelChallenge?
@@ -135,6 +136,10 @@ struct MainTabView: View {
         .sheet(item: $notificationResult) { entry in
             DuelNotificationResultView(entry: entry)
         }
+        .sheet(isPresented: $showUnifiedInbox) { MyNotificationsView() }
+        .onReceive(notificationRouter.$pendingInbox) { open in
+            if open { selectedTab = 4; showUnifiedInbox = true; notificationRouter.pendingInbox = false }
+        }
         .sheet(isPresented: $showNotificationInbox) {
             NavigationView { DuelSummaryView().environmentObject(gameState).environmentObject(userProfile) }
         }
@@ -162,6 +167,7 @@ struct MainTabView: View {
                 await openNotificationDuel()
                 await registerAndSaveFriendCodeIfNeeded()
                 await refreshFriendsDisplayNames()
+                await notificationRouter.refreshInbox()
                 await friendRequests.refresh()
             } }
         }
@@ -208,6 +214,7 @@ struct MainTabView: View {
                 await registerAndSaveFriendCodeIfNeeded()
                 await refreshFriendsDisplayNames()
                 await checkNudgeInbox()
+                await notificationRouter.refreshInbox()
                 await friendRequests.refresh()
                 await checkBirthdayGiftsInbox()
                 #if os(iOS)
@@ -224,6 +231,7 @@ struct MainTabView: View {
                 await gameState.syncOutgoingDuelsWithServer(profile: userProfile)
                 await refreshFriendsDisplayNames()
                 await checkNudgeInbox()
+                await notificationRouter.refreshInbox()
                 await friendRequests.refresh()
             }
         }
@@ -262,6 +270,7 @@ struct MainTabView: View {
         guard notificationRouter.pendingDuelID == id else { return }
         if let entry = gameState.duelHistory.first(where: { $0.duelChallengeId == id }) {
             incomingDuelPopup = nil
+            notificationRouter.markDuelRead(id)
             notificationResult = entry
         } else if !notificationRouter.pendingDuelIsResult,
                   let challenge = userProfile.incomingDuelChallenges.first(where: { $0.id == id }) {
@@ -373,6 +382,7 @@ struct MainTabView: View {
                     duelActionErrorText = msg
                     if (error as? DuelAPIError)?.isUnavailableChallenge == true {
                         DuelInviteSuppression.markAccepted(challenge.id)
+                        notificationRouter.markDuelRead(challenge.id)
                         incomingDuelPopup = nil
                     }
                     isAcceptingIncomingDuel = false
@@ -409,6 +419,7 @@ struct MainTabView: View {
                 gameState.duelOpponentName = userProfile.username
                 // Не удаляем incoming-челлендж: он нужен для ожидания результата и для отправки счёта после игры.
                 DuelInviteSuppression.markAccepted(challenge.id)
+                        notificationRouter.markDuelRead(challenge.id)
                 incomingDuelPopup = nil
                 selectedTab = 0
                 showDuelAnnouncement = true
@@ -580,6 +591,7 @@ struct MainTabView: View {
                     Text(LocalizationManager.shared.localizedString("Профиль"))
                 }
                 .tag(4)
+                .badge(notificationRouter.unreadCount)
                     .modifier(OpaqueMainTabBackground())
             } else {
                 // Премиум план
@@ -624,6 +636,7 @@ struct MainTabView: View {
                     Text(LocalizationManager.shared.localizedString("Профиль"))
                 }
                 .tag(4)
+                .badge(notificationRouter.unreadCount)
                     .modifier(OpaqueMainTabBackground())
             }
             }
@@ -707,6 +720,7 @@ struct MainTabView: View {
                         VStack(spacing: 4) {
                             Image(systemName: selectedTab == 4 ? "ellipsis" : "ellipsis")
                                 .font(.system(size: 20))
+                                .overlay(alignment:.topTrailing) { NotificationCountBadge(count:notificationRouter.unreadCount).offset(x:14,y:-9) }
                             Text(LocalizationManager.shared.localizedString("More"))
                                 .font(.system(size: 10, weight: .medium))
                         }
@@ -719,6 +733,7 @@ struct MainTabView: View {
                         VStack(spacing: 4) {
                             Image(systemName: selectedTab == 4 ? "person.fill" : "person")
                                 .font(.system(size: 20))
+                                .overlay(alignment:.topTrailing) { NotificationCountBadge(count:notificationRouter.unreadCount).offset(x:14,y:-9) }
                             Text(LocalizationManager.shared.localizedString("Профиль"))
                                 .font(.system(size: 10, weight: .medium))
                         }
@@ -824,6 +839,7 @@ struct MainTabView: View {
                     Text(LocalizationManager.shared.localizedString("Профиль"))
                 }
                 .tag(4)
+                .badge(notificationRouter.unreadCount)
                     .modifier(OpaqueMainTabBackground())
             } else {
                 // Премиум план
@@ -869,6 +885,7 @@ struct MainTabView: View {
                     Text(LocalizationManager.shared.localizedString("Профиль"))
                 }
                 .tag(4)
+                .badge(notificationRouter.unreadCount)
                     .modifier(OpaqueMainTabBackground())
             }
             }

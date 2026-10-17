@@ -10,6 +10,7 @@ const parse=(s,fallback)=>{try{return JSON.parse(s)}catch{return fallback}};
 const timeZone=z=>{try{new Intl.DateTimeFormat('en',{timeZone:z}).format();return typeof z==='string'&&z.length<80}catch{return false}};
 function install(app,store,authenticate,sendMail,{now=()=>Date.now(),allowRewards=()=>process.env.LIFECYCLE_REWARDS_ENABLED==='true'}={}) {
  const db=store.db;
+ require('./notification-inbox').initialize(db);
  db.exec(`CREATE TABLE IF NOT EXISTS lifecycle_prefs(username TEXT PRIMARY KEY REFERENCES users(username) ON DELETE CASCADE,locale TEXT NOT NULL,timezone TEXT NOT NULL,tz_since INTEGER NOT NULL,progress INTEGER NOT NULL DEFAULT 0,offers INTEGER NOT NULL DEFAULT 0,progress_blocked INTEGER NOT NULL DEFAULT 0,offers_blocked INTEGER NOT NULL DEFAULT 0,blocked_at INTEGER NOT NULL DEFAULT 0,capabilities TEXT NOT NULL DEFAULT '{}',unsubscribe_token TEXT UNIQUE NOT NULL);
  CREATE TABLE IF NOT EXISTS lifecycle_events(username TEXT NOT NULL REFERENCES users(username) ON DELETE CASCADE,id TEXT NOT NULL,at INTEGER NOT NULL,received_at INTEGER NOT NULL,payload TEXT NOT NULL,PRIMARY KEY(username,id));
  CREATE TABLE IF NOT EXISTS lifecycle_contacts(id TEXT PRIMARY KEY,username TEXT NOT NULL REFERENCES users(username) ON DELETE CASCADE,journey TEXT NOT NULL,channel TEXT NOT NULL,kind TEXT NOT NULL,period TEXT NOT NULL,status TEXT NOT NULL,created_at INTEGER NOT NULL,token TEXT UNIQUE NOT NULL,viewed_at INTEGER,goal_at INTEGER,retry_at INTEGER NOT NULL DEFAULT 0,UNIQUE(username,journey,period));
@@ -70,7 +71,9 @@ function install(app,store,authenticate,sendMail,{now=()=>Date.now(),allowReward
   const period=new Date(now()).toISOString().slice(0,10),contact={id:uid(),username,journey:result.journey,channel:result.channel,kind:result.journey==='weekly_passport'?'progress':'marketing',period,status:result.status==='holdout'?'holdout':inApp?'sent':'planned',created_at:now(),token:crypto.randomBytes(32).toString('hex')};
   const insert=db.prepare('INSERT OR IGNORE INTO lifecycle_contacts(id,username,journey,channel,kind,period,status,created_at,token) VALUES(@id,@username,@journey,@channel,@kind,@period,@status,@created_at,@token)').run(contact);
   if(!insert.changes||contact.status==='holdout')return null;
-  return {contact,p,message:material(contact,p)};
+  const message=material(contact,p);
+  if(inApp)require('./notification-inbox').recordForUser(db,username,{id:'lifecycle:'+contact.id,title:message.title,body:[message.body,...(message.facts||[]).map(f=>f.label+': '+f.value)].join('\n'),kind:'lifecycle',target:contact.id,createdAt:contact.created_at});
+  return {contact,p,message};
  }
  app.get('/api/v1/lifecycle/assets/:name',(req,res)=>{
   const allowed=/^(?:map-(?:en|ru|uk|de|es|fr|it|pt-BR|nl|pl|ca|cs|el|sv|ro|hu|tr|ar|hi|bn|ta|te|th|vi|id|fil|ja|ko|zh|zh-Hant)-v1\.jpg|(?:flags|capitals)-logo-v1\.png)$/;
@@ -120,7 +123,7 @@ function install(app,store,authenticate,sendMail,{now=()=>Date.now(),allowReward
   if(!c||!p||(c.kind==='progress'?p.raw.progress:p.raw.offers)!==1)return res.status(404).json({message:null});
   res.set('Cache-Control','no-store').json({message:material(c,p)});
  });
- app.post('/api/v1/lifecycle/contacts/:id/action',(req,res)=>{const s=session(req,res);if(!s)return;const c=db.prepare('SELECT * FROM lifecycle_contacts WHERE id=? AND username=?').get(req.params.id,s.username);if(!c)return res.sendStatus(404);db.prepare("UPDATE lifecycle_contacts SET viewed_at=?,status=CASE WHEN status='sent' THEN 'viewed' ELSE status END WHERE id=?").run(now(),c.id);res.json({ok:true});});
+ app.post('/api/v1/lifecycle/contacts/:id/action',(req,res)=>{const s=session(req,res);if(!s)return;const c=db.prepare('SELECT * FROM lifecycle_contacts WHERE id=? AND username=?').get(req.params.id,s.username);if(!c)return res.sendStatus(404);db.prepare("UPDATE lifecycle_contacts SET viewed_at=?,status=CASE WHEN status='sent' THEN 'viewed' ELSE status END WHERE id=?").run(now(),c.id);db.prepare("UPDATE notification_inbox SET read_at=? WHERE username=? AND id=? AND read_at IS NULL").run(now(),s.username,'lifecycle:'+c.id);res.json({ok:true});});
  const publicQuestion=row=>{const qs=parse(row.questions,[]),q=qs[row.next_index];return q?{index:row.next_index,total:qs.length,flag:q.flag,options:q.options}:null};
  app.post('/api/v1/lifecycle/bonus/start',(req,res)=>{
   const s=session(req,res);if(!s)return;if(!allowRewards())return res.status(409).json({errorCode:'lifecycle.bonus.unavailable'});
@@ -196,9 +199,16 @@ function install(app,store,authenticate,sendMail,{now=()=>Date.now(),allowReward
    const {contact,p,message}=selected;
    const claimed=db.prepare("UPDATE lifecycle_contacts SET status='sending',retry_at=? WHERE id=? AND status='planned'").run(now()+DAY,contact.id);if(!claimed.changes)continue;
    const content=templates.email(message,p.raw.locale,`https://flags.worldarena.games/api/v1/lifecycle/open/${contact.token}`,`https://flags.worldarena.games/api/v1/lifecycle/preferences/${p.raw.unsubscribe_token}`);
-   try{await sendMail(p.raw.email,content.subject,content.text,content.html,{unsubscribeURL:`https://flags.worldarena.games/api/v1/lifecycle/preferences/${p.raw.unsubscribe_token}`,tag:"lifecycle"});db.prepare("UPDATE lifecycle_contacts SET status='sent' WHERE id=?").run(contact.id)}catch{db.prepare("UPDATE lifecycle_contacts SET status='failed' WHERE id=?").run(contact.id)}
+   try{await sendMail(p.raw.email,content.subject,content.text,content.html,{unsubscribeURL:`https://flags.worldarena.games/api/v1/lifecycle/preferences/${p.raw.unsubscribe_token}`,tag:"lifecycle"});db.prepare("UPDATE lifecycle_contacts SET status='sent' WHERE id=?").run(contact.id)}catch{db.prepare("UPDATE lifecycle_contacts SET status='failed' WHERE id=?").run(contact.id);continue}
+   try{require('./notification-inbox').recordForUser(db,contact.username,{id:'lifecycle:'+contact.id,title:message.title,body:[message.body,...(message.facts||[]).map(f=>f.label+': '+f.value)].join('\n'),kind:'lifecycle',target:contact.id,createdAt:contact.created_at})}catch(e){console.error('[lifecycle-inbox]',e.message)}
   }}finally{busy=false;}
  }
+ try {
+  for(const c of db.prepare("SELECT c.* FROM lifecycle_contacts c LEFT JOIN notification_inbox n ON n.id='lifecycle:'||c.id WHERE n.id IS NULL AND c.channel='email' AND c.status IN ('sent','viewed','goal') ORDER BY c.created_at DESC LIMIT 1000").all()) {
+   const p=profile(c.username,false);if(!p)continue;
+   const m=material(c,p);require('./notification-inbox').recordForUser(db,c.username,{id:'lifecycle:'+c.id,title:m.title,body:m.body,kind:'lifecycle',target:c.id,createdAt:c.created_at,readAt:now()});
+  }
+ }catch(e){console.error('[lifecycle-inbox-history]',e.message)}
  const timer=setInterval(()=>tick().catch(e=>console.error('[lifecycle]',e.message)),600000);timer.unref();
  return {tick,profile,select};
 }

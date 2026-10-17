@@ -116,7 +116,9 @@ struct FlagsWorldApp: App {
 
     @ViewBuilder private var launchContent: some View {
         #if targetEnvironment(simulator)
-        if CommandLine.arguments.contains("AppIconQA") {
+        if CommandLine.arguments.contains("NotificationInboxQA") {
+            MyNotificationsView().onAppear { NotificationService.shared.seedInboxPreview() }
+        } else if CommandLine.arguments.contains("AppIconQA") {
             AppIconSelectionView()
         } else if CommandLine.arguments.contains("LifecycleBonusQA") {
             LifecycleBonusView(contactID: "preview", loadState: {

@@ -9,6 +9,8 @@ import AppKit
 struct ProfileView: View {
     @EnvironmentObject var userProfile: UserProfile
     @EnvironmentObject var gameState: GameState
+    @ObservedObject private var notificationInbox = NotificationService.shared
+    @State private var showingInbox = false
     @State private var showingSettings = false
     @State private var showingShareSheet = false
     @State private var verifiedProfileShareURL: URL?
@@ -75,6 +77,18 @@ struct ProfileView: View {
                             .background(profileGradient.ignoresSafeArea(.container, edges: .top))
                         VStack(spacing: 24) {
                             statisticsSection
+                            Button { showingInbox = true } label: {
+                                HStack(spacing: 14) {
+                                    Image(systemName: "bell.badge.fill").font(.title2).foregroundColor(.blue)
+                                    VStack(alignment: .leading, spacing: 4) {
+                                        Text(localizationManager.localizedString("My notifications")).font(.headline)
+                                        Text(localizationManager.localizedString("inbox.subtitle")).font(.caption).foregroundColor(.secondary)
+                                    }
+                                    Spacer()
+                                    NotificationCountBadge(count: notificationInbox.unreadCount)
+                                    Image(systemName: "chevron.right").font(.caption.bold()).foregroundColor(.secondary)
+                                }.padding(18).background(secondarySystemGroupedBackground,in:RoundedRectangle(cornerRadius:20))
+                            }.buttonStyle(.plain).padding(.horizontal, isIPad ? 40 : 20).accessibilityIdentifier("profile.notifications")
                             overviewSection
                             FriendRequestsEntry()
                             addFriendsButton.appGuideTarget("friends")
@@ -137,6 +151,7 @@ struct ProfileView: View {
                 UINavigationBar.appearance().scrollEdgeAppearance = appearance
                 #endif
             }
+            .sheet(isPresented: $showingInbox) { MyNotificationsView() }
             .sheetOrFullScreenOnIPad(isPresented: $showingSettings) {
                 SettingsView()
             }
@@ -231,6 +246,7 @@ struct ProfileView: View {
                 profileOverviewCard(
                     iconName: "IconDuelSummary",
                     title: LocalizationManager.shared.localizedString("Duel Summary"),
+                    unread: notificationInbox.unreadDuelCount,
                     subtitle: LocalizationManager.shared.localizedString("Duel Summary subtitle"),
                     destination: { DuelSummaryView().environmentObject(gameState).environmentObject(userProfile) }
                 )
@@ -255,6 +271,7 @@ struct ProfileView: View {
     private func profileOverviewCard<Destination: View>(
         iconName: String,
         title: String,
+        unread: Int = 0,
         subtitle: String,
         @ViewBuilder destination: @escaping () -> Destination
     ) -> some View {
@@ -271,6 +288,7 @@ struct ProfileView: View {
                         .foregroundColor(.secondary)
                 }
                 Spacer()
+                NotificationCountBadge(count: unread)
                 Image(systemName: "chevron.right")
                     .font(.system(size: 12, weight: .bold))
                     .foregroundColor(.secondary)
@@ -1111,6 +1129,7 @@ private enum DuelSummaryRow: Identifiable {
 }
 
 struct DuelSummaryView: View {
+    @ObservedObject private var notificationInbox = NotificationService.shared
     @EnvironmentObject var gameState: GameState
     @EnvironmentObject var userProfile: UserProfile
     @ObservedObject private var localizationManager = LocalizationManager.shared
@@ -1251,7 +1270,7 @@ struct DuelSummaryView: View {
             }
             if syncFailed {
                 HStack {
-                    Label(localizationManager.localizedString("Server Error"), systemImage: "wifi.exclamationmark")
+                    Label(gameState.duelSyncError ?? localizationManager.localizedString("inbox.syncFailed"), systemImage: "arrow.clockwise")
                         .foregroundColor(.secondary)
                     Spacer()
                     Button(localizationManager.localizedString("Try Again")) {
@@ -1271,10 +1290,7 @@ struct DuelSummaryView: View {
             Button(localizationManager.localizedString("OK"), role: .cancel) { actionError = nil }
         } message: { Text(actionError ?? "") }
         .onAppear {
-            guard !isRefreshingDuels else { return }
-        isRefreshingDuels = true
-        defer { isRefreshingDuels = false }
-        _ = gameState.assignWinsForExpiredOutgoingDuels(profile: userProfile)
+            _ = gameState.assignWinsForExpiredOutgoingDuels(profile: userProfile)
             _ = gameState.assignWinsForExpiredIncomingDuels(profile: userProfile)
             Task { await refreshDuelContent() }
         }
@@ -1425,12 +1441,18 @@ struct DuelSummaryView: View {
         .refreshable { await refreshDuelContent() }
     }
 
+    @MainActor
     private func refreshDuelContent() async {
+        guard !isRefreshingDuels else { return }
+        isRefreshingDuels = true
+        defer { isRefreshingDuels = false }
+        gameState.duelSyncError = nil
         _ = gameState.assignWinsForExpiredOutgoingDuels(profile: userProfile)
         _ = gameState.assignWinsForExpiredIncomingDuels(profile: userProfile)
         let outgoingOK = await gameState.syncOutgoingDuelsWithServer(profile: userProfile)
         let incomingOK = await gameState.syncIncomingDuelsWithServer(profile: userProfile)
         syncFailed = !outgoingOK || !incomingOK
+        await notificationInbox.refreshInbox()
     }
 
     private func duelCompletedCard(entry: DuelHistoryEntry) -> some View {
@@ -1455,6 +1477,9 @@ struct DuelSummaryView: View {
                     Text(entry.iWon ? localizationManager.localizedString("Victory") : localizationManager.localizedString("Defeat"))
                         .font(.system(size: 15, weight: .bold))
                         .foregroundColor(entry.iWon ? .green : .orange)
+                    if notificationInbox.unreadForDuel(entry.duelChallengeId ?? "") {
+                        Circle().fill(Color.blue).frame(width: 9,height: 9).accessibilityLabel(localizationManager.localizedString("inbox.unread"))
+                    }
                     Spacer()
                     Text(dateFormatter.string(from: entry.playedAt))
                         .font(.system(size: 12))
@@ -1495,6 +1520,7 @@ struct DuelSummaryView: View {
             }
         }
         .onTapGesture {
+            notificationInbox.markDuelRead(entry.duelChallengeId ?? "")
             selectedOpponent = resolvedOpponentName(for: entry)
             filter = .all
         }
@@ -1644,6 +1670,13 @@ struct DuelSummaryView: View {
                     _ = gameState.assignWinsForExpiredIncomingDuels(profile: userProfile)
                 }
             }
+            .overlay(alignment: .topTrailing) {
+                if notificationInbox.unreadForDuel(challenge.id) {
+                    Circle().fill(Color.blue).frame(width:9,height:9).padding(10)
+                        .accessibilityLabel(localizationManager.localizedString("inbox.unread"))
+                }
+            }
+            .simultaneousGesture(TapGesture().onEnded { notificationInbox.markDuelRead(challenge.id) })
             .contextMenu {
                 Button {
                     selectedOpponent = displayOpponent
@@ -1698,6 +1731,7 @@ struct DuelSummaryView: View {
                 gameState.duelOpponentName = userProfile.username
                 // Не удаляем incoming-челлендж: он нужен для появления дуэли в «Сводке Дуэлей» (ожидание результата)
                 DuelInviteSuppression.markAccepted(challenge.id)
+                notificationInbox.markDuelRead(challenge.id)
             }
 
             await gameState.startNewGameWithCurrentRegions()

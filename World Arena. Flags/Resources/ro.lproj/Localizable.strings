@@ -1826,3 +1826,12 @@
 "appIcon.explanation" = "Alege limba textului mare de pe pictograma ecranului principal. Limba aplicației și pictograma App Store nu se schimbă. iOS poate afișa o confirmare.";
 "appIcon.selected" = "Selectat";
 "appIcon.error" = "Pictograma nu a putut fi schimbată. Încearcă din nou.";
+
+"inbox.subtitle" = "Activitatea ta";
+"inbox.explanation" = "Dueluri, realizări și noutăți într-un singur loc.";
+"inbox.unread" = "Necitite";
+"inbox.readAll" = "Marchează tot ca citit";
+"inbox.empty" = "Ai citit tot";
+"inbox.cached" = "Mesaje salvate. Trage pentru actualizare.";
+"inbox.open" = "Deschide";
+"inbox.syncFailed" = "Rezultatele duelurilor nu au putut fi actualizate";

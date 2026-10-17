@@ -1702,3 +1702,12 @@
 "appIcon.explanation" = "Tria l’idioma del text gran de la icona d’inici. No canvia l’idioma de l’app ni la icona de l’App Store. iOS pot mostrar una confirmació.";
 "appIcon.selected" = "Seleccionada";
 "appIcon.error" = "No s’ha pogut canviar la icona. Torna-ho a provar.";
+
+"inbox.subtitle" = "La teva activitat";
+"inbox.explanation" = "Duels, assoliments i novetats en un sol lloc.";
+"inbox.unread" = "No llegides";
+"inbox.readAll" = "Marca-ho tot com a llegit";
+"inbox.empty" = "Ja ho has llegit tot";
+"inbox.cached" = "Missatges desats. Arrossega per actualitzar.";
+"inbox.open" = "Obre";
+"inbox.syncFailed" = "No s’han pogut actualitzar els duels";

@@ -1939,3 +1939,12 @@
 "appIcon.explanation" = "Choose the language of the large label on your Home Screen icon. This does not change the app language or the App Store icon. iOS may display a confirmation.";
 "appIcon.selected" = "Selected";
 "appIcon.error" = "The icon could not be changed. Please try again.";
+
+"inbox.subtitle" = "Your activity";
+"inbox.explanation" = "Duels, achievements and news in one place.";
+"inbox.unread" = "Unread";
+"inbox.readAll" = "Mark all as read";
+"inbox.empty" = "You’re all caught up";
+"inbox.cached" = "Showing saved messages. Pull to refresh.";
+"inbox.open" = "Open";
+"inbox.syncFailed" = "Could not refresh duel results";

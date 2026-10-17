@@ -1826,3 +1826,12 @@
 "appIcon.explanation" = "Vyberte jazyk velkého nápisu na ikoně plochy. Jazyk aplikace ani ikona App Storu se nezmění. iOS může zobrazit potvrzení.";
 "appIcon.selected" = "Vybráno";
 "appIcon.error" = "Ikonu se nepodařilo změnit. Zkuste to znovu.";
+
+"inbox.subtitle" = "Tvoje aktivita";
+"inbox.explanation" = "Duely, úspěchy a novinky na jednom místě.";
+"inbox.unread" = "Nepřečtené";
+"inbox.readAll" = "Označit vše jako přečtené";
+"inbox.empty" = "Vše je přečtené";
+"inbox.cached" = "Uložené zprávy. Tažením aktualizuj.";
+"inbox.open" = "Otevřít";
+"inbox.syncFailed" = "Výsledky duelů se nepodařilo aktualizovat";

@@ -1826,3 +1826,12 @@
 "appIcon.explanation" = "Piliin ang wika ng malaking teksto sa icon ng Home Screen. Hindi magbabago ang wika ng app o icon sa App Store. Maaaring magpakita ng kumpirmasyon ang iOS.";
 "appIcon.selected" = "Napili";
 "appIcon.error" = "Hindi mabago ang icon. Subukan muli.";
+
+"inbox.subtitle" = "Mga aktibidad mo";
+"inbox.explanation" = "Mga duwelo, tagumpay at balita sa isang lugar.";
+"inbox.unread" = "Hindi pa nababasa";
+"inbox.readAll" = "Markahan lahat bilang nabasa";
+"inbox.empty" = "Nabasa mo na ang lahat";
+"inbox.cached" = "Mga na-save na mensahe. Hilahin upang i-refresh.";
+"inbox.open" = "Buksan";
+"inbox.syncFailed" = "Hindi ma-update ang mga resulta ng duwelo";

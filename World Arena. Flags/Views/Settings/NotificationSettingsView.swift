@@ -273,49 +273,6 @@ struct NotificationSettingsView: View {
     }
 }
 
-private struct MyNotificationsView: View {
-    @Environment(\.dismiss) private var dismiss
-    @State private var items: [AppNotificationLogItem] = []
-    @State private var loading = true
-
-    var body: some View {
-        NavigationView {
-            Group {
-                if loading {
-                    ProgressView()
-                } else if items.isEmpty {
-                    Text("—")
-                        .foregroundColor(.secondary)
-                } else {
-                    List(items) { item in
-                        VStack(alignment: .leading, spacing: 4) {
-                            Text(item.title).font(.system(size: 15, weight: .semibold))
-                            Text(item.body).font(.system(size: 13)).foregroundColor(.secondary)
-                            Text(item.date?.formatted(date: .abbreviated, time: .shortened) ?? item.source)
-                                .font(.system(size: 11))
-                                .foregroundColor(.secondary)
-                        }
-                        .padding(.vertical, 4)
-                    }
-                }
-            }
-            .navigationTitle(LocalizationManager.shared.localizedString("My notifications"))
-            .toolbar {
-                ToolbarItem(placement: .cancellationAction) {
-                    Button(LocalizationManager.shared.localizedString("Close")) { dismiss() }
-                }
-            }
-        }
-        .task {
-            items = await NotificationService.shared.fetchMyNotifications()
-            NotificationService.shared.markNotificationsRead()
-            loading = false
-        }
-    }
-}
-
-
-
 #Preview {
     NotificationSettingsView()
 }

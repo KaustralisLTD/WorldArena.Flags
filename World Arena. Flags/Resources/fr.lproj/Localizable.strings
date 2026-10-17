@@ -1811,3 +1811,12 @@
 "appIcon.explanation" = "Choisissez la langue du grand texte sur l’icône d’accueil. La langue de l’app et l’icône de l’App Store restent identiques. iOS peut demander une confirmation.";
 "appIcon.selected" = "Sélectionné";
 "appIcon.error" = "Impossible de modifier l’icône. Réessayez.";
+
+"inbox.subtitle" = "Ton activité";
+"inbox.explanation" = "Duels, réussites et actualités au même endroit.";
+"inbox.unread" = "Non lus";
+"inbox.readAll" = "Tout marquer comme lu";
+"inbox.empty" = "Tout est à jour";
+"inbox.cached" = "Messages enregistrés. Tire pour actualiser.";
+"inbox.open" = "Ouvrir";
+"inbox.syncFailed" = "Impossible d’actualiser les résultats des duels";

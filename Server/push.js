@@ -210,3 +210,15 @@ function getApnsDiagnostics() {
 }
 
 module.exports = { sendDuelResultPush, sendFriendRequestPush, sendNudgePush, sendDuelChallengePush, getApnsDiagnostics };
+
+function sendMessagePush(deviceToken,id,title,body,callback) {
+ const provider=getProvider();
+ if(!deviceToken||!provider||!apnModule)return callback(new Error('APNs unavailable'));
+ const notification=new apnModule.Notification(),alert={title,body};
+ notification.alert=alert;notification.sound='default';notification.pushType='alert';notification.priority=10;
+ notification.topic=process.env.APNS_BUNDLE_ID||'com.worldarena.flags';
+ notification.payload={type:'message',notificationId:id};notification.collapseId=id.slice(0,64);
+ recordInbox(deviceToken,notification,alert);
+ provider.send(notification,deviceToken).then(r=>callback(r.failed.length?new Error(String(r.failed[0].response?.reason||'Push failed')):null)).catch(callback);
+}
+module.exports.sendMessagePush=sendMessagePush;

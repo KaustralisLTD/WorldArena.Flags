@@ -10,6 +10,39 @@ import StoreKitTest
 
 final class Flags_WorldUITests: XCTestCase {
     @MainActor
+    func testNotificationInboxUkrainianAndArabic() throws {
+        let app=XCUIApplication()
+        for language in ["uk","ar"] {
+            app.launchArguments=["UITesting","NotificationInboxQA","-selectedLanguage",language]
+            app.launch()
+            XCTAssertTrue(app.buttons["inbox.item.preview-duel"].waitForExistence(timeout:20))
+            let shot=XCTAttachment(screenshot:app.screenshot());shot.name="Flags notification center " + language;shot.lifetime = .keepAlways;add(shot)
+            XCTAssertTrue(app.buttons["inbox.readAll"].exists)
+            app.terminate()
+        }
+    }
+
+    @MainActor
+    func testNotificationInboxReadsOnlyOpenedEvent() throws {
+        let app=XCUIApplication()
+        app.launchArguments=["UITesting","NotificationInboxQA","-selectedLanguage","ru"]
+        app.launch()
+        let first=app.buttons["inbox.item.preview-duel"]
+        XCTAssertTrue(first.waitForExistence(timeout:20))
+        XCTAssertTrue(app.buttons["inbox.item.preview-achievement"].exists)
+        let shot=XCTAttachment(screenshot:app.screenshot());shot.name="Flags notification center Russian";shot.lifetime = .keepAlways;add(shot)
+        first.tap()
+        XCTAssertTrue(app.buttons["Закрыть"].waitForExistence(timeout:5))
+        app.buttons["Закрыть"].firstMatch.tap()
+        let unread=app.buttons["Новые"]
+        XCTAssertTrue(unread.waitForExistence(timeout:5));unread.tap()
+        XCTAssertFalse(app.buttons["inbox.item.preview-duel"].exists)
+        XCTAssertTrue(app.buttons["inbox.item.preview-achievement"].exists)
+        app.buttons["inbox.readAll"].tap()
+        XCTAssertFalse(app.buttons["inbox.item.preview-achievement"].exists)
+    }
+
+    @MainActor
     func testAppIconPickerDisplaysLocalizedChoices() throws {
         let app = XCUIApplication()
         app.launchArguments = ["UITesting", "AppIconQA", "-selectedLanguage", "ru"]

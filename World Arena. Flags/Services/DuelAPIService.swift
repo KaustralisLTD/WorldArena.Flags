@@ -117,9 +117,12 @@ final class DuelAPIService {
         components.queryItems = [URLQueryItem(name: "userId", value: userId)]
         var request = URLRequest(url: components.url!)
         request.setValue(Self.identityHeader(userId), forHTTPHeaderField: "X-User-Id")
-        let (data, response) = try await session.data(for: request)
+        let (data, response) = try await DuelRefreshTransport.shared.data(for: request)
         guard let http = response as? HTTPURLResponse, http.statusCode == 200 else {
-            throw DuelAPIError.serverError(String(data: data, encoding: .utf8) ?? "")
+            let status=(response as? HTTPURLResponse)?.statusCode ?? 0
+            let requestID=(response as? HTTPURLResponse)?.value(forHTTPHeaderField:"X-Request-ID")
+            print("[DuelSync] HTTP failure", status, "requestId=", requestID ?? "none")
+            throw DuelAPIError.httpFailure(status)
         }
         let json = try JSONSerialization.jsonObject(with: data) as? [String: Any]
         let list = json?["challenges"] as? [[String: Any]] ?? []
@@ -256,9 +259,12 @@ final class DuelAPIService {
         components.queryItems = [URLQueryItem(name: "userId", value: userId)]
         var request = URLRequest(url: components.url!)
         request.setValue(Self.identityHeader(userId), forHTTPHeaderField: "X-User-Id")
-        let (data, response) = try await session.data(for: request)
+        let (data, response) = try await DuelRefreshTransport.shared.data(for: request)
         guard let http = response as? HTTPURLResponse, http.statusCode == 200 else {
-            throw DuelAPIError.serverError(String(data: data, encoding: .utf8) ?? "")
+            let status=(response as? HTTPURLResponse)?.statusCode ?? 0
+            let requestID=(response as? HTTPURLResponse)?.value(forHTTPHeaderField:"X-Request-ID")
+            print("[DuelSync] HTTP failure", status, "requestId=", requestID ?? "none")
+            throw DuelAPIError.httpFailure(status)
         }
         let json = try JSONSerialization.jsonObject(with: data) as? [String: Any]
         let list = json?["challenges"] as? [[String: Any]] ?? []
@@ -1138,6 +1144,7 @@ struct DuelChallengeFromAPI {
 enum DuelAPIError: Error, LocalizedError {
     case serverError(String)
     case invalidResponse
+    case httpFailure(Int)
 
     var isUnavailableChallenge: Bool {
         guard case .serverError(let message) = self,
@@ -1167,7 +1174,25 @@ enum DuelAPIError: Error, LocalizedError {
                 }
             }
             return tr("Server error. Try again.")
+        case .httpFailure(let status): return tr("inbox.syncFailed") + " (HTTP \(status))"
         case .invalidResponse: return tr("Invalid server response.")
         }
+    }
+}
+
+/// Coalesces simultaneous foreground/poll/list GETs without retrying mutations.
+private actor DuelRefreshTransport {
+    static let shared = DuelRefreshTransport()
+    private var requests: [String:Task<(Data,URLResponse),Error>] = [:]
+    func data(for request: URLRequest) async throws -> (Data,URLResponse) {
+        let key=(request.url?.absoluteString ?? "") + (request.value(forHTTPHeaderField:"X-User-Id") ?? "")
+        if let task=requests[key] { return try await task.value }
+        let task=Task { () throws -> (Data,URLResponse) in
+            var r=request; r.timeoutInterval=20
+            return try await URLSession.shared.data(for:r)
+        }
+        requests[key]=task
+        defer { requests.removeValue(forKey:key) }
+        return try await task.value
     }
 }

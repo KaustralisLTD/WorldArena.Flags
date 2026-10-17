@@ -93,6 +93,7 @@ struct RemoteCampaignBanner: View {
             Task {
                 personal = await LifecycleService.message(id: id)
                 if let personal, personal.id == id { open(personal) }
+                else { showWeakCountries = false; showMap = true }
             }
         }
         .task {

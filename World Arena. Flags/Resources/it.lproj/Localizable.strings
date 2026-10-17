@@ -1809,3 +1809,12 @@
 "appIcon.explanation" = "Scegli la lingua della scritta grande sull’icona Home. La lingua dell’app e l’icona dell’App Store non cambiano. iOS può mostrare una conferma.";
 "appIcon.selected" = "Selezionata";
 "appIcon.error" = "Impossibile cambiare l’icona. Riprova.";
+
+"inbox.subtitle" = "La tua attività";
+"inbox.explanation" = "Duelli, traguardi e novità in un solo posto.";
+"inbox.unread" = "Da leggere";
+"inbox.readAll" = "Segna tutto come letto";
+"inbox.empty" = "Hai letto tutto";
+"inbox.cached" = "Messaggi salvati. Scorri per aggiornare.";
+"inbox.open" = "Apri";
+"inbox.syncFailed" = "Impossibile aggiornare i risultati dei duelli";

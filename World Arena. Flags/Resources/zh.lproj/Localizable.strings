@@ -1718,3 +1718,12 @@
 "appIcon.explanation" = "选择主屏幕图标大字的语言。这不会更改应用语言或 App Store 图标。iOS 可能会显示确认提示。";
 "appIcon.selected" = "已选择";
 "appIcon.error" = "无法更改图标，请重试。";
+
+"inbox.subtitle" = "你的动态";
+"inbox.explanation" = "对决、成就和消息，尽在这里。";
+"inbox.unread" = "未读";
+"inbox.readAll" = "全部标为已读";
+"inbox.empty" = "已读完所有消息";
+"inbox.cached" = "显示已保存的消息。下拉刷新。";
+"inbox.open" = "打开";
+"inbox.syncFailed" = "无法更新对决结果";

@@ -1813,3 +1813,12 @@
 "appIcon.explanation" = "Kies de taal van de grote tekst op het beginschermicoon. De apptaal en het App Store-icoon blijven gelijk. iOS kan om bevestiging vragen.";
 "appIcon.selected" = "Geselecteerd";
 "appIcon.error" = "Het icoon kon niet worden gewijzigd. Probeer opnieuw.";
+
+"inbox.subtitle" = "Jouw activiteit";
+"inbox.explanation" = "Duels, prestaties en nieuws op één plek.";
+"inbox.unread" = "Ongelezen";
+"inbox.readAll" = "Alles als gelezen markeren";
+"inbox.empty" = "Je bent helemaal bij";
+"inbox.cached" = "Opgeslagen berichten. Trek om te vernieuwen.";
+"inbox.open" = "Openen";
+"inbox.syncFailed" = "Duelresultaten konden niet worden vernieuwd";

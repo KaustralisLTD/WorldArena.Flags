@@ -1228,7 +1228,10 @@ class UserProfile: ObservableObject {
         let newLevel = (xp / 1000) + 1
         if newLevel > level {
             level = newLevel
-            // Unlock new achievements, etc.
+            NotificationService.shared.notifyProgress(id: "level_" + String(newLevel),
+                title: LocalizationManager.shared.localizedString("Уровень") + " " + String(newLevel),
+                body: LocalizationManager.shared.localizedString("Well done! Keep practicing!"),
+                preference: "achievementNotifications")
         }
     }
     

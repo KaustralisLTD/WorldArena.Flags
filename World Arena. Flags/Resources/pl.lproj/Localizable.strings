@@ -1809,3 +1809,12 @@
 "appIcon.explanation" = "Wybierz język dużego napisu na ikonie ekranu początkowego. Język aplikacji i ikona App Store nie zmienią się. iOS może wyświetlić potwierdzenie.";
 "appIcon.selected" = "Wybrano";
 "appIcon.error" = "Nie udało się zmienić ikony. Spróbuj ponownie.";
+
+"inbox.subtitle" = "Twoja aktywność";
+"inbox.explanation" = "Pojedynki, osiągnięcia i nowości w jednym miejscu.";
+"inbox.unread" = "Nieprzeczytane";
+"inbox.readAll" = "Oznacz wszystkie jako przeczytane";
+"inbox.empty" = "Wszystko przeczytane";
+"inbox.cached" = "Zapisane wiadomości. Pociągnij, aby odświeżyć.";
+"inbox.open" = "Otwórz";
+"inbox.syncFailed" = "Nie udało się odświeżyć wyników pojedynków";

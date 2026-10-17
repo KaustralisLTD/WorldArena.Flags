@@ -1826,3 +1826,12 @@
 "appIcon.explanation" = "Válaszd ki a főképernyő ikonján látható nagy felirat nyelvét. Az alkalmazás nyelve és az App Store ikonja nem változik. Az iOS megerősítést kérhet.";
 "appIcon.selected" = "Kiválasztva";
 "appIcon.error" = "Nem sikerült módosítani az ikont. Próbáld újra.";
+
+"inbox.subtitle" = "Tevékenységeid";
+"inbox.explanation" = "Párbajok, eredmények és hírek egy helyen.";
+"inbox.unread" = "Olvasatlan";
+"inbox.readAll" = "Mind olvasottnak jelölése";
+"inbox.empty" = "Mindent elolvastál";
+"inbox.cached" = "Mentett üzenetek. Húzd le a frissítéshez.";
+"inbox.open" = "Megnyitás";
+"inbox.syncFailed" = "A párbajeredmények nem frissíthetők";

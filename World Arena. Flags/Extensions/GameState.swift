@@ -203,6 +203,7 @@ class GameState: ObservableObject {
     private var duelSessionChallengeId: String?
     /// Результат дуэли для отображения после завершения игры вторым игроком (opponent).
     @Published var pendingDuelResult: DuelResultInfo?
+    @Published var duelSyncError: String?
     @Published var duelHistory: [DuelHistoryEntry] = []
     @Published var currentGameResults: [GameQuestionResult] = []
     @Published var lastGameResults: [GameQuestionResult] = []
@@ -1503,6 +1504,13 @@ class GameState: ObservableObject {
             rivalTimeMs: rivalTimeMs
         )
         duelHistory.insert(item, at: 0)
+        if let challengeID = duelChallengeId {
+            NotificationService.shared.logInAppNotification(id:"duel_result_" + challengeID,
+                title:LocalizationManager.shared.localizedString(iWon ? "Victory" : "Duel result"),
+                body:"\(LocalizationManager.shared.localizedString("You")): \(myScore) · \(opponentName): \(opponentScore)",
+                source:"duel",kind:"duel_result",target:challengeID,
+                details:.init(opponentName:opponentName,myScore:myScore,opponentScore:opponentScore,iWon:iWon))
+        }
         duelHistory = deduplicatedDuelHistory(duelHistory)
         if duelHistory.count > 50 {
             duelHistory.removeLast(duelHistory.count - 50)
@@ -1586,6 +1594,8 @@ class GameState: ObservableObject {
         do { rows = try await DuelAPIService.shared.fetchOutgoingChallenges(userId: uid) }
         catch {
             print("[DuelSync] fetchOutgoingChallenges failed:", String(describing: error))
+            if error is CancellationError || (error as? URLError)?.code == .cancelled { return true }
+            await MainActor.run { self.duelSyncError = error is CancellationError || (error as? URLError)?.code == .cancelled ? nil : (error is URLError ? LocalizationManager.shared.localizedString("duel.network.error") : error.localizedDescription) }
             return false
         }
         await MainActor.run {
@@ -1631,6 +1641,8 @@ class GameState: ObservableObject {
         do { rows = try await DuelAPIService.shared.fetchIncomingChallengesForSync(userId: uid) }
         catch {
             print("[DuelSync] fetchIncomingChallengesForSync failed:", String(describing: error))
+            if error is CancellationError || (error as? URLError)?.code == .cancelled { return true }
+            await MainActor.run { self.duelSyncError = error is CancellationError || (error as? URLError)?.code == .cancelled ? nil : (error is URLError ? LocalizationManager.shared.localizedString("duel.network.error") : error.localizedDescription) }
             return false
         }
         
