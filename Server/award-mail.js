@@ -25,6 +25,12 @@ function install(app,store,authenticate,sendMail,{now=()=>Date.now(),enabled=()=
   const level=e.type==='level';
   if(level && (!Number.isSafeInteger(e.xp)||e.xp<99000||e.xp>1e9))return res.status(400).json({error:'Invalid level'});
   if(!level && (typeof e.week!=='string'||!/^\d{4}-W?\d{1,2}$/.test(e.week)||!Number.isSafeInteger(e.rank)||e.rank<1||e.rank>1000||!Number.isSafeInteger(e.participants)||e.participants<e.rank||e.participants>1000||typeof e.league!=='string'||e.league.length>100))return res.status(400).json({error:'Invalid league result'});
+  if(!db.prepare("SELECT 1 FROM sqlite_master WHERE type='table' AND name='lifecycle_prefs'").get())return res.status(503).json({error:'Preferences not ready'});
+  const consent=db.prepare('SELECT progress,progress_blocked FROM lifecycle_prefs WHERE username=?').get(user.username);
+  if(!consent)return res.status(409).json({error:'Sync email preferences first'});
+  // An opted-out player's past milestones must not accumulate into a burst of
+  // congratulations when they subscribe months later.
+  if(consent.progress!==1||consent.progress_blocked===1)return res.json({ok:true,subscribed:false});
   const key=level?'level:100':'league:'+e.week;
   const payload=level?{type:'level',xp:e.xp}:{type:'league',week:e.week,rank:e.rank,participants:e.participants,league:e.league};
   db.prepare('INSERT OR IGNORE INTO award_mail(username,event_key,payload,created_at) VALUES(?,?,?,?)').run(user.username,key,JSON.stringify(payload),now());
@@ -35,6 +41,7 @@ function install(app,store,authenticate,sendMail,{now=()=>Date.now(),enabled=()=
   if(busy||!enabled()||!configured())return;busy=true;
   try{
    if(!db.prepare("SELECT 1 FROM sqlite_master WHERE type='table' AND name='lifecycle_prefs'").get())return;
+   db.prepare("UPDATE award_mail SET status='expired' WHERE status='pending' AND created_at<?").run(now()-14*86400000);
    const rows=db.prepare(`SELECT a.*,u.email,u.display_name,u.friend_code,p.locale,p.unsubscribe_token FROM award_mail a JOIN users u ON u.username=a.username JOIN lifecycle_prefs p ON p.username=a.username WHERE a.status='pending' AND a.attempts<6 AND a.retry_at<=? AND u.is_registered=1 AND u.email IS NOT NULL AND p.progress=1 AND p.progress_blocked=0 ORDER BY a.created_at LIMIT 25`).all(now());
    for(const row of rows){
     const e=JSON.parse(row.payload),url='https://flags.worldarena.games/api/v1/lifecycle/preferences/'+row.unsubscribe_token,content=render(row,e,row.locale,url);

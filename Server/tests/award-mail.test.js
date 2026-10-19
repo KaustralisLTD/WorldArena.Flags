@@ -10,12 +10,21 @@ test('award emails preserve consent, isolate owners and deduplicate level/weekly
  function request(owner,body){const res={code:200,status(n){this.code=n;return this},json(v){this.body=v;return this}};routes.get('/api/v1/award-mail')({owner,body},res);return res}
  const level={type:'level',xp:99000},week={type:'league',week:'2026-W42',rank:2,participants:20,league:'Золота ліга'};
  assert.equal(request(null,level).code,401);assert.equal(request('іринатест',{type:'level',xp:2}).code,400);
- for(let i=0;i<2;i++){assert.equal(request('іринатест',level).code,200);request('іринатест',week)}
- assert.equal(db.prepare('SELECT count(*) n FROM award_mail').get().n,2);
+ request('іринатест',level);request('іринатест',week);
+ assert.equal(db.prepare('SELECT count(*) n FROM award_mail').get().n,0);
  await api.tick();assert.equal(sent.length,0);
  db.prepare('UPDATE lifecycle_prefs SET progress=1 WHERE username=?').run('іринатест');
+ for(let i=0;i<2;i++){assert.equal(request('іринатест',level).code,200);request('іринатест',week)}
+ assert.equal(db.prepare('SELECT count(*) n FROM award_mail').get().n,2);
  await api.tick();assert.equal(sent.length,2);assert.ok(sent[0][1].includes('Рівень 100'));assert.ok(sent[1][3].includes('Золота ліга'));
  await api.tick();assert.equal(sent.length,2);assert.equal(db.prepare('SELECT count(*) n FROM notification_inbox WHERE username=?').get('ssptest').n,0);
  assert.equal(db.prepare('SELECT count(*) n FROM notification_inbox WHERE username=?').get('іринатест').n,2);
+ request('іринатест',{...week,week:'2026-W41'});
+ db.prepare("UPDATE award_mail SET created_at=? WHERE event_key='league:2026-W41'").run(now-15*86400000);
+ await api.tick();assert.equal(sent.length,2);
+ assert.equal(db.prepare("SELECT status FROM award_mail WHERE event_key='league:2026-W41'").get().status,'expired');
+ db.prepare('UPDATE lifecycle_prefs SET progress_blocked=1 WHERE username=?').run('іринатест');
+ request('іринатест',{...week,week:'2026-W43'});
+ assert.equal(db.prepare("SELECT count(*) n FROM award_mail WHERE event_key='league:2026-W43'").get().n,0);
  db.close();
 });
