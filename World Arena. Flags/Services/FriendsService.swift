@@ -252,8 +252,7 @@ class FriendsService: ObservableObject {
         let accuracy = userProfile.totalAnswers > 0
             ? min(100.0, max(0.0, Double(userProfile.correctAnswers) / Double(userProfile.totalAnswers) * 100.0))
             : 0.0
-        let appLink = ShareService.shared.appStoreURL?.absoluteString ?? "https://apps.apple.com/app/world-arena-flags/id6744296834"
-        let promoText = String(format: format, userProfile.bestScore, accuracy, userProfile.totalGamesPlayed, appLink)
+        let promoText = String(format: format, userProfile.bestScore, accuracy, userProfile.totalGamesPlayed, profileURL)
         let shareText = "\(promoText)\n\n\(LocalizationManager.shared.localizedString("My Profile Share Title")): \(profileURL)"
 
         generateProfileShareImage(userProfile: userProfile, profileURL: profileURL) { [weak self] image in
@@ -290,85 +289,12 @@ class FriendsService: ObservableObject {
         return root
     }
 
-    /// Рисует карточку для шаринга: аватар (или фото), имя, статы, QR со ссылкой на профиль.
+    /// Use the same centred-QR banner as sharing from Profile.
+    @MainActor
     private func generateProfileShareImage(userProfile: UserProfile, profileURL: String, completion: @escaping (UIImage?) -> Void) {
-        Task { @MainActor in
-            let avatar = userProfile.avatar
-            let customAvatarImageData = userProfile.customAvatarImageData
-            let username = userProfile.username
-            let level = userProfile.level
-            let xp = userProfile.xp
-            let streak = userProfile.streak
-            let statsFormat = LocalizationManager.shared.localizedString("Level %d • %d XP • %d-day streak")
-            let statsText = String(format: statsFormat, level, xp, streak)
-
-            let size = CGSize(width: 400, height: 600)
-            let renderer = UIGraphicsImageRenderer(size: size)
-            let image = renderer.image { ctx in
-                let cg = ctx.cgContext
-                let colors = [UIColor.systemBlue.cgColor, UIColor.systemCyan.cgColor]
-                guard let gradient = CGGradient(colorsSpace: CGColorSpaceCreateDeviceRGB(), colors: colors as CFArray, locations: [0, 1]) else { return }
-                cg.drawLinearGradient(gradient, start: .zero, end: CGPoint(x: size.width, y: size.height), options: [])
-                cg.setFillColor(UIColor.white.cgColor)
-                let cardRect = CGRect(x: 20, y: 80, width: 360, height: 440)
-                let path = UIBezierPath(roundedRect: cardRect, cornerRadius: 20)
-                cg.addPath(path.cgPath)
-                cg.fillPath()
-
-                let avatarRect = CGRect(x: 150, y: 120, width: 100, height: 100)
-                if avatar == "custom_photo", let data = customAvatarImageData, let ui = UIImage(data: data) {
-                    let cornerRadius: CGFloat = 50
-                    cg.saveGState()
-                    let clipPath = UIBezierPath(roundedRect: avatarRect, cornerRadius: cornerRadius)
-                    clipPath.addClip()
-                    ui.draw(in: avatarRect)
-                    cg.restoreGState()
-                } else {
-                    cg.setFillColor(UIColor.systemBlue.withAlphaComponent(0.2).cgColor)
-                    cg.fillEllipse(in: avatarRect)
-                    let avatarText = avatar.starts(with: "custom_") ? "👤" : "👤"
-                    let font = UIFont.systemFont(ofSize: 50)
-                    let attrs: [NSAttributedString.Key: Any] = [.font: font]
-                    let sz = avatarText.size(withAttributes: attrs)
-                    let pt = CGPoint(x: avatarRect.midX - sz.width / 2, y: avatarRect.midY - sz.height / 2)
-                    (avatarText as NSString).draw(at: pt, withAttributes: attrs)
-                }
-
-                let usernameFont = UIFont.boldSystemFont(ofSize: 24)
-                let usernameAttrs: [NSAttributedString.Key: Any] = [.font: usernameFont, .foregroundColor: UIColor.black]
-                let usernameSz = username.size(withAttributes: usernameAttrs)
-                (username as NSString).draw(at: CGPoint(x: 200 - usernameSz.width / 2, y: 240), withAttributes: usernameAttrs)
-
-                let statsFont = UIFont.systemFont(ofSize: 14)
-                let statsAttrs: [NSAttributedString.Key: Any] = [.font: statsFont, .foregroundColor: UIColor.darkGray]
-                let statsSz = statsText.size(withAttributes: statsAttrs)
-                (statsText as NSString).draw(at: CGPoint(x: 200 - statsSz.width / 2, y: 275), withAttributes: statsAttrs)
-
-                if let qr = self.qrImage(from: profileURL) {
-                    qr.draw(in: CGRect(x: 152, y: 310, width: 96, height: 96))
-                }
-                let appFont = UIFont.boldSystemFont(ofSize: 16)
-                let appAttrs: [NSAttributedString.Key: Any] = [.font: appFont, .foregroundColor: UIColor.systemBlue]
-                let appText = "World Arena Flags"
-                let appSz = appText.size(withAttributes: appAttrs)
-                (appText as NSString).draw(at: CGPoint(x: 200 - appSz.width / 2, y: 425), withAttributes: appAttrs)
-                let urlFont = UIFont.systemFont(ofSize: 12)
-                let urlAttrs: [NSAttributedString.Key: Any] = [.font: urlFont, .foregroundColor: UIColor.darkGray]
-                let urlText = "flags.worldarena.games"
-                let urlSz = urlText.size(withAttributes: urlAttrs)
-                (urlText as NSString).draw(at: CGPoint(x: 200 - urlSz.width / 2, y: 455), withAttributes: urlAttrs)
-            }
-            completion(image)
-        }
-    }
-
-    private func qrImage(from string: String) -> UIImage? {
-        guard let filter = CIFilter(name: "CIQRCodeGenerator") else { return nil }
-        filter.setValue(Data(string.utf8), forKey: "inputMessage")
-        let transform = CGAffineTransform(scaleX: 10, y: 10)
-        guard let output = filter.outputImage?.transformed(by: transform),
-              let cgImage = CIContext().createCGImage(output, from: output.extent) else { return nil }
-        return UIImage(cgImage: cgImage)
+        guard let url = URL(string: profileURL) else { completion(nil); return }
+        completion(ProfileShareBanner.render(username: userProfile.username,
+            level: userProfile.level, xp: userProfile.xp, streak: userProfile.streak, url: url))
     }
     #endif
 }

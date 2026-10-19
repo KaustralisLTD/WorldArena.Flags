@@ -1158,7 +1158,13 @@ enum DuelAPIError: Error, LocalizedError {
         let saved = UserDefaults.standard.string(forKey: "selectedLanguage")
         let code = LocalizationLanguageResolver.resolveLanguageCode(saved: saved)
         let bundle = Bundle.main.path(forResource: code, ofType: "lproj").flatMap(Bundle.init(path:)) ?? .main
-        func tr(_ key: String) -> String { bundle.localizedString(forKey: key, value: nil, table: nil) }
+        func tr(_ key: String) -> String {
+            let missing = "__MISSING__"
+            let value = bundle.localizedString(forKey: key, value: missing, table: nil)
+            if value != missing { return value }
+            let english = Bundle.main.path(forResource: "en", ofType: "lproj").flatMap(Bundle.init(path:)) ?? .main
+            return english.localizedString(forKey: key, value: key, table: nil)
+        }
         switch self {
         case .serverError(let message):
             if let data = message.data(using: .utf8),
@@ -1167,6 +1173,7 @@ enum DuelAPIError: Error, LocalizedError {
                 let error = json["error"] as? String ?? ""
                 if ["Result already available", "Challenge already completed", "Challenge already in progress", "Opponent already submitted"].contains(error) { return tr("duel.reminder.completed") }
                 if ["Challenge expired", "Challenge declined"].contains(error) { return tr("duel.reminder.missing") }
+                if error == "Not your challenge" { return tr("duel.error.notYours") }
                 if error == "Challenge not found" { return tr("duel.reminder.missing") }
                 // Preserve existing authentication feedback outside the duel flow.
                 if ["email", "password", "credentials", "registration", "sign in"].contains(where: { error.lowercased().contains($0) }) {

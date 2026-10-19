@@ -140,5 +140,6 @@ enum ProgressMailSync {
     }
     static func sync(explicitConsent: Bool = false) async {
         await LifecycleService.sync(explicitConsent: explicitConsent)
+        await AwardMailSync.sync()
     }
 }

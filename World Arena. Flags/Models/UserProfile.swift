@@ -1227,11 +1227,15 @@ class UserProfile: ObservableObject {
     private func checkLevelUp() {
         let newLevel = (xp / 1000) + 1
         if newLevel > level {
+            let previousLevel = level
             level = newLevel
+            if previousLevel < 100 && newLevel >= 100 {
+                AwardMailSync.enqueue(["type": "level", "xp": xp], id: "level:100")
+            }
             NotificationService.shared.notifyProgress(id: "level_" + String(newLevel),
                 title: LocalizationManager.shared.localizedString("Уровень") + " " + String(newLevel),
                 body: LocalizationManager.shared.localizedString("Well done! Keep practicing!"),
-                preference: "achievementNotifications")
+                preference: "achievementNotifications", details: .init(level: newLevel, xp: xp))
         }
     }
     

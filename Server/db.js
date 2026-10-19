@@ -11,6 +11,8 @@ const dataDir = path.join(__dirname, 'data');
 if (!fs.existsSync(dataDir)) fs.mkdirSync(dataDir, { recursive: true });
 const dbPath = process.env.DUEL_DB_PATH || path.join(dataDir, 'duel.db');
 const db = new Database(dbPath);
+// SQLite's built-in LOWER only folds ASCII; usernames support Ukrainian and other scripts.
+db.function('unicode_lower', { deterministic: true }, value => typeof value === 'string' ? value.normalize('NFC').toLowerCase() : value);
 db.pragma('foreign_keys = ON');
 
 db.exec(`
@@ -182,7 +184,7 @@ function normalizeEmail(email) {
 /** Единый вид user id для гостей/логина: без учёта регистра (как buildSafeUsername). */
 function normalizeUsernameId(s) {
   if (!s || typeof s !== 'string') return '';
-  return s.trim().toLowerCase();
+  return s.trim().normalize('NFC').toLowerCase();
 }
 
 function makePasswordHash(password, saltHex) {
@@ -510,7 +512,7 @@ function getCanonicalUsername(raw) {
   if (exact) return exact.username;
   const ci = db.prepare(`
     SELECT username FROM users
-    WHERE LOWER(username) = LOWER(?)
+    WHERE unicode_lower(username) = unicode_lower(?)
     ORDER BY datetime(created_at) ASC, username ASC
   `).all(t);
   if (ci.length === 0) return null;
@@ -589,7 +591,7 @@ function hasSentBirthdayGiftThisYear(giverUsername, receiverUsername, year) {
   const r = getCanonicalUsername(receiverUsername) || normalizeUsernameId(receiverUsername);
   const row = db
     .prepare(
-      'SELECT 1 FROM birthday_gifts WHERE (giver_username = ? OR LOWER(giver_username) = LOWER(?)) AND (receiver_username = ? OR LOWER(receiver_username) = LOWER(?)) AND year = ? LIMIT 1'
+      'SELECT 1 FROM birthday_gifts WHERE (giver_username = ? OR unicode_lower(giver_username) = unicode_lower(?)) AND (receiver_username = ? OR unicode_lower(receiver_username) = unicode_lower(?)) AND year = ? LIMIT 1'
     )
     .get(g, g, r, r, year);
   return !!row;
@@ -608,7 +610,7 @@ function getBirthdayGiftsForUser(username) {
   const year = new Date().getUTCFullYear();
   return db
     .prepare(
-      'SELECT giver_username AS giverUsername, receiver_username AS receiverUsername, year, type FROM birthday_gifts WHERE (receiver_username = ? OR LOWER(receiver_username) = LOWER(?)) AND year = ?'
+      'SELECT giver_username AS giverUsername, receiver_username AS receiverUsername, year, type FROM birthday_gifts WHERE (receiver_username = ? OR unicode_lower(receiver_username) = unicode_lower(?)) AND year = ?'
     )
     .all(u, u, year);
 }
@@ -616,7 +618,7 @@ function getBirthdayGiftsForUser(username) {
 function clearBirthdayGiftsForUser(username) {
   const u = getCanonicalUsername(username) || normalizeUsernameId(username);
   const year = new Date().getUTCFullYear();
-  db.prepare('DELETE FROM birthday_gifts WHERE (receiver_username = ? OR LOWER(receiver_username) = LOWER(?)) AND year = ?').run(u, u, year);
+  db.prepare('DELETE FROM birthday_gifts WHERE (receiver_username = ? OR unicode_lower(receiver_username) = unicode_lower(?)) AND year = ?').run(u, u, year);
 }
 
 function setDisplayName(username, displayName) {
@@ -668,7 +670,7 @@ function getIncomingChallenges(opponentId) {
            duel_questions_count AS duelQuestionsCount, duel_options_count AS duelOptionsCount,
            duel_questions_payload AS duelQuestionsPayload
     FROM duel_challenges
-    WHERE LOWER(opponent_id) = LOWER(?)
+    WHERE unicode_lower(opponent_id) = unicode_lower(?)
       AND datetime(created_at) >= datetime('now', '-24 hours')
       AND (
         status IN ('pending','accepted')
@@ -700,7 +702,7 @@ function getIncomingChallengesForSync(opponentId) {
       duel_options_count AS duelOptionsCount,
       duel_questions_payload AS duelQuestionsPayload
     FROM duel_challenges
-    WHERE LOWER(opponent_id) = LOWER(?)
+    WHERE unicode_lower(opponent_id) = unicode_lower(?)
       AND status IN ('pending','accepted','challenger_completed','opponent_completed','completed')
       AND datetime(created_at) >= datetime('now', '-24 hours')
     ORDER BY created_at DESC
@@ -716,7 +718,7 @@ function getOutgoingChallenges(challengerId) {
            duel_questions_count AS duelQuestionsCount, duel_options_count AS duelOptionsCount,
            duel_questions_payload AS duelQuestionsPayload
     FROM duel_challenges
-    WHERE LOWER(challenger_id) = LOWER(?)
+    WHERE unicode_lower(challenger_id) = unicode_lower(?)
       AND datetime(created_at) >= datetime('now', '-24 hours')
     ORDER BY created_at DESC
   `).all(challengerId);
@@ -819,14 +821,14 @@ function createNudge({ id, fromUsername, toUsername, phraseId }) {
 function getNudgesForUser(toUsername, unreadOnly = true) {
   const to = getCanonicalUsername(toUsername) || normalizeUsernameId(toUsername);
   const sql = unreadOnly
-    ? "SELECT id, from_username AS fromUsername, phrase_id AS phraseId, created_at AS createdAt FROM nudges WHERE (to_username = ? OR LOWER(to_username) = LOWER(?)) AND read_at IS NULL ORDER BY created_at DESC"
-    : "SELECT id, from_username AS fromUsername, phrase_id AS phraseId, created_at AS createdAt, read_at AS readAt FROM nudges WHERE to_username = ? OR LOWER(to_username) = LOWER(?) ORDER BY created_at DESC";
+    ? "SELECT id, from_username AS fromUsername, phrase_id AS phraseId, created_at AS createdAt FROM nudges WHERE (to_username = ? OR unicode_lower(to_username) = unicode_lower(?)) AND read_at IS NULL ORDER BY created_at DESC"
+    : "SELECT id, from_username AS fromUsername, phrase_id AS phraseId, created_at AS createdAt, read_at AS readAt FROM nudges WHERE to_username = ? OR unicode_lower(to_username) = unicode_lower(?) ORDER BY created_at DESC";
   return db.prepare(sql).all(to, to);
 }
 
 function markNudgesRead(toUsername) {
   const to = getCanonicalUsername(toUsername) || normalizeUsernameId(toUsername);
-  return db.prepare("UPDATE nudges SET read_at = datetime('now') WHERE (to_username = ? OR LOWER(to_username) = LOWER(?)) AND read_at IS NULL").run(to, to);
+  return db.prepare("UPDATE nudges SET read_at = datetime('now') WHERE (to_username = ? OR unicode_lower(to_username) = unicode_lower(?)) AND read_at IS NULL").run(to, to);
 }
 
 function addTimeChallengeScore(row) {
@@ -867,14 +869,13 @@ function getTimeChallengeTop(period = 'daily', limit = 20) {
 function mergeUserInto(primary, dup) {
   if (!primary || !dup || primary === dup) return;
   console.log('[db] mergeUserInto', primary, '<-', dup);
-  db.prepare('UPDATE friendships SET user_username = ? WHERE user_username = ?').run(primary, dup);
-  db.prepare('UPDATE friendships SET friend_username = ? WHERE friend_username = ?').run(primary, dup);
-  db.prepare('DELETE FROM friendships WHERE user_username = friend_username').run();
-  db.prepare(`
-    DELETE FROM friendships WHERE rowid NOT IN (
-      SELECT MIN(rowid) FROM friendships GROUP BY user_username, friend_username
-    )
-  `).run();
+  // Copy the union first: UPDATE would violate the unique pair constraint
+  // when both case variants already have the same friend.
+  db.prepare(`INSERT OR IGNORE INTO friendships(user_username,friend_username)
+    SELECT CASE WHEN user_username=? THEN ? ELSE user_username END,
+           CASE WHEN friend_username=? THEN ? ELSE friend_username END
+    FROM friendships WHERE user_username=? OR friend_username=?`).run(dup,primary,dup,primary,dup,dup);
+  db.prepare('DELETE FROM friendships WHERE user_username=? OR friend_username=? OR user_username=friend_username').run(dup,dup);
 
   // Preserve requests when consolidating legacy case-variant usernames; never overwrite an existing decision.
   db.prepare(`INSERT OR IGNORE INTO friend_requests(sender, recipient, status, created_at)
@@ -938,27 +939,40 @@ function mergeUserInto(primary, dup) {
     );
   }
 
+  // New modules also reference users (inbox, lifecycle consent and email queues).
+  // Migrate these before DELETE CASCADE. If a unique collision cannot be resolved
+  // without losing history/consent, roll back this merge and keep both accounts.
+  const quote = name => '"' + name.replace(/"/g, '""') + '"';
+  for (const {name} of db.prepare("SELECT name FROM sqlite_master WHERE type='table'").all()) {
+    for (const fk of db.prepare('PRAGMA foreign_key_list(' + quote(name) + ')').all().filter(fk => fk.table === 'users' && fk.to === 'username')) {
+      const table = quote(name), column = quote(fk.from);
+      db.prepare(`UPDATE OR IGNORE ${table} SET ${column}=? WHERE ${column}=?`).run(primary,dup);
+      if (db.prepare(`SELECT 1 FROM ${table} WHERE ${column}=? LIMIT 1`).get(dup)) {
+        throw new Error('Account merge deferred to preserve records in ' + name);
+      }
+    }
+  }
   db.prepare('DELETE FROM users WHERE username = ?').run(dup);
 }
 
 function mergeDuplicateUsers() {
   const groups = db.prepare(`
-    SELECT LOWER(username) AS k, COUNT(*) AS c
+    SELECT unicode_lower(username) AS k, COUNT(*) AS c
     FROM users
-    GROUP BY LOWER(username)
+    GROUP BY unicode_lower(username)
     HAVING c > 1
   `).all();
   let merged = 0;
   for (const g of groups) {
     const rows = db.prepare(`
       SELECT username FROM users
-      WHERE LOWER(username) = ?
+      WHERE unicode_lower(username) = ?
       ORDER BY datetime(created_at) ASC, username ASC
     `).all(g.k);
     if (rows.length < 2) continue;
     const primary = rows[0].username;
     for (let i = 1; i < rows.length; i++) {
-      mergeUserInto(primary, rows[i].username);
+      db.transaction(() => mergeUserInto(primary, rows[i].username))();
       merged += 1;
     }
   }

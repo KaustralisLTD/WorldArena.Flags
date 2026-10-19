@@ -3,7 +3,7 @@ function fixture(fail=false){
  const root=fs.mkdtempSync(path.join(os.tmpdir(),'flags-installer-')),pkg=path.join(root,'bundle'),api=path.join(root,'Flags','Server'),bin=path.join(root,'bin');
  for(const d of [pkg+'/Server',pkg+'/Server/lifecycle-assets',pkg+'/shared',api,bin])fs.mkdirSync(d,{recursive:true});
  fs.copyFileSync(path.join(__dirname,'../install-flags-experience.sh'),pkg+'/Server/install-flags-experience.sh');
- for(const file of ['server','engagement','notification-inbox','lifecycle','lifecycle-copy'])fs.writeFileSync(pkg+'/Server/'+file+'.js',"// new code\n");
+ for(const file of ['server','engagement','award-mail','notification-inbox','lifecycle','lifecycle-copy'])fs.writeFileSync(pkg+'/Server/'+file+'.js',"// new code\n");
  fs.writeFileSync(pkg+'/Server/config.json','{}');fs.writeFileSync(pkg+'/shared/languages.json','[]');
  fs.writeFileSync(api+'/server.js','// original code\n');fs.writeFileSync(api+'/config.json','{}');fs.writeFileSync(api+'/.env','EXISTING=preserve\n');
  fs.writeFileSync(api+'/db.js',"const fs=require('fs');exports.db={backup:p=>{fs.writeFileSync(p,'snapshot');return Promise.resolve()},close(){}};");

@@ -42,7 +42,7 @@ mkdir -p "$api_dir/lifecycle-assets"
 cp -a "$package_dir/Server/lifecycle-assets/." "$api_dir/lifecycle-assets/"
 mkdir -p "$(dirname "$api_dir")/shared"
 cp "$package_dir/shared/"*.json "$(dirname "$api_dir")/shared/"
-(cd "$api_dir" && node --check server.js && node --check engagement.js && node --check notification-inbox.js && node --check lifecycle.js && node --check lifecycle-copy.js)
+(cd "$api_dir" && node --check server.js && node --check engagement.js && node --check award-mail.js && node --check notification-inbox.js && node --check lifecycle.js && node --check lifecycle-copy.js)
 pm2 restart "$name"
 for attempt in 1 2 3 4 5; do
  if curl --fail --silent 'http://127.0.0.1:3001/api/v1/health'; then break; fi

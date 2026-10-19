@@ -99,6 +99,9 @@ final class GameCenterAchievementsService {
         var toReport: [GKAchievement] = []
 
         for def in userProfile.allAchievementDefinitions {
+            // New collection medals are available in-app immediately. Keep them
+            // out of Game Center batches until their IDs are configured in ASC.
+            if def.id.hasPrefix("journey_") { continue }
             let (current, target) = userProfile.progress(for: def)
             guard target > 0 else { continue }
 

@@ -118,6 +118,8 @@ struct FlagsWorldApp: App {
         #if targetEnvironment(simulator)
         if CommandLine.arguments.contains("NotificationInboxQA") {
             MyNotificationsView().onAppear { NotificationService.shared.seedInboxPreview() }
+        } else if CommandLine.arguments.contains("AchievementCollectionQA") {
+            NavigationView { AchievementsView().environmentObject(UserProfile.shared) }
         } else if CommandLine.arguments.contains("AppIconQA") {
             AppIconSelectionView()
         } else if CommandLine.arguments.contains("LifecycleBonusQA") {
@@ -186,6 +188,8 @@ struct FlagsWorldApp: App {
         WindowGroup {
             launchContent
                 .environmentObject(gameState)
+                .overlay(alignment: .top) { LocalizedAppIconBanner().padding(.top, 8) }
+                .onReceive(NotificationCenter.default.publisher(for: .languageChanged)) { _ in LocalizedAppIcon.shared.synchronize() }
                 .environmentObject(notificationService)
                 .environmentObject(themeManager)
                 .preferredColorScheme(themeManager.colorScheme)
@@ -256,6 +260,7 @@ struct FlagsWorldApp: App {
         }
         .onChange(of: scenePhase) { newPhase in
             if newPhase == .active {
+                LocalizedAppIcon.shared.synchronize()
                 NotificationService.shared.refreshBadge()
                 Task { @MainActor in
                     UserProfile.shared.reconcileStreakFreezes()
@@ -505,12 +510,14 @@ private struct DuelResultsPreview: View {
         let winner = ["challenger", "opponent", "pending"][page % 3]
         GameResultView(score: 10, totalQuestions: 10, timeElapsed: 45,
             duelResult: DuelResultInfo(challengerName: "You", opponentName: "Alex",
-                challengerScore: 10, opponentScore: 10, challengerTimeMs: 45000,
+                challengerScore: winner == "opponent" ? 8 : 10, opponentScore: winner == "challenger" ? 8 : 10, challengerTimeMs: 45000,
                 opponentTimeMs: 40000, serverWinnerSide: winner, youAreChallenger: true),
             onContinue: { page += 1 })
             .id(page)
             .overlay(alignment: .topTrailing) {
-                Button("Next QA outcome") { page += 1 }.accessibilityIdentifier("qa.nextOutcome")
+                if !CommandLine.arguments.contains("StoreMediaCapture") {
+                    Button("Next QA outcome") { page += 1 }.accessibilityIdentifier("qa.nextOutcome")
+                }
             }
     }
 }
@@ -542,8 +549,10 @@ private struct LargeQuizPreview: View {
         capital: ["Brasília"], population: 215000000, area: 8520000, translations: nil)
     var body: some View {
         VStack(spacing: 0) {
-            Button("Flip QA card") { model.isShowingInfo.toggle(); model.isShowingResult = model.isShowingInfo }
-                .font(.system(size: 16)).frame(height: 120).accessibilityIdentifier("qa.flip")
+            if !CommandLine.arguments.contains("StoreMediaCapture") {
+                Button("Flip QA card") { model.isShowingInfo.toggle(); model.isShowingResult = model.isShowingInfo }
+                    .font(.system(size: 16)).frame(height: 120).accessibilityIdentifier("qa.flip")
+            }
             FittingPhoneQuizContent(viewModel: model, country: country)
         }
         .dynamicTypeSize(CommandLine.arguments.contains("UITestingNormalText") ? .large : (CommandLine.arguments.contains("UITestingExtremeText") ? .accessibility3 : .xxxLarge))

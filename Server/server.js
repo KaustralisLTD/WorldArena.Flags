@@ -110,8 +110,16 @@ function millisFromSqliteDateTime(v) {
 
 /** Заголовок X-User-Id / поля body — к одному username в БД (регистр не важен). */
 function resolveUserId(raw) {
-  const t = String(raw || '').trim();
+  let t = String(raw || '').trim();
   if (!t) return '';
+  // New clients percent-encode HTTP identities. Older clients sent UTF-8 bytes
+  // that Node reads as Latin-1 in header values. Support both without changing names.
+  if (/%[0-9a-f]{2}/i.test(t)) { try { t = decodeURIComponent(t); } catch (_) {} }
+  if (/[\u00d0\u00d1]/.test(t) && [...t].every(ch => ch.charCodeAt(0) <= 255)) {
+    const decoded = Buffer.from(t, 'latin1').toString('utf8');
+    if (!decoded.includes('\uFFFD')) t = decoded;
+  }
+  t = t.normalize('NFC');
   const c = db.getCanonicalUsername(t);
   if (c) return c;
   return db.normalizeUsernameId(t);
@@ -707,7 +715,7 @@ app.get('/api/v1/duel/outgoing', (req, res) => {
 // POST /api/v1/duel/accept
 app.post('/api/v1/duel/accept', (req, res) => {
   const { challengeId } = req.body;
-  const userId = (req.headers['x-user-id'] || req.body?.userId || '').trim();
+  const userId = resolveUserId(req.headers['x-user-id'] || req.body?.userId || '');
   console.log('[duel/accept] request', { challengeId, userId: userId || '(empty)' });
   const c = db.getChallenge(challengeId);
   if (!c) return res.status(404).json({ error: 'Challenge not found' });
@@ -1123,6 +1131,7 @@ app.listen(PORT, '127.0.0.1', () => {
 require("./engagement").install(app, db, authFromRequest, mailgun.sendMail);
 
 require('./notification-inbox').install(app, db.db, authFromRequest);
+require('./award-mail').install(app, db, authFromRequest, mailgun.sendMail);
 
 // Behaviour-based, explicitly opted-in lifecycle programme.
 require("./lifecycle").install(app, db, authFromRequest, mailgun.sendMail);

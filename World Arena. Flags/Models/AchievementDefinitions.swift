@@ -20,6 +20,7 @@ enum AchievementTarget {
     case league(League)
     case friends(Int)
     case shares(Int)
+    case level(Int)
 }
 
 extension UserProfile {
@@ -44,7 +45,19 @@ extension UserProfile {
             AchievementDefinition(id: "friends_5", titleKey: "Своя команда", descriptionKey: "Добавьте 5 друзей", icon: "person.3.fill", color: .mint, target: .friends(5), imageAssetName: "Ach_friends_5"),
             AchievementDefinition(id: "share_1", titleKey: "Расскажите друзьям", descriptionKey: "Поделитесь профилем", icon: "square.and.arrow.up", color: .blue, target: .shares(1), imageAssetName: "Ach_share_1"),
             AchievementDefinition(id: "games_10_day", titleKey: "Спринтер", descriptionKey: "Сыграйте 10 игр за день", icon: "hare.fill", color: .red, target: .games(10), imageAssetName: "Ach_games_10_day"),
-            AchievementDefinition(id: "xp_30000", titleKey: "Мастер Олимпиец XP", descriptionKey: "Наберите 30000 XP", icon: "trophy.fill", color: .orange, target: .xp(30000), imageAssetName: "Ach_xp_30000")
+            AchievementDefinition(id: "xp_30000", titleKey: "Мастер Олимпиец XP", descriptionKey: "Наберите 30000 XP", icon: "trophy.fill", color: .orange, target: .xp(30000), imageAssetName: "Ach_xp_30000"),
+            AchievementDefinition(id: "journey_streak_60", titleKey: "achievement.streak_60.title", descriptionKey: "achievement.streak_60.body", icon: "sun.horizon.fill", color: .orange, target: .streak(60), imageAssetName: nil),
+            AchievementDefinition(id: "journey_streak_100", titleKey: "achievement.streak_100.title", descriptionKey: "achievement.streak_100.body", icon: "flame.circle.fill", color: .red, target: .streak(100), imageAssetName: nil),
+            AchievementDefinition(id: "journey_streak_365", titleKey: "achievement.streak_365.title", descriptionKey: "achievement.streak_365.body", icon: "globe.americas.fill", color: .yellow, target: .streak(365), imageAssetName: nil),
+            AchievementDefinition(id: "journey_games_250", titleKey: "achievement.games_250.title", descriptionKey: "achievement.games_250.body", icon: "binoculars.fill", color: .teal, target: .games(250), imageAssetName: nil),
+            AchievementDefinition(id: "journey_games_500", titleKey: "achievement.games_500.title", descriptionKey: "achievement.games_500.body", icon: "globe.europe.africa.fill", color: .cyan, target: .games(500), imageAssetName: nil),
+            AchievementDefinition(id: "journey_games_1000", titleKey: "achievement.games_1000.title", descriptionKey: "achievement.games_1000.body", icon: "safari.fill", color: .indigo, target: .games(1000), imageAssetName: nil),
+            AchievementDefinition(id: "journey_xp_50000", titleKey: "achievement.xp_50000.title", descriptionKey: "achievement.xp_50000.body", icon: "bolt.shield.fill", color: .blue, target: .xp(50000), imageAssetName: nil),
+            AchievementDefinition(id: "journey_xp_100000", titleKey: "achievement.xp_100000.title", descriptionKey: "achievement.xp_100000.body", icon: "crown.fill", color: .purple, target: .xp(100000), imageAssetName: nil),
+            AchievementDefinition(id: "journey_level_25", titleKey: "achievement.level_25.title", descriptionKey: "achievement.level_25.body", icon: "mountain.2.fill", color: .mint, target: .level(25), imageAssetName: nil),
+            AchievementDefinition(id: "journey_level_50", titleKey: "achievement.level_50.title", descriptionKey: "achievement.level_50.body", icon: "flag.2.crossed.fill", color: .orange, target: .level(50), imageAssetName: nil),
+            AchievementDefinition(id: "journey_level_100", titleKey: "achievement.level_100.title", descriptionKey: "achievement.level_100.body", icon: "trophy.circle.fill", color: .yellow, target: .level(100), imageAssetName: nil),
+            AchievementDefinition(id: "journey_friends_10", titleKey: "achievement.friends_10.title", descriptionKey: "achievement.friends_10.body", icon: "person.3.sequence.fill", color: .pink, target: .friends(10), imageAssetName: nil)
         ]
     }
     
@@ -54,6 +67,7 @@ extension UserProfile {
     
     func progress(for def: AchievementDefinition) -> (current: Int, target: Int) {
         switch def.target {
+        case .level(let t): return (level, t)
         case .streak(let t): return (streak, t)
         case .xp(let t): return (xp, t)
         case .games(let t): return (totalGamesPlayed, t)
@@ -89,7 +103,7 @@ extension UserProfile {
                 updated.append(record)
                 NotificationService.shared.notifyProgress(id: "achievement_" + def.id,
                     title: LocalizationManager.shared.localizedString("Достижения"),
-                    body: LocalizationManager.shared.localizedString(def.titleKey), preference: "achievementNotifications")
+                    body: LocalizationManager.shared.localizedString(def.titleKey), preference: "achievementNotifications", details: .init(achievementID: def.id))
             }
         }
         if updated.count != achievements.count {

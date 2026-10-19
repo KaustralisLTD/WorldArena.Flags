@@ -5,6 +5,32 @@ import CoreImage
 
 @MainActor
 final class FlagsExperienceTests: XCTestCase {
+    func testAdditionalAchievementsPreserveExistingCatalog() {
+        let definitions = UserProfile.shared.allAchievementDefinitions
+        let old = Set(["streak_5", "streak_10", "streak_30", "xp_1000", "xp_5000", "xp_10000", "games_20", "games_100", "acc_70", "acc_85", "league_silver", "league_gold", "league_platinum", "league_diamond", "league_master", "friends_1", "friends_5", "share_1", "games_10_day", "xp_30000"])
+        XCTAssertTrue(old.isSubset(of: Set(definitions.map(\.id))))
+        XCTAssertEqual(definitions.count, Set(definitions.map(\.id)).count)
+        XCTAssertEqual(definitions.filter { $0.id.hasPrefix("journey_") }.count, 12)
+        XCTAssertTrue(definitions.contains { $0.id == "journey_level_100" })
+    }
+
+    func testEmailAndLocalMilestoneUseSameInboxIdentity() {
+        let local = AppNotificationLogItem(id: "level_100", title: "100", body: "", date: nil, source: "progress", kind: "progress")
+        let remote = AppNotificationLogItem(id: "award:server-id", title: "100", body: "", date: nil, source: "server", kind: "progress", details: .init(level: 100, xp: 99000))
+        XCTAssertEqual(local.deduplicationKey, remote.deduplicationKey)
+        let week = AppNotificationLogItem(id: "award:week", title: "League", body: "", date: nil, source: "server", kind: "progress", details: .init(rank: 2, participants: 20, week: "2026-W42"))
+        XCTAssertEqual(week.deduplicationKey, "league_2026-W42")
+    }
+
+    func testUkrainianOwnershipErrorIsTranslated() {
+        let saved = UserDefaults.standard.string(forKey: "selectedLanguage")
+        defer { UserDefaults.standard.set(saved, forKey: "selectedLanguage") }
+        UserDefaults.standard.set("uk", forKey: "selectedLanguage")
+        let error = DuelAPIError.serverError("{\"error\":\"Not your challenge\"}")
+        XCTAssertTrue(error.localizedDescription.contains("Цей виклик"))
+        XCTAssertFalse(error.localizedDescription.contains("Not your challenge"))
+    }
+
     func testProfileQRDecodesForEverySupportedLanguage() throws {
         let languages = ["ar","bn","ca","cs","de","el","en","es","fil","fr","hi","hu","id","it","ja","ko","nl","pl","pt-BR","ro","ru","sv","ta","te","th","tr","uk","vi","zh","zh-Hant"]
         let url = ShareService.shared.profileURL(username: "AB123456")

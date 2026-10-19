@@ -40,6 +40,12 @@ struct AppIconSelectionView: View {
                         .font(.subheadline).foregroundColor(.secondary)
                 }
                 Section {
+                    Button {
+                        UserDefaults.standard.set(false, forKey: "appIcon.manualChoice")
+                        changeIcon(to: AppIconChoice.preferred(language: UserDefaults.standard.string(forKey: "selectedLanguage") ?? "system"), manual: false)
+                    } label: {
+                        Label(localization.localizedString("appIcon.automatic"), systemImage: "globe")
+                    }.disabled(isChanging)
                     ForEach(AppIconChoice.all) { choice in
                         Button {
                             changeIcon(to: choice)

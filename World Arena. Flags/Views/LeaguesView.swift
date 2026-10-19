@@ -293,9 +293,6 @@ struct LeaguesView: View {
             outcome = .demoted
         }
         userProfile.currentLeague = newLeague
-        NotificationService.shared.notifyProgress(id: "league_" + String(Calendar.current.component(.weekOfYear, from: Date())) + "_" + String(Calendar.current.component(.yearForWeekOfYear, from: Date())),
-            title: LocalizationManager.shared.localizedString("Лиги"),
-            body: newLeague.localizedFullName, preference: "leagueNotifications")
         leaguesService.buildAndSaveWeeklyResult(
             position: place,
             leagueBefore: league,

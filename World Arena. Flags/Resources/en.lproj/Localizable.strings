@@ -202,7 +202,7 @@
 "Go Premium" = "Go Premium";
 "Мой профиль в World Arena Flags" = "My World Arena Flags profile";
 "My Profile Share Title" = "My World Arena Flags profile";
-"Не удалось добавить друга. Проверьте код." = "Failed to add friend. Check the code.";
+"Не удалось добавить друга. Проверьте код." = "Could not add this friend. Check the friend code.";
 "Daily Quests" = "Daily Quests";
 "Monthly Quest" = "Monthly Quest";
 
@@ -1948,3 +1948,75 @@
 "inbox.cached" = "Showing saved messages. Pull to refresh.";
 "inbox.open" = "Open";
 "inbox.syncFailed" = "Could not refresh duel results";
+
+"appIcon.suggestion" = "An icon in your language";
+
+"appIcon.choose" = "Choose an icon";
+
+"appIcon.automatic" = "Match the app language automatically";
+
+"inbox.rank" = "Your position";
+
+"inbox.progressCTA" = "View my progress";
+
+"inbox.leagueStory" = "Every game helped shape this result. Take a moment to celebrate the week, then explore your league standings and choose your next goal. A new week is a fresh chance to improve your result.";
+
+"inbox.levelStory" = "This level represents the knowledge you have built, one flag at a time. Your experience stays with your profile. Try a harder difficulty or a different region to keep discovering something new.";
+
+"inbox.achievementStory" = "A new milestone deserves a place in your collection. Open your achievements to see what you have unlocked and how close you are to the next award. Keep exploring at your own pace.";
+
+"inbox.duelStory" = "A duel is a chance to test what you know together. Open the duel results for the scores and current status. Completed games stay in your history so you can return to them later.";
+
+"inbox.messageStory" = "You can return to this message at any time from your notification history. Reading a message does not remove it.";
+
+"duel.error.notYours" = "This challenge belongs to a different player. Check the account you are signed into.";
+
+"Не удалось добавить в друзья. Попробуйте позже." = "Could not add this friend. Please try again.";
+
+"achievement.streak_60.title" = "A season of discovery";
+
+"achievement.streak_60.body" = "Reach a 60-day streak";
+
+"achievement.streak_100.title" = "A hundred sunrises";
+
+"achievement.streak_100.body" = "Reach a 100-day streak";
+
+"achievement.streak_365.title" = "A world of dedication";
+
+"achievement.streak_365.body" = "Reach a 365-day streak";
+
+"achievement.games_250.title" = "Beyond the horizon";
+
+"achievement.games_250.body" = "Play 250 games";
+
+"achievement.games_500.title" = "World explorer";
+
+"achievement.games_500.body" = "Play 500 games";
+
+"achievement.games_1000.title" = "A thousand adventures";
+
+"achievement.games_1000.body" = "Play 1000 games";
+
+"achievement.xp_50000.title" = "Knowledge powerhouse";
+
+"achievement.xp_50000.body" = "Earn 50,000 XP";
+
+"achievement.xp_100000.title" = "The knowledge crown";
+
+"achievement.xp_100000.body" = "Earn 100,000 XP";
+
+"achievement.level_25.title" = "First summit";
+
+"achievement.level_25.body" = "Reach level 25";
+
+"achievement.level_50.title" = "Higher horizons";
+
+"achievement.level_50.body" = "Reach level 50";
+
+"achievement.level_100.title" = "World Arena centurion";
+
+"achievement.level_100.body" = "Reach level 100";
+
+"achievement.friends_10.title" = "A global circle";
+
+"achievement.friends_10.body" = "Add 10 friends";

@@ -25,7 +25,7 @@ struct MyNotificationsView: View {
             switch filter {
             case 1: return item.isUnread
             case 2: return item.isDuel
-            case 3: return item.kind == "progress"
+            case 3: return item.kind == "progress" || (item.id.hasPrefix("level_") || item.details?.level != nil) || (item.id.hasPrefix("league_") || item.details?.league != nil) || item.id.hasPrefix("achievement_")
             default: return true
             }
         }
@@ -88,10 +88,27 @@ struct MyNotificationsView: View {
                 NavigationView {
                     ScrollView {
                         VStack(alignment: .leading, spacing: 24) {
-                            Image(systemName: icon(item)).font(.largeTitle).foregroundColor(.blue)
+                            InboxCelebrationArtwork(item: item).frame(height: 210)
                             Text(item.displayTitle).font(.title2.bold())
                             if let date=item.date { Text(dateText(date)).font(.caption).foregroundColor(.secondary) }
                             Text(item.displayBody).font(.body).fixedSize(horizontal: false, vertical: true)
+                            if let detail = item.details {
+                                HStack(spacing: 12) {
+                                    if let rank = detail.rank { metric(tr("inbox.rank"), "#" + String(rank)) }
+                                    if let level = detail.level { metric(tr("Уровень"), String(level)) }
+                                    if let xp = detail.xp { metric("XP", String(xp)) }
+                                    if let score = detail.myScore { metric(tr("You"), String(score)) }
+                                    if let score = detail.opponentScore { metric(detail.opponentName ?? tr("Duel"), String(score)) }
+                                }
+                            }
+                            Text(tr(contextKey(item))).font(.body).foregroundColor(.secondary).fixedSize(horizontal: false, vertical: true)
+                            if (item.id.hasPrefix("league_") || item.details?.league != nil) || (item.id.hasPrefix("level_") || item.details?.level != nil) || item.id.hasPrefix("achievement_") {
+                                Button(tr("inbox.progressCTA")) {
+                                    selected = nil; dismiss()
+                                    NotificationService.shared.pendingLeague = (item.id.hasPrefix("league_") || item.details?.league != nil)
+                                    if !(item.id.hasPrefix("league_") || item.details?.league != nil) { NotificationCenter.default.post(name: Notification.Name("OpenAchievements"), object: nil) }
+                                }.buttonStyle(.borderedProminent)
+                            }
                             if item.isDuel {
                                 Button(tr("Duel Summary")) {
                                     selected=nil; dismiss()
@@ -116,7 +133,23 @@ struct MyNotificationsView: View {
     private func dateText(_ date: Date) -> String {
         date.formatted(Date.FormatStyle(date:.abbreviated,time:.shortened).locale(Locale(identifier:language.currentBundleLanguageCode)))
     }
+    private func contextKey(_ item: AppNotificationLogItem) -> String {
+        if (item.id.hasPrefix("league_") || item.details?.league != nil) { return "inbox.leagueStory" }
+        if (item.id.hasPrefix("level_") || item.details?.level != nil) { return "inbox.levelStory" }
+        if item.id.hasPrefix("achievement_") { return "inbox.achievementStory" }
+        if item.isDuel { return "inbox.duelStory" }
+        return "inbox.messageStory"
+    }
+    private func metric(_ title: String, _ value: String) -> some View {
+        VStack(alignment: .leading, spacing: 6) {
+            Text(value).font(.title2.bold()).monospacedDigit()
+            Text(title).font(.caption).foregroundColor(.secondary)
+        }.frame(maxWidth: .infinity, alignment: .leading).padding(14).background(Color.blue.opacity(0.08), in: RoundedRectangle(cornerRadius: 16))
+    }
     private func icon(_ item: AppNotificationLogItem) -> String {
+        if (item.id.hasPrefix("league_") || item.details?.league != nil) { return "trophy.fill" }
+        if (item.id.hasPrefix("level_") || item.details?.level != nil) { return "star.circle.fill" }
+        if item.id.hasPrefix("achievement_") { return "medal.fill" }
         if item.kind == "duel_result" { return "trophy.fill" }
         if item.isDuel { return "person.2.fill" }
         if item.kind == "progress" { return "star.fill" }
@@ -139,5 +172,34 @@ struct MyNotificationsView: View {
         }.padding(16).frame(maxWidth:.infinity,alignment:.leading)
             .background(Color(UIColor.secondarySystemGroupedBackground),in:RoundedRectangle(cornerRadius:20))
             .overlay(RoundedRectangle(cornerRadius:20).stroke(item.isUnread ? Color.blue.opacity(0.3) : .clear,lineWidth:1))
+    }
+}
+
+struct InboxCelebrationArtwork: View {
+    let item: AppNotificationLogItem
+    @Environment(\.accessibilityReduceMotion) private var reduceMotion
+    @State private var appeared = false
+    private var symbol: String {
+        if (item.id.hasPrefix("league_") || item.details?.league != nil) || item.kind == "duel_result" { return "trophy.fill" }
+        if (item.id.hasPrefix("level_") || item.details?.level != nil) { return "star.circle.fill" }
+        if item.id.hasPrefix("achievement_") { return "medal.fill" }
+        return item.isDuel ? "person.2.fill" : "globe.europe.africa.fill"
+    }
+    var body: some View {
+        ZStack {
+            RoundedRectangle(cornerRadius: 26).fill(LinearGradient(colors: [Color(red: 0.03, green: 0.10, blue: 0.23), Color(red: 0.04, green: 0.31, blue: 0.37)], startPoint: .topLeading, endPoint: .bottomTrailing))
+            ForEach(0..<10) { i in
+                Image(systemName: i.isMultiple(of: 2) ? "sparkle" : "circle.fill")
+                    .font(.system(size: CGFloat(7 + i % 3 * 4))).foregroundColor(i.isMultiple(of: 3) ? .yellow : .cyan.opacity(0.65))
+                    .offset(x: CGFloat((i * 73) % 300 - 150), y: CGFloat((i * 43) % 150 - 75))
+                    .opacity(appeared ? 1 : 0).accessibilityHidden(true)
+            }
+            Image(systemName: symbol).font(.system(size: 76, weight: .bold))
+                .foregroundStyle(LinearGradient(colors: [.white, .yellow, .orange], startPoint: .top, endPoint: .bottom))
+                .shadow(color: .yellow.opacity(0.25), radius: 18).scaleEffect(appeared ? 1 : 0.92)
+        }.onAppear {
+            if reduceMotion { appeared = true }
+            else { withAnimation(.easeOut(duration: 0.45)) { appeared = true } }
+        }.accessibilityHidden(true)
     }
 }

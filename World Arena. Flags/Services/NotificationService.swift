@@ -190,11 +190,11 @@ class NotificationService: NSObject, ObservableObject {
             if ($0.source == "server") != ($1.source == "server") { return $0.source == "server" }
             return ($0.date ?? .distantPast) > ($1.date ?? .distantPast)
         }.filter { item in
-            let semantic=item.isDuel && item.target != nil ? item.kind + ":" + item.target! : item.id
+            let semantic=item.deduplicationKey
             return seen.insert(semantic).inserted
         }.sorted { ($0.date ?? .distantPast) > ($1.date ?? .distantPast) }.prefix(200).map { item in
             var item=item
-            let semantic=item.isDuel && item.target != nil ? item.kind + ":" + item.target! : item.id
+            let semantic=item.deduplicationKey
             if readIDs.contains(item.id) || readIDs.contains(semantic) { item.readAt = item.readAt ?? Date() }
             return item
         }
@@ -232,8 +232,8 @@ class NotificationService: NSObject, ObservableObject {
         let ids=Set(ids), account=accountKey
         var reads=Set(userDefaults.stringArray(forKey:account + ".read") ?? [])
         reads.formUnion(ids)
-        for item in inboxItems where ids.contains(item.id) && item.isDuel {
-            if let target=item.target { reads.insert(item.kind + ":" + target) }
+        for item in inboxItems where ids.contains(item.id) {
+            reads.insert(item.deduplicationKey)
         }
         userDefaults.set(Array(reads),forKey:account + ".read")
         let serverIDs=inboxItems.filter { ids.contains($0.id) && $0.source == "server" }.map(\.id)
@@ -261,8 +261,8 @@ class NotificationService: NSObject, ObservableObject {
     func markNotificationsRead() { Task { @MainActor in self.markRead(ids:self.inboxItems.map(\.id)) } }
 
     @MainActor
-    func notifyProgress(id: String, title: String, body: String, preference: String) {
-        logInAppNotification(id: id, title: title, body: body, source: "progress")
+    func notifyProgress(id: String, title: String, body: String, preference: String, details: AppNotificationLogItem.Details? = nil) {
+        logInAppNotification(id: id, title: title, body: body, source: "progress", kind: "progress", details: details)
         guard userDefaults.object(forKey: "notificationsEnabled") as? Bool != false,
               userDefaults.object(forKey: preference) as? Bool != false else { return }
         let content = UNMutableNotificationContent()
@@ -452,8 +452,15 @@ struct AppNotificationLogItem: Identifiable, Codable {
     var kind: String = "message"
     var target: String? = nil
     var readAt: Date? = nil
-    struct Details: Codable { var opponentName: String?; var myScore: Int?; var opponentScore: Int?; var iWon: Bool? }
+    struct Details: Codable { var opponentName: String?; var myScore: Int?; var opponentScore: Int?; var iWon: Bool?; var level: Int? = nil; var xp: Int? = nil; var rank: Int? = nil; var participants: Int? = nil; var league: String? = nil; var reward: Int? = nil; var achievementID: String? = nil; var week: String? = nil }
     var details: Details? = nil
+    var deduplicationKey: String {
+        if isDuel, let target { return kind + ":" + target }
+        if let level = details?.level { return "level_" + String(level) }
+        if let week = details?.week { return "league_" + week }
+        if let achievement = details?.achievementID { return "achievement_" + achievement }
+        return id
+    }
     var isUnread: Bool { readAt == nil }
     @MainActor var displayTitle: String {
         let lm=LocalizationManager.shared
@@ -599,6 +606,8 @@ extension NotificationService {
         inboxItems = [
             .init(id:"preview-duel",title:LocalizationManager.shared.localizedString("Victory"),body:"Sergii · 20 : 14 · Nadiia",date:Date(),source:"preview",kind:"duel_result",target:"preview-match"),
             .init(id:"preview-achievement",title:LocalizationManager.shared.localizedString("Достижения"),body:LocalizationManager.shared.localizedString("Ранняя птица") + " · " + LocalizationManager.shared.localizedString("Достигните серии 5 дней"),date:Date().addingTimeInterval(-900),source:"preview",kind:"progress"),
+            .init(id:"level_100",title:LocalizationManager.shared.localizedString("Уровень") + " 100",body:LocalizationManager.shared.localizedString("achievement.level_100.title"),date:Date().addingTimeInterval(-1800),source:"preview",kind:"progress",readAt:Date(),details:.init(level:100,xp:99000)),
+            .init(id:"league_preview",title:LocalizationManager.shared.localizedString("Лиги"),body:LocalizationManager.shared.localizedString("Золотая лига"),date:Date().addingTimeInterval(-2400),source:"preview",kind:"progress",readAt:Date(),details:.init(rank:2,participants:20,league:LocalizationManager.shared.localizedString("Золотая лига"))),
             .init(id:"preview-message",title:"World Arena",body:LocalizationManager.shared.localizedString("inbox.explanation"),date:Date().addingTimeInterval(-86400),source:"preview",kind:"message",readAt:Date())
         ]
         unreadCount=2

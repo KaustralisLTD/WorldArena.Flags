@@ -10,6 +10,50 @@ import StoreKitTest
 
 final class Flags_WorldUITests: XCTestCase {
     @MainActor
+    func testOctoberDuelStoreScreenshot() throws {
+        let app = XCUIApplication()
+        app.launchArguments = ["UITesting", "UITestingDuelResults", "StoreMediaCapture", "-selectedLanguage", "ru"]
+        app.launch(); sleep(2)
+        let shot = XCTAttachment(screenshot: app.screenshot()); shot.name = "store-duel-final"; shot.lifetime = .keepAlways; add(shot)
+    }
+
+    @MainActor
+    func testOctoberStoreMedia() throws {
+        let app = XCUIApplication()
+        for (name, mode) in [("quiz", "UITestingLargeQuiz"), ("duel", "UITestingDuelResults"), ("map", "PremiumCaptureMap"), ("achievements", "AchievementCollectionQA"), ("shop", "StoreCaptureShop")] {
+            app.launchArguments = ["UITesting", mode, "StoreMediaCapture", "UITestingNormalText", "-selectedLanguage", "ru", "-AppleInterfaceStyle", "Light"]
+            app.launch(); sleep(3)
+            if name == "achievements" { app.swipeUp(); app.swipeUp(); app.swipeUp() }
+            let shot = XCTAttachment(screenshot: app.screenshot()); shot.name = "store-" + name; shot.lifetime = .keepAlways; add(shot)
+            app.terminate()
+        }
+    }
+
+    @MainActor
+    func testOctoberUpdatesScreenshots() throws {
+        let app = XCUIApplication()
+        app.launchArguments = ["UITesting", "NotificationInboxQA", "-selectedLanguage", "uk"]
+        app.launch()
+        XCTAssertTrue(app.buttons["inbox.item.preview-duel"].waitForExistence(timeout: 20))
+        for id in ["level_100", "league_preview"] {
+            let card = app.buttons["inbox.item." + id]
+            if !card.isHittable { app.swipeUp() }
+            XCTAssertTrue(card.waitForExistence(timeout: 10)); card.tap()
+            sleep(1)
+            let shot = XCTAttachment(screenshot: app.screenshot()); shot.name = "October " + id; shot.lifetime = .keepAlways; add(shot)
+            app.buttons["Закрити"].firstMatch.tap()
+        }
+        app.terminate()
+        app.launchArguments = ["UITesting", "AchievementCollectionQA", "-selectedLanguage", "ru"]
+        app.launch(); sleep(2); app.swipeUp(); app.swipeUp(); app.swipeUp()
+        let collection = XCTAttachment(screenshot: app.screenshot()); collection.name = "October achievements"; collection.lifetime = .keepAlways; add(collection)
+        app.terminate()
+        app.launchArguments = ["UITesting", "UITestingDuelResults", "-selectedLanguage", "ru"]
+        app.launch(); sleep(2)
+        let duel = XCTAttachment(screenshot: app.screenshot()); duel.name = "October duel result"; duel.lifetime = .keepAlways; add(duel)
+    }
+
+    @MainActor
     func testNotificationInboxUkrainianAndArabic() throws {
         let app=XCUIApplication()
         for language in ["uk","ar"] {

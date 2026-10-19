@@ -107,7 +107,9 @@ private struct AchievementCell: View {
     var body: some View {
         VStack(spacing: 8) {
             ZStack {
-                if let asset = definition.imageAssetName {
+                if definition.id.hasPrefix("journey_") {
+                    JourneyAchievementBadge(definition: definition, unlocked: isUnlocked).frame(width: 72, height: 72)
+                } else if let asset = definition.imageAssetName {
                     Image(asset)
                         .resizable()
                         .scaledToFit()
@@ -207,7 +209,9 @@ struct AchievementDetailView: View {
     var body: some View {
         VStack(spacing: 16) {
             ZStack {
-                if let asset = definition.imageAssetName {
+                if definition.id.hasPrefix("journey_") {
+                    JourneyAchievementBadge(definition: definition, unlocked: userProfile.isAchievementUnlocked(id: definition.id)).frame(width: 120, height: 120)
+                } else if let asset = definition.imageAssetName {
                     Image(asset)
                         .resizable()
                         .scaledToFit()
@@ -247,3 +251,19 @@ struct AchievementDetailView: View {
 }
 
 
+
+struct JourneyAchievementBadge: View {
+    let definition: AchievementDefinition
+    let unlocked: Bool
+    var body: some View {
+        GeometryReader { geometry in
+            ZStack {
+                Circle().fill(LinearGradient(colors: [definition.color.opacity(0.35), .black.opacity(0.8)], startPoint: .topLeading, endPoint: .bottomTrailing))
+                Circle().strokeBorder(LinearGradient(colors: [.white.opacity(0.9), definition.color, .white.opacity(0.3)], startPoint: .topLeading, endPoint: .bottomTrailing), lineWidth: 3)
+                Circle().strokeBorder(definition.color.opacity(0.5), lineWidth: 1).padding(7)
+                Image(systemName: definition.icon).font(.system(size: geometry.size.width * 0.34, weight: .bold)).foregroundStyle(LinearGradient(colors: [.white, definition.color], startPoint: .top, endPoint: .bottom))
+                Image(systemName: "sparkle").font(.system(size: geometry.size.width * 0.13)).foregroundColor(.white).offset(x: geometry.size.width * 0.27, y: -geometry.size.width * 0.25)
+            }.saturation(unlocked ? 1 : 0.15).opacity(unlocked ? 1 : 0.65)
+        }.accessibilityHidden(true)
+    }
+}

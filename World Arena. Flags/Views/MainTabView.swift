@@ -16,6 +16,7 @@ struct MainTabView: View {
     @State private var notificationResult: DuelHistoryEntry?
     @State private var showNotificationInbox = false
     @State private var showUnifiedInbox = false
+    @State private var showInboxAchievements = false
     @State private var selectedTab = 0
     @State private var pendingNudgeAlert: NudgeFromAPI?
     @State private var incomingDuelPopup: DuelChallenge?
@@ -137,6 +138,15 @@ struct MainTabView: View {
             DuelNotificationResultView(entry: entry)
         }
         .sheet(isPresented: $showUnifiedInbox) { MyNotificationsView() }
+        .sheet(isPresented: $showInboxAchievements) {
+            NavigationView { AchievementsView().environmentObject(userProfile).toolbar {
+                ToolbarItem(placement: .confirmationAction) { Button(localizationManager.localizedString("Close")) { showInboxAchievements = false } }
+            } }
+        }
+        .onReceive(NotificationCenter.default.publisher(for: Notification.Name("OpenAchievements"))) { _ in
+            selectedTab = 4
+            DispatchQueue.main.asyncAfter(deadline: .now() + 0.4) { showInboxAchievements = true }
+        }
         .onReceive(notificationRouter.$pendingInbox) { open in
             if open { selectedTab = 4; showUnifiedInbox = true; notificationRouter.pendingInbox = false }
         }
