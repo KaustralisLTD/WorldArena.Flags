@@ -48,6 +48,24 @@ final class Flags_WorldUITests: XCTestCase {
     }
 
     @MainActor
+    func testAchievementNotificationArtworkScreenshots() throws {
+        let app = XCUIApplication()
+        app.launchArguments = ["UITesting", "NotificationInboxQA", "StoreMediaCapture", "-selectedLanguage", "ru", "-AppleInterfaceStyle", "Light"]
+        app.launch()
+        let legacy = app.buttons["inbox.item.preview-achievement"]
+        XCTAssertTrue(legacy.waitForExistence(timeout: 20))
+        let journey = app.buttons["inbox.item.achievement_journey_streak_100"]
+        XCTAssertTrue(journey.exists)
+        let list = XCTAttachment(screenshot: app.screenshot()); list.name = "achievement-icons-list"; list.lifetime = .keepAlways; add(list)
+        legacy.tap()
+        XCTAssertTrue(app.buttons["Закрыть"].firstMatch.waitForExistence(timeout: 5))
+        let first = XCTAttachment(screenshot: app.screenshot()); first.name = "achievement-icons-original-badge"; first.lifetime = .keepAlways; add(first)
+        app.buttons["Закрыть"].firstMatch.tap()
+        journey.tap()
+        let second = XCTAttachment(screenshot: app.screenshot()); second.name = "achievement-icons-journey-badge"; second.lifetime = .keepAlways; add(second)
+    }
+
+    @MainActor
     func testOctoberUpdatesScreenshots() throws {
         let app = XCUIApplication()
         app.launchArguments = ["UITesting", "NotificationInboxQA", "-selectedLanguage", "uk"]

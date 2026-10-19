@@ -5,6 +5,28 @@ import CoreImage
 
 @MainActor
 final class FlagsExperienceTests: XCTestCase {
+    func testEveryAchievementNotificationResolvesItsOwnCatalogArtwork() {
+        for definition in UserProfile.shared.allAchievementDefinitions {
+            let structured = AppNotificationLogItem(id: UUID().uuidString, title: "", body: "", date: nil, source: "server", kind: "progress", details: .init(achievementID: definition.id))
+            let legacy = AppNotificationLogItem(id: "achievement_" + definition.id, title: "", body: "", date: nil, source: "progress")
+            XCTAssertEqual(structured.achievementDefinition?.id, definition.id)
+            XCTAssertEqual(legacy.achievementDefinition?.id, definition.id)
+            if let asset = definition.imageAssetName { XCTAssertNotNil(UIImage(named: asset), asset) }
+            else { XCTAssertNotNil(UIImage(systemName: definition.icon), definition.icon) }
+        }
+    }
+
+    func testLegacyNotificationTitleAndMilestoneResolveRealAchievement() {
+        let legacy = AppNotificationLogItem(id: "old-local-entry", title: "Достижения", body: "Ранняя птица · Достигните серии 5 дней", date: nil, source: "progress")
+        XCTAssertEqual(legacy.achievementDefinition?.id, "streak_5")
+        let milestone = AppNotificationLogItem(id: "award:server", title: "", body: "", date: nil, source: "server", kind: "progress", details: .init(level: 100))
+        XCTAssertEqual(milestone.achievementDefinition?.id, "journey_level_100")
+        let unknown = AppNotificationLogItem(id: "achievement_unknown", title: "", body: "", date: nil, source: "progress")
+        XCTAssertNil(unknown.achievementDefinition)
+        let message = AppNotificationLogItem(id: "message", title: "", body: "Ранняя птица", date: nil, source: "server", kind: "message")
+        XCTAssertNil(message.achievementDefinition)
+    }
+
     func testAdditionalAchievementsPreserveExistingCatalog() {
         let definitions = UserProfile.shared.allAchievementDefinitions
         let old = Set(["streak_5", "streak_10", "streak_30", "xp_1000", "xp_5000", "xp_10000", "games_20", "games_100", "acc_70", "acc_85", "league_silver", "league_gold", "league_platinum", "league_diamond", "league_master", "friends_1", "friends_5", "share_1", "games_10_day", "xp_30000"])

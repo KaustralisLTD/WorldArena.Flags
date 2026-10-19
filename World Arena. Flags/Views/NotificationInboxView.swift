@@ -25,7 +25,7 @@ struct MyNotificationsView: View {
             switch filter {
             case 1: return item.isUnread
             case 2: return item.isDuel
-            case 3: return item.kind == "progress" || (item.id.hasPrefix("level_") || item.details?.level != nil) || (item.id.hasPrefix("league_") || item.details?.league != nil) || item.id.hasPrefix("achievement_")
+            case 3: return item.kind == "progress" || (item.id.hasPrefix("level_") || item.details?.level != nil) || (item.id.hasPrefix("league_") || item.details?.league != nil) || item.id.hasPrefix("achievement_") || item.achievementDefinition != nil
             default: return true
             }
         }
@@ -102,7 +102,7 @@ struct MyNotificationsView: View {
                                 }
                             }
                             Text(tr(contextKey(item))).font(.body).foregroundColor(.secondary).fixedSize(horizontal: false, vertical: true)
-                            if (item.id.hasPrefix("league_") || item.details?.league != nil) || (item.id.hasPrefix("level_") || item.details?.level != nil) || item.id.hasPrefix("achievement_") {
+                            if (item.id.hasPrefix("league_") || item.details?.league != nil) || (item.id.hasPrefix("level_") || item.details?.level != nil) || item.id.hasPrefix("achievement_") || item.achievementDefinition != nil {
                                 Button(tr("inbox.progressCTA")) {
                                     selected = nil; dismiss()
                                     NotificationService.shared.pendingLeague = (item.id.hasPrefix("league_") || item.details?.league != nil)
@@ -136,7 +136,7 @@ struct MyNotificationsView: View {
     private func contextKey(_ item: AppNotificationLogItem) -> String {
         if (item.id.hasPrefix("league_") || item.details?.league != nil) { return "inbox.leagueStory" }
         if (item.id.hasPrefix("level_") || item.details?.level != nil) { return "inbox.levelStory" }
-        if item.id.hasPrefix("achievement_") { return "inbox.achievementStory" }
+        if item.achievementDefinition != nil || item.id.hasPrefix("achievement_") { return "inbox.achievementStory" }
         if item.isDuel { return "inbox.duelStory" }
         return "inbox.messageStory"
     }
@@ -158,8 +158,12 @@ struct MyNotificationsView: View {
     }
     private func notificationCard(_ item: AppNotificationLogItem) -> some View {
         HStack(alignment: .top, spacing: 14) {
-            Image(systemName: icon(item)).font(.title3).foregroundColor(item.isUnread ? .blue : .secondary)
-                .frame(width:44,height:44).background(Color.blue.opacity(item.isUnread ? 0.12 : 0.04),in:RoundedRectangle(cornerRadius:14))
+            if let achievement = item.achievementDefinition {
+                NotificationAchievementIcon(definition: achievement).frame(width: 64, height: 64)
+            } else {
+                Image(systemName: icon(item)).font(.title3).foregroundColor(item.isUnread ? .blue : .secondary)
+                    .frame(width:44,height:44).background(Color.blue.opacity(item.isUnread ? 0.12 : 0.04),in:RoundedRectangle(cornerRadius:14))
+            }
             VStack(alignment: .leading, spacing: 7) {
                 HStack(alignment:.firstTextBaseline) {
                     Text(item.displayTitle).font(.headline).foregroundColor(.primary)
@@ -194,12 +198,34 @@ struct InboxCelebrationArtwork: View {
                     .offset(x: CGFloat((i * 73) % 300 - 150), y: CGFloat((i * 43) % 150 - 75))
                     .opacity(appeared ? 1 : 0).accessibilityHidden(true)
             }
-            Image(systemName: symbol).font(.system(size: 76, weight: .bold))
-                .foregroundStyle(LinearGradient(colors: [.white, .yellow, .orange], startPoint: .top, endPoint: .bottom))
-                .shadow(color: .yellow.opacity(0.25), radius: 18).scaleEffect(appeared ? 1 : 0.92)
+            Group {
+                if let achievement = item.achievementDefinition {
+                    NotificationAchievementIcon(definition: achievement).frame(width: 136, height: 136)
+                } else {
+                    Image(systemName: symbol).font(.system(size: 76, weight: .bold))
+                        .foregroundStyle(LinearGradient(colors: [.white, .yellow, .orange], startPoint: .top, endPoint: .bottom))
+                }
+            }.shadow(color: .yellow.opacity(0.25), radius: 18).scaleEffect(appeared ? 1 : 0.92)
         }.onAppear {
             if reduceMotion { appeared = true }
             else { withAnimation(.easeOut(duration: 0.45)) { appeared = true } }
         }.accessibilityHidden(true)
+    }
+}
+
+/// The exact asset or badge used by the achievement collection, in its earned state.
+struct NotificationAchievementIcon: View {
+    let definition: AchievementDefinition
+    var body: some View {
+        Group {
+            if let asset = definition.imageAssetName {
+                Image(asset).resizable().scaledToFit().clipShape(Circle())
+            } else {
+                JourneyAchievementBadge(definition: definition, unlocked: true)
+            }
+        }
+        .accessibilityElement(children: .ignore)
+        .accessibilityLabel(LocalizationManager.shared.localizedString(definition.titleKey))
+        .accessibilityIdentifier("inbox.achievement.artwork." + definition.id)
     }
 }
