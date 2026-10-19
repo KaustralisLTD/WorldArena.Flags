@@ -1914,7 +1914,7 @@ private struct GameHomeQuickSettingsSheet: View {
 
     var isIPad: Bool
 
-    @State private var draftRegions: Set<GameState.Region> = []
+    @State private var draftRegions: Set<GameState.Region> = [.all]
     @State private var draftDifficulty: GameState.Difficulty = .medium
     @State private var draftPlayMode: GameState.PlayMode = .classic
     @State private var initialDifficulty: GameState.Difficulty?
@@ -2024,10 +2024,10 @@ private struct GameHomeQuickSettingsSheet: View {
         .navigationViewStyle(.stack)
         .onAppear {
             guard initialDifficulty == nil else { return }
-            draftRegions = gameState.selectedRegions
+            draftRegions = gameState.selectedRegions.subtracting([.all])
+            if draftRegions.isEmpty { draftRegions = [.all] }
             draftDifficulty = gameState.selectedDifficulty
             draftPlayMode = gameState.selectedPlayMode
-            normalizeDraftRegions()
             refreshRegions()
             initialDifficulty = draftDifficulty
             initialPlayMode = draftPlayMode
@@ -2080,10 +2080,7 @@ private struct GameHomeQuickSettingsSheet: View {
     }
 
     private func regionChip(_ region: GameState.Region) -> some View {
-        let isSelected: Bool = {
-            if region == .all { return draftRegions == [.all] }
-            return draftRegions == [region]
-        }()
+        let isSelected = draftRegions.contains(region)
         return Button {
             if region == .myMistakes && !gameState.isPremium {
                 gameState.showMistakesPremiumAlert = true
@@ -2093,7 +2090,14 @@ private struct GameHomeQuickSettingsSheet: View {
             if region == .all {
                 draftRegions = [.all]
             } else {
-                draftRegions = [region]
+                var selection = draftRegions.subtracting([.all])
+                if selection.contains(region) {
+                    // Keep at least one region, as on the classic game settings screen.
+                    if selection.count > 1 { selection.remove(region) }
+                } else {
+                    selection.insert(region)
+                }
+                draftRegions = selection
             }
         } label: {
             VStack(spacing: 8) {
@@ -2299,22 +2303,6 @@ private struct GameHomeQuickSettingsSheet: View {
         // Region choices are derived from current game state.
     }
 
-    /// В sheet один визуальный выбор региона; при множественном выборе с классической главной — берём первый осмысленный.
-    private func normalizeDraftRegions() {
-        if draftRegions.isEmpty {
-            draftRegions = [.all]
-            return
-        }
-        if draftRegions == [.all] { return }
-        if draftRegions.count == 1 { return }
-        let sorted = draftRegions.filter { $0 != .all }.sorted { $0.rawValue < $1.rawValue }
-        if let first = sorted.first {
-            draftRegions = [first]
-        } else {
-            draftRegions = [.all]
-        }
-    }
-
     private func applyDraft() {
         commitDraft()
         dismiss()
@@ -2326,7 +2314,7 @@ private struct GameHomeQuickSettingsSheet: View {
         didCommit = true
         if draftDifficulty != initialDifficulty { gameState.selectedDifficulty = draftDifficulty }
         if draftPlayMode != initialPlayMode { gameState.selectedPlayMode = draftPlayMode }
-        if didEditRegions && draftRegions != gameState.selectedRegions {
+        if didEditRegions && gameState.selectedRegions != draftRegions {
             gameState.setRegions(draftRegions)
         }
     }

@@ -945,6 +945,63 @@ final class Flags_WorldUITests: XCTestCase {
     }
 
     @MainActor
+    func testQuickSettingsRegionHighlightPersists() throws {
+        XCUIDevice.shared.orientation = .portrait
+        let app = XCUIApplication()
+        app.launchArguments = ["UITesting", "StoreMediaCapture", "-selectedLanguage", "uk", "-AppleLanguages", "(uk)", "-AppleLocale", "uk_UA", "-selectedTheme", "dark"]
+        app.launch()
+        let settings = app.buttons["home.quickSettings"]
+        XCTAssertTrue(settings.waitForExistence(timeout: 25))
+        func openSettings() {
+            for _ in 0..<5 where !settings.isHittable { app.swipeUp() }
+            settings.tap()
+            XCTAssertTrue(app.buttons["quickSettings.save"].waitForExistence(timeout: 5))
+        }
+        openSettings()
+        let europe = app.buttons["quickSettings.region.Europe"]
+        let asia = app.buttons["quickSettings.region.Asia"]
+        app.buttons["quickSettings.region.All Regions"].tap()
+        europe.tap()
+        XCTAssertTrue(europe.isSelected, "Europe must highlight immediately")
+        europe.tap()
+        XCTAssertTrue(europe.isSelected, "Tapping the selected region must preserve highlighting")
+        asia.tap()
+        XCTAssertTrue(asia.isSelected)
+        XCTAssertTrue(europe.isSelected, "Selecting Asia must retain Europe")
+        let africa = app.buttons["quickSettings.region.Africa"]
+        africa.tap()
+        XCTAssertTrue(africa.isSelected)
+        XCTAssertTrue(asia.isSelected)
+        XCTAssertTrue(europe.isSelected)
+        app.buttons["quickSettings.save"].tap()
+        openSettings()
+        XCTAssertTrue(europe.isSelected, "Saved regions must highlight when settings reopen")
+        XCTAssertTrue(asia.isSelected)
+        XCTAssertTrue(africa.isSelected)
+        let multiple = XCTAttachment(screenshot: XCUIScreen.main.screenshot())
+        multiple.name = "three-regions-uk-dark"
+        multiple.lifetime = .keepAlways
+        add(multiple)
+        asia.tap()
+        XCTAssertFalse(asia.isSelected)
+        XCTAssertTrue(europe.isSelected)
+        XCTAssertTrue(africa.isSelected)
+        let all = app.buttons["quickSettings.region.All Regions"]
+        all.tap()
+        XCTAssertTrue(all.isSelected)
+        XCTAssertFalse(europe.isSelected)
+        XCTAssertFalse(africa.isSelected)
+        europe.tap()
+        XCTAssertTrue(europe.isSelected)
+        XCTAssertFalse(all.isSelected)
+        let screenshot = XCTAttachment(screenshot: XCUIScreen.main.screenshot())
+        screenshot.name = "selected-europe-uk-dark"
+        screenshot.lifetime = .keepAlways
+        add(screenshot)
+        app.buttons["quickSettings.cancel"].tap()
+    }
+
+    @MainActor
     func testQuickSettingsSaveAndSwipeDismissal() throws {
         XCUIDevice.shared.orientation = .portrait
         let app = XCUIApplication()
