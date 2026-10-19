@@ -115,8 +115,10 @@ struct FlagsWorldApp: App {
     }()
 
     @ViewBuilder private var launchContent: some View {
-        #if targetEnvironment(simulator)
-        if CommandLine.arguments.contains("NotificationInboxQA") {
+        #if targetEnvironment(simulator) && DEBUG
+        if CommandLine.arguments.contains("StoreCaptureGallery") {
+            StoreCaptureGallery(gameState: gameState)
+        } else if CommandLine.arguments.contains("NotificationInboxQA") {
             MyNotificationsView().onAppear { NotificationService.shared.seedInboxPreview() }
         } else if CommandLine.arguments.contains("AchievementCollectionQA") {
             NavigationView { AchievementsView().environmentObject(UserProfile.shared) }
@@ -604,6 +606,38 @@ private struct LearningCountryNavigationQA: View {
                 } label: { Text("Open Egypt") }
             }
         }.navigationViewStyle(.stack)
+    }
+}
+#endif
+
+#if DEBUG && targetEnvironment(simulator)
+private struct StoreCaptureGallery: View {
+    @ObservedObject var gameState: GameState
+    @State private var page = 0
+    var body: some View {
+        Group {
+            switch page {
+            case 0: LargeQuizPreview(gameState: gameState)
+            case 1: DuelResultsPreview()
+            case 2: NavigationView { WorldProgressMapView() }.navigationViewStyle(.stack)
+            case 3: NavigationView { AchievementsView() }.navigationViewStyle(.stack)
+            case 4: NavigationView { MonthlyQuestsView() }.navigationViewStyle(.stack)
+            case 5:
+                LeagueWeeklyResultModalView(result: LeagueWeeklyResult(
+                    weekId: "2026-W42", leagueBeforeId: League.gold.rawValue, leagueAfterId: League.platinum.rawValue,
+                    finalRank: 2, participantsCount: 20, podiumPlace: 2, movement: "promoted",
+                    rewardCoins: 0, rewardXp: 0, rewardBucks: 1, motivationMessageCode: "league_motivation_promotion_01",
+                    homeBannerVisible: false, leagueResultSeenAt: nil, createdAt: Date()), onDismiss: {})
+            case 6: NavigationView { StatisticsView() }.navigationViewStyle(.stack)
+            case 7: PremiumScreenshotCapture(screen: "country")
+            case 8: NavigationView { ContinentDetailView(continentName: "Европа", continentEmoji: "🇪🇺") }.navigationViewStyle(.stack)
+            default: AvatarShopView()
+            }
+        }.environmentObject(UserProfile.shared).environmentObject(gameState)
+        .overlay(alignment: .topTrailing) {
+            Button { page = (page + 1) % 10 } label: { Color.clear.frame(width: 44, height: 44).contentShape(Rectangle()) }
+                .accessibilityIdentifier("capture.next").accessibilityLabel("Next capture")
+        }
     }
 }
 #endif

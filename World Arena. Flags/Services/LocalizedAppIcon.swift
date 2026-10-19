@@ -8,6 +8,9 @@ final class LocalizedAppIcon: ObservableObject {
     private var changing = false
     private var failedLanguage: String?
     func synchronize() {
+        #if targetEnvironment(simulator)
+        if CommandLine.arguments.contains("StoreMediaCapture") { return }
+        #endif
         if UserDefaults.standard.bool(forKey: "appIcon.manualChoice") { suggestion = nil; return }
         guard !changing, UIApplication.shared.applicationState == .active else { return }
         let code = UserDefaults.standard.string(forKey: "selectedLanguage") ?? "system"

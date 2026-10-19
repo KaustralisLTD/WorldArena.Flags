@@ -110,13 +110,22 @@ extension Color: @retroactive Codable {
 // MARK: - User Profile Model
 @MainActor
 class UserProfile: ObservableObject {
-    @Published var username: String = "Player" { didSet { saveIfReady() } }
+    @Published var username: String = "Player" { didSet {
+        if oldValue.precomposedStringWithCanonicalMapping.lowercased() != username.precomposedStringWithCanonicalMapping.lowercased() { levelJourney = nil }
+        saveIfReady()
+    } }
     @Published var avatar: String = "person.circle.fill" { didSet { saveIfReady() } }
     @Published var customAvatarImageData: Data? = nil { didSet { saveIfReady() } }
     /// Код страны для отображения флага в профиле и у друзей (например "RU", "US")
     @Published var selectedCountryCode: String? = nil { didSet { saveIfReady() } }
-    @Published var level: Int = 1 { didSet { saveIfReady() } }
-    @Published var xp: Int = 0 { didSet { saveIfReady() } }
+    @Published var level: Int = 1 { didSet {
+        if level < oldValue { levelJourney = nil }
+        saveIfReady()
+    } }
+    @Published var xp: Int = 0 { didSet {
+        if xp == 0 && level == 1 { levelJourney = nil }
+        saveIfReady()
+    } }
     @Published var streak: Int = 0 { didSet { saveIfReady() } }
     @Published var lastGameDate: Date? = nil { didSet { saveIfReady() } }
     @Published var joinDate: Date = Date() { didSet { saveIfReady() } }
@@ -184,17 +193,14 @@ class UserProfile: ObservableObject {
         return min(100, max(0, Double(correctAnswers) / Double(totalAnswers) * 100))
     }
     
-    var xpToNextLevel: Int {
-        return (level * 1000) - xp
+    private var levelJourney: LevelProgression.State?
+    private var currentLevelJourney: LevelProgression.State {
+        if let state = levelJourney, state.level >= level { return state.advanced(to: xp) }
+        return .migrate(level: level, totalXP: xp)
     }
-    
-    var levelProgress: Double {
-        let currentLevelXP = (level - 1) * 1000
-        let nextLevelXP = level * 1000
-        let progress = Double(xp - currentLevelXP) / Double(nextLevelXP - currentLevelXP)
-        return max(0, min(1, progress))
-    }
-    
+    var xpToNextLevel: Int { currentLevelJourney.remaining }
+    var levelProgress: Double { currentLevelJourney.fraction }
+
     // Singleton instance
     static let shared = UserProfile()
     
@@ -281,6 +287,8 @@ class UserProfile: ObservableObject {
     }
 
     func addXP(_ points: Int) {
+        guard points > 0 else { return }
+        levelJourney = currentLevelJourney
         xp += points
         addXPForDay(points) // Отслеживаем XP по дням для месячных квестов
         checkLevelUp()
@@ -712,6 +720,7 @@ class UserProfile: ObservableObject {
         let freezeGiftReceipts: Set<String>?
         let pendingFreezeGiftID: String?
         let pendingFreezeGiftRecipient: String?
+        var levelJourney: LevelProgression.State? = nil
     }
 
     /// Balance and receipt IDs are persisted in the same profile snapshot.
@@ -784,7 +793,8 @@ class UserProfile: ObservableObject {
             freezeCheckedThrough: freezeCheckedThrough,
             lifecycleRewardReceipts: lifecycleRewardReceipts, lifecycleCompletionReceipts: lifecycleCompletionReceipts,
             freezeGiftReceipts: freezeGiftReceipts,
-            pendingFreezeGiftID: pendingFreezeGiftID, pendingFreezeGiftRecipient: pendingFreezeGiftRecipient
+            pendingFreezeGiftID: pendingFreezeGiftID, pendingFreezeGiftRecipient: pendingFreezeGiftRecipient,
+            levelJourney: levelJourney
         )
         do {
             let data = try JSONEncoder().encode(toSave)
@@ -811,6 +821,7 @@ class UserProfile: ObservableObject {
 
     private func loadFromStorage() {
         defer { isLoadedFromStorage = true }
+        levelJourney = nil
         var data = KeychainStorage.load(forKey: storageKey)
         if data == nil {
             data = UserDefaults.standard.data(forKey: storageKey)
@@ -825,6 +836,7 @@ class UserProfile: ObservableObject {
             self.selectedCountryCode = obj.selectedCountryCode
             self.level = obj.level
             self.xp = obj.xp
+            self.levelJourney = obj.levelJourney ?? .migrate(level: obj.level, totalXP: obj.xp)
             self.streak = obj.streak
             self.lastGameDate = obj.lastGameDate
             self.joinDate = obj.joinDate
@@ -1225,20 +1237,25 @@ class UserProfile: ObservableObject {
     }
 
     private func checkLevelUp() {
-        let newLevel = (xp / 1000) + 1
+        let previousLevel = level
+        let state = currentLevelJourney
+        levelJourney = state
+        let newLevel = max(level, state.level)
         if newLevel > level {
-            let previousLevel = level
             level = newLevel
             if previousLevel < 100 && newLevel >= 100 {
                 AwardMailSync.enqueue(["type": "level", "xp": xp], id: "level:100")
             }
-            NotificationService.shared.notifyProgress(id: "level_" + String(newLevel),
-                title: LocalizationManager.shared.localizedString("Уровень") + " " + String(newLevel),
-                body: LocalizationManager.shared.localizedString("Well done! Keep practicing!"),
-                preference: "achievementNotifications", details: .init(level: newLevel, xp: xp))
+            if let milestone = LevelProgression.highestCelebration(from: previousLevel, through: newLevel) {
+                NotificationService.shared.notifyProgress(id: "level_" + String(milestone),
+                    title: LocalizationManager.shared.localizedString("Уровень") + " " + String(milestone),
+                    body: LocalizationManager.shared.localizedString("Well done! Keep practicing!"),
+                    preference: "achievementNotifications", details: .init(level: milestone, xp: xp))
+            }
         }
+        saveIfReady()
     }
-    
+
     @MainActor
     func generateMonthlyQuests() {
         // Generate quests based on user level and stats

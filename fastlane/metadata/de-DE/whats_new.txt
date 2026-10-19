@@ -1,6 +1,13 @@
-8.0
+Mehr entdecken. Bewusster Fortschritte machen.
 
-• Überarbeiteter Quizbildschirm mit übersichtlichen Antworten und animierten Leben.
-• Neues Design für Statistik, Ligen und Profil.
-• Verbesserte iPad-Layouts und Karten, die sich ihrem Inhalt anpassen.
-• Region und Schwierigkeitsgrad werden beim Schließen der Schnelleinstellungen gespeichert.
+• 12 neue Erfolge ergänzen deine Sammlung. Namen und Ziele sind in allen 30 App-Sprachen verfügbar.
+• Neue Levelkurve: Höhere Level erfordern mehr XP. Deine erreichten Level und gesamten XP bleiben erhalten.
+• Level-Benachrichtigungen feiern wichtige Meilensteine statt jedes einzelne Spiel.
+• Ein übersichtlicheres Postfach mit Illustrationen, Ergebnisdetails, gelesenen Ereignissen und Links zu deinem Fortschritt.
+• Verbesserte Freundschaftsanfragen und Duelleinladungen, auch für ukrainische Nutzernamen und ältere App-Versionen.
+• Mehrsprachige App-Symbole mit sprachabhängiger Auswahl und manuellen Alternativen.
+• Hervorgehobene Ländergrenzen auf der Karte in den Flaggenfakten und neue Karten zum Teilen deines Profils.
+• Verbesserte Spieleinstellungen, Erinnerungen und Zähler ungelesener Ereignisse.
+• Optionale Fortschritts-E-Mails für angemeldete Abonnenten, darunter Level 100 und Ergebnisse der Wochenliga.
+
+Wähle deine Region und entdecke mit jeder Runde mehr.

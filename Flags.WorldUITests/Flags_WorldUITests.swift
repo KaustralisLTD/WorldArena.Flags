@@ -10,6 +10,24 @@ import StoreKitTest
 
 final class Flags_WorldUITests: XCTestCase {
     @MainActor
+    func testLocalizedTenScreenCapture() throws {
+        let app = XCUIApplication()
+        let names = ["quiz", "duel", "map", "achievements", "quests", "league", "statistics", "country", "regions", "avatars"]
+        for language in ["en", "ru", "uk", "de", "fr", "es", "it", "pt-BR"] {
+            app.launchArguments = ["UITesting", "StoreCaptureGallery", "StoreMediaCapture", "UITestingNormalText", "-selectedLanguage", language, "-AppleLanguages", "(" + language + ")", "-AppleLocale", language.replacingOccurrences(of: "-", with: "_"), "-AppleInterfaceStyle", "Light"]
+            app.launch()
+            XCTAssertTrue(app.buttons["capture.next"].waitForExistence(timeout: 30))
+            for (index, name) in names.enumerated() {
+                sleep(index == 2 ? 4 : 2)
+                let shot = XCTAttachment(screenshot: app.screenshot())
+                shot.name = "store-" + language + "-" + name; shot.lifetime = .keepAlways; add(shot)
+                if index != names.count - 1 { app.buttons["capture.next"].tap() }
+            }
+            app.terminate()
+        }
+    }
+
+    @MainActor
     func testOctoberDuelStoreScreenshot() throws {
         let app = XCUIApplication()
         app.launchArguments = ["UITesting", "UITestingDuelResults", "StoreMediaCapture", "-selectedLanguage", "ru"]

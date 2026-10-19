@@ -1,6 +1,13 @@
-8.0
+Mais descobertas. Um progresso que faz sentido.
 
-• Tela do quiz renovada, com respostas mais claras e vidas animadas.
-• Novo design das telas Estatísticas, Ligas e Perfil.
-• Layouts aprimorados no iPad e cartões que se ajustam ao conteúdo.
-• Região e dificuldade são salvas ao fechar os ajustes rápidos.
+• 12 novas conquistas ampliam sua coleção, com nomes e objetivos nos 30 idiomas do app.
+• Nova progressão: cada nível exige mais XP. Seus níveis conquistados e a experiência total são preservados.
+• As notificações de nível celebram marcos importantes, sem interromper cada partida.
+• Uma caixa de notificações mais completa, com ilustrações, detalhes dos resultados, histórico de leitura e acesso ao progresso.
+• Pedidos de amizade e convites para duelos aprimorados, inclusive para nomes ucranianos e versões anteriores.
+• Ícones em vários idiomas, com seleção pelo idioma e alternativas manuais.
+• Fronteiras do país destacadas no mapa das fichas de bandeiras e novos cartões para compartilhar o perfil.
+• Melhorias nos ajustes de jogo, lembretes e contadores de eventos não lidos.
+• E-mails opcionais de progresso para jogadores inscritos, incluindo o nível 100 e os resultados da liga semanal.
+
+Escolha uma região e descubra um novo horizonte a cada partida.

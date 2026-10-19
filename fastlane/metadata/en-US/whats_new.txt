@@ -1,6 +1,13 @@
-8.0
+More discoveries. More meaningful progress.
 
-• A refreshed quiz screen with clearer answers and animated lives.
-• Redesigned Statistics, Leagues and Profile screens.
-• Improved iPad layouts and cards that adapt to their content.
-• Region and difficulty changes now save when you close quick settings.
+• 12 new achievements join your collection, with titles and goals in all 30 app languages.
+• A new level progression: each level takes more XP, while your earned levels and total XP stay with you.
+• Level celebrations now mark meaningful milestones instead of interrupting every game.
+• A richer notification inbox with illustrations, result details, read history and links to your progress.
+• Improved friend requests and duel invitations, including Ukrainian usernames and older app versions.
+• App icons in multiple languages, with language-aware selection and manual alternatives.
+• Country borders highlighted on the map in flag facts, plus refreshed profile sharing cards.
+• Improved game settings, reminders and unread event badges.
+• Optional progress emails for subscribed players, including level 100 and weekly league results.
+
+Choose your region, play a round and see how far your knowledge can take you.

@@ -1,6 +1,13 @@
-8.0
+Più scoperte. Progressi che contano.
 
-• Schermata del quiz rinnovata con risposte più chiare e vite animate.
-• Nuovo design per Statistiche, Leghe e Profilo.
-• Layout migliorati su iPad e schede che si adattano al contenuto.
-• Regione e difficoltà vengono salvate alla chiusura delle impostazioni rapide.
+• 12 nuovi traguardi arricchiscono la collezione, con nomi e obiettivi in tutte le 30 lingue dell’app.
+• Nuova progressione: ogni livello richiede più XP. I livelli raggiunti e l’esperienza totale restano tuoi.
+• Le notifiche di livello celebrano tappe importanti, senza interrompere ogni partita.
+• Notifiche più ricche con illustrazioni, dettagli dei risultati, eventi letti e collegamenti ai progressi.
+• Migliorate le richieste di amicizia e le sfide, anche per i nomi ucraini e le versioni precedenti.
+• Icone in più lingue, con scelta in base alla lingua e alternative manuali.
+• Confini del paese evidenziati sulla mappa nelle schede delle bandiere e nuove schede per condividere il profilo.
+• Migliorati impostazioni di gioco, promemoria e contatori degli eventi non letti.
+• E-mail facoltative sui progressi per i giocatori iscritti, inclusi il livello 100 e i risultati della lega settimanale.
+
+Scegli una regione e scopri un nuovo orizzonte a ogni partita.

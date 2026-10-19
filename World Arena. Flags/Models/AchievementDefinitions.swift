@@ -101,9 +101,14 @@ extension UserProfile {
                     rarity: .rare
                 )
                 updated.append(record)
-                NotificationService.shared.notifyProgress(id: "achievement_" + def.id,
-                    title: LocalizationManager.shared.localizedString("Достижения"),
-                    body: LocalizationManager.shared.localizedString(def.titleKey), preference: "achievementNotifications", details: .init(achievementID: def.id))
+                let coveredByLevelCelebration: Bool
+                if case .level(let target) = def.target { coveredByLevelCelebration = LevelProgression.isCelebrationLevel(target) }
+                else { coveredByLevelCelebration = false }
+                if !coveredByLevelCelebration {
+                    NotificationService.shared.notifyProgress(id: "achievement_" + def.id,
+                        title: LocalizationManager.shared.localizedString("Достижения"),
+                        body: LocalizationManager.shared.localizedString(def.titleKey), preference: "achievementNotifications", details: .init(achievementID: def.id))
+                }
             }
         }
         if updated.count != achievements.count {
