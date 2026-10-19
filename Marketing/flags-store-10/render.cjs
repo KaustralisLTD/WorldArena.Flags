@@ -5,8 +5,9 @@ const copy=require('./copy.json');
 (async()=>{const browser=await chromium.launch({headless:true,executablePath:'/Applications/Google Chrome.app/Contents/MacOS/Google Chrome'});
 try{
 for(const lang of Object.keys(copy)){
- for(const [format,width,height] of [['iphone',1320,2868],['ipad',2064,2752]]){
-  fs.mkdirSync(path.join(root,lang,format),{recursive:true});const page=await browser.newPage({viewport:{width,height},deviceScaleFactor:1});
+ for(const [format,width,height] of (process.env.MEDIUM?[['iphone',1206,2622]]:[['iphone',1320,2868],['ipad',2064,2752]])){
+  const outputFormat=process.env.MEDIUM?'iphone-medium':format;
+  fs.mkdirSync(path.join(root,lang,outputFormat),{recursive:true});const page=await browser.newPage({viewport:{width,height},deviceScaleFactor:1});
   for(let n=1;n<=10;n++){
    if(process.env.ONLY_SLIDE && n!==Number(process.env.ONLY_SLIDE))continue;
    const id=String(n).padStart(2,'0');await page.goto('file://'+path.join(root,lang,id+'.html'));
@@ -22,7 +23,7 @@ for(const lang of Object.keys(copy)){
     return [...document.images].filter(i=>!i.naturalWidth).map(i=>i.src);
    },{format,width});
    if(missing.length)throw Error('Missing source screenshot: '+missing.join(', '));
-   await page.screenshot({path:path.join(root,lang,format,id+'.png')});
+   await page.screenshot({path:path.join(root,lang,outputFormat,id+'.png')});
   }
   await page.close();console.log(lang,format,'10 slides rendered');
  }
