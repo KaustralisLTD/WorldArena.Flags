@@ -1,6 +1,10 @@
-8.0
+Nové cíle. Pokrok, který má smysl.
 
-• Obnovená obrazovka kvízu s přehlednějšími odpověďmi a animovanými životy.
-• Nový vzhled obrazovek Statistiky, Ligy a Profil.
-• Lepší rozložení na iPadu a karty přizpůsobené obsahu.
-• Region a obtížnost se ukládají při zavření rychlého nastavení.
+• Sbírku rozšiřuje 12 nových úspěchů. Názvy a cíle jsou dostupné ve všech 30 jazycích aplikace.
+• Každá další úroveň vyžaduje více XP. Dosažené úrovně i celkové XP zůstávají zachovány. Oznámení slaví jen důležité milníky.
+• Bohatší historie oznámení s ilustracemi, podrobnými výsledky a odkazy na pokrok.
+• Lepší přidávání přátel a pozvánky do duelů, včetně ukrajinských jmen a starších verzí aplikace.
+• Ikony ve více jazycích, zvýrazněné hranice zemí na mapě v zajímavostech o vlajkách a nové karty pro sdílení profilu.
+• Spolehlivější nastavení hry, připomínky a počítadla nepřečtených událostí. Volitelné e-maily pro přihlášené odběratele zahrnují úroveň 100 a výsledky týdenní ligy.
+
+Vyber si oblast a objevuj svět kolo za kolem.

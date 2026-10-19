@@ -70,5 +70,107 @@
     "label": "телугу",
     "promo": "జెండాను గుర్తించండి. ప్రపంచాన్ని తెలుసుకోండి. స్నేహితులతో పోటీపడి, పటంలో మీ పురోగతిని చూసి, కొత్త విజయాలను సేకరించండి.",
     "news": "మరిన్ని ఆవిష్కరణలు. అర్థవంతమైన పురోగతి.\n\n• ప్రస్తుత సేకరణకు 12 కొత్త విజయాలు జోడించాం. విజయాల పేర్లు, లక్ష్యాలు యాప్‌లోని మొత్తం 30 భాషల్లో అందుబాటులో ఉన్నాయి.\n• కొత్త స్థాయి పురోగతి విధానం: తదుపరి స్థాయికి మరింత XP అవసరం. ఇప్పటికే సాధించిన స్థాయులు, మొత్తం XP అలాగే ఉంటాయి.\n• ప్రతి ఆట తర్వాత కాకుండా ముఖ్యమైన మైలురాళ్ల వద్ద మాత్రమే స్థాయి నోటిఫికేషన్లు వస్తాయి.\n• నోటిఫికేషన్లలో చిత్రాలు, ఫలితాల వివరాలు, చదివిన సందేశాల చరిత్ర, పురోగతికి లింకులు జోడించాం.\n• స్నేహితులను జోడించడం, ద్వంద్వ పోటీ ఆహ్వానాలను మెరుగుపరిచాం. ఉక్రేనియన్ వినియోగదారు పేర్లు, పాత యాప్ సంచికలతో అనుకూలతను కూడా మెరుగుపరిచాం.\n• యాప్ భాషకు అనుగుణంగా లేదా మీ ఎంపిక ప్రకారం ఉపయోగించగల బహుభాషా ఐకాన్‌లు.\n• జెండా వివరాల్లోని పటంలో దేశ సరిహద్దులు కనిపిస్తాయి. ప్రొఫైల్ పంచుకునే కార్డులను కూడా నవీకరించాం.\n• ఆట సెట్టింగుల భద్రపరచడం, రిమైండర్లు, చదవని నోటిఫికేషన్ల సంఖ్యను మెరుగుపరిచాం.\n• ఇమెయిల్‌లకు సభ్యత్వం తీసుకున్న ఆటగాళ్లకు స్థాయి 100, వారపు లీగ్ ఫలితాల గురించి పురోగతి మెయిల్‌లు.\n\nఒక ప్రాంతాన్ని ఎంచుకుని, ప్రతి ఆటతో ప్రపంచాన్ని మరింత తెలుసుకోండి."
+  },
+  "hu": {
+    "locale": "hu",
+    "label": "венгерский",
+    "promo": "Ismerd fel a zászlót, fedezd fel a világot! Hívd ki barátaidat, kövesd fejlődésed a térképen, és gyűjts új eredményeket.",
+    "news": "Új célok, tartalmasabb fejlődés.\n\n• 12 új eredmény egészíti ki a gyűjteményt. A nevek és célok az alkalmazás mind a 30 nyelvén elérhetők.\n• Az új szintek egyre több XP-t igényelnek. A megszerzett szintek és az összes XP megmarad; értesítés csak fontos mérföldköveknél jelenik meg.\n• Gazdagabb értesítési előzmények képekkel, részletes eredményekkel és a fejlődéshez vezető hivatkozásokkal.\n• Javított barátfelvétel és párbajmeghívók, az ukrán felhasználónevek és régebbi verziók támogatásával.\n• Többnyelvű alkalmazásikonok, kiemelt országhatárok a zászlóadatok térképén és új profilmegosztó kártyák.\n• Megbízhatóbb játékbeállítások, emlékeztetők és olvasatlan számlálók. Opcionális fejlődési e-mailek a feliratkozóknak, a 100. szintről és a heti liga eredményeiről is.\n\nVálassz régiót, és fedezz fel többet minden fordulóval!"
+  },
+  "cs": {
+    "locale": "cs",
+    "label": "чешский",
+    "promo": "Poznej vlajku, objev svět. Vyzvi přátele, sleduj pokrok na mapě a sbírej nové úspěchy. Každé kolo přináší další objev.",
+    "news": "Nové cíle. Pokrok, který má smysl.\n\n• Sbírku rozšiřuje 12 nových úspěchů. Názvy a cíle jsou dostupné ve všech 30 jazycích aplikace.\n• Každá další úroveň vyžaduje více XP. Dosažené úrovně i celkové XP zůstávají zachovány. Oznámení slaví jen důležité milníky.\n• Bohatší historie oznámení s ilustracemi, podrobnými výsledky a odkazy na pokrok.\n• Lepší přidávání přátel a pozvánky do duelů, včetně ukrajinských jmen a starších verzí aplikace.\n• Ikony ve více jazycích, zvýrazněné hranice zemí na mapě v zajímavostech o vlajkách a nové karty pro sdílení profilu.\n• Spolehlivější nastavení hry, připomínky a počítadla nepřečtených událostí. Volitelné e-maily pro přihlášené odběratele zahrnují úroveň 100 a výsledky týdenní ligy.\n\nVyber si oblast a objevuj svět kolo za kolem."
+  },
+  "el": {
+    "locale": "el",
+    "label": "греческий",
+    "promo": "Αναγνώρισε τη σημαία. Ανακάλυψε τον κόσμο. Προκάλεσε φίλους, δες την πρόοδό σου στον χάρτη και συγκέντρωσε νέα επιτεύγματα.",
+    "news": "Νέοι στόχοι. Πρόοδος με νόημα.\n\n• 12 νέα επιτεύγματα εμπλουτίζουν τη συλλογή. Ονόματα και στόχοι είναι διαθέσιμα και στις 30 γλώσσες της εφαρμογής.\n• Κάθε επόμενο επίπεδο απαιτεί περισσότερα XP. Τα κερδισμένα επίπεδα και τα συνολικά XP διατηρούνται. Οι ειδοποιήσεις επιπέδων εμφανίζονται μόνο σε σημαντικά ορόσημα.\n• Πλουσιότερο ιστορικό ειδοποιήσεων με εικόνες, αναλυτικά αποτελέσματα και συνδέσμους προς την πρόοδο.\n• Βελτιωμένη προσθήκη φίλων και προσκλήσεις μονομαχίας, με υποστήριξη ουκρανικών ονομάτων και παλαιότερων εκδόσεων.\n• Πολύγλωσσα εικονίδια, τονισμένα σύνορα χωρών στον χάρτη των πληροφοριών σημαίας και νέες κάρτες κοινοποίησης προφίλ.\n• Βελτιωμένες ρυθμίσεις παιχνιδιού, υπενθυμίσεις και μετρητές μη αναγνωσμένων συμβάντων. Προαιρετικά email για εγγεγραμμένους παραλήπτες, με το επίπεδο 100 και τα αποτελέσματα της εβδομαδιαίας λίγκας.\n\nΔιάλεξε περιοχή και ανακάλυψε περισσότερα σε κάθε γύρο."
+  },
+  "ja": {
+    "locale": "ja",
+    "label": "японский",
+    "promo": "国旗を見つけて、世界を広げよう。友達と対戦し、進捗マップで成長を確認。新しい実績を集めながら、毎回のクイズで新たな発見を。",
+    "news": "新しい目標と、もっと実感できる成長を。\n\n• 既存のコレクションに12種類の実績を追加。実績名と目標はアプリの全30言語に対応しました。\n• レベルが上がるほど必要なXPが増える新しい成長方式に。獲得済みのレベルと累計XPは保持されます。レベル通知は大きな節目だけに表示されます。\n• 通知履歴にイラスト、詳しい結果、進捗へのリンクを追加。既読の通知も確認できます。\n• 友達追加と対戦招待を改善。ウクライナ語のユーザー名や以前のアプリとの互換性も向上しました。\n• 多言語のアプリアイコン、国旗情報の地図での国境表示、新しいプロフィール共有カード。\n• ゲーム設定の保存、リマインダー、未読バッジを改善。メール受信を希望するプレイヤーには、レベル100到達や週間リーグ結果のお知らせも届きます。\n\n地域を選んで、ひとつのクイズから世界を広げましょう。"
+  },
+  "ar": {
+    "locale": "ar-SA",
+    "label": "арабский",
+    "promo": "تعرّف على العلم واكتشف العالم. تحدَّ أصدقاءك، وتابع تقدمك على الخريطة، واجمع إنجازات جديدة مع كل جولة.",
+    "news": "أهداف جديدة وتقدم أكثر معنى.\n\n• أضفنا 12 إنجازًا إلى المجموعة الحالية، بأسماء وأهداف متاحة بجميع لغات التطبيق الثلاثين.\n• يتطلب كل مستوى جديد نقاط XP أكثر. تبقى مستوياتك المكتسبة وإجمالي نقاطك محفوظة، وتظهر تهاني المستوى عند المحطات المهمة فقط.\n• سجل إشعارات أغنى بالصور وتفاصيل النتائج وروابط التقدم، مع الاحتفاظ بالإشعارات المقروءة.\n• تحسين إضافة الأصدقاء ودعوات المبارزة، بما يشمل الأسماء الأوكرانية وإصدارات التطبيق السابقة.\n• أيقونات بلغات متعددة، وإبراز حدود الدولة في خريطة معلومات العلم، وبطاقات جديدة لمشاركة الملف الشخصي.\n• تحسين حفظ إعدادات اللعب والتذكيرات وعدّادات الأحداث غير المقروءة. رسائل تقدم اختيارية للمشتركين، تشمل الوصول إلى المستوى 100 ونتائج الدوري الأسبوعي.\n\nاختر منطقة واكتشف المزيد في كل جولة."
+  },
+  "bn": {
+    "locale": "bn",
+    "label": "бенгали",
+    "promo": "পতাকা চিনুন, বিশ্ব আবিষ্কার করুন। বন্ধুদের চ্যালেঞ্জ করুন, মানচিত্রে অগ্রগতি দেখুন এবং নতুন অর্জন সংগ্রহ করুন।",
+    "news": "নতুন লক্ষ্য। আরও অর্থবহ অগ্রগতি।\n\n• বর্তমান সংগ্রহে ১২টি নতুন অর্জন যোগ হয়েছে। নাম ও লক্ষ্য অ্যাপের সব ৩০টি ভাষায় পাওয়া যায়।\n• প্রতিটি পরবর্তী স্তরে আরও XP দরকার। অর্জিত স্তর ও মোট XP অক্ষুণ্ণ থাকে। স্তরের বিজ্ঞপ্তি শুধু গুরুত্বপূর্ণ মাইলফলকে দেখানো হয়।\n• ছবি, ফলাফলের বিস্তারিত, পড়া বার্তার ইতিহাস এবং অগ্রগতির লিংকসহ উন্নত বিজ্ঞপ্তি বিভাগ।\n• ইউক্রেনীয় ব্যবহারকারীর নাম ও পুরোনো সংস্করণসহ বন্ধু যোগ করা এবং দ্বৈরথের আমন্ত্রণ উন্নত হয়েছে।\n• একাধিক ভাষার অ্যাপ আইকন, পতাকার তথ্যে মানচিত্রে দেশের সীমানা এবং নতুন প্রোফাইল শেয়ার কার্ড।\n• খেলার সেটিংস সংরক্ষণ, রিমাইন্ডার ও অপঠিত ঘটনার সংখ্যা উন্নত হয়েছে। ইমেইলে সদস্যতা নেওয়া খেলোয়াড়দের জন্য স্তর ১০০ ও সাপ্তাহিক লিগের ফলাফলের বার্তাও যোগ হয়েছে।\n\nঅঞ্চল বেছে নিয়ে প্রতি রাউন্ডে নতুন কিছু আবিষ্কার করুন।"
+  },
+  "vi": {
+    "locale": "vi",
+    "label": "вьетнамский",
+    "promo": "Nhận biết lá cờ, khám phá thế giới. Thách đấu bạn bè, xem tiến bộ trên bản đồ và chinh phục thành tích mới qua từng vòng chơi.",
+    "news": "Mục tiêu mới. Tiến bộ ý nghĩa hơn.\n\n• Thêm 12 thành tích vào bộ sưu tập hiện có. Tên và mục tiêu hỗ trợ đủ 30 ngôn ngữ của ứng dụng.\n• Cấp độ tiếp theo cần nhiều XP hơn. Cấp độ đã đạt và tổng XP được giữ nguyên. Thông báo cấp độ chỉ xuất hiện ở các cột mốc quan trọng.\n• Hộp thông báo phong phú hơn với hình minh họa, kết quả chi tiết, lịch sử đã đọc và liên kết đến tiến độ.\n• Cải thiện kết bạn và lời mời đấu, hỗ trợ tên tiếng Ukraina và các phiên bản ứng dụng cũ.\n• Biểu tượng nhiều ngôn ngữ, đường biên quốc gia nổi bật trên bản đồ trong thông tin lá cờ và thẻ chia sẻ hồ sơ mới.\n• Cải thiện lưu cài đặt, lời nhắc và bộ đếm chưa đọc. Email tiến độ tùy chọn cho người đăng ký, gồm cấp 100 và kết quả giải đấu tuần.\n\nChọn khu vực và khám phá thêm sau mỗi vòng chơi."
+  },
+  "id": {
+    "locale": "id",
+    "label": "индонезийский",
+    "promo": "Kenali bendera, jelajahi dunia. Tantang teman, lihat kemajuan di peta, dan kumpulkan pencapaian baru, satu ronde demi satu ronde.",
+    "news": "Target baru. Kemajuan yang lebih bermakna.\n\n• 12 pencapaian baru melengkapi koleksi. Nama dan target tersedia dalam seluruh 30 bahasa aplikasi.\n• Setiap level berikutnya membutuhkan lebih banyak XP. Level yang diraih dan total XP tetap tersimpan. Notifikasi level hanya muncul pada tonggak penting.\n• Kotak notifikasi lebih lengkap dengan ilustrasi, rincian hasil, riwayat yang sudah dibaca, dan tautan ke kemajuan.\n• Peningkatan penambahan teman dan undangan duel, termasuk nama Ukraina dan versi aplikasi lama.\n• Ikon multibahasa, batas negara yang disorot pada peta fakta bendera, dan kartu berbagi profil baru.\n• Penyimpanan pengaturan, pengingat, dan penghitung belum dibaca ditingkatkan. Email kemajuan opsional bagi pelanggan mencakup level 100 dan hasil liga mingguan.\n\nPilih wilayah dan temukan hal baru di setiap ronde."
+  },
+  "ca": {
+    "locale": "ca",
+    "label": "каталанский",
+    "promo": "Reconeix la bandera. Descobreix el món. Repta els amics, explora el mapa de progrés i aconsegueix noves fites, partida a partida.",
+    "news": "Nous objectius. Un progrés amb més sentit.\n\n• 12 fites noves amplien la col·lecció. Els noms i objectius estan disponibles en els 30 idiomes de l’app.\n• Cada nivell següent requereix més XP. Es conserven els nivells assolits i l’experiència total. Els avisos de nivell celebren només les fites importants.\n• Notificacions més completes amb il·lustracions, resultats detallats, historial de lectura i enllaços al progrés.\n• Millores en les sol·licituds d’amistat i els duels, també per a noms ucraïnesos i versions anteriors.\n• Icones en diversos idiomes, fronteres del país destacades al mapa de les fitxes de banderes i noves targetes per compartir el perfil.\n• Millores en la configuració del joc, els recordatoris i els comptadors de no llegits. Correus opcionals per als jugadors subscrits, amb el nivell 100 i els resultats de la lliga setmanal.\n\nTria una regió i descobreix un nou horitzó a cada partida."
+  },
+  "zh": {
+    "locale": "zh-Hans",
+    "label": "китайский (упрощенный)",
+    "promo": "认出国旗，探索世界。与好友对决，在世界进度地图上见证成长，收集全新成就。每一局，都是新的发现。",
+    "news": "全新目标，更有意义的成长。\n\n• 在原有收藏中新增12项成就，名称和目标支持应用的全部30种语言。\n• 全新等级成长机制：等级越高，所需XP越多。已获得的等级和累计XP均会保留。等级通知只在重要里程碑时出现。\n• 通知中心新增插图、详细结果、已读历史和进度链接。\n• 改善添加好友和对决邀请，支持乌克兰语用户名及旧版应用。\n• 多语言应用图标、国旗资料地图中的国家边界高亮，以及全新的个人资料分享卡片。\n• 改善游戏设置保存、提醒和未读事件角标。订阅邮件的玩家可选择接收进度邮件，包括100级里程碑和每周联赛结果。\n\n选择一个地区，在每一局中发现更多世界精彩。"
+  },
+  "zh-Hant": {
+    "locale": "zh-Hant",
+    "label": "китайский (традиционный)",
+    "promo": "認出國旗，探索世界。與好友對決，在世界進度地圖上見證成長，收集全新成就。每一局，都是新的發現。",
+    "news": "全新目標，更有意義的成長。\n\n• 在原有收藏中新增12項成就，名稱與目標支援應用程式的全部30種語言。\n• 全新等級成長機制：等級越高，所需XP越多。已獲得的等級與累計XP皆會保留。等級通知只在重要里程碑時出現。\n• 通知中心新增插圖、詳細結果、已讀紀錄與進度連結。\n• 改善新增好友與對決邀請，支援烏克蘭語使用者名稱及舊版應用程式。\n• 多語言應用程式圖示、國旗資料地圖中的國界標示，以及全新的個人資料分享卡片。\n• 改善遊戲設定儲存、提醒與未讀事件標記。訂閱郵件的玩家可選擇接收進度郵件，包含100級里程碑與每週聯賽結果。\n\n選擇一個地區，在每一局中發現更多世界精彩。"
+  },
+  "pl": {
+    "locale": "pl",
+    "label": "польский",
+    "promo": "Rozpoznaj flagę, odkryj świat. Wyzywaj znajomych, śledź postępy na mapie i zdobywaj nowe osiągnięcia — runda po rundzie.",
+    "news": "Nowe cele. Postępy, które mają znaczenie.\n\n• 12 nowych osiągnięć uzupełnia kolekcję. Nazwy i cele są dostępne we wszystkich 30 językach aplikacji.\n• Kolejne poziomy wymagają więcej XP. Zachowujesz zdobyte poziomy i łączne XP. Powiadomienia o poziomach świętują tylko ważne kamienie milowe.\n• Bogatsze powiadomienia z ilustracjami, szczegółami wyników, historią odczytanych zdarzeń i odnośnikami do postępów.\n• Ulepszone dodawanie znajomych i zaproszenia do pojedynków, także dla ukraińskich nazw i starszych wersji aplikacji.\n• Wielojęzyczne ikony, wyróżnione granice kraju na mapie w ciekawostkach o flagach i nowe karty udostępniania profilu.\n• Lepsze zapisywanie ustawień, przypomnienia i liczniki nieprzeczytanych zdarzeń. Opcjonalne e-maile dla subskrybentów obejmują poziom 100 i wyniki ligi tygodniowej.\n\nWybierz region i odkrywaj świat z każdą rundą."
+  },
+  "ro": {
+    "locale": "ro",
+    "label": "румынский",
+    "promo": "Recunoaște steagul, descoperă lumea. Provoacă prietenii, urmărește progresul pe hartă și adună realizări noi, rundă după rundă.",
+    "news": "Obiective noi. Progres cu mai mult sens.\n\n• 12 realizări noi completează colecția. Numele și obiectivele sunt disponibile în toate cele 30 de limbi ale aplicației.\n• Fiecare nivel următor necesită mai mult XP. Nivelurile câștigate și totalul XP se păstrează. Notificările de nivel apar doar la praguri importante.\n• Notificări mai bogate, cu ilustrații, rezultate detaliate, istoricul celor citite și legături către progres.\n• Adăugarea prietenilor și invitațiile la duel sunt îmbunătățite, inclusiv pentru nume ucrainene și versiuni mai vechi.\n• Pictograme în mai multe limbi, granițe evidențiate pe harta informațiilor despre steaguri și carduri noi pentru distribuirea profilului.\n• Îmbunătățiri la salvarea setărilor, mementouri și contoare necitite. E-mailurile opționale pentru abonați includ nivelul 100 și rezultatele ligii săptămânale.\n\nAlege o regiune și descoperă mai mult la fiecare rundă."
+  },
+  "ta": {
+    "locale": "ta",
+    "label": "тамильский",
+    "promo": "கொடியை அறிந்து உலகைக் கண்டறியுங்கள். நண்பர்களுடன் போட்டியிட்டு, வரைபடத்தில் முன்னேற்றத்தைக் கண்டு, புதிய சாதனைகளைச் சேகரியுங்கள்.",
+    "news": "புதிய இலக்குகள். அர்த்தமுள்ள முன்னேற்றம்.\n\n• ஏற்கெனவே உள்ள சேகரிப்பில் 12 புதிய சாதனைகள் சேர்க்கப்பட்டுள்ளன. பெயர்களும் இலக்குகளும் செயலியின் 30 மொழிகளிலும் கிடைக்கின்றன.\n• ஒவ்வொரு அடுத்த நிலைக்கும் அதிக XP தேவை. பெற்ற நிலைகளும் மொத்த XP-யும் பாதுகாக்கப்படும். முக்கிய மைல்கற்களில் மட்டுமே நிலை அறிவிப்புகள் வரும்.\n• படங்கள், விரிவான முடிவுகள், படித்த அறிவிப்புகளின் வரலாறு மற்றும் முன்னேற்ற இணைப்புகளுடன் மேம்பட்ட அறிவிப்புப் பகுதி.\n• உக்ரேனிய பயனர் பெயர்கள் மற்றும் பழைய செயலிப் பதிப்புகள் உட்பட நண்பர் சேர்த்தல், இருவர் போட்டி அழைப்புகள் மேம்படுத்தப்பட்டுள்ளன.\n• பலமொழி செயலி சின்னங்கள், கொடி விவரங்களின் வரைபடத்தில் நாட்டின் எல்லைகள் மற்றும் புதிய சுயவிவரப் பகிர்வு அட்டைகள்.\n• விளையாட்டு அமைப்புகளைச் சேமித்தல், நினைவூட்டல்கள், படிக்காத அறிவிப்பு எண்ணிக்கை மேம்படுத்தப்பட்டுள்ளன. மின்னஞ்சலுக்குப் பதிவு செய்தவர்களுக்கு நிலை 100 மற்றும் வாராந்திர லீக் முடிவுகள் பற்றிய விருப்ப மின்னஞ்சல்கள்.\n\nஒரு பகுதியைத் தேர்ந்தெடுத்து ஒவ்வொரு சுற்றிலும் புதிதாகக் கண்டறியுங்கள்."
+  },
+  "tr": {
+    "locale": "tr",
+    "label": "турецкий",
+    "promo": "Bayrağı tanı, dünyayı keşfet. Arkadaşlarına meydan oku, ilerlemeni haritada gör ve her turda yeni başarılar kazan.",
+    "news": "Yeni hedefler. Daha anlamlı ilerleme.\n\n• Koleksiyona 12 yeni başarı eklendi. Adlar ve hedefler uygulamanın 30 dilinin tamamında mevcut.\n• Her yeni seviye daha fazla XP gerektirir. Kazandığın seviyeler ve toplam XP korunur. Seviye bildirimleri yalnızca önemli dönüm noktalarında görünür.\n• Görseller, ayrıntılı sonuçlar, okunmuş bildirim geçmişi ve ilerlemeye bağlantılarla daha zengin bildirim kutusu.\n• Ukraynaca kullanıcı adları ve eski uygulama sürümleri için arkadaş ekleme ve düello davetleri iyileştirildi.\n• Çok dilli uygulama simgeleri, bayrak bilgilerindeki haritada belirgin ülke sınırları ve yeni profil paylaşım kartları.\n• Oyun ayarları, hatırlatıcılar ve okunmamış olay sayaçları iyileştirildi. Aboneler için isteğe bağlı ilerleme e-postalarına 100. seviye ve haftalık lig sonuçları eklendi.\n\nBölgeni seç, her turda dünyayı biraz daha keşfet."
+  },
+  "hi": {
+    "locale": "hi",
+    "label": "хинди",
+    "promo": "झंडा पहचानें, दुनिया जानें। दोस्तों को चुनौती दें, मानचित्र पर प्रगति देखें और हर दौर में नई उपलब्धियाँ पाएँ।",
+    "news": "नए लक्ष्य। अधिक सार्थक प्रगति।\n\n• मौजूदा संग्रह में 12 नई उपलब्धियाँ जोड़ी गई हैं। नाम और लक्ष्य ऐप की सभी 30 भाषाओं में उपलब्ध हैं।\n• हर अगले स्तर के लिए अधिक XP चाहिए। अर्जित स्तर और कुल XP सुरक्षित रहते हैं। स्तर की सूचनाएँ केवल महत्वपूर्ण पड़ावों पर दिखाई जाती हैं।\n• चित्रों, विस्तृत नतीजों, पढ़ी गई सूचनाओं के इतिहास और प्रगति के लिंक वाला बेहतर सूचना केंद्र।\n• यूक्रेनी उपयोगकर्ता नामों और पुराने ऐप संस्करणों सहित दोस्त जोड़ने और द्वंद्व आमंत्रण में सुधार।\n• कई भाषाओं में ऐप आइकन, झंडे की जानकारी के मानचित्र पर देश की सीमाएँ और नए प्रोफ़ाइल साझा कार्ड।\n• गेम सेटिंग्स सहेजने, रिमाइंडर और अपठित घटनाओं की गिनती में सुधार। ईमेल सदस्यता लेने वाले खिलाड़ियों के लिए स्तर 100 और साप्ताहिक लीग के परिणामों सहित वैकल्पिक प्रगति ईमेल।\n\nक्षेत्र चुनें और हर दौर में दुनिया के बारे में कुछ नया जानें।"
+  },
+  "sv": {
+    "locale": "sv",
+    "label": "шведский",
+    "promo": "Känn igen flaggan, upptäck världen. Utmana vänner, följ framstegen på kartan och samla nya prestationer, en omgång i taget.",
+    "news": "Nya mål. Framsteg som betyder mer.\n\n• 12 nya prestationer kompletterar samlingen. Namn och mål finns på appens alla 30 språk.\n• Varje ny nivå kräver mer XP. Dina uppnådda nivåer och totala XP bevaras. Nivånotiser firar bara viktiga milstolpar.\n• Ett rikare notisarkiv med illustrationer, detaljerade resultat, läshistorik och länkar till dina framsteg.\n• Förbättrade vänförfrågningar och duellinbjudningar, även för ukrainska namn och äldre appversioner.\n• Flerspråkiga appikoner, markerade landsgränser på kartan i flaggfakta och nya kort för att dela profilen.\n• Förbättrad lagring av spelinställningar, påminnelser och räknare för olästa händelser. Valfria framstegsmejl för prenumeranter omfattar nivå 100 och veckoligans resultat.\n\nVälj en region och upptäck mer i varje omgång."
   }
 }

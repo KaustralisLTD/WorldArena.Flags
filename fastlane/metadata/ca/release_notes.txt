@@ -1,6 +1,10 @@
-8.0
+Nous objectius. Un progrés amb més sentit.
 
-• Pantalla del qüestionari renovada, amb respostes més clares i vides animades.
-• Nou disseny de les pantalles Estadístiques, Lligues i Perfil.
-• Millores de disseny a l’iPad i targetes que s’adapten al contingut.
-• La regió i la dificultat es desen en tancar els ajustos ràpids.
+• 12 fites noves amplien la col·lecció. Els noms i objectius estan disponibles en els 30 idiomes de l’app.
+• Cada nivell següent requereix més XP. Es conserven els nivells assolits i l’experiència total. Els avisos de nivell celebren només les fites importants.
+• Notificacions més completes amb il·lustracions, resultats detallats, historial de lectura i enllaços al progrés.
+• Millores en les sol·licituds d’amistat i els duels, també per a noms ucraïnesos i versions anteriors.
+• Icones en diversos idiomes, fronteres del país destacades al mapa de les fitxes de banderes i noves targetes per compartir el perfil.
+• Millores en la configuració del joc, els recordatoris i els comptadors de no llegits. Correus opcionals per als jugadors subscrits, amb el nivell 100 i els resultats de la lliga setmanal.
+
+Tria una regió i descobreix un nou horitzó a cada partida.

@@ -1,6 +1,10 @@
-8.0
+Target baru. Kemajuan yang lebih bermakna.
 
-• Layar kuis diperbarui dengan jawaban lebih jelas dan nyawa beranimasi.
-• Desain baru untuk Statistik, Liga, dan Profil.
-• Tata letak iPad ditingkatkan dengan kartu yang menyesuaikan isi.
-• Wilayah dan tingkat kesulitan disimpan saat pengaturan cepat ditutup.
+• 12 pencapaian baru melengkapi koleksi. Nama dan target tersedia dalam seluruh 30 bahasa aplikasi.
+• Setiap level berikutnya membutuhkan lebih banyak XP. Level yang diraih dan total XP tetap tersimpan. Notifikasi level hanya muncul pada tonggak penting.
+• Kotak notifikasi lebih lengkap dengan ilustrasi, rincian hasil, riwayat yang sudah dibaca, dan tautan ke kemajuan.
+• Peningkatan penambahan teman dan undangan duel, termasuk nama Ukraina dan versi aplikasi lama.
+• Ikon multibahasa, batas negara yang disorot pada peta fakta bendera, dan kartu berbagi profil baru.
+• Penyimpanan pengaturan, pengingat, dan penghitung belum dibaca ditingkatkan. Email kemajuan opsional bagi pelanggan mencakup level 100 dan hasil liga mingguan.
+
+Pilih wilayah dan temukan hal baru di setiap ronde.

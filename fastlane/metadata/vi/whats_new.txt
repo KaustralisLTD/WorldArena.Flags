@@ -1,6 +1,10 @@
-8.0
+Mục tiêu mới. Tiến bộ ý nghĩa hơn.
 
-• Màn hình đố vui mới với đáp án rõ ràng hơn và hiệu ứng mạng chơi.
-• Thiết kế mới cho Thống kê, Giải đấu và Hồ sơ.
-• Cải thiện bố cục iPad và thẻ tự điều chỉnh theo nội dung.
-• Khu vực và độ khó được lưu khi đóng cài đặt nhanh.
+• Thêm 12 thành tích vào bộ sưu tập hiện có. Tên và mục tiêu hỗ trợ đủ 30 ngôn ngữ của ứng dụng.
+• Cấp độ tiếp theo cần nhiều XP hơn. Cấp độ đã đạt và tổng XP được giữ nguyên. Thông báo cấp độ chỉ xuất hiện ở các cột mốc quan trọng.
+• Hộp thông báo phong phú hơn với hình minh họa, kết quả chi tiết, lịch sử đã đọc và liên kết đến tiến độ.
+• Cải thiện kết bạn và lời mời đấu, hỗ trợ tên tiếng Ukraina và các phiên bản ứng dụng cũ.
+• Biểu tượng nhiều ngôn ngữ, đường biên quốc gia nổi bật trên bản đồ trong thông tin lá cờ và thẻ chia sẻ hồ sơ mới.
+• Cải thiện lưu cài đặt, lời nhắc và bộ đếm chưa đọc. Email tiến độ tùy chọn cho người đăng ký, gồm cấp 100 và kết quả giải đấu tuần.
+
+Chọn khu vực và khám phá thêm sau mỗi vòng chơi.

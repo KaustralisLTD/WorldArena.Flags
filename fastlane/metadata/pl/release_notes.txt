@@ -1,6 +1,10 @@
-8.0
+Nowe cele. Postępy, które mają znaczenie.
 
-• Odświeżony ekran quizu z czytelniejszymi odpowiedziami i animacją żyć.
-• Nowy wygląd ekranów Statystyki, Ligi i Profil.
-• Ulepszony układ na iPadzie i karty dopasowane do treści.
-• Region i poziom trudności zapisują się po zamknięciu szybkich ustawień.
+• 12 nowych osiągnięć uzupełnia kolekcję. Nazwy i cele są dostępne we wszystkich 30 językach aplikacji.
+• Kolejne poziomy wymagają więcej XP. Zachowujesz zdobyte poziomy i łączne XP. Powiadomienia o poziomach świętują tylko ważne kamienie milowe.
+• Bogatsze powiadomienia z ilustracjami, szczegółami wyników, historią odczytanych zdarzeń i odnośnikami do postępów.
+• Ulepszone dodawanie znajomych i zaproszenia do pojedynków, także dla ukraińskich nazw i starszych wersji aplikacji.
+• Wielojęzyczne ikony, wyróżnione granice kraju na mapie w ciekawostkach o flagach i nowe karty udostępniania profilu.
+• Lepsze zapisywanie ustawień, przypomnienia i liczniki nieprzeczytanych zdarzeń. Opcjonalne e-maile dla subskrybentów obejmują poziom 100 i wyniki ligi tygodniowej.
+
+Wybierz region i odkrywaj świat z każdą rundą.

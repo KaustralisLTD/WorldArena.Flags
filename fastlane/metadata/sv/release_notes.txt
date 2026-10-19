@@ -1,6 +1,10 @@
-8.0
+Nya mål. Framsteg som betyder mer.
 
-• Förnyad quizvy med tydligare svar och animerade liv.
-• Ny design för Statistik, Ligor och Profil.
-• Förbättrad iPad-layout och kort som anpassas efter innehållet.
-• Region och svårighetsgrad sparas när du stänger snabbinställningarna.
+• 12 nya prestationer kompletterar samlingen. Namn och mål finns på appens alla 30 språk.
+• Varje ny nivå kräver mer XP. Dina uppnådda nivåer och totala XP bevaras. Nivånotiser firar bara viktiga milstolpar.
+• Ett rikare notisarkiv med illustrationer, detaljerade resultat, läshistorik och länkar till dina framsteg.
+• Förbättrade vänförfrågningar och duellinbjudningar, även för ukrainska namn och äldre appversioner.
+• Flerspråkiga appikoner, markerade landsgränser på kartan i flaggfakta och nya kort för att dela profilen.
+• Förbättrad lagring av spelinställningar, påminnelser och räknare för olästa händelser. Valfria framstegsmejl för prenumeranter omfattar nivå 100 och veckoligans resultat.
+
+Välj en region och upptäck mer i varje omgång.

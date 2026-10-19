@@ -1,6 +1,10 @@
-8.0
+Yeni hedefler. Daha anlamlı ilerleme.
 
-• Daha net yanıtlar ve animasyonlu canlarla yenilenen bilgi yarışması ekranı.
-• İstatistikler, Ligler ve Profil ekranları için yeni tasarım.
-• iPad düzeni iyileştirildi; kartlar artık içeriğe uyum sağlıyor.
-• Bölge ve zorluk, hızlı ayarlar kapatıldığında kaydediliyor.
+• Koleksiyona 12 yeni başarı eklendi. Adlar ve hedefler uygulamanın 30 dilinin tamamında mevcut.
+• Her yeni seviye daha fazla XP gerektirir. Kazandığın seviyeler ve toplam XP korunur. Seviye bildirimleri yalnızca önemli dönüm noktalarında görünür.
+• Görseller, ayrıntılı sonuçlar, okunmuş bildirim geçmişi ve ilerlemeye bağlantılarla daha zengin bildirim kutusu.
+• Ukraynaca kullanıcı adları ve eski uygulama sürümleri için arkadaş ekleme ve düello davetleri iyileştirildi.
+• Çok dilli uygulama simgeleri, bayrak bilgilerindeki haritada belirgin ülke sınırları ve yeni profil paylaşım kartları.
+• Oyun ayarları, hatırlatıcılar ve okunmamış olay sayaçları iyileştirildi. Aboneler için isteğe bağlı ilerleme e-postalarına 100. seviye ve haftalık lig sonuçları eklendi.
+
+Bölgeni seç, her turda dünyayı biraz daha keşfet.

@@ -1,6 +1,10 @@
-8.0
+Új célok, tartalmasabb fejlődés.
 
-• Megújult kvízképernyő áttekinthetőbb válaszokkal és animált életekkel.
-• Új megjelenést kapott a Statisztika, a Ligák és a Profil.
-• Jobb iPad-elrendezés, a tartalomhoz igazodó kártyákkal.
-• A régió és a nehézség a gyorsbeállítások bezárásakor mentésre kerül.
+• 12 új eredmény egészíti ki a gyűjteményt. A nevek és célok az alkalmazás mind a 30 nyelvén elérhetők.
+• Az új szintek egyre több XP-t igényelnek. A megszerzett szintek és az összes XP megmarad; értesítés csak fontos mérföldköveknél jelenik meg.
+• Gazdagabb értesítési előzmények képekkel, részletes eredményekkel és a fejlődéshez vezető hivatkozásokkal.
+• Javított barátfelvétel és párbajmeghívók, az ukrán felhasználónevek és régebbi verziók támogatásával.
+• Többnyelvű alkalmazásikonok, kiemelt országhatárok a zászlóadatok térképén és új profilmegosztó kártyák.
+• Megbízhatóbb játékbeállítások, emlékeztetők és olvasatlan számlálók. Opcionális fejlődési e-mailek a feliratkozóknak, a 100. szintről és a heti liga eredményeiről is.
+
+Válassz régiót, és fedezz fel többet minden fordulóval!

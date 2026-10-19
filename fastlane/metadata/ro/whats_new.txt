@@ -1,6 +1,10 @@
-8.0
+Obiective noi. Progres cu mai mult sens.
 
-• Ecran de quiz reînnoit, cu răspunsuri mai clare și vieți animate.
-• Design nou pentru Statistică, Ligi și Profil.
-• Aspect îmbunătățit pe iPad și carduri adaptate conținutului.
-• Regiunea și dificultatea se salvează la închiderea setărilor rapide.
+• 12 realizări noi completează colecția. Numele și obiectivele sunt disponibile în toate cele 30 de limbi ale aplicației.
+• Fiecare nivel următor necesită mai mult XP. Nivelurile câștigate și totalul XP se păstrează. Notificările de nivel apar doar la praguri importante.
+• Notificări mai bogate, cu ilustrații, rezultate detaliate, istoricul celor citite și legături către progres.
+• Adăugarea prietenilor și invitațiile la duel sunt îmbunătățite, inclusiv pentru nume ucrainene și versiuni mai vechi.
+• Pictograme în mai multe limbi, granițe evidențiate pe harta informațiilor despre steaguri și carduri noi pentru distribuirea profilului.
+• Îmbunătățiri la salvarea setărilor, mementouri și contoare necitite. E-mailurile opționale pentru abonați includ nivelul 100 și rezultatele ligii săptămânale.
+
+Alege o regiune și descoperă mai mult la fiecare rundă.
