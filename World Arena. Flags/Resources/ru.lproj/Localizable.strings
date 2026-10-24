@@ -2071,3 +2071,5 @@
 "achievement.friends_10.title" = "Друзья по всему миру";
 
 "achievement.friends_10.body" = "Добавьте 10 друзей";
+
+"inbox.duelTimeUnavailable" = "Время этой дуэли не сохранилось.";

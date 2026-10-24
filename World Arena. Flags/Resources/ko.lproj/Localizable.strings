@@ -1860,3 +1860,4 @@
 "achievement.level_100.body" = "레벨 100 달성하기";
 "achievement.friends_10.title" = "전 세계의 친구";
 "achievement.friends_10.body" = "친구 10명 추가하기";
+"inbox.duelTimeUnavailable" = "이 대결의 시간은 저장되지 않았습니다.";

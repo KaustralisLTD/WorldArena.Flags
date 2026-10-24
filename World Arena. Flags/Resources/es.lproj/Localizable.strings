@@ -1830,3 +1830,4 @@
 "achievement.level_100.body" = "Alcanza el nivel 100";
 "achievement.friends_10.title" = "Amigos por todo el mundo";
 "achievement.friends_10.body" = "Añade 10 amigos";
+"inbox.duelTimeUnavailable" = "No se guardó el tiempo de este duelo.";

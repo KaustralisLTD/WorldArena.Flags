@@ -1860,3 +1860,4 @@
 "achievement.level_100.body" = "بلغ المستوى 100";
 "achievement.friends_10.title" = "أصدقاء حول العالم";
 "achievement.friends_10.body" = "أضف 10 أصدقاء";
+"inbox.duelTimeUnavailable" = "لم يتم حفظ وقت هذه المبارزة.";

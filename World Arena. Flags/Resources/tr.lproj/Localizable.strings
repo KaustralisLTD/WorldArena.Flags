@@ -1859,3 +1859,4 @@
 "achievement.level_100.body" = "100. seviyeye ulaş";
 "achievement.friends_10.title" = "Dünyanın dört yanından arkadaşlar";
 "achievement.friends_10.body" = "10 arkadaş ekle";
+"inbox.duelTimeUnavailable" = "Bu düellonun süresi kaydedilmedi.";

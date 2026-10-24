@@ -48,6 +48,29 @@ final class Flags_WorldUITests: XCTestCase {
     }
 
     @MainActor
+    func testDuelNotificationTimesAndSummaryNavigation() throws {
+        let app = XCUIApplication()
+        app.launchArguments = ["UITesting", "NotificationInboxQA", "-selectedLanguage", "uk", "-AppleInterfaceStyle", "Light"]
+        app.launch()
+        let result = app.buttons["inbox.item.preview-duel"]
+        XCTAssertTrue(result.waitForExistence(timeout: 20))
+        let list = XCTAttachment(screenshot: app.screenshot()); list.name = "duel-inbox-medals"; list.lifetime = .keepAlways; add(list)
+        result.tap()
+        XCTAssertTrue(app.staticTexts["inbox.duel.tieReason"].waitForExistence(timeout: 5))
+        XCTAssertTrue(app.staticTexts.containing(NSPredicate(format: "label CONTAINS %@", "41,23")).firstMatch.exists)
+        XCTAssertTrue(app.staticTexts.containing(NSPredicate(format: "label CONTAINS %@", "43,78")).firstMatch.exists)
+        let detail = XCTAttachment(screenshot: app.screenshot()); detail.name = "duel-inbox-time-victory"; detail.lifetime = .keepAlways; add(detail)
+        app.terminate()
+        app.launchArguments = ["UITesting", "NotificationDuelRoutingQA", "NotificationInboxQA", "-selectedLanguage", "uk"]
+        app.launch()
+        XCTAssertTrue(result.waitForExistence(timeout: 20)); result.tap()
+        let open = app.buttons["inbox.duel.openSummary"]
+        XCTAssertTrue(open.waitForExistence(timeout: 5)); open.tap()
+        XCTAssertTrue(app.navigationBars["Виклики"].waitForExistence(timeout: 10))
+        let destination = XCTAttachment(screenshot: app.screenshot()); destination.name = "duel-inbox-destination"; destination.lifetime = .keepAlways; add(destination)
+    }
+
+    @MainActor
     func testAchievementNotificationArtworkScreenshots() throws {
         let app = XCUIApplication()
         app.launchArguments = ["UITesting", "NotificationInboxQA", "StoreMediaCapture", "-selectedLanguage", "ru", "-AppleInterfaceStyle", "Light"]

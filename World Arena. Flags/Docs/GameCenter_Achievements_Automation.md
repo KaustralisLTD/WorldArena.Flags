@@ -54,3 +54,21 @@ bundle exec fastlane ios sync_game_center_achievements apply:true
 - `scripts/sync_gamecenter_achievements.py`
 - `fastlane/Fastfile` (lane `sync_game_center_achievements`)
 - `fastlane/game_center/achievements.json` (генерируемый файл)
+
+## Коллекция Journey (добавлено 2026-10-20)
+
+12 дополнительных достижений с неизменными ID `journey_*` описаны отдельно в
+`fastlane/game_center/journey-achievements.json`. Этот файл дополняет исходные 20,
+а не заменяет их. Перед синхронизацией проверьте его отдельным dry-run, затем
+передайте `--apply` в `scripts/sync_gamecenter_achievements.py`.
+
+Значки экспортированы из оформления `JourneyAchievementBadge` (1024×1024) в
+`fastlane/game_center/assets/<achievement_id>.imageset/medal.png`.
+Game Center принимает 26 локализаций из 30 языков приложения; bn, fil, ta и te
+остаются локализованы внутри приложения, но не поддерживаются этим ресурсом Apple.
+Арабский язык отправляется как `ar-SA`. Названия Game Center ограничены 30 символами.
+
+После загрузки переводов и изображений необходимо добавить версии достижений
+в отправку на App Review и отправить заявку. Само создание записей не делает
+их доступными в опубликованной игре. Клиент запрашивает доступные ID через
+`GKAchievementDescription`, чтобы ещё не выпущенные записи не ломали общий отчёт.

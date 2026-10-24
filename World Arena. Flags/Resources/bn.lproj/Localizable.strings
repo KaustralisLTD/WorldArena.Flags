@@ -1860,3 +1860,4 @@
 "achievement.level_100.body" = "100 স্তরে পৌঁছান";
 "achievement.friends_10.title" = "বিশ্বজুড়ে বন্ধু";
 "achievement.friends_10.body" = "10 জন বন্ধু যোগ করুন";
+"inbox.duelTimeUnavailable" = "এই দ্বন্দ্বের সময় সংরক্ষণ করা হয়নি।";

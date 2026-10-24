@@ -1986,3 +1986,5 @@
 "achievement.friends_10.title" = "Друзі в усьому світі";
 
 "achievement.friends_10.body" = "Додайте 10 друзів";
+
+"inbox.duelTimeUnavailable" = "Час цієї дуелі не збережено.";

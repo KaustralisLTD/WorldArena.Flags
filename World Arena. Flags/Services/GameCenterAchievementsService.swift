@@ -25,6 +25,8 @@ final class GameCenterAchievementsService {
     private(set) var isAuthenticated: Bool = false
     private var lastNonRepeatableReportDate: Date?
     private let reportCooldownSeconds: TimeInterval = 8
+    private var availableAchievementIDs: Set<String>?
+    private var isLoadingAchievementDescriptions = false
 
     // Повторяемая ачивка по звёздам:
     // xp_10000 = +1 звезда за каждые дополнительные +10.000 XP.
@@ -85,6 +87,20 @@ final class GameCenterAchievementsService {
     @MainActor
     func reportAllAchievementsProgress(userProfile: UserProfile) {
         guard isAuthenticated else { return }
+        guard let availableAchievementIDs else {
+            guard !isLoadingAchievementDescriptions else { return }
+            isLoadingAchievementDescriptions = true
+            GKAchievementDescription.loadAchievementDescriptions { [weak self] descriptions, error in
+                Task { @MainActor in
+                    guard let self else { return }
+                    self.isLoadingAchievementDescriptions = false
+                    guard error == nil, let descriptions else { return }
+                    self.availableAchievementIDs = Set(descriptions.map(\.identifier))
+                    self.reportAllAchievementsProgress(userProfile: userProfile)
+                }
+            }
+            return
+        }
 
         let now = Date()
         let allowNonRepeatableReports: Bool = {
@@ -99,9 +115,9 @@ final class GameCenterAchievementsService {
         var toReport: [GKAchievement] = []
 
         for def in userProfile.allAchievementDefinitions {
-            // New collection medals are available in-app immediately. Keep them
-            // out of Game Center batches until their IDs are configured in ASC.
-            if def.id.hasPrefix("journey_") { continue }
+            // Only submit IDs available in this player's Game Center environment.
+            // An unreleased ID must not invalidate the entire progress batch.
+            guard availableAchievementIDs.contains(def.id) else { continue }
             let (current, target) = userProfile.progress(for: def)
             guard target > 0 else { continue }
 
@@ -206,4 +222,3 @@ final class GameCenterAchievementsService {
     func authenticateAndShowAchievementsUI() {}
 #endif
 }
-

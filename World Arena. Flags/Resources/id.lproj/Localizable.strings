@@ -1860,3 +1860,4 @@
 "achievement.level_100.body" = "Capai level 100";
 "achievement.friends_10.title" = "Teman di seluruh dunia";
 "achievement.friends_10.body" = "Tambahkan 10 teman";
+"inbox.duelTimeUnavailable" = "Waktu duel ini tidak tersimpan.";

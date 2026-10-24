@@ -1752,3 +1752,4 @@
 "achievement.level_100.body" = "达到100级";
 "achievement.friends_10.title" = "世界各地的朋友";
 "achievement.friends_10.body" = "添加10位好友";
+"inbox.duelTimeUnavailable" = "此对决的用时未保存。";

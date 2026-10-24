@@ -1860,3 +1860,4 @@
 "achievement.level_100.body" = "100 ஆம் நிலையை அடையுங்கள்";
 "achievement.friends_10.title" = "உலகெங்கும் நண்பர்கள்";
 "achievement.friends_10.body" = "10 நண்பர்களைச் சேருங்கள்";
+"inbox.duelTimeUnavailable" = "இந்தப் போட்டியின் நேரம் சேமிக்கப்படவில்லை.";

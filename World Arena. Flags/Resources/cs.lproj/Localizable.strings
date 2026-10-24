@@ -1860,3 +1860,4 @@
 "achievement.level_100.body" = "Dosáhněte úrovně 100";
 "achievement.friends_10.title" = "Přátelé po celém světě";
 "achievement.friends_10.body" = "Přidejte 10 přátel";
+"inbox.duelTimeUnavailable" = "Čas tohoto duelu nebyl uložen.";

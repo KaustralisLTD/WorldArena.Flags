@@ -32,7 +32,8 @@ struct RegionToggle: View {
             }
             gameState.toggleRegion(region)
         }) {
-            HStack(spacing: 4) {
+            HStack(spacing: 8) {
+                RegionGlobeIcon(region: region, isSelected: gameState.selectedRegions.contains(region), size: compact ? 32 : 40)
                 Text(LocalizationManager.shared.localizedString(region.rawValue))
                     .font(.system(size: titleFontSize, weight: .medium))
                     .lineLimit(1)

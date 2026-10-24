@@ -1860,3 +1860,4 @@
 "achievement.level_100.body" = "Maabot ang antas 100";
 "achievement.friends_10.title" = "Mga kaibigan sa buong mundo";
 "achievement.friends_10.body" = "Magdagdag ng 10 kaibigan";
+"inbox.duelTimeUnavailable" = "Hindi na-save ang oras ng duel na ito.";

@@ -1860,3 +1860,4 @@
 "achievement.level_100.body" = "レベル100に到達する";
 "achievement.friends_10.title" = "世界中の友達";
 "achievement.friends_10.body" = "友達を10人追加する";
+"inbox.duelTimeUnavailable" = "この対戦の時間は保存されていません。";

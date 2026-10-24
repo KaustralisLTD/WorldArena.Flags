@@ -1860,3 +1860,4 @@
 "achievement.level_100.body" = "Atinge nivelul 100";
 "achievement.friends_10.title" = "Prieteni în toată lumea";
 "achievement.friends_10.body" = "Adaugă 10 prieteni";
+"inbox.duelTimeUnavailable" = "Timpul acestui duel nu a fost salvat.";

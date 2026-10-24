@@ -1847,3 +1847,4 @@
 "achievement.level_100.body" = "Bereik niveau 100";
 "achievement.friends_10.title" = "Vrienden over de hele wereld";
 "achievement.friends_10.body" = "Voeg 10 vrienden toe";
+"inbox.duelTimeUnavailable" = "De tijd van dit duel is niet opgeslagen.";

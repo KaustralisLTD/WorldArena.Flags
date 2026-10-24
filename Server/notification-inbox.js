@@ -30,7 +30,21 @@ function install(app,db,authenticate) {
    db.prepare("UPDATE notification_inbox SET read_at=? WHERE username=? AND kind='duel_challenge' AND read_at IS NULL AND EXISTS(SELECT 1 FROM duel_challenges d WHERE (notification_inbox.target=d.id OR notification_inbox.id='duel_challenge:'||d.id||':'||notification_inbox.username) AND (d.status NOT IN ('pending','challenger_completed') OR d.opponent_score IS NOT NULL))").run(Date.now(),user.username);
   }
   const rows=db.prepare('SELECT id,title,body,kind,target,details,created_at AS createdAt,read_at AS readAt FROM notification_inbox WHERE username=? ORDER BY created_at DESC LIMIT 200').all(user.username);
-  res.set('Cache-Control','no-store').json({selectiveRead:true,items:rows.map(r=>({...r,details:r.details?JSON.parse(r.details):null})),unread:rows.filter(x=>x.readAt===null).length});
+  // Hydrate historical result notifications without changing their read state.
+  const duelColumns=db.prepare('PRAGMA table_info(duel_challenges)').all().map(c=>c.name);
+  const canHydrate=['id','challenger_id','opponent_id','challenger_time_ms','opponent_time_ms'].every(c=>duelColumns.includes(c));
+  const findDuel=canHydrate?db.prepare('SELECT * FROM duel_challenges WHERE id=? AND (challenger_id=? OR opponent_id=?)'):null;
+  const items=rows.map(r=>{
+   let details=r.details?JSON.parse(r.details):null;
+   if(canHydrate && r.kind==='duel_result' && r.target){
+    const duel=findDuel.get(r.target,user.username,user.username);
+    if(duel){const own=duel.challenger_id===user.username;
+     details={...details,myTimeMs:own?duel.challenger_time_ms:duel.opponent_time_ms,opponentTimeMs:own?duel.opponent_time_ms:duel.challenger_time_ms};
+    }
+   }
+   return {...r,details};
+  });
+  res.set('Cache-Control','no-store').json({selectiveRead:true,items,unread:rows.filter(x=>x.readAt===null).length});
  });
  app.post('/api/v1/notifications/read', (req,res)=>{
   const user=authenticate(req);if(!user)return res.status(401).json({error:'Sign in required'});

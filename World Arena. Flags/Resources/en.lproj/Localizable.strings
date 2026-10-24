@@ -2020,3 +2020,5 @@
 "achievement.friends_10.title" = "A global circle";
 
 "achievement.friends_10.body" = "Add 10 friends";
+
+"inbox.duelTimeUnavailable" = "Time was not saved for this duel.";

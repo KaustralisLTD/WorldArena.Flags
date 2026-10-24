@@ -19,6 +19,8 @@ struct MyNotificationsView: View {
     @ObservedObject private var language = LocalizationManager.shared
     @State private var filter = 0
     @State private var selected: AppNotificationLogItem?
+    @State private var openDuelsAfterDetail = false
+    @EnvironmentObject private var gameState: GameState
     private func tr(_ key: String) -> String { language.localizedString(key) }
     private var visible: [AppNotificationLogItem] {
         inbox.inboxItems.filter { item in
@@ -67,7 +69,7 @@ struct MyNotificationsView: View {
                     LazyVStack(spacing: 12) {
                         ForEach(visible) { item in
                             Button {
-                                inbox.markRead(ids: [item.id]); selected = item
+                                inbox.markRead(ids: [item.id]); selected = enriched(item)
                             } label: { notificationCard(item) }.buttonStyle(.plain)
                             .accessibilityIdentifier("inbox.item." + item.id)
                         }
@@ -84,10 +86,19 @@ struct MyNotificationsView: View {
                 }
             }
             .refreshable { await inbox.refreshInbox() }
-            .sheet(item: $selected) { item in
+            .sheet(item: $selected, onDismiss: {
+                if openDuelsAfterDetail {
+                    openDuelsAfterDetail = false
+                    dismiss()
+                    NotificationCenter.default.post(name: Notification.Name("OpenDuelSummary"), object: nil)
+                }
+            }) { item in
                 NavigationView {
                     ScrollView {
                         VStack(alignment: .leading, spacing: 24) {
+                            if item.kind == "duel_result" {
+                                DuelInboxResultContent(item: item) { openDuelsAfterDetail = true; selected = nil }
+                            } else {
                             InboxCelebrationArtwork(item: item).frame(height: 210)
                             Text(item.displayTitle).font(.title2.bold())
                             if let date=item.date { Text(dateText(date)).font(.caption).foregroundColor(.secondary) }
@@ -109,11 +120,10 @@ struct MyNotificationsView: View {
                                     if !(item.id.hasPrefix("league_") || item.details?.league != nil) { NotificationCenter.default.post(name: Notification.Name("OpenAchievements"), object: nil) }
                                 }.buttonStyle(.borderedProminent)
                             }
-                            if item.isDuel {
+                            }
+                            if item.isDuel && item.kind != "duel_result" {
                                 Button(tr("Duel Summary")) {
-                                    selected=nil; dismiss()
-                                    NotificationService.shared.pendingDuelIsResult = item.kind == "duel_result"
-                                    NotificationService.shared.pendingDuelID = item.target ?? "inbox"
+                                    openDuelsAfterDetail = true; selected = nil
                                 }.buttonStyle(.borderedProminent)
                             } else if item.kind == "lifecycle", let target=item.target {
                                 Button(tr("inbox.open")) {
@@ -129,6 +139,20 @@ struct MyNotificationsView: View {
         }.navigationViewStyle(.stack)
         .environment(\.layoutDirection, language.currentBundleLanguageCode == "ar" ? .rightToLeft : .leftToRight)
         .task { await inbox.refreshInbox() }
+    }
+    private func enriched(_ item: AppNotificationLogItem) -> AppNotificationLogItem {
+        guard item.kind == "duel_result", let target = item.target,
+              let result = gameState.duelHistory.first(where: { $0.duelChallengeId == target }) else { return item }
+        var copy = item
+        var details = item.details ?? .init()
+        details.opponentName = result.opponentName
+        details.myScore = result.myScore
+        details.opponentScore = result.opponentScore
+        details.iWon = result.iWon
+        details.myTimeMs = result.myTimeMs ?? details.myTimeMs
+        details.opponentTimeMs = result.rivalTimeMs ?? details.opponentTimeMs
+        copy.details = details
+        return copy
     }
     private func dateText(_ date: Date) -> String {
         date.formatted(Date.FormatStyle(date:.abbreviated,time:.shortened).locale(Locale(identifier:language.currentBundleLanguageCode)))
@@ -160,6 +184,8 @@ struct MyNotificationsView: View {
         HStack(alignment: .top, spacing: 14) {
             if let achievement = item.achievementDefinition {
                 NotificationAchievementIcon(definition: achievement).frame(width: 64, height: 64)
+            } else if item.kind == "duel_result" {
+                DuelOutcomeBadge(won: item.details?.iWon).frame(width: 64, height: 64)
             } else {
                 Image(systemName: icon(item)).font(.title3).foregroundColor(item.isUnread ? .blue : .secondary)
                     .frame(width:44,height:44).background(Color.blue.opacity(item.isUnread ? 0.12 : 0.04),in:RoundedRectangle(cornerRadius:14))

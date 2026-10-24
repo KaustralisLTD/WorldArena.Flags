@@ -1859,3 +1859,4 @@
 "achievement.level_100.body" = "100వ స్థాయికి చేరుకోండి";
 "achievement.friends_10.title" = "ప్రపంచవ్యాప్తంగా స్నేహితులు";
 "achievement.friends_10.body" = "10 మంది స్నేహితులను జోడించండి";
+"inbox.duelTimeUnavailable" = "ఈ పోటీ సమయం సేవ్ కాలేదు.";

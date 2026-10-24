@@ -143,6 +143,11 @@ struct MainTabView: View {
                 ToolbarItem(placement: .confirmationAction) { Button(localizationManager.localizedString("Close")) { showInboxAchievements = false } }
             } }
         }
+        .onReceive(NotificationCenter.default.publisher(for: Notification.Name("OpenDuelSummary"))) { _ in
+            selectedTab = 4
+            showUnifiedInbox = false
+            DispatchQueue.main.asyncAfter(deadline: .now() + 0.55) { showNotificationInbox = true }
+        }
         .onReceive(NotificationCenter.default.publisher(for: Notification.Name("OpenAchievements"))) { _ in
             selectedTab = 4
             DispatchQueue.main.asyncAfter(deadline: .now() + 0.4) { showInboxAchievements = true }

@@ -452,7 +452,7 @@ struct AppNotificationLogItem: Identifiable, Codable {
     var kind: String = "message"
     var target: String? = nil
     var readAt: Date? = nil
-    struct Details: Codable { var opponentName: String?; var myScore: Int?; var opponentScore: Int?; var iWon: Bool?; var level: Int? = nil; var xp: Int? = nil; var rank: Int? = nil; var participants: Int? = nil; var league: String? = nil; var reward: Int? = nil; var achievementID: String? = nil; var week: String? = nil }
+    struct Details: Codable { var opponentName: String?; var myScore: Int?; var opponentScore: Int?; var iWon: Bool?; var level: Int? = nil; var xp: Int? = nil; var rank: Int? = nil; var participants: Int? = nil; var league: String? = nil; var reward: Int? = nil; var achievementID: String? = nil; var week: String? = nil; var myTimeMs: Int? = nil; var opponentTimeMs: Int? = nil }
     var details: Details? = nil
     var deduplicationKey: String {
         if isDuel, let target { return kind + ":" + target }
@@ -464,7 +464,7 @@ struct AppNotificationLogItem: Identifiable, Codable {
     var isUnread: Bool { readAt == nil }
     @MainActor var displayTitle: String {
         let lm=LocalizationManager.shared
-        if kind == "duel_result" { return lm.localizedString(details?.iWon == true ? "Victory" : "Duel result") }
+        if kind == "duel_result" { return lm.localizedString(details?.iWon == true ? "Victory" : details?.iWon == false ? "Defeat" : "Duel result") }
         if kind == "duel_challenge" { return lm.localizedString("Duel") }
         return title
     }
@@ -604,7 +604,7 @@ extension NotificationService: UNUserNotificationCenterDelegate {
 extension NotificationService {
     @MainActor func seedInboxPreview() {
         inboxItems = [
-            .init(id:"preview-duel",title:LocalizationManager.shared.localizedString("Victory"),body:"Sergii · 20 : 14 · Nadiia",date:Date(),source:"preview",kind:"duel_result",target:"preview-match"),
+            .init(id:"preview-duel",title:LocalizationManager.shared.localizedString("Victory"),body:"Sergii · 20 : 14 · Nadiia",date:Date(),source:"preview",kind:"duel_result",target:"preview-match",details:.init(opponentName:"Nadiia",myScore:15,opponentScore:15,iWon:true,myTimeMs:41230,opponentTimeMs:43780)),
             .init(id:"preview-achievement",title:LocalizationManager.shared.localizedString("Достижения"),body:LocalizationManager.shared.localizedString("Ранняя птица") + " · " + LocalizationManager.shared.localizedString("Достигните серии 5 дней"),date:Date().addingTimeInterval(-900),source:"preview",kind:"progress"),
             .init(id:"achievement_journey_streak_100",title:LocalizationManager.shared.localizedString("Достижения"),body:LocalizationManager.shared.localizedString("achievement.streak_100.title"),date:Date().addingTimeInterval(-1200),source:"preview",kind:"progress",readAt:Date(),details:.init(achievementID:"journey_streak_100")),
             .init(id:"level_100",title:LocalizationManager.shared.localizedString("Уровень") + " 100",body:LocalizationManager.shared.localizedString("achievement.level_100.title"),date:Date().addingTimeInterval(-1800),source:"preview",kind:"progress",readAt:Date(),details:.init(level:100,xp:99000)),

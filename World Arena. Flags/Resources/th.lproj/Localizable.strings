@@ -1859,3 +1859,4 @@
 "achievement.level_100.body" = "ไปถึงระดับ 100";
 "achievement.friends_10.title" = "เพื่อนทั่วโลก";
 "achievement.friends_10.body" = "เพิ่มเพื่อน 10 คน";
+"inbox.duelTimeUnavailable" = "ไม่ได้บันทึกเวลาของการดวลนี้";

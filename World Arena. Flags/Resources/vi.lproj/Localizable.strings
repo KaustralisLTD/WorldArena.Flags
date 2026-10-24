@@ -1860,3 +1860,4 @@
 "achievement.level_100.body" = "Đạt cấp độ 100";
 "achievement.friends_10.title" = "Bạn bè khắp thế giới";
 "achievement.friends_10.body" = "Thêm 10 người bạn";
+"inbox.duelTimeUnavailable" = "Thời gian trận đấu này chưa được lưu.";

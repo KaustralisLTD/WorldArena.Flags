@@ -2225,32 +2225,9 @@ private struct GameHomeQuickSettingsSheet: View {
         .buttonStyle(.plain)
     }
 
-    /// Миниатюра региона: градиент + символ (частичные глобусы на iOS 17+, иначе запасной вариант).
-    @ViewBuilder
     private func regionThumbnail(region: GameState.Region, isSelected: Bool) -> some View {
-        let g = regionThumbnailGradient(region)
-        let sym = regionThumbnailSystemImage(region)
-        ZStack {
-            RoundedRectangle(cornerRadius: 12, style: .continuous)
-                .fill(
-                    LinearGradient(
-                        colors: isSelected
-                            ? [Color.white.opacity(0.28), Color.white.opacity(0.12)]
-                            : g,
-                        startPoint: .topLeading,
-                        endPoint: .bottomTrailing
-                    )
-                )
-            Image(systemName: sym)
-                .font(.system(size: 22, weight: .semibold))
-                .foregroundStyle(Color.white.opacity(0.95))
-                .shadow(color: .black.opacity(0.15), radius: 1, x: 0, y: 1)
-        }
-        .frame(width: 52, height: 52)
-        .overlay(
-            RoundedRectangle(cornerRadius: 12, style: .continuous)
-                .strokeBorder(isSelected ? Color.white.opacity(0.45) : Color.clear, lineWidth: 1.5)
-        )
+        RegionGlobeIcon(region: region, isSelected: isSelected, size: 76)
+            .frame(width: 96, height: 96)
     }
 
     private func regionThumbnailSystemImage(_ region: GameState.Region) -> String {

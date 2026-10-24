@@ -1,0 +1,1716 @@
+{
+  "achievements_count": 12,
+  "achievements": [
+    {
+      "id": "journey_streak_60",
+      "reference_name": "A season of discovery",
+      "points": 10,
+      "hidden": false,
+      "reusable": false,
+      "asset_imageset_path": "fastlane/game_center/assets/journey_streak_60.imageset",
+      "localizations": {
+        "de": {
+          "title": "Saison der Entdeckungen",
+          "before_earned_description": "Erreiche eine Serie von 60 Tagen",
+          "after_earned_description": "Saison der Entdeckungen"
+        },
+        "ar": {
+          "title": "موسم الاكتشافات",
+          "before_earned_description": "حقق سلسلة من 60 يومًا",
+          "after_earned_description": "موسم الاكتشافات"
+        },
+        "el": {
+          "title": "Μια εποχή ανακαλύψεων",
+          "before_earned_description": "Φτάσε σε σερί 60 ημερών",
+          "after_earned_description": "Μια εποχή ανακαλύψεων"
+        },
+        "ja": {
+          "title": "発見の季節",
+          "before_earned_description": "60日連続でプレイする",
+          "after_earned_description": "発見の季節"
+        },
+        "en": {
+          "title": "A season of discovery",
+          "before_earned_description": "Reach a 60-day streak",
+          "after_earned_description": "A season of discovery"
+        },
+        "uk": {
+          "title": "Сезон відкриттів",
+          "before_earned_description": "Серія 60 днів",
+          "after_earned_description": "Сезон відкриттів"
+        },
+        "es": {
+          "title": "Temporada de descubrimientos",
+          "before_earned_description": "Alcanza una racha de 60 días",
+          "after_earned_description": "Temporada de descubrimientos"
+        },
+        "it": {
+          "title": "Una stagione di scoperte",
+          "before_earned_description": "Raggiungi una serie di 60 giorni",
+          "after_earned_description": "Una stagione di scoperte"
+        },
+        "sv": {
+          "title": "En säsong av upptäckter",
+          "before_earned_description": "Nå en svit på 60 dagar",
+          "after_earned_description": "En säsong av upptäckter"
+        },
+        "cs": {
+          "title": "Sezóna objevů",
+          "before_earned_description": "Dosáhněte série 60 dní",
+          "after_earned_description": "Sezóna objevů"
+        },
+        "ko": {
+          "title": "발견의 계절",
+          "before_earned_description": "60일 연속 플레이하기",
+          "after_earned_description": "발견의 계절"
+        },
+        "zh-Hant": {
+          "title": "探索的季節",
+          "before_earned_description": "連續遊玩60天",
+          "after_earned_description": "探索的季節"
+        },
+        "hu": {
+          "title": "A felfedezések évszaka",
+          "before_earned_description": "Érj el 60 napos sorozatot",
+          "after_earned_description": "A felfedezések évszaka"
+        },
+        "tr": {
+          "title": "Keşif mevsimi",
+          "before_earned_description": "60 günlük seriye ulaş",
+          "after_earned_description": "Keşif mevsimi"
+        },
+        "pl": {
+          "title": "Sezon odkryć",
+          "before_earned_description": "Osiągnij serię 60 dni",
+          "after_earned_description": "Sezon odkryć"
+        },
+        "pt-BR": {
+          "title": "Uma temporada de descobertas",
+          "before_earned_description": "Alcance uma sequência de 60 dias",
+          "after_earned_description": "Uma temporada de descobertas"
+        },
+        "vi": {
+          "title": "Mùa khám phá",
+          "before_earned_description": "Đạt chuỗi 60 ngày",
+          "after_earned_description": "Mùa khám phá"
+        },
+        "ru": {
+          "title": "Сезон открытий",
+          "before_earned_description": "Серия 60 дней",
+          "after_earned_description": "Сезон открытий"
+        },
+        "fr": {
+          "title": "Une saison de découvertes",
+          "before_earned_description": "Atteignez une série de 60 jours",
+          "after_earned_description": "Une saison de découvertes"
+        },
+        "id": {
+          "title": "Musim penemuan",
+          "before_earned_description": "Capai rangkaian 60 hari",
+          "after_earned_description": "Musim penemuan"
+        },
+        "nl": {
+          "title": "Een seizoen vol ontdekkingen",
+          "before_earned_description": "Bereik een reeks van 60 dagen",
+          "after_earned_description": "Een seizoen vol ontdekkingen"
+        },
+        "th": {
+          "title": "ฤดูกาลแห่งการค้นพบ",
+          "before_earned_description": "เล่นต่อเนื่อง 60 วัน",
+          "after_earned_description": "ฤดูกาลแห่งการค้นพบ"
+        },
+        "ro": {
+          "title": "Un sezon de descoperiri",
+          "before_earned_description": "Atinge o serie de 60 zile",
+          "after_earned_description": "Un sezon de descoperiri"
+        },
+        "hi": {
+          "title": "खोज का मौसम",
+          "before_earned_description": "लगातार 60 दिन खेलें",
+          "after_earned_description": "खोज का मौसम"
+        },
+        "ca": {
+          "title": "Una temporada de descobertes",
+          "before_earned_description": "Arriba a una ratxa de 60 dies",
+          "after_earned_description": "Una temporada de descobertes"
+        },
+        "zh": {
+          "title": "探索的季节",
+          "before_earned_description": "连续游玩60天",
+          "after_earned_description": "探索的季节"
+        }
+      },
+      "icon": "sun.horizon.fill",
+      "color": "orange"
+    },
+    {
+      "id": "journey_streak_100",
+      "reference_name": "A hundred sunrises",
+      "points": 10,
+      "hidden": false,
+      "reusable": false,
+      "asset_imageset_path": "fastlane/game_center/assets/journey_streak_100.imageset",
+      "localizations": {
+        "de": {
+          "title": "Hundert Sonnenaufgänge",
+          "before_earned_description": "Erreiche eine Serie von 100 Tagen",
+          "after_earned_description": "Hundert Sonnenaufgänge"
+        },
+        "ar": {
+          "title": "مئة شروق",
+          "before_earned_description": "حقق سلسلة من 100 يومًا",
+          "after_earned_description": "مئة شروق"
+        },
+        "el": {
+          "title": "Εκατό ανατολές",
+          "before_earned_description": "Φτάσε σε σερί 100 ημερών",
+          "after_earned_description": "Εκατό ανατολές"
+        },
+        "ja": {
+          "title": "100回の日の出",
+          "before_earned_description": "100日連続でプレイする",
+          "after_earned_description": "100回の日の出"
+        },
+        "en": {
+          "title": "A hundred sunrises",
+          "before_earned_description": "Reach a 100-day streak",
+          "after_earned_description": "A hundred sunrises"
+        },
+        "uk": {
+          "title": "Сто світанків",
+          "before_earned_description": "Серія 100 днів",
+          "after_earned_description": "Сто світанків"
+        },
+        "es": {
+          "title": "Cien amaneceres",
+          "before_earned_description": "Alcanza una racha de 100 días",
+          "after_earned_description": "Cien amaneceres"
+        },
+        "it": {
+          "title": "Cento albe",
+          "before_earned_description": "Raggiungi una serie di 100 giorni",
+          "after_earned_description": "Cento albe"
+        },
+        "sv": {
+          "title": "Hundra soluppgångar",
+          "before_earned_description": "Nå en svit på 100 dagar",
+          "after_earned_description": "Hundra soluppgångar"
+        },
+        "cs": {
+          "title": "Sto východů slunce",
+          "before_earned_description": "Dosáhněte série 100 dní",
+          "after_earned_description": "Sto východů slunce"
+        },
+        "ko": {
+          "title": "백 번의 일출",
+          "before_earned_description": "100일 연속 플레이하기",
+          "after_earned_description": "백 번의 일출"
+        },
+        "zh-Hant": {
+          "title": "一百次日出",
+          "before_earned_description": "連續遊玩100天",
+          "after_earned_description": "一百次日出"
+        },
+        "hu": {
+          "title": "Száz napfelkelte",
+          "before_earned_description": "Érj el 100 napos sorozatot",
+          "after_earned_description": "Száz napfelkelte"
+        },
+        "tr": {
+          "title": "Yüz gün doğumu",
+          "before_earned_description": "100 günlük seriye ulaş",
+          "after_earned_description": "Yüz gün doğumu"
+        },
+        "pl": {
+          "title": "Sto wschodów słońca",
+          "before_earned_description": "Osiągnij serię 100 dni",
+          "after_earned_description": "Sto wschodów słońca"
+        },
+        "pt-BR": {
+          "title": "Cem amanheceres",
+          "before_earned_description": "Alcance uma sequência de 100 dias",
+          "after_earned_description": "Cem amanheceres"
+        },
+        "vi": {
+          "title": "Một trăm bình minh",
+          "before_earned_description": "Đạt chuỗi 100 ngày",
+          "after_earned_description": "Một trăm bình minh"
+        },
+        "ru": {
+          "title": "Сто рассветов",
+          "before_earned_description": "Серия 100 дней",
+          "after_earned_description": "Сто рассветов"
+        },
+        "fr": {
+          "title": "Cent levers de soleil",
+          "before_earned_description": "Atteignez une série de 100 jours",
+          "after_earned_description": "Cent levers de soleil"
+        },
+        "id": {
+          "title": "Seratus fajar",
+          "before_earned_description": "Capai rangkaian 100 hari",
+          "after_earned_description": "Seratus fajar"
+        },
+        "nl": {
+          "title": "Honderd zonsopkomsten",
+          "before_earned_description": "Bereik een reeks van 100 dagen",
+          "after_earned_description": "Honderd zonsopkomsten"
+        },
+        "th": {
+          "title": "หนึ่งร้อยรุ่งอรุณ",
+          "before_earned_description": "เล่นต่อเนื่อง 100 วัน",
+          "after_earned_description": "หนึ่งร้อยรุ่งอรุณ"
+        },
+        "ro": {
+          "title": "O sută de răsărituri",
+          "before_earned_description": "Atinge o serie de 100 zile",
+          "after_earned_description": "O sută de răsărituri"
+        },
+        "hi": {
+          "title": "सौ सूर्योदय",
+          "before_earned_description": "लगातार 100 दिन खेलें",
+          "after_earned_description": "सौ सूर्योदय"
+        },
+        "ca": {
+          "title": "Cent albes",
+          "before_earned_description": "Arriba a una ratxa de 100 dies",
+          "after_earned_description": "Cent albes"
+        },
+        "zh": {
+          "title": "一百次日出",
+          "before_earned_description": "连续游玩100天",
+          "after_earned_description": "一百次日出"
+        }
+      },
+      "icon": "flame.circle.fill",
+      "color": "red"
+    },
+    {
+      "id": "journey_streak_365",
+      "reference_name": "A world of dedication",
+      "points": 10,
+      "hidden": false,
+      "reusable": false,
+      "asset_imageset_path": "fastlane/game_center/assets/journey_streak_365.imageset",
+      "localizations": {
+        "de": {
+          "title": "Ein Jahr voller Entdeckungen",
+          "before_earned_description": "Erreiche eine Serie von 365 Tagen",
+          "after_earned_description": "Ein Jahr voller Entdeckungen"
+        },
+        "ar": {
+          "title": "عام من الاكتشافات",
+          "before_earned_description": "حقق سلسلة من 365 يومًا",
+          "after_earned_description": "عام من الاكتشافات"
+        },
+        "el": {
+          "title": "Ένας χρόνος ανακαλύψεων",
+          "before_earned_description": "Φτάσε σε σερί 365 ημερών",
+          "after_earned_description": "Ένας χρόνος ανακαλύψεων"
+        },
+        "ja": {
+          "title": "発見の一年",
+          "before_earned_description": "365日連続でプレイする",
+          "after_earned_description": "発見の一年"
+        },
+        "en": {
+          "title": "A world of dedication",
+          "before_earned_description": "Reach a 365-day streak",
+          "after_earned_description": "A world of dedication"
+        },
+        "uk": {
+          "title": "Рік відкриттів",
+          "before_earned_description": "Серія 365 днів",
+          "after_earned_description": "Рік відкриттів"
+        },
+        "es": {
+          "title": "Un año de descubrimientos",
+          "before_earned_description": "Alcanza una racha de 365 días",
+          "after_earned_description": "Un año de descubrimientos"
+        },
+        "it": {
+          "title": "Un anno di scoperte",
+          "before_earned_description": "Raggiungi una serie di 365 giorni",
+          "after_earned_description": "Un anno di scoperte"
+        },
+        "sv": {
+          "title": "Ett år av upptäckter",
+          "before_earned_description": "Nå en svit på 365 dagar",
+          "after_earned_description": "Ett år av upptäckter"
+        },
+        "cs": {
+          "title": "Rok objevů",
+          "before_earned_description": "Dosáhněte série 365 dní",
+          "after_earned_description": "Rok objevů"
+        },
+        "ko": {
+          "title": "발견의 일 년",
+          "before_earned_description": "365일 연속 플레이하기",
+          "after_earned_description": "발견의 일 년"
+        },
+        "zh-Hant": {
+          "title": "一年的探索",
+          "before_earned_description": "連續遊玩365天",
+          "after_earned_description": "一年的探索"
+        },
+        "hu": {
+          "title": "Egy év felfedezés",
+          "before_earned_description": "Érj el 365 napos sorozatot",
+          "after_earned_description": "Egy év felfedezés"
+        },
+        "tr": {
+          "title": "Bir yıllık keşif",
+          "before_earned_description": "365 günlük seriye ulaş",
+          "after_earned_description": "Bir yıllık keşif"
+        },
+        "pl": {
+          "title": "Rok odkryć",
+          "before_earned_description": "Osiągnij serię 365 dni",
+          "after_earned_description": "Rok odkryć"
+        },
+        "pt-BR": {
+          "title": "Um ano de descobertas",
+          "before_earned_description": "Alcance uma sequência de 365 dias",
+          "after_earned_description": "Um ano de descobertas"
+        },
+        "vi": {
+          "title": "Một năm khám phá",
+          "before_earned_description": "Đạt chuỗi 365 ngày",
+          "after_earned_description": "Một năm khám phá"
+        },
+        "ru": {
+          "title": "Год открытий",
+          "before_earned_description": "Серия 365 дней",
+          "after_earned_description": "Год открытий"
+        },
+        "fr": {
+          "title": "Une année de découvertes",
+          "before_earned_description": "Atteignez une série de 365 jours",
+          "after_earned_description": "Une année de découvertes"
+        },
+        "id": {
+          "title": "Setahun penemuan",
+          "before_earned_description": "Capai rangkaian 365 hari",
+          "after_earned_description": "Setahun penemuan"
+        },
+        "nl": {
+          "title": "Een jaar vol ontdekkingen",
+          "before_earned_description": "Bereik een reeks van 365 dagen",
+          "after_earned_description": "Een jaar vol ontdekkingen"
+        },
+        "th": {
+          "title": "หนึ่งปีแห่งการค้นพบ",
+          "before_earned_description": "เล่นต่อเนื่อง 365 วัน",
+          "after_earned_description": "หนึ่งปีแห่งการค้นพบ"
+        },
+        "ro": {
+          "title": "Un an de descoperiri",
+          "before_earned_description": "Atinge o serie de 365 zile",
+          "after_earned_description": "Un an de descoperiri"
+        },
+        "hi": {
+          "title": "खोज का एक साल",
+          "before_earned_description": "लगातार 365 दिन खेलें",
+          "after_earned_description": "खोज का एक साल"
+        },
+        "ca": {
+          "title": "Un any de descobertes",
+          "before_earned_description": "Arriba a una ratxa de 365 dies",
+          "after_earned_description": "Un any de descobertes"
+        },
+        "zh": {
+          "title": "一年的探索",
+          "before_earned_description": "连续游玩365天",
+          "after_earned_description": "一年的探索"
+        }
+      },
+      "icon": "globe.americas.fill",
+      "color": "yellow"
+    },
+    {
+      "id": "journey_games_250",
+      "reference_name": "Beyond the horizon",
+      "points": 10,
+      "hidden": false,
+      "reusable": false,
+      "asset_imageset_path": "fastlane/game_center/assets/journey_games_250.imageset",
+      "localizations": {
+        "de": {
+          "title": "Hinter dem Horizont",
+          "before_earned_description": "Spiele 250 Partien",
+          "after_earned_description": "Hinter dem Horizont"
+        },
+        "ar": {
+          "title": "وراء الأفق",
+          "before_earned_description": "العب 250 جولة",
+          "after_earned_description": "وراء الأفق"
+        },
+        "el": {
+          "title": "Πέρα από τον ορίζοντα",
+          "before_earned_description": "Παίξε 250 παιχνίδια",
+          "after_earned_description": "Πέρα από τον ορίζοντα"
+        },
+        "ja": {
+          "title": "地平線の向こうへ",
+          "before_earned_description": "250回プレイする",
+          "after_earned_description": "地平線の向こうへ"
+        },
+        "en": {
+          "title": "Beyond the horizon",
+          "before_earned_description": "Play 250 games",
+          "after_earned_description": "Beyond the horizon"
+        },
+        "uk": {
+          "title": "За горизонтом",
+          "before_earned_description": "Зіграйте 250 ігор",
+          "after_earned_description": "За горизонтом"
+        },
+        "es": {
+          "title": "Más allá del horizonte",
+          "before_earned_description": "Juega 250 partidas",
+          "after_earned_description": "Más allá del horizonte"
+        },
+        "it": {
+          "title": "Oltre l'orizzonte",
+          "before_earned_description": "Gioca 250 partite",
+          "after_earned_description": "Oltre l'orizzonte"
+        },
+        "sv": {
+          "title": "Bortom horisonten",
+          "before_earned_description": "Spela 250 spel",
+          "after_earned_description": "Bortom horisonten"
+        },
+        "cs": {
+          "title": "Za obzorem",
+          "before_earned_description": "Odehrajte 250 her",
+          "after_earned_description": "Za obzorem"
+        },
+        "ko": {
+          "title": "지평선 너머로",
+          "before_earned_description": "게임 250회 플레이하기",
+          "after_earned_description": "지평선 너머로"
+        },
+        "zh-Hant": {
+          "title": "地平線之外",
+          "before_earned_description": "完成250場遊戲",
+          "after_earned_description": "地平線之外"
+        },
+        "hu": {
+          "title": "A láthatáron túl",
+          "before_earned_description": "Játssz 250 játékot",
+          "after_earned_description": "A láthatáron túl"
+        },
+        "tr": {
+          "title": "Ufkun ötesinde",
+          "before_earned_description": "250 oyun oyna",
+          "after_earned_description": "Ufkun ötesinde"
+        },
+        "pl": {
+          "title": "Za horyzontem",
+          "before_earned_description": "Rozegraj 250 gier",
+          "after_earned_description": "Za horyzontem"
+        },
+        "pt-BR": {
+          "title": "Além do horizonte",
+          "before_earned_description": "Jogue 250 partidas",
+          "after_earned_description": "Além do horizonte"
+        },
+        "vi": {
+          "title": "Phía bên kia chân trời",
+          "before_earned_description": "Chơi 250 ván",
+          "after_earned_description": "Phía bên kia chân trời"
+        },
+        "ru": {
+          "title": "За горизонтом",
+          "before_earned_description": "Сыграйте 250 игр",
+          "after_earned_description": "За горизонтом"
+        },
+        "fr": {
+          "title": "Au-delà de l'horizon",
+          "before_earned_description": "Jouez 250 parties",
+          "after_earned_description": "Au-delà de l'horizon"
+        },
+        "id": {
+          "title": "Melampaui cakrawala",
+          "before_earned_description": "Mainkan 250 permainan",
+          "after_earned_description": "Melampaui cakrawala"
+        },
+        "nl": {
+          "title": "Voorbij de horizon",
+          "before_earned_description": "Speel 250 spellen",
+          "after_earned_description": "Voorbij de horizon"
+        },
+        "th": {
+          "title": "ข้ามเส้นขอบฟ้า",
+          "before_earned_description": "เล่น 250 เกม",
+          "after_earned_description": "ข้ามเส้นขอบฟ้า"
+        },
+        "ro": {
+          "title": "Dincolo de orizont",
+          "before_earned_description": "Joacă 250 partide",
+          "after_earned_description": "Dincolo de orizont"
+        },
+        "hi": {
+          "title": "क्षितिज के पार",
+          "before_earned_description": "250 गेम खेलें",
+          "after_earned_description": "क्षितिज के पार"
+        },
+        "ca": {
+          "title": "Més enllà de l'horitzó",
+          "before_earned_description": "Juga 250 partides",
+          "after_earned_description": "Més enllà de l'horitzó"
+        },
+        "zh": {
+          "title": "地平线之外",
+          "before_earned_description": "完成250场游戏",
+          "after_earned_description": "地平线之外"
+        }
+      },
+      "icon": "binoculars.fill",
+      "color": "teal"
+    },
+    {
+      "id": "journey_games_500",
+      "reference_name": "World explorer",
+      "points": 10,
+      "hidden": false,
+      "reusable": false,
+      "asset_imageset_path": "fastlane/game_center/assets/journey_games_500.imageset",
+      "localizations": {
+        "de": {
+          "title": "Weltentdecker",
+          "before_earned_description": "Spiele 500 Partien",
+          "after_earned_description": "Weltentdecker"
+        },
+        "ar": {
+          "title": "مستكشف العالم",
+          "before_earned_description": "العب 500 جولة",
+          "after_earned_description": "مستكشف العالم"
+        },
+        "el": {
+          "title": "Εξερευνητής του κόσμου",
+          "before_earned_description": "Παίξε 500 παιχνίδια",
+          "after_earned_description": "Εξερευνητής του κόσμου"
+        },
+        "ja": {
+          "title": "世界の探検家",
+          "before_earned_description": "500回プレイする",
+          "after_earned_description": "世界の探検家"
+        },
+        "en": {
+          "title": "World explorer",
+          "before_earned_description": "Play 500 games",
+          "after_earned_description": "World explorer"
+        },
+        "uk": {
+          "title": "Увесь світ попереду",
+          "before_earned_description": "Зіграйте 500 ігор",
+          "after_earned_description": "Увесь світ попереду"
+        },
+        "es": {
+          "title": "Explorador del mundo",
+          "before_earned_description": "Juega 500 partidas",
+          "after_earned_description": "Explorador del mundo"
+        },
+        "it": {
+          "title": "Esploratore del mondo",
+          "before_earned_description": "Gioca 500 partite",
+          "after_earned_description": "Esploratore del mondo"
+        },
+        "sv": {
+          "title": "Världsutforskare",
+          "before_earned_description": "Spela 500 spel",
+          "after_earned_description": "Världsutforskare"
+        },
+        "cs": {
+          "title": "Objevitel světa",
+          "before_earned_description": "Odehrajte 500 her",
+          "after_earned_description": "Objevitel světa"
+        },
+        "ko": {
+          "title": "세계 탐험가",
+          "before_earned_description": "게임 500회 플레이하기",
+          "after_earned_description": "세계 탐험가"
+        },
+        "zh-Hant": {
+          "title": "世界探索家",
+          "before_earned_description": "完成500場遊戲",
+          "after_earned_description": "世界探索家"
+        },
+        "hu": {
+          "title": "Világfelfedező",
+          "before_earned_description": "Játssz 500 játékot",
+          "after_earned_description": "Világfelfedező"
+        },
+        "tr": {
+          "title": "Dünya kaşifi",
+          "before_earned_description": "500 oyun oyna",
+          "after_earned_description": "Dünya kaşifi"
+        },
+        "pl": {
+          "title": "Odkrywca świata",
+          "before_earned_description": "Rozegraj 500 gier",
+          "after_earned_description": "Odkrywca świata"
+        },
+        "pt-BR": {
+          "title": "Explorador do mundo",
+          "before_earned_description": "Jogue 500 partidas",
+          "after_earned_description": "Explorador do mundo"
+        },
+        "vi": {
+          "title": "Nhà thám hiểm thế giới",
+          "before_earned_description": "Chơi 500 ván",
+          "after_earned_description": "Nhà thám hiểm thế giới"
+        },
+        "ru": {
+          "title": "Весь мир впереди",
+          "before_earned_description": "Сыграйте 500 игр",
+          "after_earned_description": "Весь мир впереди"
+        },
+        "fr": {
+          "title": "Explorateur du monde",
+          "before_earned_description": "Jouez 500 parties",
+          "after_earned_description": "Explorateur du monde"
+        },
+        "id": {
+          "title": "Penjelajah dunia",
+          "before_earned_description": "Mainkan 500 permainan",
+          "after_earned_description": "Penjelajah dunia"
+        },
+        "nl": {
+          "title": "Wereldontdekker",
+          "before_earned_description": "Speel 500 spellen",
+          "after_earned_description": "Wereldontdekker"
+        },
+        "th": {
+          "title": "นักสำรวจโลก",
+          "before_earned_description": "เล่น 500 เกม",
+          "after_earned_description": "นักสำรวจโลก"
+        },
+        "ro": {
+          "title": "Explorator al lumii",
+          "before_earned_description": "Joacă 500 partide",
+          "after_earned_description": "Explorator al lumii"
+        },
+        "hi": {
+          "title": "दुनिया का खोजी",
+          "before_earned_description": "500 गेम खेलें",
+          "after_earned_description": "दुनिया का खोजी"
+        },
+        "ca": {
+          "title": "Explorador del món",
+          "before_earned_description": "Juga 500 partides",
+          "after_earned_description": "Explorador del món"
+        },
+        "zh": {
+          "title": "世界探索家",
+          "before_earned_description": "完成500场游戏",
+          "after_earned_description": "世界探索家"
+        }
+      },
+      "icon": "globe.europe.africa.fill",
+      "color": "cyan"
+    },
+    {
+      "id": "journey_games_1000",
+      "reference_name": "A thousand adventures",
+      "points": 10,
+      "hidden": false,
+      "reusable": false,
+      "asset_imageset_path": "fastlane/game_center/assets/journey_games_1000.imageset",
+      "localizations": {
+        "de": {
+          "title": "Tausend Abenteuer",
+          "before_earned_description": "Spiele 1000 Partien",
+          "after_earned_description": "Tausend Abenteuer"
+        },
+        "ar": {
+          "title": "ألف مغامرة",
+          "before_earned_description": "العب 1000 جولة",
+          "after_earned_description": "ألف مغامرة"
+        },
+        "el": {
+          "title": "Χίλιες περιπέτειες",
+          "before_earned_description": "Παίξε 1000 παιχνίδια",
+          "after_earned_description": "Χίλιες περιπέτειες"
+        },
+        "ja": {
+          "title": "1000の冒険",
+          "before_earned_description": "1000回プレイする",
+          "after_earned_description": "1000の冒険"
+        },
+        "en": {
+          "title": "A thousand adventures",
+          "before_earned_description": "Play 1000 games",
+          "after_earned_description": "A thousand adventures"
+        },
+        "uk": {
+          "title": "Тисяча пригод",
+          "before_earned_description": "Зіграйте 1000 ігор",
+          "after_earned_description": "Тисяча пригод"
+        },
+        "es": {
+          "title": "Mil aventuras",
+          "before_earned_description": "Juega 1000 partidas",
+          "after_earned_description": "Mil aventuras"
+        },
+        "it": {
+          "title": "Mille avventure",
+          "before_earned_description": "Gioca 1000 partite",
+          "after_earned_description": "Mille avventure"
+        },
+        "sv": {
+          "title": "Tusen äventyr",
+          "before_earned_description": "Spela 1000 spel",
+          "after_earned_description": "Tusen äventyr"
+        },
+        "cs": {
+          "title": "Tisíc dobrodružství",
+          "before_earned_description": "Odehrajte 1000 her",
+          "after_earned_description": "Tisíc dobrodružství"
+        },
+        "ko": {
+          "title": "천 번의 모험",
+          "before_earned_description": "게임 1000회 플레이하기",
+          "after_earned_description": "천 번의 모험"
+        },
+        "zh-Hant": {
+          "title": "一千次冒險",
+          "before_earned_description": "完成1000場遊戲",
+          "after_earned_description": "一千次冒險"
+        },
+        "hu": {
+          "title": "Ezer kaland",
+          "before_earned_description": "Játssz 1000 játékot",
+          "after_earned_description": "Ezer kaland"
+        },
+        "tr": {
+          "title": "Bin macera",
+          "before_earned_description": "1000 oyun oyna",
+          "after_earned_description": "Bin macera"
+        },
+        "pl": {
+          "title": "Tysiąc przygód",
+          "before_earned_description": "Rozegraj 1000 gier",
+          "after_earned_description": "Tysiąc przygód"
+        },
+        "pt-BR": {
+          "title": "Mil aventuras",
+          "before_earned_description": "Jogue 1000 partidas",
+          "after_earned_description": "Mil aventuras"
+        },
+        "vi": {
+          "title": "Một nghìn cuộc phiêu lưu",
+          "before_earned_description": "Chơi 1000 ván",
+          "after_earned_description": "Một nghìn cuộc phiêu lưu"
+        },
+        "ru": {
+          "title": "Тысяча приключений",
+          "before_earned_description": "Сыграйте 1000 игр",
+          "after_earned_description": "Тысяча приключений"
+        },
+        "fr": {
+          "title": "Mille aventures",
+          "before_earned_description": "Jouez 1000 parties",
+          "after_earned_description": "Mille aventures"
+        },
+        "id": {
+          "title": "Seribu petualangan",
+          "before_earned_description": "Mainkan 1000 permainan",
+          "after_earned_description": "Seribu petualangan"
+        },
+        "nl": {
+          "title": "Duizend avonturen",
+          "before_earned_description": "Speel 1000 spellen",
+          "after_earned_description": "Duizend avonturen"
+        },
+        "th": {
+          "title": "พันการผจญภัย",
+          "before_earned_description": "เล่น 1000 เกม",
+          "after_earned_description": "พันการผจญภัย"
+        },
+        "ro": {
+          "title": "O mie de aventuri",
+          "before_earned_description": "Joacă 1000 partide",
+          "after_earned_description": "O mie de aventuri"
+        },
+        "hi": {
+          "title": "हज़ार रोमांच",
+          "before_earned_description": "1000 गेम खेलें",
+          "after_earned_description": "हज़ार रोमांच"
+        },
+        "ca": {
+          "title": "Mil aventures",
+          "before_earned_description": "Juga 1000 partides",
+          "after_earned_description": "Mil aventures"
+        },
+        "zh": {
+          "title": "一千次冒险",
+          "before_earned_description": "完成1000场游戏",
+          "after_earned_description": "一千次冒险"
+        }
+      },
+      "icon": "safari.fill",
+      "color": "indigo"
+    },
+    {
+      "id": "journey_xp_50000",
+      "reference_name": "Knowledge powerhouse",
+      "points": 10,
+      "hidden": false,
+      "reusable": false,
+      "asset_imageset_path": "fastlane/game_center/assets/journey_xp_50000.imageset",
+      "localizations": {
+        "de": {
+          "title": "Die Kraft des Wissens",
+          "before_earned_description": "Sammle 50000 XP",
+          "after_earned_description": "Die Kraft des Wissens"
+        },
+        "ar": {
+          "title": "قوة المعرفة",
+          "before_earned_description": "اجمع 50000 XP",
+          "after_earned_description": "قوة المعرفة"
+        },
+        "el": {
+          "title": "Η δύναμη της γνώσης",
+          "before_earned_description": "Συγκέντρωσε 50000 XP",
+          "after_earned_description": "Η δύναμη της γνώσης"
+        },
+        "ja": {
+          "title": "知識の力",
+          "before_earned_description": "50000 XPを獲得する",
+          "after_earned_description": "知識の力"
+        },
+        "en": {
+          "title": "Knowledge powerhouse",
+          "before_earned_description": "Earn 50,000 XP",
+          "after_earned_description": "Knowledge powerhouse"
+        },
+        "uk": {
+          "title": "Сила знань",
+          "before_earned_description": "Наберіть 50 000 XP",
+          "after_earned_description": "Сила знань"
+        },
+        "es": {
+          "title": "El poder del conocimiento",
+          "before_earned_description": "Consigue 50000 XP",
+          "after_earned_description": "El poder del conocimiento"
+        },
+        "it": {
+          "title": "La forza del sapere",
+          "before_earned_description": "Guadagna 50000 XP",
+          "after_earned_description": "La forza del sapere"
+        },
+        "sv": {
+          "title": "Kunskapens kraft",
+          "before_earned_description": "Samla 50000 XP",
+          "after_earned_description": "Kunskapens kraft"
+        },
+        "cs": {
+          "title": "Síla znalostí",
+          "before_earned_description": "Získejte 50000 XP",
+          "after_earned_description": "Síla znalostí"
+        },
+        "ko": {
+          "title": "지식의 힘",
+          "before_earned_description": "50000 XP 획득하기",
+          "after_earned_description": "지식의 힘"
+        },
+        "zh-Hant": {
+          "title": "知識的力量",
+          "before_earned_description": "獲得50000 XP",
+          "after_earned_description": "知識的力量"
+        },
+        "hu": {
+          "title": "A tudás ereje",
+          "before_earned_description": "Gyűjts 50000 XP-t",
+          "after_earned_description": "A tudás ereje"
+        },
+        "tr": {
+          "title": "Bilginin gücü",
+          "before_earned_description": "50000 XP kazan",
+          "after_earned_description": "Bilginin gücü"
+        },
+        "pl": {
+          "title": "Siła wiedzy",
+          "before_earned_description": "Zdobądź 50000 XP",
+          "after_earned_description": "Siła wiedzy"
+        },
+        "pt-BR": {
+          "title": "O poder do conhecimento",
+          "before_earned_description": "Ganhe 50000 XP",
+          "after_earned_description": "O poder do conhecimento"
+        },
+        "vi": {
+          "title": "Sức mạnh tri thức",
+          "before_earned_description": "Tích lũy 50000 XP",
+          "after_earned_description": "Sức mạnh tri thức"
+        },
+        "ru": {
+          "title": "Сила знаний",
+          "before_earned_description": "Наберите 50 000 XP",
+          "after_earned_description": "Сила знаний"
+        },
+        "fr": {
+          "title": "La force du savoir",
+          "before_earned_description": "Gagnez 50000 XP",
+          "after_earned_description": "La force du savoir"
+        },
+        "id": {
+          "title": "Kekuatan pengetahuan",
+          "before_earned_description": "Kumpulkan 50000 XP",
+          "after_earned_description": "Kekuatan pengetahuan"
+        },
+        "nl": {
+          "title": "De kracht van kennis",
+          "before_earned_description": "Verdien 50000 XP",
+          "after_earned_description": "De kracht van kennis"
+        },
+        "th": {
+          "title": "พลังแห่งความรู้",
+          "before_earned_description": "สะสม 50000 XP",
+          "after_earned_description": "พลังแห่งความรู้"
+        },
+        "ro": {
+          "title": "Puterea cunoașterii",
+          "before_earned_description": "Adună 50000 XP",
+          "after_earned_description": "Puterea cunoașterii"
+        },
+        "hi": {
+          "title": "ज्ञान की शक्ति",
+          "before_earned_description": "50000 XP कमाएँ",
+          "after_earned_description": "ज्ञान की शक्ति"
+        },
+        "ca": {
+          "title": "El poder del coneixement",
+          "before_earned_description": "Aconsegueix 50000 XP",
+          "after_earned_description": "El poder del coneixement"
+        },
+        "zh": {
+          "title": "知识的力量",
+          "before_earned_description": "获得50000 XP",
+          "after_earned_description": "知识的力量"
+        }
+      },
+      "icon": "bolt.shield.fill",
+      "color": "blue"
+    },
+    {
+      "id": "journey_xp_100000",
+      "reference_name": "The knowledge crown",
+      "points": 10,
+      "hidden": false,
+      "reusable": false,
+      "asset_imageset_path": "fastlane/game_center/assets/journey_xp_100000.imageset",
+      "localizations": {
+        "de": {
+          "title": "Die Krone des Wissens",
+          "before_earned_description": "Sammle 100000 XP",
+          "after_earned_description": "Die Krone des Wissens"
+        },
+        "ar": {
+          "title": "تاج المعرفة",
+          "before_earned_description": "اجمع 100000 XP",
+          "after_earned_description": "تاج المعرفة"
+        },
+        "el": {
+          "title": "Το στέμμα της γνώσης",
+          "before_earned_description": "Συγκέντρωσε 100000 XP",
+          "after_earned_description": "Το στέμμα της γνώσης"
+        },
+        "ja": {
+          "title": "知識の王冠",
+          "before_earned_description": "100000 XPを獲得する",
+          "after_earned_description": "知識の王冠"
+        },
+        "en": {
+          "title": "The knowledge crown",
+          "before_earned_description": "Earn 100,000 XP",
+          "after_earned_description": "The knowledge crown"
+        },
+        "uk": {
+          "title": "Корона знань",
+          "before_earned_description": "Наберіть 100 000 XP",
+          "after_earned_description": "Корона знань"
+        },
+        "es": {
+          "title": "La corona del conocimiento",
+          "before_earned_description": "Consigue 100000 XP",
+          "after_earned_description": "La corona del conocimiento"
+        },
+        "it": {
+          "title": "La corona del sapere",
+          "before_earned_description": "Guadagna 100000 XP",
+          "after_earned_description": "La corona del sapere"
+        },
+        "sv": {
+          "title": "Kunskapens krona",
+          "before_earned_description": "Samla 100000 XP",
+          "after_earned_description": "Kunskapens krona"
+        },
+        "cs": {
+          "title": "Koruna znalostí",
+          "before_earned_description": "Získejte 100000 XP",
+          "after_earned_description": "Koruna znalostí"
+        },
+        "ko": {
+          "title": "지식의 왕관",
+          "before_earned_description": "100000 XP 획득하기",
+          "after_earned_description": "지식의 왕관"
+        },
+        "zh-Hant": {
+          "title": "知識的王冠",
+          "before_earned_description": "獲得100000 XP",
+          "after_earned_description": "知識的王冠"
+        },
+        "hu": {
+          "title": "A tudás koronája",
+          "before_earned_description": "Gyűjts 100000 XP-t",
+          "after_earned_description": "A tudás koronája"
+        },
+        "tr": {
+          "title": "Bilginin tacı",
+          "before_earned_description": "100000 XP kazan",
+          "after_earned_description": "Bilginin tacı"
+        },
+        "pl": {
+          "title": "Korona wiedzy",
+          "before_earned_description": "Zdobądź 100000 XP",
+          "after_earned_description": "Korona wiedzy"
+        },
+        "pt-BR": {
+          "title": "A coroa do conhecimento",
+          "before_earned_description": "Ganhe 100000 XP",
+          "after_earned_description": "A coroa do conhecimento"
+        },
+        "vi": {
+          "title": "Vương miện tri thức",
+          "before_earned_description": "Tích lũy 100000 XP",
+          "after_earned_description": "Vương miện tri thức"
+        },
+        "ru": {
+          "title": "Корона знаний",
+          "before_earned_description": "Наберите 100 000 XP",
+          "after_earned_description": "Корона знаний"
+        },
+        "fr": {
+          "title": "La couronne du savoir",
+          "before_earned_description": "Gagnez 100000 XP",
+          "after_earned_description": "La couronne du savoir"
+        },
+        "id": {
+          "title": "Mahkota pengetahuan",
+          "before_earned_description": "Kumpulkan 100000 XP",
+          "after_earned_description": "Mahkota pengetahuan"
+        },
+        "nl": {
+          "title": "De kroon van kennis",
+          "before_earned_description": "Verdien 100000 XP",
+          "after_earned_description": "De kroon van kennis"
+        },
+        "th": {
+          "title": "มงกุฎแห่งความรู้",
+          "before_earned_description": "สะสม 100000 XP",
+          "after_earned_description": "มงกุฎแห่งความรู้"
+        },
+        "ro": {
+          "title": "Coroana cunoașterii",
+          "before_earned_description": "Adună 100000 XP",
+          "after_earned_description": "Coroana cunoașterii"
+        },
+        "hi": {
+          "title": "ज्ञान का ताज",
+          "before_earned_description": "100000 XP कमाएँ",
+          "after_earned_description": "ज्ञान का ताज"
+        },
+        "ca": {
+          "title": "La corona del coneixement",
+          "before_earned_description": "Aconsegueix 100000 XP",
+          "after_earned_description": "La corona del coneixement"
+        },
+        "zh": {
+          "title": "知识的王冠",
+          "before_earned_description": "获得100000 XP",
+          "after_earned_description": "知识的王冠"
+        }
+      },
+      "icon": "crown.fill",
+      "color": "purple"
+    },
+    {
+      "id": "journey_level_25",
+      "reference_name": "First summit",
+      "points": 10,
+      "hidden": false,
+      "reusable": false,
+      "asset_imageset_path": "fastlane/game_center/assets/journey_level_25.imageset",
+      "localizations": {
+        "de": {
+          "title": "Der erste Gipfel",
+          "before_earned_description": "Erreiche Level 25",
+          "after_earned_description": "Der erste Gipfel"
+        },
+        "ar": {
+          "title": "القمة الأولى",
+          "before_earned_description": "بلغ المستوى 25",
+          "after_earned_description": "القمة الأولى"
+        },
+        "el": {
+          "title": "Η πρώτη κορυφή",
+          "before_earned_description": "Φτάσε στο επίπεδο 25",
+          "after_earned_description": "Η πρώτη κορυφή"
+        },
+        "ja": {
+          "title": "最初の頂へ",
+          "before_earned_description": "レベル25に到達する",
+          "after_earned_description": "最初の頂へ"
+        },
+        "en": {
+          "title": "First summit",
+          "before_earned_description": "Reach level 25",
+          "after_earned_description": "First summit"
+        },
+        "uk": {
+          "title": "Перша вершина",
+          "before_earned_description": "Досягніть рівня 25",
+          "after_earned_description": "Перша вершина"
+        },
+        "es": {
+          "title": "La primera cima",
+          "before_earned_description": "Alcanza el nivel 25",
+          "after_earned_description": "La primera cima"
+        },
+        "it": {
+          "title": "La prima vetta",
+          "before_earned_description": "Raggiungi il livello 25",
+          "after_earned_description": "La prima vetta"
+        },
+        "sv": {
+          "title": "Den första toppen",
+          "before_earned_description": "Nå nivå 25",
+          "after_earned_description": "Den första toppen"
+        },
+        "cs": {
+          "title": "První vrchol",
+          "before_earned_description": "Dosáhněte úrovně 25",
+          "after_earned_description": "První vrchol"
+        },
+        "ko": {
+          "title": "첫 정상",
+          "before_earned_description": "레벨 25 달성하기",
+          "after_earned_description": "첫 정상"
+        },
+        "zh-Hant": {
+          "title": "第一座高峰",
+          "before_earned_description": "達到25級",
+          "after_earned_description": "第一座高峰"
+        },
+        "hu": {
+          "title": "Az első csúcs",
+          "before_earned_description": "Érd el a(z) 25. szintet",
+          "after_earned_description": "Az első csúcs"
+        },
+        "tr": {
+          "title": "İlk zirve",
+          "before_earned_description": "25. seviyeye ulaş",
+          "after_earned_description": "İlk zirve"
+        },
+        "pl": {
+          "title": "Pierwszy szczyt",
+          "before_earned_description": "Osiągnij poziom 25",
+          "after_earned_description": "Pierwszy szczyt"
+        },
+        "pt-BR": {
+          "title": "O primeiro cume",
+          "before_earned_description": "Alcance o nível 25",
+          "after_earned_description": "O primeiro cume"
+        },
+        "vi": {
+          "title": "Đỉnh cao đầu tiên",
+          "before_earned_description": "Đạt cấp độ 25",
+          "after_earned_description": "Đỉnh cao đầu tiên"
+        },
+        "ru": {
+          "title": "Первая вершина",
+          "before_earned_description": "Достигните уровня 25",
+          "after_earned_description": "Первая вершина"
+        },
+        "fr": {
+          "title": "Le premier sommet",
+          "before_earned_description": "Atteignez le niveau 25",
+          "after_earned_description": "Le premier sommet"
+        },
+        "id": {
+          "title": "Puncak pertama",
+          "before_earned_description": "Capai level 25",
+          "after_earned_description": "Puncak pertama"
+        },
+        "nl": {
+          "title": "De eerste top",
+          "before_earned_description": "Bereik niveau 25",
+          "after_earned_description": "De eerste top"
+        },
+        "th": {
+          "title": "ยอดเขาแรก",
+          "before_earned_description": "ไปถึงระดับ 25",
+          "after_earned_description": "ยอดเขาแรก"
+        },
+        "ro": {
+          "title": "Primul vârf",
+          "before_earned_description": "Atinge nivelul 25",
+          "after_earned_description": "Primul vârf"
+        },
+        "hi": {
+          "title": "पहली चोटी",
+          "before_earned_description": "स्तर 25 पर पहुँचें",
+          "after_earned_description": "पहली चोटी"
+        },
+        "ca": {
+          "title": "El primer cim",
+          "before_earned_description": "Arriba al nivell 25",
+          "after_earned_description": "El primer cim"
+        },
+        "zh": {
+          "title": "第一座高峰",
+          "before_earned_description": "达到25级",
+          "after_earned_description": "第一座高峰"
+        }
+      },
+      "icon": "mountain.2.fill",
+      "color": "mint"
+    },
+    {
+      "id": "journey_level_50",
+      "reference_name": "Higher horizons",
+      "points": 10,
+      "hidden": false,
+      "reusable": false,
+      "asset_imageset_path": "fastlane/game_center/assets/journey_level_50.imageset",
+      "localizations": {
+        "de": {
+          "title": "Neue Höhen",
+          "before_earned_description": "Erreiche Level 50",
+          "after_earned_description": "Neue Höhen"
+        },
+        "ar": {
+          "title": "آفاق جديدة",
+          "before_earned_description": "بلغ المستوى 50",
+          "after_earned_description": "آفاق جديدة"
+        },
+        "el": {
+          "title": "Νέα ύψη",
+          "before_earned_description": "Φτάσε στο επίπεδο 50",
+          "after_earned_description": "Νέα ύψη"
+        },
+        "ja": {
+          "title": "さらなる高みへ",
+          "before_earned_description": "レベル50に到達する",
+          "after_earned_description": "さらなる高みへ"
+        },
+        "en": {
+          "title": "Higher horizons",
+          "before_earned_description": "Reach level 50",
+          "after_earned_description": "Higher horizons"
+        },
+        "uk": {
+          "title": "Нові висоти",
+          "before_earned_description": "Досягніть рівня 50",
+          "after_earned_description": "Нові висоти"
+        },
+        "es": {
+          "title": "Nuevas alturas",
+          "before_earned_description": "Alcanza el nivel 50",
+          "after_earned_description": "Nuevas alturas"
+        },
+        "it": {
+          "title": "Nuove altezze",
+          "before_earned_description": "Raggiungi il livello 50",
+          "after_earned_description": "Nuove altezze"
+        },
+        "sv": {
+          "title": "Nya höjder",
+          "before_earned_description": "Nå nivå 50",
+          "after_earned_description": "Nya höjder"
+        },
+        "cs": {
+          "title": "Nové výšiny",
+          "before_earned_description": "Dosáhněte úrovně 50",
+          "after_earned_description": "Nové výšiny"
+        },
+        "ko": {
+          "title": "더 높은 곳으로",
+          "before_earned_description": "레벨 50 달성하기",
+          "after_earned_description": "더 높은 곳으로"
+        },
+        "zh-Hant": {
+          "title": "新的高度",
+          "before_earned_description": "達到50級",
+          "after_earned_description": "新的高度"
+        },
+        "hu": {
+          "title": "Új magasságok",
+          "before_earned_description": "Érd el a(z) 50. szintet",
+          "after_earned_description": "Új magasságok"
+        },
+        "tr": {
+          "title": "Yeni yükseklikler",
+          "before_earned_description": "50. seviyeye ulaş",
+          "after_earned_description": "Yeni yükseklikler"
+        },
+        "pl": {
+          "title": "Nowe wyżyny",
+          "before_earned_description": "Osiągnij poziom 50",
+          "after_earned_description": "Nowe wyżyny"
+        },
+        "pt-BR": {
+          "title": "Novas alturas",
+          "before_earned_description": "Alcance o nível 50",
+          "after_earned_description": "Novas alturas"
+        },
+        "vi": {
+          "title": "Tầm cao mới",
+          "before_earned_description": "Đạt cấp độ 50",
+          "after_earned_description": "Tầm cao mới"
+        },
+        "ru": {
+          "title": "Новые высоты",
+          "before_earned_description": "Достигните уровня 50",
+          "after_earned_description": "Новые высоты"
+        },
+        "fr": {
+          "title": "De nouveaux sommets",
+          "before_earned_description": "Atteignez le niveau 50",
+          "after_earned_description": "De nouveaux sommets"
+        },
+        "id": {
+          "title": "Ketinggian baru",
+          "before_earned_description": "Capai level 50",
+          "after_earned_description": "Ketinggian baru"
+        },
+        "nl": {
+          "title": "Nieuwe hoogten",
+          "before_earned_description": "Bereik niveau 50",
+          "after_earned_description": "Nieuwe hoogten"
+        },
+        "th": {
+          "title": "สู่จุดที่สูงกว่า",
+          "before_earned_description": "ไปถึงระดับ 50",
+          "after_earned_description": "สู่จุดที่สูงกว่า"
+        },
+        "ro": {
+          "title": "Noi înălțimi",
+          "before_earned_description": "Atinge nivelul 50",
+          "after_earned_description": "Noi înălțimi"
+        },
+        "hi": {
+          "title": "नई ऊँचाइयाँ",
+          "before_earned_description": "स्तर 50 पर पहुँचें",
+          "after_earned_description": "नई ऊँचाइयाँ"
+        },
+        "ca": {
+          "title": "Noves altures",
+          "before_earned_description": "Arriba al nivell 50",
+          "after_earned_description": "Noves altures"
+        },
+        "zh": {
+          "title": "新的高度",
+          "before_earned_description": "达到50级",
+          "after_earned_description": "新的高度"
+        }
+      },
+      "icon": "flag.2.crossed.fill",
+      "color": "orange"
+    },
+    {
+      "id": "journey_level_100",
+      "reference_name": "World Arena centurion",
+      "points": 10,
+      "hidden": false,
+      "reusable": false,
+      "asset_imageset_path": "fastlane/game_center/assets/journey_level_100.imageset",
+      "localizations": {
+        "de": {
+          "title": "World Arena-Legende",
+          "before_earned_description": "Erreiche Level 100",
+          "after_earned_description": "World Arena-Legende"
+        },
+        "ar": {
+          "title": "أسطورة World Arena",
+          "before_earned_description": "بلغ المستوى 100",
+          "after_earned_description": "أسطورة World Arena"
+        },
+        "el": {
+          "title": "Θρύλος του World Arena",
+          "before_earned_description": "Φτάσε στο επίπεδο 100",
+          "after_earned_description": "Θρύλος του World Arena"
+        },
+        "ja": {
+          "title": "World Arenaのレジェンド",
+          "before_earned_description": "レベル100に到達する",
+          "after_earned_description": "World Arenaのレジェンド"
+        },
+        "en": {
+          "title": "World Arena centurion",
+          "before_earned_description": "Reach level 100",
+          "after_earned_description": "World Arena centurion"
+        },
+        "uk": {
+          "title": "Легенда World Arena",
+          "before_earned_description": "Досягніть рівня 100",
+          "after_earned_description": "Легенда World Arena"
+        },
+        "es": {
+          "title": "Leyenda de World Arena",
+          "before_earned_description": "Alcanza el nivel 100",
+          "after_earned_description": "Leyenda de World Arena"
+        },
+        "it": {
+          "title": "Leggenda di World Arena",
+          "before_earned_description": "Raggiungi il livello 100",
+          "after_earned_description": "Leggenda di World Arena"
+        },
+        "sv": {
+          "title": "World Arena-legend",
+          "before_earned_description": "Nå nivå 100",
+          "after_earned_description": "World Arena-legend"
+        },
+        "cs": {
+          "title": "Legenda World Arena",
+          "before_earned_description": "Dosáhněte úrovně 100",
+          "after_earned_description": "Legenda World Arena"
+        },
+        "ko": {
+          "title": "World Arena의 전설",
+          "before_earned_description": "레벨 100 달성하기",
+          "after_earned_description": "World Arena의 전설"
+        },
+        "zh-Hant": {
+          "title": "World Arena傳奇",
+          "before_earned_description": "達到100級",
+          "after_earned_description": "World Arena傳奇"
+        },
+        "hu": {
+          "title": "World Arena-legenda",
+          "before_earned_description": "Érd el a(z) 100. szintet",
+          "after_earned_description": "World Arena-legenda"
+        },
+        "tr": {
+          "title": "World Arena efsanesi",
+          "before_earned_description": "100. seviyeye ulaş",
+          "after_earned_description": "World Arena efsanesi"
+        },
+        "pl": {
+          "title": "Legenda World Arena",
+          "before_earned_description": "Osiągnij poziom 100",
+          "after_earned_description": "Legenda World Arena"
+        },
+        "pt-BR": {
+          "title": "Lenda de World Arena",
+          "before_earned_description": "Alcance o nível 100",
+          "after_earned_description": "Lenda de World Arena"
+        },
+        "vi": {
+          "title": "Huyền thoại World Arena",
+          "before_earned_description": "Đạt cấp độ 100",
+          "after_earned_description": "Huyền thoại World Arena"
+        },
+        "ru": {
+          "title": "Легенда World Arena",
+          "before_earned_description": "Достигните уровня 100",
+          "after_earned_description": "Легенда World Arena"
+        },
+        "fr": {
+          "title": "Légende de World Arena",
+          "before_earned_description": "Atteignez le niveau 100",
+          "after_earned_description": "Légende de World Arena"
+        },
+        "id": {
+          "title": "Legenda World Arena",
+          "before_earned_description": "Capai level 100",
+          "after_earned_description": "Legenda World Arena"
+        },
+        "nl": {
+          "title": "World Arena-legende",
+          "before_earned_description": "Bereik niveau 100",
+          "after_earned_description": "World Arena-legende"
+        },
+        "th": {
+          "title": "ตำนาน World Arena",
+          "before_earned_description": "ไปถึงระดับ 100",
+          "after_earned_description": "ตำนาน World Arena"
+        },
+        "ro": {
+          "title": "Legendă World Arena",
+          "before_earned_description": "Atinge nivelul 100",
+          "after_earned_description": "Legendă World Arena"
+        },
+        "hi": {
+          "title": "World Arena के दिग्गज",
+          "before_earned_description": "स्तर 100 पर पहुँचें",
+          "after_earned_description": "World Arena के दिग्गज"
+        },
+        "ca": {
+          "title": "Llegenda de World Arena",
+          "before_earned_description": "Arriba al nivell 100",
+          "after_earned_description": "Llegenda de World Arena"
+        },
+        "zh": {
+          "title": "World Arena传奇",
+          "before_earned_description": "达到100级",
+          "after_earned_description": "World Arena传奇"
+        }
+      },
+      "icon": "trophy.circle.fill",
+      "color": "yellow"
+    },
+    {
+      "id": "journey_friends_10",
+      "reference_name": "A global circle",
+      "points": 10,
+      "hidden": false,
+      "reusable": false,
+      "asset_imageset_path": "fastlane/game_center/assets/journey_friends_10.imageset",
+      "localizations": {
+        "de": {
+          "title": "Freunde auf der ganzen Welt",
+          "before_earned_description": "Füge 10 Freunde hinzu",
+          "after_earned_description": "Freunde auf der ganzen Welt"
+        },
+        "ar": {
+          "title": "أصدقاء حول العالم",
+          "before_earned_description": "أضف 10 أصدقاء",
+          "after_earned_description": "أصدقاء حول العالم"
+        },
+        "el": {
+          "title": "Φίλοι σε όλο τον κόσμο",
+          "before_earned_description": "Πρόσθεσε 10 φίλους",
+          "after_earned_description": "Φίλοι σε όλο τον κόσμο"
+        },
+        "ja": {
+          "title": "世界中の友達",
+          "before_earned_description": "友達を10人追加する",
+          "after_earned_description": "世界中の友達"
+        },
+        "en": {
+          "title": "A global circle",
+          "before_earned_description": "Add 10 friends",
+          "after_earned_description": "A global circle"
+        },
+        "uk": {
+          "title": "Друзі в усьому світі",
+          "before_earned_description": "Додайте 10 друзів",
+          "after_earned_description": "Друзі в усьому світі"
+        },
+        "es": {
+          "title": "Amigos por todo el mundo",
+          "before_earned_description": "Añade 10 amigos",
+          "after_earned_description": "Amigos por todo el mundo"
+        },
+        "it": {
+          "title": "Amici in tutto il mondo",
+          "before_earned_description": "Aggiungi 10 amici",
+          "after_earned_description": "Amici in tutto il mondo"
+        },
+        "sv": {
+          "title": "Vänner över hela världen",
+          "before_earned_description": "Lägg till 10 vänner",
+          "after_earned_description": "Vänner över hela världen"
+        },
+        "cs": {
+          "title": "Přátelé po celém světě",
+          "before_earned_description": "Přidejte 10 přátel",
+          "after_earned_description": "Přátelé po celém světě"
+        },
+        "ko": {
+          "title": "전 세계의 친구",
+          "before_earned_description": "친구 10명 추가하기",
+          "after_earned_description": "전 세계의 친구"
+        },
+        "zh-Hant": {
+          "title": "世界各地的朋友",
+          "before_earned_description": "新增10位好友",
+          "after_earned_description": "世界各地的朋友"
+        },
+        "hu": {
+          "title": "Barátok szerte a világon",
+          "before_earned_description": "Adj hozzá 10 barátot",
+          "after_earned_description": "Barátok szerte a világon"
+        },
+        "tr": {
+          "title": "Dünya çapında arkadaşlar",
+          "before_earned_description": "10 arkadaş ekle",
+          "after_earned_description": "Dünya çapında arkadaşlar"
+        },
+        "pl": {
+          "title": "Przyjaciele na całym świecie",
+          "before_earned_description": "Dodaj 10 znajomych",
+          "after_earned_description": "Przyjaciele na całym świecie"
+        },
+        "pt-BR": {
+          "title": "Amigos pelo mundo",
+          "before_earned_description": "Adicione 10 amigos",
+          "after_earned_description": "Amigos pelo mundo"
+        },
+        "vi": {
+          "title": "Bạn bè khắp thế giới",
+          "before_earned_description": "Thêm 10 người bạn",
+          "after_earned_description": "Bạn bè khắp thế giới"
+        },
+        "ru": {
+          "title": "Друзья по всему миру",
+          "before_earned_description": "Добавьте 10 друзей",
+          "after_earned_description": "Друзья по всему миру"
+        },
+        "fr": {
+          "title": "Des amis dans le monde entier",
+          "before_earned_description": "Ajoutez 10 amis",
+          "after_earned_description": "Des amis dans le monde entier"
+        },
+        "id": {
+          "title": "Teman di seluruh dunia",
+          "before_earned_description": "Tambahkan 10 teman",
+          "after_earned_description": "Teman di seluruh dunia"
+        },
+        "nl": {
+          "title": "Vrienden over de hele wereld",
+          "before_earned_description": "Voeg 10 vrienden toe",
+          "after_earned_description": "Vrienden over de hele wereld"
+        },
+        "th": {
+          "title": "เพื่อนทั่วโลก",
+          "before_earned_description": "เพิ่มเพื่อน 10 คน",
+          "after_earned_description": "เพื่อนทั่วโลก"
+        },
+        "ro": {
+          "title": "Prieteni în toată lumea",
+          "before_earned_description": "Adaugă 10 prieteni",
+          "after_earned_description": "Prieteni în toată lumea"
+        },
+        "hi": {
+          "title": "दुनिया भर में दोस्त",
+          "before_earned_description": "10 दोस्त जोड़ें",
+          "after_earned_description": "दुनिया भर में दोस्त"
+        },
+        "ca": {
+          "title": "Amics arreu del món",
+          "before_earned_description": "Afegeix 10 amics",
+          "after_earned_description": "Amics arreu del món"
+        },
+        "zh": {
+          "title": "世界各地的朋友",
+          "before_earned_description": "添加10位好友",
+          "after_earned_description": "世界各地的朋友"
+        }
+      },
+      "icon": "person.3.sequence.fill",
+      "color": "pink"
+    }
+  ],
+  "source_markdown": "World Arena. Flags/Docs/GameCenter_Achievements_Table.md",
+  "unsupported_game_center_languages": [
+    "bn",
+    "fil",
+    "ta",
+    "te"
+  ]
+}

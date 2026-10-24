@@ -1860,3 +1860,4 @@
 "achievement.level_100.body" = "स्तर 100 पर पहुँचें";
 "achievement.friends_10.title" = "दुनिया भर में दोस्त";
 "achievement.friends_10.body" = "10 दोस्त जोड़ें";
+"inbox.duelTimeUnavailable" = "इस मुकाबले का समय सहेजा नहीं गया।";

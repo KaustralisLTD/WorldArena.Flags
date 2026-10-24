@@ -1860,3 +1860,4 @@
 "achievement.level_100.body" = "Érd el a(z) 100. szintet";
 "achievement.friends_10.title" = "Barátok szerte a világon";
 "achievement.friends_10.body" = "Adj hozzá 10 barátot";
+"inbox.duelTimeUnavailable" = "A párbaj ideje nem lett mentve.";

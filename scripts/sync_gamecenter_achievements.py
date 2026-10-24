@@ -13,6 +13,7 @@ from urllib import parse, request, error
 
 ASC_API_BASE = "https://api.appstoreconnect.apple.com"
 DEFAULT_LANGUAGE_MAP = {
+    "ar": "ar-SA",
     "en": "en-US",
     "ru": "ru",
     "uk": "uk",

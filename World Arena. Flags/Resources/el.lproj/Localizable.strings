@@ -1860,3 +1860,4 @@
 "achievement.level_100.body" = "Φτάσε στο επίπεδο 100";
 "achievement.friends_10.title" = "Φίλοι σε όλο τον κόσμο";
 "achievement.friends_10.body" = "Πρόσθεσε 10 φίλους";
+"inbox.duelTimeUnavailable" = "Ο χρόνος αυτής της μονομαχίας δεν αποθηκεύτηκε.";

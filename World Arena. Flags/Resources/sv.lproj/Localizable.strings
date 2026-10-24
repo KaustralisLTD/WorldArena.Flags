@@ -1860,3 +1860,4 @@
 "achievement.level_100.body" = "Nå nivå 100";
 "achievement.friends_10.title" = "Vänner över hela världen";
 "achievement.friends_10.body" = "Lägg till 10 vänner";
+"inbox.duelTimeUnavailable" = "Tiden för denna duell sparades inte.";

@@ -118,6 +118,11 @@ struct FlagsWorldApp: App {
         #if targetEnvironment(simulator) && DEBUG
         if CommandLine.arguments.contains("StoreCaptureGallery") {
             StoreCaptureGallery(gameState: gameState)
+        } else if CommandLine.arguments.contains("NotificationDuelRoutingQA") {
+            MainTabView().task {
+                NotificationService.shared.seedInboxPreview()
+                NotificationService.shared.pendingInbox = true
+            }
         } else if CommandLine.arguments.contains("NotificationInboxQA") {
             MyNotificationsView().onAppear { NotificationService.shared.seedInboxPreview() }
         } else if CommandLine.arguments.contains("AchievementCollectionQA") {

@@ -1736,3 +1736,4 @@
 "achievement.level_100.body" = "Arriba al nivell 100";
 "achievement.friends_10.title" = "Amics arreu del món";
 "achievement.friends_10.body" = "Afegeix 10 amics";
+"inbox.duelTimeUnavailable" = "No s’ha desat el temps d’aquest duel.";
