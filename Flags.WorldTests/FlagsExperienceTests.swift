@@ -5,6 +5,51 @@ import CoreImage
 
 @MainActor
 final class FlagsExperienceTests: XCTestCase {
+    func testExpiredCachedDuelsNeverFabricateScores() {
+        let profile = UserProfile.shared
+        let outgoing = profile.outgoingDuelChallenges
+        let incoming = profile.incomingDuelChallenges
+        defer { profile.outgoingDuelChallenges = outgoing; profile.incomingDuelChallenges = incoming }
+        let state = GameState()
+        let history = state.duelHistory
+        let old = Date().addingTimeInterval(-3 * 86400)
+        let challenge = DuelChallenge(id: "expiry-regression", challengerId: "me", challengerName: "Me", opponentId: "rival", opponentName: "Rival", seed: 42, createdAt: old, challengerScore: 15, opponentScore: nil, status: .challengerCompleted)
+        profile.outgoingDuelChallenges = [challenge]
+        profile.incomingDuelChallenges = [challenge]
+        XCTAssertEqual(state.assignWinsForExpiredOutgoingDuels(profile: profile), 0)
+        XCTAssertEqual(state.assignWinsForExpiredIncomingDuels(profile: profile), 0)
+        XCTAssertEqual(state.duelHistory.count, history.count)
+        XCTAssertEqual(profile.outgoingDuelChallenges.first?.opponentScore, nil)
+        XCTAssertEqual(profile.incomingDuelChallenges.count, 1)
+    }
+
+    func testServerResultRepairsExistingScoreAndKeepsOriginalDate() throws {
+        let state = GameState()
+        let defaults = UserDefaults.standard
+        let original = defaults.dictionaryRepresentation().filter { $0.key.hasPrefix("duel.history.") }
+        defer {
+            for key in defaults.dictionaryRepresentation().keys where key.hasPrefix("duel.history.") { defaults.removeObject(forKey: key) }
+            for (key, value) in original { defaults.set(value, forKey: key) }
+        }
+        let date = try XCTUnwrap(DuelServerDate.parse("2026-10-20 18:11:00"))
+        let id = UUID().uuidString
+        state.recordDuelFromOutgoingSync(opponentName: "ІРИНА", myScore: 15, opponentScore: 0, iWon: true, duelChallengeId: id, playedAt: Date())
+        state.recordDuelFromOutgoingSync(opponentName: "ІРИНА", myScore: 15, opponentScore: 13, iWon: true, duelChallengeId: id, challengerTimeMs: 41230, opponentTimeMs: 43780, playedAt: date)
+        let entries = state.duelHistory.filter { $0.duelChallengeId == id }
+        XCTAssertEqual(entries.count, 1)
+        XCTAssertEqual(entries.first?.opponentScore, 13)
+        XCTAssertEqual(entries.first?.playedAt, date)
+        XCTAssertEqual(entries.first?.rivalTimeMs, 43780)
+    }
+
+    func testLegacyEnglishPushResolvesStructuredLocalizedResult() {
+        let item = AppNotificationLogItem(id: "legacy", title: "Duel result", body: "You lost against ІРИНА. Your score: 14; opponent: 15.", date: nil, source: "delivered", kind: "duel_result")
+        XCTAssertEqual(item.duelDetails?.opponentName, "ІРИНА")
+        XCTAssertEqual(item.duelDetails?.myScore, 14)
+        XCTAssertEqual(item.duelDetails?.opponentScore, 15)
+        XCTAssertEqual(item.duelDetails?.iWon, false)
+    }
+
     func testEveryAchievementNotificationResolvesItsOwnCatalogArtwork() {
         for definition in UserProfile.shared.allAchievementDefinitions {
             let structured = AppNotificationLogItem(id: UUID().uuidString, title: "", body: "", date: nil, source: "server", kind: "progress", details: .init(achievementID: definition.id))

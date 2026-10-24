@@ -36,10 +36,15 @@ function install(app,db,authenticate) {
   const findDuel=canHydrate?db.prepare('SELECT * FROM duel_challenges WHERE id=? AND (challenger_id=? OR opponent_id=?)'):null;
   const items=rows.map(r=>{
    let details=r.details?JSON.parse(r.details):null;
-   if(canHydrate && r.kind==='duel_result' && r.target){
+   if(canHydrate && (r.kind==='duel_result' || r.kind==='duel_challenge') && r.target){
     const duel=findDuel.get(r.target,user.username,user.username);
     if(duel){const own=duel.challenger_id===user.username;
-     details={...details,myTimeMs:own?duel.challenger_time_ms:duel.opponent_time_ms,opponentTimeMs:own?duel.opponent_time_ms:duel.challenger_time_ms};
+     if(r.kind==='duel_challenge') details={...details,opponentName:duel.challenger_name};
+     else {
+      const cs=duel.challenger_score,os=duel.opponent_score,ct=duel.challenger_time_ms,ot=duel.opponent_time_ms;
+      const challengerWon=cs>os || (cs===os && (ot??Number.MAX_SAFE_INTEGER)>=(ct??Number.MAX_SAFE_INTEGER));
+      details={...details,opponentName:(own?duel.opponent_name:duel.challenger_name)??details?.opponentName,myScore:(own?cs:os)??details?.myScore,opponentScore:(own?os:cs)??details?.opponentScore,iWon:cs!=null&&os!=null?(own?challengerWon:!challengerWon):details?.iWon,myTimeMs:own?ct:ot,opponentTimeMs:own?ot:ct};
+     }
     }
    }
    return {...r,details};

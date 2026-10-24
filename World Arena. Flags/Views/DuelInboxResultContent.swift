@@ -3,7 +3,25 @@ import SwiftUI
 /// Shared medal treatment keeps results as rich and legible as achievement artwork.
 struct DuelOutcomeBadge: View {
     let won: Bool?
-    private var accent: Color { won == true ? .yellow : won == false ? Color(red: 0.64, green: 0.72, blue: 0.88) : .cyan }
+    var body: some View {
+        NotificationSymbolBadge(symbol: "trophy.fill", accent: won == true ? .yellow : won == false ? Color(red: 0.64, green: 0.72, blue: 0.88) : .cyan)
+    }
+}
+
+struct NotificationEventBadge: View {
+    let item: AppNotificationLogItem
+    var body: some View {
+        if item.kind == "duel_result" { DuelOutcomeBadge(won: item.duelDetails?.iWon) }
+        else if item.isDuel { NotificationSymbolBadge(symbol: "person.2.fill", accent: .cyan) }
+        else if item.id.hasPrefix("level_") || item.details?.level != nil { NotificationSymbolBadge(symbol: "star.fill", accent: .purple) }
+        else if item.id.hasPrefix("league_") || item.details?.league != nil || item.kind == "league_weekly" { NotificationSymbolBadge(symbol: "crown.fill", accent: .orange) }
+        else { NotificationSymbolBadge(symbol: item.kind == "lifecycle" ? "globe.europe.africa.fill" : "envelope.fill", accent: .teal) }
+    }
+}
+
+struct NotificationSymbolBadge: View {
+    let symbol: String
+    let accent: Color
     var body: some View {
         GeometryReader { proxy in
             let size = proxy.size.width
@@ -11,7 +29,7 @@ struct DuelOutcomeBadge: View {
                 Circle().fill(LinearGradient(colors: [accent.opacity(0.48), Color(red: 0.06, green: 0.10, blue: 0.20)], startPoint: .topLeading, endPoint: .bottomTrailing))
                 Circle().strokeBorder(LinearGradient(colors: [.white.opacity(0.95), accent, accent.opacity(0.4)], startPoint: .topLeading, endPoint: .bottomTrailing), lineWidth: size * 0.045)
                 Circle().strokeBorder(accent.opacity(0.5), lineWidth: size * 0.015).padding(size * 0.10)
-                Image(systemName: "trophy.fill")
+                Image(systemName: symbol)
                     .font(.system(size: size * 0.38, weight: .bold))
                     .foregroundStyle(LinearGradient(colors: [.white, accent], startPoint: .top, endPoint: .bottom))
                 Image(systemName: "sparkle").font(.system(size: size * 0.13)).foregroundColor(.white)
@@ -28,7 +46,7 @@ struct DuelInboxResultContent: View {
     @Environment(\.accessibilityReduceMotion) private var reduceMotion
     @State private var appeared = false
     private func tr(_ key: String) -> String { language.localizedString(key) }
-    private var detail: AppNotificationLogItem.Details { item.details ?? .init() }
+    private var detail: AppNotificationLogItem.Details { item.duelDetails ?? .init() }
     private var tied: Bool { detail.myScore != nil && detail.myScore == detail.opponentScore }
     private var hasTimes: Bool { detail.myTimeMs != nil && detail.opponentTimeMs != nil }
     private var accent: Color { detail.iWon == true ? .cyan : .orange }

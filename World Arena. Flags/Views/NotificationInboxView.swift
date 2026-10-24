@@ -138,13 +138,19 @@ struct MyNotificationsView: View {
             }
         }.navigationViewStyle(.stack)
         .environment(\.layoutDirection, language.currentBundleLanguageCode == "ar" ? .rightToLeft : .leftToRight)
-        .task { await inbox.refreshInbox() }
+        .task {
+            if !CommandLine.arguments.contains("UITesting"), AuthService.shared.authUsername != nil {
+                _ = await gameState.syncOutgoingDuelsWithServer(profile: UserProfile.shared)
+                _ = await gameState.syncIncomingDuelsWithServer(profile: UserProfile.shared)
+            }
+            await inbox.refreshInbox()
+        }
     }
     private func enriched(_ item: AppNotificationLogItem) -> AppNotificationLogItem {
         guard item.kind == "duel_result", let target = item.target,
               let result = gameState.duelHistory.first(where: { $0.duelChallengeId == target }) else { return item }
         var copy = item
-        var details = item.details ?? .init()
+        var details = item.duelDetails ?? .init()
         details.opponentName = result.opponentName
         details.myScore = result.myScore
         details.opponentScore = result.opponentScore
@@ -184,11 +190,8 @@ struct MyNotificationsView: View {
         HStack(alignment: .top, spacing: 14) {
             if let achievement = item.achievementDefinition {
                 NotificationAchievementIcon(definition: achievement).frame(width: 64, height: 64)
-            } else if item.kind == "duel_result" {
-                DuelOutcomeBadge(won: item.details?.iWon).frame(width: 64, height: 64)
             } else {
-                Image(systemName: icon(item)).font(.title3).foregroundColor(item.isUnread ? .blue : .secondary)
-                    .frame(width:44,height:44).background(Color.blue.opacity(item.isUnread ? 0.12 : 0.04),in:RoundedRectangle(cornerRadius:14))
+                NotificationEventBadge(item: item).frame(width: 64, height: 64)
             }
             VStack(alignment: .leading, spacing: 7) {
                 HStack(alignment:.firstTextBaseline) {
@@ -228,8 +231,7 @@ struct InboxCelebrationArtwork: View {
                 if let achievement = item.achievementDefinition {
                     NotificationAchievementIcon(definition: achievement).frame(width: 136, height: 136)
                 } else {
-                    Image(systemName: symbol).font(.system(size: 76, weight: .bold))
-                        .foregroundStyle(LinearGradient(colors: [.white, .yellow, .orange], startPoint: .top, endPoint: .bottom))
+                    NotificationEventBadge(item: item).frame(width: 136, height: 136)
                 }
             }.shadow(color: .yellow.opacity(0.25), radius: 18).scaleEffect(appeared ? 1 : 0.92)
         }.onAppear {

@@ -461,17 +461,30 @@ struct AppNotificationLogItem: Identifiable, Codable {
         if let achievement = details?.achievementID { return "achievement_" + achievement }
         return id
     }
+    var duelDetails: Details? {
+        if let details { return details }
+        if kind == "duel_challenge", body.hasSuffix(" challenged you to a duel") {
+            return .init(opponentName: String(body.dropLast(" challenged you to a duel".count)))
+        }
+        if kind == "duel_result",
+           let regex = try? NSRegularExpression(pattern: "^You (won|lost) against (.+)\\. Your score: ([0-9]+); opponent: ([0-9]+)\\.$"),
+           let match = regex.firstMatch(in: body, range: NSRange(body.startIndex..., in: body)) {
+            func group(_ index: Int) -> String { Range(match.range(at: index), in: body).map { String(body[$0]) } ?? "" }
+            return .init(opponentName: group(2), myScore: Int(group(3)), opponentScore: Int(group(4)), iWon: group(1) == "won")
+        }
+        return nil
+    }
     var isUnread: Bool { readAt == nil }
     @MainActor var displayTitle: String {
         let lm=LocalizationManager.shared
-        if kind == "duel_result" { return lm.localizedString(details?.iWon == true ? "Victory" : details?.iWon == false ? "Defeat" : "Duel result") }
+        if kind == "duel_result" { return lm.localizedString(duelDetails?.iWon == true ? "Victory" : duelDetails?.iWon == false ? "Defeat" : "Duel result") }
         if kind == "duel_challenge" { return lm.localizedString("Duel") }
         return title
     }
     @MainActor var displayBody: String {
         let lm=LocalizationManager.shared
-        if kind == "duel_challenge", let name=details?.opponentName { return String(format:lm.localizedString("Duel challenge from %@"),name) }
-        if kind == "duel_result", let d=details,let own=d.myScore,let other=d.opponentScore {
+        if kind == "duel_challenge", let name=duelDetails?.opponentName { return String(format:lm.localizedString("Duel challenge from %@"),name) }
+        if kind == "duel_result", let d=duelDetails,let own=d.myScore,let other=d.opponentScore {
             return "\(lm.localizedString("You")): \(own) · \(d.opponentName ?? "—"): \(other)"
         }
         return body
@@ -495,15 +508,53 @@ extension NotificationService {
     }
 
     @MainActor
-    func logInAppNotification(id: String = UUID().uuidString, title: String, body: String, source: String = "in-app", kind: String? = nil, target: String? = nil, details: AppNotificationLogItem.Details? = nil) {
+    func logInAppNotification(id: String = UUID().uuidString, title: String, body: String, source: String = "in-app", kind: String? = nil, target: String? = nil, details: AppNotificationLogItem.Details? = nil, date: Date = Date()) {
         var items = loadInAppNotificationItems()
         if items.contains(where: { $0.id == id }) { return }
-        items.append(.init(id: id, title: title, body: body, date: Date(), source: source, kind: kind, target: target, details: details))
+        items.append(.init(id: id, title: title, body: body, date: date, source: source, kind: kind, target: target, details: details))
         if items.count > 200 {
             items = Array(items.suffix(200))
         }
         saveInAppNotificationItems(items)
         refreshBadge()
+    }
+
+    @MainActor
+    func repairStoredDuelResult(_ challengeID: String, opponentName: String, myScore: Int, opponentScore: Int, iWon: Bool, date: Date, myTimeMs: Int?, opponentTimeMs: Int?) {
+        let id = "duel_result_" + challengeID
+        var items = loadInAppNotificationItems()
+        guard let index = items.firstIndex(where: { $0.id == id }) else { return }
+        if userDefaults.data(forKey: "notifications.duel-repair.backup.v1") == nil {
+            userDefaults.set(try? JSONEncoder().encode(items), forKey: "notifications.duel-repair.backup.v1")
+        }
+        let details = AppNotificationLogItem.Details(opponentName: opponentName, myScore: myScore, opponentScore: opponentScore, iWon: iWon, myTimeMs: myTimeMs, opponentTimeMs: opponentTimeMs)
+        let title = LocalizationManager.shared.localizedString(iWon ? "Victory" : "Defeat")
+        let body = "\(LocalizationManager.shared.localizedString("You")): \(myScore) · \(opponentName): \(opponentScore)"
+        items[index] = .init(id: id, title: title, body: body, date: date, source: "duel", kind: "duel_result", target: challengeID, details: details)
+        saveInAppNotificationItems(items)
+        // Drop stale cached copies; the journal supplies the repaired event on refresh.
+        // Existing read IDs are deliberately retained.
+        if let data = userDefaults.data(forKey: accountKey), let cached = try? JSONDecoder().decode([AppNotificationLogItem].self, from: data) {
+            userDefaults.set(try? JSONEncoder().encode(cached.filter { !($0.kind == "duel_result" && $0.target == challengeID && $0.source != "server") }), forKey: accountKey)
+        }
+    }
+
+    @MainActor
+    func removeSynthesizedDuelResult(_ challengeID: String) {
+        let id = "duel_result_" + challengeID
+        let items = loadInAppNotificationItems()
+        if items.contains(where: { $0.id == id }) {
+            if userDefaults.data(forKey: "notifications.duel-repair.backup.v1") == nil {
+                userDefaults.set(try? JSONEncoder().encode(items), forKey: "notifications.duel-repair.backup.v1")
+            }
+            saveInAppNotificationItems(items.filter { $0.id != id })
+        }
+        inboxItems.removeAll { $0.kind == "duel_result" && $0.target == challengeID && $0.source != "server" }
+        if let data = userDefaults.data(forKey: accountKey),
+           let cached = try? JSONDecoder().decode([AppNotificationLogItem].self, from: data) {
+            let repaired = cached.filter { !($0.kind == "duel_result" && $0.target == challengeID && $0.source != "server") }
+            userDefaults.set(try? JSONEncoder().encode(repaired), forKey: accountKey)
+        }
     }
 
     @MainActor

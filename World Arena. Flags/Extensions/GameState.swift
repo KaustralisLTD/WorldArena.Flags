@@ -1487,10 +1487,13 @@ class GameState: ObservableObject {
         iWon: Bool,
         duelChallengeId: String? = nil,
         myTimeMs: Int? = nil,
-        rivalTimeMs: Int? = nil
+        rivalTimeMs: Int? = nil,
+        playedAt: Date = Date(),
+        serverConfirmed: Bool = false
     ) {
         if let cid = duelChallengeId, duelHistory.contains(where: { $0.duelChallengeId == cid }) {
-            return
+            guard serverConfirmed else { return }
+            duelHistory.removeAll { $0.duelChallengeId == cid }
         }
         let item = DuelHistoryEntry(
             id: UUID().uuidString,
@@ -1498,18 +1501,21 @@ class GameState: ObservableObject {
             myScore: myScore,
             opponentScore: opponentScore,
             iWon: iWon,
-            playedAt: Date(),
+            playedAt: playedAt,
             duelChallengeId: duelChallengeId,
             myTimeMs: myTimeMs,
             rivalTimeMs: rivalTimeMs
         )
         duelHistory.insert(item, at: 0)
-        if let challengeID = duelChallengeId {
+        if serverConfirmed, let challengeID = duelChallengeId {
+            NotificationService.shared.repairStoredDuelResult(challengeID, opponentName: opponentName, myScore: myScore, opponentScore: opponentScore, iWon: iWon, date: playedAt, myTimeMs: myTimeMs, opponentTimeMs: rivalTimeMs)
+        }
+        if let challengeID = duelChallengeId, !serverConfirmed {
             NotificationService.shared.logInAppNotification(id:"duel_result_" + challengeID,
                 title:LocalizationManager.shared.localizedString(iWon ? "Victory" : "Duel result"),
                 body:"\(LocalizationManager.shared.localizedString("You")): \(myScore) · \(opponentName): \(opponentScore)",
                 source:"duel",kind:"duel_result",target:challengeID,
-                details:.init(opponentName:opponentName,myScore:myScore,opponentScore:opponentScore,iWon:iWon))
+                details:.init(opponentName:opponentName,myScore:myScore,opponentScore:opponentScore,iWon:iWon,myTimeMs:myTimeMs,opponentTimeMs:rivalTimeMs),date:playedAt)
         }
         duelHistory = deduplicatedDuelHistory(duelHistory)
         if duelHistory.count > 50 {
@@ -1551,7 +1557,8 @@ class GameState: ObservableObject {
         iWon: Bool,
         duelChallengeId: String,
         challengerTimeMs: Int? = nil,
-        opponentTimeMs: Int? = nil
+        opponentTimeMs: Int? = nil,
+        playedAt: Date
     ) {
         addDuelHistory(
             opponentName: opponentName,
@@ -1560,7 +1567,7 @@ class GameState: ObservableObject {
             iWon: iWon,
             duelChallengeId: duelChallengeId,
             myTimeMs: challengerTimeMs,
-            rivalTimeMs: opponentTimeMs
+            rivalTimeMs: opponentTimeMs, playedAt: playedAt, serverConfirmed: true
         )
     }
 
@@ -1572,7 +1579,8 @@ class GameState: ObservableObject {
         iWon: Bool,
         duelChallengeId: String,
         myTimeMs: Int? = nil,
-        rivalTimeMs: Int? = nil
+        rivalTimeMs: Int? = nil,
+        playedAt: Date
     ) {
         addDuelHistory(
             opponentName: challengerName,
@@ -1581,7 +1589,7 @@ class GameState: ObservableObject {
             iWon: iWon,
             duelChallengeId: duelChallengeId,
             myTimeMs: myTimeMs,
-            rivalTimeMs: rivalTimeMs
+            rivalTimeMs: rivalTimeMs, playedAt: playedAt, serverConfirmed: true
         )
     }
 
@@ -1600,6 +1608,14 @@ class GameState: ObservableObject {
         }
         await MainActor.run {
             for row in rows {
+                if UserDefaults.standard.data(forKey: duelHistoryStorageKey + ".serverRepairBackup.v1") == nil,
+                   let backup = UserDefaults.standard.data(forKey: duelHistoryStorageKey) {
+                    UserDefaults.standard.set(backup, forKey: duelHistoryStorageKey + ".serverRepairBackup.v1")
+                }
+                if row.status != "completed" {
+                    NotificationService.shared.removeSynthesizedDuelResult(row.id)
+                    self.duelHistory.removeAll { $0.duelChallengeId == row.id }
+                }
                 let opponentNameForSync: String
                 if let idx = profile.outgoingDuelChallenges.firstIndex(where: { $0.id == row.id }) {
                     var local = profile.outgoingDuelChallenges[idx]
@@ -1614,7 +1630,8 @@ class GameState: ObservableObject {
 
                 if row.status == "completed",
                    let w = row.winner, w == "challenger" || w == "opponent",
-                   let cs = row.challengerScore, let os = row.opponentScore {
+                   let cs = row.challengerScore, let os = row.opponentScore,
+                   let playedAt = DuelServerDate.parse(row.createdAt) {
                     let iWon = w == "challenger"
                     recordDuelFromOutgoingSync(
                         opponentName: opponentNameForSync,
@@ -1623,11 +1640,13 @@ class GameState: ObservableObject {
                         iWon: iWon,
                         duelChallengeId: row.id,
                         challengerTimeMs: row.challengerTimeMs,
-                        opponentTimeMs: row.opponentTimeMs
+                        opponentTimeMs: row.opponentTimeMs,
+                        playedAt: playedAt
                     )
                     profile.outgoingDuelChallenges.removeAll { $0.id == row.id }
                 }
             }
+            self.saveDuelHistory()
         }
         return true
     }
@@ -1648,6 +1667,14 @@ class GameState: ObservableObject {
         
         await MainActor.run {
             for row in rows {
+                if UserDefaults.standard.data(forKey: duelHistoryStorageKey + ".serverRepairBackup.v1") == nil,
+                   let backup = UserDefaults.standard.data(forKey: duelHistoryStorageKey) {
+                    UserDefaults.standard.set(backup, forKey: duelHistoryStorageKey + ".serverRepairBackup.v1")
+                }
+                if row.status != "completed" {
+                    NotificationService.shared.removeSynthesizedDuelResult(row.id)
+                    self.duelHistory.removeAll { $0.duelChallengeId == row.id }
+                }
                 if let idx = profile.incomingDuelChallenges.firstIndex(where: { $0.id == row.id }) {
                     var local = profile.incomingDuelChallenges[idx]
                     if let cs = row.challengerScore { local.challengerScore = cs }
@@ -1661,7 +1688,8 @@ class GameState: ObservableObject {
                 if row.status == "completed" {
                     guard let winner = row.winner,
                           let cs = row.challengerScore,
-                          let os = row.opponentScore else { continue }
+                          let os = row.opponentScore,
+                          let playedAt = DuelServerDate.parse(row.createdAt) else { continue }
                     let iWon = winner == "opponent"
                     recordDuelFromIncomingSync(
                         challengerName: row.challengerName,
@@ -1670,11 +1698,13 @@ class GameState: ObservableObject {
                         iWon: iWon,
                         duelChallengeId: row.id,
                         myTimeMs: row.opponentTimeMs,
-                        rivalTimeMs: row.challengerTimeMs
+                        rivalTimeMs: row.challengerTimeMs,
+                        playedAt: playedAt
                     )
                     profile.incomingDuelChallenges.removeAll { $0.id == row.id }
                 }
             }
+            self.saveDuelHistory()
         }
         return true
     }
@@ -1689,112 +1719,13 @@ class GameState: ObservableObject {
         }
     }
 
-    /// Если по исходящей дуэли вышло время и соперник не сыграл, фиксируем техническую победу.
+    // Expiry is a server decision. Offline/cached challenges must never fabricate
+    // an opponent score or overwrite a match that was completed on another device.
     @discardableResult
-    func assignWinsForExpiredOutgoingDuels(profile: UserProfile, expirySeconds: TimeInterval = 24 * 3600) -> Int {
-        let now = Date()
-        let expiredNoShow = profile.outgoingDuelChallenges.filter { challenge in
-            challenge.status == .challengerCompleted &&
-            now.timeIntervalSince(challenge.createdAt) >= expirySeconds
-        }
-        let expiredPending = profile.outgoingDuelChallenges.filter { challenge in
-            challenge.status == .pending &&
-            now.timeIntervalSince(challenge.createdAt) >= expirySeconds
-        }
-        let totalQuestionsFallback = max(1, questionsPerGame)
-        let expiredIds = Set((expiredNoShow + expiredPending).map(\.id))
-        guard !expiredIds.isEmpty else { return 0 }
+    func assignWinsForExpiredOutgoingDuels(profile: UserProfile, expirySeconds: TimeInterval = 24 * 3600) -> Int { 0 }
 
-        // challengerCompleted: у challenger уже есть реальный счёт
-        for challenge in expiredNoShow {
-            let myScore = challenge.challengerScore ?? 0
-            addDuelHistory(
-                opponentName: challenge.opponentName,
-                myScore: myScore,
-                opponentScore: 0,
-                iWon: true,
-                duelChallengeId: challenge.id
-            )
-        }
-        
-        // pending: оппонент не принял/не пришёл -> challenger считается победителем
-        for challenge in expiredPending {
-            let totalQuestions = challenge.duelQuestionsCount ?? totalQuestionsFallback
-            addDuelHistory(
-                opponentName: challenge.opponentName,
-                myScore: totalQuestions,
-                opponentScore: 0,
-                iWon: true,
-                duelChallengeId: challenge.id
-            )
-        }
-        
-        profile.outgoingDuelChallenges.removeAll { expiredIds.contains($0.id) }
-        profile.saveToStorage()
-        return expiredIds.count
-    }
-
-    /// Если истекло время по входящим дуэлям — определяем победителя локально:
-    /// - `pending`: вы не приняли дуэль -> проигрыш, победитель — challenger
-    /// - `opponentCompleted`: challenger не сыграл -> победа, проигрыш challenger
     @discardableResult
-    func assignWinsForExpiredIncomingDuels(profile: UserProfile, expirySeconds: TimeInterval = 24 * 3600) -> Int {
-        let now = Date()
-        
-        let expiredPending = profile.incomingDuelChallenges.filter { c in
-            c.status == .pending && now.timeIntervalSince(c.createdAt) >= expirySeconds
-        }
-        let expiredOpponentCompleted = profile.incomingDuelChallenges.filter { c in
-            c.status == .opponentCompleted && now.timeIntervalSince(c.createdAt) >= expirySeconds
-        }
-        let expiredChallengerCompleted = profile.incomingDuelChallenges.filter { c in
-            c.status == .challengerCompleted && now.timeIntervalSince(c.createdAt) >= expirySeconds
-        }
-
-        let totalQuestionsFallback = max(1, questionsPerGame)
-
-        for challenge in expiredPending {
-            let totalQuestions = challenge.duelQuestionsCount ?? totalQuestionsFallback
-            addDuelHistory(
-                opponentName: challenge.challengerName,
-                myScore: 0,
-                opponentScore: totalQuestions,
-                iWon: false,
-                duelChallengeId: challenge.id
-            )
-        }
-        
-        for challenge in expiredOpponentCompleted {
-            let myScore = challenge.opponentScore ?? 0
-            addDuelHistory(
-                opponentName: challenge.challengerName,
-                myScore: myScore,
-                opponentScore: 0,
-                iWon: true,
-                duelChallengeId: challenge.id
-            )
-        }
-
-        for challenge in expiredChallengerCompleted {
-            let opponentPlayedScore = challenge.challengerScore ?? 0
-            addDuelHistory(
-                opponentName: challenge.challengerName,
-                myScore: 0,
-                opponentScore: opponentPlayedScore,
-                iWon: false,
-                duelChallengeId: challenge.id
-            )
-        }
-
-        let expiredIds = Set(
-            expiredPending.map(\.id) + expiredOpponentCompleted.map(\.id) + expiredChallengerCompleted.map(\.id)
-        )
-        guard !expiredIds.isEmpty else { return 0 }
-        
-        profile.incomingDuelChallenges.removeAll { expiredIds.contains($0.id) }
-        profile.saveToStorage()
-        return expiredIds.count
-    }
+    func assignWinsForExpiredIncomingDuels(profile: UserProfile, expirySeconds: TimeInterval = 24 * 3600) -> Int { 0 }
 
     func recordQuestionResult(
         correctCountry: Country,
