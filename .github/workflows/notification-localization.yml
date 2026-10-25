@@ -1,0 +1,46 @@
+name: Notification localization regression
+on:
+  push:
+    branches: [fix/notification-localization]
+  pull_request:
+    paths:
+      - 'World Arena. Flags/Resources/**'
+      - 'World Arena. Flags/Services/**'
+      - 'World Arena. Flags/Views/*Notification*'
+      - 'World Arena. Flags/Views/FriendRequestsView.swift'
+      - 'Server/**'
+      - 'scripts/*notification*'
+      - 'scripts/audit_app_localization.py'
+      - 'Tests/LocalizationCatalog/**'
+      - 'World Arena. Flags/Views/NewView.swift'
+      - 'Tests/NotificationLocalization/**'
+permissions:
+  contents: read
+jobs:
+  server:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Verify all 30 notification catalogs
+        run: python3 scripts/audit_notification_localization.py
+      - name: Verify complete app catalogs and format arguments
+        run: |
+          python3 Tests/LocalizationCatalog/test_catalog.py
+          python3 scripts/audit_app_localization.py
+      - name: Install server test dependencies cleanly
+        run: |
+          rm -rf Server/node_modules
+          npm install --prefix Server --no-audit --no-fund
+      - name: Test notification delivery, history, locale and lifecycle isolation
+        run: node --test Server/tests/notification-localization.test.js Server/tests/notification-language-storage.test.js Server/tests/notification-duel-times.test.js Server/tests/duel-inbox.test.js Server/tests/duel-notifications.test.js Server/tests/lifecycle.test.js Server/tests/friend-requests-api.test.js
+  swift:
+    runs-on: macos-15
+    steps:
+      - uses: actions/checkout@v4
+      - name: Verify production Swift event rendering with all 30 bundles
+        run: bash Tests/NotificationLocalization/run.sh
+      - name: Verify notification journal migration
+        run: bash Tests/NotificationJournal/run.sh

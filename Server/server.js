@@ -382,6 +382,7 @@ app.post('/api/v1/users/register', (req, res) => {
       deviceToken: deviceToken || null,
       stats: req.body.stats || {},
     });
+    require('./notification-localization').saveLocale(db.db,result.username,req.body.locale || req.headers['accept-language']);
     db.setDuelNotificationPreferences(result.username, req.body.duelResultsNotifications, req.body.duelInvitesNotifications);
     const worldRank = db.getWorldRank(result.username);
     res.json({ ok: true, username: result.username, friendCode: result.friendCode, worldRank });
@@ -1002,7 +1003,7 @@ app.post('/api/v1/nudge', (req, res) => {
   if (toUser.device_token) {
     sendNudgePush(toUser.device_token, fromUsername, bodyText, (err) => {
       if (err) console.error('Nudge push failed:', err);
-    });
+    }, phrase);
   }
   if (toUser.email && process.env.MAILGUN_API_KEY && process.env.MAILGUN_DOMAIN) {
     const localeRaw = String(toUser.preferred_language || toUser.preferredLanguage || 'en').toLowerCase();

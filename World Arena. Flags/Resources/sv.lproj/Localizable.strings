@@ -1,6 +1,6 @@
 "Open in Game Center" = "Öppna i Game Center";
 "Заработай %d XP" = "Tjäna %d XP";
-"F-BUCKS EARNED" = "F-BUCKS EARNED";
+"F-BUCKS EARNED" = "INTJÄNADE F-BUCKS";
 "Дай %d правильных ответов" = "Få %d rätt svar";
 "Наберите %d правильных ответов за месяц" = "Få %d rätt svar den här månaden";
 "Сыграй %d идеальных игр" = "Spela %d perfekta spel";
@@ -18,21 +18,21 @@
 /* Achievements */
 "Достижения" = "Prestationer";
 "Достижение" = "Prestation";
-"ЛИЧНЫЕ РЕКОРДЫ" = "PERSONLIGA BÄSTA";
+"ЛИЧНЫЕ РЕКОРДЫ" = "Personliga rekord";
 "НАГРАДЫ" = "UTMÄRKELSER";
-"Лучшая серия" = "Längsta raden";
+"Лучшая серия" = "Längsta svit";
 "Макс. лига" = "Max League";
-"Макс. XP" = "Max XP";
+"Макс. XP" = "Mest XP";
 "Открыто" = "Upplåst";
 
 /* Profile */
 "League" = "Liga";
 "Following" = "Vänner";
 "Days in a row" = "Dagar i rad";
-"Текущая серия" = "Nuvarande rad";
+"Текущая серия" = "Nuvarande svit";
 "дней" = "dagar";
-"Joined in %@" = "Gick med i %@";
-"Level %d • %d XP • %d-day streak" = "Nivå %d • %d XP • %d dagars rad";
+"Joined in %@" = "Med sedan %@";
+"Level %d • %d XP • %d-day streak" = "Nivå %d • %d XP • svit på %d dagar";
 "SUPER" = "SUPER";
 
 /* Leagues medals & labels */
@@ -43,7 +43,7 @@
 
 /* Monthly badges sample titles */
 "Алмазная лига" = "Diamantligan";
-"Серия мастера" = "Mästarrad";
+"Серия мастера" = "Mästarsvit";
 "Чемпион месяца" = "Månadens mästare";
 "Идеальная неделя" = "Perfekt vecka";
 "Бронзовая лига" = "Bronsligan";
@@ -51,10 +51,10 @@
 // General
 "World Flags" = "Världens flaggor";
 "Learn flags of the world" = "Lär dig världens flaggor";
-"Score" = "Göra";
-"Exit" = "Utgång";
+"Score" = "Poäng";
+"Exit" = "Avsluta";
 "Error loading countries" = "Det gick inte att läsa in länder";
-"Retry" = "Försöka igen";
+"Retry" = "Försök igen";
 "System" = "System";
 
 // Start Screen
@@ -73,7 +73,7 @@
 "South America" = "Sydamerika";
 
 // Game Over
-"Game Over!" = "Game över!";
+"Game Over!" = "Spelet är slut!";
 "points" = "poäng";
 "Play Again" = "Spela igen";
 "Repeat Duel" = "Spela om duellen";
@@ -81,14 +81,14 @@
 
 // Statistics
 "Statistics" = "Statistik";
-"Total Games" = "Totalt spel";
+"Total Games" = "Antal spel";
 "Best Score" = "Bästa poäng";
 "Correct Answers" = "Rätt svar";
 "Accuracy" = "Noggrannhet";
 "Best Time" = "Bästa tiden";
 "Time" = "Tid";
 "Clear" = "Rensa";
-"Close" = "Nära";
+"Close" = "Stäng";
 
 // Game Results
 "Excellent game!" = "🏆 Utmärkt!";
@@ -103,7 +103,7 @@
 "Share" = "Dela";
 "ACCURACY" = "Noggrannhet";
 "TOTAL XP" = "Totalt XP";
-"CONTINUE" = "Fortsätta";
+"CONTINUE" = "FORTSÄTT";
 "Perfect! You're unstoppable!" = "Perfekt! Du är ostoppbar!";
 "Excellent performance!" = "Utmärkt prestation!";
 "Well done! Keep practicing!" = "Bra gjort! Fortsätt öva!";
@@ -111,61 +111,61 @@
 "PERFECT" = "Perfekt";
 "AMAZING" = "Underbart";
 "GOOD" = "Bra";
-"KEEP GOING" = "Fortsätta";
+"KEEP GOING" = "FORTSÄTT";
 "Play Again" = "Spela igen";
 "Home" = "Hem";
-"Quest Update!" = "Uppdatering av Quest!";
+"Quest Update!" = "Uppdrag uppdaterat!";
 "quest.play_again.duel" = "Spela om duellen";
 "Check your progress" = "Kontrollera dina framsteg";
 "2x XP for 10 min!" = "2x XP i 10 min!";
 "3x XP for 15 min!" = "3x XP i 15 min!";
 "Подарок за квесты" = "Daglig uppdragspresent";
 "Share Message" = "Jag fick %d poäng i World Flags-spelet! 🎮🌍\nLadda ner och försök slå min poäng!";
-"Statistics Share Promo" = "Jag spelar World Arena Flags — lär mig världsflaggor, duellera vänner och klättra i ligor! 🎮🌍\nMin statistik: Bästa poäng %d, noggrannhet %.1f%%, %d spelade spel.\nVill du lära dig flaggor och testa dina färdigheter? Gå med i vår community!\n%@";
+"Statistics Share Promo" = "Jag spelar World Arena Flags — lär dig världens flaggor, utmana vänner i dueller och klättra i ligorna! 🎮🌍\nMin statistik: Bästa poäng %d, träffsäkerhet %.1f%%, %d spel spelade.\nVill du lära dig flaggor och testa dina kunskaper? Gå med i vår gemenskap!\n%@";
 
 // Post-Game Flow
-"CLAIM XP" = "GÖRA XP";
+"CLAIM XP" = "HÄMTA XP";
 "TOTAL XP" = "TOTAL XP";
 "PERFECT" = "PERFEKT";
 "AMAZING" = "FANTASTISKT";
 "GOOD" = "BRA";
-"KEEP GOING" = "FORTSÄTTA";
+"KEEP GOING" = "FORTSÄTT";
 "Perfect! You're unstoppable!" = "Perfekt! Du är ostoppbar!";
 "Excellent performance!" = "Utmärkt prestation!";
 "Well done! Keep practicing!" = "Bra gjort! Fortsätt öva!";
 "Don't give up! Practice makes perfect!" = "Ge inte upp! Övning ger färdighet!";
-"day streak" = "dagars rad";
+"day streak" = "dagars svit";
 "This Week" = "Denna vecka";
-"Incredible streak! You're on fire!" = "Otrolig rad! Du är på hugget!";
+"Incredible streak! You're on fire!" = "Otrolig svit! Du är på hugget!";
 "Great job! Keep the momentum going!" = "Bra jobbat! Håll farten igång!";
-"Nice start! Build your streak day by day!" = "Bra start! Bygg din rad dag för dag!";
-"Your Friend Streaks" = "Dina vänners rad";
+"Nice start! Build your streak day by day!" = "Bra start! Bygg din svit dag för dag!";
+"Your Friend Streaks" = "Dina vänners sviter";
 "See how your friends are doing" = "Se hur det går för dina vänner";
 "No friends yet" = "Inga vänner än";
-"Add friends to see their streaks and compete together!" = "Lägg till vänner för att se deras rader och tävla tillsammans!";
-"NUDGE" = "KNAPPA";
-"Remind" = "Påminna";
+"Add friends to see their streaks and compete together!" = "Lägg till vänner för att se deras sviter och tävla tillsammans!";
+"NUDGE" = "PÅMINN";
+"Remind" = "Påminn";
 "Reminder sent to %@" = "Påminnelse skickad till %@";
 "%@ reminds you" = "%@ påminner dig";
-"nudge_phrase_1" = "Ge inte upp! Du har det här!";
-"nudge_phrase_2" = "Din rad väntar på dig. Spela idag!";
-"nudge_phrase_3" = "En match om dagen håller serien vid liv!";
+"nudge_phrase_1" = "Ge inte upp! Du klarar det!";
+"nudge_phrase_2" = "Din svit väntar på dig. Spela idag!";
+"nudge_phrase_3" = "Ett spel om dagen håller sviten vid liv!";
 "nudge_phrase_4" = "Kom tillbaka och visa flaggorna vem som är chef!";
 "nudge_phrase_5" = "Vi saknar dig! Dags för ett snabbt spel?";
-"nudge_phrase_6" = "Dina vänner spelar. Gå med dem!";
-"nudge_phrase_7" = "Litet steg idag, stort steg imorgon!";
-"nudge_phrase_8" = "Du är så nära! Bryt inte raden!";
-"nudge_phrase_9" = "Flaggor ropar. Svara på samtalet!";
-"nudge_phrase_10" = "Res dig och lysa — det är flaggdags!";
+"nudge_phrase_6" = "Dina vänner spelar. Häng med!";
+"nudge_phrase_7" = "Ett litet steg idag, en lång svit imorgon!";
+"nudge_phrase_8" = "Du är så nära! Bryt inte sviten!";
+"nudge_phrase_9" = "Flaggorna kallar. Svara på deras rop!";
+"nudge_phrase_10" = "Upp och hoppa — det är flaggdags!";
 "nudge_phrase_11" = "Lite träning räcker långt!";
-"nudge_phrase_12" = "Idag är dagen för att behålla din rad!";
+"nudge_phrase_12" = "Håll din svit vid liv idag!";
 "nudge_phrase_13" = "Kom tillbaka i spelet! Vi tror på dig!";
 "nudge_phrase_14" = "Ett spel till och du kommer att må bra!";
-"nudge_phrase_15" = "Din rad saknar dig. Kom tillbaka!";
-"CONTINUE" = "FORTSÄTTA";
-"streak" = "rad";
+"nudge_phrase_15" = "Din svit saknar dig. Kom tillbaka!";
+"CONTINUE" = "FORTSÄTT";
+"streak" = "svit";
 "days" = "dagar";
-"Quest Update!" = "Uppdatering av Quest!";
+"Quest Update!" = "Uppdrag uppdaterat!";
 "Check your progress" = "Kontrollera dina framsteg";
 "Заблокировано" = "Låst";
 "Базовый пакет" = "Grundpaket";
@@ -182,10 +182,10 @@
 "Самый маленький континент" = "Den minsta kontinenten";
 "Самый большой континент" = "Den största kontinenten";
 "Колыбель человечества" = "Mänsklighetens vagga";
-"Новый свет" = "Den nya världen";
+"Новый свет" = "Nya världen";
 "Земля контрастов" = "Kontrasternas land";
 "Острова Тихого океана" = "Stilla havets öar";
-"Статистика флагов" = "Flagga statistik";
+"Статистика флагов" = "Flaggstatistik";
 "Всего стран" = "Totalt antal länder";
 "Цветов на флагах" = "Färger på flaggor";
 "Самый популярный цвет" = "Mest populära färgen";
@@ -194,24 +194,24 @@
 "Интересные факты" = "Intressanta fakta";
 "Interesting facts study slides" = "Plugga som bildspel";
 "Interesting facts back to list" = "Tillbaka till listan";
-"Самый старый флаг" = "Äldsta flaggan";
-"Флаг Дании используется с 1219 года" = "Danmarks flagga har använts sedan 1219";
-"Единственный квадратный флаг" = "Endast fyrkantig flagga";
-"У Швейцарии единственный квадратный флаг в мире" = "Schweiz har världens enda fyrkantiga flagga";
-"Самый сложный флаг" = "Mest komplexa flaggan";
+"Самый старый флаг" = "En flagga med en legend";
+"Флаг Дании используется с 1219 года" = "En legend kopplar den danska flaggan till ett slag år 1219.";
+"Единственный квадратный флаг" = "Kvadratiska nationalflaggor";
+"У Швейцарии единственный квадратный флаг в мире" = "Både Schweiz och Vatikanstaten har kvadratiska nationalflaggor.";
+"Самый сложный флаг" = "En flagga med en drake";
 "У Бутана на флаге изображен дракон" = "Bhutans flagga har en drake";
-"Go Premium" = "Gå Premium";
+"Go Premium" = "Skaffa Premium";
 "Мой профиль в World Arena Flags" = "Min World Arena Flags-profil";
 "My Profile Share Title" = "Min World Arena Flags-profil";
 "Не удалось добавить друга. Проверьте код." = "Det gick inte att lägga till vän. Kontrollera koden.";
 "Daily Quests" = "Dagliga uppdrag";
-"Monthly Quest" = "Månatlig Quest";
+"Monthly Quest" = "Månadsuppdrag";
 
 // Learning Section
 "More facts" = "Mer fakta";
 "стран" = "länder";
 "фактов о флагах и странах" = "fakta om flaggor och länder";
-"Столица" = "Kapital";
+"Столица" = "Huvudstad";
 
 // Continent names
 "Европа" = "Europa";
@@ -224,14 +224,14 @@
 // Continent descriptions
 "Самый маленький континент" = "Den minsta kontinenten";
 "Самый большой континент" = "Den största kontinenten";
-"Колыбель человечества" = "mänsklighetens vagga";
-"Новый свет" = "Ny värld";
+"Колыбель человечества" = "Mänsklighetens vagga";
+"Новый свет" = "Nya världen";
 "Земля контрастов" = "Kontrasternas land";
 "Острова Тихого океана" = "Stilla havets öar";
 
 // Network Errors
 "No Internet Connection" = "Ingen Internetanslutning";
-"Request Timeout" = "Begär timeout";
+"Request Timeout" = "Begäran tog för lång tid";
 "Server Not Found" = "Servern hittades inte";
 "Too Many Requests" = "För många förfrågningar";
 "HTTP Error: %d" = "HTTP-fel: %d";
@@ -255,7 +255,7 @@
 // Exit confirmation
 "Exit Confirmation" = "Är du säker på att du vill avsluta?";
 "Yes" = "Ja";
-"No" = "Inga";
+"No" = "Nej";
 
 // New additions
 "Tap to continue" = "Tryck för att fortsätta";
@@ -271,17 +271,17 @@
 "Survival" = "Överlevnad";
 "Duel" = "Duell";
 "Challenge a friend to the same game, compare results" = "Utmana en vän till samma spel, jämför resultat";
-"Challenge to Duel" = "Utmaning till duell";
+"Challenge to Duel" = "Utmana till duell";
 "You won the duel!" = "Du vann duellen!";
 "Duel challenge from %@" = "%@ utmanade dig till en duell";
 "Duel result" = "Duellresultat";
 "You won!" = "Du vann!";
-"won" = "won";
+"won" = "vann";
 "You" = "Du";
 "Duel announcement title" = "Duell";
 "vs" = "vs";
 "Friend add username not found" = "Användaren ”%@” hittades inte. Kontrollera användarnamnet.";
-"Start duel" = "Börja duell";
+"Start duel" = "Starta duell";
 "24h to accept" = "24h att acceptera";
 "duel_invite_popup_title" = "Duellutmaning";
 "duel_invite_popup_body_format" = "%@ utmanar dig till duell";
@@ -292,7 +292,7 @@
 "Accept" = "Acceptera";
 "Random opponent" = "Slumpmässig motståndare";
 "Virtual opponent" = "Virtuell motståndare";
-"No friends yet. Add friends in Profile." = "Inga vänner än. Lägg till vänner i profil.";
+"No friends yet. Add friends in Profile." = "Inga vänner än. Lägg till vänner i din profil.";
 "Standard multiple choice game" = "Standard flervalsspel";
 "Answer quickly, time is limited" = "Svara snabbt, tiden är begränsad";
 "Game until first mistake" = "Spel tills första misstaget";
@@ -301,7 +301,7 @@
 "Difficulty" = "Svårighet";
 "Easy" = "Lätt";
 "Medium" = "Medium";
-"Hard" = "Hård";
+"Hard" = "Svår";
 "Expert" = "Expert";
 "Erudite" = "Lärd";
 "10 questions, 45 sec per answer" = "10 frågor, 45 sek per svar";
@@ -310,7 +310,7 @@
 "25 questions, 10 sec per answer" = "25 frågor, 10 sek per svar";
 "30 questions, 5 sec per answer" = "30 frågor, 5 sek per svar";
 "All %d countries of selected regions, 5 sec per answer" = "Alla %d länder i valda regioner, 5 sek per svar";
-"All 238 countries of the world, 5 sec per answer" = "Alla 238 länder i världen, 5 sek per svar";
+"All 238 countries of the world, 5 sec per answer" = "Alla tillgängliga länder och territorier, 5 sekunder per svar";
 
 "of" = "av";
 "flags" = "flaggor";
@@ -323,12 +323,12 @@
 
 // iPad Main Screen
 "Challenge Yourself, Learn the World" = "Utmana dig själv, lär dig världen";
-"WorldArena Description" = "WorldArena är en global kunskapsspelserie som förvandlar lärande till roligt. Gissa flaggor, versaler, gränser och mycket mer i ett dynamiskt frågesportformat designat för alla åldrar.";
+"WorldArena Description" = "WorldArena är en global serie kunskapsspel som gör lärandet roligt. Gissa flaggor, huvudstäder, gränser och mycket mer i en dynamisk frågesport för alla åldrar.";
 
 /* Lives & Premium */
-"Lives" = "Bor";
-"Next +%d in %02d:%02d" = "Nästa +%d i %02d:%02d";
-"Lives refill info" = "Info om liv påfyllning";
+"Lives" = "Liv";
+"Next +%d in %02d:%02d" = "Nästa +%d om %02d:%02d";
+"Lives refill info" = "Information om påfyllning av liv";
 "You will receive +%d new lives in %02d:%02d" = "Du kommer att få +%d nya liv om %02d:%02d";
 "Unlimited hearts enabled" = "Obegränsat antal hjärtan aktiverat";
 "Unlimited Hearts" = "Obegränsade hjärtan";
@@ -341,58 +341,58 @@
 /* F-Bucks Info Page */
 "О F-Bucks" = "Om F-Bucks";
 "Как заработать" = "Hur man tjänar";
-"История" = "Historia";
-"Магазин" = "Handla";
+"История" = "Historik";
+"Магазин" = "Butik";
 "Что такое F-Bucks?" = "Vad är F-Bucks?";
 "F-Bucks (Flags Bucks) — это внутриигровая валюта, которую можно заработать, играя в World Arena Flags. Используйте F-Bucks для покупки уникальных элементов аватара, скинов и других эксклюзивных предметов." = "F-Bucks (Flags Bucks) är en valuta i spelet som du kan tjäna genom att spela World Arena Flags. Använd F-Bucks för att köpa unika avatarföremål, skinn och andra exklusiva föremål.";
-"Особенности:" = "Drag:";
+"Особенности:" = "Funktioner:";
 "Зарабатывайте за идеальные результаты в играх" = "Tjäna för perfekta spelresultat";
-"Получайте бонусы за длинные серии дней" = "Få bonusar för långa dagar";
+"Получайте бонусы за длинные серии дней" = "Få bonusar för långa dagliga sviter";
 "Покупайте эксклюзивные элементы для аватара" = "Köp exklusiva avatarobjekt";
 "Создавайте уникальный стиль" = "Skapa en unik stil";
-"Как заработать F-Bucks" = "Hur man tjänar F-bucks";
+"Как заработать F-Bucks" = "Hur man tjänar F-Bucks";
 "Идеальный результат" = "Perfekt resultat";
 "Идеальный результат игры" = "Perfekt spelresultat";
-"Получите идеальный результат в игре (10/10 или 15/15)" = "Få ett perfekt resultat i spelet (10/10 eller 15/15)";
-"Серия 10 дней" = "10 dagars serie";
+"Получите идеальный результат в игре (10/10 или 15/15)" = "Avsluta ett spel med alla svar rätt";
+"Серия 10 дней" = "10 dagars svit";
 "Играйте 10 дней подряд" = "Spela 10 dagar i rad";
-"Серия 20 дней" = "20 dagars serie";
+"Серия 20 дней" = "20 dagars svit";
 "Играйте 20 дней подряд" = "Spela 20 dagar i rad";
-"Серия 50 дней" = "50 dagars rad";
+"Серия 50 дней" = "50 dagars svit";
 "Играйте 50 дней подряд" = "Spela 50 dagar i rad";
-"Серия 100 дней" = "100 dagars rad";
+"Серия 100 дней" = "100 dagars svit";
 "Играйте 100 дней подряд" = "Spela 100 dagar i rad";
 "История начислений" = "Transaktionshistorik";
 "История пуста" = "Historiken är tom";
-"Начните играть и зарабатывать F-Bucks!" = "Börja spela och tjäna F-bucks!";
-"Магазин F-Bucks" = "F-Bucks butik";
+"Начните играть и зарабатывать F-Bucks!" = "Börja spela och tjäna F-Bucks!";
+"Магазин F-Bucks" = "F-Bucks-butiken";
 "Потратьте F-Bucks на эксклюзивные элементы для вашего аватара" = "Spendera F-Bucks på exklusiva föremål för din avatar";
 "Одежда" = "Kläder";
 "Уникальные наряды и аксессуары" = "Unika kläder och accessoarer";
-"Скины" = "Skinn";
+"Скины" = "Utseenden";
 "Особые визуальные эффекты" = "Speciella visuella effekter";
 "Эффекты" = "Effekter";
 "Анимации и спецэффекты" = "Animationer och specialeffekter";
-"Футболка чемпиона" = "Champion T-shirt";
+"Футболка чемпиона" = "Mästartröja";
 "Кепка путешественника" = "Resenärsmössa";
-"Куртка исследователя" = "Utforskarens jacka";
-"Золотой скин" = "Guld hud";
-"Радужный скин" = "Regnbågsskinn";
-"Неоновый скин" = "Neon hud";
+"Куртка исследователя" = "Upptäckarjacka";
+"Золотой скин" = "Guldutseende";
+"Радужный скин" = "Regnbågsutseende";
+"Неоновый скин" = "Neonutseende";
 "Эффект блёсток" = "Glittrande effekt";
 "Огненный эффект" = "Eldeffekt";
 "Звёздный эффект" = "Stjärneffekt";
-"Купить" = "Köpa";
-"Покупка" = "Köpa";
-"Текст гимна" = "Anthem Text";
+"Купить" = "Köp";
+"Покупка" = "Köp";
+"Текст гимна" = "Nationalsångens text";
 "Continue playing with unlimited hearts!" = "Fortsätt spela med obegränsade hjärtan!";
 "No lives available" = "Inga liv tillgängliga";
-"Unfortunately, the game is not available now: you have no lives. You can buy lives or go Premium." = "Tyvärr är spelet inte tillgängligt nu: du har inga liv. Du kan köpa liv eller gå Premium.";
-"Go Premium" = "Gå Premium";
-"Out of lives" = "Av liv";
+"Unfortunately, the game is not available now: you have no lives. You can buy lives or go Premium." = "Du har inga liv kvar just nu. Du kan köpa liv eller skaffa Premium.";
+"Go Premium" = "Skaffa Premium";
+"Out of lives" = "Slut på liv";
 "Get Free Lives" = "Skaffa gratis liv";
 "Watch video for +3 lives" = "Se video för +3 liv";
-"Unfortunately you ran out of lives this time. Try again or come back later." = "Tyvärr tog du slut på liv den här gången. Försök igen eller kom tillbaka senare.";
+"Unfortunately you ran out of lives this time. Try again or come back later." = "Dina liv tog slut den här gången. Försök igen eller kom tillbaka senare.";
 "Out of lives headline 1" = "Du är nästan i mål! 🚀";
 "Out of lives headline 2" = "Ska vi fortsätta?";
 "Out of lives headline 3" = "Ett steg kvar!";
@@ -412,29 +412,29 @@
 "OK" = "OK";
 
 /* Premium screen */
-"Learn all countries and flags in ~2 months with Premium" = "Lär dig alla länder och flaggor på ~2 månader med Premium";
+"Learn all countries and flags in ~2 months with Premium" = "Bygg upp dina kunskaper om länder och flaggor med Premium";
 "Unlimited Hearts" = "Obegränsade hjärtan";
-"Personalized Practice" = "Personlig praktik";
+"Personalized Practice" = "Personlig träning";
 "Explain My Answer" = "Förklara mitt svar";
 "Roleplay Scenarios" = "Scenarier för rollspel";
 "Access 'My Mistakes'" = "Gå till \"Mina misstag\"";
 "My Mistakes" = "Mina misstag";
-"Erudite Difficulty" = "Erudit svårighet";
-"Learning Section" = "Lärande avsnitt";
+"Erudite Difficulty" = "Svårighetsgrad Lärd";
+"Learning Section" = "Läravsnitt";
 "UPGRADE TO PREMIUM" = "UPPGRADERA TILL PREMIUM";
 "NO THANKS" = "NEJ TACK";
 
 /* Game header popovers */
 "Total game time since start" = "Total speltid sedan start";
-"Time limit per question depending on difficulty" = "Time limit per question depending on difficulty";
+"Time limit per question depending on difficulty" = "Tiden per fråga beror på svårighetsgraden";
 "Total Game Time" = "Total speltid";
-"Time Per Question" = "Time Per Question";
+"Time Per Question" = "Tid per fråga";
 
 /* Game header motivation (iPad) */
-"Game motivation 1" = "Du har det här!";
-"Game motivation 2" = "Fortsätta!";
+"Game motivation 1" = "Du klarar det!";
+"Game motivation 2" = "Fortsätt!";
 "Game motivation 3" = "Varje flagga räknas!";
-"Game motivation 4" = "Du brinner!";
+"Game motivation 4" = "Du är på hugget!";
 "Game motivation 5" = "Håll fokus!";
 "Game motivation 6" = "En till!";
 "Game motivation 7" = "Bra tempo!";
@@ -450,21 +450,21 @@
 "League" = "Liga";
 "Following" = "Vänner";
 "Days in a row" = "Dagar i rad";
-"Joined in %@" = "Gick med i %@";
+"Joined in %@" = "Med sedan %@";
 "Statistics" = "Statistik";
 "Total XP" = "Totalt XP";
-"Current streak" = "Nuvarande rad";
-"Best streak" = "Längsta raden";
-"Total games" = "Totalt spel";
+"Current streak" = "Nuvarande svit";
+"Best streak" = "Längsta svit";
+"Total games" = "Antal spel";
 "Accuracy" = "Noggrannhet";
 "Add Friends" = "Lägg till vänner";
 "Overview" = "Översikt";
-"Friend Streaks" = "Vänners rad";
+"Friend Streaks" = "Vänners sviter";
 "Monthly Badges" = "Månatliga märken";
 
 /* Avatar Editor */
 "Edit Avatar" = "Redigera Avatar";
-"Cancel" = "Avboka";
+"Cancel" = "Avbryt";
 "Upload Photo" = "Ladda upp foto";
 "Create Avatar" = "Skapa Avatar";
 "Photo" = "Bild";
@@ -485,12 +485,12 @@
 "Mouth" = "Mun";
 "Facial Hair" = "Ansiktshår";
 "Glasses" = "Glasögon";
-"Outfit" = "Utrusta";
+"Outfit" = "Klädsel";
 "Accessories" = "Tillbehör";
 
 /* Game Loading */
 "Loading flags..." = "Laddar flaggor...";
-"Starting..." = "Startande...";
+"Starting..." = "Startar...";
 
 /* Main Tab Navigation */
 "Главная" = "Hem";
@@ -508,7 +508,7 @@
 /* Profile Page */
 "ОБЗОР" = "ÖVERSIKT";
 "ДОБАВИТЬ ДРУЗЕЙ" = "LÄGG TILL VÄNNER";
-"СЕРИИ ДРУЗЕЙ" = "VÄN STREAKS";
+"СЕРИИ ДРУЗЕЙ" = "VÄNNERS SVITER";
 "МЕСЯЧНЫЕ ДОСТИЖЕНИЯ" = "MÅNADSPRESTATIONER";
 
 /* Settings */
@@ -538,11 +538,11 @@
 "Зона вылета - риск понижения лиги" = "Nedflyttningsstreck - risk för liganedflyttning";
 "Безопасная зона - остаетесь в текущей лиге" = "Säker zon - stanna kvar i nuvarande liga";
 "Конец недели через %d часов" = "Veckan slutar om %d timmar";
-"ЗОНА ВЫЛЕТА" = "NEDRYSNINGSZON";
-"ЗОНА ПОВЫШЕНИЯ" = "KAMPANJZON";
+"ЗОНА ВЫЛЕТА" = "NEDFLYTTNINGSZON";
+"ЗОНА ПОВЫШЕНИЯ" = "UPPFLYTTNINGSZON";
 
 /* Monthly Quests */
-"Августовский Квест" = "August Quest";
+"Августовский Квест" = "Augustiuppdrag";
 "Mision de Agosto" = "Augustmissionen";
 "21 ДЕНЬ" = "21 DAGAR";
 "Заработай 40 очков квеста" = "Tjäna 40 uppdragspoäng";
@@ -566,7 +566,7 @@
 "%d тем" = "%d ämnen";
 
 /* Daily Quests */
-"Продли свою серию" = "Förläng din rad";
+"Продли свою серию" = "Förläng din svit";
 "Сыграй 3 игры подряд" = "Spela 3 spel i rad";
 "Достигни точности 80%" = "Uppnå 80 % noggrannhet";
 "МЕСЯЧНЫЕ ЦЕЛИ" = "MÅNADSMÅL";
@@ -574,10 +574,10 @@
 
 /* Profile Statistics */
 "дней" = "dagar";
-"Текущая серия" = "Nuvarande rad";
+"Текущая серия" = "Nuvarande svit";
 "Всего изучено флагов" = "Totalt lärda flaggor";
 "Текущая лига" = "Nuvarande liga";
-"Общий опыт" = "Total upplevelse";
+"Общий опыт" = "Total erfarenhet";
 
 /* League Names */
 "Бронза" = "Brons";
@@ -585,16 +585,16 @@
 "Золото" = "Guld";
 "Платина" = "Platina";
 "Алмаз" = "Diamant";
-"Мастер" = "Bemästra";
+"Мастер" = "Mästare";
 
 /* Profile Edit */
 "Введите имя" = "Ange namn";
-"Отмена" = "Avboka";
+"Отмена" = "Avbryt";
 "Сохранить" = "Spara";
 "Уровень" = "Nivå";
-"Опыт" = "Uppleva";
-"Серия дней" = "Dagsserie";
-"Всего игр" = "Totalt spel";
+"Опыт" = "Erfarenhet";
+"Серия дней" = "Daglig svit";
+"Всего игр" = "Antal spel";
 "Точность" = "Noggrannhet";
 
 /* Theme Settings */
@@ -604,7 +604,7 @@
 "Dark" = "Mörk";
 "Выберите тему оформления приложения" = "Välj appens utseendetema";
 "Следует системным настройкам" = "Följer systeminställningar";
-"Светлое оформление" = "Lätt utseende";
+"Светлое оформление" = "Ljust utseende";
 "Темное оформление" = "Mörkt utseende";
 
 /* Monthly Quests - Additional */
@@ -612,22 +612,22 @@
 "Завершите %d игр в этом месяце" = "Slutför %d spel den här månaden";
 "Точность %d%%" = "Noggrannhet %d%%";
 "Достигните точности %d%% в играх" = "Uppnå %d%% noggrannhet i spel";
-"Серия %d дней" = "%d dagsserie";
-"Поддерживайте серию %d дней подряд" = "Upprätthåll en %d dagsserie";
+"Серия %d дней" = "%d dagars svit";
+"Поддерживайте серию %d дней подряд" = "Behåll en svit på %d dagar";
 "10Ч" = "10H";
 
 /* Friends */
 "Ваш код друга" = "Din vänkod";
 "Добавить по коду" = "Lägg till med kod";
 "Введите код друга" = "Ange vänkod";
-"Добавить" = "Tillägga";
+"Добавить" = "Lägg till";
 "Добавить друзей" = "Lägg till vänner";
-"Готово" = "Gjort";
-"Скопировано" = "Kopierade";
+"Готово" = "Klar";
+"Скопировано" = "Kopierat";
 "Мой код друга" = "Min vänkod";
 "Добавить по имени (логину)" = "Lägg till efter användarnamn";
 "Введите имя пользователя" = "Ange användarnamn";
-"Пользователь не найден или уже в друзьях. Проверьте имя." = "Användaren hittades inte eller redan i vänner. Kontrollera namnet.";
+"Пользователь не найден или уже в друзьях. Проверьте имя." = "Användaren hittades inte eller finns redan bland dina vänner. Kontrollera namnet.";
 "Ваша страна (флаг в профиле)" = "Ditt land (flagga i profilen)";
 "Выберите страну — её флаг будет отображаться у вас в профиле у друзей." = "Välj ett land — dess flagga kommer att visas i din profil för vänner.";
 "Не выбрано" = "Ej vald";
@@ -636,92 +636,92 @@
 /* Help Center topics */
 "Как играть в World Arena Flags?" = "Hur spelar man World Arena Flags?";
 "Основы игры и правила" = "Grunder och regler";
-"HELP_GAME_RULES" = "World Arena Flags är ett roligt spel för att lära dig världsflaggor!\n\nRegler:\n1. Du ser ett lands flagga\n2. Välj rätt namn bland alternativen\n3. Tjäna XP för rätt svar\n4. Behåll din dagliga rad\n5. Levla upp och klättra i ligorna\n\nJu mer du spelar, desto fler flaggor lär du dig!";
-"Что такое серия дней?" = "Vad är en spelrad?";
-"Как работает система серий" = "Hur rad-systemet fungerar";
-"HELP_STREAK_TEXT" = "Raden visar hur många dagar i rad du har spelat.\n\nSå här behåller du den:\n• Spela minst en omgång varje dag\n• Om du hoppar över en dag nollställs raden\n• Längre rader ger mer bonus-XP\n\nRaden hjälper dig få en vana att lära dig regelbundet!";
+"HELP_GAME_RULES" = "World Arena Flags är ett roligt spel för att lära dig världsflaggor!\n\nRegler:\n1. Du ser ett lands flagga\n2. Välj rätt namn bland alternativen\n3. Tjäna XP för rätt svar\n4. Behåll din dagliga svit\n5. Levla upp och klättra i ligorna\n\nJu mer du spelar, desto fler flaggor lär du dig!";
+"Что такое серия дней?" = "Vad är en svit?";
+"Как работает система серий" = "Så fungerar sviter";
+"HELP_STREAK_TEXT" = "Din svit visar hur många dagar i rad du har spelat.\n\n• Spela minst ett spel varje dag för att förlänga den.\n• Svitfrysningar kan skydda missade dagar om du har några tillgängliga.\n• Öppna svitkalendern för att se dina speldagar och ditt tillgängliga skydd.\n\nRegelbunden övning hjälper dig att skapa en inlärningsvana!";
 "Как работают лиги?" = "Hur fungerar ligor?";
-"Система рейтингов и соревнований" = "Betyg och tävlingssystem";
-"HELP_LEAGUES_TEXT" = "Ligor är tävlingar med andra spelare.\n\nLigor (från lägre till högre):\n• Brons\n• Silver\n• Guld\n• Platina\n• Diamant\n• Mästare\n\nVeckouppdateringar:\n• Topp 3 spelare får belöningar\n• Spelare i åldern 16–20 kan degraderas\n• Andra stannar i samma liga";
+"Система рейтингов и соревнований" = "Ranknings- och tävlingssystem";
+"HELP_LEAGUES_TEXT" = "I ligorna kan du tävla mot andra spelare.\n\nFrån lägst till högst:\n• Brons\n• Silver\n• Guld\n• Platina\n• Diamant\n• Mästare\n\nDin placering varje vecka avgör om du flyttas upp, stannar kvar eller flyttas ned. Uppflyttnings- och nedflyttningszonerna beror på dina framsteg och visas i ligatabellen. Du tjänar F-Bucks när du flyttas upp.";
 
 /* Birthday */
 "День рождения" = "Födelsedag";
 "Birthday description F-bucks" = "Tillåt oss att gratulera dig på din födelsedag med +10 F-bucks";
 "Очистить" = "Rensa";
 "День рождения друга" = "Vännens födelsedag";
-"Friend birthday push body" = "Idag firar %@ sin födelsedag — gratulera dem! (ge +10 min Triple XP eller +1 F-spänn)";
+"Friend birthday push body" = "Idag fyller %@ år — gratulera! (ge 10 minuter med tredubbel XP eller 1 F-Bucks)";
 "С днём рождения!" = "Grattis på födelsedagen!";
 "Birthday bonus already claimed" = "Bonus för i år redan hämtad";
 "Birthday bonus F-bucks message" = "Du fick +10 F-bucks";
 "Friend birthday today" = "Idag är det %@s födelsedag";
 "Friends birthday today count" = "%d vänner fyller år idag";
-"Friend birthday congratulate hint" = "Grattis: ge +10 min Triple XP eller +1 F-bucks";
+"Friend birthday congratulate hint" = "Gratulera: ge 10 minuter med tredubbel XP eller 1 F-Bucks";
 "Подарок на ДР от друга" = "Födelsedagspresent från en vän";
 
 /* Help Center – profile & skin */
 "Как изменить аватар?" = "Hur byter man avatar?";
 "Персонализация профиля" = "Profilanpassning";
-"HELP_PROFILE_AVATAR" = "Så här ändrar du din avatar:\n1. Öppna fliken Profil\n2. Tryck på kugghjulsikonen (Inställningar)\n3. Välj \"Användarprofil\"\n4. Välj en ny avatar eller ladda upp ett foto\n5. Tryck på \"Spara\"";
-"Как работает создание скина?" = "Hur fungerar skin editor?";
+"HELP_PROFILE_AVATAR" = "För att ändra din avatar:\n1. Öppna Profil och tryck på din avatar för att redigera profilen.\n2. Öppna avatarredigeraren eller välj en bild från ditt bibliotek.\n3. Anpassa avataren eller beskär bilden.\n4. Spara ändringarna.";
+"Как работает создание скина?" = "Hur fungerar avatarredigeraren?";
 "Редактор аватара и элементы" = "Avatarredigerare och objekt";
-"HELP_PROFILE_SKIN_EDITOR" = "I skin-editorn bygger du ditt utseende från flera kategorier:\n• Kläder\n• Tillbehör\n• Glasögon\n• Hudton\n• Hår\n• Ansikte (ögon, mun, etc.)\n\nSå här använder du det:\n1. Öppna Profil → Inställningar → Användarprofil → Redigera avatar\n2. Byt till fliken \"Skapa skal\".\n3. Välj en kategori i den översta raden (hatt, skjorta, glasögon, palettikoner, etc.)\n4. Välj ett specifikt objekt i rutnätet nedan – det kommer direkt att visas i förhandsgranskningen\n5. Tryck på \"Spara avatar\" för att applicera skalet på din profil\n\nVissa objekt kan vara låsta (låsikon) – de låses upp när du går framåt eller för F-bucks.";
+"HELP_PROFILE_SKIN_EDITOR" = "Använd avatarredigeraren för att anpassa ditt utseende: kläder, tillbehör, glasögon, hudton, hår och ansiktsdrag.\n\nÖppna din profil, tryck på din avatar och öppna avatarredigeraren. Välj en kategori och ett föremål för att se det i förhandsvisningen. Spara ändringarna för att använda dem i din profil.\n\nFöremål med ett lås kan kräva framsteg eller F-Bucks för att låsas upp.";
 
 /* Help Center – friends & social */
 "Как добавить друзей?" = "Hur lägger man till vänner?";
 "Социальные функции" = "Sociala funktioner";
-"HELP_SOCIAL_ADD_FRIENDS" = "Så här lägger du till vänner:\n1. Öppna fliken Profil\n2. Tryck på \"Lägg till vänner\"\n3. Dela din vänkod eller ange en annan spelares kod/inloggning\n4. Skicka en vänförfrågan\n\nMed vänner kan du:\n• Jämför statistik\n• Se deras framsteg\n• Tävla i ligor och dueller";
+"HELP_SOCIAL_ADD_FRIENDS" = "Så här lägger du till vänner:\n1. Öppna fliken Profil\n2. Tryck på \"Lägg till vänner\"\n3. Dela din vänkod eller ange en annan spelares kod/inloggning\n4. Skicka en vänförfrågan\n\nMed vänner kan du:\n• Jämföra statistik\n• Se deras framsteg\n• Tävla i ligor och dueller";
 "Как работают напоминания друзьям?" = "Hur fungerar påminnelser till vänner?";
 "Пуш-уведомления о ежедневном уроке" = "Push-meddelanden om daglig lektion";
-"HELP_SOCIAL_REMINDERS" = "När du avslutat ett spel ser du en skärm med dina vänner och deras rader:\n• Vänner som redan spelat idag visas med eld och antal dagar i rad\n• Vänner som inte spelat idag har en knapp \"Påminn\"\n\nSå skickar du en påminnelse:\n1. Efter spelet, gå till skärmen \"Påminn vänner\"\n2. Tryck \"Påminn\" vid en vän\n3. Om de har notiser på får de en push om att dagens omgång inte är klar\n\nPåminnelser hjälper vänner att behålla raden och spela regelbundet.";
+"HELP_SOCIAL_REMINDERS" = "När du avslutat ett spel ser du en skärm med dina vänner och deras sviter:\n• Vänner som redan spelat idag visas med eld och antal dagar i rad\n• Vänner som inte spelat idag har en knapp \"Påminn\"\n\nSå skickar du en påminnelse:\n1. Efter spelet, gå till skärmen \"Påminn vänner\"\n2. Tryck \"Påminn\" vid en vän\n3. Om de har notiser på får de en push om att dagens omgång inte är klar\n\nPåminnelser hjälper vänner att behålla sviten och spela regelbundet.";
 
 /* Help Center – duel & progress */
 "Что такое дуэль и как её начать?" = "Vad är en duell och hur startar man den?";
 "Режим соревнований 1 на 1" = "1-mot-1 tävlingsläge";
-"HELP_GAME_DUEL" = "Duell är ett läge där du och din vän svarar på samma frågor för att jämföra resultat.\n\nSå här startar du en duell:\n1. Öppna din väns profil (från vänlista, ligor eller påminnelser)\n2. Tryck på knappen \"Utmana att duellera\".\n3. Bekräfta – duellen kommer att använda en delad uppsättning frågor\n\nI slutet:\n• Du ser vem som fick fler poäng\n• Duell motiverar och ökar framsteg men återställer INTE din dagliga rad";
+"HELP_GAME_DUEL" = "Duell är ett läge där du och din vän svarar på samma frågor för att jämföra resultat.\n\nSå här startar du en duell:\n1. Öppna din väns profil (från vänlista, ligor eller påminnelser)\n2. Tryck på knappen \"Utmana att duellera\".\n3. Bekräfta – duellen kommer att använda en delad uppsättning frågor\n\nI slutet:\n• Du ser vem som fick fler poäng\n• Duell motiverar och ökar framsteg men återställer INTE din dagliga svit";
 "Как зарабатывать и тратить F-bucks?" = "Hur tjänar och spenderar man F-bucks?";
 "Внутриигровая валюта" = "Valuta i spelet";
-"HELP_PROGRESS_FBUCKS" = "F-Bucks (Flags Bucks) är valutan i World Arena Flags.\n\nSå tjänar du F-Bucks:\n• Perfekta spel (alla svar rätt)\n• Långa dagliga spelrader\n• Genomför uppdrag och prestationer\n\nVad du kan köpa:\n• Exklusiva utseenden och avatar-delar\n• Sällsynta tillbehör och effekter\n\nViktigt: F-Bucks är inte riktiga pengar. De kan inte tas ut eller växlas mot kontanter.";
+"HELP_PROGRESS_FBUCKS" = "F-Bucks (Flags Bucks) är valutan i World Arena Flags.\n\nSå tjänar du F-Bucks:\n• Belöningsberättigade spel med alla svar rätt\n• Långa dagliga sviter\n• Genomför uppdrag och prestationer\n\nVad du kan köpa:\n• Exklusiva utseenden och avatar-delar\n• Sällsynta tillbehör och effekter\n\nViktigt: F-Bucks är inte riktiga pengar. De kan inte tas ut eller växlas mot kontanter.";
 "Как работают квесты и достижения?" = "Hur fungerar uppdrag och prestationer?";
 "Месячные задания и артефакты" = "Månatliga uppdrag och artefakter";
-"HELP_PROGRESS_QUESTS" = "På fliken \"Uppdrag\" ser du:\n• Dagliga uppdrag (om tillgängligt)\n• Månatliga uppdrag och totala framsteg 0–40\n\nHur det fungerar:\n1. Slutför uppgifter: spela erforderligt antal spel, gissa flaggor för specifika regioner, etc.\n2. Varje avslutat uppdrag ger framsteg och belöningar\n3. Totalt månatligt framsteg visas i den färgade rubriken som en stapel\n\nPrestationer (artefakter) låser upp för speciella förhållanden:\n• Långa strimmor\n• Hög noggrannhet\n• Höga placeringar i ligorna\nUpplåsta prestationer visas i din profil.";
+"HELP_PROGRESS_QUESTS" = "På fliken \"Uppdrag\" ser du:\n• Dagliga uppdrag (om tillgängligt)\n• Månatliga uppdrag och totala framsteg 0–40\n\nHur det fungerar:\n1. Slutför uppgifter: spela erforderligt antal spel, gissa flaggor för specifika regioner, etc.\n2. Varje avslutat uppdrag ger framsteg och belöningar\n3. Totalt månatligt framsteg visas i den färgade rubriken som en stapel\n\nPrestationer (artefakter) låser upp för speciella förhållanden:\n• Långa sviter\n• Hög noggrannhet\n• Höga placeringar i ligorna\nUpplåsta prestationer visas i din profil.";
 
 /* Help Center – notifications */
 "Уведомления: какие бывают и как их настроить?" = "Aviseringar: typer och hur man hanterar dem?";
 "Ежедневный урок, дуэли и напоминания" = "Daglig lektion, dueller och påminnelser";
-"HELP_NOTIFICATIONS_TYPES" = "Appen kan skicka flera typer av notiser:\n• Dagliga påminnelser om spel och rad\n• Påminnelser till vänner och svar på dina påminnelser\n• Duellutmaningar och duellresultat\n\nSå hanterar du notiser:\n1. Öppna enhetens Inställningar\n2. Hitta World Arena Flags\n3. Slå av/på notistyper som du vill\n\nVi rekommenderar att dagliga påminnelser är på så du inte tappar din rad.";
+"HELP_NOTIFICATIONS_TYPES" = "Appen stöder dagliga övningspåminnelser, svitpåminnelser, påminnelser från vänner samt duellinbjudningar och resultat.\n\nVälj önskade påminnelser i appens aviseringsinställningar. Enhetens inställningar styr om World Arena Flags får visa aviseringar.\n\nDagliga påminnelser kan hjälpa dig att komma ihåg att öva.";
 
 /* Help Center – technical issues */
 "Проблемы с загрузкой флагов" = "Flaggor laddas inte";
 "Что делать если флаги не загружаются" = "Vad ska man göra om flaggor inte laddas";
-"HELP_TECH_FLAGS_NOT_LOADING" = "Om flaggor inte laddas:\n1. Kontrollera din internetanslutning\n2. Starta om appen\n3. Rensa cacheminnet i appinställningarna (om tillgängligt)\n4. Uppdatera appen till den senaste versionen\n5. Kontakta supporten om problemet kvarstår";
+"HELP_TECH_FLAGS_NOT_LOADING" = "Om flaggorna inte laddas:\n1. Kontrollera internetanslutningen.\n2. Starta om appen.\n3. Installera den senaste appuppdateringen.\n4. Kontakta supporten om problemet kvarstår.";
 "Синхронизация данных" = "Datasynkronisering";
 "Как сохранить прогресс" = "Hur du håller dina framsteg säkra";
-"HELP_TECH_DATA_SYNC" = "Dina framsteg sparas automatiskt på enheten.\n\nSå här säkerhetskopierar du det:\n• Använd iCloud eller säkerhetskopiering av din enhet\n• Exportera data via sekretessinställningar (om tillgängligt)\n• Skapa regelbundet säkerhetskopior av din enhet\n\nOm du byter enhet, återställ säkerhetskopian innan du startar spelet så att du inte förlorar dina framsteg.";
+"HELP_TECH_DATA_SYNC" = "Dina framsteg sparas automatiskt på din enhet. Appen kan också spegla lokala framsteg via iCloud när det är tillgängligt för ditt Apple-konto.\n\n• Håll enhetens säkerhetskopior uppdaterade.\n• Använd samma Apple-konto när du återställer framsteg från iCloud.\n• Du kan exportera dina speldata från appens integritetsinställningar.\n\nNär du har bytt enhet ska du kontrollera att dina framsteg har återställts innan du raderar den gamla säkerhetskopian.";
 
 /* Achievements */
 "Достижения" = "Prestationer";
 "Достижение" = "Prestation";
 "ЛИЧНЫЕ РЕКОРДЫ" = "Personliga rekord";
 "НАГРАДЫ" = "Utmärkelser";
-"Лучшая серия" = "Längsta raden";
+"Лучшая серия" = "Längsta svit";
 "Макс. лига" = "Högsta ligan";
 "Макс. XP" = "Mest XP";
 "Открыто" = "Upplåst";
 
 /* Achievement titles/descriptions */
-"Ранняя птица" = "Early Bird";
-"Достигните серии 5 дней" = "Nå en 5-dagars rad";
-"Стабильность" = "Konsistens";
-"Серия 10 дней" = "10 dagar lång rad";
+"Ранняя птица" = "Morgonpigg";
+"Достигните серии 5 дней" = "Nå en svit på 5 dagar";
+"Стабильность" = "Uthållighet";
+"Серия 10 дней" = "10 dagars svit";
 "Железная воля" = "Järnvilja";
-"Серия 30 дней" = "30 dagar lång rad";
+"Серия 30 дней" = "30 dagars svit";
 "Новичок XP" = "XP nybörjare";
 "Наберите 1000 XP" = "Tjäna 1000 XP";
-"Олимпиец XP" = "XP Olympian";
+"Олимпиец XP" = "XP-olympier";
 "Наберите 5000 XP" = "Tjäna 5000 XP";
-"Легенда XP" = "XP Legend";
+"Легенда XP" = "XP-legend";
 "Наберите 10000 XP" = "Tjäna 10 000 XP";
-"Исследователь" = "Quest Explorer";
+"Исследователь" = "Uppdragsutforskare";
 "Сыграйте 20 игр" = "Spela 20 spel";
 "Ветеран" = "Veteran";
 "Сыграйте 100 игр" = "Spela 100 spel";
@@ -729,31 +729,31 @@
 "Точность 70%" = "Nå 70 % noggrannhet";
 "Снайпер" = "Prickskytt";
 "Точность 85%" = "Nå 85 % noggrannhet";
-"Серебряная лига" = "Silver League";
+"Серебряная лига" = "Silverligan";
 "Достигните Серебра" = "Nå Silver";
-"Золотая лига" = "Gold League";
+"Золотая лига" = "Guldligan";
 "Достигните Золота" = "Nå guld";
-"Платиновая лига" = "Platinum League";
-"Достигните Платины" = "Nå Platinum";
+"Платиновая лига" = "Platinaligan";
+"Достигните Платины" = "Nå platina";
 "Алмазная лига" = "Diamantligan";
-"Достигните Алмаза" = "Nå Diamond";
+"Достигните Алмаза" = "Nå diamant";
 "Мастер лиг" = "Ligamästare";
-"Достигните Мастера" = "Nå Mästaren";
+"Достигните Мастера" = "Nå mästarligan";
 "Первый друг" = "Första vän";
 "Добавьте друга" = "Lägg till en vän";
 "Своя команда" = "Ditt team";
 "Добавьте 5 друзей" = "Lägg till 5 vänner";
 "Расскажите друзьям" = "Sprid ordet";
 "Поделитесь профилем" = "Dela din profil";
-"Спринтер" = "Speed ​​Racer";
+"Спринтер" = "Fartfantom";
 "Сыграйте 10 игр за день" = "Spela 10 matcher på en dag";
-"XP Олимпиец" = "XP Olympian";
-"Мастер Олимпиец XP" = "Master XP Olympian";
+"XP Олимпиец" = "XP-olympier";
+"Мастер Олимпиец XP" = "Mästarolympier i XP";
 "Наберите 30000 XP" = "Tjäna 30 000 XP";
  
 /* Settings - Added */
 "Уведомления" = "Aviseringar";
-"Приватность" = "Privatliv";
+"Приватность" = "Integritet";
 "Центр помощи" = "Hjälpcenter";
 "Язык игры" = "Spelspråk";
 "Звуковые эффекты" = "Ljudeffekter";
@@ -763,7 +763,7 @@
 "Основные уведомления" = "Huvudmeddelanden";
 "Напоминания об игре" = "Spelpåminnelser";
 "Ежедневные напоминания" = "Dagliga påminnelser";
-"Напоминания о серии" = "Sträckpåminnelser";
+"Напоминания о серии" = "Påminnelser om din svit";
 "Время напоминания" = "Påminnelsetid";
 "Время" = "Tid";
 "Достижения и прогресс" = "Prestationer och framsteg";
@@ -791,48 +791,48 @@
 // Profile page
 "Всего изучено флагов" = "Totalt lärda flaggor";
 "Текущая лига" = "Nuvarande liga";
-"Общий опыт" = "Total upplevelse";
+"Общий опыт" = "Total erfarenhet";
 "дней" = "dagar";
-"Текущая серия" = "Nuvarande rad";
+"Текущая серия" = "Nuvarande svit";
 "XP" = "XP";
 "ДОБАВИТЬ ДРУЗЕЙ" = "LÄGG TILL VÄNNER";
-"СЕРИИ ДРУЗЕЙ" = "VÄN STREAKS";
+"СЕРИИ ДРУЗЕЙ" = "VÄNNERS SVITER";
 "МЕСЯЧНЫЕ ДОСТИЖЕНИЯ" = "MÅNADSPRESTATIONER";
 
 // Add Friends page
 "Ваш код друга" = "Din vänkod";
 "Добавить по коду" = "Lägg till med kod";
 "Введите код друга" = "Ange vänkod";
-"Добавить" = "Tillägga";
+"Добавить" = "Lägg till";
 "Добавить друзей" = "Lägg till vänner";
-"Готово" = "Gjort";
-"Скопировано" = "Kopierade";
+"Готово" = "Klar";
+"Скопировано" = "Kopierat";
 "Мой код друга" = "Min vänkod";
 "Добавить по имени (логину)" = "Lägg till efter användarnamn";
 "Введите имя пользователя" = "Ange användarnamn";
-"Пользователь не найден или уже в друзьях. Проверьте имя." = "Användaren hittades inte eller redan i vänner. Kontrollera namnet.";
+"Пользователь не найден или уже в друзьях. Проверьте имя." = "Användaren hittades inte eller finns redan bland dina vänner. Kontrollera namnet.";
 "Ваша страна (флаг в профиле)" = "Ditt land (flagga i profilen)";
 "Выберите страну — её флаг будет отображаться у вас в профиле у друзей." = "Välj ett land — dess flagga kommer att visas i din profil för vänner.";
 "Не выбрано" = "Ej vald";
 "Ваша страна" = "Ditt land";
 
 // Settings page
-"Премиум" = "Premie";
+"Премиум" = "Premium";
 "World Arena Premium" = "World Arena Premium";
 "Премиум подписка активна" = "Premiumabonnemang aktivt";
 "ВОССТАНОВИТЬ ПОДПИСКУ" = "ÅTERSTÄLL PRENUMERATION";
 
 // Achievements
-"Ранняя птица" = "Early Bird";
+"Ранняя птица" = "Morgonpigg";
 "Железная воля" = "Järnvilja";
 "Алмазная лига" = "Diamantligan";
-"Серия мастера" = "Mästarrad";
+"Серия мастера" = "Mästarsvit";
 "Чемпион месяца" = "Månadsmästare";
 "Идеальная неделя" = "Perfekt vecka";
 
 // Friends messages
 "У вас пока нет друзей" = "Du har inga vänner än";
-"Добавьте друзей, чтобы видеть их серии" = "Lägg till vänner för att se deras rad";
+"Добавьте друзей, чтобы видеть их серии" = "Lägg till vänner för att se deras sviter";
 
 // Quests page
 "Щоденні квести" = "Dagliga uppdrag";
@@ -845,19 +845,19 @@
 "Завершите 10 игр в этом месяце" = "Slutför 10 spel denna månad";
 "Точность 62%" = "Noggrannhet 62 %";
 "Достигните точности 62% в играх" = "Uppnå 62 % noggrannhet i spel";
-"Серия 3 дней" = "Sträcka 3 dagar";
-"Поддерживайте серию 3 дней подряд" = "Behåll en 3-dagars rad";
+"Серия 3 дней" = "Svit på 3 dagar";
+"Поддерживайте серию 3 дней подряд" = "Behåll en svit på 3 dagar";
 
 // Profile page buttons
-"Отмена" = "Avboka";
+"Отмена" = "Avbryt";
 "Сохранить" = "Spara";
 
 // Profile statistics
 "Статистика" = "Statistik";
 "Уровень" = "Nivå";
-"Опыт" = "Uppleva";
-"Серия дней" = "Dagars rad";
-"Всего игр" = "Totalt spel";
+"Опыт" = "Erfarenhet";
+"Серия дней" = "Daglig svit";
+"Всего игр" = "Antal spel";
 "Точность" = "Noggrannhet";
 
 // Avatar Editor
@@ -886,15 +886,15 @@
 "Премиум преимущества" = "Premiumförmåner";
 "Безлимитные жизни" = "Obegränsade liv";
 "Играйте без ожидания" = "Spela utan att vänta";
-"Раздел Обучения" = "Lärande avsnitt";
+"Раздел Обучения" = "Läravsnitt";
 "Изучайте флаги и страны" = "Lär dig flaggor och länder";
-"Сложность Эрудит" = "Erudit svårighet";
+"Сложность Эрудит" = "Svårighetsgrad Lärd";
 "Продвинутые вопросы" = "Avancerade frågor";
 "Мои ошибки" = "Mina misstag";
 "Анализ ваших ошибок" = "Analys av dina misstag";
 "Отменить подписку" = "Avsluta prenumeration";
-"Закрыть" = "Nära";
-"Отмена" = "Avboka";
+"Закрыть" = "Stäng";
+"Отмена" = "Avbryt";
 "Вы уверены, что хотите отменить премиум подписку? Вы потеряете доступ ко всем премиум функциям." = "Är du säker på att du vill avsluta ditt premiumabonnemang? Du kommer att förlora tillgången till alla premiumfunktioner.";
 
 "Manage subscription" = "Hantera prenumeration";
@@ -917,9 +917,9 @@
 "Keep subscription" = "Behåll prenumerationen";
 "Yes, cancel" = "Ja, avbryt";
 "Are you sure you want to cancel premium? You will lose access to all premium features." = "Är du säker på att du vill avbryta premium? Du kommer att förlora tillgången till alla premiumfunktioner.";
-"Close" = "Nära";
+"Close" = "Stäng";
 "Red" = "Röd";
-"Most popular color fact description" = "Rött finns på 75 % av alla nationella flaggor världen över, vilket gör det till den mest populära flaggfärgen.";
+"Most popular color fact description" = "Rött finns på många nationsflaggor, bland annat Kanadas, Japans och Schweiz flaggor.";
 
 /* Friend Management */
 "Флаг в профиле" = "Flagga i profilen";
@@ -933,36 +933,36 @@
 "Изучено флагов" = "Flaggor studerade";
 "Лучший результат" = "Bästa poäng";
 "очков" = "poäng";
-"Текущая серия" = "Nuvarande rad";
+"Текущая серия" = "Nuvarande svit";
 "дней" = "dagar";
 "Точность" = "Noggrannhet";
-"Теперь вы можете без единой ошибки отвечать на все наши вопросы с точностью в %d%%" = "Теперь вы можете без единой ошибки отвечать на все наши вопросы с точностью в %d%%";
+"Теперь вы можете без единой ошибки отвечать на все наши вопросы с точностью в %d%%" = "Du har %d%% rätta svar.";
 "Мы будем рады, если вы захотите снова вернуться к нам!" = "Vi skulle bli glada om du vill komma tillbaka till oss igen!";
-"Продолжить" = "Fortsätta";
+"Продолжить" = "Fortsätt";
 
 /* Learning Section New Strings */
 "ВСЕ СТРАНЫ" = "ALLA LÄNDER";
 "Все страны" = "Alla länder";
 "стран" = "länder";
-"Столица" = "Kapital";
+"Столица" = "Huvudstad";
 
 // Country Detail View
 "Галерея" = "Galleri";
 "Информация о стране" = "Landsinformation";
-"Описание флага" = "Flaggabeskrivning";
+"Описание флага" = "Flaggbeskrivning";
 "Гимн страны" = "Nationalsång";
 "Национальный гимн" = "Nationalsång";
-"Значение гимна" = "Anthems betydelse";
+"Значение гимна" = "Nationalsångens betydelse";
 "Официальный язык" = "Officiellt språk";
-"Правительство" = "Regering";
+"Правительство" = "Statsskick";
 "Глава государства" = "Statschef";
-"Телефонный код" = "Uppringningskod";
+"Телефонный код" = "Landsnummer";
 "Население" = "Befolkning";
 "Валюта" = "Valuta";
-"Независимость" = "Oberoende";
-"Площадь" = "Område";
+"Независимость" = "Självständighet";
+"Площадь" = "Yta";
 "Описание" = "Beskrivning";
-"История" = "Historia";
+"История" = "Historik";
 "Музыка" = "Musik";
 "Природа" = "Natur";
 "Историческая информация о стране" = "Historisk information om landet";
@@ -971,28 +971,28 @@
 
 /* Premium restrictions */
 "Premium Feature" = "Premiumfunktion";
-"Erudite Level - Premium Only" = "Erudite Level - Endast Premium";
+"Erudite Level - Premium Only" = "Svårighetsgrad Lärd — endast Premium";
 "My Mistakes - Premium Only" = "Mina misstag - Endast Premium";
 "This feature is available only for Premium users" = "Den här funktionen är endast tillgänglig för Premium-användare";
 "Continue with Premium" = "Fortsätt med Premium";
 "Get Premium access to unlock:" = "Få Premium-åtkomst för att låsa upp:";
-"• Erudite difficulty level" = "• Kunnig svårighetsgrad";
+"• Erudite difficulty level" = "• Svårighetsgrad Lärd";
 "• My Mistakes section" = "• Avsnittet Mina misstag";
 "• Unlimited lives" = "• Obegränsade liv";
 "• All premium features" = "• Alla premiumfunktioner";
 
 /* Enhanced Game Results */
 "PERFECT!" = "PERFEKT!";
-"EXCELLENT!" = "EXCELLENT!";
+"EXCELLENT!" = "UTMÄRKT!";
 "GREAT JOB!" = "BRA JOBBAT!";
-"GOOD EFFORT!" = "GOD ANSÖKNING!";
+"GOOD EFFORT!" = "BRA FÖRSÖK!";
 "KEEP TRYING!" = "FORTSÄTT FÖRSÖKA!";
 "Absolutely incredible! You're a true champion! 🎉" = "Helt otroligt! Du är en riktig mästare! 🎉";
 "Outstanding performance! You're almost perfect! ✨" = "Enastående prestation! Du är nästan perfekt! ✨";
 "Fantastic work! You're doing amazing! 🚀" = "Fantastiskt arbete! Du gör det fantastiskt! 🚀";
-"Nice job! Keep up the great work! 💫" = "Bra jobbat! Fortsätt med det stora arbetet! 💫";
+"Nice job! Keep up the great work! 💫" = "Bra jobbat! Fortsätt så! 💫";
 "Don't give up! Every expert was once a beginner! 🌱" = "Ge inte upp! Varje expert var en gång nybörjare! 🌱";
-"XP EARNED" = "XP TJÄNT";
+"XP EARNED" = "INTJÄNAD XP";
 "XP boost time remaining" = "%d:%02d kvar — spela igen!";
 "XP boost you have remaining" = "Du har %@ %@ kvar";
 "double XP" = "dubbel XP";
@@ -1000,7 +1000,7 @@
 
 /* Enhanced Streak View */
 "Don't break the chain! Come back tomorrow!" = "Bryt inte kedjan! Kom tillbaka imorgon!";
-"Time to restart your streak! You can do it!" = "Time to restart your streak! You can do it!";
+"Time to restart your streak! You can do it!" = "Dags att börja en ny svit! Du klarar det!";
 
 /* Monthly XP Quest */
 "Заработай %d XP за месяц" = "Tjäna %d XP den här månaden";
@@ -1008,13 +1008,13 @@
 
 /* League end popup */
 "Итоги лиги" = "Ligaresultat";
-"Вы заняли %d место." = "Du placerade %d.";
+"Вы заняли %d место." = "Du kom på plats %d.";
 "Вы поднялись в лигу: %@" = "Du blev befordrad till %@.";
 "Вы остались в текущей лиге." = "Du stannade i din nuvarande liga.";
 "Вы понижены в лигу: %@" = "Du degraderades till %@.";
 
 /* Premium placeholders when products not loaded */
-"Loading..." = "Belastning...";
+"Loading..." = "Laddar...";
 "Unable to load products" = "Det går inte att ladda produkter";
 "Tap to load price" = "Tryck för att ladda pris";
 "Sign in with Apple ID in Settings → App Store to see prices. Tap an option or Retry to try again." = "Logga in med Apple ID i Inställningar → App Store för att se priser. Tryck på ett alternativ eller Försök igen för att försöka igen.";
@@ -1022,43 +1022,43 @@
 /* Home Lives Promo */
 "Unlock your full progress" = "Lås upp dina fulla framsteg";
 "Get Premium tools for faster learning and better game results" = "Få premiumverktyg för snabbare inlärning och bättre spelresultat";
-"Learning section" = "Lärande avsnitt";
+"Learning section" = "Läravsnitt";
 "Train flags and countries in a structured mode" = "Träna flaggor och länder i ett strukturerat läge";
-"Erudite difficulty" = "Erudit svårighet";
+"Erudite difficulty" = "Svårighetsgrad Lärd";
 "Advanced challenge with deeper knowledge checks" = "Avancerad utmaning med djupare kunskapskontroller";
 "My mistakes" = "Mina misstag";
 "Focus on weak topics and improve accuracy" = "Fokusera på svaga ämnen och förbättra noggrannheten";
-"Personalized practice" = "Personlig praktik";
+"Personalized practice" = "Personlig träning";
 "Adaptive sessions based on your progress" = "Adaptiva sessioner baserat på dina framsteg";
 "Explain my answer" = "Förklara mitt svar";
 "Understand every mistake and learn faster" = "Förstå varje misstag och lär dig snabbare";
-"Up to +750% faster flag learning with Premium" = "Upp till +750 % snabbare flagginlärning med Premium";
-"Play without waiting and keep your learning momentum" = "Spela utan att vänta och håll ditt lärande momentum";
-"Train flags, listen to anthems, and explore detailed country profiles" = "Träna flaggor, lyssna på hymner och utforska detaljerade landsprofiler";
+"Up to +750% faster flag learning with Premium" = "Fler sätt att öva på flaggor med Premium";
+"Play without waiting and keep your learning momentum" = "Spela utan att vänta och håll igång lärandet";
+"Train flags, listen to anthems, and explore detailed country profiles" = "Öva på flaggor, lyssna på nationalsånger och utforska detaljerad landsinformation";
 "Restore Purchases" = "Återställ inköp";
 "Have a promo code?" = "Har du en kampanjkod?";
 "Redeem Offer Code" = "Lös in erbjudandekod";
 "Auto-renewable subscription" = "Automatiskt förnybart abonnemang";
-"Monthly Premium Title" = "Premium Monthly: maximalt värde";
+"Monthly Premium Title" = "Premium per månad: mesta möjliga värde";
 "Yearly Premium Title" = "Premium ÅR. Flaggor och länder";
 "Duration: 1 month (auto-renewable)" = "Varaktighet: 1 månad (automatiskt förnybar)";
 "Duration: 1 year (auto-renewable)" = "Varaktighet: 1 år (kan förnyas automatiskt)";
 "Premium Monthly" = "Premium månadsvis";
-"Yearly Premium" = "Årlig premie";
+"Yearly Premium" = "Premium per år";
 "Save %d%%" = "Spara %d%%";
 "Learn flags and countries of the World" = "Lär dig flaggor och världens länder";
 "Select Level" = "Välj Nivå";
 "Level - %@" = "Nivå - %@";
-"Exclusive tournaments with cash F-Bucks prizes" = "Exklusiva turneringar med kontanta F-Bucks-priser";
-"Survival Mode" = "Survival Mode";
-"One mistake = Game Over" = "Ett misstag = Game Over";
+"Exclusive tournaments with cash F-Bucks prizes" = "Exklusiva turneringar med F-Bucks-priser";
+"Survival Mode" = "Överlevnadsläge";
+"One mistake = Game Over" = "Ett misstag = spelet är slut";
 "Duel result push format" = "%@: %d — Du: %d.";
-"Duel motivation win" = "Underbart! Håll raden igång.";
+"Duel motivation win" = "Fantastiskt! Håll sviten igång.";
 "Duel motivation lose" = "Tid för revansch! Du kan göra det.";
 "Opponent" = "Motståndare";
 "vs %@" = "vs %@";
 "Combo x%d" = "Kombination x%d";
-"Combo x%d bonus" = "Combo x%d bonus +1";
+"Combo x%d bonus" = "Kombination x%d: bonus +1";
 "Combo x%d +10 XP" = "Combo x%d +10 XP";
 "Speed bonus +1" = "Hastighetsbonus +1";
 "Speed bonus +10 XP" = "Hastighetsbonus +10 XP";
@@ -1066,72 +1066,72 @@
 "Country rank line" = "%@ Du är #%d i %@";
 "World rank line" = "🌎 Du är #%d i världen";
 "World rank line no emoji" = "Du är #%d i världen";
-"Friend country rank line" = "%1$@ %2$@ #%3$d · %4$@";
-"Friend world rank line" = "%1$@ #%2$d";
+"Friend country rank line" = "%1$@ %2$@ är på plats %3$d i %4$@";
+"Friend world rank line" = "%1$@ är på plats %2$d i världen";
 "Spain" = "Spanien";
 "Poland" = "Polen";
 "Ukraine" = "Ukraina";
 "Russia" = "Ryssland";
 "USA" = "USA";
-"Лига Чемпионов Мира" = "World Champion League";
+"Лига Чемпионов Мира" = "Världsmästarligan";
 "Price is loaded from the App Store on this screen" = "Pris laddas från App Store på den här skärmen";
 "Connecting to App Store..." = "Ansluter till App Store...";
 "Version" = "Version";
 "Update" = "Uppdatera";
-"Login without @" = "logga in utan @";
+"Login without @" = "användarnamn utan @";
 "Add by username" = "Lägg till efter användarnamn";
-"Duel Summary" = "Duell Sammanfattning";
+"Duel Summary" = "Duellsammanfattning";
 "No duel history yet" = "Ingen duellhistorik ännu";
-"You already outranked %d%% of players in your city" = "Du rankade redan %d%% av spelarna i din stad";
+"You already outranked %d%% of players in your city" = "Du har redan gått om %d%% av spelarna i din stad";
 "Goal: keep 90% accuracy in first challenge" = "Mål: behålla 90 % noggrannhet i första utmaningen";
 "Challenge ends in %d sec" = "Utmaningen slutar om %d sek";
-"Defeat" = "Besegra";
+"Defeat" = "Förlust";
 "Victory" = "Seger";
 "All" = "Alla";
-"Wins" = "Vinner";
+"Wins" = "Vinster";
 "Losses" = "Förluster";
-"Duel Summary Share Header" = "Min duell resulterar i World Arena Flags";
+"Duel Summary Share Header" = "Mina duellresultat i World Arena Flags";
 "View Detailed Results" = "Visa detaljerade resultat";
 "Detailed Results" = "Detaljerade resultat";
-"Correct" = "Rätta";
+"Correct" = "Rätt";
 "Wrong" = "Fel";
 "Flag" = "Flagga";
 "Your answer" = "Ditt svar";
 "Time is up" = "Tiden är ute";
-"Search" = "Söka";
+"Search" = "Sök";
 "3x XP for 10 min!" = "3x XP i 10 min!";
 "КАРТА ПРОГРЕССА" = "FRAMSTEGSKARTA";
-"Карта прогресса мира" = "Karta över världens framsteg";
-"World Progress Map" = "Karta över världens framsteg";
+"Карта прогресса мира" = "Världskarta över dina framsteg";
+"World Progress Map" = "Världskarta över dina framsteg";
 "Tap a country to see your correct and wrong answers" = "Tryck på ett land för att se dina rätta och felaktiga svar";
 "Greener country means better mastery" = "Grönare land betyder bättre behärskning";
-"Continent Mastery" = "Continent Mastery";
+"Continent Mastery" = "Kontinentmästerskap";
 "Mastered %d of %d countries" = "Bemästrade %d av %d länder";
 "Answered %d of %d countries" = "Besvarade %d av %d länder";
 "Total" = "Total";
 "Map" = "Karta";
-"Weak countries" = "Svaga länder";
+"Weak countries" = "Länder att öva mer på";
 "All countries" = "Alla länder";
-"Only weak" = "Bara svag";
-"Only mastered" = "Endast bemästrat";
-"TOP weak countries for review" = "TOP svaga länder för granskning";
-"No weak countries yet" = "Inga svaga länder ännu";
+"Only weak" = "Endast de som behöver övas";
+"Only mastered" = "Endast de du behärskar";
+"TOP weak countries for review" = "Länder du mest behöver repetera";
+"No weak countries yet" = "Inga länder behöver extra övning än";
 "%@ Master" = "%@ Mästare";
-"%@ Master unlocked" = "%@ Master upplåst";
-"Continent mastered! Keep going." = "Kontinenten bemästras! Fortsätta.";
+"%@ Master unlocked" = "%@ Mästare upplåst";
+"Continent mastered! Keep going." = "Du behärskar kontinenten! Fortsätt så.";
 "Weekly challenge" = "Veckovis utmaning";
-"Weak country sessions this week" = "Svaga countrysessioner denna vecka";
-"Start Weak Countries Training" = "Starta träning för svaga länder";
+"Weak country sessions this week" = "Övningar på svåra länder den här veckan";
+"Start Weak Countries Training" = "Öva på svåra länder";
 "Progress map subtitle" = "Spåra dina framsteg efter land och kontinent";
-"How is Mastered calculated?" = "Hur beräknas Mastered?";
+"How is Mastered calculated?" = "När räknas ett land som behärskat?";
 "Duel Summary subtitle" = "Se din duellhistorik och detaljerade resultat";
 "F-Bucks subtitle" = "Tjäna och spendera F-Bucks, spelvalutan";
-"Mastered explanation" = "Ett land räknas som behärskat när du har svarat på det minst 3 gånger och har minst 80 %% korrekta svar.";
+"Mastered explanation" = "Ett land räknas som behärskat när du har svarat på det minst 3 gånger och har minst 80 % korrekta svar.";
 "Name" = "Namn";
 "Account login title" = "Skapa ditt konto";
 "Account login subtitle" = "Behåll gästläge eller logga in för att spara identitets- och säkerhetsfunktioner";
 "Login" = "Inloggning";
-"Register" = "Register";
+"Register" = "Registrera dig";
 "Sign in with Apple error 1000" = "Logga in med Apple är inte tillgängligt här. Prova på en riktig enhet eller kolla Inställningar → Apple ID.";
 "Username" = "Användarnamn";
 "Password" = "Lösenord";
@@ -1139,14 +1139,14 @@
 "Forgot password?" = "Glömt lösenordet?";
 "Continue with Google" = "Fortsätt med Google";
 "Google login" = "Google inloggning";
-"Continue" = "Fortsätta";
+"Continue" = "Fortsätt";
 "Enter Google email" = "Ange din Google-e-postadress";
 "Current password" = "Aktuellt lösenord";
 "New password" = "Nytt lösenord";
 "Repeat new password" = "Upprepa nytt lösenord";
 "Change password" = "Byt lösenord";
 "Reset password" = "Återställ lösenord";
-"Reset code" = "Återställ koden";
+"Reset code" = "Återställningskod";
 "Send reset code" = "Skicka återställningskod";
 "No account with this email" = "Inget konto med denna e-postadress";
 "reset_request_failed" = "Lösenordsåterställning misslyckades. Försök igen senare.";
@@ -1162,18 +1162,18 @@
 "Biometric login prompt" = "Bekräfta biometrisk inloggning";
 
 /* 68 interesting facts */
-"FACT_01_TITLE" = "Äldsta kontinuerligt använda flaggan";
-"FACT_01_DESC" = "Danmarks Dannebrog anses vara den äldsta nationalflaggan i kontinuerligt bruk sedan 1219.";
-"FACT_02_TITLE" = "Endast fyrkantig nationalflagga";
-"FACT_02_DESC" = "Schweiz har den enda fyrkantiga nationalflaggan i världen. Vatikanen har också en fyrkantig flagga men är en stadsstat.";
+"FACT_01_TITLE" = "En flagga med en legend";
+"FACT_01_DESC" = "En legend kopplar den danska flaggan till ett slag år 1219.";
+"FACT_02_TITLE" = "Kvadratiska nationalflaggor";
+"FACT_02_DESC" = "Både Schweiz och Vatikanstaten har kvadratiska nationalflaggor.";
 "FACT_03_TITLE" = "Icke-rektangulär flagga";
 "FACT_03_DESC" = "Nepal har den enda nationella flaggan i världen som inte är rektangulär.";
 "FACT_04_TITLE" = "Inget rött, vitt eller blått";
 "FACT_04_DESC" = "Jamaica är det enda landet med en flagga utan rött, vitt eller blått.";
 "FACT_05_TITLE" = "Flagga som aldrig sänks";
 "FACT_05_DESC" = "Saudiarabiens flagga flaggas aldrig på halv stång på grund av den heliga texten på den.";
-"FACT_06_TITLE" = "Unga nationella flaggan";
-"FACT_06_DESC" = "Sydsudans flagga antogs 2011 efter självständigheten.";
+"FACT_06_TITLE" = "En ung nationalflagga";
+"FACT_06_DESC" = "Sydsudan har använt denna nationsflagga sedan landet blev självständigt 2011.";
 "FACT_07_TITLE" = "Flagga med AK-47";
 "FACT_07_DESC" = "Moçambique är det enda land vars flagga har ett modernt vapen – Kalashnikov-geväret.";
 "FACT_08_TITLE" = "Nästan identiska flaggor";
@@ -1181,89 +1181,89 @@
 "FACT_09_TITLE" = "Ukrainas symbolik";
 "FACT_09_DESC" = "Ukrainas blågula flagga tolkas traditionellt som himlen över ett vetefält.";
 "FACT_10_TITLE" = "Enklaste flaggan";
-"FACT_10_DESC" = "Libyens flagga från 1977 till 2011 var fast grön utan symboler eller mönster.";
+"FACT_10_DESC" = "Libyens flagga från 1977 till 2011 var enfärgat grön utan symboler eller mönster.";
 "FACT_11_TITLE" = "Flagga med en karta";
 "FACT_11_DESC" = "Cyperns flagga visar konturerna av ön - ett sällsynt fall bland nationella flaggor.";
 "FACT_12_TITLE" = "Flagga med en bibel";
 "FACT_12_DESC" = "Dominikanska republikens flagga visar en öppen bibel, vilket gör den till den enda nationella flaggan med en religiös bok.";
-"FACT_13_TITLE" = "Mest populära färgen";
-"FACT_13_DESC" = "Rött är den vanligaste färgen på nationella flaggor över hela världen.";
+"FACT_13_TITLE" = "Rött på nationsflaggor";
+"FACT_13_DESC" = "Rött finns på många nationsflaggor, bland annat Kanadas, Japans och Schweiz flaggor.";
 "FACT_14_TITLE" = "Flagga med text";
 "FACT_14_DESC" = "Text på nationella flaggor är sällsynt; ett välkänt exempel är Saudiarabien.";
-"FACT_15_TITLE" = "Flagga etikett";
+"FACT_15_TITLE" = "Flaggetikett";
 "FACT_15_DESC" = "Många länder har strikta regler för hur den nationella flaggan ska behandlas.";
 "FACT_16_TITLE" = "Flagga med olika sidor";
 "FACT_16_DESC" = "Paraguay har den enda nationella flaggan i världen med olika design på framsidan och baksidan.";
 "FACT_17_TITLE" = "Olympisk symbolik";
-"FACT_17_DESC" = "Olympiska ringfärger valdes så att minst en färg visas på varje lands flagga.";
-"FACT_18_TITLE" = "Flagga med det mest komplexa vapenskölden";
-"FACT_18_DESC" = "Mexikos flagga visar en örn uppflugen på en kaktus som håller en orm – en av de mest detaljerade vapensköldarna på någon flagga.";
-"FACT_19_TITLE" = "Copycat flagga";
-"FACT_19_DESC" = "Monacos och Indonesiens flaggor är nästan identiska - röda på toppen, vita under. Den enda skillnaden är proportionerna.";
+"FACT_17_DESC" = "De fem olympiska ringarna och deras vita bakgrund använder sex färger som valdes för att representera världens nationsflaggor.";
+"FACT_18_TITLE" = "Mexikos statsvapen";
+"FACT_18_DESC" = "Mexikos flagga visar en örn på en kaktus med en orm i sitt grepp.";
+"FACT_19_TITLE" = "Liknande rödvita flaggor";
+"FACT_19_DESC" = "Både Monaco och Indonesien har rött ovanför vitt på sina flaggor, men flaggorna har olika proportioner.";
 "FACT_20_TITLE" = "Flagga med 50 stjärnor";
-"FACT_20_DESC" = "Den amerikanska flaggan har 50 stjärnor, en för varje stat. Designen har ändrats 27 gånger sedan 1777.";
+"FACT_20_DESC" = "USA:s flagga har 50 stjärnor, en för varje delstat.";
 "FACT_21_TITLE" = "Nordligaste flaggor";
 "FACT_21_DESC" = "Arktiska regioner använder både nationella och regionala flaggor med unik symbolik.";
 "FACT_22_TITLE" = "Flagga med ett kors";
-"FACT_22_DESC" = "29 länder har ett kors på sin flagga, vilket gör den till en av de mest populära symbolerna på nationella flaggor.";
-"FACT_23_TITLE" = "Trefärgade färger";
+"FACT_22_DESC" = "Ett kors finns på många nationsflaggor, bland annat Danmarks, Finlands och Schweiz flaggor.";
+"FACT_23_TITLE" = "Trikolorer";
 "FACT_23_DESC" = "Många länder använder en enkel trerandig design som en historiskt stabil flaggform.";
 "FACT_24_TITLE" = "Flagga med en halvmåne";
-"FACT_24_DESC" = "Halvmånen visas på flaggorna från 12 länder, mestadels muslimska, som symboliserar den islamiska tron.";
+"FACT_24_DESC" = "En månskära finns på flera nationsflaggor, bland annat Turkiets, Pakistans och Tunisiens flaggor.";
 "FACT_25_TITLE" = "Solsymbol";
 "FACT_25_DESC" = "Solen är en av de vanligaste symbolerna på flaggor i Asien och Sydamerika.";
 "FACT_26_TITLE" = "Flagga med ett träd";
-"FACT_26_DESC" = "Libanon är det enda landet med ett träd (den libanesiska cedern) på sin flagga, som symboliserar evighet och fred.";
-"FACT_27_TITLE" = "Smalaste flaggan";
-"FACT_27_DESC" = "Qatars flagga har det mest ovanliga bildförhållandet av alla nationella flaggor—11:28.";
+"FACT_26_DESC" = "Libanons nationsflagga har ett cederträd.";
+"FACT_27_TITLE" = "Qatars flaggproportioner";
+"FACT_27_DESC" = "Qatars nationsflagga har proportionerna 11:28 mellan höjd och bredd.";
 "FACT_28_TITLE" = "Komplexa vapensköldar";
 "FACT_28_DESC" = "Vapensköldar på latinamerikanska flaggor innehåller ofta många detaljer och historiska symboler.";
 "FACT_29_TITLE" = "Regnbågsflagga";
-"FACT_29_DESC" = "Bolivia har två officiella flaggor - den traditionella tricoloren och den inhemska Wiphala regnbågsflaggan.";
+"FACT_29_DESC" = "Bolivia har två officiella flaggor: den traditionella trikoloren och ursprungsfolkens regnbågsflagga Wiphala.";
 "FACT_30_TITLE" = "Flagga med en byggnad";
-"FACT_30_DESC" = "Kambodjas flagga visar Angkor Wat-templet, vilket gör det till den enda nationella flaggan med en byggnad.";
+"FACT_30_DESC" = "Kambodjas nationsflagga avbildar templet Angkor Wat.";
 "FACT_31_TITLE" = "Historiska tvister";
 "FACT_31_DESC" = "Utformningen av vissa flaggor har förändrats på grund av historiska och politiska tvister mellan länder.";
 "FACT_32_TITLE" = "Flagga med ett svärd";
 "FACT_32_DESC" = "Sri Lankas flagga visar ett lejon som håller ett svärd, vilket symboliserar det singalesiska folkets mod.";
 "FACT_33_TITLE" = "Flagga utan blått";
-"FACT_33_DESC" = "Endast fyra länder använder inte blått på sina flaggor: Jamaica, Mauretanien, Sri Lanka och Vatikanen.";
+"FACT_33_DESC" = "Vissa nationsflaggor saknar blått, bland annat Jamaicas, Japans och Schweiz flaggor.";
 "FACT_34_TITLE" = "Fåglar på flaggor";
-"FACT_34_DESC" = "Örnen och andra fåglar på flaggor symboliserar styrka, självständighet och andeädel.";
+"FACT_34_DESC" = "Örnen och andra fåglar på flaggor symboliserar styrka, självständighet och ädelmod.";
 "FACT_35_TITLE" = "Antarktis symbol";
 "FACT_35_DESC" = "Antarktis har ingen officiell nationalflagga, men flera inofficiella mönster används.";
 "FACT_36_TITLE" = "Stjärnor på flaggor";
 "FACT_36_DESC" = "Stjärnan är en av de mest utbredda symbolerna på flaggor runt om i världen.";
 "FACT_37_TITLE" = "Liknande färgscheman";
 "FACT_37_DESC" = "Vissa flaggor är lika i färg men skiljer sig i ordningen på ränder och emblem.";
-"FACT_38_TITLE" = "Internationella fackliga flaggor";
+"FACT_38_TITLE" = "Internationella organisationers flaggor";
 "FACT_38_DESC" = "Överstatliga organisationer har också sina egna flaggor som återspeglar gemensamma värderingar.";
-"FACT_39_TITLE" = "Ö symbolik";
+"FACT_39_TITLE" = "Öarnas symbolik";
 "FACT_39_DESC" = "Önationers flaggor har ofta symboler för havet, solen och navigeringen.";
 "FACT_40_TITLE" = "Förändringar över tid";
 "FACT_40_DESC" = "Vissa nationella flaggor har förändrats dussintals gånger med sitt lands politiska historia.";
 "FACT_41_TITLE" = "Nordmakedoniens sol";
 "FACT_41_DESC" = "Nordmakedoniens flagga har en sol med åtta strålar för en ny början.";
-"FACT_42_TITLE" = "Belize vedhuggare";
+"FACT_42_TITLE" = "Belizes skogshuggare";
 "FACT_42_DESC" = "Belize flagga är en av de få som visar människor: vedhuggare med verktyg.";
-"FACT_43_TITLE" = "Ecuador kondor";
+"FACT_43_TITLE" = "Ecuadors kondor";
 "FACT_43_DESC" = "Ecuadors flagga inkluderar den andinska kondoren för styrka och suveränitet.";
-"FACT_44_TITLE" = "Bolivia Wiphala";
-"FACT_44_DESC" = "Bolivia använder Wiphala vid sidan av tricoloren som en officiell symbol.";
+"FACT_44_TITLE" = "Bolivias Wiphala";
+"FACT_44_DESC" = "Bolivia använder Wiphala tillsammans med trikoloren som officiell symbol.";
 "FACT_45_TITLE" = "Brasiliens 27 stjärnor";
-"FACT_45_DESC" = "Den brasilianska flaggan har 27 stjärnor, en för varje stat och det federala distriktet.";
+"FACT_45_DESC" = "Brasiliens flagga har 27 stjärnor, en för varje delstat och det federala distriktet.";
 "FACT_46_TITLE" = "Lönnlöv";
-"FACT_46_DESC" = "Kanadas flagga har ett enda 11-uddigt lönnlöv, unikt bland nationella flaggor.";
+"FACT_46_DESC" = "Kanadas flagga har ett rött lönnlöv med 11 spetsar på en vit kvadrat.";
 "FACT_47_TITLE" = "Union Jack";
-"FACT_47_DESC" = "Den brittiska flaggan kombinerar korsen mellan tre helgon: England, Skottland och Irland.";
+"FACT_47_DESC" = "Storbritanniens flagga kombinerar korsen för Sankt Georg, Sankt Andreas och Sankt Patrick.";
 "FACT_48_TITLE" = "Japans stigande sol";
-"FACT_48_DESC" = "Den röda cirkeln på vitt representerar den uppgående solen och har använts på Japans flagga sedan 700-talet.";
+"FACT_48_DESC" = "Japans nationsflagga har en röd cirkel som symboliserar solen på vit bakgrund.";
 "FACT_49_TITLE" = "Ashoka Chakra";
 "FACT_49_DESC" = "Indiens flagga har ett 24-ekrat hjul som symboliserar lag och rörelse.";
-"FACT_50_TITLE" = "Australiens södra kors";
-"FACT_50_DESC" = "Australiens flagga visar konstellationen Southern Cross, endast synlig på södra halvklotet.";
-"FACT_51_TITLE" = "Nya Zeelands sydkors";
-"FACT_51_DESC" = "Nya Zeelands flagga har också Southern Cross, men med röda stjärnor kantade i vitt.";
+"FACT_50_TITLE" = "Australiens Södra korset";
+"FACT_50_DESC" = "Fem stjärnor på Australiens flagga representerar stjärnbilden Södra korset.";
+"FACT_51_TITLE" = "Nya Zeelands Södra korset";
+"FACT_51_DESC" = "Nya Zeelands flagga visar också Södra korset, men med röda stjärnor med vita kanter.";
 "FACT_52_TITLE" = "Sydkoreas taegeuk";
 "FACT_52_DESC" = "Sydkoreas flagga har den traditionella taegeuk-symbolen (yin-yang) och trigram.";
 "FACT_53_TITLE" = "Portugals armillära sfär";
@@ -1273,31 +1273,31 @@
 "FACT_55_TITLE" = "Kenyas sköld";
 "FACT_55_DESC" = "Kenyas flagga har en massajsköld och korsade spjut.";
 "FACT_56_TITLE" = "Wales drake";
-"FACT_56_DESC" = "Den röda draken på Wales flagga är en av de äldsta nationella symbolerna i världen.";
-"FACT_57_TITLE" = "Andreas kors";
-"FACT_57_DESC" = "Skottlands flagga är ett vitt diagonalt kors på blått, St Andrews kors.";
-"FACT_58_TITLE" = "Grönlands krets";
+"FACT_56_DESC" = "Wales flagga visar en röd drake på vit och grön bakgrund. Detta utseende erkändes officiellt 1959.";
+"FACT_57_TITLE" = "Sankt Andreas kors";
+"FACT_57_DESC" = "Skottlands flagga visar ett vitt diagonalt kors på blå botten, Sankt Andreas kors.";
+"FACT_58_TITLE" = "Grönlands cirkel";
 "FACT_58_DESC" = "Grönlands flagga har en röd-vit cirkel som representerar solen över isen.";
 "FACT_59_TITLE" = "Panafrikanska färger";
 "FACT_59_DESC" = "Grönt, gult och rött kallas ofta panafrikanska färger och förekommer på många afrikanska flaggor.";
-"FACT_60_TITLE" = "nordiska kors";
+"FACT_60_TITLE" = "Nordiska kors";
 "FACT_60_DESC" = "Fem länder använder det nordiska korset: Danmark, Norge, Sverige, Finland och Island.";
-"FACT_61_TITLE" = "fransk tricolor";
-"FACT_61_DESC" = "Den franska blå-vit-röda tricoloren blev en modell för många revolutionära och nationella flaggor.";
-"FACT_62_TITLE" = "FN flagga";
+"FACT_61_TITLE" = "Den franska trikoloren";
+"FACT_61_DESC" = "Den franska blå-vita-röda trikoloren blev en förebild för många revolutionära och nationella flaggor.";
+"FACT_62_TITLE" = "FN-flaggan";
 "FACT_62_DESC" = "FN-flaggan visar världen omgiven av olivkvistar på blå bakgrund.";
 "FACT_63_TITLE" = "EU-flaggan";
 "FACT_63_DESC" = "Tolv gyllene stjärnor i en cirkel på blått symboliserar Europeiska unionens enhet.";
-"FACT_64_TITLE" = "olympisk flagga";
-"FACT_64_DESC" = "De fem ringarna på vitt representerar de fem bebodda kontinenterna och spelens globala karaktär.";
-"FACT_65_TITLE" = "Vatikanstorget";
-"FACT_65_DESC" = "Vatikanen har en fyrkantig nationalflagga som Schweiz.";
-"FACT_66_TITLE" = "Nauru 12 poäng";
+"FACT_64_TITLE" = "Den olympiska flaggan";
+"FACT_64_DESC" = "De fem olympiska ringarna på vit bakgrund symboliserar föreningen av fem kontinenter och idrottare från hela världen.";
+"FACT_65_TITLE" = "Vatikanens kvadratiska flagga";
+"FACT_65_DESC" = "Vatikanen har en kvadratisk nationalflagga, liksom Schweiz.";
+"FACT_66_TITLE" = "Naurus tolv uddar";
 "FACT_66_DESC" = "Naurus flagga har en 12-uddig stjärna för de 12 stammarna.";
-"FACT_67_TITLE" = "Turkmenistan matta";
-"FACT_67_DESC" = "Turkmenistans flagga har mattmönster längs med hissen.";
-"FACT_68_TITLE" = "Afghanistan moské";
-"FACT_68_DESC" = "Afghanistan flagga har haft en moské i sin design.";
+"FACT_67_TITLE" = "Turkmenistans mattmönster";
+"FACT_67_DESC" = "Turkmenistans flagga har mattmönster längs kanten närmast stången.";
+"FACT_68_TITLE" = "Afghanistans moské";
+"FACT_68_DESC" = "Afghanistans flagga har haft en moské i sin utformning.";
 
 /* Add friend & duel results */
 "Пользователь найден и добавлен" = "Användaren har hittats och lagts till";
@@ -1316,17 +1316,17 @@
 "league.weekly_result.title.demotion" = "Du blev nedflyttad";
 "league.weekly_result.title.week_finished" = "Ligaveckan avslutad";
 "league.weekly_result.body.win" = "Du slutade #%d och avslutade veckan bland de bästa spelarna.";
-"league.weekly_result.body.promotion" = "Du avslutade #%d och avancerade till %@.";
-"league.weekly_result.body.stayed" = "Du avslutade #%d och är kvar i %@.";
-"league.weekly_result.body.demotion" = "Du avslutade #%d och flyttar ner till %@.";
+"league.weekly_result.body.promotion" = "Du kom på plats %d och gick upp till %@.";
+"league.weekly_result.body.stayed" = "Du kom på plats %d och stannar i %@.";
+"league.weekly_result.body.demotion" = "Du kom på plats %d och flyttas ned till %@.";
 "league.weekly_result.body.top3" = "Du slutade bland topp 3 den här veckan.";
 "league.weekly_result.label.rank" = "Plats";
 "league.weekly_result.label.new_league" = "Ny liga";
-"league.weekly_result.label.reward" = "Belöna";
+"league.weekly_result.label.reward" = "Belöning";
 "league.weekly_result.label.week" = "Veckans resultat";
 "league.weekly_result.cta.view" = "Visa resultat";
 "league.weekly_result.cta.ok" = "OK";
-"league.weekly_result.cta.claim" = "Krav";
+"league.weekly_result.cta.claim" = "Hämta";
 
 "league.weekly_result.promotion.tagline" = "🔥 Ny nivå!";
 "league.weekly_result.promotion.title" = "🚀 Du är i %@!";
@@ -1345,9 +1345,9 @@
 "league.weekly_result.stayed.cta" = "Vidare →";
 "home.league_banner.title" = "Ligaveckan avslutad";
 "home.league_banner.body.win" = "Du slutade #%d och vann ligan.";
-"home.league_banner.body.promotion" = "Du avslutade #%d och avancerade till %@.";
-"home.league_banner.body.stayed" = "Du avslutade #%d och stannade i %@.";
-"home.league_banner.body.demotion" = "Du avslutade #%d och flyttade ner till %@.";
+"home.league_banner.body.promotion" = "Du kom på plats %d och gick upp till %@.";
+"home.league_banner.body.stayed" = "Du kom på plats %d och stannade i %@.";
+"home.league_banner.body.demotion" = "Du kom på plats %d och flyttades ned till %@.";
 "home.league_banner.cta" = "Visa resultat";
 /* Home layout (variant 2 / A-B) */
 "home.layout.section" = "Startskärm";
@@ -1366,8 +1366,8 @@
 "home.next_goal.title" = "Nästa mål";
 "home.quick_modes.title" = "Snabbspel";
 "home.social.title" = "Vänner";
-"home.social.friend_streak_fmt" = "%@ — %lld dagars streak";
-"home.social.catch_today" = "Ta dem idag!";
+"home.social.friend_streak_fmt" = "%@ — %lld dagars svit";
+"home.social.catch_today" = "Kom ikapp idag!";
 
 "home.goal.xp_left_fmt" = "%d XP kvar";
 "home.daily.title" = "Daglig belöning";
@@ -1379,20 +1379,20 @@
 "home.streak_nudge.friend_title" = "%@ har en svit på %d dagar";
 "home.streak_nudge.friend_sub" = "Du: %d dagar";
 "home.streak_nudge.play" = "Spela";
-"home.streak_nudge.catch_up" = "Hinna ikapp";
+"home.streak_nudge.catch_up" = "Kom ikapp";
 "home.hero.play_bonus" = "+1 F-Bucks om du spelar nu";
 "home.hero.streak_continue_fmt" = "Håll sviten — %d/%d";
 "home.hero.almost_perfect" = "Perfekta spel — nästan!";
 "home.hero.daily_ready" = "Daglig +1 F-Bucks är redo";
-"home.hero.catch_friend_fmt" = "Hinna %@ — svit %d dagar";
+"home.hero.catch_friend_fmt" = "Kom ikapp %@ — %d dagars svit";
 "home.earn.section" = "Idag";
 "home.earn.perfect.almost" = "Nästan klart — avsluta";
-"home.earn.perfect.start" = "Börja nu — lås in";
+"home.earn.perfect.start" = "Börja nu — säkra resultatet";
 "home.earn.perfect.going" = "Avsluta starkt idag";
 "home.earn.streak.almost" = "Förlora den inte nu";
 "home.earn.streak.start" = "Spela nu eller förlora den";
 "home.earn.streak.going" = "Spela nu eller förlora den";
-"home.earn.league.hint" = "Kämpa om top 3";
+"home.earn.league.hint" = "Kämpa om topp 3";
 "home.earn.league.almost" = "Du är nära";
 "home.earn.done" = "Klart!";
 "home.daily.subtitle.claim" = "+1 F-Bucks tillgängligt idag";
@@ -1407,13 +1407,13 @@
 "home.pride.streak_line_one" = "Svit: 1 dag";
 "home.pride.streak_line_fmt" = "Svit: %d dagar";
 "home.pride.rank_line_fmt" = "Plats: nr %d denna vecka";
-"home.pride.top10_hint" = "Fortsätt mot top 10";
+"home.pride.top10_hint" = "Fortsätt mot topp 10";
 "home.pride.rank_headline_fmt" = "Du är nr %d denna veckan";
 "home.hero.headline.streak_alive" = "Håll sviten vid liv";
 "home.hero.headline.perfect_push" = "Perfekta spel — nästan";
 "home.hero.headline.daily_up" = "Daglig bonus klar";
 "home.hero.headline.keep_playing" = "Din nästa match räknas";
-"home.hero.headline.friend" = "Hinna %@";
+"home.hero.headline.friend" = "Kom ikapp %@";
 "home.hero.detail.streak_fmt" = "%d/%d dagar";
 "home.hero.detail.perfect_fmt" = "%d/%d perfekta";
 "home.hero.detail.day_fmt" = "Dag %d i rad";
@@ -1425,26 +1425,28 @@
 "home.sticky.hook.reward" = "+1 belöning om du spelar nu";
 "home.sticky.hook.streak" = "Fortsätt din svit";
 "home.sticky.hook.play" = "Din nästa match räknas";
-"home.pride.gap_top10_fmt" = "Bara %d platser kvar till top 10";
-"home.pride.close_top10_short" = "Du är nära top 10 🔥";
+"home.pride.gap_top10_fmt" = "Bara %d platser kvar till topp 10";
+"home.pride.close_top10_short" = "Du är nära topp 10 🔥";
 "home.pride.streak_full_one" = "Svit: 1 dag — fortsätt";
-"home.pride.streak_full_fmt" = "Svit: %d dagar — fortsätt";"home.pride.streak_full_fmt" = "Svit: %d dagar — fortsätt";"coins" = "mynt";
+"home.pride.streak_full_fmt" = "Svit: %d dagar — fortsätt";
+"home.pride.streak_full_fmt" = "Svit: %d dagar — fortsätt";
+"coins" = "mynt";
 /* League motivation messages */
 "league_motivation_win_01" = "Du var bland de bästa den här veckan. Bra jobbat – håll takten nu.";
 "league_motivation_win_02" = "Topp 3 är ingen tillfällighet. Det är resultatet av konsekvent spel och bra fokus.";
 "league_motivation_win_03" = "Stark vecka. Fortsätt pressa i samma takt — nästa liga väntar.";
-"league_motivation_promotion_01" = "Marknadsföring betyder att du växer. Nästa liga kommer att bli tuffare, men du är redo.";
+"league_motivation_promotion_01" = "Uppflyttningen visar att du utvecklas. Nästa liga blir tuffare, men du är redo.";
 "league_motivation_promotion_02" = "Du tog ett steg upp. Nu är målet inte bara att komma högre, utan att stanna där.";
 "league_motivation_stayed_01" = "Du höll din position. En solid bas – förvandla nu stabilitet till tillväxt.";
-"league_motivation_stayed_02" = "En vecka utan bakslag är redan ett resultat. Nästa steg: nå kampanjzonen.";
-"league_motivation_demotion_01" = "Inte den bästa veckan – det händer. Det viktigaste är att inte sluta: du kan ta nästa starkare.";
-"league_motivation_demotion_02" = "Degradering är inte slutet. Det är en återställningspunkt, varefter bättre körningar ofta följer.";
+"league_motivation_stayed_02" = "En vecka utan bakslag är också ett resultat. Nästa steg: nå uppflyttningszonen.";
+"league_motivation_demotion_01" = "Inte din bästa vecka — sådant händer. Fortsätt spela så kan nästa vecka bli bättre.";
+"league_motivation_demotion_02" = "En nedflyttning är inte slutet. Se den som en nystart på vägen mot bättre resultat.";
 "league_motivation_general_01" = "Varje vecka är en ny chans att stiga högre. Fortsätt – framstegen ökar.";
 
 /* Onboarding (hook → reward → loop) */
 
 "onboarding_hook_title" = "Känner du igen den här flaggan?";
-"onboarding_hook_subtitle" = "De flesta går fel här";
+"onboarding_hook_subtitle" = "De flesta svarar fel på den här";
 "onboarding_reward_correct" = "Rätt! 🎉";
 "onboarding_reward_almost" = "Nära — det är %@";
 "onboarding_reward_plus_one" = "+1 belöning";
@@ -1459,7 +1461,7 @@
 "onboarding_switch_language_hint" = "Byt till %@?";
 /* Avatar constructor (AvatarEditorView) */
 "avatar_editor_edit_avatar" = "Redigera Avatar";
-"avatar_editor_done" = "Gjort";
+"avatar_editor_done" = "Klar";
 "avatar_editor_discard_title" = "Vill du ignorera ändringar?";
 "avatar_editor_discard_action" = "Kassera";
 "avatar_editor_continue_editing" = "Fortsätt redigera";
@@ -1471,11 +1473,11 @@
 "avatar_editor_main_hair_color" = "Hårfärg";
 "avatar_editor_hairstyle" = "Frisyr";
 "avatar_editor_glasses" = "Glasögon";
-"avatar_editor_glasses_color" = "Glasögon färg";
+"avatar_editor_glasses_color" = "Glasögonfärg";
 "avatar_editor_facial_hair" = "Ansiktshår";
 "avatar_editor_facial_hair_color" = "Ansiktshårfärg";
 "avatar_editor_headwear" = "Huvudbonader";
-"avatar_editor_headwear_color" = "Huvudbonads färg";
+"avatar_editor_headwear_color" = "Huvudbonadens färg";
 "avatar_editor_clothing_color" = "Klädfärg";
 "avatar_editor_clothing_style" = "Klädstil";
 "avatar_editor_background_color" = "Bakgrundsfärg";
@@ -1484,58 +1486,58 @@
 "avatar_editor_square" = "Fyrkant";
 "avatar_editor_sunglasses" = "Solglasögon";
 "avatar_editor_slim" = "Smal (glasögon)";
-"avatar_editor_cap" = "Lock";
+"avatar_editor_cap" = "Keps";
 "avatar_editor_beanie" = "Mössa";
 "avatar_editor_bandana" = "Bandana";
-"avatar_editor_sport_cap" = "Sportmössa";
-"avatar_editor_hat_SilverLeague" = "Silver League";
-"avatar_editor_hat_10_day_streak" = "10 dagar lång rad";
+"avatar_editor_sport_cap" = "Sportkeps";
+"avatar_editor_hat_SilverLeague" = "Silverligan";
+"avatar_editor_hat_10_day_streak" = "10 dagars svit";
 "avatar_editor_hat_beginner" = "Nybörjare";
-"avatar_editor_hat_Premium" = "Premie";
+"avatar_editor_hat_Premium" = "Premium";
 "avatar_editor_editor_section_coming_soon" = "Det här avsnittet är inte tillgängligt för tillfället – kommer tillbaka snart.";
 "avatar_editor_lock_item_title" = "Låst";
 "avatar_editor_lock_item_ok" = "OK";
-"avatar_editor_lock_headwear_premium_body" = "Denna huvudbonad låser upp med Premium. Prenumerera på Premium i appinställningarna.";
+"avatar_editor_lock_headwear_premium_body" = "Den här huvudbonaden låses upp med Premium. Skaffa Premium i appinställningarna.";
 "avatar_editor_lock_headwear_shop_body" = "Du kommer att kunna få den här artikeln i anpassningsbutiken - kommer snart.";
 "avatar_editor_lock_headwear_generic_body" = "Det här objektet är inte tillgängligt ännu.";
 "avatar_editor_opt_slim" = "Smal";
-"avatar_editor_opt_regular" = "Regelbunden";
+"avatar_editor_opt_regular" = "Normal";
 "avatar_editor_opt_hoodie" = "Huvtröja";
 "avatar_editor_opt_tshirt" = "T-shirt";
 "avatar_editor_opt_sweater" = "Tröja";
 "avatar_editor_opt_wide" = "Bred";
 "avatar_editor_opt_bald" = "Skallig";
-"avatar_editor_opt_side_part" = "Sidodel";
+"avatar_editor_opt_side_part" = "Sidbena";
 "avatar_editor_opt_short" = "Kort";
-"avatar_editor_opt_curl" = "Ringla";
+"avatar_editor_opt_curl" = "Lockigt";
 "avatar_editor_opt_modern" = "Modern";
-"avatar_editor_opt_buzz" = "Surr";
+"avatar_editor_opt_buzz" = "Snaggat";
 "avatar_editor_opt_hair_waves" = "Vågor";
 "avatar_editor_opt_hair_spiky" = "Taggig";
-"avatar_editor_opt_hair_slick" = "Smart";
+"avatar_editor_opt_hair_slick" = "Bakåtkammat";
 "avatar_editor_opt_hair_pompadour" = "Pompadour";
 "avatar_editor_opt_moustache" = "Mustasch";
-"avatar_editor_opt_trimmed" = "Trimmas";
+"avatar_editor_opt_trimmed" = "Trimmat";
 "avatar_editor_opt_goatee" = "Pipskägg";
 "avatar_editor_opt_beard_full" = "Helskägg";
-"avatar_editor_opt_beard_light" = "Ljus skägg";
+"avatar_editor_opt_beard_light" = "Skäggstubb";
 "avatar_editor_opt_beard_bushy" = "Buskigt skägg";
 "avatar_editor_opt_jacket" = "Jacka";
 
 "monthly_quest_mission_title" = "Uppdrag %@";
-"Friend profile progress title" = "STREAK AND PROGRESS";
-"Friend achievements placeholder" = "Friend achievements are shown as they are unlocked";
+"Friend profile progress title" = "SVIT OCH FRAMSTEG";
+"Friend achievements placeholder" = "Din väns prestationer visas när de låses upp";
 
 "Answer as many flags as possible before time runs out" = "Svara på så många flaggor du kan innan tiden tar slut";
 "Duration" = "Längd";
-"Best score" = "Best score";
+"Best score" = "Bästa resultat";
 "Wrong answer penalty" = "Straff vid fel svar";
 "5 correct in a row bonus" = "Bonus för 5 rätt i rad";
 "Best combo" = "Bästa serie";
 "New record!" = "Nytt rekord!";
 "Day leaderboard place" = "Placering dagens topplista";
 "Week leaderboard place" = "Placering veckans topplista";
-"Back to Modes" = "Back to Modes";
+"Back to Modes" = "Tillbaka till spellägen";
 "Start" = "Starta";
 "TC correct answers headline" = "%d rätt";
 "Difficulty description TC" = "%1$d%2$@ per runda • +%3$d%2$@ per 5 rätt i rad • −%4$d%2$@ per fel";
@@ -1546,11 +1548,11 @@
 "TC intro combo5 bonus title" = "Combo 5 rätt i rad";
 "TC detail time penalty fmt" = "Timer: −%1$d %2$@ (fel)";
 "TC detail time combo fmt" = "Timer: +%1$d %2$@ (5 rätt i rad)";
-"TC detail points earned" = "Points for this answer: +%d";
-"TC detail xp earned" = "XP for this answer: +%d";
-"TC detail time penalty" = "Timer: −10 s (wrong answer)";
-"TC detail time combo bonus" = "Timer: +10 s (5 correct in a row)";
-"Share TC headline" = "Time Challenge: %d correct out of %d";
+"TC detail points earned" = "Poäng för det här svaret: +%d";
+"TC detail xp earned" = "XP för det här svaret: +%d";
+"TC detail time penalty" = "Tid: −10 s (fel svar)";
+"TC detail time combo bonus" = "Tid: +10 s (5 rätta svar i rad)";
+"Share TC headline" = "Tidsutmaning: %d rätt av %d";
 
 "Time seconds unit short" = "s";
 "TC stat best combo" = "Bästa serie";
@@ -1558,7 +1560,7 @@
 "Time intro duration seconds fmt" = "%1$d%2$@";
 "Time intro penalty seconds fmt" = "−%1$d%2$@";
 "Time intro bonus seconds fmt" = "+%1$d%2$@";
-"Share Survival headline" = "Survival: %d flaggor överlevda • %d rätt • max nivå %d";
+"Share Survival headline" = "Överlevnad: %d flaggor avklarade • %d rätt • högsta nivå %d";
 "Survival mode short description" = "Begränsade liv, stigande svårighet — hur långt klarar du?";
 "Survival difficulty blurb fmt" = "Liv per omgång • stigande nivåer • +1 liv per 10 rätt i rad";
 "Survival depth header" = "Djup";
@@ -1575,15 +1577,15 @@
 "Survival intro lives title" = "Startliv";
 "Survival intro best depth title" = "Bästa djup";
 "Survival intro choices title" = "Val";
-"Survival intro timer title" = "Timers";
+"Survival intro timer title" = "Tidtagare";
 "Survival intro timer value" = "Som i Klassiskt";
-"Survival weekly title" = "Veckoutmaning Survival";
+"Survival weekly title" = "Veckoutmaning i Överlevnad";
 "Survival weekly target fmt" = "Överlev %d flaggor i en omgång den här veckan.";
 "Survival weekly best fmt" = "Ditt bästa den här veckan: %d flaggor";
-"Survival weekly all milestones met body" = "You've reached every weekly depth goal — up to 200 flags in one run. Brilliant!";
-"Survival weekly reward all claimed" = "All weekly survival bonuses claimed (up to +4000 XP).";
+"Survival weekly all milestones met body" = "Du har nått alla veckomål, ända upp till 200 flaggor i en omgång. Strålande!";
+"Survival weekly reward all claimed" = "Alla veckobonusar i överlevnadsläget har hämtats (upp till +4000 XP).";
 "Survival weekly reward claimed" = "Veckobonus hämtad (+1000 XP)";
-"Survival weekly reward hint" = "Each milestone — 25, 50, 100, then 200 flags in one run — gives +1000 XP once per week.";
+"Survival weekly reward hint" = "Varje milstolpe — 25, 50, 100 och 200 flaggor i en omgång — ger +1000 XP en gång i veckan.";
 
 "Survival result depth progress fmt" = "%1$d / %2$d";
 
@@ -1594,32 +1596,32 @@
 "1 hour" = "1 timme";
 
 
-"Duel announcement subtitle" = "Same duel for both players. First to score wins!";
-"User 1" = "User 1";
-"User 2" = "User 2";
-"Number of Questions" = "Questions";
+"Duel announcement subtitle" = "Båda spelarna får samma frågor. Högst poäng vinner; vid lika poäng vinner den snabbaste spelaren.";
+"User 1" = "Spelare 1";
+"User 2" = "Spelare 2";
+"Number of Questions" = "Frågor";
 
 
 /* F-Bucks screen */
-"fbucks.close" = "Nära";
+"fbucks.close" = "Stäng";
 "fbucks.currency.name" = "F-Bucks";
 "fbucks.hero.subtitle.enough" = "Tillräckligt för ungefär %d föremål";
 "fbucks.hero.subtitle.rare" = "Du kan köpa en sällsynt vara";
 "fbucks.hero.subtitle.save" = "Fortsätt spara till något speciellt";
 "fbucks.daily.title" = "Daglig bonus";
 "fbucks.daily.subtitle" = "+1 F-Bucks";
-"fbucks.daily.claim" = "Krav";
-"fbucks.daily.claimed" = "Gjorde anspråk idag";
-"fbucks.daily.hint" = "+1 tillgängligt idag – tryck på Gör anspråk";
+"fbucks.daily.claim" = "Hämta";
+"fbucks.daily.claimed" = "Redan hämtad idag";
+"fbucks.daily.hint" = "+1 tillgängligt idag — tryck på Hämta";
 "fbucks.earn.today.title" = "Tjäna idag";
 "fbucks.earn.today.subtitle" = "Upp till %d F-Bucks möjligt idag";
 "fbucks.earn.perfect.title" = "Perfekt spel";
-"fbucks.earn.perfect.sub" = "+1 för 10/10 eller 15/15";
-"fbucks.earn.streak" = "Strimma";
-"fbucks.earn.streak.sub" = "Serie (%d/10 dagar)";
+"fbucks.earn.perfect.sub" = "+1 för ett felfritt spel som ger belöning";
+"fbucks.earn.streak" = "Daglig svit";
+"fbucks.earn.streak.sub" = "Svit (%d/10 dagar)";
 "fbucks.earn.league" = "Veckans topp";
 "fbucks.earn.league.sub" = "Sluta i topp 3 i din liga";
-"fbucks.progress.title" = "Gå vidare till nästa punkt";
+"fbucks.progress.title" = "Framsteg mot nästa föremål";
 "fbucks.progress.percent" = "%d%%";
 "fbucks.progress.full" = "Du har råd med nästa belöningar — öppna butiken!";
 "fbucks.want.title" = "Nästa mål";
@@ -1628,47 +1630,47 @@
 "fbucks.want.need" = "Behöver %d till";
 "fbucks.earn_more" = "Tjäna mer →";
 "fbucks.buy_for" = "Köp för %d";
-"fbucks.shop.title" = "Handla";
+"fbucks.shop.title" = "Butik";
 "fbucks.shop.subtitle" = "Spendera F-Bucks på exklusiva avatarobjekt";
-"fbucks.shop.tier.common" = "Gemensam";
+"fbucks.shop.tier.common" = "Vanlig";
 "fbucks.shop.tier.rare" = "Sällsynt";
 "fbucks.shop.tier.legendary" = "Legendarisk";
 "fbucks.shop.limited" = "BEGRÄNSAD";
 "fbucks.perfect.badge" = "Perfekt";
 "fbucks.tab.today" = "I dag";
 "fbucks.tab.about" = "Om";
-"fbucks.tab.history" = "Historia";
-"fbucks.tab.shop" = "Handla";
+"fbucks.tab.history" = "Historik";
+"fbucks.tab.shop" = "Butik";
 "fbucks.about.title" = "Vad är F-Bucks?";
-"fbucks.about.body" = "F-Bucks (Flags Bucks) är valuta i spelet som du tjänar genom att spela World Arena Flags. Spendera dem på unika avatarbitar, skinn och andra exklusiva föremål.";
+"fbucks.about.body" = "F-Bucks (Flags Bucks) är spelvalutan som du tjänar genom att spela World Arena Flags. Köp unika avatartillbehör, utseenden och andra exklusiva föremål för dem.";
 "fbucks.about.how" = "Hur man tjänar F-Bucks";
 "fbucks.about.perfect.title" = "Perfekt spel";
-"fbucks.about.perfect.desc" = "Få ett perfekt resultat (10/10 eller 15/15)";
-"fbucks.about.streak10.title" = "10 dagar lång rad";
+"fbucks.about.perfect.desc" = "Svara rätt på alla frågor i ett spel som ger belöning";
+"fbucks.about.streak10.title" = "10 dagars svit";
 "fbucks.about.streak10.desc" = "Spela 10 dagar i rad";
-"fbucks.about.streak20.title" = "20 dagar lång rad";
+"fbucks.about.streak20.title" = "20 dagars svit";
 "fbucks.about.streak20.desc" = "Spela 20 dagar i rad";
-"fbucks.about.streak50.title" = "50 dagar lång rad";
+"fbucks.about.streak50.title" = "50 dagars svit";
 "fbucks.about.streak50.desc" = "Spela 50 dagar i rad";
-"fbucks.about.streak100.title" = "100 dagar lång rad";
+"fbucks.about.streak100.title" = "100 dagars svit";
 "fbucks.about.streak100.desc" = "Spela 100 dagar i rad";
 "fbucks.reward.plus1" = "+1 F-Bucks";
-"fbucks.reward.plus2" = "+2 F-bucks";
-"fbucks.reward.plus5" = "+5 F-bucks";
-"fbucks.reward.plus10" = "+10 F-bucks";
+"fbucks.reward.plus2" = "+2 F-Bucks";
+"fbucks.reward.plus5" = "+5 F-Bucks";
+"fbucks.reward.plus10" = "+10 F-Bucks";
 "fbucks.history.title" = "Transaktionshistorik";
-"fbucks.history.empty" = "Ingen historia än";
+"fbucks.history.empty" = "Inga transaktioner ännu";
 "fbucks.history.empty.hint" = "Spela och tjäna F-Bucks!";
 "fbucks.item.traveler_cap" = "Resenärsmössa";
-"fbucks.item.champion_shirt" = "Champion tee";
+"fbucks.item.champion_shirt" = "Mästartröja";
 "fbucks.item.socks" = "Strumpor";
-"fbucks.item.rainbow_skin" = "Regnbågsskinn";
-"fbucks.item.gold_skin" = "Guld hud";
-"fbucks.item.explorer_jacket" = "Explorer jacka";
+"fbucks.item.rainbow_skin" = "Regnbågsutseende";
+"fbucks.item.gold_skin" = "Guldutseende";
+"fbucks.item.explorer_jacket" = "Upptäckarjacka";
 "fbucks.item.fire_effect" = "Eldeffekt";
-"fbucks.item.neon_skin" = "Neon hud";
+"fbucks.item.neon_skin" = "Neonutseende";
 "fbucks.item.stars_effect" = "Stjärneffekt";
-"fbucks.item.champion_jacket" = "Champion jacka";
+"fbucks.item.champion_jacket" = "Mästarjacka";
 "fbucks.tx.daily_bonus" = "Daglig bonus";
 "friends.remind.status_sent" = "Påminnelse skickad!";
 
@@ -1700,7 +1702,7 @@
 "learning.status.favorite_short" = "Favorit";
 "learning.country.train_cta" = "Lägg till i nästa spel";
 "learning.country.playlist_status_added" = "Land tillagt";
-"learning.country.playlist_play_cta" = "Spela med kön";
+"learning.country.playlist_play_cta" = "Spela med valda länder";
 "learning.country.playlist_added" = "Tillagt i nästa spel";
 "learning.country.playlist_duplicate" = "Redan i kön";
 "learning.country.playlist_queue_fmt" = "%d länder i kön";
@@ -1861,3 +1863,110 @@
 "achievement.friends_10.title" = "Vänner över hela världen";
 "achievement.friends_10.body" = "Lägg till 10 vänner";
 "inbox.duelTimeUnavailable" = "Tiden för denna duell sparades inte.";
+
+/* Notification event localization */
+"inbox.progressCTA" = "Visa mina framsteg";
+"inbox.rank" = "Din placering";
+"inbox.leagueStory" = "Varje spel har bidragit till det här resultatet. Fira veckan, se din ligaplacering och välj nästa mål. En ny vecka ger en ny chans att förbättra ditt resultat.";
+"inbox.levelStory" = "Den här nivån speglar kunskapen du har byggt upp, en flagga i taget. Dina erfarenhetspoäng sparas i profilen. Prova en högre svårighetsgrad eller en annan region för att fortsätta upptäcka nytt.";
+"inbox.achievementStory" = "En ny milstolpe förtjänar en plats i din samling. Öppna dina prestationer och se vad du har låst upp och hur nära nästa belöning du är. Fortsätt upptäcka i din egen takt.";
+"inbox.duelStory" = "En duell är en chans att testa era kunskaper tillsammans. Öppna duellresultaten för att se poängen och aktuell status. Avslutade spel sparas i historiken så att du kan återvända till dem senare.";
+"inbox.messageStory" = "Du kan när som helst öppna meddelandet igen i aviseringshistoriken. Det tas inte bort när du läser det.";
+"friends.requests.title" = "Vänförfrågningar";
+"friends.requests.body" = "Har lagt till dig som vän. Vill du lägga till personen också?";
+"notification.nudge.title" = "%@ påminner dig";
+"nudge_phrase_16" = "Du har inte slutfört din dagliga flagglektion ännu!";
+
+/* Friend notification actions */
+"friends.requests.accept" = "Lägg till som vän";
+"friends.requests.decline" = "Avböj";
+"friends.requests.done" = "Klart";
+"friends.requests.empty" = "Inga nya vänförfrågningar";
+"friends.requests.error" = "Åtgärden kunde inte slutföras. Försök igen.";
+"friends.requests.signin" = "Logga in för att se och besvara vänförfrågningar.";
+
+/* Complete app catalog: missing interface translations, October 2026. */
+"Check your internet connection" = "Kontrollera din internetanslutning och försök igen.";
+"appIcon.automatic" = "Anpassa automatiskt efter appens språk";
+"appIcon.choose" = "Välj en ikon";
+"appIcon.suggestion" = "En ikon på ditt språk";
+"coins" = "mynt";
+"duel.error.notYours" = "Den här utmaningen tillhör en annan spelare. Kontrollera kontot du är inloggad på.";
+"education.fbucks.body" = "Det här är din spelvaluta. Tjäna den genom att spela och slutföra uppdrag, och använd den till avatarföremål och skydd för din dagliga svit.";
+"education.fbucks.done" = "Förstår";
+"education.fbucks.shop" = "Se butik";
+"education.fbucks.title" = "Du tjänade F-Bucks!";
+"facts.area" = "Yta";
+"facts.capital" = "Huvudstad";
+"facts.explanation" = "Välj vad som ska visas på baksidan av landskortet efter att du har svarat.";
+"facts.map" = "Karta";
+"facts.population" = "Befolkning";
+"facts.region" = "Region och delregion";
+"facts.settings" = "Landfakta";
+"fbucks.tx.streak_restore" = "Återställning av sviten";
+"friends.duels.with_you" = "Dueller med dig";
+"guide.back" = "Tillbaka";
+"guide.done" = "Låt oss spela";
+"guide.fbucks.body" = "Tjäna F-Bucks genom att spela och slutföra uppdrag. Tryck på saldot för att se belöningar, avatarföremål och svitfrysningar.";
+"guide.fbucks.title" = "Möt F-Bucks";
+"guide.friends.body" = "Lägg till vänner via deras profil eller vänkod. Öppna deras profil för att utmana dem på en duell. Inbjudningar visas under ”Utmaningar”. Du kan acceptera eller avvisa vänförfrågningar.";
+"guide.friends.title" = "Spela med vänner";
+"guide.next" = "Nästa";
+"guide.play.body" = "Tryck på ”Spela” för att starta ett spel.";
+"guide.play.title" = "Ditt nästa spel";
+"guide.replay" = "Appguide";
+"guide.settings.body" = "Tryck här för att välja region, svårighetsgrad och spelläge.";
+"guide.settings.title" = "Gör det till ditt spel";
+"guide.skip" = "Hoppa över";
+"guide.streak.body" = "Tryck på din svit för att se kalendern, dagarna du har spelat och dina svitfrysningar.";
+"guide.streak.title" = "Varje dag räknas";
+"learning.anthem.excerpt" = "Originaltext · utdrag";
+"learning.anthem.full_lyrics_source" = "Fullständig text och historia";
+"learning.anthem.recording_source" = "Inspelning och källa ↗";
+"learning.anthem.shared_fmt" = "Samma nationalsång används även här: %@. Den regionala sången kan skilja sig åt.";
+"learning.anthem.unavailable" = "Nationalsången kunde inte laddas. Kontrollera anslutningen och tryck på uppspelningsknappen för att försöka igen.";
+"learning.country.discover" = "En närmare titt";
+"premium.benefit.anthems.body" = "Lyssna på tillgängliga inspelningar av nationalsånger och upptäck deras historia och betydelse.";
+"premium.benefit.anthems.title" = "Nationalsånger";
+"premium.benefit.avatar.body" = "Bär Premium-huvudbonaden så länge din prenumeration är aktiv.";
+"premium.benefit.avatar.title" = "Premium-tillbehör för din avatar";
+"premium.benefit.countries.body" = "Utforska huvudstäder, folkmängd, yta, språk, valutor och intressanta fakta om länder.";
+"premium.benefit.countries.title" = "Detaljerade landbilder";
+"premium.benefit.erudite.body" = "Lås upp den högsta svårigheten för en större utmaning.";
+"premium.benefit.erudite.title" = "Svårighetsgrad Lärd";
+"premium.benefit.learning.body" = "Bläddra bland länder och kontinenter i din egen takt mellan spelen.";
+"premium.benefit.learning.title" = "Studiebibliotek";
+"premium.benefit.lives.body" = "Spela Klassisk och Tidsutmaning utan att vänta på att dina liv fylls på. Överlevnad har fortfarande sina egna regler.";
+"premium.benefit.lives.title" = "Obegränsade hjärtan";
+"premium.benefit.map.body" = "Se dina framsteg efter land och kontinent, och hitta flaggor att öva på.";
+"premium.benefit.map.title" = "Världskarta över dina framsteg";
+"premium.benefit.mistakes.body" = "Spela med flaggor som du tidigare svarat felaktigt på.";
+"premium.benefit.mistakes.title" = "Lär av dina misstag";
+"premium.benefit.weekly.body" = "Du får automatiskt en belöning för varje hel period om 7 dagar med Premium, räknat från att bonusen aktiveras. Intjänade belöningar synkroniseras när du öppnar appen.";
+"premium.benefit.weekly.title" = "10 F-Bucks varje vecka";
+"premium.details.collapsed" = "Hopfällt";
+"premium.details.expanded" = "Utfällt";
+"premium.family.body" = "Dela Premium via Apples Familjedelning i en grupp med upp till 6 personer, inklusive dig själv. Aktivera delning av prenumerationen i dina familjeinställningar hos Apple. Varje spelare behåller sina egna framsteg.";
+"premium.family.title" = "Ett abonnemang för din familj";
+"premium.story.countries.body" = "Utforska information om länder, huvudstäder, valutor och inspelningar av nationalsånger. Koppla varje flagga till landet den representerar.";
+"premium.story.countries.title" = "Ge varje flagga en historia.";
+"premium.story.enlarge" = "Förstora exempelskärmen";
+"premium.story.example" = "Exempelskärm · Engelska";
+"premium.story.headline" = "Lär dig flaggorna. Kom ihåg världen.";
+"premium.story.intro" = "Få varje session att räknas: träna svåra flaggor, förstå länderna bakom dem och se vad du ska lära dig härnäst.";
+"premium.story.map.body" = "Din framstegskarta visar vilka flaggor du kan väl och vilka du behöver öva mer på, så att du kan välja nästa övning.";
+"premium.story.map.title" = "Upptäck vad du kan lära dig härnäst.";
+"premium.story.practice.body" = "Fortsätt öva utan att vänta på att dina liv fylls på. I ”Mina misstag” kan du fokusera på flaggorna du behöver repetera.";
+"premium.story.practice.title" = "Mer övning. Färre luckor.";
+"premium.story.progress.body" = "Förvandla regelbunden träning till synliga resultat. Granska din noggrannhet och korrekta svar, använd sedan Premium världskartan för att välja vad du ska öva härnäst.";
+"premium.story.progress.title" = "Se dina framsteg";
+"premium.weekly.history" = "Veckobonus med Premium";
+"premium.weekly.next" = "Nästa veckobonus: %@";
+"ranking.motivational.explanation" = "Framstegsbaserade positioner bland virtuella motståndare.";
+"ranking.motivational.title" = "Motiverande ranking";
+"streak.recovery.body_fmt" = "Du hade en svit på %1$d dagar. Återställ den för %2$d F-Bucks eller spela en omgång till gratis.";
+"streak.recovery.later_btn" = "Inte nu";
+"streak.recovery.pay_btn_fmt" = "Återställ · %d";
+"streak.recovery.play_btn" = "Spela för att återställa";
+"streak.recovery.title" = "Den dagliga sviten bröts";
+"Не удалось добавить в друзья. Попробуйте позже." = "Det gick inte att lägga till den här vännen. Försök igen.";

@@ -76,7 +76,8 @@ struct FriendRequestsView: View {
     @State private var showAuth = false
     @ObservedObject private var inbox = FriendRequestsInbox.shared
     @Environment(\.dismiss) private var dismiss
-    private func text(_ key: String) -> String { LocalizationManager.shared.localizedString(key) }
+    @ObservedObject private var language = LocalizationManager.shared
+    private func text(_ key: String) -> String { language.localizedString(key) }
     var body: some View {
         NavigationView {
             ScrollView {

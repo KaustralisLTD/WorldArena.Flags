@@ -17,11 +17,11 @@
 /* Achievements */
 "Достижения" = "Achievements";
 "Достижение" = "Achievement";
-"ЛИЧНЫЕ РЕКОРДЫ" = "PERSONAL BESTS";
+"ЛИЧНЫЕ РЕКОРДЫ" = "Personal Records";
 "НАГРАДЫ" = "AWARDS";
 "Лучшая серия" = "Best Streak";
 "Макс. лига" = "Max League";
-"Макс. XP" = "Max XP";
+"Макс. XP" = "Most XP";
 "Открыто" = "Unlocked";
 
 /* Profile */
@@ -119,7 +119,7 @@
 "2x XP for 10 min!" = "2x XP for 10 min!";
 "3x XP for 15 min!" = "3x XP for 15 min!";
 "Подарок за квесты" = "Daily quest gift";
-"Share Message" = "I scored %d points in World Flags game! 🎮🌍\nDownload and try to beat my score!";
+"Share Message" = "I scored %d points in World Arena Flags! 🎮🌍\nDownload the game and try to beat my score!";
 "Statistics Share Promo" = "I'm playing World Arena Flags — learn world flags, duel friends, and climb leagues! 🎮🌍\nMy stats: Best score %d, Accuracy %.1f%%, %d games played.\nWant to learn flags and test your skills? Join our community!\n%@";
 
 // Post-Game Flow
@@ -138,7 +138,7 @@
 "Incredible streak! You're on fire!" = "Incredible streak! You're on fire!";
 "Great job! Keep the momentum going!" = "Great job! Keep the momentum going!";
 "Nice start! Build your streak day by day!" = "Nice start! Build your streak day by day!";
-"Your Friend Streaks" = "Your Friend Streaks";
+"Your Friend Streaks" = "Your Friends’ Streaks";
 "See how your friends are doing" = "See how your friends are doing";
 "No friends yet" = "No friends yet";
 "Add friends to see their streaks and compete together!" = "Add friends to see their streaks and compete together!";
@@ -189,15 +189,15 @@
 "Цветов на флагах" = "Colors on Flags";
 "Самый популярный цвет" = "Most Popular Color";
 "Красный" = "Red";
-"Флагов с крестом" = "Flags with Cross";
+"Флагов с крестом" = "Flags with Crosses";
 "Интересные факты" = "Interesting Facts";
 "Interesting facts study slides" = "Study with slides";
 "Interesting facts back to list" = "Back to list";
-"Самый старый флаг" = "Oldest Flag";
-"Флаг Дании используется с 1219 года" = "Denmark's flag has been used since 1219";
-"Единственный квадратный флаг" = "Only Square Flag";
-"У Швейцарии единственный квадратный флаг в мире" = "Switzerland has the world's only square flag";
-"Самый сложный флаг" = "Most Complex Flag";
+"Самый старый флаг" = "A flag with a legend";
+"Флаг Дании используется с 1219 года" = "Legend links the Danish flag to a battle in 1219.";
+"Единственный квадратный флаг" = "Square national flags";
+"У Швейцарии единственный квадратный флаг в мире" = "Switzerland and Vatican City both have square national flags.";
+"Самый сложный флаг" = "A flag with a dragon";
 "У Бутана на флаге изображен дракон" = "Bhutan's flag features a dragon";
 "Go Premium" = "Go Premium";
 "Мой профиль в World Arena Flags" = "My World Arena Flags profile";
@@ -283,7 +283,7 @@
 "Start duel" = "Start duel";
 "24h to accept" = "24h to accept";
 "duel_invite_popup_title" = "Duel challenge";
-"duel_invite_popup_body_format" = "%@ calls you to duel";
+"duel_invite_popup_body_format" = "%@ invites you to a duel";
 "duel_invite_popup_accept" = "Accept";
 "duel_invite_popup_remind_1h" = "Remind · 1 h";
 "duel_invite_popup_decline" = "Decline";
@@ -308,7 +308,7 @@
 "25 questions, 10 sec per answer" = "25 questions, 10 sec per answer";
 "30 questions, 5 sec per answer" = "30 questions, 5 sec per answer";
 "All %d countries of selected regions, 5 sec per answer" = "All %d countries of selected regions, 5 sec per answer";
-"All 238 countries of the world, 5 sec per answer" = "All 238 countries of the world, 5 sec per answer";
+"All 238 countries of the world, 5 sec per answer" = "All available countries and territories, 5 sec per answer";
 
 "of" = "of";
 "flags" = "flags";
@@ -348,19 +348,19 @@
 "Получайте бонусы за длинные серии дней" = "Get bonuses for long day streaks";
 "Покупайте эксклюзивные элементы для аватара" = "Buy exclusive avatar items";
 "Создавайте уникальный стиль" = "Create a unique style";
-"Как заработать F-Bucks" = "How to Earn F-Bucks";
+"Как заработать F-Bucks" = "How to earn F-Bucks";
 "Идеальный результат" = "Perfect Result";
 "Идеальный результат игры" = "Perfect game result";
-"Получите идеальный результат в игре (10/10 или 15/15)" = "Get a perfect result in the game (10/10 or 15/15)";
-"Серия 10 дней" = "10 Day Streak";
+"Получите идеальный результат в игре (10/10 или 15/15)" = "Finish a game with every answer correct";
+"Серия 10 дней" = "10-day streak";
 "Играйте 10 дней подряд" = "Play 10 days in a row";
-"Серия 20 дней" = "20 Day Streak";
+"Серия 20 дней" = "20-day streak";
 "Играйте 20 дней подряд" = "Play 20 days in a row";
-"Серия 50 дней" = "50 Day Streak";
+"Серия 50 дней" = "50-day streak";
 "Играйте 50 дней подряд" = "Play 50 days in a row";
-"Серия 100 дней" = "100 Day Streak";
+"Серия 100 дней" = "100-day streak";
 "Играйте 100 дней подряд" = "Play 100 days in a row";
-"История начислений" = "Transaction History";
+"История начислений" = "Transaction history";
 "История пуста" = "History is empty";
 "Начните играть и зарабатывать F-Bucks!" = "Start playing and earning F-Bucks!";
 "Магазин F-Bucks" = "F-Bucks Shop";
@@ -371,18 +371,18 @@
 "Особые визуальные эффекты" = "Special visual effects";
 "Эффекты" = "Effects";
 "Анимации и спецэффекты" = "Animations and special effects";
-"Футболка чемпиона" = "Champion T-Shirt";
-"Кепка путешественника" = "Traveler's Cap";
-"Куртка исследователя" = "Explorer's Jacket";
-"Золотой скин" = "Gold Skin";
-"Радужный скин" = "Rainbow Skin";
-"Неоновый скин" = "Neon Skin";
+"Футболка чемпиона" = "Champion tee";
+"Кепка путешественника" = "Traveler's cap";
+"Куртка исследователя" = "Explorer jacket";
+"Золотой скин" = "Gold skin";
+"Радужный скин" = "Rainbow skin";
+"Неоновый скин" = "Neon skin";
 "Эффект блёсток" = "Sparkle Effect";
-"Огненный эффект" = "Fire Effect";
-"Звёздный эффект" = "Star Effect";
+"Огненный эффект" = "Fire effect";
+"Звёздный эффект" = "Star effect";
 "Купить" = "Buy";
 "Покупка" = "Purchase";
-"Текст гимна" = "Anthem Text";
+"Текст гимна" = "Anthem Lyrics";
 "Continue playing with unlimited hearts!" = "Continue playing with unlimited hearts!";
 "No lives available" = "No lives available";
 "Unfortunately, the game is not available now: you have no lives. You can buy lives or go Premium." = "Unfortunately, the game is not available now: you have no lives. You can buy lives or go Premium.";
@@ -410,7 +410,7 @@
 "OK" = "OK";
 
 /* Premium screen */
-"Learn all countries and flags in ~2 months with Premium" = "Learn all countries and flags in ~2 months with Premium";
+"Learn all countries and flags in ~2 months with Premium" = "Build your knowledge of countries and flags with Premium";
 "Unlimited Hearts" = "Unlimited Hearts";
 "Personalized Practice" = "Personalized Practice";
 "Explain My Answer" = "Explain My Answer";
@@ -446,7 +446,7 @@
 
 // Profile Page
 "League" = "League";
-"Following" = "Following";
+"Following" = "Friends";
 "Days in a row" = "Days in a row";
 "Joined in %@" = "Joined in %@";
 "Statistics" = "Statistics";
@@ -528,7 +528,7 @@
 
 /* Language Selection */
 "Выберите язык игры" = "Choose game language";
-"Язык интерфейса игры и заданий" = "Game interface and tasks language";
+"Язык интерфейса игры и заданий" = "Language for the game interface and tasks";
 
 /* Leagues */
 "Вы занимаете #%d место" = "You are ranked #%d";
@@ -625,7 +625,7 @@
 "Мой код друга" = "My friend code";
 "Добавить по имени (логину)" = "Add by username";
 "Введите имя пользователя" = "Enter username";
-"Пользователь не найден или уже в друзьях. Проверьте имя." = "User not found or already in friends. Check the name.";
+"Пользователь не найден или уже в друзьях. Проверьте имя." = "User not found or already on your friends list. Check the username.";
 "Ваша страна (флаг в профиле)" = "Your country (flag in profile)";
 "Выберите страну — её флаг будет отображаться у вас в профиле у друзей." = "Select a country — its flag will be shown in your profile to friends.";
 "Не выбрано" = "Not selected";
@@ -637,20 +637,20 @@
 "HELP_GAME_RULES" = "World Arena Flags is a fun game to learn world flags!\n\nRules:\n1. You see a country's flag\n2. Choose the correct name from the options\n3. Earn XP for correct answers\n4. Keep your daily streak\n5. Level up and climb leagues\n\nThe more you play, the more flags you learn!";
 "Что такое серия дней?" = "What is a streak?";
 "Как работает система серий" = "How the streak system works";
-"HELP_STREAK_TEXT" = "A streak shows how many days in a row you played.\n\nHow to keep it:\n• Play at least one game every day\n• The streak resets if you skip a day\n• Longer streaks give more bonus XP\n\nStreak helps build a learning habit!";
+"HELP_STREAK_TEXT" = "Your streak tracks consecutive days of play.\n\n• Play at least one game each day to keep it growing.\n• Streak freezes can protect missed days when available.\n• Open your streak calendar to see your played days and available protection.\n\nRegular practice helps build a learning habit!";
 "Как работают лиги?" = "How do leagues work?";
 "Система рейтингов и соревнований" = "Rating and competition system";
-"HELP_LEAGUES_TEXT" = "Leagues are competitions with other players.\n\nLeagues (from lower to higher):\n• Bronze\n• Silver\n• Gold\n• Platinum\n• Diamond\n• Master\n\nWeekly updates:\n• Top 3 players get rewards\n• Players in 16–20 may be demoted\n• Others stay in the same league";
+"HELP_LEAGUES_TEXT" = "Leagues let you compete with other players.\n\nFrom lowest to highest:\n• Bronze\n• Silver\n• Gold\n• Platinum\n• Diamond\n• Master\n\nYour weekly position determines whether you move up, stay or move down. Promotion and demotion zones depend on your progress and are shown in the league table. You earn F-Bucks for promotion.";
 
 /* Birthday */
 "День рождения" = "Birthday";
-"Birthday description F-bucks" = "Allow us to congratulate you on your birthday with +10 F-bucks";
+"Birthday description F-bucks" = "Let us celebrate your birthday with a bonus of 10 F-Bucks";
 "Очистить" = "Clear";
 "День рождения друга" = "Friend's birthday";
 "Friend birthday push body" = "Today %@ celebrates their birthday — congratulate them! (give +10 min Triple XP or +1 F-bucks)";
 "С днём рождения!" = "Happy birthday!";
 "Birthday bonus already claimed" = "Bonus for this year already claimed";
-"Birthday bonus F-bucks message" = "You received +10 F-bucks";
+"Birthday bonus F-bucks message" = "You received +10 F-Bucks";
 "Friend birthday today" = "Today is %@'s birthday";
 "Friends birthday today count" = "%d friends have their birthday today";
 "Friend birthday congratulate hint" = "Congratulate: give +10 min Triple XP or +1 F-bucks";
@@ -659,10 +659,10 @@
 /* Help Center – profile & skin */
 "Как изменить аватар?" = "How to change avatar?";
 "Персонализация профиля" = "Profile customization";
-"HELP_PROFILE_AVATAR" = "To change your avatar:\n1. Open the Profile tab\n2. Tap the gear icon (Settings)\n3. Choose \"User profile\"\n4. Pick a new avatar or upload a photo\n5. Tap \"Save\"";
+"HELP_PROFILE_AVATAR" = "To change your avatar:\n1. Open Profile and tap your avatar to edit your profile.\n2. Open the avatar editor or choose a photo from your library.\n3. Adjust your avatar or crop the photo.\n4. Save your changes.";
 "Как работает создание скина?" = "How does skin editor work?";
 "Редактор аватара и элементы" = "Avatar editor and items";
-"HELP_PROFILE_SKIN_EDITOR" = "In the skin editor you build your look from several categories:\n• Clothing\n• Accessories\n• Glasses\n• Skin Tone\n• Hair\n• Face (eyes, mouth, etc.)\n\nHow to use it:\n1. Open Profile → Settings → User profile → Edit avatar\n2. Switch to the \"Create skin\" tab\n3. Pick a category in the top bar (hat, shirt, glasses, palette icons, etc.)\n4. Select a specific item in the grid below – it will instantly appear in the preview\n5. Tap \"Save Avatar\" to apply the skin to your profile\n\nSome items may be locked (lock icon) – they unlock as you progress or for F-bucks.";
+"HELP_PROFILE_SKIN_EDITOR" = "Use the avatar editor to customise your appearance: clothing, accessories, glasses, skin tone, hair and facial features.\n\nOpen your profile, tap your avatar and open the avatar editor. Choose a category and select an item to see it in the preview. Save your changes to apply them to your profile.\n\nItems marked with a lock may require progress or F-Bucks to unlock.";
 
 /* Help Center – friends & social */
 "Как добавить друзей?" = "How to add friends?";
@@ -678,7 +678,7 @@
 "HELP_GAME_DUEL" = "Duel is a mode where you and your friend answer the same questions to compare results.\n\nHow to start a duel:\n1. Open your friend's profile (from Friends list, Leagues or reminders)\n2. Tap the \"Challenge to Duel\" button\n3. Confirm – the duel will use a shared set of questions\n\nAt the end:\n• You see who scored more points\n• Duel motivates and boosts progress but does NOT reset your daily streak";
 "Как зарабатывать и тратить F-bucks?" = "How to earn and spend F-bucks?";
 "Внутриигровая валюта" = "In‑game currency";
-"HELP_PROGRESS_FBUCKS" = "F-bucks (Flags Bucks) are the in‑game currency of World Arena Flags.\n\nHow to earn F-bucks:\n• For perfect games (all answers correct)\n• For long daily streaks\n• For completing quests and achievements\n\nWhat to spend them on:\n• Buying exclusive skin and avatar elements\n• Unlocking rare accessories and effects\n\nImportant: F-bucks are not real money. They cannot be withdrawn or exchanged for real currency.";
+"HELP_PROGRESS_FBUCKS" = "F-Bucks (Flags Bucks) are the in‑game currency of World Arena Flags.\n\nHow to earn F-Bucks:\n• For eligible perfect games (all answers correct)\n• For long daily streaks\n• For completing quests and achievements\n\nWhat to spend them on:\n• Buying exclusive skin and avatar elements\n• Unlocking rare accessories and effects\n\nImportant: F-Bucks are not real money. They cannot be withdrawn or exchanged for real currency.";
 "Как работают квесты и достижения?" = "How do quests and achievements work?";
 "Месячные задания и артефакты" = "Monthly quests and artifacts";
 "HELP_PROGRESS_QUESTS" = "In the \"Quests\" tab you see:\n• Daily quests (if available)\n• Monthly quests and total progress 0–40\n\nHow it works:\n1. Complete tasks: play required number of games, guess flags of specific regions, etc.\n2. Each completed quest gives progress and rewards\n3. Total monthly progress is shown in the colored header as a bar\n\nAchievements (artifacts) unlock for special conditions:\n• Long streaks\n• High accuracy\n• High places in leagues\nUnlocked achievements are shown in your profile.";
@@ -686,15 +686,15 @@
 /* Help Center – notifications */
 "Уведомления: какие бывают и как их настроить?" = "Notifications: types and how to manage them?";
 "Ежедневный урок, дуэли и напоминания" = "Daily lesson, duels and reminders";
-"HELP_NOTIFICATIONS_TYPES" = "The app can send several types of notifications:\n• Daily lesson and streak reminders\n• Reminders to friends and responses to your reminders\n• Duel challenges and duel results\n\nHow to manage notifications:\n1. Open your device settings\n2. Find World Arena Flags\n3. Enable or disable notification types as you prefer\n\nWe recommend leaving daily lesson reminders enabled so you don't lose your streak.";
+"HELP_NOTIFICATIONS_TYPES" = "The app supports daily practice reminders, streak reminders, friend reminders, duel invitations and results.\n\nUse the app’s notification settings to choose the reminders you want. Your device settings control whether World Arena Flags can show notifications.\n\nDaily reminders can help you remember to practise.";
 
 /* Help Center – technical issues */
 "Проблемы с загрузкой флагов" = "Flags are not loading";
 "Что делать если флаги не загружаются" = "What to do if flags do not load";
-"HELP_TECH_FLAGS_NOT_LOADING" = "If flags are not loading:\n1. Check your internet connection\n2. Restart the app\n3. Clear cache in the app settings (if available)\n4. Update the app to the latest version\n5. Contact support if the problem persists";
+"HELP_TECH_FLAGS_NOT_LOADING" = "If flags are not loading:\n1. Check your internet connection.\n2. Restart the app.\n3. Install the latest app update.\n4. Contact support if the problem persists.";
 "Синхронизация данных" = "Data sync";
 "Как сохранить прогресс" = "How to keep your progress safe";
-"HELP_TECH_DATA_SYNC" = "Your progress is saved automatically on the device.\n\nTo back it up:\n• Use iCloud or your device backup\n• Export data through privacy settings (if available)\n• Regularly create backups of your device\n\nIf you change devices, restore the backup before launching the game so you don't lose your progress.";
+"HELP_TECH_DATA_SYNC" = "Your progress is saved automatically on your device. The app can also mirror local progress through iCloud when it is available for your Apple Account.\n\n• Keep your device backups up to date.\n• Use the same Apple Account when restoring iCloud progress.\n• You can export your game data from the app’s privacy settings.\n\nAfter changing devices, check that your progress has been restored before deleting your old backup.";
 
 /* Achievements */
 "Достижения" = "Achievements";
@@ -808,7 +808,7 @@
 "Мой код друга" = "My friend code";
 "Добавить по имени (логину)" = "Add by username";
 "Введите имя пользователя" = "Enter username";
-"Пользователь не найден или уже в друзьях. Проверьте имя." = "User not found or already in friends. Check the name.";
+"Пользователь не найден или уже в друзьях. Проверьте имя." = "User not found or already on your friends list. Check the username.";
 "Ваша страна (флаг в профиле)" = "Your country (flag in profile)";
 "Выберите страну — её флаг будет отображаться у вас в профиле у друзей." = "Select a country — its flag will be shown in your profile to friends.";
 "Не выбрано" = "Not selected";
@@ -917,7 +917,7 @@
 "Are you sure you want to cancel premium? You will lose access to all premium features." = "Are you sure you want to cancel premium? You will lose access to all premium features.";
 "Close" = "Close";
 "Red" = "Red";
-"Most popular color fact description" = "Red is present on 75% of all national flags worldwide, making it the most popular flag color.";
+"Most popular color fact description" = "Red appears on many national flags, including those of Canada, Japan and Switzerland.";
 
 /* Friend Management */
 "Флаг в профиле" = "Flag in profile";
@@ -934,8 +934,8 @@
 "Текущая серия" = "Current Streak";
 "дней" = "days";
 "Точность" = "Accuracy";
-"Теперь вы можете без единой ошибки отвечать на все наши вопросы с точностью в %d%%" = "";
-"Мы будем рады, если вы захотите снова вернуться к нам!" = "We would be happy if you want to return to us again!";
+"Теперь вы можете без единой ошибки отвечать на все наши вопросы с точностью в %d%%" = "Your answer accuracy is %d%%.";
+"Мы будем рады, если вы захотите снова вернуться к нам!" = "We’d be happy to welcome you back!";
 "Продолжить" = "Continue";
 
 /* Learning Section New Strings */
@@ -986,7 +986,7 @@
 "GOOD EFFORT!" = "GOOD EFFORT!";
 "KEEP TRYING!" = "KEEP TRYING!";
 "Absolutely incredible! You're a true champion! 🎉" = "Absolutely incredible! You're a true champion! 🎉";
-"Outstanding performance! You're almost perfect! ✨" = "Outstanding performance! You're almost perfect! ✨";
+"Outstanding performance! You're almost perfect! ✨" = "Outstanding performance! Almost a perfect score! ✨";
 "Fantastic work! You're doing amazing! 🚀" = "Fantastic work! You're doing amazing! 🚀";
 "Nice job! Keep up the great work! 💫" = "Nice job! Keep up the great work! 💫";
 "Don't give up! Every expert was once a beginner! 🌱" = "Don't give up! Every expert was once a beginner! 🌱";
@@ -1021,7 +1021,7 @@
 "Unlock your full progress" = "Unlock your full progress";
 "Get Premium tools for faster learning and better game results" = "Get Premium tools for faster learning and better game results";
 "Learning section" = "Learning section";
-"Train flags and countries in a structured mode" = "Train flags and countries in a structured mode";
+"Train flags and countries in a structured mode" = "Practise flags and countries in a structured mode";
 "Erudite difficulty" = "Erudite difficulty";
 "Advanced challenge with deeper knowledge checks" = "Advanced challenge with deeper knowledge checks";
 "My mistakes" = "My mistakes";
@@ -1030,7 +1030,7 @@
 "Adaptive sessions based on your progress" = "Adaptive sessions based on your progress";
 "Explain my answer" = "Explain my answer";
 "Understand every mistake and learn faster" = "Understand every mistake and learn faster";
-"Up to +750% faster flag learning with Premium" = "Up to +750% faster flag learning with Premium";
+"Up to +750% faster flag learning with Premium" = "More ways to practise flags with Premium";
 "Play without waiting and keep your learning momentum" = "Play without waiting and keep your learning momentum";
 "Train flags, listen to anthems, and explore detailed country profiles" = "Train flags, listen to anthems, and explore detailed country profiles";
 "Restore Purchases" = "Restore Purchases";
@@ -1038,16 +1038,16 @@
 "Redeem Offer Code" = "Redeem Offer Code";
 "Auto-renewable subscription" = "Auto-renewable subscription";
 "Monthly Premium Title" = "Premium Monthly: maximum value";
-"Yearly Premium Title" = "Premium YEAR. Flags and countries";
+"Yearly Premium Title" = "Premium Yearly: flags and countries";
 "Duration: 1 month (auto-renewable)" = "Duration: 1 month (auto-renewable)";
 "Duration: 1 year (auto-renewable)" = "Duration: 1 year (auto-renewable)";
 "Premium Monthly" = "Premium Monthly";
 "Yearly Premium" = "Yearly Premium";
 "Save %d%%" = "Save %d%%";
-"Learn flags and countries of the World" = "Learn flags and countries of the World";
+"Learn flags and countries of the World" = "Learn flags and countries of the world";
 "Select Level" = "Select Level";
 "Level - %@" = "Level - %@";
-"Exclusive tournaments with cash F-Bucks prizes" = "Exclusive tournaments with cash F-Bucks prizes";
+"Exclusive tournaments with cash F-Bucks prizes" = "Exclusive tournaments with F-Bucks prizes";
 "Survival Mode" = "Survival Mode";
 "One mistake = Game Over" = "One mistake = Game Over";
 "Duel result push format" = "%@: %d — You: %d.";
@@ -1126,7 +1126,7 @@
 "How is Mastered calculated?" = "How is Mastered calculated?";
 "Duel Summary subtitle" = "See your duel history and detailed results";
 "F-Bucks subtitle" = "Earn and spend F-Bucks, the in‑game currency";
-"Mastered explanation" = "A country counts as mastered when you have answered it at least 3 times and have at least 80%% correct answers.";
+"Mastered explanation" = "A country counts as mastered when you have answered it at least 3 times and have at least 80% correct answers.";
 "Name" = "Name";
 "Account login title" = "Create your account";
 "Account login subtitle" = "Keep guest mode or sign in to save identity and security features";
@@ -1162,10 +1162,10 @@
 "Biometric login prompt" = "Confirm biometric login";
 
 /* 68 interesting facts */
-"FACT_01_TITLE" = "Oldest continuously used flag";
-"FACT_01_DESC" = "Denmark's Dannebrog is considered the oldest national flag in continuous use since 1219.";
-"FACT_02_TITLE" = "Only square national flag";
-"FACT_02_DESC" = "Switzerland has the only square national flag in the world. The Vatican also has a square flag but is a city-state.";
+"FACT_01_TITLE" = "A flag with a legend";
+"FACT_01_DESC" = "Legend links the Danish flag to a battle in 1219.";
+"FACT_02_TITLE" = "Square national flags";
+"FACT_02_DESC" = "Switzerland and Vatican City both have square national flags.";
 "FACT_03_TITLE" = "Non-rectangular flag";
 "FACT_03_DESC" = "Nepal has the only national flag in the world that is not rectangular.";
 "FACT_04_TITLE" = "No red, white or blue";
@@ -1173,7 +1173,7 @@
 "FACT_05_TITLE" = "Flag that is never lowered";
 "FACT_05_DESC" = "Saudi Arabia's flag is never flown at half-mast because of the sacred text on it.";
 "FACT_06_TITLE" = "Young national flag";
-"FACT_06_DESC" = "South Sudan's flag was adopted in 2011 after independence.";
+"FACT_06_DESC" = "South Sudan has used this national flag since becoming independent in 2011.";
 "FACT_07_TITLE" = "Flag with AK-47";
 "FACT_07_DESC" = "Mozambique is the only country whose flag features a modern weapon—the Kalashnikov rifle.";
 "FACT_08_TITLE" = "Almost identical flags";
@@ -1186,8 +1186,8 @@
 "FACT_11_DESC" = "Cyprus's flag shows the outline of the island—a rare case among national flags.";
 "FACT_12_TITLE" = "Flag with a Bible";
 "FACT_12_DESC" = "The Dominican Republic's flag shows an open Bible, making it the only national flag with a religious book.";
-"FACT_13_TITLE" = "Most popular colour";
-"FACT_13_DESC" = "Red is the most common colour on national flags worldwide.";
+"FACT_13_TITLE" = "Red on national flags";
+"FACT_13_DESC" = "Red appears on many national flags, including those of Canada, Japan and Switzerland.";
 "FACT_14_TITLE" = "Flag with text";
 "FACT_14_DESC" = "Text on national flags is rare; one well-known example is Saudi Arabia.";
 "FACT_15_TITLE" = "Flag etiquette";
@@ -1195,39 +1195,39 @@
 "FACT_16_TITLE" = "Flag with different sides";
 "FACT_16_DESC" = "Paraguay has the only national flag in the world with different designs on the obverse and reverse.";
 "FACT_17_TITLE" = "Olympic symbolism";
-"FACT_17_DESC" = "Olympic ring colours were chosen so that at least one colour appears on every country's flag.";
-"FACT_18_TITLE" = "Flag with the most complex coat of arms";
-"FACT_18_DESC" = "Mexico's flag shows an eagle perched on a cactus holding a snake—one of the most detailed coats of arms on any flag.";
-"FACT_19_TITLE" = "Copycat flag";
-"FACT_19_DESC" = "The flags of Monaco and Indonesia are almost identical—red on top, white below. The only difference is the proportions.";
+"FACT_17_DESC" = "The five Olympic rings and their white background use six colours, chosen to represent the flags of nations around the world.";
+"FACT_18_TITLE" = "Mexico’s coat of arms";
+"FACT_18_DESC" = "Mexico’s flag shows an eagle on a cactus holding a snake.";
+"FACT_19_TITLE" = "Similar red-and-white flags";
+"FACT_19_DESC" = "Monaco and Indonesia both use red above white on their flags, but the flags have different proportions.";
 "FACT_20_TITLE" = "Flag with 50 stars";
-"FACT_20_DESC" = "The US flag has 50 stars, one for each state. The design has been changed 27 times since 1777.";
+"FACT_20_DESC" = "The United States flag has 50 stars, one for each state.";
 "FACT_21_TITLE" = "Northernmost flags";
 "FACT_21_DESC" = "Arctic regions use both national and regional flags with unique symbolism.";
 "FACT_22_TITLE" = "Flag with a cross";
-"FACT_22_DESC" = "29 countries have a cross on their flag, making it one of the most popular symbols on national flags.";
+"FACT_22_DESC" = "A cross appears on many national flags, including those of Denmark, Finland and Switzerland.";
 "FACT_23_TITLE" = "Tricolours";
 "FACT_23_DESC" = "Many countries use a simple three-stripe design as a historically stable flag form.";
 "FACT_24_TITLE" = "Flag with a crescent";
-"FACT_24_DESC" = "The crescent appears on the flags of 12 countries, mostly Muslim, symbolizing the Islamic faith.";
+"FACT_24_DESC" = "The crescent appears on several national flags, including those of Turkey, Pakistan and Tunisia.";
 "FACT_25_TITLE" = "Sun symbol";
 "FACT_25_DESC" = "The sun is one of the most common symbols on flags in Asia and South America.";
 "FACT_26_TITLE" = "Flag with a tree";
-"FACT_26_DESC" = "Lebanon is the only country with a tree (the Lebanese cedar) on its flag, symbolizing eternity and peace.";
-"FACT_27_TITLE" = "Narrowest flag";
-"FACT_27_DESC" = "Qatar's flag has the most unusual aspect ratio of any national flag—11:28.";
+"FACT_26_DESC" = "Lebanon’s national flag features a cedar tree.";
+"FACT_27_TITLE" = "Qatar’s flag proportions";
+"FACT_27_DESC" = "Qatar’s national flag has a height-to-width ratio of 11:28.";
 "FACT_28_TITLE" = "Complex coats of arms";
 "FACT_28_DESC" = "Coats of arms on Latin American flags often include many details and historical symbols.";
 "FACT_29_TITLE" = "Rainbow flag";
 "FACT_29_DESC" = "Bolivia has two official flags—the traditional tricolour and the indigenous Wiphala rainbow flag.";
 "FACT_30_TITLE" = "Flag with a building";
-"FACT_30_DESC" = "Cambodia's flag shows Angkor Wat temple, making it the only national flag with a building.";
+"FACT_30_DESC" = "Cambodia’s national flag depicts the temple of Angkor Wat.";
 "FACT_31_TITLE" = "Historical disputes";
 "FACT_31_DESC" = "The design of some flags has changed due to historical and political disputes between countries.";
 "FACT_32_TITLE" = "Flag with a sword";
 "FACT_32_DESC" = "Sri Lanka's flag shows a lion holding a sword, symbolizing the courage of the Sinhalese people.";
 "FACT_33_TITLE" = "Flag without blue";
-"FACT_33_DESC" = "Only four countries do not use blue on their flags: Jamaica, Mauritania, Sri Lanka and the Vatican.";
+"FACT_33_DESC" = "Some national flags contain no blue, including those of Jamaica, Japan and Switzerland.";
 "FACT_34_TITLE" = "Birds on flags";
 "FACT_34_DESC" = "The eagle and other birds on flags symbolize strength, independence and nobility of spirit.";
 "FACT_35_TITLE" = "Antarctic symbol";
@@ -1243,25 +1243,25 @@
 "FACT_40_TITLE" = "Changes over time";
 "FACT_40_DESC" = "Some national flags have changed dozens of times with their country's political history.";
 "FACT_41_TITLE" = "North Macedonia sun";
-"FACT_41_DESC" = "North Macedonia flag has a sun with eight rays for a new beginning.";
+"FACT_41_DESC" = "North Macedonia’s flag has a sun with eight rays, symbolising a new beginning.";
 "FACT_42_TITLE" = "Belize woodcutters";
-"FACT_42_DESC" = "Belize flag is one of the few showing people: woodcutters with tools.";
+"FACT_42_DESC" = "Belize’s flag is one of the few showing people: woodcutters with tools.";
 "FACT_43_TITLE" = "Ecuador condor";
-"FACT_43_DESC" = "Ecuador flag includes the Andean condor for strength and sovereignty.";
+"FACT_43_DESC" = "Ecuador’s flag includes the Andean condor, symbolising strength and sovereignty.";
 "FACT_44_TITLE" = "Bolivia Wiphala";
 "FACT_44_DESC" = "Bolivia uses the Wiphala alongside the tricolour as an official symbol.";
 "FACT_45_TITLE" = "Brazil's 27 stars";
 "FACT_45_DESC" = "The Brazilian flag has 27 stars, one for each state and the federal district.";
 "FACT_46_TITLE" = "Maple leaf";
-"FACT_46_DESC" = "Canada's flag features a single 11-pointed maple leaf, unique among national flags.";
+"FACT_46_DESC" = "Canada’s flag features a red maple leaf with 11 points on a white square.";
 "FACT_47_TITLE" = "Union Jack";
-"FACT_47_DESC" = "The UK flag combines the crosses of three saints: England, Scotland and Ireland.";
+"FACT_47_DESC" = "The UK flag combines the crosses of St George, St Andrew and St Patrick.";
 "FACT_48_TITLE" = "Japan's rising sun";
-"FACT_48_DESC" = "The red circle on white represents the rising sun and has been used on Japan's flag since the 7th century.";
+"FACT_48_DESC" = "Japan’s national flag features a red circle representing the sun on a white background.";
 "FACT_49_TITLE" = "Ashoka Chakra";
 "FACT_49_DESC" = "India's flag features a 24-spoked wheel, symbolizing law and motion.";
 "FACT_50_TITLE" = "Australia's Southern Cross";
-"FACT_50_DESC" = "Australia's flag shows the Southern Cross constellation, visible only in the Southern Hemisphere.";
+"FACT_50_DESC" = "Five stars on Australia’s flag represent the Southern Cross constellation.";
 "FACT_51_TITLE" = "New Zealand's Southern Cross";
 "FACT_51_DESC" = "New Zealand's flag also features the Southern Cross, but with red stars edged in white.";
 "FACT_52_TITLE" = "South Korea's taegeuk";
@@ -1273,7 +1273,7 @@
 "FACT_55_TITLE" = "Kenya's shield";
 "FACT_55_DESC" = "Kenya's flag features a Maasai shield and crossed spears.";
 "FACT_56_TITLE" = "Wales's dragon";
-"FACT_56_DESC" = "The red dragon on Wales's flag is one of the oldest national symbols in the world.";
+"FACT_56_DESC" = "Wales’s flag shows a red dragon on a white and green background. This design was officially recognised in 1959.";
 "FACT_57_TITLE" = "St Andrew's cross";
 "FACT_57_DESC" = "Scotland's flag is a white diagonal cross on blue, the cross of St Andrew.";
 "FACT_58_TITLE" = "Greenland's circle";
@@ -1289,15 +1289,15 @@
 "FACT_63_TITLE" = "EU flag";
 "FACT_63_DESC" = "Twelve golden stars in a circle on blue symbolize the unity of the European Union.";
 "FACT_64_TITLE" = "Olympic flag";
-"FACT_64_DESC" = "The five rings on white represent the five inhabited continents and the global nature of the Games.";
+"FACT_64_DESC" = "The five Olympic rings on a white background symbolise the union of five continents and athletes from around the world.";
 "FACT_65_TITLE" = "Vatican square";
 "FACT_65_DESC" = "The Vatican has a square national flag like Switzerland.";
 "FACT_66_TITLE" = "Nauru 12 points";
-"FACT_66_DESC" = "Nauru flag has a 12-pointed star for the 12 tribes.";
+"FACT_66_DESC" = "Nauru’s flag has a 12-pointed star representing its 12 tribes.";
 "FACT_67_TITLE" = "Turkmenistan carpet";
-"FACT_67_DESC" = "Turkmenistan flag has carpet patterns along the hoist.";
+"FACT_67_DESC" = "Turkmenistan’s flag has carpet patterns along the hoist.";
 "FACT_68_TITLE" = "Afghanistan mosque";
-"FACT_68_DESC" = "Afghanistan flag has featured a mosque in its design.";
+"FACT_68_DESC" = "Afghanistan’s flag has featured a mosque in its design.";
 
 /* Add friend & duel results */
 "Пользователь найден и добавлен" = "User found and added";
@@ -1357,7 +1357,7 @@
 "league_motivation_promotion_02" = "You made a step up. Now the goal is not just to get higher, but to stay there.";
 "league_motivation_stayed_01" = "You held your position. A solid base — now turn stability into growth.";
 "league_motivation_stayed_02" = "A week without a setback is already a result. Next step: reach the promotion zone.";
-"league_motivation_demotion_01" = "Not the best week — it happens. The main thing is not to stop: you can take the next one stronger.";
+"league_motivation_demotion_01" = "Not the best week — it happens. Keep going: next week can be better.";
 "league_motivation_demotion_02" = "Demotion isn't the end. It's a reset point, after which better runs often follow.";
 "league_motivation_general_01" = "Every week is a new chance to rise higher. Keep going — progress adds up.";
 
@@ -1500,7 +1500,7 @@
 "Survival weekly title" = "Weekly Survival challenge";
 "Survival weekly target fmt" = "Reach %d flags survived in one run this week.";
 "Survival weekly best fmt" = "Your best this week: %d flags";
-"Survival weekly all milestones met body" = "You've reached every weekly depth goal — up to 200 flags in one run. Brilliant!";
+"Survival weekly all milestones met body" = "You've reached every weekly goal — up to 200 flags in one run. Brilliant!";
 "Survival weekly reward claimed" = "Weekly bonus claimed (+1000 XP)";
 "Survival weekly reward all claimed" = "All weekly survival bonuses claimed (up to +4000 XP).";
 "Survival weekly reward hint" = "Each milestone — 25, 50, 100, then 200 flags in one run — gives +1000 XP once per week.";
@@ -1515,7 +1515,7 @@
 "1 hour" = "1 hour";
 
 
-"Duel announcement subtitle" = "Same duel for both players. First to score wins!";
+"Duel announcement subtitle" = "Both players get the same questions. The higher score wins; if scores are tied, the faster player wins.";
 "User 1" = "User 1";
 "User 2" = "User 2";
 "Number of Questions" = "Questions";
@@ -1534,9 +1534,9 @@
 "fbucks.earn.today.title" = "Earn today";
 "fbucks.earn.today.subtitle" = "Up to %d F-Bucks possible today";
 "fbucks.earn.perfect.title" = "Perfect game";
-"fbucks.earn.perfect.sub" = "+1 for 10/10 or 15/15";
+"fbucks.earn.perfect.sub" = "+1 for a perfect eligible game";
 "fbucks.earn.streak" = "Streak";
-"fbucks.earn.streak.sub" = "Series (%d/10 days)";
+"fbucks.earn.streak.sub" = "Streak (%d/10 days)";
 "fbucks.earn.league" = "Top of the week";
 "fbucks.earn.league.sub" = "Finish in the top 3 of your league";
 "fbucks.progress.title" = "Progress to next item";
@@ -1560,10 +1560,10 @@
 "fbucks.tab.history" = "History";
 "fbucks.tab.shop" = "Shop";
 "fbucks.about.title" = "What are F-Bucks?";
-"fbucks.about.body" = "F-Bucks (Flags Bucks) are in-game currency you earn by playing World Arena Flags. Spend them on unique avatar pieces, skins, and other exclusive items.";
+"fbucks.about.body" = "F-Bucks (Flags Bucks) are the in-game currency you earn by playing World Arena Flags. Spend them on avatar accessories, skins, and other exclusive items.";
 "fbucks.about.how" = "How to earn F-Bucks";
 "fbucks.about.perfect.title" = "Perfect game";
-"fbucks.about.perfect.desc" = "Get a perfect score (10/10 or 15/15)";
+"fbucks.about.perfect.desc" = "Answer every question correctly in an eligible game";
 "fbucks.about.streak10.title" = "10-day streak";
 "fbucks.about.streak10.desc" = "Play 10 days in a row";
 "fbucks.about.streak20.title" = "20-day streak";
@@ -1714,7 +1714,7 @@
 "learning.status.favorite_short" = "Favorite";
 "learning.country.train_cta" = "Add to next game";
 "learning.country.playlist_status_added" = "Country added";
-"learning.country.playlist_play_cta" = "Play with queued countries";
+"learning.country.playlist_play_cta" = "Play selected countries";
 "learning.country.playlist_added" = "Added to your next game";
 "learning.country.playlist_duplicate" = "Already in the queue";
 "learning.country.playlist_queue_fmt" = "%d countries in queue";
@@ -1806,7 +1806,7 @@
 "guide.next" = "Next";
 "guide.done" = "Let’s play";
 "guide.play.title" = "Your next game";
-"guide.play.body" = "Tap Play to start. Continue appears when you have an unfinished game.";
+"guide.play.body" = "Tap “Play” to start a game.";
 "guide.settings.title" = "Make it your game";
 "guide.settings.body" = "Tap here to choose a region, difficulty and game mode.";
 "guide.streak.title" = "Every day counts";
@@ -1814,7 +1814,7 @@
 "guide.fbucks.title" = "Meet F-Bucks";
 "guide.fbucks.body" = "Earn F-Bucks by playing and completing quests. Tap your balance to explore rewards, avatar items and freezes.";
 "guide.friends.title" = "Play with friends";
-"guide.friends.body" = "Add a friend from their profile or friend code. Open their profile to challenge them to a duel. Invitations appear in Challenges; friend requests let you add back or decline.";
+"guide.friends.body" = "Add a friend from their profile or using their friend code. Open their profile to challenge them to a duel. Duel invitations appear in Challenges. You can accept or decline friend requests.";
 "education.fbucks.title" = "You earned F-Bucks!";
 "education.fbucks.body" = "This is your in-game currency. Earn it through games and quests, then spend it on avatar items and streak freezes.";
 "education.fbucks.shop" = "View shop";
@@ -1831,17 +1831,17 @@
 
 // Verified Premium benefits and Apple Family Sharing
 "premium.benefit.lives.title" = "Unlimited Hearts";
-"premium.benefit.lives.body" = "Classic and Time Challenge without waiting for lives. Survival keeps its own rules.";
+"premium.benefit.lives.body" = "Play Classic and Time Challenge without waiting for lives to refill. Survival keeps its own rules.";
 "premium.benefit.map.title" = "World progress map";
 "premium.benefit.map.body" = "See your progress by country and continent, and find flags to practise.";
 "premium.benefit.countries.title" = "Detailed country slides";
-"premium.benefit.countries.body" = "Explore capitals, population, area, languages, currencies and interesting facts.";
+"premium.benefit.countries.body" = "Explore capitals, population, land area, languages, currencies and interesting facts.";
 "premium.benefit.anthems.title" = "National anthems";
 "premium.benefit.anthems.body" = "Listen to available anthem recordings and discover their history and meaning.";
 "premium.benefit.learning.title" = "Learning library";
 "premium.benefit.learning.body" = "Browse countries and continents at your own pace between games.";
-"premium.benefit.mistakes.title" = "Practice your mistakes";
-"premium.benefit.mistakes.body" = "Play with flags you previously answered incorrectly.";
+"premium.benefit.mistakes.title" = "Learn from your mistakes";
+"premium.benefit.mistakes.body" = "Practise flags you previously identified incorrectly.";
 "premium.benefit.erudite.title" = "Erudite difficulty";
 "premium.benefit.erudite.body" = "Unlock the highest difficulty for a greater challenge.";
 "premium.benefit.avatar.title" = "Premium avatar accessory";
@@ -1852,16 +1852,16 @@
 // Premium learning stories and earned weekly reward
 "premium.weekly.history" = "Weekly Premium bonus";
 "premium.benefit.weekly.title" = "10 F-Bucks every week";
-"premium.benefit.weekly.body" = "Automatically earned for each full 7 days of Premium, starting when this bonus is activated. Earned rewards sync when you open the app.";
+"premium.benefit.weekly.body" = "Earn a reward automatically for every full 7 days of Premium, starting when this bonus is activated. Earned rewards sync when you open the app.";
 "premium.weekly.next" = "Next weekly bonus: %@";
 "premium.story.headline" = "Learn the flags. Remember the world.";
 "premium.story.intro" = "Make every session count: practise difficult flags, understand the countries behind them and see what to learn next.";
 "premium.story.practice.title" = "More practice. Fewer gaps.";
-"premium.story.practice.body" = "Keep practising without waiting for hearts. My Mistakes helps you focus on the flags that need another try.";
+"premium.story.practice.body" = "Keep practising without waiting for lives to refill. My Mistakes helps you focus on flags you need to review.";
 "premium.story.countries.title" = "Give each flag a story.";
 "premium.story.countries.body" = "Explore country slides, capitals, currencies and anthem recordings. Connect a flag with the country it represents.";
 "premium.story.map.title" = "Know what to learn next.";
-"premium.story.map.body" = "Your world progress map shows mastered and weaker countries, so you can choose your next practice session.";
+"premium.story.map.body" = "Your world progress map shows which flags you know well and which need more practice, helping you choose what to practise next.";
 "premium.story.example" = "Example screen · English";
 "premium.story.enlarge" = "Enlarge example screen";
 
@@ -1883,7 +1883,7 @@
 
 "learning.country.discover" = "A closer look";
 
-"learning.anthem.shared_fmt" = "National anthem shared with %@. The regional song may differ.";
+"learning.anthem.shared_fmt" = "The national anthem is also used by %@. The regional song may differ.";
 "learning.anthem.recording_source" = "Recording and source ↗";
 
 "learning.anthem.excerpt" = "Original lyrics · excerpt";
@@ -2022,3 +2022,7 @@
 "achievement.friends_10.body" = "Add 10 friends";
 
 "inbox.duelTimeUnavailable" = "Time was not saved for this duel.";
+
+/* Notification event localization */
+"notification.nudge.title" = "%@ reminds you";
+"nudge_phrase_16" = "You have not completed your daily Flags lesson yet!";

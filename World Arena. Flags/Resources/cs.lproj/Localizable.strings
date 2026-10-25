@@ -1,6 +1,6 @@
 "Open in Game Center" = "Otevřít v Game Center";
 "Заработай %d XP" = "Získejte %d XP";
-"F-BUCKS EARNED" = "F-BUCKS EARNED";
+"F-BUCKS EARNED" = "ZÍSKANÉ F-BUCKS";
 "Дай %d правильных ответов" = "Získejte %d správných odpovědí";
 "Наберите %d правильных ответов за месяц" = "Získejte %d správných odpovědí tento měsíc";
 "Сыграй %d идеальных игр" = "Hrajte %d dokonalých her";
@@ -13,16 +13,16 @@
 "Настройки приложения" = "Nastavení aplikace";
 "Обратная связь" = "Zpětná vazba";
 "World Arena Premium" = "World Arena Premium";
-"Обратная связь по World Arena Flags" = "Zpětná vazba o vlajkách World Arena Flags";
+"Обратная связь по World Arena Flags" = "Zpětná vazba k World Arena Flags";
 
 /* Achievements */
 "Достижения" = "Úspěchy";
 "Достижение" = "Úspěch";
-"ЛИЧНЫЕ РЕКОРДЫ" = "OSOBNÍ NEJLEPŠÍ";
+"ЛИЧНЫЕ РЕКОРДЫ" = "Osobní rekordy";
 "НАГРАДЫ" = "OCENĚNÍ";
 "Лучшая серия" = "Nejlepší série";
 "Макс. лига" = "Max liga";
-"Макс. XP" = "Max XP";
+"Макс. XP" = "Nejvíce XP";
 "Открыто" = "Odemčeno";
 
 /* Profile */
@@ -31,7 +31,7 @@
 "Days in a row" = "Dny v řadě";
 "Текущая серия" = "Aktuální série";
 "дней" = "dní";
-"Joined in %@" = "Připojil se k %@";
+"Joined in %@" = "Ve hře od roku %@";
 "Level %d • %d XP • %d-day streak" = "Úroveň %d • %d XP • %d-denní série";
 "SUPER" = "SUPER";
 
@@ -52,7 +52,7 @@
 "World Flags" = "Světové vlajky";
 "Learn flags of the world" = "Naučte se vlajky světa";
 "Score" = "Skóre";
-"Exit" = "Výstup";
+"Exit" = "Ukončit";
 "Error loading countries" = "Při načítání zemí došlo k chybě";
 "Retry" = "Zkuste to znovu";
 "System" = "Systém";
@@ -77,7 +77,7 @@
 "points" = "body";
 "Play Again" = "Hrát znovu";
 "Repeat Duel" = "Zopakovat duel";
-"Home" = "Domov";
+"Home" = "Domů";
 
 // Statistics
 "Statistics" = "Statistika";
@@ -87,8 +87,8 @@
 "Accuracy" = "Přesnost";
 "Best Time" = "Nejlepší čas";
 "Time" = "Čas";
-"Clear" = "Jasný";
-"Close" = "Blízko";
+"Clear" = "Vymazat";
+"Close" = "Zavřít";
 
 // Game Results
 "Excellent game!" = "🏆 Výborně!";
@@ -99,69 +99,69 @@
 "Play Again" = "Hrát znovu";
 
 // Share
-"Share Result" = "Podíl";
-"Share" = "Podíl";
+"Share Result" = "Sdílet";
+"Share" = "Sdílet";
 "ACCURACY" = "Přesnost";
 "TOTAL XP" = "Celkem XP";
 "CONTINUE" = "Pokračovat";
-"Perfect! You're unstoppable!" = "Perfektní! Jsi nezastavitelný!";
+"Perfect! You're unstoppable!" = "Perfektní! Nic vás nezastaví!";
 "Excellent performance!" = "Vynikající výkon!";
 "Well done! Keep practicing!" = "Dobrá práce! Pokračujte ve cvičení!";
-"Don't give up! Practice makes perfect!" = "Nevzdávej to! Cvičení dělá mistra!";
-"PERFECT" = "Perfektní";
-"AMAZING" = "Úžasný";
-"GOOD" = "Dobrý";
+"Don't give up! Practice makes perfect!" = "Nevzdávejte to! Cvičení dělá mistra!";
+"PERFECT" = "PERFEKTNÍ";
+"AMAZING" = "ÚŽASNÉ";
+"GOOD" = "DOBRÉ";
 "KEEP GOING" = "Pokračuj";
 "Play Again" = "Hrát znovu";
-"Home" = "Domov";
+"Home" = "Domů";
 "Quest Update!" = "Aktualizace úkolu!";
 "quest.play_again.duel" = "Opakovat duel";
 "Check your progress" = "Zkontrolujte svůj pokrok";
 "2x XP for 10 min!" = "2x XP na 10 minut!";
 "3x XP for 15 min!" = "3x XP na 15 minut!";
-"Подарок за квесты" = "Denní quest dárek";
-"Share Message" = "Získal jsem %d bodů ve hře World Flags! 🎮🌍\nStáhněte si a pokuste se překonat mé skóre!";
-"Statistics Share Promo" = "Hraji World Arena Flags – naučte se světové vlajky, bojujte s přáteli a šplhejte po ligách! 🎮🌍\nMoje statistiky: Nejlepší skóre %d, Přesnost %.1f%%, %d odehraných her.\nChcete se naučit vlajky a vyzkoušet své dovednosti? Připojte se k naší komunitě!\n%@";
+"Подарок за квесты" = "Odměna za denní úkoly";
+"Share Message" = "Moje skóre ve World Arena Flags je %d bodů! 🎮🌍\nStáhněte si hru a zkuste mě překonat!";
+"Statistics Share Promo" = "Hraji World Arena Flags — poznávejte vlajky světa, vyzvěte přátele na souboj a postupujte v ligách! 🎮🌍\nMoje statistiky: nejlepší skóre %d, přesnost %.1f%%, odehraných her: %d.\nChcete poznat vlajky a vyzkoušet své znalosti? Přidejte se k naší komunitě!\n%@";
 
 // Post-Game Flow
-"CLAIM XP" = "NÁROKOVÁNÍ XP";
+"CLAIM XP" = "VYZVEDNOUT XP";
 "TOTAL XP" = "CELKOVÉ XP";
 "PERFECT" = "PERFEKTNÍ";
-"AMAZING" = "ÚŽASNÝ";
-"GOOD" = "DOBRÝ";
+"AMAZING" = "ÚŽASNÉ";
+"GOOD" = "DOBRÉ";
 "KEEP GOING" = "POKRAČUJTE";
-"Perfect! You're unstoppable!" = "Perfektní! Jsi nezastavitelný!";
+"Perfect! You're unstoppable!" = "Perfektní! Nic vás nezastaví!";
 "Excellent performance!" = "Vynikající výkon!";
 "Well done! Keep practicing!" = "Dobrá práce! Pokračujte ve cvičení!";
-"Don't give up! Practice makes perfect!" = "Nevzdávej to! Cvičení dělá mistra!";
+"Don't give up! Practice makes perfect!" = "Nevzdávejte to! Cvičení dělá mistra!";
 "day streak" = "denní série";
 "This Week" = "Tento týden";
-"Incredible streak! You're on fire!" = "Neuvěřitelná série! Jste v plamenech!";
+"Incredible streak! You're on fire!" = "Neuvěřitelná série! Máte skvělou formu!";
 "Great job! Keep the momentum going!" = "Skvělá práce! Udržujte tempo!";
 "Nice start! Build your streak day by day!" = "Pěkný začátek! Vybudujte si svou sérii den za dnem!";
 "Your Friend Streaks" = "Série vašich přátel";
 "See how your friends are doing" = "Podívejte se, jak se daří vašim přátelům";
 "No friends yet" = "Zatím žádní přátelé";
 "Add friends to see their streaks and compete together!" = "Přidejte si přátele, abyste viděli jejich série a soutěžili spolu!";
-"NUDGE" = "ŠŤOUCHNUTÍ";
+"NUDGE" = "PŘIPOMENOUT";
 "Remind" = "Připomenout";
-"Reminder sent to %@" = "Připomenutí odesláno na %@";
+"Reminder sent to %@" = "Připomenutí odesláno: %@";
 "%@ reminds you" = "%@ vám to připomíná";
-"nudge_phrase_1" = "Nevzdávej to! Máš to!";
+"nudge_phrase_1" = "Nevzdávejte to! Zvládnete to!";
 "nudge_phrase_2" = "Vaše série na vás čeká. Hrajte ještě dnes!";
 "nudge_phrase_3" = "Jedna hra denně udržuje sérii naživu!";
-"nudge_phrase_4" = "Vrať se a ukaž těm vlajkám, kdo je tu pánem!";
-"nudge_phrase_5" = "Chybíš nám! Čas na rychlou hru?";
+"nudge_phrase_4" = "Vraťte se a ukažte, jak dobře znáte vlajky!";
+"nudge_phrase_5" = "Chybíte nám! Co takhle rychlá hra?";
 "nudge_phrase_6" = "Vaši přátelé hrají. Přidejte se k nim!";
 "nudge_phrase_7" = "Dnes malý krok, zítra velká série!";
 "nudge_phrase_8" = "Jste tak blízko! Nepřerušte sérii!";
-"nudge_phrase_9" = "Vlajky volají. Přijměte hovor!";
-"nudge_phrase_10" = "Vstávat a zářit – je čas vlajky!";
-"nudge_phrase_11" = "Trocha praxe je dlouhá cesta!";
-"nudge_phrase_12" = "Dnes je ten správný den, abyste si udrželi šmrnc!";
+"nudge_phrase_9" = "Vlajky volají. Přijměte výzvu!";
+"nudge_phrase_10" = "Vstávat! Je čas na vlajky!";
+"nudge_phrase_11" = "I trocha procvičování vás posune dál!";
+"nudge_phrase_12" = "Zahrajte si dnes a udržte svou sérii!";
 "nudge_phrase_13" = "Vraťte se do hry! Věříme ve vás!";
 "nudge_phrase_14" = "Ještě jedna hra a budete se cítit skvěle!";
-"nudge_phrase_15" = "Tvá série tě míjí. Vraťte se!";
+"nudge_phrase_15" = "Vaše série na vás čeká. Vraťte se!";
 "CONTINUE" = "POKRAČOVAT";
 "streak" = "série";
 "days" = "dní";
@@ -184,34 +184,34 @@
 "Колыбель человечества" = "Kolébka lidstva";
 "Новый свет" = "Nový svět";
 "Земля контрастов" = "Země kontrastů";
-"Острова Тихого океана" = "ostrovy Tichého oceánu";
-"Статистика флагов" = "Statistika příznaku";
+"Острова Тихого океана" = "Ostrovy Tichého oceánu";
+"Статистика флагов" = "Statistiky vlajek";
 "Всего стран" = "Celkem zemí";
 "Цветов на флагах" = "Barvy na vlajkách";
-"Самый популярный цвет" = "Nejoblíbenější Barva";
+"Самый популярный цвет" = "Nejčastější barva";
 "Красный" = "Červený";
 "Флагов с крестом" = "Vlajky s křížem";
 "Интересные факты" = "Zajímavá fakta";
-"Interesting facts study slides" = "Učit se slidery";
+"Interesting facts study slides" = "Učení pomocí snímků";
 "Interesting facts back to list" = "Zpět na seznam";
-"Самый старый флаг" = "Nejstarší vlajka";
-"Флаг Дании используется с 1219 года" = "Dánská vlajka se používá od roku 1219";
-"Единственный квадратный флаг" = "Pouze čtvercová vlajka";
-"У Швейцарии единственный квадратный флаг в мире" = "Švýcarsko má jedinou čtvercovou vlajku na světě";
-"Самый сложный флаг" = "Nejsložitější vlajka";
+"Самый старый флаг" = "Vlajka s legendou";
+"Флаг Дании используется с 1219 года" = "Legenda spojuje dánskou vlajku s bitvou v roce 1219.";
+"Единственный квадратный флаг" = "Čtvercové státní vlajky";
+"У Швейцарии единственный квадратный флаг в мире" = "Švýcarsko i Vatikán mají čtvercové státní vlajky.";
+"Самый сложный флаг" = "Vlajka s drakem";
 "У Бутана на флаге изображен дракон" = "Na vlajce Bhútánu je drak";
-"Go Premium" = "Přejít Premium";
+"Go Premium" = "Přejít na Premium";
 "Мой профиль в World Arena Flags" = "Můj profil ve World Arena Flags";
 "My Profile Share Title" = "Můj profil ve World Arena Flags";
 "Не удалось добавить друга. Проверьте код." = "Přidání přítele se nezdařilo. Zkontrolujte kód.";
 "Daily Quests" = "Denní úkoly";
-"Monthly Quest" = "Měsíční pátrání";
+"Monthly Quest" = "Měsíční úkol";
 
 // Learning Section
 "More facts" = "Více faktů";
 "стран" = "zemí";
 "фактов о флагах и странах" = "fakta o vlajkách a zemích";
-"Столица" = "Kapitál";
+"Столица" = "Hlavní město";
 
 // Continent names
 "Европа" = "Evropa";
@@ -227,15 +227,15 @@
 "Колыбель человечества" = "Kolébka lidstva";
 "Новый свет" = "Nový svět";
 "Земля контрастов" = "Země kontrastů";
-"Острова Тихого океана" = "ostrovy Tichého oceánu";
+"Острова Тихого океана" = "Ostrovy Tichého oceánu";
 
 // Network Errors
 "No Internet Connection" = "Žádné připojení k internetu";
-"Request Timeout" = "Časový limit požadavku";
+"Request Timeout" = "Vypršel časový limit požadavku";
 "Server Not Found" = "Server nenalezen";
 "Too Many Requests" = "Příliš mnoho požadavků";
 "HTTP Error: %d" = "Chyba HTTP: %d";
-"Not enough countries in selected regions (found %d, need at least 4)" = "Ve vybraných regionech není dostatek zemí (nalezeno %d, potřebujete alespoň 4)";
+"Not enough countries in selected regions (found %d, need at least 4)" = "Ve vybraných regionech není dostatek zemí (nalezeno %d, potřeba alespoň 4)";
 "Empty response from server" = "Prázdná odpověď ze serveru";
 
 // New additions
@@ -248,19 +248,19 @@
 "system_language" = "Systém";
 "ru_language" = "Русский";
 "uk_language" = "Українська";
-"es_language" = "španělsky";
+"es_language" = "Español";
 "ca_language" = "Català";
 "zh_language" = "中文";
 
 // Exit confirmation
 "Exit Confirmation" = "Opravdu chcete ukončit?";
 "Yes" = "Ano";
-"No" = "Žádný";
+"No" = "Ne";
 
 // New additions
 "Tap to continue" = "Pokračujte klepnutím";
 "Loading flag..." = "Načítání vlajky...";
-"Select Difficulty" = "Vyberte Obtížnost";
+"Select Difficulty" = "Vyberte obtížnost";
 "Game Mode" = "Herní režim";
 
 // Game Modes
@@ -271,20 +271,20 @@
 "Survival" = "Přežití";
 "Duel" = "Souboj";
 "Challenge a friend to the same game, compare results" = "Vyzvěte kamaráda na stejnou hru, porovnejte výsledky";
-"Challenge to Duel" = "Výzva k souboji";
+"Challenge to Duel" = "Vyzvat na souboj";
 "You won the duel!" = "Vyhráli jste souboj!";
 "Duel challenge from %@" = "%@ vás vyzval na souboj";
-"Duel result" = "Výsledek duelu";
+"Duel result" = "Výsledek souboje";
 "You won!" = "Vyhráli jste!";
-"won" = "won";
+"won" = "vyhrál";
 "You" = "Vy";
 "Duel announcement title" = "Souboj";
 "vs" = "vs";
 "Friend add username not found" = "Uživatel „%@“ nebyl nalezen. Zkontrolujte přihlašovací jméno.";
-"Start duel" = "Začněte souboj";
+"Start duel" = "Zahájit souboj";
 "24h to accept" = "24 hodin k přijetí";
-"duel_invite_popup_title" = "Výzva na duel";
-"duel_invite_popup_body_format" = "%@ vás vyzývá na duel";
+"duel_invite_popup_title" = "Výzva na souboj";
+"duel_invite_popup_body_format" = "%@ vás vyzývá na souboj";
 "duel_invite_popup_accept" = "Přijmout";
 "duel_invite_popup_remind_1h" = "Připomenout · 1 h";
 "duel_invite_popup_decline" = "Odmítnout";
@@ -299,9 +299,9 @@
 
 // Difficulty
 "Difficulty" = "Obtížnost";
-"Easy" = "Snadný";
+"Easy" = "Lehká";
 "Medium" = "Střední";
-"Hard" = "Tvrdý";
+"Hard" = "Těžká";
 "Expert" = "Expert";
 "Erudite" = "Erudovaný";
 "10 questions, 45 sec per answer" = "10 otázek, 45 sekund na odpověď";
@@ -310,7 +310,7 @@
 "25 questions, 10 sec per answer" = "25 otázek, 10 sekund na odpověď";
 "30 questions, 5 sec per answer" = "30 otázek, 5 sekund na odpověď";
 "All %d countries of selected regions, 5 sec per answer" = "Všech %d zemí vybraných regionů, 5 sekund na odpověď";
-"All 238 countries of the world, 5 sec per answer" = "Všech 238 zemí světa, 5 sekund na odpověď";
+"All 238 countries of the world, 5 sec per answer" = "Všechny dostupné země a území, 5 sekund na odpověď";
 
 "of" = "z";
 "flags" = "vlajky";
@@ -318,93 +318,93 @@
 // Theme
 "App Theme" = "Vzhled";
 "System" = "Systém";
-"Light" = "Světlo";
+"Light" = "Světlý";
 "Dark" = "Tmavý";
 
 // iPad Main Screen
-"Challenge Yourself, Learn the World" = "Vyzvěte se, naučte se svět";
-"WorldArena Description" = "WorldArena je globální vědomostní herní série, která přeměňuje učení v zábavu. Hádejte vlajky, velká města, hranice a mnoho dalšího v dynamickém kvízovém formátu určeném pro všechny věkové kategorie.";
+"Challenge Yourself, Learn the World" = "Vyzkoušejte své znalosti a poznávejte svět";
+"WorldArena Description" = "WorldArena je série vědomostních her, která mění učení v zábavu. Poznávejte vlajky, hlavní města, hranice a mnoho dalšího v dynamických kvízech pro všechny věkové kategorie.";
 
 /* Lives & Premium */
-"Lives" = "žije";
+"Lives" = "Životy";
 "Next +%d in %02d:%02d" = "Další +%d za %02d:%02d";
 "Lives refill info" = "Informace o doplňování životů";
-"You will receive +%d new lives in %02d:%02d" = "Za %02d:%02d získáte +%d nových životů";
-"Unlimited hearts enabled" = "Neomezené srdce povoleno";
-"Unlimited Hearts" = "Neomezené srdce";
-"Your Premium benefits" = "Vaše prémiové výhody";
+"You will receive +%d new lives in %02d:%02d" = "Za %2$02d:%3$02d získáte +%1$d nových životů";
+"Unlimited hearts enabled" = "Neomezené životy aktivovány";
+"Unlimited Hearts" = "Neomezené životy";
+"Your Premium benefits" = "Vaše výhody Premium";
 "Onboarding welcome message" = "Vyberte si níže region a zahrajte si svou první hru!";
-"Onboarding first game done" = "První hra hotová! Zahrajte si další 4 hry s přesností 70 % a odemkněte si hodnocení města.";
+"Onboarding first game done" = "První hra je hotová! Odehrajte ještě 4 hry s přesností alespoň 70 % a odemkněte žebříček svého města.";
 "F-Bucks" = "F-Bucks";
-"Flags Bucks" = "Vlajky Bucks";
+"Flags Bucks" = "Flags Bucks";
 
 /* F-Bucks Info Page */
 "О F-Bucks" = "O F-Bucks";
 "Как заработать" = "Jak vydělat";
-"История" = "Dějiny";
-"Магазин" = "Nakupovat";
+"История" = "Historie";
+"Магазин" = "Obchod";
 "Что такое F-Bucks?" = "Co jsou F-Bucks?";
 "F-Bucks (Flags Bucks) — это внутриигровая валюта, которую можно заработать, играя в World Arena Flags. Используйте F-Bucks для покупки уникальных элементов аватара, скинов и других эксклюзивных предметов." = "F-Bucks (Flags Bucks) je herní měna, kterou můžete vydělávat hraním World Arena Flags. Použijte F-Bucks k nákupu jedinečných položek avatarů, vzhledů a dalších exkluzivních položek.";
 "Особенности:" = "Vlastnosti:";
-"Зарабатывайте за идеальные результаты в играх" = "Vydělávejte na perfektní herní výsledky";
+"Зарабатывайте за идеальные результаты в играх" = "Získávejte odměny za bezchybné hry";
 "Получайте бонусы за длинные серии дней" = "Získejte bonusy za dlouhé denní série";
 "Покупайте эксклюзивные элементы для аватара" = "Kupte si exkluzivní položky avatarů";
 "Создавайте уникальный стиль" = "Vytvořte jedinečný styl";
-"Как заработать F-Bucks" = "Jak vydělat F-Bucks";
+"Как заработать F-Bucks" = "Jak si vydělat F-Bucks";
 "Идеальный результат" = "Perfektní výsledek";
 "Идеальный результат игры" = "Perfektní výsledek hry";
-"Получите идеальный результат в игре (10/10 или 15/15)" = "Získejte perfektní výsledek ve hře (10/10 nebo 15/15)";
+"Получите идеальный результат в игре (10/10 или 15/15)" = "Dokončete hru se všemi odpověďmi správně";
 "Серия 10 дней" = "10denní série";
-"Играйте 10 дней подряд" = "Hrajte 10 dní v řadě";
+"Играйте 10 дней подряд" = "Hraj 10 dní v řadě";
 "Серия 20 дней" = "20denní série";
-"Играйте 20 дней подряд" = "Hrajte 20 dní v řadě";
+"Играйте 20 дней подряд" = "Hraj 20 dní v řadě";
 "Серия 50 дней" = "50denní série";
-"Играйте 50 дней подряд" = "Hrajte 50 dní v řadě";
+"Играйте 50 дней подряд" = "Hraj 50 dní v řadě";
 "Серия 100 дней" = "100denní série";
-"Играйте 100 дней подряд" = "Hrajte 100 dní v řadě";
-"История начислений" = "Historie transakcí";
+"Играйте 100 дней подряд" = "Hraj 100 dní v řadě";
+"История начислений" = "Transakční historie";
 "История пуста" = "Historie je prázdná";
 "Начните играть и зарабатывать F-Bucks!" = "Začněte hrát a vydělávejte F-Bucks!";
 "Магазин F-Bucks" = "Obchod F-Bucks";
 "Потратьте F-Bucks на эксклюзивные элементы для вашего аватара" = "Utraťte F-Bucks za exkluzivní položky pro svého avatara";
 "Одежда" = "Oblečení";
 "Уникальные наряды и аксессуары" = "Jedinečné outfity a doplňky";
-"Скины" = "skiny";
+"Скины" = "Vzhledy";
 "Особые визуальные эффекты" = "Speciální vizuální efekty";
 "Эффекты" = "Efekty";
 "Анимации и спецэффекты" = "Animace a speciální efekty";
-"Футболка чемпиона" = "Mistrovské tričko";
-"Кепка путешественника" = "Cestovatelská čepice";
-"Куртка исследователя" = "Průzkumnická bunda";
-"Золотой скин" = "Zlatá kůže";
-"Радужный скин" = "Duhová kůže";
-"Неоновый скин" = "Neonová kůže";
+"Футболка чемпиона" = "Tričko šampiona";
+"Кепка путешественника" = "Kšiltovka pro cestovatele";
+"Куртка исследователя" = "Bunda průzkumníka";
+"Золотой скин" = "Zlatý skin";
+"Радужный скин" = "Duhový skin";
+"Неоновый скин" = "Neonový skin";
 "Эффект блёсток" = "Jiskřivý efekt";
 "Огненный эффект" = "Ohnivý efekt";
-"Звёздный эффект" = "Hvězdný efekt";
-"Купить" = "Nakoupit";
+"Звёздный эффект" = "Efekt hvězdy";
+"Купить" = "Koupit";
 "Покупка" = "Nákup";
 "Текст гимна" = "Text hymny";
-"Continue playing with unlimited hearts!" = "Pokračujte ve hře s neomezeným počtem srdcí!";
+"Continue playing with unlimited hearts!" = "Pokračujte ve hře s neomezenými životy!";
 "No lives available" = "Žádné dostupné životy";
 "Unfortunately, the game is not available now: you have no lives. You can buy lives or go Premium." = "Bohužel hra není nyní dostupná: nemáte žádné životy. Můžete si koupit životy nebo přejít na Premium.";
-"Go Premium" = "Přejít Premium";
-"Out of lives" = "Mimo životy";
-"Get Free Lives" = "Získejte svobodné životy";
-"Watch video for +3 lives" = "Podívejte se na video pro +3 životy";
+"Go Premium" = "Přejít na Premium";
+"Out of lives" = "Došly vám životy";
+"Get Free Lives" = "Získat životy zdarma";
+"Watch video for +3 lives" = "Podívejte se na video a získejte +3 životy";
 "Unfortunately you ran out of lives this time. Try again or come back later." = "Bohužel vám tentokrát došly životy. Zkuste to znovu nebo se vraťte později.";
-"Out of lives headline 1" = "Už to skoro máš! 🚀";
+"Out of lives headline 1" = "Už to skoro máte! 🚀";
 "Out of lives headline 2" = "Pokračujeme?";
 "Out of lives headline 3" = "Zbývá poslední krok!";
 "Out of lives headline 4" = "Tak blízko!";
-"Out of lives headline 5" = "Teď nepřestávej!";
+"Out of lives headline 5" = "Teď nepřestávejte!";
 "Out of lives headline 6" = "Ještě jedno kolo?";
-"Out of lives headline 7" = "Udrž sérii!";
+"Out of lives headline 7" = "Udržte svou sérii!";
 "Out of lives continue subtitle" = "Pokračovat odsud?";
 "Continue with bonus lives" = "Pokračovat (+%d životů)";
-"Out of lives perk resume" = "+%d životů — pokračuješ přesně tam, kde jsi skončil";
-"Out of lives perk progress" = "Nepřijdeš o postup";
-"Out of lives urgency" = "Rychle — nenech si vzít postup!";
+"Out of lives perk resume" = "+%d životů — pokračujte přesně tam, kde jste skončili";
+"Out of lives perk progress" = "O svůj postup nepřijdete";
+"Out of lives urgency" = "Rychle — zachovejte svůj postup!";
 "Ad-free with Premium" = "Bez reklam s Premium";
 "Out of lives continue premium" = "Pokračovat s Premium";
 "Ad unavailable" = "Reklama není k dispozici";
@@ -412,45 +412,45 @@
 "OK" = "OK";
 
 /* Premium screen */
-"Learn all countries and flags in ~2 months with Premium" = "Naučte se všechny země a vlajky za ~2 měsíce s Premium";
-"Unlimited Hearts" = "Neomezené srdce";
-"Personalized Practice" = "Personalizovaná praxe";
+"Learn all countries and flags in ~2 months with Premium" = "Rozšiřujte své znalosti zemí a vlajek s Premium";
+"Unlimited Hearts" = "Neomezené životy";
+"Personalized Practice" = "Procvičování na míru";
 "Explain My Answer" = "Vysvětlete mou odpověď";
 "Roleplay Scenarios" = "Scénáře hraní rolí";
-"Access 'My Mistakes'" = "Přístup k 'Moje chyby'";
+"Access 'My Mistakes'" = "Přístup k sekci „Moje chyby“";
 "My Mistakes" = "Moje chyby";
-"Erudite Difficulty" = "Erudovaná Obtížnost";
+"Erudite Difficulty" = "Obtížnost Erudovaný";
 "Learning Section" = "Vzdělávací sekce";
-"UPGRADE TO PREMIUM" = "UPGRADE NA PREMIUM";
-"NO THANKS" = "NE DÍKY";
+"UPGRADE TO PREMIUM" = "PŘEJÍT NA PREMIUM";
+"NO THANKS" = "NE, DĚKUJI";
 
 /* Game header popovers */
 "Total game time since start" = "Celkový čas hry od začátku";
-"Time limit per question depending on difficulty" = "Time limit per question depending on difficulty";
+"Time limit per question depending on difficulty" = "Čas na otázku závisí na obtížnosti";
 "Total Game Time" = "Celková doba hry";
-"Time Per Question" = "Time Per Question";
+"Time Per Question" = "Čas na otázku";
 
 /* Game header motivation (iPad) */
-"Game motivation 1" = "Máš to!";
-"Game motivation 2" = "Pokračuj!";
+"Game motivation 1" = "Zvládnete to!";
+"Game motivation 2" = "Pokračujte!";
 "Game motivation 3" = "Každá vlajka se počítá!";
-"Game motivation 4" = "Jste v plamenech!";
+"Game motivation 4" = "Máte skvělou formu!";
 "Game motivation 5" = "Soustřeďte se!";
-"Game motivation 6" = "Ještě jeden!";
+"Game motivation 6" = "Ještě jednu!";
 "Game motivation 7" = "Skvělé tempo!";
-"Game motivation 8" = "Téměř tam!";
+"Game motivation 8" = "Už jste skoro u cíle!";
 "%d min %d sec" = "%d min %d s";
 "%d sec" = "%d s";
 
 // Push Notifications
 "Push Notification Title" = "Čas cvičit!";
-"Push Notification Body" = "Otestujte si své znalosti vlajky a zdokonalte své dovednosti! 🌍🎯";
+"Push Notification Body" = "Otestujte své znalosti vlajek a zlepšete své dovednosti! 🌍🎯";
 
 // Profile Page
 "League" = "Liga";
 "Following" = "Přátelé";
 "Days in a row" = "Dny v řadě";
-"Joined in %@" = "Připojil se k %@";
+"Joined in %@" = "Ve hře od roku %@";
 "Statistics" = "Statistika";
 "Total XP" = "Celkem XP";
 "Current streak" = "Aktuální série";
@@ -465,14 +465,14 @@
 /* Avatar Editor */
 "Edit Avatar" = "Upravit avatar";
 "Cancel" = "Zrušit";
-"Upload Photo" = "Nahrajte fotografii";
-"Create Avatar" = "Vytvořte Avatara";
+"Upload Photo" = "Nahrát fotografii";
+"Create Avatar" = "Vytvořit avatar";
 "Photo" = "Fotografie";
 "Create" = "Vytvořit";
-"Select Photo" = "Vyberte Foto";
+"Select Photo" = "Vybrat fotografii";
 "Upload your photo from gallery or take a new one" = "Nahrajte svou fotografii z galerie nebo pořiďte novou";
 "Remove Photo" = "Odebrat fotografii";
-"Save Avatar" = "Uložit Avatara";
+"Save Avatar" = "Uložit avatar";
 "Gender" = "Pohlaví";
 "Skin Tone" = "Tón pleti";
 "Face Shape" = "Tvar obličeje";
@@ -483,46 +483,46 @@
 "Eyebrows" = "Obočí";
 "Nose" = "Nos";
 "Mouth" = "Ústa";
-"Facial Hair" = "Vlasy na obličeji";
+"Facial Hair" = "Vousy";
 "Glasses" = "Brýle";
-"Outfit" = "Výstroj";
-"Accessories" = "Příslušenství";
+"Outfit" = "Oblečení";
+"Accessories" = "Doplňky";
 
 /* Game Loading */
-"Loading flags..." = "Načítání příznaků...";
+"Loading flags..." = "Načítání vlajek...";
 "Starting..." = "Spouštění...";
 
 /* Main Tab Navigation */
-"Главная" = "Domov";
+"Главная" = "Domů";
 "Игра" = "Hrát";
 "Квесты" = "Úkoly";
-"Лиги" = "ligy";
-"До конца лиги: %02dч %02dм (GMT)" = "Liga končí za %02dh %02dm (GMT)";
-"До конца лиги: %@ (GMT)" = "Liga končí v %@ (GMT)";
+"Лиги" = "Ligy";
+"До конца лиги: %02dч %02dм (GMT)" = "Liga končí za %02d h %02d min (GMT)";
+"До конца лиги: %@ (GMT)" = "Liga končí za %@ (GMT)";
 "д" = "d";
 "ч" = "h";
-"м" = "m";
+"м" = "min";
 "Статистика" = "Statistika";
 "Профиль" = "Profil";
 
 /* Profile Page */
 "ОБЗОР" = "PŘEHLED";
 "ДОБАВИТЬ ДРУЗЕЙ" = "PŘIDAT PŘÁTELE";
-"СЕРИИ ДРУЗЕЙ" = "PŘÁTELSKÉ PROUDY";
-"МЕСЯЧНЫЕ ДОСТИЖЕНИЯ" = "MĚSÍČNÍ VÝSLEDKY";
+"СЕРИИ ДРУЗЕЙ" = "SÉRIE PŘÁTEL";
+"МЕСЯЧНЫЕ ДОСТИЖЕНИЯ" = "MĚSÍČNÍ ÚSPĚCHY";
 
 /* Settings */
 "Выберите аватар" = "Vyberte avatar";
 "Редактировать аватар" = "Upravit avatar";
 "profile_upload_photo" = "Nahrát fotografii";
 "profile_crop_photo_title" = "Upravit fotografii";
-"profile_crop_photo_subtitle" = "Štipnutím přiblížíte · tažením posunete";
+"profile_crop_photo_subtitle" = "Roztažením prstů přiblížíte · tažením posunete";
 "profile_crop_zoom_label" = "Přiblížení";
 "profile_crop_cancel" = "Zrušit";
 "profile_crop_done" = "Hotovo";
 "Имя пользователя" = "Uživatelské jméno";
 "Статистика" = "Statistika";
-"Премиум подписка активна" = "Prémiové předplatné je aktivní";
+"Премиум подписка активна" = "Předplatné Premium je aktivní";
 "ВОССТАНОВИТЬ ПОДПИСКУ" = "OBNOVIT PŘEDPLATNÉ";
 "ВЫЙТИ" = "ODHLÁSIT SE";
 "Удалить аккаунт" = "Smazat účet";
@@ -530,23 +530,23 @@
 
 /* Language Selection */
 "Выберите язык игры" = "Vyberte jazyk hry";
-"Язык интерфейса игры и заданий" = "Herní rozhraní a jazyk úkolů";
+"Язык интерфейса игры и заданий" = "Jazyk rozhraní hry a úkolů";
 
 /* Leagues */
-"Вы занимаете #%d место" = "Jste na #%d";
-"Зона повышения - переход в следующую лигу!" = "Propagační zóna – postup do další ligy!";
+"Вы занимаете #%d место" = "Vaše místo: %d";
+"Зона повышения - переход в следующую лигу!" = "Postupová zóna — postup do vyšší ligy!";
 "Зона вылета - риск понижения лиги" = "Zóna sestupu – riziko sestupu z ligy";
-"Безопасная зона - остаетесь в текущей лиге" = "Bezpečná zóna – pobyt v aktuální lize";
+"Безопасная зона - остаетесь в текущей лиге" = "Bezpečná zóna — zůstáváte v aktuální lize";
 "Конец недели через %d часов" = "Týden končí za %d hodin";
 "ЗОНА ВЫЛЕТА" = "ZÓNA SESTUPU";
-"ЗОНА ПОВЫШЕНИЯ" = "PROPAGAČNÍ ZÓNA";
+"ЗОНА ПОВЫШЕНИЯ" = "POSTUPOVÁ ZÓNA";
 
 /* Monthly Quests */
-"Августовский Квест" = "Srpnový pátrání";
+"Августовский Квест" = "Srpnový úkol";
 "Mision de Agosto" = "Srpnová mise";
 "21 ДЕНЬ" = "21 DNÍ";
-"Заработай 40 очков квеста" = "Získejte 40 questových bodů";
-"ЕЖЕДНЕВНЫЕ КВЕСТЫ" = "DENNÍ DOTAZY";
+"Заработай 40 очков квеста" = "Získejte 40 bodů za úkoly";
+"ЕЖЕДНЕВНЫЕ КВЕСТЫ" = "DENNÍ ÚKOLY";
 
 /* Help Center */
 "Популярные темы" = "Populární témata";
@@ -554,19 +554,19 @@
 /* Help Center Categories */
 "Игра" = "Hra";
 "Прогресс" = "Pokrok";
-"Лиги" = "ligy";
+"Лиги" = "Ligy";
 "Профиль" = "Profil";
-"Социальные функции" = "Sociální funkce";
+"Социальные функции" = "Funkce pro přátele";
 "Технические вопросы" = "Technické problémy";
 "Нужна дополнительная помощь?" = "Potřebujete další pomoc?";
-"Связаться с поддержкой" = "Kontaktujte podporu";
+"Связаться с поддержкой" = "Kontaktovat podporu";
 "Результаты поиска" = "Výsledky vyhledávání";
 "Ничего не найдено" = "Nic nenalezeno";
 "Попробуйте другие ключевые слова" = "Zkuste jiná klíčová slova";
 "%d тем" = "%d témat";
 
 /* Daily Quests */
-"Продли свою серию" = "Prodlužte si řadu";
+"Продли свою серию" = "Prodlužte svou sérii";
 "Сыграй 3 игры подряд" = "Zahrajte si 3 hry v řadě";
 "Достигни точности 80%" = "Dosáhněte 80% přesnosti";
 "МЕСЯЧНЫЕ ЦЕЛИ" = "MĚSÍČNÍ CÍLE";
@@ -577,7 +577,7 @@
 "Текущая серия" = "Aktuální série";
 "Всего изучено флагов" = "Celkový počet naučených vlajek";
 "Текущая лига" = "Aktuální liga";
-"Общий опыт" = "Celková zkušenost";
+"Общий опыт" = "Celkové zkušenosti";
 
 /* League Names */
 "Бронза" = "Bronz";
@@ -585,14 +585,14 @@
 "Золото" = "Zlato";
 "Платина" = "Platina";
 "Алмаз" = "Diamant";
-"Мастер" = "Zvládnout";
+"Мастер" = "Mistr";
 
 /* Profile Edit */
 "Введите имя" = "Zadejte jméno";
 "Отмена" = "Zrušit";
 "Сохранить" = "Uložit";
 "Уровень" = "Úroveň";
-"Опыт" = "Zažít";
+"Опыт" = "Zkušenosti";
 "Серия дней" = "Denní série";
 "Всего игр" = "Celkem her";
 "Точность" = "Přesnost";
@@ -600,7 +600,7 @@
 /* Theme Settings */
 "Тема" = "Téma";
 "System" = "Systém";
-"Light" = "Světlo";
+"Light" = "Světlý";
 "Dark" = "Tmavý";
 "Выберите тему оформления приложения" = "Vyberte motiv vzhledu aplikace";
 "Следует системным настройкам" = "Řídí se nastavením systému";
@@ -608,27 +608,27 @@
 "Темное оформление" = "Tmavý vzhled";
 
 /* Monthly Quests - Additional */
-"Сыграй %d игр" = "Hrát %d her";
+"Сыграй %d игр" = "Odehrajte %d her";
 "Завершите %d игр в этом месяце" = "Dokončete tento měsíc %d her";
 "Точность %d%%" = "Přesnost %d%%";
 "Достигните точности %d%% в играх" = "Dosáhněte %d%% přesnosti ve hrách";
-"Серия %d дней" = "%d denní série";
+"Серия %d дней" = "Série: %d dní";
 "Поддерживайте серию %d дней подряд" = "Udržujte sérii %d dnů";
-"10Ч" = "10H";
+"10Ч" = "10 h";
 
 /* Friends */
-"Ваш код друга" = "Kód vašeho přítele";
+"Ваш код друга" = "Váš kód pro přidání mezi přátele";
 "Добавить по коду" = "Přidat podle kódu";
 "Введите код друга" = "Zadejte kód přítele";
 "Добавить" = "Přidat";
 "Добавить друзей" = "Přidat přátele";
 "Готово" = "Hotovo";
 "Скопировано" = "Zkopírováno";
-"Мой код друга" = "Kód mého přítele";
+"Мой код друга" = "Můj kód pro přidání mezi přátele";
 "Добавить по имени (логину)" = "Přidat podle uživatelského jména";
 "Введите имя пользователя" = "Zadejte uživatelské jméno";
-"Пользователь не найден или уже в друзьях. Проверьте имя." = "Uživatel nebyl nalezen nebo je již v přátelích. Zkontrolujte jméno.";
-"Ваша страна (флаг в профиле)" = "Vaše země (označte v profilu)";
+"Пользователь не найден или уже в друзьях. Проверьте имя." = "Uživatel nebyl nalezen nebo už je mezi vašimi přáteli. Zkontrolujte uživatelské jméno.";
+"Ваша страна (флаг в профиле)" = "Vaše země (vlajka v profilu)";
 "Выберите страну — её флаг будет отображаться у вас в профиле у друзей." = "Vyberte zemi – její vlajka se zobrazí přátelům ve vašem profilu.";
 "Не выбрано" = "Nevybráno";
 "Ваша страна" = "Vaše země";
@@ -639,64 +639,64 @@
 "HELP_GAME_RULES" = "World Arena Flags je zábavná hra, ve které se naučíte světové vlajky!\n\nPravidla:\n1. Vidíte vlajku země\n2. Vyberte správný název z možností\n3. Získejte XP za správné odpovědi\n4. Udržujte si denní sérii\n5. Zvyšte úroveň a šplhejte v ligách\n\nČím více budete hrát, tím více vlajek se naučíte!";
 "Что такое серия дней?" = "Co je série dnů?";
 "Как работает система серий" = "Jak funguje systém sérií";
-"HELP_STREAK_TEXT" = "Série ukazuje, kolik dní v řadě jste hráli.\n\nJak ji udržet:\n• Zahrajte si každý den alespoň jednu hru\n• Pokud den vynecháte, série se resetuje\n• Delší série přinášejí více bonusových XP\n\nSérie pomáhá budovat návyk učit se pravidelně.";
+"HELP_STREAK_TEXT" = "Série sleduje po sobě jdoucí dny hraní.\n\n• Každý den si zahrajte alespoň jednu hru, aby série rostla.\n• Dostupná zmrazení série mohou ochránit vynechané dny.\n• V kalendáři série uvidíte odehrané dny i dostupnou ochranu.\n\nPravidelné procvičování pomáhá vytvořit návyk učit se!";
 "Как работают лиги?" = "Jak fungují ligy?";
 "Система рейтингов и соревнований" = "Systém hodnocení a soutěže";
-"HELP_LEAGUES_TEXT" = "Ligy jsou soutěže s ostatními hráči.\n\nLigy (od nižších po vyšší):\n• Bronz\n• Stříbro\n• Zlato\n• Platina\n• Diamant\n• Mistr\n\nTýdenní aktualizace:\n• Nejlepší 3 hráči získají odměny\n• Hráči ve věku 16–20 mohou být degradováni\n• Ostatní zůstávají ve stejné lize";
+"HELP_LEAGUES_TEXT" = "V ligách soutěžíte s ostatními hráči.\n\nOd nejnižší po nejvyšší:\n• Bronzová\n• Stříbrná\n• Zlatá\n• Platinová\n• Diamantová\n• Mistrovská\n\nVaše týdenní umístění rozhoduje o postupu, setrvání nebo sestupu. Postupové a sestupové zóny závisejí na vašem pokroku a jsou vyznačené v tabulce ligy. Za postup získáváte F-Bucks.";
 
 /* Birthday */
 "День рождения" = "Narozeniny";
-"Birthday description F-bucks" = "Dovolte nám, abychom vám poblahopřáli k narozeninám s +10 F-bucks";
-"Очистить" = "Jasný";
+"Birthday description F-bucks" = "Oslavte s námi narozeniny a získejte bonus +10 F-Bucks";
+"Очистить" = "Vymazat";
 "День рождения друга" = "Narozeniny přítele";
 "Friend birthday push body" = "Dnes %@ slaví narozeniny — pogratulujte! (+10 min trojitých XP nebo +1 F-Bucks)";
 "С днём рождения!" = "Všechno nejlepší k narozeninám!";
-"Birthday bonus already claimed" = "Bonus pro tento rok již nárokován";
+"Birthday bonus already claimed" = "Letošní bonus už byl vyzvednut";
 "Birthday bonus F-bucks message" = "Získali jste +10 F-Bucks";
 "Friend birthday today" = "Dnes má %@ narozeniny";
 "Friends birthday today count" = "%d přátel má dnes narozeniny";
-"Friend birthday congratulate hint" = "Gratulujeme: dejte +10 min Triple XP nebo +1 F-bucks";
+"Friend birthday congratulate hint" = "Poblahopřejte: darujte 10 minut trojnásobných XP nebo 1 F-Bucks";
 "Подарок на ДР от друга" = "Dárek k narozeninám od přítele";
 
 /* Help Center – profile & skin */
 "Как изменить аватар?" = "Jak změnit avatara?";
 "Персонализация профиля" = "Přizpůsobení profilu";
-"HELP_PROFILE_AVATAR" = "Změna avatara:\n1. Otevřete kartu Profil\n2. Klepněte na ikonu ozubeného kola (Nastavení)\n3. Zvolte „Uživatelský profil“\n4. Vyberte nového avatara nebo nahrajte fotografii\n5. Klepněte na „Uložit“";
-"Как работает создание скина?" = "Jak funguje editor skinů?";
-"Редактор аватара и элементы" = "Editor avatarů a položek";
-"HELP_PROFILE_SKIN_EDITOR" = "V editoru vzhledu sestavujete svůj vzhled z několika kategorií:\n• Oblečení\n• Příslušenství\n• Brýle\n• Tón pleti\n• Vlasy\n• Obličej (oči, ústa atd.)\n\nJak jej používat:\n1. Otevřete Profil → Nastavení → Uživatelský profil → Upravit avatar\n2. Přejděte na kartu „Vytvořit vzhled“.\n3. Vyberte kategorii v horní liště (klobouk, košile, brýle, ikony palet atd.)\n4. Vyberte konkrétní položku v mřížce níže – okamžitě se zobrazí v náhledu\n5. Klepnutím na „Uložit avatara“ použijete vzhled na svůj profil\n\nNěkteré položky mohou být zamčené (ikona zámku) – odemykají se postupem nebo za F-dolečky.";
+"HELP_PROFILE_AVATAR" = "Jak změnit avatar:\n1. Otevřete Profil a klepnutím na avatar přejděte k úpravě profilu.\n2. Otevřete editor avatara nebo vyberte fotografii z knihovny.\n3. Upravte avatar nebo ořízněte fotografii.\n4. Uložte změny.";
+"Как работает создание скина?" = "Jak funguje editor vzhledu?";
+"Редактор аватара и элементы" = "Editor avatara a jeho prvky";
+"HELP_PROFILE_SKIN_EDITOR" = "V editoru avatara upravíte svůj vzhled: oblečení, doplňky, brýle, odstín pleti, vlasy a rysy obličeje.\n\nOtevřete profil, klepněte na avatar a otevřete jeho editor. Zvolte kategorii a předmět — ihned se zobrazí v náhledu. Uložením změn je použijete v profilu.\n\nPředměty označené zámkem mohou k odemčení vyžadovat herní pokrok nebo F-Bucks.";
 
 /* Help Center – friends & social */
 "Как добавить друзей?" = "Jak přidat přátele?";
-"Социальные функции" = "Sociální rysy";
-"HELP_SOCIAL_ADD_FRIENDS" = "Chcete-li přidat přátele:\n1. Otevřete kartu Profil\n2. Klepněte na „Přidat přátele“\n3. Sdílejte kód svého přítele nebo zadejte kód / přihlašovací jméno jiného hráče\n4. Pošlete žádost o přátelství\n\nS přáteli můžete:\n• Porovnejte statistiky\n• Podívejte se na jejich pokrok\n• Soutěžte v ligách a duelech";
+"Социальные функции" = "Funkce pro přátele";
+"HELP_SOCIAL_ADD_FRIENDS" = "Jak přidat přátele:\n1. Otevřete kartu Profil.\n2. Klepněte na „Přidat přátele“.\n3. Sdílejte svůj kód pro přidání mezi přátele nebo zadejte kód či uživatelské jméno jiného hráče.\n4. Odešlete žádost o přátelství.\n\nS přáteli můžete porovnávat statistiky, sledovat pokrok a soutěžit v ligách a soubojích.";
 "Как работают напоминания друзьям?" = "Jak fungují připomenutí přátelům?";
 "Пуш-уведомления о ежедневном уроке" = "Push upozornění na denní lekci";
-"HELP_SOCIAL_REMINDERS" = "Po dokončení hry uvidíte obrazovku se svými přáteli a jejich sériemi:\n• Přátelé, kteří již dnes hráli, uvidíte s plamenem a počtem dní série\n• Přátelé, kteří dnes nehráli, mají tlačítko „Připomenout“\n\nJak poslat připomínku:\n1. Po hře přejděte na obrazovku „Připomenout přátelům“\n2. Klepněte na „Připomenout“ u konkrétního přítele\n3. Pokud mají zapnutá oznámení, dostanou upozornění, že dnešní lekce ještě není hotová\n\nPřipomínky pomáhají přátelům udržet sérii a učit se pravidelně.";
+"HELP_SOCIAL_REMINDERS" = "Po dokončení hry uvidíte přátele a jejich série:\n• U přátel, kteří dnes už hráli, se zobrazí plamínek a počet dní série.\n• U přátel, kteří dnes ještě nehráli, se zobrazí tlačítko „Připomenout“.\n\nKlepněte na „Připomenout“ vedle přítele. Pokud má zapnutá oznámení, obdrží připomenutí dnešní lekce.\n\nPřipomenutí pomáhají přátelům udržet sérii a pravidelně se učit.";
 
 /* Help Center – duel & progress */
 "Что такое дуэль и как её начать?" = "Co je to souboj a jak ho začít?";
-"Режим соревнований 1 на 1" = "soutěžní režim 1 na 1";
-"HELP_GAME_DUEL" = "Duel je režim, ve kterém vy a váš přítel odpovídáte na stejné otázky a porovnáváte výsledky.\n\nJak začít duel:\n1. Otevřete profil přítele (ze seznamu přátel, lig nebo připomínek)\n2. Klepněte na „Výzva k souboji“\n3. Potvrďte – duel použije stejnou sadu otázek\n\nNa konci:\n• Uvidíte, kdo získal více bodů\n• Duel motivuje k dalšímu hraní, ale NERUŠÍ vaši denní sérii";
-"Как зарабатывать и тратить F-bucks?" = "Jak vydělávat a utrácet F-doláře?";
+"Режим соревнований 1 на 1" = "Soutěžní režim jeden na jednoho";
+"HELP_GAME_DUEL" = "V souboji vy a váš přítel odpovídáte na stejné otázky a porovnáváte výsledky.\n\nJak začít souboj:\n1. Otevřete profil přítele ze seznamu přátel, ligy nebo připomenutí.\n2. Klepněte na „Vyzvat na souboj“.\n3. Potvrďte začátek — oba hráči dostanou stejnou sadu otázek.\n\nNa konci uvidíte, kdo získal více bodů. Souboj vás motivuje k dalšímu hraní a neruší vaši denní sérii.";
+"Как зарабатывать и тратить F-bucks?" = "Jak získávat a utrácet F-Bucks?";
 "Внутриигровая валюта" = "Měna ve hře";
-"HELP_PROGRESS_FBUCKS" = "F-Bucks (Flags Bucks) jsou herní měnou World Arena Flags.\n\nJak je získat:\n• Dokonalé hry (všechny odpovědi správně)\n• Dlouhé denní série\n• Plnění úkolů a úspěchů\n\nZa co je utratit:\n• Exkluzivní prvky vzhledu a avatary\n• Vzácné doplňky a efekty\n\nDůležité: F-Bucks nejsou skutečné peníze. Nelze je vybrat ani směnit za měnu.";
-"Как работают квесты и достижения?" = "Jak fungují questy a achievementy?";
+"HELP_PROGRESS_FBUCKS" = "F-Bucks (Flags Bucks) jsou herní měnou World Arena Flags.\n\nJak je získat:\n• Za bezchybné hry v režimech, které na odměnu mají nárok.\n• Za dlouhé denní série.\n• Za plnění úkolů a získávání úspěchů.\n\nZa co je utratit:\n• Exkluzivní prvky vzhledu avatara.\n• Vzácné doplňky a efekty.\n\nF-Bucks nejsou skutečné peníze. Nelze je vybrat ani směnit za skutečnou měnu.";
+"Как работают квесты и достижения?" = "Jak fungují úkoly a úspěchy?";
 "Месячные задания и артефакты" = "Měsíční úkoly a artefakty";
 "HELP_PROGRESS_QUESTS" = "Na záložce „Úkoly“ uvidíte:\n• Denní úkoly (pokud jsou k dispozici)\n• Měsíční úkoly a celkový postup 0–40\n\nJak to funguje:\n1. Plňte úkoly: hrajte požadovaný počet her, hádejte vlajky konkrétních regionů atd.\n2. Každý dokončený úkol přidává postup a odměny\n3. Celkový měsíční postup je v barevném záhlaví jako pruh (ukazatel)\n\nÚspěchy (artefakty) se odemykají za zvláštních podmínek:\n• Dlouhé série\n• Vysoká přesnost\n• Vysoká umístění v ligách\nOdemčené úspěchy najdete v profilu.";
 
 /* Help Center – notifications */
 "Уведомления: какие бывают и как их настроить?" = "Upozornění: typy a jak je spravovat?";
 "Ежедневный урок, дуэли и напоминания" = "Každodenní lekce, souboje a připomínky";
-"HELP_NOTIFICATIONS_TYPES" = "Aplikace může odesílat několik typů upozornění:\n• Denní připomenutí lekcí a sérií\n• Připomenutí přátelům a odpovědi na vaše připomenutí\n• Soubojové výzvy a výsledky soubojů\n\nJak spravovat oznámení:\n1. Otevřete nastavení zařízení\n2. Najděte vlajky světové arény\n3. Povolte nebo zakažte typy upozornění, jak chcete\n\nDoporučujeme ponechat denní připomenutí lekcí zapnuté, abyste nepřišli o svou sérii.";
+"HELP_NOTIFICATIONS_TYPES" = "Aplikace podporuje připomenutí denního procvičování a sérií, připomenutí přátelům, pozvánky do soubojů a jejich výsledky.\n\nV nastavení oznámení aplikace vyberte požadovaná připomenutí. Nastavení zařízení určuje, zda World Arena Flags smí zobrazovat oznámení.\n\nDenní připomenutí vám mohou pomoci nezapomenout na procvičování.";
 
 /* Help Center – technical issues */
 "Проблемы с загрузкой флагов" = "Vlajky se nenačítají";
-"Что делать если флаги не загружаются" = "Co dělat, když se příznaky nenačtou";
-"HELP_TECH_FLAGS_NOT_LOADING" = "Pokud se příznaky nenačítají:\n1. Zkontrolujte připojení k internetu\n2. Restartujte aplikaci\n3. Vymažte mezipaměť v nastavení aplikace (pokud je k dispozici)\n4. Aktualizujte aplikaci na nejnovější verzi\n5. Pokud problém přetrvává, kontaktujte podporu";
+"Что делать если флаги не загружаются" = "Co dělat, když se vlajky nenačítají";
+"HELP_TECH_FLAGS_NOT_LOADING" = "Pokud se vlajky nenačítají:\n1. Zkontrolujte připojení k internetu.\n2. Restartujte aplikaci.\n3. Nainstalujte nejnovější aktualizaci aplikace.\n4. Pokud problém přetrvává, kontaktujte podporu.";
 "Синхронизация данных" = "Synchronizace dat";
 "Как сохранить прогресс" = "Jak udržet svůj pokrok v bezpečí";
-"HELP_TECH_DATA_SYNC" = "Váš postup se automaticky ukládá do zařízení.\n\nChcete-li to zálohovat:\n• Použijte iCloud nebo zálohu vašeho zařízení\n• Export dat prostřednictvím nastavení ochrany osobních údajů (pokud je k dispozici)\n• Pravidelně vytvářejte zálohy svého zařízení\n\nPokud změníte zařízení, obnovte zálohu před spuštěním hry, abyste nepřišli o svůj postup.";
+"HELP_TECH_DATA_SYNC" = "Pokrok se automaticky ukládá do vašeho zařízení. Pokud je pro váš účet Apple dostupný iCloud, aplikace přes něj může synchronizovat také místní pokrok.\n\n• Udržujte zálohy zařízení aktuální.\n• Při obnově pokroku z iCloudu používejte stejný účet Apple.\n• Herní data můžete exportovat v nastavení soukromí aplikace.\n\nPo přechodu na nové zařízení zkontrolujte obnovení pokroku, než starou zálohu smažete.";
 
 /* Achievements */
 "Достижения" = "Úspěchy";
@@ -705,13 +705,13 @@
 "НАГРАДЫ" = "Ocenění";
 "Лучшая серия" = "Nejdelší série";
 "Макс. лига" = "Nejvyšší liga";
-"Макс. XP" = "Většina XP";
+"Макс. XP" = "Nejvíce XP";
 "Открыто" = "Odemčeno";
 
 /* Achievement titles/descriptions */
 "Ранняя птица" = "Ranní ptáče";
 "Достигните серии 5 дней" = "Dosáhněte 5denní série";
-"Стабильность" = "Konzistence";
+"Стабильность" = "Vytrvalost";
 "Серия 10 дней" = "10denní série";
 "Железная воля" = "Železná vůle";
 "Серия 30 дней" = "30denní série";
@@ -721,7 +721,7 @@
 "Наберите 5000 XP" = "Získejte 5000 XP";
 "Легенда XP" = "Legenda XP";
 "Наберите 10000 XP" = "Vydělejte 10 000 XP";
-"Исследователь" = "Průzkumník hledání";
+"Исследователь" = "Průzkumník úkolů";
 "Сыграйте 20 игр" = "Zahrajte si 20 her";
 "Ветеран" = "Veterán";
 "Сыграйте 100 игр" = "Zahrajte si 100 her";
@@ -730,22 +730,22 @@
 "Снайпер" = "Odstřelovač";
 "Точность 85%" = "Dosáhněte 85% přesnosti";
 "Серебряная лига" = "Stříbrná liga";
-"Достигните Серебра" = "Dosáhnout Stříbro";
+"Достигните Серебра" = "Dosáhněte Stříbrné ligy";
 "Золотая лига" = "Zlatá liga";
-"Достигните Золота" = "Dosáhněte zlata";
+"Достигните Золота" = "Dosáhněte Zlaté ligy";
 "Платиновая лига" = "Platinová liga";
-"Достигните Платины" = "Dosáhněte platiny";
+"Достигните Платины" = "Dosáhněte Platinové ligy";
 "Алмазная лига" = "Diamantová liga";
-"Достигните Алмаза" = "Dosáhněte diamantu";
+"Достигните Алмаза" = "Dosáhněte Diamantové ligy";
 "Мастер лиг" = "Mistr ligy";
-"Достигните Мастера" = "Oslovte Mistra";
+"Достигните Мастера" = "Dosáhněte Mistrovské ligy";
 "Первый друг" = "První přítel";
 "Добавьте друга" = "Přidat přítele";
 "Своя команда" = "Váš tým";
 "Добавьте 5 друзей" = "Přidejte 5 přátel";
-"Расскажите друзьям" = "Šiřte to";
+"Расскажите друзьям" = "Dejte vědět přátelům";
 "Поделитесь профилем" = "Sdílejte svůj profil";
-"Спринтер" = "Speed ​​Racer";
+"Спринтер" = "Sprinter";
 "Сыграйте 10 игр за день" = "Odehrajte 10 her za den";
 "XP Олимпиец" = "XP olympionik";
 "Мастер Олимпиец XP" = "Mistr XP olympionik";
@@ -763,11 +763,11 @@
 "Основные уведомления" = "Hlavní upozornění";
 "Напоминания об игре" = "Připomenutí hry";
 "Ежедневные напоминания" = "Denní připomenutí";
-"Напоминания о серии" = "Proužek připomenutí";
+"Напоминания о серии" = "Připomenutí série";
 "Время напоминания" = "Čas připomenutí";
 "Время" = "Čas";
 "Достижения и прогресс" = "Úspěchy a pokrok";
-"Социальные уведомления" = "Oznámení ze sociálních sítí";
+"Социальные уведомления" = "Oznámení o přátelích";
 "Друзья" = "Přátelé";
 
 /* Privacy Settings */
@@ -777,7 +777,7 @@
 "Заявки в друзья" = "Žádosti o přátelství";
 "Сбор данных" = "Sběr dat";
 "Аналитика использования" = "Analytika použití";
-"Отчеты о сбоях" = "Zprávy o pádu";
+"Отчеты о сбоях" = "Hlášení o pádech aplikace";
 "Управление данными" = "Správa dat";
 "Политика конфиденциальности" = "Zásady ochrany osobních údajů";
 "Ознакомьтесь с нашей политикой конфиденциальности" = "Přečtěte si naše zásady ochrany osobních údajů";
@@ -785,41 +785,41 @@
 "Прочитайте наши условия использования" = "Přečtěte si naše smluvní podmínky";
 "Экспорт данных" = "Export dat";
 "Скачать копию ваших данных" = "Stáhněte si kopii svých dat";
-"Удалить все данные" = "Smažte všechna data";
+"Удалить все данные" = "Smazat všechna data";
 "Безвозвратно удалить все ваши данные" = "Trvale smažte všechna svá data";
 
 // Profile page
 "Всего изучено флагов" = "Celkový počet naučených vlajek";
 "Текущая лига" = "Aktuální liga";
-"Общий опыт" = "Celková zkušenost";
+"Общий опыт" = "Celkové zkušenosti";
 "дней" = "dní";
 "Текущая серия" = "Aktuální série";
 "XP" = "XP";
 "ДОБАВИТЬ ДРУЗЕЙ" = "PŘIDAT PŘÁTELE";
-"СЕРИИ ДРУЗЕЙ" = "PŘÁTELSKÉ PROUDY";
-"МЕСЯЧНЫЕ ДОСТИЖЕНИЯ" = "MĚSÍČNÍ VÝSLEDKY";
+"СЕРИИ ДРУЗЕЙ" = "SÉRIE PŘÁTEL";
+"МЕСЯЧНЫЕ ДОСТИЖЕНИЯ" = "MĚSÍČNÍ ÚSPĚCHY";
 
 // Add Friends page
-"Ваш код друга" = "Kód vašeho přítele";
+"Ваш код друга" = "Váš kód pro přidání mezi přátele";
 "Добавить по коду" = "Přidat podle kódu";
 "Введите код друга" = "Zadejte kód přítele";
 "Добавить" = "Přidat";
 "Добавить друзей" = "Přidat přátele";
 "Готово" = "Hotovo";
 "Скопировано" = "Zkopírováno";
-"Мой код друга" = "Kód mého přítele";
+"Мой код друга" = "Můj kód pro přidání mezi přátele";
 "Добавить по имени (логину)" = "Přidat podle uživatelského jména";
 "Введите имя пользователя" = "Zadejte uživatelské jméno";
-"Пользователь не найден или уже в друзьях. Проверьте имя." = "Uživatel nebyl nalezen nebo je již v přátelích. Zkontrolujte jméno.";
-"Ваша страна (флаг в профиле)" = "Vaše země (označte v profilu)";
+"Пользователь не найден или уже в друзьях. Проверьте имя." = "Uživatel nebyl nalezen nebo už je mezi vašimi přáteli. Zkontrolujte uživatelské jméno.";
+"Ваша страна (флаг в профиле)" = "Vaše země (vlajka v profilu)";
 "Выберите страну — её флаг будет отображаться у вас в профиле у друзей." = "Vyberte zemi – její vlajka se zobrazí přátelům ve vašem profilu.";
 "Не выбрано" = "Nevybráno";
 "Ваша страна" = "Vaše země";
 
 // Settings page
-"Премиум" = "Pojistné";
+"Премиум" = "Premium";
 "World Arena Premium" = "World Arena Premium";
-"Премиум подписка активна" = "Prémiové předplatné je aktivní";
+"Премиум подписка активна" = "Předplatné Premium je aktivní";
 "ВОССТАНОВИТЬ ПОДПИСКУ" = "OBNOVIT PŘEDPLATNÉ";
 
 // Achievements
@@ -845,7 +845,7 @@
 "Завершите 10 игр в этом месяце" = "Dokončete tento měsíc 10 her";
 "Точность 62%" = "Přesnost 62 %";
 "Достигните точности 62% в играх" = "Dosáhněte 62% přesnosti ve hrách";
-"Серия 3 дней" = "Proužek 3 dny";
+"Серия 3 дней" = "Série: 3 dny";
 "Поддерживайте серию 3 дней подряд" = "Udržujte 3denní sérii";
 
 // Profile page buttons
@@ -855,50 +855,50 @@
 // Profile statistics
 "Статистика" = "Statistika";
 "Уровень" = "Úroveň";
-"Опыт" = "Zažít";
+"Опыт" = "Zkušenosti";
 "Серия дней" = "Denní série";
 "Всего игр" = "Celkem her";
 "Точность" = "Přesnost";
 
 // Avatar Editor
 "Edit Avatar" = "Upravit avatar";
-"Upload photo" = "Nahrajte fotografii";
+"Upload photo" = "Nahrát fotografii";
 "Photo" = "Fotografie";
 "Create" = "Vytvořit";
-"Select photo" = "Vyberte Foto";
+"Select photo" = "Vybrat fotografii";
 "Upload your photo from gallery or take a new one" = "Nahrajte svou fotografii z galerie nebo pořiďte novou";
-"Save Avatar" = "Uložit Avatara";
+"Save Avatar" = "Uložit avatar";
 
 // Mission title
 "August Mission" = "Srpnová mise";
 
 /* Subscription Management */
 "Управление подпиской" = "Správa předplatného";
-"Ваша премиум подписка активна" = "Vaše prémiové předplatné je aktivní";
+"Ваша премиум подписка активна" = "Vaše předplatné Premium je aktivní";
 "Текущий план" = "Aktuální plán";
 "Цена" = "Cena";
 "месяц" = "měsíc";
 "Информация о платежах" = "Fakturační údaje";
 "Дата начала" = "Datum zahájení";
 "Следующий платеж" = "Další platba";
-"Статус" = "Postavení";
+"Статус" = "Stav";
 "Активна" = "Aktivní";
-"Премиум преимущества" = "Prémiové výhody";
+"Премиум преимущества" = "Výhody Premium";
 "Безлимитные жизни" = "Neomezené životy";
 "Играйте без ожидания" = "Hrajte bez čekání";
 "Раздел Обучения" = "Vzdělávací sekce";
 "Изучайте флаги и страны" = "Naučte se vlajky a země";
-"Сложность Эрудит" = "Erudovaná Obtížnost";
+"Сложность Эрудит" = "Obtížnost Erudovaný";
 "Продвинутые вопросы" = "Pokročilé otázky";
 "Мои ошибки" = "Moje chyby";
 "Анализ ваших ошибок" = "Analýza vašich chyb";
 "Отменить подписку" = "Zrušit předplatné";
-"Закрыть" = "Blízko";
+"Закрыть" = "Zavřít";
 "Отмена" = "Zrušit";
 "Вы уверены, что хотите отменить премиум подписку? Вы потеряете доступ ко всем премиум функциям." = "Opravdu chcete zrušit své prémiové předplatné? Ztratíte přístup ke všem prémiovým funkcím.";
 
 "Manage subscription" = "Spravovat předplatné";
-"Your premium subscription is active" = "Vaše prémiové předplatné je aktivní";
+"Your premium subscription is active" = "Vaše předplatné Premium je aktivní";
 "Current plan" = "Aktuální plán";
 "Price" = "Cena";
 "month" = "měsíc";
@@ -906,20 +906,20 @@
 "Billing information" = "Fakturační údaje";
 "Start date" = "Datum zahájení";
 "Next payment" = "Další platba";
-"Status" = "Postavení";
+"Status" = "Stav";
 "Active" = "Aktivní";
-"Premium benefits" = "Prémiové výhody";
+"Premium benefits" = "Výhody Premium";
 "My mistakes" = "Moje chyby";
 "Analysis of your mistakes" = "Analýza vašich chyb";
-"Premium tournaments" = "Prémiové turnaje";
+"Premium tournaments" = "Turnaje Premium";
 "Exclusive tournaments with F-Bucks prizes" = "Exkluzivní turnaje s cenami F-Bucks";
 "Cancel subscription" = "Zrušit předplatné";
 "Keep subscription" = "Ponechat předplatné";
 "Yes, cancel" = "Ano, zrušit";
-"Are you sure you want to cancel premium? You will lose access to all premium features." = "Opravdu chcete prémii zrušit? Ztratíte přístup ke všem prémiovým funkcím.";
-"Close" = "Blízko";
+"Are you sure you want to cancel premium? You will lose access to all premium features." = "Opravdu chcete zrušit Premium? Ztratíte přístup ke všem funkcím Premium.";
+"Close" = "Zavřít";
 "Red" = "Červený";
-"Most popular color fact description" = "Červená je přítomna na 75 % všech národních vlajek po celém světě, což z ní činí nejoblíbenější barvu vlajky.";
+"Most popular color fact description" = "Červená se objevuje na mnoha státních vlajkách, například Kanady, Japonska a Švýcarska.";
 
 /* Friend Management */
 "Флаг в профиле" = "Vlajka v profilu";
@@ -930,13 +930,13 @@
 /* Subscription Cancellation */
 "Нам очень жаль, что вы отменили премиум подписку" = "Je nám líto, že jste zrušili své prémiové předplatné";
 "Ваши результаты за период премиум подписки:" = "Vaše výsledky během období prémiového předplatného:";
-"Изучено флагов" = "Studované příznaky";
+"Изучено флагов" = "Naučené vlajky";
 "Лучший результат" = "Nejlepší skóre";
 "очков" = "body";
 "Текущая серия" = "Aktuální série";
 "дней" = "dní";
 "Точность" = "Přesnost";
-"Теперь вы можете без единой ошибки отвечать на все наши вопросы с точностью в %d%%" = "Теперь вы можете без единой ошибки отвечать на все наши вопросы с точностью в %d%%";
+"Теперь вы можете без единой ошибки отвечать на все наши вопросы с точностью в %d%%" = "Přesnost tvých odpovědí je %d%%.";
 "Мы будем рады, если вы захотите снова вернуться к нам!" = "Budeme rádi, pokud se k nám budete chtít znovu vrátit!";
 "Продолжить" = "Pokračovat";
 
@@ -944,7 +944,7 @@
 "ВСЕ СТРАНЫ" = "VŠECHNY ZEMĚ";
 "Все страны" = "Všechny země";
 "стран" = "zemí";
-"Столица" = "Kapitál";
+"Столица" = "Hlavní město";
 
 // Country Detail View
 "Галерея" = "Galerie";
@@ -960,9 +960,9 @@
 "Население" = "Populace";
 "Валюта" = "Měna";
 "Независимость" = "Nezávislost";
-"Площадь" = "Plocha";
+"Площадь" = "Rozloha";
 "Описание" = "Popis";
-"История" = "Dějiny";
+"История" = "Historie";
 "Музыка" = "Hudba";
 "Природа" = "Příroda";
 "Историческая информация о стране" = "Historické informace o zemi";
@@ -971,12 +971,12 @@
 
 /* Premium restrictions */
 "Premium Feature" = "Prémiová funkce";
-"Erudite Level - Premium Only" = "Erudovaná úroveň – pouze Premium";
+"Erudite Level - Premium Only" = "Obtížnost Erudovaný — pouze s Premium";
 "My Mistakes - Premium Only" = "Moje chyby – pouze Premium";
 "This feature is available only for Premium users" = "Tato funkce je dostupná pouze pro uživatele Premium";
-"Continue with Premium" = "Pokračujte s Premium";
+"Continue with Premium" = "Pokračovat s Premium";
 "Get Premium access to unlock:" = "Získejte prémiový přístup k odemknutí:";
-"• Erudite difficulty level" = "• Erudovaná úroveň obtížnosti";
+"• Erudite difficulty level" = "• Úroveň obtížnosti Erudovaný";
 "• My Mistakes section" = "• Sekce Moje chyby";
 "• Unlimited lives" = "• Neomezené životy";
 "• All premium features" = "• Všechny prémiové funkce";
@@ -987,20 +987,20 @@
 "GREAT JOB!" = "SKVĚLÁ PRÁCE!";
 "GOOD EFFORT!" = "VELKÁ SNAHA!";
 "KEEP TRYING!" = "ZKOUŠEJTE DÁL!";
-"Absolutely incredible! You're a true champion! 🎉" = "Naprosto neuvěřitelné! Jsi skutečný šampion! 🎉";
-"Outstanding performance! You're almost perfect! ✨" = "Vynikající výkon! Jste téměř dokonalí! ✨";
-"Fantastic work! You're doing amazing! 🚀" = "Fantastická práce! Jde ti to úžasně! 🚀";
+"Absolutely incredible! You're a true champion! 🎉" = "Naprosto neuvěřitelné! Jste opravdový šampion! 🎉";
+"Outstanding performance! You're almost perfect! ✨" = "Vynikající výkon! Téměř dokonalé skóre! ✨";
+"Fantastic work! You're doing amazing! 🚀" = "Fantastická práce! Jde vám to skvěle! 🚀";
 "Nice job! Keep up the great work! 💫" = "Dobrá práce! Pokračujte ve skvělé práci! 💫";
-"Don't give up! Every expert was once a beginner! 🌱" = "Nevzdávej to! Každý odborník byl jednou začátečník! 🌱";
-"XP EARNED" = "VYDĚLENÉ XP";
-"XP boost time remaining" = "Zbývá %d:%02d — hrát znovu!";
+"Don't give up! Every expert was once a beginner! 🌱" = "Nevzdávejte to! Každý odborník byl kdysi začátečník! 🌱";
+"XP EARNED" = "ZÍSKANÉ XP";
+"XP boost time remaining" = "Zbývá %d:%02d — zahrajte si znovu!";
 "XP boost you have remaining" = "Zbývá vám %@ %@";
 "double XP" = "dvojnásobné XP";
 "triple XP" = "trojité XP";
 
 /* Enhanced Streak View */
-"Don't break the chain! Come back tomorrow!" = "Nepřerušte řetěz! Vrať se zítra!";
-"Time to restart your streak! You can do it!" = "Time to restart your streak! You can do it!";
+"Don't break the chain! Come back tomorrow!" = "Nepřerušujte sérii! Vraťte se zítra!";
+"Time to restart your streak! You can do it!" = "Je čas začít novou sérii! To zvládneš!";
 
 /* Monthly XP Quest */
 "Заработай %d XP за месяц" = "Získejte %d XP tento měsíc";
@@ -1008,10 +1008,10 @@
 
 /* League end popup */
 "Итоги лиги" = "Výsledky ligy";
-"Вы заняли %d место." = "Umístili jste %d.";
-"Вы поднялись в лигу: %@" = "Byli jste povýšeni na %@.";
-"Вы остались в текущей лиге." = "Zůstal jste ve své současné lize.";
-"Вы понижены в лигу: %@" = "Byli jste degradováni na %@.";
+"Вы заняли %d место." = "Vaše umístění: %d.";
+"Вы поднялись в лигу: %@" = "Postup do vyšší ligy: %@.";
+"Вы остались в текущей лиге." = "Zůstáváte ve své aktuální lize.";
+"Вы понижены в лигу: %@" = "Sestup do nižší ligy: %@.";
 
 /* Premium placeholders when products not loaded */
 "Loading..." = "Načítání...";
@@ -1020,54 +1020,54 @@
 "Sign in with Apple ID in Settings → App Store to see prices. Tap an option or Retry to try again." = "Chcete-li zobrazit ceny, přihlaste se pomocí Apple ID v Nastavení → App Store. Klepněte na možnost nebo to zkuste znovu.";
 
 /* Home Lives Promo */
-"Unlock your full progress" = "Odemkněte svůj plný pokrok";
+"Unlock your full progress" = "Rozviňte svůj potenciál naplno";
 "Get Premium tools for faster learning and better game results" = "Získejte prémiové nástroje pro rychlejší učení a lepší herní výsledky";
 "Learning section" = "Sekce učení";
-"Train flags and countries in a structured mode" = "Trénujte vlajky a země ve strukturovaném režimu";
-"Erudite difficulty" = "Erudovaná obtížnost";
-"Advanced challenge with deeper knowledge checks" = "Pokročilá výzva s hlubšími znalostmi";
+"Train flags and countries in a structured mode" = "Procvičujte vlajky a země v přehledně uspořádaném režimu";
+"Erudite difficulty" = "Obtížnost Erudovaný";
+"Advanced challenge with deeper knowledge checks" = "Náročnější výzva, která důkladně prověří vaše znalosti";
 "My mistakes" = "Moje chyby";
 "Focus on weak topics and improve accuracy" = "Zaměřte se na slabá témata a zvyšte přesnost";
-"Personalized practice" = "Personalizovaná praxe";
-"Adaptive sessions based on your progress" = "Adaptivní relace na základě vašeho pokroku";
+"Personalized practice" = "Procvičování na míru";
+"Adaptive sessions based on your progress" = "Procvičování přizpůsobené vašemu pokroku";
 "Explain my answer" = "Vysvětlete mou odpověď";
 "Understand every mistake and learn faster" = "Pochopte každou chybu a učte se rychleji";
-"Up to +750% faster flag learning with Premium" = "Až o +750 % rychlejší učení vlajek s Premium";
+"Up to +750% faster flag learning with Premium" = "Více možností procvičování vlajek s Premium";
 "Play without waiting and keep your learning momentum" = "Hrajte bez čekání a udržujte si rychlost učení";
-"Train flags, listen to anthems, and explore detailed country profiles" = "Trénujte vlajky, poslouchejte hymny a prozkoumejte podrobné profily zemí";
+"Train flags, listen to anthems, and explore detailed country profiles" = "Procvičujte vlajky, poslouchejte hymny a prozkoumávejte podrobné informace o zemích";
 "Restore Purchases" = "Obnovit nákupy";
 "Have a promo code?" = "Máte propagační kód?";
 "Redeem Offer Code" = "Uplatnit kód nabídky";
 "Auto-renewable subscription" = "Automaticky obnovitelné předplatné";
-"Monthly Premium Title" = "Premium Monthly: maximální hodnota";
-"Yearly Premium Title" = "Prémiový ROK. Vlajky a země";
+"Monthly Premium Title" = "Premium na měsíc: maximum výhod";
+"Yearly Premium Title" = "Premium na rok: vlajky a země";
 "Duration: 1 month (auto-renewable)" = "Doba trvání: 1 měsíc (automaticky obnovitelné)";
 "Duration: 1 year (auto-renewable)" = "Doba trvání: 1 rok (automaticky obnovitelné)";
-"Premium Monthly" = "Prémiový měsíčník";
-"Yearly Premium" = "Roční prémie";
+"Premium Monthly" = "Měsíční Premium";
+"Yearly Premium" = "Roční Premium";
 "Save %d%%" = "Ušetřete %d%%";
 "Learn flags and countries of the World" = "Naučte se vlajky a země světa";
-"Select Level" = "Vyberte Úroveň";
+"Select Level" = "Vyberte úroveň";
 "Level - %@" = "Úroveň – %@";
-"Exclusive tournaments with cash F-Bucks prizes" = "Exkluzivní turnaje s peněžními cenami F-Bucks";
-"Survival Mode" = "Survival Mode";
+"Exclusive tournaments with cash F-Bucks prizes" = "Exkluzivní turnaje s cenami F-Bucks";
+"Survival Mode" = "Režim přežití";
 "One mistake = Game Over" = "Jedna chyba = konec hry";
 "Duel result push format" = "%@: %d — Vy: %d.";
-"Duel motivation win" = "Úžasný! Pokračujte v sérii.";
-"Duel motivation lose" = "Čas odvety! Můžete to udělat.";
-"Opponent" = "Oponent";
+"Duel motivation win" = "Úžasné! Pokračujte ve vítězné sérii.";
+"Duel motivation lose" = "Čas na odvetu! Zvládnete to.";
+"Opponent" = "Soupeř";
 "vs %@" = "vs %@";
-"Combo x%d" = "Kombinace x%d";
-"Combo x%d bonus" = "Kombinovaný bonus x%d +1";
-"Combo x%d +10 XP" = "Kombinace x%d +10 XP";
+"Combo x%d" = "Kombo x%d";
+"Combo x%d bonus" = "Kombo x%d: bonus +1";
+"Combo x%d +10 XP" = "Kombo x%d: +10 XP";
 "Speed bonus +1" = "Rychlostní bonus +1";
 "Speed bonus +10 XP" = "Rychlostní bonus +10 XP";
 "Global ranking by countries" = "Globální pořadí podle zemí";
-"Country rank line" = "%@ Jste #%d v %@";
-"World rank line" = "🌎 Jste #%d na světě";
-"World rank line no emoji" = "Jste #%d na světě";
+"Country rank line" = "%@ Vaše místo: %d · %@";
+"World rank line" = "🌎 Vaše světové umístění: %d";
+"World rank line no emoji" = "Vaše světové umístění: %d";
 "Friend country rank line" = "%1$@ %2$@ #%3$d · %4$@";
-"Friend world rank line" = "%1$@ #%2$d";
+"Friend world rank line" = "%1$@ — světové umístění: %2$d";
 "Spain" = "Španělsko";
 "Poland" = "Polsko";
 "Ukraine" = "Ukrajina";
@@ -1078,22 +1078,22 @@
 "Connecting to App Store..." = "Připojování k App Store...";
 "Version" = "Verze";
 "Update" = "Aktualizovat";
-"Login without @" = "přihlášení bez @";
+"Login without @" = "uživatelské jméno bez @";
 "Add by username" = "Přidat podle uživatelského jména";
-"Duel Summary" = "Souhrn duelu";
-"No duel history yet" = "Zatím žádná historie duelů";
+"Duel Summary" = "Přehled soubojů";
+"No duel history yet" = "Zatím žádná historie soubojů";
 "You already outranked %d%% of players in your city" = "Již jste překonali %d%% hráčů ve vašem městě";
 "Goal: keep 90% accuracy in first challenge" = "Cíl: udržet 90% přesnost v první výzvě";
 "Challenge ends in %d sec" = "Výzva končí za %d s";
-"Defeat" = "Porazit";
+"Defeat" = "Porážka";
 "Victory" = "Vítězství";
 "All" = "Vše";
-"Wins" = "Vyhrává";
-"Losses" = "Ztráty";
-"Duel Summary Share Header" = "Výsledky mého duelu ve World Arena Flags";
+"Wins" = "Výhry";
+"Losses" = "Prohry";
+"Duel Summary Share Header" = "Moje výsledky soubojů ve World Arena Flags";
 "View Detailed Results" = "Zobrazit podrobné výsledky";
 "Detailed Results" = "Podrobné výsledky";
-"Correct" = "Opravit";
+"Correct" = "Správně";
 "Wrong" = "Špatně";
 "Flag" = "Vlajka";
 "Your answer" = "Vaše odpověď";
@@ -1104,76 +1104,76 @@
 "Карта прогресса мира" = "Mapa světového pokroku";
 "World Progress Map" = "Mapa světového pokroku";
 "Tap a country to see your correct and wrong answers" = "Klepnutím na zemi zobrazíte své správné a špatné odpovědi";
-"Greener country means better mastery" = "Zelenější země znamená lepší ovládání";
-"Continent Mastery" = "Mistrovství kontinentu";
-"Mastered %d of %d countries" = "Zvládl %d z %d zemí";
-"Answered %d of %d countries" = "Odpovědělo %d z %d zemí";
-"Total" = "Celkový";
+"Greener country means better mastery" = "Čím zelenější země, tím lépe ji znáte";
+"Continent Mastery" = "Znalost kontinentů";
+"Mastered %d of %d countries" = "Zvládnuto %d z %d zemí";
+"Answered %d of %d countries" = "Zodpovězeny otázky k %d z %d zemí";
+"Total" = "Celkem";
 "Map" = "Mapa";
-"Weak countries" = "Slabé země";
+"Weak countries" = "Země k procvičení";
 "All countries" = "Všechny země";
-"Only weak" = "Pouze slabé";
+"Only weak" = "Jen k procvičení";
 "Only mastered" = "Pouze zvládnuté";
-"TOP weak countries for review" = "TOP slabé země k recenzi";
-"No weak countries yet" = "Zatím žádné slabé země";
-"%@ Master" = "%@ Mistr";
-"%@ Master unlocked" = "%@ Master odemčen";
-"Continent mastered! Keep going." = "Kontinent zvládnutý! Pokračuj.";
+"TOP weak countries for review" = "Země, které je potřeba nejvíce procvičit";
+"No weak countries yet" = "Zatím žádné země k procvičení";
+"%@ Master" = "Mistr: %@";
+"%@ Master unlocked" = "Odemčen úspěch „Mistr: %@“";
+"Continent mastered! Keep going." = "Kontinent zvládnut! Pokračujte.";
 "Weekly challenge" = "Týdenní výzva";
-"Weak country sessions this week" = "Slabé country seance tento týden";
-"Start Weak Countries Training" = "Začněte trénovat slabé země";
+"Weak country sessions this week" = "Procvičování slabších zemí tento týden";
+"Start Weak Countries Training" = "Začít procvičovat slabší země";
 "Progress map subtitle" = "Sledujte svůj pokrok podle země a kontinentu";
-"How is Mastered calculated?" = "Jak se Mastered počítá?";
-"Duel Summary subtitle" = "Podívejte se na svou historii duelů a podrobné výsledky";
+"How is Mastered calculated?" = "Jak se určuje, zda je země zvládnutá?";
+"Duel Summary subtitle" = "Historie soubojů a podrobné výsledky";
 "F-Bucks subtitle" = "Vydělávejte a utrácejte F-Bucks, měnu ve hře";
-"Mastered explanation" = "Země se počítá jako zvládnutá, pokud jste na ni odpověděli alespoň 3krát a máte alespoň 80 % % správných odpovědí.";
+"Mastered explanation" = "Země se počítá jako zvládnutá, pokud jste na ni odpověděli alespoň 3krát a máte alespoň 80 % správných odpovědí.";
 "Name" = "Jméno";
 "Account login title" = "Vytvořte si účet";
-"Account login subtitle" = "Ponechejte režim hosta nebo se přihlaste, abyste si uložili funkce identity a zabezpečení";
+"Account login subtitle" = "Pokračujte jako host, nebo se přihlaste a zabezpečte svůj účet.";
 "Login" = "Přihlášení";
-"Register" = "Rejstřík";
+"Register" = "Registrace";
 "Sign in with Apple error 1000" = "Přihlášení pomocí Apple zde není k dispozici. Vyzkoušejte na skutečném zařízení nebo zkontrolujte Nastavení → Apple ID.";
 "Username" = "Uživatelské jméno";
 "Password" = "Heslo";
 "Create account" = "Vytvořit účet";
 "Forgot password?" = "Zapomněli jste heslo?";
-"Continue with Google" = "Pokračujte s Googlem";
-"Google login" = "Přihlášení Google";
+"Continue with Google" = "Pokračovat přes Google";
+"Google login" = "Přihlášení přes Google";
 "Continue" = "Pokračovat";
 "Enter Google email" = "Zadejte svůj e-mail Google";
 "Current password" = "Aktuální heslo";
 "New password" = "Nové heslo";
 "Repeat new password" = "Opakujte nové heslo";
-"Change password" = "Změňte heslo";
+"Change password" = "Změnit heslo";
 "Reset password" = "Obnovit heslo";
-"Reset code" = "Resetovat kód";
-"Send reset code" = "Odeslat resetovací kód";
+"Reset code" = "Kód pro obnovu hesla";
+"Send reset code" = "Odeslat kód pro obnovu hesla";
 "No account with this email" = "Žádný účet s tímto e-mailem";
 "reset_request_failed" = "Obnovení hesla se nezdařilo. Zkuste to znovu později.";
 "registration_failed" = "Registrace se nezdařila. Zkuste to prosím znovu.";
 "Login / Register" = "Přihlášení / Registrace";
 "Logged in" = "Přihlášeno";
 "Use Face ID / Touch ID" = "Použijte Face ID / Touch ID";
-"Sign out" = "Odhlaste se";
+"Sign out" = "Odhlásit se";
 "Active sessions" = "Aktivní relace";
 "My notifications" = "Moje oznámení";
 "Other device" = "Jiné zařízení";
-"Login with biometrics" = "Přihlaste se pomocí biometrie";
+"Login with biometrics" = "Přihlásit se pomocí biometrie";
 "Biometric login prompt" = "Potvrďte biometrické přihlášení";
 
 /* 68 interesting facts */
-"FACT_01_TITLE" = "Nejstarší nepřetržitě používaná vlajka";
-"FACT_01_DESC" = "Dánský Dannebrog je považován za nejstarší národní vlajku, která se nepřetržitě používá od roku 1219.";
-"FACT_02_TITLE" = "Pouze čtvercová státní vlajka";
-"FACT_02_DESC" = "Švýcarsko má jedinou čtvercovou státní vlajku na světě. Vatikán má také čtvercovou vlajku, ale je městským státem.";
+"FACT_01_TITLE" = "Vlajka s legendou";
+"FACT_01_DESC" = "Legenda spojuje dánskou vlajku s bitvou v roce 1219.";
+"FACT_02_TITLE" = "Čtvercové státní vlajky";
+"FACT_02_DESC" = "Švýcarsko i Vatikán mají čtvercové státní vlajky.";
 "FACT_03_TITLE" = "Neobdélníková vlajka";
 "FACT_03_DESC" = "Nepál má jedinou státní vlajku na světě, která není obdélníková.";
-"FACT_04_TITLE" = "Žádná červená, bílá nebo modrá";
+"FACT_04_TITLE" = "Bez červené, bílé a modré";
 "FACT_04_DESC" = "Jamajka je jedinou zemí s vlajkou bez červené, bílé nebo modré.";
-"FACT_05_TITLE" = "Vlajka, která se nikdy nestahuje";
+"FACT_05_TITLE" = "Vlajka, která se nespouští na půl žerdi";
 "FACT_05_DESC" = "Vlajka Saúdské Arábie není nikdy stažena na půl žerdi kvůli posvátnému textu na ní.";
 "FACT_06_TITLE" = "Mladá státní vlajka";
-"FACT_06_DESC" = "Vlajka Jižního Súdánu byla přijata v roce 2011 po nezávislosti.";
+"FACT_06_DESC" = "Jižní Súdán používá tuto státní vlajku od získání nezávislosti v roce 2011.";
 "FACT_07_TITLE" = "Vlajka s AK-47";
 "FACT_07_DESC" = "Mosambik je jedinou zemí, jejíž vlajka obsahuje moderní zbraň — pušku Kalašnikov.";
 "FACT_08_TITLE" = "Téměř identické vlajky";
@@ -1181,123 +1181,123 @@
 "FACT_09_TITLE" = "Symbolika Ukrajiny";
 "FACT_09_DESC" = "Modrá a žlutá vlajka Ukrajiny je tradičně interpretována jako obloha nad pšeničným polem.";
 "FACT_10_TITLE" = "Nejjednodušší vlajka";
-"FACT_10_DESC" = "Vlajka Libye od roku 1977 do roku 2011 byla sytě zelená bez symbolů nebo vzorů.";
+"FACT_10_DESC" = "Libyjská vlajka byla v letech 1977 až 2011 jednobarevná, zelená, bez symbolů či vzorů.";
 "FACT_11_TITLE" = "Vlajka s mapou";
 "FACT_11_DESC" = "Kyperská vlajka ukazuje obrys ostrova – vzácný případ mezi národními vlajkami.";
 "FACT_12_TITLE" = "Vlajka s Biblí";
 "FACT_12_DESC" = "Na vlajce Dominikánské republiky je zobrazena otevřená Bible, což z ní dělá jedinou státní vlajku s náboženskou knihou.";
-"FACT_13_TITLE" = "Nejoblíbenější barva";
-"FACT_13_DESC" = "Červená je nejběžnější barva na národních vlajkách po celém světě.";
+"FACT_13_TITLE" = "Červená na státních vlajkách";
+"FACT_13_DESC" = "Červená se objevuje na mnoha státních vlajkách, například Kanady, Japonska a Švýcarska.";
 "FACT_14_TITLE" = "Vlajka s textem";
 "FACT_14_DESC" = "Text na státních vlajkách je vzácný; jedním známým příkladem je Saúdská Arábie.";
-"FACT_15_TITLE" = "Etiketa vlajky";
+"FACT_15_TITLE" = "Pravidla zacházení s vlajkou";
 "FACT_15_DESC" = "Mnoho zemí má přísná pravidla, jak zacházet se státní vlajkou.";
 "FACT_16_TITLE" = "Vlajka s různými stranami";
 "FACT_16_DESC" = "Paraguay má jedinou státní vlajku na světě s různými vzory na líci a na rubu.";
-"FACT_17_TITLE" = "olympijská symbolika";
-"FACT_17_DESC" = "Barvy olympijského prstenu byly vybrány tak, aby se na vlajce každé země objevila alespoň jedna barva.";
-"FACT_18_TITLE" = "Vlajka s nejsložitějším erbem";
-"FACT_18_DESC" = "Mexická vlajka zobrazuje orla posazeného na kaktusu držícího hada – jeden z nejpodrobnějších erbů na jakékoli vlajce.";
-"FACT_19_TITLE" = "Napodobovací vlajka";
-"FACT_19_DESC" = "Vlajky Monaka a Indonésie jsou téměř totožné – nahoře červené, dole bílé. Jediným rozdílem jsou proporce.";
+"FACT_17_TITLE" = "Olympijská symbolika";
+"FACT_17_DESC" = "Pět olympijských kruhů spolu s bílým pozadím tvoří šest barev, které byly zvoleny tak, aby zastupovaly vlajky zemí celého světa.";
+"FACT_18_TITLE" = "Mexický státní znak";
+"FACT_18_DESC" = "Na mexické vlajce je orel sedící na kaktusu a držící hada.";
+"FACT_19_TITLE" = "Podobné červenobílé vlajky";
+"FACT_19_DESC" = "Monako i Indonésie mají na vlajce červený pruh nad bílým, jejich vlajky však mají odlišné poměry stran.";
 "FACT_20_TITLE" = "Vlajka s 50 hvězdami";
-"FACT_20_DESC" = "Americká vlajka má 50 hvězd, jednu pro každý stát. Design byl od roku 1777 změněn 27krát.";
+"FACT_20_DESC" = "Vlajka Spojených států má 50 hvězd, jednu za každý stát.";
 "FACT_21_TITLE" = "Nejsevernější vlajky";
 "FACT_21_DESC" = "Arktické oblasti používají národní i regionální vlajky s jedinečnou symbolikou.";
 "FACT_22_TITLE" = "Vlajka s křížem";
-"FACT_22_DESC" = "29 zemí má na své vlajce kříž, což z něj činí jeden z nejoblíbenějších symbolů na státních vlajkách.";
+"FACT_22_DESC" = "Kříž se objevuje na mnoha státních vlajkách, například Dánska, Finska a Švýcarska.";
 "FACT_23_TITLE" = "Trikolory";
 "FACT_23_DESC" = "Mnoho zemí používá jednoduchý design se třemi pruhy jako historicky stabilní formu vlajky.";
 "FACT_24_TITLE" = "Vlajka s půlměsícem";
-"FACT_24_DESC" = "Půlměsíc se objevuje na vlajkách 12 zemí, většinou muslimských, symbolizujících islámskou víru.";
+"FACT_24_DESC" = "Půlměsíc je na několika státních vlajkách, například Turecka, Pákistánu a Tuniska.";
 "FACT_25_TITLE" = "Symbol slunce";
 "FACT_25_DESC" = "Slunce je jedním z nejčastějších symbolů na vlajkách v Asii a Jižní Americe.";
 "FACT_26_TITLE" = "Vlajka se stromem";
-"FACT_26_DESC" = "Libanon je jedinou zemí, která má na vlajce strom (libanonský cedr), který symbolizuje věčnost a mír.";
-"FACT_27_TITLE" = "Nejužší vlajka";
-"FACT_27_DESC" = "Katarská vlajka má nejneobvyklejší poměr stran ze všech národních vlajek — 11:28.";
+"FACT_26_DESC" = "Na libanonské státní vlajce je cedr.";
+"FACT_27_TITLE" = "Poměr stran katarské vlajky";
+"FACT_27_DESC" = "Katarská státní vlajka má poměr výšky k šířce 11:28.";
 "FACT_28_TITLE" = "Složité erby";
 "FACT_28_DESC" = "Erby na latinskoamerických vlajkách často obsahují mnoho detailů a historických symbolů.";
 "FACT_29_TITLE" = "Duhová vlajka";
-"FACT_29_DESC" = "Bolívie má dvě oficiální vlajky – tradiční trikolóru a domorodou duhovou vlajku Wiphaly.";
+"FACT_29_DESC" = "Bolívie má dvě oficiální vlajky — tradiční trikolóru a duhovou vlajku původních obyvatel Wiphala.";
 "FACT_30_TITLE" = "Vlajka s budovou";
-"FACT_30_DESC" = "Kambodžská vlajka zobrazuje chrám Angkor Wat, což z něj dělá jedinou státní vlajku s budovou.";
+"FACT_30_DESC" = "Kambodžská státní vlajka zobrazuje chrám Angkor Vat.";
 "FACT_31_TITLE" = "Historické spory";
 "FACT_31_DESC" = "Design některých vlajek se změnil kvůli historickým a politickým sporům mezi zeměmi.";
 "FACT_32_TITLE" = "Vlajka s mečem";
 "FACT_32_DESC" = "Vlajka Srí Lanky zobrazuje lva držícího meč, který symbolizuje odvahu sinhálského lidu.";
 "FACT_33_TITLE" = "Vlajka bez modré";
-"FACT_33_DESC" = "Pouze čtyři země nepoužívají modrou barvu na svých vlajkách: Jamajka, Mauretánie, Srí Lanka a Vatikán.";
+"FACT_33_DESC" = "Některé státní vlajky neobsahují modrou, například vlajky Jamajky, Japonska a Švýcarska.";
 "FACT_34_TITLE" = "Ptáci na vlajkách";
 "FACT_34_DESC" = "Orel a další ptáci na vlajkách symbolizují sílu, nezávislost a ušlechtilost ducha.";
-"FACT_35_TITLE" = "Antarktida symbol";
+"FACT_35_TITLE" = "Symbol Antarktidy";
 "FACT_35_DESC" = "Antarktida nemá žádnou oficiální státní vlajku, ale používá se několik neoficiálních vzorů.";
 "FACT_36_TITLE" = "Hvězdy na vlajkách";
 "FACT_36_DESC" = "Hvězda je jedním z nejrozšířenějších symbolů na vlajkách po celém světě.";
 "FACT_37_TITLE" = "Podobná barevná schémata";
 "FACT_37_DESC" = "Některé vlajky mají podobnou barvu, ale liší se v pořadí pruhů a emblémů.";
-"FACT_38_TITLE" = "Vlajky mezinárodní unie";
+"FACT_38_TITLE" = "Vlajky mezinárodních organizací";
 "FACT_38_DESC" = "Nadnárodní organizace mají také své vlastní vlajky odrážející sdílené hodnoty.";
 "FACT_39_TITLE" = "Ostrovní symbolika";
 "FACT_39_DESC" = "Vlajky ostrovních národů často obsahují symboly oceánu, slunce a navigace.";
 "FACT_40_TITLE" = "Změny v průběhu času";
-"FACT_40_DESC" = "Některé státní vlajky se v souvislosti s politickou historií své země několikrát změnily.";
+"FACT_40_DESC" = "Některé státní vlajky se během politických dějin země změnily desítkykrát.";
 "FACT_41_TITLE" = "Slunce Severní Makedonie";
-"FACT_41_DESC" = "Vlajka Severní Makedonie má slunce s osmi paprsky pro nový začátek.";
+"FACT_41_DESC" = "Na vlajce Severní Makedonie je slunce s osmi paprsky symbolizující nový začátek.";
 "FACT_42_TITLE" = "Belizští dřevorubci";
-"FACT_42_DESC" = "Vlajka Belize je jedním z mála lidí, kteří ukazují: dřevorubci s nástroji.";
+"FACT_42_DESC" = "Vlajka Belize je jednou z mála, které zobrazují lidi: dřevorubce s nástroji.";
 "FACT_43_TITLE" = "Ekvádorský kondor";
-"FACT_43_DESC" = "Ekvádorská vlajka zahrnuje andského kondora pro sílu a suverenitu.";
-"FACT_44_TITLE" = "Bolívie Wiphala";
-"FACT_44_DESC" = "Bolívie používá Wiphala spolu s trikolórou jako oficiální symbol.";
+"FACT_43_DESC" = "Na ekvádorské vlajce je kondor andský, symbol síly a svrchovanosti.";
+"FACT_44_TITLE" = "Bolivijská Wiphala";
+"FACT_44_DESC" = "Bolívie používá vedle trikolóry jako oficiální symbol také vlajku Wiphala.";
 "FACT_45_TITLE" = "27 hvězd Brazílie";
 "FACT_45_DESC" = "Brazilská vlajka má 27 hvězd, jednu pro každý stát a federální okres.";
 "FACT_46_TITLE" = "Javorový list";
-"FACT_46_DESC" = "Kanadská vlajka obsahuje jeden 11cípý javorový list, jedinečný mezi národními vlajkami.";
+"FACT_46_DESC" = "Kanadská vlajka zobrazuje na bílém čtverci červený javorový list s 11 cípy.";
 "FACT_47_TITLE" = "Union Jack";
-"FACT_47_DESC" = "Vlajka Spojeného království kombinuje kříže tří světců: Anglie, Skotska a Irska.";
+"FACT_47_DESC" = "Vlajka Spojeného království spojuje kříže svatého Jiří, svatého Ondřeje a svatého Patrika.";
 "FACT_48_TITLE" = "Japonské vycházející slunce";
-"FACT_48_DESC" = "Červený kruh na bílém představuje vycházející slunce a na vlajce Japonska se používá od 7. století.";
+"FACT_48_DESC" = "Japonská státní vlajka má na bílém pozadí červený kruh představující slunce.";
 "FACT_49_TITLE" = "Ashoka čakra";
 "FACT_49_DESC" = "Na indické vlajce je kolo s 24 paprsky, které symbolizuje zákon a pohyb.";
 "FACT_50_TITLE" = "Jižní kříž Austrálie";
-"FACT_50_DESC" = "Australská vlajka ukazuje souhvězdí Jižního kříže, které je viditelné pouze na jižní polokouli.";
+"FACT_50_DESC" = "Pět hvězd na australské vlajce představuje souhvězdí Jižního kříže.";
 "FACT_51_TITLE" = "Jižní kříž Nového Zélandu";
-"FACT_51_DESC" = "Na novozélandské vlajce je také jižní kříž, ale s červenými hvězdami lemovanými bíle.";
-"FACT_52_TITLE" = "jihokorejský taegeuk";
+"FACT_51_DESC" = "Na novozélandské vlajce je také Jižní kříž, ale s červenými hvězdami s bílým lemem.";
+"FACT_52_TITLE" = "Jihokorejský taegeuk";
 "FACT_52_DESC" = "Vlajka Jižní Koreje obsahuje tradiční symbol taegeuk (jin-jang) a trigramy.";
 "FACT_53_TITLE" = "Portugalská armilární sféra";
-"FACT_53_DESC" = "Portugalská vlajka obsahuje armilární kouli, starověký navigační nástroj.";
+"FACT_53_DESC" = "Na portugalské vlajce je armilární sféra, historický navigační nástroj.";
 "FACT_54_TITLE" = "Albánský dvouhlavý orel";
 "FACT_54_DESC" = "Na albánské vlajce je zobrazen černý dvouhlavý orel, symbol suverenity.";
 "FACT_55_TITLE" = "Keňský štít";
 "FACT_55_DESC" = "Vlajka Keni obsahuje masajský štít a zkřížená kopí.";
-"FACT_56_TITLE" = "Walesův drak";
-"FACT_56_DESC" = "Červený drak na vlajce Walesu je jedním z nejstarších národních symbolů na světě.";
+"FACT_56_TITLE" = "Velšský drak";
+"FACT_56_DESC" = "Na velšské vlajce je červený drak na bílozeleném pozadí. Tato podoba byla oficiálně uznána v roce 1959.";
 "FACT_57_TITLE" = "Kříž svatého Ondřeje";
 "FACT_57_DESC" = "Vlajka Skotska je bílý diagonální kříž na modré, kříž svatého Ondřeje.";
 "FACT_58_TITLE" = "Grónský kruh";
 "FACT_58_DESC" = "Vlajka Grónska má červenobílý kruh představující slunce nad ledem.";
 "FACT_59_TITLE" = "Panafrické barvy";
 "FACT_59_DESC" = "Zelená, žlutá a červená se často nazývají panafrické barvy a objevují se na mnoha afrických vlajkách.";
-"FACT_60_TITLE" = "severské kříže";
+"FACT_60_TITLE" = "Severské kříže";
 "FACT_60_DESC" = "Severský kříž používá pět zemí: Dánsko, Norsko, Švédsko, Finsko a Island.";
 "FACT_61_TITLE" = "Francouzská trikolóra";
 "FACT_61_DESC" = "Francouzská modro-bílo-červená trikolóra se stala předlohou mnoha revolučních a národních vlajek.";
-"FACT_62_TITLE" = "vlajka OSN";
+"FACT_62_TITLE" = "Vlajka OSN";
 "FACT_62_DESC" = "Vlajka OSN ukazuje svět obklopený olivovými ratolestmi na modrém pozadí.";
-"FACT_63_TITLE" = "vlajka EU";
+"FACT_63_TITLE" = "Vlajka EU";
 "FACT_63_DESC" = "Dvanáct zlatých hvězd v kruhu na modré symbolizuje jednotu Evropské unie.";
-"FACT_64_TITLE" = "olympijská vlajka";
-"FACT_64_DESC" = "Pět prstenců na bílé představuje pět obydlených kontinentů a globální povahu her.";
-"FACT_65_TITLE" = "Vatikánské náměstí";
+"FACT_64_TITLE" = "Olympijská vlajka";
+"FACT_64_DESC" = "Pět olympijských kruhů na bílém pozadí symbolizuje spojení pěti kontinentů a sportovců z celého světa.";
+"FACT_65_TITLE" = "Čtvercová vlajka Vatikánu";
 "FACT_65_DESC" = "Vatikán má čtvercovou státní vlajku jako Švýcarsko.";
-"FACT_66_TITLE" = "Nauru 12 bodů";
+"FACT_66_TITLE" = "Dvanáct cípů Nauru";
 "FACT_66_DESC" = "Vlajka Nauru má 12cípou hvězdu pro 12 kmenů.";
 "FACT_67_TITLE" = "Turkmenistánský koberec";
-"FACT_67_DESC" = "Turkmenistánská vlajka má podél zvedáku kobercové vzory.";
+"FACT_67_DESC" = "Na vlajce Turkmenistánu jsou podél žerďového okraje kobercové vzory.";
 "FACT_68_TITLE" = "Afghánská mešita";
-"FACT_68_DESC" = "Vlajka Afghánistánu má ve svém designu mešitu.";
+"FACT_68_DESC" = "Na některých historických podobách afghánské vlajky byla zobrazena mešita.";
 
 /* Add friend & duel results */
 "Пользователь найден и добавлен" = "Uživatel nalezen a přidán";
@@ -1310,15 +1310,15 @@
 "Waiting for opponent" = "Čekání na soupeře";
 
 /* League weekly result */
-"league.weekly_result.title.win" = "Vyhrál jsi ligu";
-"league.weekly_result.title.promotion" = "Byl jsi povýšen";
-"league.weekly_result.title.stayed" = "Zůstal jste v lize";
-"league.weekly_result.title.demotion" = "Sestoupil jsi";
+"league.weekly_result.title.win" = "Vítězství v lize!";
+"league.weekly_result.title.promotion" = "Postup do vyšší ligy!";
+"league.weekly_result.title.stayed" = "Zůstáváte v lize";
+"league.weekly_result.title.demotion" = "Sestup do nižší ligy";
 "league.weekly_result.title.week_finished" = "Ligový týden skončil";
-"league.weekly_result.body.win" = "Skončili jste #%d a skončili jste týden mezi nejlepšími hráči.";
-"league.weekly_result.body.promotion" = "Dokončili jste #%d a postoupili jste do %@.";
-"league.weekly_result.body.stayed" = "Dokončili jste #%d a zůstali jste v %@.";
-"league.weekly_result.body.demotion" = "Dokončili jste #%d a přejděte dolů na %@.";
+"league.weekly_result.body.win" = "Vaše umístění: %d. Týden jste zakončili mezi nejlepšími hráči.";
+"league.weekly_result.body.promotion" = "Vaše umístění: %d. Postupujete do vyšší ligy: %@.";
+"league.weekly_result.body.stayed" = "Vaše umístění: %d. Zůstáváte v lize: %@.";
+"league.weekly_result.body.demotion" = "Vaše umístění: %d. Sestupujete do nižší ligy: %@.";
 "league.weekly_result.body.top3" = "Tento týden jste skončili v top 3.";
 "league.weekly_result.label.rank" = "Místo";
 "league.weekly_result.label.new_league" = "Nová liga";
@@ -1326,28 +1326,28 @@
 "league.weekly_result.label.week" = "Výsledek týdne";
 "league.weekly_result.cta.view" = "Zobrazit výsledky";
 "league.weekly_result.cta.ok" = "OK";
-"league.weekly_result.cta.claim" = "Tvrzení";
+"league.weekly_result.cta.claim" = "Vyzvednout";
 
 "league.weekly_result.promotion.tagline" = "🔥 Nová úroveň!";
-"league.weekly_result.promotion.title" = "🚀 Jsi v %@!";
+"league.weekly_result.promotion.title" = "🚀 Vaše nová liga: %@!";
 "league.weekly_result.promotion.subtitle.top3_a" = "#%d — skvělý výsledek!";
 "league.weekly_result.promotion.subtitle.top3_b" = "Top 3 — to není náhoda.";
-"league.weekly_result.promotion.subtitle.other" = "#%d — level nahoru!";
+"league.weekly_result.promotion.subtitle.other" = "Vaše místo: %d — postup do vyšší ligy!";
 "league.weekly_result.win.hero" = "🏆 Šampion ligy!";
 "league.weekly_result.nice.title" = "Top %d — skvělý týden!";
 "league.weekly_result.reward.fbucks" = "+%d F-Bucks 💰";
 "league.weekly_result.next_goal" = "Další cíl — %@ 🏆";
-"league.weekly_result.next_goal.alt" = "Ještě kousek — čeká tě špičková liga!";
-"league.weekly_result.next_goal.pinnacle" = "Patříš mezi nejlepší na světě! ✨";
+"league.weekly_result.next_goal.alt" = "Ještě kousek — nejvyšší liga už na vás čeká!";
+"league.weekly_result.next_goal.pinnacle" = "Patříte mezi nejlepší na světě! ✨";
 "league.weekly_result.cta.keep_playing_arrow" = "Hrát dál →";
-"league.weekly_result.cta.toward_league_arrow" = "K %@ →";
+"league.weekly_result.cta.toward_league_arrow" = "Cíl: %@ →";
 "league.weekly_result.demotion.cta" = "Rozumím →";
 "league.weekly_result.stayed.cta" = "Dál →";
 "home.league_banner.title" = "Ligový týden skončil";
-"home.league_banner.body.win" = "Skončili jste #%d a vyhráli ligu.";
-"home.league_banner.body.promotion" = "Dokončili jste #%d a postoupili jste do %@.";
-"home.league_banner.body.stayed" = "Dokončili jste #%d a zůstali jste v %@.";
-"home.league_banner.body.demotion" = "Dokončili jste #%d a posunuli jste se dolů na %@.";
+"home.league_banner.body.win" = "Vaše umístění: %d. Vítězství v lize!";
+"home.league_banner.body.promotion" = "Vaše umístění: %d. Postupujete do vyšší ligy: %@.";
+"home.league_banner.body.stayed" = "Vaše umístění: %d. Zůstáváte v lize: %@.";
+"home.league_banner.body.demotion" = "Vaše umístění: %d. Sestupujete do nižší ligy: %@.";
 "home.league_banner.cta" = "Zobrazit výsledky";
 /* Home layout (variant 2 / A-B) */
 "home.layout.section" = "Domovská obrazovka";
@@ -1367,12 +1367,12 @@
 "home.quick_modes.title" = "Rychlá hra";
 "home.social.title" = "Přátelé";
 "home.social.friend_streak_fmt" = "%@ — série %lld dní";
-"home.social.catch_today" = "Dostaň je dnes!";
+"home.social.catch_today" = "Dožeňte je ještě dnes!";
 
 "home.goal.xp_left_fmt" = "Zbývá %d XP";
 "home.daily.title" = "Denní odměna";
-"home.daily.claim" = "Vzít +1";
-"home.daily.claimed" = "Vzato";
+"home.daily.claim" = "Vyzvednout +1";
+"home.daily.claimed" = "Vyzvednuto";
 "home.daily.tomorrow" = "Vraťte se zítra";
 "home.streak_nudge.solo_title" = "Máte sérii %d dní!";
 "home.streak_nudge.solo_sub" = "Nepřerušte ji — hrajte teď.";
@@ -1382,13 +1382,13 @@
 "home.streak_nudge.catch_up" = "Dohnat";
 "home.hero.play_bonus" = "+1 F-Bucks, pokud hrajete teď";
 "home.hero.streak_continue_fmt" = "Udržte sérii — %d/%d";
-"home.hero.almost_perfect" = "Perfektní hry — skoro!";
+"home.hero.almost_perfect" = "Bezchybné hry — už jste blízko!";
 "home.hero.daily_ready" = "Denní +1 F-Bucks je připraveno";
-"home.hero.catch_friend_fmt" = "Dostaňte se k %@ — série %d dní";
+"home.hero.catch_friend_fmt" = "Dožeňte přítele: %@ — série %d dní";
 "home.earn.section" = "Dnes";
-"home.earn.perfect.almost" = "Skoro hotovo — dokončete";
-"home.earn.perfect.start" = "Začněte teď — potvrďte";
-"home.earn.perfect.going" = "Silný závěr dnes";
+"home.earn.perfect.almost" = "Už jste blízko — dokončete hru";
+"home.earn.perfect.start" = "Začněte teď a přibližte se k odměně";
+"home.earn.perfect.going" = "Zakončete dnešek skvělým výsledkem";
 "home.earn.streak.almost" = "Teď to neztraťte";
 "home.earn.streak.start" = "Hrajte teď, nebo přijdete o sérii";
 "home.earn.streak.going" = "Hrajte teď, nebo přijdete o sérii";
@@ -1399,9 +1399,9 @@
 "home.daily.subtitle.claimed" = "Dnešní bonus už máte";
 "home.goal.headline_almost_fmt" = "Skoro %@!";
 "home.goal.xp_remaining_detail" = "Zbývá: %d XP";
-"home.goal.claim_reward_cta" = "Vzít odměny →";
+"home.goal.claim_reward_cta" = "Vyzvednout odměny →";
 "home.goal.open_league" = "Otevřít ligu →";
-"home.pride.streak_fmt" = "%d den(ů) v řadě — jen tak dál!";
+"home.pride.streak_fmt" = "Hrajete %d dní v řadě — jen tak dál!";
 "home.pride.league_place_fmt" = "Jste #%d ve své lize tento týden";
 "home.pride.section_title" = "Váš pokrok";
 "home.pride.streak_line_one" = "Série: 1 den";
@@ -1409,11 +1409,11 @@
 "home.pride.rank_line_fmt" = "Pořadí: #%d tento týden";
 "home.pride.top10_hint" = "Pokračujte k top 10";
 "home.pride.rank_headline_fmt" = "Jste #%d tento týden";
-"home.hero.headline.streak_alive" = "Udržte sérii živou";
-"home.hero.headline.perfect_push" = "Perfektní hry — skoro";
+"home.hero.headline.streak_alive" = "Udržte svou sérii";
+"home.hero.headline.perfect_push" = "Bezchybné hry — už jste blízko";
 "home.hero.headline.daily_up" = "Denní bonus připraven";
 "home.hero.headline.keep_playing" = "Vaše další hra se počítá";
-"home.hero.headline.friend" = "Dostaňte %@";
+"home.hero.headline.friend" = "Dožeňte přítele: %@";
 "home.hero.detail.streak_fmt" = "%d/%d dní";
 "home.hero.detail.perfect_fmt" = "%d/%d perfektních";
 "home.hero.detail.day_fmt" = "Den %d v řadě";
@@ -1428,32 +1428,34 @@
 "home.pride.gap_top10_fmt" = "Už jen %d míst do top 10";
 "home.pride.close_top10_short" = "Jste blízko top 10 🔥";
 "home.pride.streak_full_one" = "Série: 1 den — pokračujte";
-"home.pride.streak_full_fmt" = "Série: %d dní — pokračujte";"home.pride.streak_full_fmt" = "Série: %d dní — pokračujte";"coins" = "mince";
+"home.pride.streak_full_fmt" = "Série: %d dní — pokračujte";
+"home.pride.streak_full_fmt" = "Série: %d dní — pokračujte";
+"coins" = "mince";
 /* League motivation messages */
 "league_motivation_win_01" = "Tento týden jste patřili k nejlepším. Skvělá práce – teď udržujte tempo.";
 "league_motivation_win_02" = "Top 3 není náhoda. Je to výsledek důsledné hry a dobrého soustředění.";
-"league_motivation_win_03" = "Silný týden. Tlačte stále stejným tempem – další liga čeká.";
-"league_motivation_promotion_01" = "Povýšení znamená, že rostete. Příští liga bude těžší, ale vy jste připraveni.";
-"league_motivation_promotion_02" = "Udělal jsi krok nahoru. Nyní není cílem jen dostat se výš, ale zůstat tam.";
-"league_motivation_stayed_01" = "Držel si svou pozici. Pevný základ – nyní proměňte stabilitu v růst.";
-"league_motivation_stayed_02" = "Týden bez výpadku je již výsledkem. Další krok: dostaňte se do propagační zóny.";
-"league_motivation_demotion_01" = "Není to nejlepší týden – to se stává. Hlavní věc je nepřestat: další můžete vzít silnější.";
-"league_motivation_demotion_02" = "Degradace není konec. Je to bod resetu, po kterém často následují lepší běhy.";
+"league_motivation_win_03" = "Skvělý týden! Pokračujte stejným tempem — další liga už čeká.";
+"league_motivation_promotion_01" = "Postup ukazuje, že se zlepšujete. Další liga bude náročnější, ale jste připraveni.";
+"league_motivation_promotion_02" = "Postoupili jste výš. Teď je cílem se tam udržet.";
+"league_motivation_stayed_01" = "Udrželi jste si své místo. Na tomto pevném základu můžete dál stavět.";
+"league_motivation_stayed_02" = "I týden bez sestupu je úspěch. Další cíl: dostat se do postupové zóny.";
+"league_motivation_demotion_01" = "Nejlepší týden to nebyl — to se stává. Nevzdávejte to, příští týden může být lepší.";
+"league_motivation_demotion_02" = "Sestup není konec. Berte ho jako nový začátek na cestě k lepším výsledkům.";
 "league_motivation_general_01" = "Každý týden je nová šance dostat se výš. Pokračujte – pokrok se sčítá.";
 
 /* Onboarding (hook → reward → loop) */
 
-"onboarding_hook_title" = "Poznáš tuto vlajku?";
+"onboarding_hook_title" = "Poznáte tuto vlajku?";
 "onboarding_hook_subtitle" = "Většina lidí se tady splete";
 "onboarding_reward_correct" = "Správně! 🎉";
 "onboarding_reward_almost" = "Těsně — je to %@";
 "onboarding_reward_plus_one" = "+1 odměna";
-"onboarding_reward_streak" = "Začni sérii";
-"onboarding_loop_line1" = "Hraj jen minutu denně";
-"onboarding_loop_line2" = "Odemkni odměny";
-"onboarding_loop_line3" = "Šplhej v lize";
+"onboarding_reward_streak" = "Začněte svou denní sérii";
+"onboarding_loop_line1" = "Hrajte jen minutu denně";
+"onboarding_loop_line2" = "Odemykejte odměny";
+"onboarding_loop_line3" = "Postupujte v ligách";
 "onboarding_start_playing" = "Hrát";
-"onboarding_swipe_hint" = "Potáhni pro pokračování";
+"onboarding_swipe_hint" = "Přejetím pokračujte";
 "onboarding_search_language" = "Hledat jazyk…";
 "onboarding_language_sheet_title" = "Jazyk";
 "onboarding_switch_language_hint" = "Přepnout na %@?";
@@ -1461,96 +1463,96 @@
 "avatar_editor_edit_avatar" = "Upravit avatar";
 "avatar_editor_done" = "Hotovo";
 "avatar_editor_discard_title" = "Zahodit změny?";
-"avatar_editor_discard_action" = "Vyřadit";
-"avatar_editor_continue_editing" = "Pokračujte v úpravách";
+"avatar_editor_discard_action" = "Zahodit";
+"avatar_editor_continue_editing" = "Pokračovat v úpravách";
 "avatar_editor_discard_message" = "Změny vašeho avatara nebudou uloženy.";
 "avatar_editor_skin_tone" = "Tón pleti";
 "avatar_editor_body" = "Tělo";
 "avatar_editor_eye_color" = "Barva očí";
-"avatar_editor_expression" = "Výraz";
+"avatar_editor_expression" = "Výraz obličeje";
 "avatar_editor_main_hair_color" = "Barva vlasů";
 "avatar_editor_hairstyle" = "Účes";
 "avatar_editor_glasses" = "Brýle";
 "avatar_editor_glasses_color" = "Barva brýlí";
-"avatar_editor_facial_hair" = "Vlasy na obličeji";
-"avatar_editor_facial_hair_color" = "Barva vlasů na obličeji";
+"avatar_editor_facial_hair" = "Vousy";
+"avatar_editor_facial_hair_color" = "Barva vousů";
 "avatar_editor_headwear" = "Pokrývky hlavy";
 "avatar_editor_headwear_color" = "Barva pokrývky hlavy";
 "avatar_editor_clothing_color" = "Barva oblečení";
 "avatar_editor_clothing_style" = "Styl oblečení";
 "avatar_editor_background_color" = "Barva pozadí";
 "avatar_editor_none" = "Žádný";
-"avatar_editor_round" = "Kolo";
-"avatar_editor_square" = "Náměstí";
+"avatar_editor_round" = "Kulaté";
+"avatar_editor_square" = "Hranaté";
 "avatar_editor_sunglasses" = "Sluneční brýle";
-"avatar_editor_slim" = "Slim (brýle)";
-"avatar_editor_cap" = "Víčko";
+"avatar_editor_slim" = "Úzké brýle";
+"avatar_editor_cap" = "Kšiltovka";
 "avatar_editor_beanie" = "Čepice";
-"avatar_editor_bandana" = "Bandana";
-"avatar_editor_sport_cap" = "Sportovní čepice";
+"avatar_editor_bandana" = "Šátek";
+"avatar_editor_sport_cap" = "Sportovní kšiltovka";
 "avatar_editor_hat_SilverLeague" = "Stříbrná liga";
 "avatar_editor_hat_10_day_streak" = "10denní série";
 "avatar_editor_hat_beginner" = "Začátečník";
-"avatar_editor_hat_Premium" = "Pojistné";
+"avatar_editor_hat_Premium" = "Premium";
 "avatar_editor_editor_section_coming_soon" = "Tato sekce je dočasně nedostupná – brzy se vrátíme.";
 "avatar_editor_lock_item_title" = "Zamčeno";
 "avatar_editor_lock_item_ok" = "OK";
-"avatar_editor_lock_headwear_premium_body" = "Tato pokrývka hlavy se odemyká pomocí Premium. Předplaťte si Premium v ​​nastavení aplikace.";
-"avatar_editor_lock_headwear_shop_body" = "Tuto položku budete moci získat v přizpůsobeném obchodě – již brzy.";
+"avatar_editor_lock_headwear_premium_body" = "Tato pokrývka hlavy se odemkne s Premium. Předplatné můžete získat v nastavení aplikace.";
+"avatar_editor_lock_headwear_shop_body" = "Tento předmět bude brzy dostupný v obchodě s doplňky pro avatara.";
 "avatar_editor_lock_headwear_generic_body" = "Tato položka zatím není k dispozici.";
 "avatar_editor_opt_slim" = "Štíhlý";
-"avatar_editor_opt_regular" = "Pravidelný";
+"avatar_editor_opt_regular" = "Běžná postava";
 "avatar_editor_opt_hoodie" = "Mikina s kapucí";
 "avatar_editor_opt_tshirt" = "Tričko";
 "avatar_editor_opt_sweater" = "Svetr";
 "avatar_editor_opt_wide" = "Široký";
 "avatar_editor_opt_bald" = "Plešatý";
-"avatar_editor_opt_side_part" = "Boční díl";
+"avatar_editor_opt_side_part" = "Pěšinka na straně";
 "avatar_editor_opt_short" = "Krátký";
-"avatar_editor_opt_curl" = "Kučera";
+"avatar_editor_opt_curl" = "Kudrny";
 "avatar_editor_opt_modern" = "Moderní";
-"avatar_editor_opt_buzz" = "Bzučet";
+"avatar_editor_opt_buzz" = "Ježek";
 "avatar_editor_opt_hair_waves" = "Vlny";
-"avatar_editor_opt_hair_spiky" = "Ostnatý";
-"avatar_editor_opt_hair_slick" = "Úhledný";
+"avatar_editor_opt_hair_spiky" = "Vlasy do špiček";
+"avatar_editor_opt_hair_slick" = "Uhlazené vlasy";
 "avatar_editor_opt_hair_pompadour" = "Pompadour";
 "avatar_editor_opt_moustache" = "Knír";
-"avatar_editor_opt_trimmed" = "Oříznuté";
+"avatar_editor_opt_trimmed" = "Zastřižené vousy";
 "avatar_editor_opt_goatee" = "Kozí bradka";
-"avatar_editor_opt_beard_full" = "Plovous";
-"avatar_editor_opt_beard_light" = "Světlé vousy";
-"avatar_editor_opt_beard_bushy" = "Hustý vous";
+"avatar_editor_opt_beard_full" = "Plnovous";
+"avatar_editor_opt_beard_light" = "Krátký vous";
+"avatar_editor_opt_beard_bushy" = "Husté vousy";
 "avatar_editor_opt_jacket" = "Bunda";
 
 "monthly_quest_mission_title" = "Mise %@";
-"Friend profile progress title" = "STREAK AND PROGRESS";
-"Friend achievements placeholder" = "Friend achievements are shown as they are unlocked";
+"Friend profile progress title" = "SÉRIE A POKROK";
+"Friend achievements placeholder" = "Úspěchy přítele se zobrazí po jejich odemčení";
 
-"Answer as many flags as possible before time runs out" = "Odpověz na co nejvíce vlajek, než vyprší čas";
+"Answer as many flags as possible before time runs out" = "Poznejte co nejvíce vlajek, než vyprší čas";
 "Duration" = "Délka";
-"Best score" = "Best score";
-"Wrong answer penalty" = "Trest za špatnou odpověď";
+"Best score" = "Nejlepší skóre";
+"Wrong answer penalty" = "Postih za chybnou odpověď";
 "5 correct in a row bonus" = "Bonus za 5 správných v řadě";
 "Best combo" = "Nejlepší série";
 "New record!" = "Nový rekord!";
 "Day leaderboard place" = "Místo v denním žebříčku";
 "Week leaderboard place" = "Místo v týdenním žebříčku";
-"Back to Modes" = "Back to Modes";
+"Back to Modes" = "Zpět na režimy";
 "Start" = "Start";
 "TC correct answers headline" = "%d správně";
 "Difficulty description TC" = "%1$d%2$@ na kolo • +%3$d%2$@ za každých 5 správných v řadě • −%4$d%2$@ za chybu";
 "Difficulty TC erudite all" = "Všechny země • %1$d%2$@ na kolo • +%3$d%2$@ za každých 5 správných v řadě • −%4$d%2$@ za chybu";
 "Difficulty TC erudite regions" = "%1$d zemí • %2$d%3$@ na kolo • +%4$d%3$@ za každých 5 správných v řadě • −%5$d%3$@ za chybu";
 "TC best correct record" = "Nejlepší skóre: %d správně";
-"TC intro best correct title" = "Nejlepší (správně)";
+"TC intro best correct title" = "Rekord správných odpovědí";
 "TC intro combo5 bonus title" = "Kombo 5 správných v řadě";
 "TC detail time penalty fmt" = "Časovač: −%1$d %2$@ (chyba)";
 "TC detail time combo fmt" = "Časovač: +%1$d %2$@ (5 správných v řadě)";
-"TC detail points earned" = "Points for this answer: +%d";
-"TC detail xp earned" = "XP for this answer: +%d";
-"TC detail time penalty" = "Timer: −10 s (wrong answer)";
-"TC detail time combo bonus" = "Timer: +10 s (5 correct in a row)";
-"Share TC headline" = "Time Challenge: %d correct out of %d";
+"TC detail points earned" = "Body za tuto odpověď: +%d";
+"TC detail xp earned" = "XP za tuto odpověď: +%d";
+"TC detail time penalty" = "Čas: −10 s (chybná odpověď)";
+"TC detail time combo bonus" = "Čas: +10 s (5 správných odpovědí v řadě)";
+"Share TC headline" = "Časová výzva: %d správných odpovědí z %d";
 
 "Time seconds unit short" = "s";
 "TC stat best combo" = "Nejlepší série";
@@ -1558,32 +1560,32 @@
 "Time intro duration seconds fmt" = "%1$d%2$@";
 "Time intro penalty seconds fmt" = "−%1$d%2$@";
 "Time intro bonus seconds fmt" = "+%1$d%2$@";
-"Share Survival headline" = "Survival: přežito %d vlajek • %d správně • max. fáze %d";
-"Survival mode short description" = "Omezené životy, rostoucí obtížnost — jak daleko dojdeš?";
-"Survival difficulty blurb fmt" = "Životy za session • rostoucí fáze • +1 život za 10 správných v řadě";
+"Share Survival headline" = "Přežití: %d vlajek • %d správně • nejvyšší fáze %d";
+"Survival mode short description" = "Omezené životy a rostoucí obtížnost — jak daleko dojdete?";
+"Survival difficulty blurb fmt" = "Životy pro tuto hru • rostoucí obtížnost • +1 život za každých 10 správných odpovědí v řadě";
 "Survival depth header" = "Hloubka";
 "Survival stage fmt" = "Fáze %d";
 "Survival bonus life streak" = "+1 život (10 správných v řadě)";
 "Survival milestone banner fmt" = "Milník %d! +30 XP • +1 F-Bucks";
 "Survival next milestone fmt" = "Ještě %d správných do milníku %d";
-"Survival result best depth fmt" = "Osobní rekord hloubky: %d vlajek";
-"Survival result combo fmt" = "Nejlepší série v tomto běhu: %d";
-"Survival result survived fmt" = "Přežil jsi %d vlajek";
+"Survival result best depth fmt" = "Osobní rekord: %d vlajek";
+"Survival result combo fmt" = "Nejlepší série v této hře: %d";
+"Survival result survived fmt" = "Počet zvládnutých vlajek: %d";
 "Survival result stage reached fmt" = "Dosaženo max. fáze: %d";
 "Survival stat correct" = "SPRÁVNĚ";
-"Survival intro description" = "Odpovídej na vlajky za sebou. Chyby berou životy. Obtížnost roste — překonej svůj rekord hloubky.";
+"Survival intro description" = "Poznávejte vlajky jednu po druhé. Chybné odpovědi stojí životy a obtížnost postupně roste. Překonejte svůj rekord v počtu zvládnutých vlajek!";
 "Survival intro lives title" = "Startovní životy";
-"Survival intro best depth title" = "Nejlepší hloubka";
+"Survival intro best depth title" = "Rekord zvládnutých vlajek";
 "Survival intro choices title" = "Možnosti";
 "Survival intro timer title" = "Časovače";
-"Survival intro timer value" = "Jako v Klasickém";
-"Survival weekly title" = "Týdenní Survival výzva";
-"Survival weekly target fmt" = "V jednom běhu tento týden přežij %d vlajek.";
-"Survival weekly best fmt" = "Tvůj nejlepší tento týden: %d vlajek";
-"Survival weekly all milestones met body" = "You've reached every weekly depth goal — up to 200 flags in one run. Brilliant!";
-"Survival weekly reward all claimed" = "All weekly survival bonuses claimed (up to +4000 XP).";
+"Survival intro timer value" = "Jako v klasickém režimu";
+"Survival weekly title" = "Týdenní výzva v režimu Přežití";
+"Survival weekly target fmt" = "Zvládněte tento týden %d vlajek během jedné hry.";
+"Survival weekly best fmt" = "Váš nejlepší výsledek tento týden: %d vlajek";
+"Survival weekly all milestones met body" = "Všechny týdenní cíle splněny — až 200 vlajek v jedné hře. Skvělé!";
+"Survival weekly reward all claimed" = "Všechny týdenní bonusy za přežití vyzvednuty (až +4000 XP).";
 "Survival weekly reward claimed" = "Týdenní bonus vyzvednut (+1000 XP)";
-"Survival weekly reward hint" = "Each milestone — 25, 50, 100, then 200 flags in one run — gives +1000 XP once per week.";
+"Survival weekly reward hint" = "Každý milník — 25, 50, 100 a 200 vlajek v jedné hře — přináší +1000 XP jednou týdně.";
 
 "Survival result depth progress fmt" = "%1$d / %2$d";
 
@@ -1594,90 +1596,90 @@
 "1 hour" = "1 hodina";
 
 
-"Duel announcement subtitle" = "Same duel for both players. First to score wins!";
-"User 1" = "User 1";
-"User 2" = "User 2";
-"Number of Questions" = "Questions";
+"Duel announcement subtitle" = "Oba hráči dostanou stejné otázky. Vyhrává vyšší skóre; při shodě vyhrává rychlejší hráč.";
+"User 1" = "Hráč 1";
+"User 2" = "Hráč 2";
+"Number of Questions" = "Otázky";
 
 
 /* F-Bucks screen */
 "fbucks.close" = "Zavřít";
 "fbucks.currency.name" = "F-Bucks";
 "fbucks.hero.subtitle.enough" = "Dostačující pro přibližně %d položek";
-"fbucks.hero.subtitle.rare" = "Můžete si koupit vzácnou věc";
+"fbucks.hero.subtitle.rare" = "Můžeš si koupit vzácný předmět";
 "fbucks.hero.subtitle.save" = "Šetři dál na něco speciálního";
-"fbucks.daily.title" = "Získejte denní bonus";
+"fbucks.daily.title" = "Denní bonus";
 "fbucks.daily.subtitle" = "+1 F-Bucks";
-"fbucks.daily.claim" = "Reklamace";
-"fbucks.daily.claimed" = "Uplatněno dnes";
-"fbucks.daily.hint" = "+1 k dispozici dnes — klepni na Uplatnit";
+"fbucks.daily.claim" = "Vyzvednout";
+"fbucks.daily.claimed" = "Dnes už vyzvednuto";
+"fbucks.daily.hint" = "Dnes je k dispozici +1 — klepni na Vyzvednout";
 "fbucks.earn.today.title" = "Vydělej si ještě dnes";
-"fbucks.earn.today.subtitle" = "Dnes je možné až %d F-Bucks";
+"fbucks.earn.today.subtitle" = "Dnes můžeš získat až %d F-Bucks";
 "fbucks.earn.perfect.title" = "Perfektní hra";
-"fbucks.earn.perfect.sub" = "+1 za 10/10 nebo 15/15";
-"fbucks.earn.streak" = "Streak";
+"fbucks.earn.perfect.sub" = "+1 za bezchybnou hru s nárokem na odměnu";
+"fbucks.earn.streak" = "Denní série";
 "fbucks.earn.streak.sub" = "Série (%d/10 dní)";
-"fbucks.earn.league" = "Začátek týdne";
+"fbucks.earn.league" = "Nejlepší v týdnu";
 "fbucks.earn.league.sub" = "Skonči v první trojce své ligy";
 "fbucks.progress.title" = "Postup k další položce";
 "fbucks.progress.percent" = "%d%%";
-"fbucks.progress.full" = "Můžete si dovolit další odměny — otevřete obchod!";
+"fbucks.progress.full" = "Máš dost F-Bucks na další odměny — otevři obchod!";
 "fbucks.want.title" = "Další cíl";
 "fbucks.want.price" = "Cena: %d F-Bucks";
 "fbucks.want.you" = "Máš: %d";
-"fbucks.want.need" = "Potřebuji %d více";
+"fbucks.want.need" = "Ještě potřebuješ %d";
 "fbucks.earn_more" = "Vydělej si víc →";
 "fbucks.buy_for" = "Koupit za %d";
 "fbucks.shop.title" = "Obchod";
-"fbucks.shop.subtitle" = "Utrácejte F-Bucks za exkluzivní položky avatarů";
+"fbucks.shop.subtitle" = "Utrácej F-Bucks za exkluzivní předměty pro avatara";
 "fbucks.shop.tier.common" = "Běžné";
 "fbucks.shop.tier.rare" = "Vzácné";
 "fbucks.shop.tier.legendary" = "Legendární";
 "fbucks.shop.limited" = "OMEZENÉ";
 "fbucks.perfect.badge" = "Perfektní!";
 "fbucks.tab.today" = "Dnes";
-"fbucks.tab.about" = "O nás";
-"fbucks.tab.history" = "dějepis";
+"fbucks.tab.about" = "Informace";
+"fbucks.tab.history" = "Historie";
 "fbucks.tab.shop" = "Obchod";
 "fbucks.about.title" = "Co jsou F-Bucks?";
-"fbucks.about.body" = "F-Bucks (Flags Bucks) jsou herní měnou, kterou získáte hraním World Arena Flags. Utrácejte je za jedinečné kousky avatarů, skiny a další exkluzivní předměty.";
+"fbucks.about.body" = "F-Bucks (Flags Bucks) jsou herní měna, kterou získáváš hraním World Arena Flags. Kupuj za ně jedinečné doplňky pro avatara, skiny a další exkluzivní předměty.";
 "fbucks.about.how" = "Jak si vydělat F-Bucks";
 "fbucks.about.perfect.title" = "Perfektní hra";
-"fbucks.about.perfect.desc" = "Získej perfektní skóre (10/10 nebo 15/15)";
+"fbucks.about.perfect.desc" = "Odpovězte správně na všechny otázky ve hře s nárokem na odměnu";
 "fbucks.about.streak10.title" = "10denní série";
-"fbucks.about.streak10.desc" = "Hrajte 10 dní v řadě";
+"fbucks.about.streak10.desc" = "Hraj 10 dní v řadě";
 "fbucks.about.streak20.title" = "20denní série";
-"fbucks.about.streak20.desc" = "Hrajte 20 dní v řadě";
+"fbucks.about.streak20.desc" = "Hraj 20 dní v řadě";
 "fbucks.about.streak50.title" = "50denní série";
-"fbucks.about.streak50.desc" = "Hrajte 50 dní v řadě";
+"fbucks.about.streak50.desc" = "Hraj 50 dní v řadě";
 "fbucks.about.streak100.title" = "100denní série";
-"fbucks.about.streak100.desc" = "Hrajte 100 dní v řadě";
+"fbucks.about.streak100.desc" = "Hraj 100 dní v řadě";
 "fbucks.reward.plus1" = "+1 F-Bucks";
 "fbucks.reward.plus2" = "+2 F-Bucks";
 "fbucks.reward.plus5" = "+5 F-Bucks";
 "fbucks.reward.plus10" = "+10 F-Bucks";
 "fbucks.history.title" = "Transakční historie";
 "fbucks.history.empty" = "Žádná historie";
-"fbucks.history.empty.hint" = "Hrajte a vydělávejte F-Bucks!";
+"fbucks.history.empty.hint" = "Hraj a získávej F-Bucks!";
 "fbucks.item.traveler_cap" = "Kšiltovka pro cestovatele";
-"fbucks.item.champion_shirt" = "Tričko Champion";
+"fbucks.item.champion_shirt" = "Tričko šampiona";
 "fbucks.item.socks" = "Ponožky";
-"fbucks.item.rainbow_skin" = "Duhová kůže";
-"fbucks.item.gold_skin" = "Zlatá kůže";
-"fbucks.item.explorer_jacket" = "Bunda Explorer";
-"fbucks.item.fire_effect" = "Účinek ohně";
-"fbucks.item.neon_skin" = "Neonová kůže";
+"fbucks.item.rainbow_skin" = "Duhový skin";
+"fbucks.item.gold_skin" = "Zlatý skin";
+"fbucks.item.explorer_jacket" = "Bunda průzkumníka";
+"fbucks.item.fire_effect" = "Ohnivý efekt";
+"fbucks.item.neon_skin" = "Neonový skin";
 "fbucks.item.stars_effect" = "Efekt hvězdy";
-"fbucks.item.champion_jacket" = "Bunda Champion";
-"fbucks.tx.daily_bonus" = "Získejte denní bonus";
+"fbucks.item.champion_jacket" = "Bunda šampiona";
+"fbucks.tx.daily_bonus" = "Denní bonus";
 "friends.remind.status_sent" = "Připomenutí odesláno!";
 
 /* Duel prepare error */
 "duel.error.alert.title" = "Chyba";
-"duel.error.prepare_questions" = "Nepodařilo se připravit otázky duelu. Zkontrolujte regiony nebo připojení a zkuste to znovu.";
+"duel.error.prepare_questions" = "Nepodařilo se připravit otázky souboje. Zkontrolujte vybrané regiony a připojení k internetu a zkuste to znovu.";
 
 /* Duel tiebreaker */
-"duel.tiebreaker.title" = "Remíza ve skóre — rychlejší čas rozhoduje";
+"duel.tiebreaker.title" = "Při stejném skóre vyhrává rychlejší hráč";
 "duel.tiebreaker.history_line" = "Čas: %@ · %@";
 
 /* Learning country lists */
@@ -1700,14 +1702,14 @@
 "learning.status.favorite_short" = "Oblíbené";
 "learning.country.train_cta" = "Přidat do další hry";
 "learning.country.playlist_status_added" = "Země přidána";
-"learning.country.playlist_play_cta" = "Hrát s frontou";
+"learning.country.playlist_play_cta" = "Hrát s vybranými zeměmi";
 "learning.country.playlist_added" = "Přidáno do další hry";
 "learning.country.playlist_duplicate" = "Už je ve frontě";
 "learning.country.playlist_queue_fmt" = "Ve frontě: %d";
 "learning.country.playlist_min_progress_fmt" = "%d / %d";
 "learning.country.study_selected_flags" = "Procvičit vybrané vlajky";
 "learning.country.section.main" = "Přehled";
-"learning.country.section.gov" = "Jazyky a stát";
+"learning.country.section.gov" = "Jazyky a vláda";
 "learning.country.section.more" = "Více";
 "learning.country.region" = "Region";
 "learning.country.gallery.title" = "Galerie";
@@ -1720,9 +1722,9 @@
 "learning.gallery.tile.landmark" = "Památka";
 "learning.gallery.tile.nature" = "Příroda";
 "learning.gallery.tile.culture" = "Kultura";
-"learning.gallery.tile.government" = "Stát";
+"learning.gallery.tile.government" = "Vláda";
 "learning.gallery.tile.coat" = "Znak";
-"learning.empty.favorites.title" = "Zatím žádná oblíbená";
+"learning.empty.favorites.title" = "Zatím žádné oblíbené země";
 "learning.empty.favorites.message" = "Otevřete zemi a klepněte na hvězdu, abyste ji přidali sem.";
 
 /* Quiz game screen */
@@ -1737,7 +1739,7 @@
 
 /* Duel inbox */
 "duel.challenges.title" = "Výzvy";
-"duel.challenges.subtitle" = "Pozvánky, probíhající duely a výsledky";
+"duel.challenges.subtitle" = "Pozvánky, probíhající souboje a výsledky";
 
 // Verified subscription status
 "premium.restore.success" = "Nákupy obnoveny.";
@@ -1757,15 +1759,15 @@
 "streak.freeze.friends" = "Pomozte přátelům";
 "streak.freeze.give" = "Darovat 1 zmrazení";
 "streak.freeze.signin" = "Přihlaste se pro posílání a přijímání zmrazení.";
-"streak.freeze.unavailable" = "Přítel už zmrazení nepotřebuje. Vaše bylo vráceno.";
+"streak.freeze.unavailable" = "Přítel už zmrazení nepotřebuje. Vaše zmrazení bylo vráceno.";
 "streak.freeze.sent" = "Zmrazení odesláno!";
-"streak.freeze.retry" = "Synchronizace selhala. Opakováním dokončíte čekající dárek.";
-"streak.freeze.no_friends" = "Žádný přítel teď nemá prázdnou zásobu.";
-"streak.freeze.explanation" = "Jedno zmrazení automaticky chrání jeden vynechaný den, ale nepočítá jej jako odehraný. Doplňte zásobu před pauzou nebo obnovte včerejšek.";
+"streak.freeze.retry" = "Synchronizace se nezdařila. Zkuste to znovu a dokončete odeslání dárku.";
+"streak.freeze.no_friends" = "Žádný z přátel teď nemá prázdnou zásobu zmrazení.";
+"streak.freeze.explanation" = "Jedno zmrazení automaticky ochrání jeden vynechaný den. Zmrazené dny se nepočítají jako odehrané. Doplňte zásobu před přestávkou nebo použijte jedno zmrazení k obnovení včerejška.";
 
 // Avatar shop and wardrobe
-"shop.avatar" = "Tvůj avatar";
-"shop.preview_hint" = "Vyzkoušej před nákupem. Použití nahradí profilovou fotku tímto avatarem.";
+"shop.avatar" = "Váš avatar";
+"shop.preview_hint" = "Před nákupem si předměty vyzkoušejte. Použitím předmětu nahradíte profilovou fotografii tímto avatarem.";
 "shop.wardrobe" = "Šatník";
 "shop.empty" = "Zde se objeví zakoupené předměty.";
 "shop.equipped" = "Nasazeno";
@@ -1776,16 +1778,16 @@
 
 "home.lives.welcome" = "Uvítací bonus: +3 životy každých 10 minut během prvních 7 dní. Nejvýše 5 životů, bez předplatného.";
 
-"Profile Share CTA" = "Naskenuj QR. Pojď si zahrát!";
+"Profile Share CTA" = "Naskenujte QR kód a pojďte si zahrát!";
 
 
-"Profile Share Headline" = "ZNÁŠ VLAJKY?\nDOKAŽ TO.";
+"Profile Share Headline" = "ZNÁTE VLAJKY?\nUKAŽTE TO.";
 
 "Use current time" = "Použít aktuální čas";
 
 "Progress emails" = "E-maily o pokroku";
 
-"Progress emails detail" = "Tvůj přehled nejvýše jednou týdně. Žádný e-mail po každém duelu. Odběr lze kdykoli zrušit.";
+"Progress emails detail" = "Osobní přehledy pokroku nejvýše jednou týdně. Žádný e-mail po každém souboji. Odběr můžete kdykoli zrušit.";
 
 "Server Error" = "Server není dostupný";
 
@@ -1797,17 +1799,17 @@
 
 "duel.network.error" = "Server není dostupný. Zkusit znovu";
 
-"duel.reminder.sent" = "Připomínka odeslána";
+"duel.reminder.sent" = "Připomenutí odesláno";
 
-"duel.reminder.cooldown" = "Před další připomínkou chvíli počkej.";
+"duel.reminder.cooldown" = "Před odesláním dalšího připomenutí chvíli počkejte.";
 
-"duel.reminder.disabled" = "Tento hráč vypnul oznámení o duelech.";
+"duel.reminder.disabled" = "Tento hráč vypnul oznámení o soubojích.";
 
 "duel.reminder.no_device" = "Tento hráč nemá zařízení se zapnutými push oznámeními.";
 
-"duel.reminder.completed" = "Duel už skončil.";
+"duel.reminder.completed" = "Souboj už skončil.";
 
-"duel.reminder.missing" = "Tento duel již není dostupný.";
+"duel.reminder.missing" = "Tento souboj již není dostupný.";
 
 "Flags Brand Title" = "Vlajky";
 
@@ -1817,9 +1819,9 @@
 
 "lifecycle.bonus.title" = "Co si zahrát i přes den?";
 
-"lifecycle.bonus.body" = "1 F-Buck navíc za jeden bezchybný bonusový úkol mezi 12:00 a 16:00 ve tvém časovém pásmu.";
+"lifecycle.bonus.body" = "1 F-Buck navíc za jednu bezchybnou bonusovou hru mezi 12:00 a 16:00 ve vašem časovém pásmu.";
 
-"lifecycle.bonus.unavailable" = "Tato výzva už není dostupná. Tvůj uložený pokrok zůstává zachován.";
+"lifecycle.bonus.unavailable" = "Tato výzva už není dostupná. Váš uložený pokrok zůstává zachován.";
 
 // Alternate Home Screen icons
 "appIcon.title" = "Ikona aplikace";
@@ -1827,14 +1829,14 @@
 "appIcon.selected" = "Vybráno";
 "appIcon.error" = "Ikonu se nepodařilo změnit. Zkuste to znovu.";
 
-"inbox.subtitle" = "Tvoje aktivita";
-"inbox.explanation" = "Duely, úspěchy a novinky na jednom místě.";
+"inbox.subtitle" = "Vaše aktivita";
+"inbox.explanation" = "Souboje, úspěchy a novinky na jednom místě.";
 "inbox.unread" = "Nepřečtené";
 "inbox.readAll" = "Označit vše jako přečtené";
 "inbox.empty" = "Vše je přečtené";
-"inbox.cached" = "Uložené zprávy. Tažením aktualizuj.";
+"inbox.cached" = "Zobrazují se uložené zprávy. Tažením dolů je aktualizujete.";
 "inbox.open" = "Otevřít";
-"inbox.syncFailed" = "Výsledky duelů se nepodařilo aktualizovat";
+"inbox.syncFailed" = "Výsledky soubojů se nepodařilo aktualizovat";
 
 "achievement.streak_60.title" = "Sezóna objevů";
 "achievement.streak_60.body" = "Dosáhněte série 60 dní";
@@ -1860,4 +1862,111 @@
 "achievement.level_100.body" = "Dosáhněte úrovně 100";
 "achievement.friends_10.title" = "Přátelé po celém světě";
 "achievement.friends_10.body" = "Přidejte 10 přátel";
-"inbox.duelTimeUnavailable" = "Čas tohoto duelu nebyl uložen.";
+"inbox.duelTimeUnavailable" = "Čas tohoto souboje nebyl uložen.";
+
+/* Notification event localization */
+"inbox.progressCTA" = "Zobrazit můj pokrok";
+"inbox.rank" = "Vaše umístění";
+"inbox.leagueStory" = "Každá hra přispěla k tomuto výsledku. Oslavte uplynulý týden, prohlédněte si pořadí v lize a zvolte další cíl. Nový týden přináší novou příležitost ke zlepšení.";
+"inbox.levelStory" = "Tato úroveň představuje znalosti získané vlajku po vlajce. Zkušenosti zůstávají ve vašem profilu. Vyzkoušejte vyšší obtížnost nebo jiný region a objevujte něco nového.";
+"inbox.achievementStory" = "Nový úspěch si zaslouží místo ve vaší sbírce. Otevřete přehled úspěchů a podívejte se, co jste odemkli a jak blízko jste další odměně. Pokračujte vlastním tempem.";
+"inbox.duelStory" = "Souboj je příležitost společně prověřit znalosti. Otevřete výsledky soubojů a prohlédněte si skóre a aktuální stav. Dokončené hry zůstávají v historii, takže se k nim můžete později vrátit.";
+"inbox.messageStory" = "K této zprávě se můžete kdykoli vrátit v historii oznámení. Přečtením se zpráva neodstraní.";
+"friends.requests.title" = "Žádosti o přátelství";
+"friends.requests.body" = "Tento hráč si vás přidal mezi přátele. Chcete si ho také přidat?";
+"notification.nudge.title" = "%@ vám připomíná";
+"nudge_phrase_16" = "Ještě jste nedokončili dnešní lekci vlajek!";
+
+/* Friend notification actions */
+"friends.requests.accept" = "Také přidat";
+"friends.requests.decline" = "Odmítnout";
+"friends.requests.done" = "Hotovo";
+"friends.requests.empty" = "Žádné nové žádosti o přátelství";
+"friends.requests.error" = "Akci se nepodařilo dokončit. Zkuste to znovu.";
+"friends.requests.signin" = "Přihlaste se, abyste mohli zobrazit žádosti o přátelství a odpovídat na ně.";
+
+/* Complete app catalog: missing interface translations, October 2026. */
+"Check your internet connection" = "Zkontrolujte připojení k internetu a zkuste to znovu.";
+"appIcon.automatic" = "Automaticky podle jazyka aplikace";
+"appIcon.choose" = "Vyberte ikonu";
+"appIcon.suggestion" = "Ikona ve vašem jazyce";
+"coins" = "mincí";
+"duel.error.notYours" = "Tato výzva patří jinému hráči. Zkontrolujte účet, ke kterému jste přihlášeni.";
+"education.fbucks.body" = "Tohle je tvoje herní měna. Získáš ji hraním a plněním úkolů a utratíš za doplňky avatara a ochranu denní série.";
+"education.fbucks.done" = "Rozumím";
+"education.fbucks.shop" = "Zobrazit obchod";
+"education.fbucks.title" = "Získal jsi F-Bucks!";
+"facts.area" = "Rozloha";
+"facts.capital" = "Hlavní město";
+"facts.explanation" = "Vyberte, co se zobrazí na zadní straně karty země po odpovědi.";
+"facts.map" = "Mapa";
+"facts.population" = "Počet obyvatel";
+"facts.region" = "Region a podregion";
+"facts.settings" = "Fakta o zemi";
+"fbucks.tx.streak_restore" = "Obnovení denní série";
+"friends.duels.with_you" = "Souboje s vámi";
+"guide.back" = "Zpět";
+"guide.done" = "Pojďme si hrát";
+"guide.fbucks.body" = "Získávej F-Bucks hraním a plněním úkolů. Klepni na zůstatek a prohlédni si odměny, doplňky avatara a ochranu série.";
+"guide.fbucks.title" = "Seznam se s F-Bucks";
+"guide.friends.body" = "Přidej přátele přes jejich profil nebo kód přítele. Otevři jejich profil a vyzvi je na souboj. Pozvánky najdeš v sekci „Výzvy“. Žádosti o přátelství můžeš přijmout nebo odmítnout.";
+"guide.friends.title" = "Hraj s přáteli";
+"guide.next" = "Další";
+"guide.play.body" = "Klepni na „Hrát“ a začni hru.";
+"guide.play.title" = "Tvoje další hra";
+"guide.replay" = "Průvodce aplikací";
+"guide.settings.body" = "Klepnutím sem vyberete region, obtížnost a herní režim.";
+"guide.settings.title" = "Hraj po svém";
+"guide.skip" = "Přeskočit";
+"guide.streak.body" = "Klepni na svou sérii a zobraz si kalendář, odehrané dny a ochranu série.";
+"guide.streak.title" = "Každý den se počítá";
+"learning.anthem.excerpt" = "Původní text · úryvek";
+"learning.anthem.full_lyrics_source" = "Úplný text a historie";
+"learning.anthem.recording_source" = "Záznam a zdroj ↗";
+"learning.anthem.shared_fmt" = "Stejnou státní hymnu používá také tato země: %@. Regionální píseň se může lišit.";
+"learning.anthem.unavailable" = "Hymnu nelze načíst. Zkontrolujte připojení a klepnutím na Přehrát to zkuste znovu.";
+"learning.country.discover" = "Bližší pohled";
+"premium.benefit.anthems.body" = "Poslechněte si dostupné nahrávky státních hymen a objevte jejich historii a význam.";
+"premium.benefit.anthems.title" = "Státní hymny";
+"premium.benefit.avatar.body" = "Když je vaše předplatné aktivní, noste pokrývku hlavy Premium.";
+"premium.benefit.avatar.title" = "Příslušenství k avataru Premium";
+"premium.benefit.countries.body" = "Poznávejte hlavní města, počet obyvatel, rozlohu, jazyky, měny a zajímavosti o zemích.";
+"premium.benefit.countries.title" = "Podrobné snímky zemí";
+"premium.benefit.erudite.body" = "Odemkněte nejvyšší obtížnost pro větší výzvu.";
+"premium.benefit.erudite.title" = "Obtížnost „Erudovaný“";
+"premium.benefit.learning.body" = "Mezi hrami procházejte země a kontinenty svým vlastním tempem.";
+"premium.benefit.learning.title" = "Výuková knihovna";
+"premium.benefit.lives.body" = "Hrajte klasický režim a časovou výzvu bez čekání na obnovení životů. Režim Přežití má nadále vlastní pravidla.";
+"premium.benefit.lives.title" = "Neomezené životy";
+"premium.benefit.map.body" = "Podívejte se na svůj pokrok podle země a kontinentu a najděte vlajky, které si můžete procvičit.";
+"premium.benefit.map.title" = "Mapa vašeho pokroku";
+"premium.benefit.mistakes.body" = "Procvičujte vlajky, u kterých jste dříve odpověděli nesprávně.";
+"premium.benefit.mistakes.title" = "Poučte se z chyb";
+"premium.benefit.weekly.body" = "Za každých celých 7 dní Premium automaticky získáte odměnu, počínaje aktivací tohoto bonusu. Získané odměny se synchronizují při otevření aplikace.";
+"premium.benefit.weekly.title" = "10 F-Bucks každý týden";
+"premium.details.collapsed" = "Sbaleno";
+"premium.details.expanded" = "Rozbaleno";
+"premium.family.body" = "Sdílejte Premium až se 6 lidmi, včetně vás, prostřednictvím Apple Family Sharing. Povolte sdílení předplatného ve vašem rodinném nastavení Apple. Každý hráč si udržuje svůj vlastní postup.";
+"premium.family.title" = "Jedno předplatné pro vaši rodinu";
+"premium.story.countries.body" = "Prozkoumejte informace o zemích, jejich hlavní města, měny a nahrávky státních hymen. Spojte si každou vlajku se zemí, kterou představuje.";
+"premium.story.countries.title" = "Dejte každé vlajce příběh.";
+"premium.story.enlarge" = "Zvětšit ukázkovou obrazovku";
+"premium.story.example" = "Příklad obrazovky · Angličtina";
+"premium.story.headline" = "Naučte se vlajky. Pamatujte na svět.";
+"premium.story.intro" = "Využijte každé procvičování naplno: zopakujte si obtížné vlajky, poznejte země, které představují, a vyberte si, co se učit dál.";
+"premium.story.map.body" = "Mapa pokroku ukazuje, které vlajky už dobře znáte a které si potřebujete zopakovat, a pomáhá vám vybrat další procvičování.";
+"premium.story.map.title" = "Zjistěte, co se učit dál.";
+"premium.story.practice.body" = "Procvičujte dál bez čekání na obnovení životů. Sekce „Moje chyby“ vám pomůže zopakovat si vlajky, které vám dělají potíže.";
+"premium.story.practice.title" = "Více praxe. Méně mezer.";
+"premium.story.progress.body" = "Proměňte pravidelnou praxi ve viditelné výsledky. Zkontrolujte svou přesnost a správné odpovědi a poté pomocí mapy světa Premium vyberte, co budete dále procvičovat.";
+"premium.story.progress.title" = "Podívejte se na svůj pokrok";
+"premium.weekly.history" = "Týdenní bonus Premium";
+"premium.weekly.next" = "Příští týdenní bonus: %@";
+"ranking.motivational.explanation" = "Pozice založené na pokroku mezi virtuálními protivníky.";
+"ranking.motivational.title" = "Motivační žebříček";
+"streak.recovery.body_fmt" = "Vaše série trvala %1$d dní. Obnovte ji za %2$d F-Bucks nebo si zdarma zahrajte ještě jednu hru.";
+"streak.recovery.later_btn" = "Teď ne";
+"streak.recovery.pay_btn_fmt" = "Obnovit · %d";
+"streak.recovery.play_btn" = "Zahrát si a obnovit";
+"streak.recovery.title" = "Denní série přerušena";
+"Не удалось добавить в друзья. Попробуйте позже." = "Tohoto přítele se nepodařilo přidat. Zkuste to prosím znovu.";

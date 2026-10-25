@@ -1,8 +1,8 @@
 "Open in Game Center" = "Buksan sa Game Center";
 "Заработай %d XP" = "Makakuha ng %d XP";
-"F-BUCKS EARNED" = "F-BUCKS EARNED";
-"Дай %d правильных ответов" = "Kumuha ng %d tamang sagot";
-"Наберите %d правильных ответов за месяц" = "Makakuha ng %d tamang sagot ngayong buwan";
+"F-BUCKS EARNED" = "NAIPONG F-BUCKS";
+"Дай %d правильных ответов" = "Sagutin nang tama ang %d tanong";
+"Наберите %d правильных ответов за месяц" = "Sagutin nang tama ang %d tanong ngayong buwan";
 "Сыграй %d идеальных игр" = "Maglaro ng %d perpektong laro";
 "Завершите %d игр без ошибок" = "Tapusin ang %d laro nang walang pagkakamali";
 /* Settings screen */
@@ -18,11 +18,11 @@
 /* Achievements */
 "Достижения" = "Mga nagawa";
 "Достижение" = "Tagumpay";
-"ЛИЧНЫЕ РЕКОРДЫ" = "MGA PINAKAMAHUSAY (PERSONAL)";
+"ЛИЧНЫЕ РЕКОРДЫ" = "Mga personal na rekord";
 "НАГРАДЫ" = "MGA PARANGAL";
 "Лучшая серия" = "Pinakamahusay na Streak";
 "Макс. лига" = "Max League";
-"Макс. XP" = "Max XP";
+"Макс. XP" = "Pinakamaraming XP";
 "Открыто" = "Na-unlock";
 
 /* Profile */
@@ -31,23 +31,23 @@
 "Days in a row" = "Sunod-sunod na araw";
 "Текущая серия" = "Kasalukuyang Streak";
 "дней" = "araw";
-"Joined in %@" = "Sumali sa %@";
+"Joined in %@" = "Nagsimulang maglaro noong %@";
 "Level %d • %d XP • %d-day streak" = "Level %d • %d XP • %d araw na sunud-sunod";
 "SUPER" = "SUPER";
 
 /* Leagues medals & labels */
-"1st" = "1st";
+"1st" = "Una";
 "2nd" = "ika-2";
 "3rd" = "ika-3";
 "XP" = "XP";
 
 /* Monthly badges sample titles */
 "Алмазная лига" = "Liga ng Diamond";
-"Серия мастера" = "Master Streak";
+"Серия мастера" = "Streak ng dalubhasa";
 "Чемпион месяца" = "Kampeon ng Buwan";
 "Идеальная неделя" = "Perpektong Linggo";
 "Бронзовая лига" = "Liga ng Tanso";
-"Лига Мастеров" = "Master League";
+"Лига Мастеров" = "Liga ng mga Dalubhasa";
 // General
 "World Flags" = "Mga Watawat ng Daigdig";
 "Learn flags of the world" = "Alamin ang mga bandila ng mundo";
@@ -76,8 +76,8 @@
 "Game Over!" = "Tapos na ang laro!";
 "points" = "puntos";
 "Play Again" = "Maglaro Muli";
-"Repeat Duel" = "Ulitin ang duel";
-"Home" = "Bahay";
+"Repeat Duel" = "Ulitin ang tunggalian";
+"Home" = "Pangunahing pahina";
 
 // Statistics
 "Statistics" = "Mga istatistika";
@@ -87,7 +87,7 @@
 "Accuracy" = "Katumpakan";
 "Best Time" = "Pinakamahusay na Oras";
 "Time" = "Oras";
-"Clear" = "Maaliwalas";
+"Clear" = "Burahin";
 "Close" = "Isara";
 
 // Game Results
@@ -107,70 +107,70 @@
 "Perfect! You're unstoppable!" = "Perpekto! Ikaw ay hindi mapigilan!";
 "Excellent performance!" = "Napakahusay na pagganap!";
 "Well done! Keep practicing!" = "Magaling! Patuloy na magsanay!";
-"Don't give up! Practice makes perfect!" = "Huwag sumuko! Ginagawang perpekto ang pagsasanay!";
+"Don't give up! Practice makes perfect!" = "Huwag sumuko! Sa pagsasanay, lalong gagaling!";
 "PERFECT" = "Perpekto";
-"AMAZING" = "Kahanga-hanga";
+"AMAZING" = "KAHANGA-HANGA";
 "GOOD" = "Mabuti";
 "KEEP GOING" = "Magpatuloy";
 "Play Again" = "Maglaro Muli";
-"Home" = "Bahay";
-"Quest Update!" = "Quest Update!";
+"Home" = "Pangunahing pahina";
+"Quest Update!" = "May balita sa misyon!";
 "quest.play_again.duel" = "Ulitin ang duel";
 "Check your progress" = "Suriin ang iyong pag-unlad";
 "2x XP for 10 min!" = "2x XP sa loob ng 10 min!";
 "3x XP for 15 min!" = "3x XP sa loob ng 15 min!";
-"Подарок за квесты" = "Pang-araw-araw na regalo sa paghahanap";
+"Подарок за квесты" = "Regalo para sa pang-araw-araw na misyon";
 "Share Message" = "Nakakuha ako ng %d na puntos sa larong World Flags! 🎮🌍\nI-download at subukang talunin ang aking iskor!";
-"Statistics Share Promo" = "Naglalaro ako ng World Arena Flags — matuto ng mga world flag, magkakaibigang duel, at umakyat ng mga liga! 🎮🌍\nAking mga istatistika: Pinakamahusay na marka %d, Katumpakan %.1f%%, %d larong nilaro.\nGusto mong matuto ng mga flag at subukan ang iyong mga kasanayan? Sumali sa aming komunidad!\n%@";
+"Statistics Share Promo" = "Naglalaro ako ng World Arena Flags — alamin ang mga bandila ng mundo, makipagduwelo sa mga kaibigan, at umangat sa mga liga! 🎮🌍\nMga istatistika ko: Pinakamataas na iskor %d, Katumpakan %.1f%%, %d larong nilaro.\nGustong matuto tungkol sa mga bandila at subukan ang iyong husay? Sumali sa aming komunidad!\n%@";
 
 // Post-Game Flow
-"CLAIM XP" = "CLAIM XP";
+"CLAIM XP" = "KUNIN ANG XP";
 "TOTAL XP" = "KABUUANG XP";
 "PERFECT" = "PERPEKTO";
-"AMAZING" = "NAKAKAGANDA";
+"AMAZING" = "KAHANGA-HANGA";
 "GOOD" = "MABUTI";
 "KEEP GOING" = "PATULOY";
 "Perfect! You're unstoppable!" = "Perpekto! Ikaw ay hindi mapigilan!";
 "Excellent performance!" = "Napakahusay na pagganap!";
 "Well done! Keep practicing!" = "Magaling! Patuloy na magsanay!";
-"Don't give up! Practice makes perfect!" = "Huwag sumuko! Ginagawang perpekto ang pagsasanay!";
+"Don't give up! Practice makes perfect!" = "Huwag sumuko! Sa pagsasanay, lalong gagaling!";
 "day streak" = "sunud-sunod na araw";
 "This Week" = "Ngayong Linggo";
-"Incredible streak! You're on fire!" = "Hindi kapani-paniwalang streak! Nasusunog ka!";
+"Incredible streak! You're on fire!" = "Kahanga-hangang streak! Ang galing mo!";
 "Great job! Keep the momentum going!" = "Mahusay na trabaho! Ipagpatuloy ang momentum!";
 "Nice start! Build your streak day by day!" = "Magandang simula! Buuin ang iyong streak araw-araw!";
-"Your Friend Streaks" = "Ang iyong Kaibigan Streak";
+"Your Friend Streaks" = "Mga Streak ng Iyong mga Kaibigan";
 "See how your friends are doing" = "Tingnan kung ano ang kalagayan ng iyong mga kaibigan";
 "No friends yet" = "Wala pang kaibigan";
 "Add friends to see their streaks and compete together!" = "Magdagdag ng mga kaibigan upang makita ang kanilang mga streak at makipagkumpitensya nang sama-sama!";
-"NUDGE" = "NUDGE";
+"NUDGE" = "MAGPAALALA";
 "Remind" = "Paalalahanan";
 "Reminder sent to %@" = "Ipinadala ang paalala sa %@";
 "%@ reminds you" = "Pinapaalalahanan ka ni %@";
-"nudge_phrase_1" = "Huwag sumuko! Nakuha mo na ito!";
+"nudge_phrase_1" = "Huwag sumuko! Kaya mo ito!";
 "nudge_phrase_2" = "Ang iyong streak ay naghihintay para sa iyo. Maglaro ngayon!";
 "nudge_phrase_3" = "Isang laro sa isang araw ang nagpapanatili sa streak na buhay!";
-"nudge_phrase_4" = "Bumalik at ipakita ang mga flag na iyon kung sino ang amo!";
-"nudge_phrase_5" = "miss ka na namin! Oras na para sa isang mabilis na laro?";
+"nudge_phrase_4" = "Bumalik at ipakita ang husay mo sa mga bandila!";
+"nudge_phrase_5" = "Miss ka na namin! Oras na ba para sa mabilis na laro?";
 "nudge_phrase_6" = "Naglalaro ang mga kaibigan mo. Samahan mo sila!";
 "nudge_phrase_7" = "Maliit na hakbang ngayon, malaking streak bukas!";
 "nudge_phrase_8" = "Sobrang lapit mo! Huwag putulin ang streak!";
 "nudge_phrase_9" = "Ang mga bandila ay tumatawag. Sagutin ang tawag!";
-"nudge_phrase_10" = "Bumangon at sumikat — oras na ng bandila!";
-"nudge_phrase_11" = "Ang isang maliit na pagsasanay ay nagpapatuloy!";
+"nudge_phrase_10" = "Gising na — oras na para sa mga bandila!";
+"nudge_phrase_11" = "Malayo ang mararating sa kaunting pagsasanay!";
 "nudge_phrase_12" = "Ngayon ang araw para panatilihin ang iyong streak!";
 "nudge_phrase_13" = "Bumalik ka sa laro! Naniniwala kami sa iyo!";
 "nudge_phrase_14" = "Isa pang laro at magiging maganda ang pakiramdam mo!";
-"nudge_phrase_15" = "Nakakamiss ang streak mo. Bumalik ka!";
+"nudge_phrase_15" = "Hinihintay ka ng streak mo. Bumalik na!";
 "CONTINUE" = "MAGPATULOY";
-"streak" = "guhit";
+"streak" = "streak";
 "days" = "araw";
-"Quest Update!" = "Quest Update!";
+"Quest Update!" = "May balita sa misyon!";
 "Check your progress" = "Suriin ang iyong pag-unlad";
 "Заблокировано" = "Naka-lock";
 "Базовый пакет" = "Pangunahing Package";
 "Обучение" = "Pag-aaral";
-"Изучай флаги и страны мира" = "Alamin ang mga flag at bansa sa mundo";
+"Изучай флаги и страны мира" = "Alamin ang mga bandila at bansa sa mundo";
 "Континенты" = "Mga kontinente";
 "Европа" = "Europa";
 "Азия" = "Asya";
@@ -185,7 +185,7 @@
 "Новый свет" = "Ang Bagong Mundo";
 "Земля контрастов" = "Lupain ng mga kaibahan";
 "Острова Тихого океана" = "Mga isla sa Karagatang Pasipiko";
-"Статистика флагов" = "I-flag Istatistika";
+"Статистика флагов" = "Mga Istatistika ng Bandila";
 "Всего стран" = "Kabuuang mga Bansa";
 "Цветов на флагах" = "Mga Kulay sa Mga Watawat";
 "Самый популярный цвет" = "Pinakatanyag na Kulay";
@@ -194,24 +194,24 @@
 "Интересные факты" = "Mga Kawili-wiling Katotohanan";
 "Interesting facts study slides" = "Mag-aral gamit ang slides";
 "Interesting facts back to list" = "Balik sa listahan";
-"Самый старый флаг" = "Pinakamatandang Bandila";
-"Флаг Дании используется с 1219 года" = "Ang watawat ng Denmark ay ginamit mula noong 1219";
-"Единственный квадратный флаг" = "Tanging Square Flag";
-"У Швейцарии единственный квадратный флаг в мире" = "Ang Switzerland ay may tanging parisukat na bandila sa mundo";
-"Самый сложный флаг" = "Pinaka Kumplikadong Bandila";
+"Самый старый флаг" = "Isang watawat na may alamat";
+"Флаг Дании используется с 1219 года" = "Iniuugnay ng isang alamat ang watawat ng Denmark sa isang labanan noong 1219.";
+"Единственный квадратный флаг" = "Mga parisukat na pambansang watawat";
+"У Швейцарии единственный квадратный флаг в мире" = "Parehong parisukat ang pambansang watawat ng Switzerland at Lungsod ng Vaticano.";
+"Самый сложный флаг" = "Bandilang may dragon";
 "У Бутана на флаге изображен дракон" = "Ang bandila ng Bhutan ay nagtatampok ng dragon";
-"Go Premium" = "Pumunta sa Premium";
+"Go Premium" = "Mag-Premium";
 "Мой профиль в World Arena Flags" = "Aking profile sa World Arena Flags";
 "My Profile Share Title" = "Aking profile sa World Arena Flags";
 "Не удалось добавить друга. Проверьте код." = "Nabigong magdagdag ng kaibigan. Suriin ang code.";
-"Daily Quests" = "Pang-araw-araw na Quests";
-"Monthly Quest" = "Buwanang Paghanap";
+"Daily Quests" = "Mga Pang-araw-araw na Misyon";
+"Monthly Quest" = "Buwanang Misyon";
 
 // Learning Section
 "More facts" = "Higit pang mga katotohanan";
 "стран" = "mga bansa";
 "фактов о флагах и странах" = "mga katotohanan tungkol sa mga bandila at bansa";
-"Столица" = "Kapital";
+"Столица" = "Kabisera";
 
 // Continent names
 "Европа" = "Europa";
@@ -231,10 +231,10 @@
 
 // Network Errors
 "No Internet Connection" = "Walang Koneksyon sa Internet";
-"Request Timeout" = "Humiling ng Timeout";
+"Request Timeout" = "Nag-expire ang Kahilingan";
 "Server Not Found" = "Hindi Nahanap ang Server";
 "Too Many Requests" = "Napakaraming Kahilingan";
-"HTTP Error: %d" = "HTTP Error: %d";
+"HTTP Error: %d" = "Error sa HTTP: %d";
 "Not enough countries in selected regions (found %d, need at least 4)" = "Hindi sapat na mga bansa sa mga napiling rehiyon (nahanap %d, kailangan ng hindi bababa sa 4)";
 "Empty response from server" = "Walang laman na tugon mula sa server";
 
@@ -259,31 +259,31 @@
 
 // New additions
 "Tap to continue" = "I-tap para magpatuloy";
-"Loading flag..." = "Nilo-load ang flag...";
-"Select Difficulty" = "Piliin ang Kahirapan";
+"Loading flag..." = "Nilo-load ang bandila...";
+"Select Difficulty" = "Piliin ang Antas ng Hirap";
 "Game Mode" = "Mode ng Laro";
 
 // Game Modes
 "Game Mode" = "Mode ng Laro";
-"Classic" = "Classic";
+"Classic" = "Klasiko";
 "Time Challenge" = "Hamon sa Oras";
 "Time Challenge short" = "Oras";
-"Survival" = "Kaligtasan";
-"Duel" = "Duel";
+"Survival" = "Survival";
+"Duel" = "Duwelo";
 "Challenge a friend to the same game, compare results" = "Hamunin ang isang kaibigan sa parehong laro, ihambing ang mga resulta";
-"Challenge to Duel" = "Hamon sa Duel";
-"You won the duel!" = "Nanalo ka sa tunggalian!";
-"Duel challenge from %@" = "Hinamon ka ni %@ sa isang tunggalian";
-"Duel result" = "Resulta ng tunggalian";
+"Challenge to Duel" = "Hamunin sa Duwelo";
+"You won the duel!" = "Nanalo ka sa duwelo!";
+"Duel challenge from %@" = "Hinamon ka ni %@ sa isang duwelo";
+"Duel result" = "Resulta ng duwelo";
 "You won!" = "Nanalo ka!";
 "won" = "nanalo";
 "You" = "Ikaw";
-"Duel announcement title" = "Duel";
+"Duel announcement title" = "Duwelo";
 "vs" = "vs";
-"Friend add username not found" = "Hindi matagpuan ang user na \"%@\". Suriin ang login.";
-"Start duel" = "Simulan ang tunggalian";
+"Friend add username not found" = "Hindi makita ang user na \"%@\". Suriin ang username.";
+"Start duel" = "Simulan ang duwelo";
 "24h to accept" = "24h para tanggapin";
-"duel_invite_popup_title" = "Hamong sa duwelo";
+"duel_invite_popup_title" = "Hamon sa duwelo";
 "duel_invite_popup_body_format" = "Inimbitahan ka ni %@ sa duwelo";
 "duel_invite_popup_accept" = "Tanggapin";
 "duel_invite_popup_remind_1h" = "Paalala · 1 oras";
@@ -298,19 +298,19 @@
 "Game until first mistake" = "Laro hanggang sa unang pagkakamali";
 
 // Difficulty
-"Difficulty" = "Kahirapan";
+"Difficulty" = "Antas ng hirap";
 "Easy" = "Madali";
 "Medium" = "Katamtaman";
 "Hard" = "Mahirap";
 "Expert" = "Dalubhasa";
-"Erudite" = "Erudite";
+"Erudite" = "Maalam";
 "10 questions, 45 sec per answer" = "10 tanong, 45 segundo bawat sagot";
 "15 questions, 30 sec per answer" = "15 tanong, 30 segundo bawat sagot";
 "20 questions, 15 sec per answer" = "20 tanong, 15 segundo bawat sagot";
 "25 questions, 10 sec per answer" = "25 tanong, 10 segundo bawat sagot";
 "30 questions, 5 sec per answer" = "30 tanong, 5 segundo bawat sagot";
 "All %d countries of selected regions, 5 sec per answer" = "Lahat ng %d na bansa ng mga napiling rehiyon, 5 seg bawat sagot";
-"All 238 countries of the world, 5 sec per answer" = "Lahat ng 238 bansa sa mundo, 5 segundo bawat sagot";
+"All 238 countries of the world, 5 sec per answer" = "Lahat ng available na bansa at teritoryo, 5 segundo bawat sagot";
 
 "of" = "ng";
 "flags" = "mga watawat";
@@ -318,17 +318,17 @@
 // Theme
 "App Theme" = "Hitsura";
 "System" = "Sistema";
-"Light" = "Liwanag";
+"Light" = "Maliwanag";
 "Dark" = "Madilim";
 
 // iPad Main Screen
 "Challenge Yourself, Learn the World" = "Hamunin ang Iyong Sarili, Alamin ang Mundo";
-"WorldArena Description" = "Ang WorldArena ay isang pandaigdigang serye ng laro ng kaalaman na ginagawang masaya ang pag-aaral. Hulaan ang mga flag, capitals, border, at marami pang iba sa isang dynamic na format ng pagsusulit na idinisenyo para sa lahat ng edad.";
+"WorldArena Description" = "Ang WorldArena ay serye ng mga larong kaalaman na nagpapasaya sa pag-aaral. Hulaan ang mga bandila, kabisera, hangganan, at marami pang iba sa masiglang mga pagsusulit para sa lahat ng edad.";
 
 /* Lives & Premium */
 "Lives" = "Buhay";
 "Next +%d in %02d:%02d" = "Susunod na +%d sa %02d:%02d";
-"Lives refill info" = "Lives refill info";
+"Lives refill info" = "Pagpuno muli ng mga buhay";
 "You will receive +%d new lives in %02d:%02d" = "Makakatanggap ka ng +%d bagong buhay sa %02d:%02d";
 "Unlimited hearts enabled" = "Pinagana ang walang limitasyong mga puso";
 "Unlimited Hearts" = "Walang limitasyong mga Puso";
@@ -341,55 +341,55 @@
 /* F-Bucks Info Page */
 "О F-Bucks" = "Tungkol sa F-Bucks";
 "Как заработать" = "Paano Kumita";
-"История" = "Kasaysayan";
-"Магазин" = "Mamili";
-"Что такое F-Bucks?" = "Ano ang F-Bucks?";
+"История" = "History";
+"Магазин" = "Tindahan";
+"Что такое F-Bucks?" = "Ano ang mga F-Bucks?";
 "F-Bucks (Flags Bucks) — это внутриигровая валюта, которую можно заработать, играя в World Arena Flags. Используйте F-Bucks для покупки уникальных элементов аватара, скинов и других эксклюзивных предметов." = "Ang F-Bucks (Flags Bucks) ay isang in-game currency na maaari mong kitain sa pamamagitan ng paglalaro ng World Arena Flags. Gamitin ang F-Bucks para bumili ng mga natatanging avatar item, skin, at iba pang eksklusibong item.";
 "Особенности:" = "Mga Tampok:";
 "Зарабатывайте за идеальные результаты в играх" = "Kumita para sa perpektong resulta ng laro";
-"Получайте бонусы за длинные серии дней" = "Makakuha ng mga bonus para sa mahabang araw na mga streak";
+"Получайте бонусы за длинные серии дней" = "Makakuha ng mga bonus para sa mahabang streak ng magkakasunod na araw ng paglalaro";
 "Покупайте эксклюзивные элементы для аватара" = "Bumili ng mga eksklusibong item sa avatar";
 "Создавайте уникальный стиль" = "Gumawa ng kakaibang istilo";
-"Как заработать F-Bucks" = "Paano Kumita ng F-Bucks";
+"Как заработать F-Bucks" = "Paano kumita ng F-Bucks";
 "Идеальный результат" = "Perpektong Resulta";
 "Идеальный результат игры" = "Perpektong resulta ng laro";
-"Получите идеальный результат в игре (10/10 или 15/15)" = "Makakuha ng perpektong resulta sa laro (10/10 o 15/15)";
-"Серия 10 дней" = "10 Araw na Streak";
+"Получите идеальный результат в игре (10/10 или 15/15)" = "Tapusin ang isang laro nang tama ang lahat ng sagot";
+"Серия 10 дней" = "10 araw na tuloy-tuloy";
 "Играйте 10 дней подряд" = "Maglaro ng 10 araw nang sunud-sunod";
-"Серия 20 дней" = "20 Araw na Streak";
+"Серия 20 дней" = "20 araw na tuloy-tuloy";
 "Играйте 20 дней подряд" = "Maglaro ng 20 araw nang sunud-sunod";
-"Серия 50 дней" = "50 Araw na Streak";
+"Серия 50 дней" = "50 araw na tuloy-tuloy";
 "Играйте 50 дней подряд" = "Maglaro ng 50 araw nang sunud-sunod";
-"Серия 100 дней" = "100 Araw na Streak";
+"Серия 100 дней" = "100 araw na tuloy-tuloy";
 "Играйте 100 дней подряд" = "Maglaro ng 100 araw nang sunud-sunod";
-"История начислений" = "Kasaysayan ng Transaksyon";
-"История пуста" = "Walang laman ang kasaysayan";
+"История начислений" = "Talaan ng mga transaksyon";
+"История пуста" = "Walang laman ang history";
 "Начните играть и зарабатывать F-Bucks!" = "Simulan ang paglalaro at kumita ng F-Bucks!";
 "Магазин F-Bucks" = "Tindahan ng F-Bucks";
 "Потратьте F-Bucks на эксклюзивные элементы для вашего аватара" = "Gumastos ng F-Bucks sa mga eksklusibong item para sa iyong avatar";
 "Одежда" = "Damit";
 "Уникальные наряды и аксессуары" = "Mga natatanging damit at accessories";
-"Скины" = "Mga balat";
+"Скины" = "Mga hitsura";
 "Особые визуальные эффекты" = "Mga espesyal na visual effect";
 "Эффекты" = "Mga epekto";
 "Анимации и спецэффекты" = "Mga animation at mga espesyal na epekto";
-"Футболка чемпиона" = "Champion T-Shirt";
-"Кепка путешественника" = "Cap ng manlalakbay";
-"Куртка исследователя" = "Jacket ng Explorer";
-"Золотой скин" = "Gintong Balat";
-"Радужный скин" = "Balat ng bahaghari";
-"Неоновый скин" = "Balat ng Neon";
-"Эффект блёсток" = "Sparkle Effect";
-"Огненный эффект" = "Epekto ng Sunog";
-"Звёздный эффект" = "Star Effect";
+"Футболка чемпиона" = "T-shirt ng kampeon";
+"Кепка путешественника" = "Sumbrero ng manlalakbay";
+"Куртка исследователя" = "Jacket ng manlalakbay";
+"Золотой скин" = "Gintong skin";
+"Радужный скин" = "Skin na bahaghari";
+"Неоновый скин" = "Neon na skin";
+"Эффект блёсток" = "Epekto ng kinang";
+"Огненный эффект" = "Epekto ng apoy";
+"Звёздный эффект" = "Epekto ng bituin";
 "Купить" = "Bumili";
 "Покупка" = "Bumili";
-"Текст гимна" = "Teksto ng Anthem";
+"Текст гимна" = "Liriko ng Pambansang Awit";
 "Continue playing with unlimited hearts!" = "Ipagpatuloy ang paglalaro ng walang limitasyong mga puso!";
 "No lives available" = "Walang buhay na magagamit";
 "Unfortunately, the game is not available now: you have no lives. You can buy lives or go Premium." = "Sa kasamaang palad, ang laro ay hindi magagamit ngayon: wala kang mga buhay. Maaari kang bumili ng mga buhay o pumunta sa Premium.";
-"Go Premium" = "Pumunta sa Premium";
-"Out of lives" = "Wala sa buhay";
+"Go Premium" = "Mag-Premium";
+"Out of lives" = "Naubos ang buhay";
 "Get Free Lives" = "Kumuha ng Libreng Buhay";
 "Watch video for +3 lives" = "Manood ng video para sa +3 buhay";
 "Unfortunately you ran out of lives this time. Try again or come back later." = "Sa kasamaang palad, naubusan ka ng buhay sa pagkakataong ito. Subukang muli o bumalik sa ibang pagkakataon.";
@@ -412,29 +412,29 @@
 "OK" = "OK";
 
 /* Premium screen */
-"Learn all countries and flags in ~2 months with Premium" = "Alamin ang lahat ng bansa at flag sa loob ng ~2 buwan gamit ang Premium";
+"Learn all countries and flags in ~2 months with Premium" = "Palawakin ang kaalaman mo sa mga bansa at bandila gamit ang Premium";
 "Unlimited Hearts" = "Walang limitasyong mga Puso";
 "Personalized Practice" = "Personalized na Pagsasanay";
 "Explain My Answer" = "Ipaliwanag ang Aking Sagot";
 "Roleplay Scenarios" = "Mga Sitwasyon ng Roleplay";
 "Access 'My Mistakes'" = "I-access ang 'Aking Mga Pagkakamali'";
 "My Mistakes" = "Aking Mga Pagkakamali";
-"Erudite Difficulty" = "Kahirapan sa Erudite";
+"Erudite Difficulty" = "Antas ng hirap na Erudite";
 "Learning Section" = "Seksyon ng Pag-aaral";
 "UPGRADE TO PREMIUM" = "MAG-UPGRADE SA PREMIUM";
-"NO THANKS" = "WALANG SALAMAT";
+"NO THANKS" = "HINDI, SALAMAT";
 
 /* Game header popovers */
 "Total game time since start" = "Kabuuang oras ng laro mula nang magsimula";
-"Time limit per question depending on difficulty" = "Time limit per question depending on difficulty";
+"Time limit per question depending on difficulty" = "Ang oras sa bawat tanong ay depende sa hirap";
 "Total Game Time" = "Kabuuang Oras ng Laro";
-"Time Per Question" = "Time Per Question";
+"Time Per Question" = "Oras sa bawat tanong";
 
 /* Game header motivation (iPad) */
-"Game motivation 1" = "Nakuha mo na ito!";
+"Game motivation 1" = "Kaya mo ito!";
 "Game motivation 2" = "Ituloy mo!";
-"Game motivation 3" = "Bawat bandila ay binibilang!";
-"Game motivation 4" = "Nasusunog ka!";
+"Game motivation 3" = "Mahalaga ang bawat bandila!";
+"Game motivation 4" = "Ang galing mo!";
 "Game motivation 5" = "Manatiling nakatutok!";
 "Game motivation 6" = "Isa pa!";
 "Game motivation 7" = "Mahusay na bilis!";
@@ -448,9 +448,9 @@
 
 // Profile Page
 "League" = "Liga";
-"Following" = "Sinusundan";
+"Following" = "Mga kaibigan";
 "Days in a row" = "Sunod-sunod na araw";
-"Joined in %@" = "Sumali sa %@";
+"Joined in %@" = "Nagsimulang maglaro noong %@";
 "Statistics" = "Mga istatistika";
 "Total XP" = "Kabuuang XP";
 "Current streak" = "Kasalukuyang streak";
@@ -481,7 +481,7 @@
 "Eye Shape" = "Hugis ng Mata";
 "Eye Color" = "Kulay ng Mata";
 "Eyebrows" = "Mga kilay";
-"Nose" = "ilong";
+"Nose" = "Ilong";
 "Mouth" = "Bibig";
 "Facial Hair" = "Buhok sa Mukha";
 "Glasses" = "Salamin";
@@ -489,13 +489,13 @@
 "Accessories" = "Mga accessories";
 
 /* Game Loading */
-"Loading flags..." = "Naglo-load ng mga flag...";
+"Loading flags..." = "Nilo-load ang mga bandila...";
 "Starting..." = "Nagsisimula...";
 
 /* Main Tab Navigation */
-"Главная" = "Bahay";
+"Главная" = "Home";
 "Игра" = "Maglaro";
-"Квесты" = "Mga paghahanap";
+"Квесты" = "Mga misyon";
 "Лиги" = "Mga liga";
 "До конца лиги: %02dч %02dм (GMT)" = "Matatapos ang liga sa %02dh %02dm (GMT)";
 "До конца лиги: %@ (GMT)" = "Matatapos ang liga sa %@ (GMT)";
@@ -503,13 +503,13 @@
 "ч" = "h";
 "м" = "m";
 "Статистика" = "Mga istatistika";
-"Профиль" = "Profile";
+"Профиль" = "Propayl";
 
 /* Profile Page */
 "ОБЗОР" = "PANGKALAHATANG-IDEYA";
-"ДОБАВИТЬ ДРУЗЕЙ" = "ADD FRIENDS";
-"СЕРИИ ДРУЗЕЙ" = "KAIBIGAN STREAKS";
-"МЕСЯЧНЫЕ ДОСТИЖЕНИЯ" = "MONTHLY ACHIEVEMENTS";
+"ДОБАВИТЬ ДРУЗЕЙ" = "MAGDAGDAG NG MGA KAIBIGAN";
+"СЕРИИ ДРУЗЕЙ" = "MGA STREAK NG MGA KAIBIGAN";
+"МЕСЯЧНЫЕ ДОСТИЖЕНИЯ" = "MGA BUWANANG TAGUMPAY";
 
 /* Settings */
 "Выберите аватар" = "Pumili ng avatar";
@@ -520,11 +520,11 @@
 "profile_crop_zoom_label" = "Zoom";
 "profile_crop_cancel" = "Kanselahin";
 "profile_crop_done" = "Tapos na";
-"Имя пользователя" = "Username";
+"Имя пользователя" = "Pangalan ng gumagamit";
 "Статистика" = "Mga istatistika";
-"Премиум подписка активна" = "Aktibo ang premium na subscription";
+"Премиум подписка активна" = "Aktibo ang subscription sa Premium";
 "ВОССТАНОВИТЬ ПОДПИСКУ" = "IBALIK ANG SUBSCRIPTION";
-"ВЫЙТИ" = "LOG OUT";
+"ВЫЙТИ" = "MAG-LOG OUT";
 "Удалить аккаунт" = "Tanggalin ang account";
 "Это действие нельзя отменить. Все ваши данные будут удалены навсегда." = "Ang pagkilos na ito ay hindi maaaring i-undo. Ang lahat ng iyong data ay permanenteng tatanggalin.";
 
@@ -533,20 +533,20 @@
 "Язык интерфейса игры и заданий" = "Interface ng laro at wika ng mga gawain";
 
 /* Leagues */
-"Вы занимаете #%d место" = "Ikaw ay niraranggo #%d";
-"Зона повышения - переход в следующую лигу!" = "Promotion zone - sumulong sa susunod na liga!";
-"Зона вылета - риск понижения лиги" = "Relegation zone - panganib ng demotion ng liga";
-"Безопасная зона - остаетесь в текущей лиге" = "Safe zone - manatili sa kasalukuyang liga";
+"Вы занимаете #%d место" = "Nasa ranggong #%d ka";
+"Зона повышения - переход в следующую лигу!" = "Sona ng pag-angat — umakyat sa susunod na liga!";
+"Зона вылета - риск понижения лиги" = "Sona ng pagbaba — may panganib na bumaba ng liga";
+"Безопасная зона - остаетесь в текущей лиге" = "Ligtas na sona — manatili sa kasalukuyang liga";
 "Конец недели через %d часов" = "Matatapos ang linggo sa %d na oras";
-"ЗОНА ВЫЛЕТА" = "RELEGATION ZONE";
-"ЗОНА ПОВЫШЕНИЯ" = "PROMOTION ZONE";
+"ЗОНА ВЫЛЕТА" = "SONA NG PAGBABA";
+"ЗОНА ПОВЫШЕНИЯ" = "SONA NG PAG-AKYAT";
 
 /* Monthly Quests */
-"Августовский Квест" = "August Quest";
+"Августовский Квест" = "Misyon sa Agosto";
 "Mision de Agosto" = "Misyon ng Agosto";
 "21 ДЕНЬ" = "21 ARAW";
-"Заработай 40 очков квеста" = "Makakuha ng 40 quest point";
-"ЕЖЕДНЕВНЫЕ КВЕСТЫ" = "ARAW-ARAW NA TANONG";
+"Заработай 40 очков квеста" = "Makakuha ng 40 puntos sa misyon";
+"ЕЖЕДНЕВНЫЕ КВЕСТЫ" = "MGA PANG-ARAW-ARAW NA MISYON";
 
 /* Help Center */
 "Популярные темы" = "Mga sikat na paksa";
@@ -555,7 +555,7 @@
 "Игра" = "Laro";
 "Прогресс" = "Pag-unlad";
 "Лиги" = "Mga liga";
-"Профиль" = "Profile";
+"Профиль" = "Propayl";
 "Социальные функции" = "Mga Tampok na Panlipunan";
 "Технические вопросы" = "Mga Isyung Teknikal";
 "Нужна дополнительная помощь?" = "Kailangan ng karagdagang tulong?";
@@ -569,42 +569,42 @@
 "Продли свою серию" = "Pahabain ang iyong streak";
 "Сыграй 3 игры подряд" = "Maglaro ng 3 magkasunod na laro";
 "Достигни точности 80%" = "Makamit ang 80% katumpakan";
-"МЕСЯЧНЫЕ ЦЕЛИ" = "MGA MONTHLY GOALS";
+"МЕСЯЧНЫЕ ЦЕЛИ" = "MGA BUWANANG LAYUNIN";
 "Месячные цели" = "MGA MONTHLY GOALS";
 
 /* Profile Statistics */
 "дней" = "araw";
 "Текущая серия" = "Kasalukuyang Streak";
-"Всего изучено флагов" = "Kabuuang mga flag na natutunan";
+"Всего изучено флагов" = "Kabuuang bandilang natutunan";
 "Текущая лига" = "Kasalukuyang liga";
 "Общий опыт" = "Kabuuang karanasan";
 
 /* League Names */
 "Бронза" = "Tanso";
-"Серебро" = "pilak";
-"Золото" = "ginto";
-"Платина" = "Platinum";
-"Алмаз" = "brilyante";
-"Мастер" = "Master";
+"Серебро" = "Pilak";
+"Золото" = "Ginto";
+"Платина" = "Platino";
+"Алмаз" = "Brilyante";
+"Мастер" = "Dalubhasa";
 
 /* Profile Edit */
 "Введите имя" = "Ipasok ang pangalan";
 "Отмена" = "Kanselahin";
 "Сохранить" = "I-save";
 "Уровень" = "Antas";
-"Опыт" = "karanasan";
-"Серия дней" = "Day streak";
+"Опыт" = "Karanasan";
+"Серия дней" = "Sunod-sunod na araw";
 "Всего игр" = "Kabuuang mga laro";
 "Точность" = "Katumpakan";
 
 /* Theme Settings */
 "Тема" = "Tema";
 "System" = "Sistema";
-"Light" = "Liwanag";
+"Light" = "Maliwanag";
 "Dark" = "Madilim";
 "Выберите тему оформления приложения" = "Piliin ang tema ng hitsura ng app";
 "Следует системным настройкам" = "Sinusunod ang mga setting ng system";
-"Светлое оформление" = "Banayad na hitsura";
+"Светлое оформление" = "Maliwanag na hitsura";
 "Темное оформление" = "Madilim na hitsura";
 
 /* Monthly Quests - Additional */
@@ -613,18 +613,18 @@
 "Точность %d%%" = "Katumpakan %d%%";
 "Достигните точности %d%% в играх" = "Makamit ang %d%% katumpakan sa mga laro";
 "Серия %d дней" = "%d araw na sunod-sunod";
-"Поддерживайте серию %d дней подряд" = "Panatilihin ang isang %d araw na sunod-sunod";
+"Поддерживайте серию %d дней подряд" = "Panatilihin ang %d-araw na streak";
 "10Ч" = "10H";
 
 /* Friends */
-"Ваш код друга" = "Ang code ng iyong kaibigan";
+"Ваш код друга" = "Sarili mong friend code";
 "Добавить по коду" = "Idagdag sa pamamagitan ng code";
 "Введите код друга" = "Ilagay ang friend code";
 "Добавить" = "Idagdag";
 "Добавить друзей" = "Magdagdag ng mga Kaibigan";
 "Готово" = "Tapos na";
 "Скопировано" = "Kinopya";
-"Мой код друга" = "Code ng kaibigan ko";
+"Мой код друга" = "Sarili kong friend code";
 "Добавить по имени (логину)" = "Idagdag sa pamamagitan ng username";
 "Введите имя пользователя" = "Ipasok ang username";
 "Пользователь не найден или уже в друзьях. Проверьте имя." = "Hindi nahanap o nasa mga kaibigan na ang user. Suriin ang pangalan.";
@@ -639,125 +639,125 @@
 "HELP_GAME_RULES" = "Ang World Arena Flags ay isang masayang laro para matuto ng mga flag ng mundo!\n\nPanuntunan:\n1. Nakikita mo ang watawat ng isang bansa\n2. Piliin ang tamang pangalan mula sa mga opsyon\n3. Kumita ng XP para sa mga tamang sagot\n4. Panatilihin ang iyong pang-araw-araw na streak\n5. Mag-level up at umakyat ng mga liga\n\nKapag mas marami kang nilalaro, mas maraming flag ang natututunan mo!";
 "Что такое серия дней?" = "Ano ang streak?";
 "Как работает система серий" = "Paano gumagana ang streak system";
-"HELP_STREAK_TEXT" = "Ipinapakita ng isang streak kung ilang araw ka sunod-sunod na nilalaro.\n\nPaano ito panatilihin:\n• Maglaro ng hindi bababa sa isang laro araw-araw\n• Magre-reset ang streak kung lalaktawan mo ang isang araw\n• Ang mas mahabang streak ay nagbibigay ng mas maraming bonus na XP\n\nNakakatulong ang streak na bumuo ng ugali sa pag-aaral!";
+"HELP_STREAK_TEXT" = "Binibilang ng streak ang magkakasunod na araw na naglaro ka.\n\n• Maglaro ng kahit isang laro araw-araw para mapahaba ito.\n• Mapoprotektahan ng mga streak freeze ang araw na nalaktawan mo kung mayroon ka nito.\n• Buksan ang kalendaryo ng streak para makita ang mga araw na naglaro ka at ang available na proteksyon.\n\nNakakatulong ang regular na pagsasanay para makasanayan ang pag-aaral!";
 "Как работают лиги?" = "Paano gumagana ang mga liga?";
 "Система рейтингов и соревнований" = "Sistema ng rating at kumpetisyon";
-"HELP_LEAGUES_TEXT" = "Ang mga liga ay mga kumpetisyon sa iba pang mga manlalaro.\n\nMga Liga (mula sa mas mababa hanggang sa mas mataas):\n• Tanso\n• Pilak\n• Ginto\n• Platinum\n• Brilyante\n• Guro\n\nLingguhang mga update:\n• Ang nangungunang 3 manlalaro ay makakakuha ng mga gantimpala\n• Maaaring ma-demote ang mga manlalaro sa 16–20\n• Ang iba ay nananatili sa parehong liga";
+"HELP_LEAGUES_TEXT" = "Sa mga liga, maaari kang makipagkumpitensya sa ibang manlalaro.\n\nMula pinakamababa hanggang pinakamataas:\n• Tanso\n• Pilak\n• Ginto\n• Platinum\n• Brilyante\n• Master\n\nNakabatay sa lingguhang puwesto mo kung aangat, mananatili, o bababa ka. Nakasalalay sa progreso mo ang mga sona ng pag-angat at pagbaba, at makikita ang mga ito sa talaan ng liga. Makakakuha ka ng F-Bucks kapag umangat ka.";
 
 /* Birthday */
-"День рождения" = "Birthday";
+"День рождения" = "Kaarawan";
 "Birthday description F-bucks" = "Pahintulutan kaming batiin ka sa iyong kaarawan ng +10 F-bucks";
-"Очистить" = "Maaliwalas";
+"Очистить" = "I-clear";
 "День рождения друга" = "Kaarawan ng kaibigan";
-"Friend birthday push body" = "Ngayon, ipinagdiriwang ng %@ ang kanilang kaarawan — batiin sila! (magbigay ng +10 min Triple XP o +1 F-bucks)";
+"Friend birthday push body" = "Kaarawan ni %@ ngayon — batiin siya! (magbigay ng 10 minuto ng Triple XP o +1 F-Bucks)";
 "С днём рождения!" = "Maligayang kaarawan!";
 "Birthday bonus already claimed" = "Na-claim na ang bonus para sa taong ito";
 "Birthday bonus F-bucks message" = "Nakatanggap ka ng +10 F-bucks";
 "Friend birthday today" = "Ngayon ay kaarawan ni %@";
 "Friends birthday today count" = "Kaarawan ngayon ng %d na kaibigan";
-"Friend birthday congratulate hint" = "Congratulations: bigyan ng +10 min Triple XP o +1 F-bucks";
+"Friend birthday congratulate hint" = "Batiin: magbigay ng 10 minuto ng Triple XP o +1 F-Bucks";
 "Подарок на ДР от друга" = "Birthday gift mula sa kaibigan";
 
 /* Help Center – profile & skin */
 "Как изменить аватар?" = "Paano magpalit ng avatar?";
 "Персонализация профиля" = "Pag-customize ng profile";
-"HELP_PROFILE_AVATAR" = "Para baguhin ang iyong avatar:\n1. Buksan ang tab na Profile\n2. I-tap ang icon na gear (Mga Setting)\n3. Piliin ang \"User profile\"\n4. Pumili ng bagong avatar o mag-upload ng larawan\n5. I-tap ang \"I-save\"";
-"Как работает создание скина?" = "Paano gumagana ang editor ng balat?";
+"HELP_PROFILE_AVATAR" = "Para palitan ang avatar mo:\n1. Buksan ang Profile at i-tap ang avatar para i-edit ang profile.\n2. Buksan ang avatar editor o pumili ng larawan mula sa library mo.\n3. Ayusin ang avatar o i-crop ang larawan.\n4. I-save ang mga pagbabago.";
+"Как работает создание скина?" = "Paano gumagana ang editor ng hitsura?";
 "Редактор аватара и элементы" = "Avatar editor at mga item";
-"HELP_PROFILE_SKIN_EDITOR" = "Sa editor ng balat bubuo ka ng iyong hitsura mula sa ilang mga kategorya:\n• Damit\n• Mga accessory\n• Salamin\n• Tono ng Balat\n• Buhok\n• Mukha (mata, bibig, atbp.)\n\nPaano ito gamitin:\n1. Buksan ang Profile → Mga Setting → Profile ng user → I-edit ang avatar\n2. Lumipat sa tab na \"Gumawa ng balat.\"\n3. Pumili ng kategorya sa itaas na bar (sumbrero, kamiseta, salamin, palette icon, atbp.)\n4. Pumili ng isang partikular na item sa grid sa ibaba - agad itong lilitaw sa preview\n5. I-tap ang \"I-save ang Avatar\" upang ilapat ang balat sa iyong profile\n\nMaaaring naka-lock ang ilang item (icon ng lock) – nagbubukas ang mga ito habang umuunlad ka o para sa F-bucks.";
+"HELP_PROFILE_SKIN_EDITOR" = "Gamitin ang avatar editor para i-customize ang hitsura mo: damit, accessory, salamin, tono ng balat, buhok, at mga bahagi ng mukha.\n\nBuksan ang profile, i-tap ang avatar, at buksan ang avatar editor. Pumili ng kategorya at item para makita ito sa preview. I-save ang mga pagbabago para mailapat sa profile.\n\nMaaaring kailanganin ng progreso o F-Bucks para mabuksan ang mga item na may lock.";
 
 /* Help Center – friends & social */
 "Как добавить друзей?" = "Paano magdagdag ng mga kaibigan?";
 "Социальные функции" = "Mga tampok na panlipunan";
-"HELP_SOCIAL_ADD_FRIENDS" = "Upang magdagdag ng mga kaibigan:\n1. Buksan ang tab na Profile\n2. I-tap ang \"Magdagdag ng Mga Kaibigan\"\n3. Ibahagi ang iyong code ng kaibigan o ilagay ang code / login ng ibang manlalaro\n4. Magpadala ng friend request\n\nSa mga kaibigan maaari kang:\n• Paghambingin ang mga istatistika\n• Tingnan ang kanilang pag-unlad\n• Makipagkumpitensya sa mga liga at tunggalian";
+"HELP_SOCIAL_ADD_FRIENDS" = "Para magdagdag ng mga kaibigan:\n1. Buksan ang tab na Profile\n2. I-tap ang \"Magdagdag ng mga Kaibigan\"\n3. Ibahagi ang sarili mong friend code o ilagay ang code o username ng ibang manlalaro\n4. Magpadala ng friend request\n\nKasama ang mga kaibigan, maaari mong:\n• Ihambing ang mga istatistika\n• Tingnan ang kanilang pag-unlad\n• Makipagkumpitensya sa mga liga at duwelo";
 "Как работают напоминания друзьям?" = "Paano gumagana ang mga paalala sa mga kaibigan?";
 "Пуш-уведомления о ежедневном уроке" = "Mga push notification tungkol sa pang-araw-araw na aralin";
-"HELP_SOCIAL_REMINDERS" = "Pagkatapos ng isang laro, makikita mo ang isang screen kasama ang iyong mga kaibigan at ang kanilang mga streak:\n• Ang mga kaibigan na naglaro na ngayon ay nagpapakita ng apoy at bilang ng mga araw na magkakasunod\n• Ang mga kaibigan na hindi pa nakakalaro ngayon ay nagpapakita ng \"Remind\" na button\n\nPaano magpadala ng paalala:\n1. Pagkatapos ng iyong laro, pumunta sa screen na \"Remind friends.\"\n2. I-tap ang \"Remind\" sa tabi ng isang partikular na kaibigan\n3. Kung naka-enable ang mga notification, makakakuha sila ng push na hindi pa tapos ang lesson ngayon\n\nTinutulungan ng mga paalala ang mga kaibigan na panatilihin ang kanilang streak at regular na pag-aaral.";
+"HELP_SOCIAL_REMINDERS" = "Pagkatapos ng laro, makikita mo ang screen na may mga kaibigan mo at ang kanilang mga streak:\n• May apoy at bilang ng mga araw sa streak ang mga kaibigang naglaro na ngayong araw\n• May button na \"Paalalahanan\" ang mga hindi pa naglaro\n\nPara magpadala ng paalala:\n1. Pagkatapos ng laro, pumunta sa screen na \"Paalalahanan ang mga kaibigan\"\n2. I-tap ang \"Paalalahanan\" sa tabi ng isang kaibigan\n3. Kung naka-on ang mga notification niya, makakatanggap siya ng push notification na hindi pa tapos ang aralin ngayong araw\n\nTinutulungan ng mga paalala ang mga kaibigan na panatilihin ang streak at regular na mag-aral.";
 
 /* Help Center – duel & progress */
-"Что такое дуэль и как её начать?" = "Ano ang tunggalian at paano ito sisimulan?";
-"Режим соревнований 1 на 1" = "1‑on‑1 competition mode";
-"HELP_GAME_DUEL" = "Ang Duel ay isang mode kung saan sinasagot mo at ng iyong kaibigan ang parehong mga tanong upang ihambing ang mga resulta.\n\nPaano magsimula ng tunggalian:\n1. Buksan ang profile ng iyong kaibigan (mula sa listahan ng Mga Kaibigan, Liga o mga paalala)\n2. I-tap ang button na \"Hamon sa Duel.\"\n3. Kumpirmahin - ang tunggalian ay gagamit ng ibinahaging hanay ng mga tanong\n\nSa dulo:\n• Nakita mo kung sino ang nakakuha ng higit pang mga puntos\n• Ang tunggalian ay nag-uudyok at nagpapalakas ng pag-unlad ngunit HINDI nire-reset ang iyong pang-araw-araw na streak";
+"Что такое дуэль и как её начать?" = "Ano ang duwelo at paano ito sisimulan?";
+"Режим соревнований 1 на 1" = "Isa-laban-sa-isang paligsahan";
+"HELP_GAME_DUEL" = "Sa duwelo, sinasagot ninyo ng iyong kaibigan ang parehong mga tanong para maihambing ang mga resulta.\n\nPara magsimula:\n1. Buksan ang profile ng kaibigan mula sa listahan ng mga kaibigan, mga liga, o mga paalala\n2. I-tap ang \"Hamunin sa Duwelo\"\n3. Kumpirmahin — iisang hanay ng mga tanong ang gagamitin\n\nSa dulo:\n• Makikita mo kung sino ang nakakuha ng mas maraming puntos\n• Nakakatulong ang duwelo sa pag-unlad, pero HINDI nito nire-reset ang iyong pang-araw-araw na streak";
 "Как зарабатывать и тратить F-bucks?" = "Paano kumita at gumastos ng F-bucks?";
 "Внутриигровая валюта" = "In-game na pera";
-"HELP_PROGRESS_FBUCKS" = "Ang F-bucks (Flags Bucks) ay ang in-game na pera ng World Arena Flags.\n\nPaano kumita ng F-bucks:\n• Para sa mga perpektong laro (tama ang lahat ng sagot)\n• Para sa mahabang araw-araw na streak\n• Para sa pagkumpleto ng mga quest at mga nagawa\n\nAno ang gagastusin sa kanila:\n• Pagbili ng eksklusibong balat at mga elemento ng avatar\n• Pag-unlock ng mga bihirang accessory at effect\n\nMahalaga: Ang F-bucks ay hindi totoong pera. Hindi sila maaaring bawiin o ipagpalit para sa tunay na pera.";
-"Как работают квесты и достижения?" = "Paano gumagana ang mga quests at achievements?";
-"Месячные задания и артефакты" = "Mga buwanang quest at artifact";
-"HELP_PROGRESS_QUESTS" = "Sa tab na \"Mga Quest\" makikita mo ang:\n• Mga pang-araw-araw na quest (kung available)\n• Mga buwanang quest at kabuuang pag-unlad 0–40\n\nPaano ito gumagana:\n1. Kumpletuhin ang mga gawain: maglaro ng kinakailangang bilang ng mga laro, hulaan ang mga flag ng mga partikular na rehiyon, atbp.\n2. Ang bawat nakumpletong paghahanap ay nagbibigay ng pag-unlad at mga gantimpala\n3. Ang kabuuang buwanang pag-unlad ay ipinapakita sa may kulay na header bilang isang bar\n\nNa-unlock ang mga nakamit (artifacts) para sa mga espesyal na kundisyon:\n• Mahabang guhit\n• Mataas na katumpakan\n• Matataas na lugar sa mga liga\nAng mga naka-unlock na tagumpay ay ipinapakita sa iyong profile.";
+"HELP_PROGRESS_FBUCKS" = "Ang F-Bucks (Flags Bucks) ay pera sa loob ng World Arena Flags.\n\nPaano ito makukuha:\n• Sagutin nang tama ang lahat ng tanong sa larong kwalipikado sa gantimpala\n• Panatilihin ang mahabang streak ng paglalaro araw-araw\n• Kumpletuhin ang mga misyon at tagumpay\n\nSaan ito magagamit:\n• Pagbili ng eksklusibong hitsura at mga item para sa avatar\n• Pag-unlock ng mga bihirang accessory at effect\n\nMahalaga: Hindi tunay na pera ang F-Bucks. Hindi ito maaaring i-withdraw o ipalit sa tunay na salapi.";
+"Как работают квесты и достижения?" = "Paano gumagana ang mga misyon at tagumpay?";
+"Месячные задания и артефакты" = "Mga buwanang misyon at artifact";
+"HELP_PROGRESS_QUESTS" = "Sa tab na \"Mga misyon\", makikita mo ang:\n• Mga pang-araw-araw na misyon, kung available\n• Mga buwanang misyon at kabuuang progreso na 0–40\n\nPaano ito gumagana:\n1. Tapusin ang mga gawain: maglaro ng kinakailangang bilang ng laro, hulaan ang mga bandila ng isang rehiyon, at iba pa\n2. Bawat natapos na misyon ay nagbibigay ng progreso at gantimpala\n3. Makikita ang kabuuang buwanang progreso bilang bar sa may kulay na header\n\nNabubuksan ang mga tagumpay (artifact) kapag natugunan ang mga kondisyon:\n• Mahahabang streak\n• Mataas na katumpakan\n• Matataas na ranggo sa mga liga\nMakikita sa profile mo ang mga nabuksang tagumpay.";
 
 /* Help Center – notifications */
 "Уведомления: какие бывают и как их настроить?" = "Mga Notification: mga uri at paano pamahalaan ang mga ito?";
-"Ежедневный урок, дуэли и напоминания" = "Araw-araw na aralin, mga tunggalian at mga paalala";
-"HELP_NOTIFICATIONS_TYPES" = "Maaaring magpadala ang app ng ilang uri ng mga notification:\n• Araw-araw na aralin at streak na mga paalala\n• Mga paalala sa mga kaibigan at mga tugon sa iyong mga paalala\n• Mga hamon sa tunggalian at mga resulta ng tunggalian\n\nPaano pamahalaan ang mga notification:\n1. Buksan ang mga setting ng iyong device\n2. Maghanap ng mga Watawat ng World Arena\n3. Paganahin o huwag paganahin ang mga uri ng notification ayon sa gusto mo\n\nInirerekomenda naming iwanang naka-enable ang mga paalala sa araw-araw na aralin para hindi mawala ang iyong streak.";
+"Ежедневный урок, дуэли и напоминания" = "Pang-araw-araw na aralin, mga duwelo, at mga paalala";
+"HELP_NOTIFICATIONS_TYPES" = "Sinusuportahan ng app ang pang-araw-araw na paalala sa pagsasanay, paalala sa streak, paalala mula sa mga kaibigan, at mga imbitasyon at resulta ng duwelo.\n\nPiliin ang gusto mong paalala sa mga setting ng notification ng app. Kinokontrol ng mga setting ng device kung maaaring magpakita ng notification ang World Arena Flags.\n\nMakakatulong ang mga araw-araw na paalala para maalala mong magsanay.";
 
 /* Help Center – technical issues */
-"Проблемы с загрузкой флагов" = "Hindi naglo-load ang mga flag";
-"Что делать если флаги не загружаются" = "Ano ang gagawin kung hindi naglo-load ang mga flag";
-"HELP_TECH_FLAGS_NOT_LOADING" = "Kung hindi naglo-load ang mga flag:\n1. Suriin ang iyong koneksyon sa internet\n2. I-restart ang app\n3. I-clear ang cache sa mga setting ng app (kung available)\n4. I-update ang app sa pinakabagong bersyon\n5. Makipag-ugnayan sa suporta kung magpapatuloy ang problema";
+"Проблемы с загрузкой флагов" = "Hindi naglo-load ang mga bandila";
+"Что делать если флаги не загружаются" = "Ano ang gagawin kung hindi naglo-load ang mga bandila";
+"HELP_TECH_FLAGS_NOT_LOADING" = "Kung hindi naglo-load ang mga bandila:\n1. Suriin ang koneksyon sa internet.\n2. I-restart ang app.\n3. I-install ang pinakabagong update ng app.\n4. Makipag-ugnayan sa suporta kung nagpapatuloy ang problema.";
 "Синхронизация данных" = "Pag-sync ng data";
 "Как сохранить прогресс" = "Paano mapanatiling ligtas ang iyong pag-unlad";
-"HELP_TECH_DATA_SYNC" = "Awtomatikong nase-save ang iyong pag-unlad sa device.\n\nUpang i-back up ito:\n• Gamitin ang iCloud o backup ng iyong device\n• I-export ang data sa pamamagitan ng mga setting ng privacy (kung available)\n• Regular na gumawa ng mga backup ng iyong device\n\nKung magpapalit ka ng mga device, i-restore ang backup bago ilunsad ang laro para hindi mawala ang iyong progreso.";
+"HELP_TECH_DATA_SYNC" = "Awtomatikong nase-save sa device ang progreso mo. Maaari ring kumopya ang app ng lokal na progreso sa iCloud kapag available ito sa Apple Account mo.\n\n• Panatilihing napapanahon ang mga backup ng device.\n• Gamitin ang parehong Apple Account kapag ibinabalik ang progreso mula sa iCloud.\n• Maaari mong i-export ang data ng laro mula sa mga setting ng privacy ng app.\n\nPagkatapos lumipat ng device, tiyaking naibalik ang progreso mo bago burahin ang lumang backup.";
 
 /* Achievements */
 "Достижения" = "Mga nagawa";
 "Достижение" = "Tagumpay";
-"ЛИЧНЫЕ РЕКОРДЫ" = "Mga Personal na Tala";
+"ЛИЧНЫЕ РЕКОРДЫ" = "Mga personal na rekord";
 "НАГРАДЫ" = "Mga parangal";
 "Лучшая серия" = "Pinakamahabang Streak";
 "Макс. лига" = "Pinakamataas na Liga";
-"Макс. XP" = "Karamihan sa XP";
+"Макс. XP" = "Pinakamaraming XP";
 "Открыто" = "Na-unlock";
 
 /* Achievement titles/descriptions */
-"Ранняя птица" = "Maagang Ibon";
+"Ранняя птица" = "Maagang Gumising";
 "Достигните серии 5 дней" = "Umabot ng 5 araw na sunod-sunod";
-"Стабильность" = "Consistency";
-"Серия 10 дней" = "10-araw na streak";
-"Железная воля" = "Iron Will";
+"Стабильность" = "Pagiging tuloy-tuloy";
+"Серия 10 дней" = "10 araw na tuloy-tuloy";
+"Железная воля" = "Matibay na loob";
 "Серия 30 дней" = "30-araw na streak";
-"Новичок XP" = "XP Baguhan";
+"Новичок XP" = "Baguhan sa XP";
 "Наберите 1000 XP" = "Makakuha ng 1000 XP";
-"Олимпиец XP" = "XP Olympian";
+"Олимпиец XP" = "Olimpiyano ng XP";
 "Наберите 5000 XP" = "Makakuha ng 5000 XP";
 "Легенда XP" = "Alamat ng XP";
 "Наберите 10000 XP" = "Makakuha ng 10000 XP";
-"Исследователь" = "Quest Explorer";
+"Исследователь" = "Tagatuklas ng misyon";
 "Сыграйте 20 игр" = "Maglaro ng 20 laro";
 "Ветеран" = "Beterano";
 "Сыграйте 100 игр" = "Maglaro ng 100 laro";
-"Меткий стрелок" = "Sharpshooter";
+"Меткий стрелок" = "Asintado";
 "Точность 70%" = "Abutin ang 70% katumpakan";
 "Снайпер" = "Sniper";
 "Точность 85%" = "Abutin ang 85% na katumpakan";
 "Серебряная лига" = "Ligang Pilak";
-"Достигните Серебра" = "Abutin ang Silver";
+"Достигните Серебра" = "Abutin ang Ligang Pilak";
 "Золотая лига" = "Ligang Ginto";
 "Достигните Золота" = "Abutin ang Ginto";
-"Платиновая лига" = "Platinum League";
+"Платиновая лига" = "Ligang Platino";
 "Достигните Платины" = "Abutin ang Platinum";
 "Алмазная лига" = "Liga ng Diamond";
-"Достигните Алмаза" = "Abutin ang Diamond";
+"Достигните Алмаза" = "Abutin ang Ligang Brilyante";
 "Мастер лиг" = "Liga Master";
 "Достигните Мастера" = "Abutin ang Master";
 "Первый друг" = "Unang Kaibigan";
 "Добавьте друга" = "Magdagdag ng kaibigan";
 "Своя команда" = "Iyong Koponan";
 "Добавьте 5 друзей" = "Magdagdag ng 5 kaibigan";
-"Расскажите друзьям" = "Ikalat ang salita";
+"Расскажите друзьям" = "Ipakalat ang balita";
 "Поделитесь профилем" = "Ibahagi ang iyong profile";
-"Спринтер" = "Bilis ang magkakarera";
+"Спринтер" = "Mabilis na Manlalaro";
 "Сыграйте 10 игр за день" = "Maglaro ng 10 laro sa isang araw";
-"XP Олимпиец" = "XP Olympian";
-"Мастер Олимпиец XP" = "Master XP Olympian";
+"XP Олимпиец" = "Olimpiyano ng XP";
+"Мастер Олимпиец XP" = "Dalubhasang Olimpiyano ng XP";
 "Наберите 30000 XP" = "Makakuha ng 30000 XP";
  
 /* Settings - Added */
 "Уведомления" = "Mga abiso";
 "Приватность" = "Pagkapribado";
-"Центр помощи" = "Help Center";
+"Центр помощи" = "Sentro ng tulong";
 "Язык игры" = "Wika ng Laro";
 "Звуковые эффекты" = "Mga sound effect";
-"Вибрация" = "Panginginig ng boses";
+"Вибрация" = "Pag-vibrate";
 
 /* Notification Settings - Sections */
 "Основные уведомления" = "Mga pangunahing abiso";
@@ -766,7 +766,7 @@
 "Напоминания о серии" = "Mga paalala ng streak";
 "Время напоминания" = "Oras ng paalala";
 "Время" = "Oras";
-"Достижения и прогресс" = "Mga nagawa at pag-unlad";
+"Достижения и прогресс" = "Mga tagumpay at pag-unlad";
 "Социальные уведомления" = "Mga social notification";
 "Друзья" = "Mga kaibigan";
 
@@ -774,7 +774,7 @@
 "Приватность профиля" = "Pagkapribado ng profile";
 "Публичный профиль" = "Pampublikong profile";
 "Показывать статистику" = "Ipakita ang mga istatistika";
-"Заявки в друзья" = "Mga kahilingan sa kaibigan";
+"Заявки в друзья" = "Mga friend request";
 "Сбор данных" = "Pangongolekta ng datos";
 "Аналитика использования" = "Analytics ng paggamit";
 "Отчеты о сбоях" = "Mga ulat ng pag-crash";
@@ -789,25 +789,25 @@
 "Безвозвратно удалить все ваши данные" = "Permanenteng tanggalin ang lahat ng iyong data";
 
 // Profile page
-"Всего изучено флагов" = "Kabuuang mga flag na natutunan";
+"Всего изучено флагов" = "Kabuuang bandilang natutunan";
 "Текущая лига" = "Kasalukuyang liga";
 "Общий опыт" = "Kabuuang karanasan";
 "дней" = "araw";
 "Текущая серия" = "Kasalukuyang Streak";
 "XP" = "XP";
-"ДОБАВИТЬ ДРУЗЕЙ" = "ADD FRIENDS";
-"СЕРИИ ДРУЗЕЙ" = "KAIBIGAN STREAKS";
-"МЕСЯЧНЫЕ ДОСТИЖЕНИЯ" = "MONTHLY ACHIEVEMENTS";
+"ДОБАВИТЬ ДРУЗЕЙ" = "MAGDAGDAG NG MGA KAIBIGAN";
+"СЕРИИ ДРУЗЕЙ" = "MGA STREAK NG MGA KAIBIGAN";
+"МЕСЯЧНЫЕ ДОСТИЖЕНИЯ" = "MGA BUWANANG TAGUMPAY";
 
 // Add Friends page
-"Ваш код друга" = "Ang code ng iyong kaibigan";
+"Ваш код друга" = "Sarili mong friend code";
 "Добавить по коду" = "Idagdag sa pamamagitan ng code";
 "Введите код друга" = "Ilagay ang friend code";
 "Добавить" = "Idagdag";
 "Добавить друзей" = "Magdagdag ng mga Kaibigan";
 "Готово" = "Tapos na";
 "Скопировано" = "Kinopya";
-"Мой код друга" = "Code ng kaibigan ko";
+"Мой код друга" = "Sarili kong friend code";
 "Добавить по имени (логину)" = "Idagdag sa pamamagitan ng username";
 "Введите имя пользователя" = "Ipasok ang username";
 "Пользователь не найден или уже в друзьях. Проверьте имя." = "Hindi nahanap o nasa mga kaibigan na ang user. Suriin ang pangalan.";
@@ -819,14 +819,14 @@
 // Settings page
 "Премиум" = "Premium";
 "World Arena Premium" = "World Arena Premium";
-"Премиум подписка активна" = "Aktibo ang premium na subscription";
+"Премиум подписка активна" = "Aktibo ang subscription sa Premium";
 "ВОССТАНОВИТЬ ПОДПИСКУ" = "IBALIK ANG SUBSCRIPTION";
 
 // Achievements
-"Ранняя птица" = "Maagang Ibon";
-"Железная воля" = "Iron Will";
+"Ранняя птица" = "Maagang Gumising";
+"Железная воля" = "Matibay na loob";
 "Алмазная лига" = "Liga ng Diamond";
-"Серия мастера" = "Master Streak";
+"Серия мастера" = "Streak ng dalubhasa";
 "Чемпион месяца" = "Buwanang Champion";
 "Идеальная неделя" = "Perpektong Linggo";
 
@@ -835,7 +835,7 @@
 "Добавьте друзей, чтобы видеть их серии" = "Magdagdag ng mga kaibigan upang makita ang kanilang mga streak";
 
 // Quests page
-"Щоденні квести" = "Pang-araw-araw na Quests";
+"Щоденні квести" = "Mga Pang-araw-araw na Misyon";
 "Сыграй 3 игры" = "Maglaro ng 3 laro";
 "Дай 10 правильных ответов" = "Magbigay ng 10 tamang sagot";
 "Заработай 500 XP" = "Makakuha ng 500 XP";
@@ -855,8 +855,8 @@
 // Profile statistics
 "Статистика" = "Mga istatistika";
 "Уровень" = "Antas";
-"Опыт" = "karanasan";
-"Серия дней" = "Day Streak";
+"Опыт" = "Karanasan";
+"Серия дней" = "Sunod-sunod na araw";
 "Всего игр" = "Kabuuang Mga Laro";
 "Точность" = "Katumpakan";
 
@@ -874,7 +874,7 @@
 
 /* Subscription Management */
 "Управление подпиской" = "Pamamahala ng Subscription";
-"Ваша премиум подписка активна" = "Aktibo ang iyong premium na subscription";
+"Ваша премиум подписка активна" = "Aktibo ang subscription mo sa Premium";
 "Текущий план" = "Kasalukuyang Plano";
 "Цена" = "Presyo";
 "месяц" = "buwan";
@@ -887,18 +887,18 @@
 "Безлимитные жизни" = "Walang limitasyong Buhay";
 "Играйте без ожидания" = "Maglaro nang hindi naghihintay";
 "Раздел Обучения" = "Seksyon ng Pag-aaral";
-"Изучайте флаги и страны" = "Matuto ng mga flag at bansa";
-"Сложность Эрудит" = "Kahirapan sa Erudite";
+"Изучайте флаги и страны" = "Alamin ang mga bandila at bansa";
+"Сложность Эрудит" = "Antas ng hirap na Erudite";
 "Продвинутые вопросы" = "Mga advanced na tanong";
 "Мои ошибки" = "Aking Mga Pagkakamali";
 "Анализ ваших ошибок" = "Pagsusuri ng iyong mga pagkakamali";
 "Отменить подписку" = "Kanselahin ang Subscription";
 "Закрыть" = "Isara";
 "Отмена" = "Kanselahin";
-"Вы уверены, что хотите отменить премиум подписку? Вы потеряете доступ ко всем премиум функциям." = "Sigurado ka bang gusto mong kanselahin ang iyong premium na subscription? Mawawalan ka ng access sa lahat ng premium na feature.";
+"Вы уверены, что хотите отменить премиум подписку? Вы потеряете доступ ко всем премиум функциям." = "Sigurado ka bang gusto mong kanselahin ang subscription mo sa Premium? Mawawalan ka ng access sa lahat ng feature ng Premium.";
 
 "Manage subscription" = "Pamahalaan ang subscription";
-"Your premium subscription is active" = "Aktibo ang iyong premium na subscription";
+"Your premium subscription is active" = "Aktibo ang subscription mo sa Premium";
 "Current plan" = "Kasalukuyang plano";
 "Price" = "Presyo";
 "month" = "buwan";
@@ -908,35 +908,35 @@
 "Next payment" = "Susunod na bayad";
 "Status" = "Katayuan";
 "Active" = "Aktibo";
-"Premium benefits" = "Mga premium na benepisyo";
+"Premium benefits" = "Mga benepisyo ng Premium";
 "My mistakes" = "Mga pagkakamali ko";
 "Analysis of your mistakes" = "Pagsusuri ng iyong mga pagkakamali";
-"Premium tournaments" = "Mga premium na paligsahan";
+"Premium tournaments" = "Mga paligsahan sa Premium";
 "Exclusive tournaments with F-Bucks prizes" = "Mga eksklusibong paligsahan na may mga premyong F-Bucks";
 "Cancel subscription" = "Kanselahin ang subscription";
 "Keep subscription" = "Panatilihin ang subscription";
 "Yes, cancel" = "Oo, kanselahin";
-"Are you sure you want to cancel premium? You will lose access to all premium features." = "Sigurado ka bang gusto mong kanselahin ang premium? Mawawalan ka ng access sa lahat ng premium na feature.";
+"Are you sure you want to cancel premium? You will lose access to all premium features." = "Sigurado ka bang gusto mong kanselahin ang Premium? Mawawalan ka ng access sa lahat ng feature nito.";
 "Close" = "Isara";
 "Red" = "Pula";
-"Most popular color fact description" = "Ang pula ay nasa 75% ng lahat ng mga pambansang watawat sa buong mundo, na ginagawa itong pinakasikat na kulay ng bandila.";
+"Most popular color fact description" = "Makikita ang pula sa maraming pambansang bandila, kabilang ang sa Canada, Japan, at Switzerland.";
 
 /* Friend Management */
-"Флаг в профиле" = "I-flag sa profile";
+"Флаг в профиле" = "Bandila sa profile";
 "Удалить из друзей" = "Alisin sa Mga Kaibigan";
 "Удалить друга" = "Alisin ang Kaibigan";
 "Вы уверены, что хотите удалить %@ из друзей и перестать следить за его успехами?" = "Sigurado ka bang gusto mong alisin ang %@ sa mga kaibigan at ihinto ang pagsunod sa kanilang pag-usad?";
 
 /* Subscription Cancellation */
-"Нам очень жаль, что вы отменили премиум подписку" = "Ikinalulungkot namin na kinansela mo ang iyong premium na subscription";
-"Ваши результаты за период премиум подписки:" = "Ang iyong mga resulta sa panahon ng premium na panahon ng subscription:";
+"Нам очень жаль, что вы отменили премиум подписку" = "Ikinalulungkot naming kinansela mo ang subscription mo sa Premium";
+"Ваши результаты за период премиум подписки:" = "Mga resulta mo habang naka-subscribe sa Premium:";
 "Изучено флагов" = "Mga Bandila na Pinag-aralan";
 "Лучший результат" = "Pinakamahusay na Iskor";
 "очков" = "puntos";
 "Текущая серия" = "Kasalukuyang Streak";
 "дней" = "araw";
 "Точность" = "Katumpakan";
-"Теперь вы можете без единой ошибки отвечать на все наши вопросы с точностью в %d%%" = "Maaari mo na ngayong masagot ang lahat ng aming mga tanong nang walang kahit isang pagkakamali, na may %d%% na katumpakan";
+"Теперь вы можете без единой ошибки отвечать на все наши вопросы с точностью в %d%%" = "%d%% ang katumpakan ng mga sagot mo.";
 "Мы будем рады, если вы захотите снова вернуться к нам!" = "Kami ay magiging masaya kung gusto mong bumalik sa amin muli!";
 "Продолжить" = "Magpatuloy";
 
@@ -944,25 +944,25 @@
 "ВСЕ СТРАНЫ" = "LAHAT NG BANSA";
 "Все страны" = "Lahat ng Bansa";
 "стран" = "mga bansa";
-"Столица" = "Kapital";
+"Столица" = "Kabisera";
 
 // Country Detail View
-"Галерея" = "Gallery";
+"Галерея" = "Galeriya";
 "Информация о стране" = "Impormasyon ng Bansa";
 "Описание флага" = "Paglalarawan ng Bandila";
 "Гимн страны" = "Pambansang Awit";
 "Национальный гимн" = "Pambansang Awit";
-"Значение гимна" = "Kahulugan ng Anthem";
+"Значение гимна" = "Kahulugan ng Pambansang Awit";
 "Официальный язык" = "Opisyal na Wika";
 "Правительство" = "Pamahalaan";
 "Глава государства" = "Pinuno ng Estado";
-"Телефонный код" = "Dialing Code";
+"Телефонный код" = "Kodigo sa pagtawag";
 "Население" = "Populasyon";
 "Валюта" = "Pera";
 "Независимость" = "Kalayaan";
-"Площадь" = "Lugar";
+"Площадь" = "Lawak";
 "Описание" = "Paglalarawan";
-"История" = "Kasaysayan";
+"История" = "History";
 "Музыка" = "Musika";
 "Природа" = "Kalikasan";
 "Историческая информация о стране" = "Makasaysayang impormasyon tungkol sa bansa";
@@ -976,23 +976,23 @@
 "This feature is available only for Premium users" = "Available lang ang feature na ito para sa mga Premium user";
 "Continue with Premium" = "Magpatuloy sa Premium";
 "Get Premium access to unlock:" = "Kumuha ng Premium na access para i-unlock:";
-"• Erudite difficulty level" = "• Antas ng kahirapan sa erudite";
+"• Erudite difficulty level" = "• Antas ng hirap na Erudite";
 "• My Mistakes section" = "• seksyon ng Aking Mga Pagkakamali";
 "• Unlimited lives" = "• Walang limitasyong buhay";
-"• All premium features" = "• Lahat ng mga premium na tampok";
+"• All premium features" = "• Lahat ng feature ng Premium";
 
 /* Enhanced Game Results */
 "PERFECT!" = "PERPEKTO!";
 "EXCELLENT!" = "MAGALING!";
 "GREAT JOB!" = "MAGANDANG TRABAHO!";
 "GOOD EFFORT!" = "MAGANDANG EFFORT!";
-"KEEP TRYING!" = "PATULOY ANG PAGSUBOK!";
+"KEEP TRYING!" = "PATULOY NA SUBUKAN!";
 "Absolutely incredible! You're a true champion! 🎉" = "Talagang hindi kapani-paniwala! Isa kang tunay na kampeon! 🎉";
 "Outstanding performance! You're almost perfect! ✨" = "Namumukod-tanging pagganap! Ikaw ay halos perpekto! ✨";
 "Fantastic work! You're doing amazing! 🚀" = "Kamangha-manghang gawa! Kahanga-hanga ang iyong ginagawa! 🚀";
 "Nice job! Keep up the great work! 💫" = "Magandang trabaho! Ipagpatuloy ang mahusay na gawain! 💫";
 "Don't give up! Every expert was once a beginner! 🌱" = "Huwag sumuko! Ang bawat dalubhasa ay dating isang baguhan! 🌱";
-"XP EARNED" = "XP KINAKITA";
+"XP EARNED" = "NAKUHANG XP";
 "XP boost time remaining" = "%d:%02d ang natitira — maglaro muli!";
 "XP boost you have remaining" = "Mayroon kang %@ %@ na natitira";
 "double XP" = "dobleng XP";
@@ -1000,7 +1000,7 @@
 
 /* Enhanced Streak View */
 "Don't break the chain! Come back tomorrow!" = "Huwag sirain ang kadena! Bumalik ka bukas!";
-"Time to restart your streak! You can do it!" = "Time to restart your streak! You can do it!";
+"Time to restart your streak! You can do it!" = "Oras nang magsimula ng bagong streak! Kaya mo ito!";
 
 /* Monthly XP Quest */
 "Заработай %d XP за месяц" = "Makakuha ng %d XP ngayong buwan";
@@ -1008,7 +1008,7 @@
 
 /* League end popup */
 "Итоги лиги" = "Mga resulta ng liga";
-"Вы заняли %d место." = "Naglagay ka ng %d.";
+"Вы заняли %d место." = "Nagtapos ka sa ranggong %d.";
 "Вы поднялись в лигу: %@" = "Na-promote ka sa %@.";
 "Вы остались в текущей лиге." = "Nanatili ka sa iyong kasalukuyang liga.";
 "Вы понижены в лигу: %@" = "Na-demote ka sa %@.";
@@ -1020,45 +1020,45 @@
 "Sign in with Apple ID in Settings → App Store to see prices. Tap an option or Retry to try again." = "Mag-sign in gamit ang Apple ID sa Mga Setting → App Store para makita ang mga presyo. I-tap ang isang opsyon o Subukang muli upang subukang muli.";
 
 /* Home Lives Promo */
-"Unlock your full progress" = "I-unlock ang iyong buong pag-unlad";
+"Unlock your full progress" = "Buksan ang iyong buong potensyal";
 "Get Premium tools for faster learning and better game results" = "Kumuha ng mga Premium na tool para sa mas mabilis na pag-aaral at mas magagandang resulta ng laro";
 "Learning section" = "Seksyon ng pag-aaral";
-"Train flags and countries in a structured mode" = "Sanayin ang mga flag at bansa sa isang structured na mode";
-"Erudite difficulty" = "Kahirapan sa erudite";
+"Train flags and countries in a structured mode" = "Pag-aralan ang mga bandila at bansa sa organisadong paraan";
+"Erudite difficulty" = "Antas ng hirap na Erudite";
 "Advanced challenge with deeper knowledge checks" = "Advanced na hamon na may mas malalim na pagsusuri sa kaalaman";
 "My mistakes" = "Mga pagkakamali ko";
-"Focus on weak topics and improve accuracy" = "Tumutok sa mahihinang paksa at pagbutihin ang katumpakan";
+"Focus on weak topics and improve accuracy" = "Tumutok sa mga paksang nahihirapan ka at pagbutihin ang katumpakan";
 "Personalized practice" = "Personalized na pagsasanay";
 "Adaptive sessions based on your progress" = "Mga adaptive session batay sa iyong pag-unlad";
 "Explain my answer" = "Ipaliwanag ang aking sagot";
 "Understand every mistake and learn faster" = "Unawain ang bawat pagkakamali at matuto nang mas mabilis";
-"Up to +750% faster flag learning with Premium" = "Hanggang +750% mas mabilis na pag-aaral ng flag gamit ang Premium";
+"Up to +750% faster flag learning with Premium" = "Mas maraming paraan ng pagsasanay sa mga bandila gamit ang Premium";
 "Play without waiting and keep your learning momentum" = "Maglaro nang hindi naghihintay at panatilihin ang iyong momentum sa pag-aaral";
-"Train flags, listen to anthems, and explore detailed country profiles" = "Sanayin ang mga flag, makinig sa mga anthem, at galugarin ang mga detalyadong profile ng bansa";
+"Train flags, listen to anthems, and explore detailed country profiles" = "Magsanay sa mga bandila, makinig sa mga pambansang awit, at tuklasin ang detalyadong mga profile ng bansa";
 "Restore Purchases" = "Ibalik ang Mga Pagbili";
 "Have a promo code?" = "May promo code?";
 "Redeem Offer Code" = "I-redeem ang Code ng Alok";
 "Auto-renewable subscription" = "Auto-renewable na subscription";
-"Monthly Premium Title" = "Premium Buwanang: maximum na halaga";
-"Yearly Premium Title" = "Premium YEAR. Mga watawat at bansa";
+"Monthly Premium Title" = "Buwanang Premium: sulit na sulit";
+"Yearly Premium Title" = "Taunang Premium. Mga bandila at bansa";
 "Duration: 1 month (auto-renewable)" = "Tagal: 1 buwan (auto-renewable)";
 "Duration: 1 year (auto-renewable)" = "Tagal: 1 taon (auto-renewable)";
-"Premium Monthly" = "Premium Buwanang";
+"Premium Monthly" = "Buwanang Premium";
 "Yearly Premium" = "Taunang Premium";
 "Save %d%%" = "Makatipid ng %d%%";
-"Learn flags and countries of the World" = "Alamin ang mga flag at bansa sa Mundo";
+"Learn flags and countries of the World" = "Alamin ang mga bandila at bansa sa mundo";
 "Select Level" = "Piliin ang Antas";
 "Level - %@" = "Antas - %@";
-"Exclusive tournaments with cash F-Bucks prizes" = "Mga eksklusibong paligsahan na may mga premyong cash na F-Bucks";
-"Survival Mode" = "Survival Mode";
+"Exclusive tournaments with cash F-Bucks prizes" = "Mga eksklusibong paligsahan na may mga premyong F-Bucks";
+"Survival Mode" = "Mode ng kaligtasan";
 "One mistake = Game Over" = "Isang pagkakamali = Game Over";
 "Duel result push format" = "%@: %d — Ikaw: %d.";
 "Duel motivation win" = "Kahanga-hanga! Ipagpatuloy ang streak.";
 "Duel motivation lose" = "Oras ng rematch! Kaya mo yan.";
-"Opponent" = "kalaban";
+"Opponent" = "Kalaban";
 "vs %@" = "vs %@";
 "Combo x%d" = "Combo x%d";
-"Combo x%d bonus" = "Combo x%d bonus +1";
+"Combo x%d bonus" = "Combo x%d: dagdag na +1";
 "Combo x%d +10 XP" = "Combo x%d +10 XP";
 "Speed bonus +1" = "Bilis na bonus +1";
 "Speed bonus +10 XP" = "Bonus sa bilis +10 XP";
@@ -1066,38 +1066,38 @@
 "Country rank line" = "%@ Ikaw ay #%d sa %@";
 "World rank line" = "🌎 Ikaw ay #%d sa mundo";
 "World rank line no emoji" = "Ikaw ay #%d sa mundo";
-"Friend country rank line" = "%1$@ %2$@ #%3$d · %4$@";
-"Friend world rank line" = "%1$@ #%2$d";
+"Friend country rank line" = "%1$@ Si %2$@ ay nasa ranggong #%3$d sa %4$@";
+"Friend world rank line" = "Si %1$@ ay nasa ranggong #%2$d sa buong mundo";
 "Spain" = "Espanya";
 "Poland" = "Poland";
 "Ukraine" = "Ukraine";
 "Russia" = "Russia";
 "USA" = "USA";
-"Лига Чемпионов Мира" = "World Champion League";
+"Лига Чемпионов Мира" = "Liga ng mga Kampeon ng Mundo";
 "Price is loaded from the App Store on this screen" = "Na-load ang presyo mula sa App Store sa screen na ito";
 "Connecting to App Store..." = "Kumokonekta sa App Store...";
 "Version" = "Bersyon";
-"Update" = "Update";
-"Login without @" = "mag-login nang walang @";
+"Update" = "I-update";
+"Login without @" = "username na walang @";
 "Add by username" = "Idagdag sa pamamagitan ng username";
-"Duel Summary" = "Buod ng Duel";
-"No duel history yet" = "Wala pang kasaysayan ng tunggalian";
+"Duel Summary" = "Buod ng Duwelo";
+"No duel history yet" = "Wala pang history ng duwelo";
 "You already outranked %d%% of players in your city" = "Nalampasan mo na ang %d%% ng mga manlalaro sa iyong lungsod";
 "Goal: keep 90% accuracy in first challenge" = "Layunin: panatilihin ang 90% katumpakan sa unang hamon";
 "Challenge ends in %d sec" = "Matatapos ang hamon sa %d seg";
-"Defeat" = "pagkatalo";
+"Defeat" = "Pagkatalo";
 "Victory" = "Tagumpay";
 "All" = "Lahat";
 "Wins" = "Panalo";
-"Losses" = "Pagkalugi";
-"Duel Summary Share Header" = "Ang aking tunggalian ay nagreresulta sa World Arena Flags";
+"Losses" = "Mga pagkatalo";
+"Duel Summary Share Header" = "Mga resulta ng duwelo ko sa World Arena Flags";
 "View Detailed Results" = "Tingnan ang mga Detalyadong Resulta";
 "Detailed Results" = "Mga Detalyadong Resulta";
 "Correct" = "Tama";
-"Wrong" = "mali";
+"Wrong" = "Mali";
 "Flag" = "Bandila";
 "Your answer" = "Ang sagot mo";
-"Time is up" = "Oras na";
+"Time is up" = "Ubos na ang oras";
 "Search" = "Maghanap";
 "3x XP for 10 min!" = "3x XP sa loob ng 10 min!";
 "КАРТА ПРОГРЕССА" = "MAPA NG PAG-UNLAD";
@@ -1105,31 +1105,31 @@
 "World Progress Map" = "Mapa ng Pag-unlad ng Daigdig";
 "Tap a country to see your correct and wrong answers" = "Mag-tap sa isang bansa para makita ang iyong mga tama at maling sagot";
 "Greener country means better mastery" = "Ang mas berdeng bansa ay nangangahulugan ng mas mahusay na karunungan";
-"Continent Mastery" = "Kontinente Mastery";
-"Mastered %d of %d countries" = "Pinagkadalubhasaan ang %d ng %d bansa";
-"Answered %d of %d countries" = "Sinagot ang %d ng %d bansa";
+"Continent Mastery" = "Kaalaman sa mga Kontinente";
+"Mastered %d of %d countries" = "Kabisado ang %d sa %d bansa";
+"Answered %d of %d countries" = "Nasagot ang %d sa %d bansa";
 "Total" = "Kabuuan";
 "Map" = "Mapa";
-"Weak countries" = "Mga mahihinang bansa";
+"Weak countries" = "Mga bansang kailangang balikan";
 "All countries" = "Lahat ng bansa";
-"Only weak" = "Mahina lang";
+"Only weak" = "Kailangang balikan lang";
 "Only mastered" = "Kabisado lang";
-"TOP weak countries for review" = "TOP mahihinang bansa para sa pagsusuri";
-"No weak countries yet" = "Wala pang mahihinang bansa";
-"%@ Master" = "%@ Guro";
+"TOP weak countries for review" = "Mga bansang pinakamahalagang balikan";
+"No weak countries yet" = "Wala pang bansang kailangang balikan";
+"%@ Master" = "Master ng %@";
 "%@ Master unlocked" = "Na-unlock ang %@ Master";
-"Continent mastered! Keep going." = "Kontinente mastered! Ituloy mo.";
+"Continent mastered! Keep going." = "Kabisado mo na ang kontinente! Ituloy mo.";
 "Weekly challenge" = "Lingguhang hamon";
-"Weak country sessions this week" = "Mahina ang mga sesyon sa bansa ngayong linggo";
-"Start Weak Countries Training" = "Simulan ang Pagsasanay sa Mga Mahinang Bansa";
+"Weak country sessions this week" = "Mga sesyon para sa bansang kailangang balikan ngayong linggo";
+"Start Weak Countries Training" = "Simulan ang Pagsasanay sa mga Bansang Kailangang Balikan";
 "Progress map subtitle" = "Subaybayan ang iyong pag-unlad ayon sa bansa at kontinente";
-"How is Mastered calculated?" = "Paano kinakalkula ang Mastered?";
-"Duel Summary subtitle" = "Tingnan ang iyong kasaysayan ng tunggalian at mga detalyadong resulta";
+"How is Mastered calculated?" = "Kailan itinuturing na kabisado ang isang bansa?";
+"Duel Summary subtitle" = "Tingnan ang history ng duwelo at detalyadong mga resulta";
 "F-Bucks subtitle" = "Kumita at gumastos ng F-Bucks, ang in-game currency";
-"Mastered explanation" = "Mabibilang na mastered ang isang bansa kapag nasagot mo ito nang hindi bababa sa 3 beses at mayroon kang hindi bababa sa 80%% na mga tamang sagot.";
+"Mastered explanation" = "Itinuturing na kabisado ang isang bansa kapag nasagot mo ang mga tanong tungkol dito nang hindi bababa sa 3 beses at tama ang hindi bababa sa 80% ng mga sagot.";
 "Name" = "Pangalan";
 "Account login title" = "Lumikha ng iyong account";
-"Account login subtitle" = "Panatilihin ang guest mode o mag-sign in upang i-save ang pagkakakilanlan at mga tampok ng seguridad";
+"Account login subtitle" = "Magpatuloy bilang bisita o mag-sign in para mapanatili ang iyong pagkakakilanlan at magamit ang mga feature sa seguridad";
 "Login" = "Mag-login";
 "Register" = "Magrehistro";
 "Sign in with Apple error 1000" = "Hindi available dito ang pag-sign in gamit ang Apple. Subukan sa isang tunay na device o tingnan ang Mga Setting → Apple ID.";
@@ -1146,7 +1146,7 @@
 "Repeat new password" = "Ulitin ang bagong password";
 "Change password" = "Baguhin ang password";
 "Reset password" = "I-reset ang password";
-"Reset code" = "I-reset ang code";
+"Reset code" = "Reset code";
 "Send reset code" = "Magpadala ng reset code";
 "No account with this email" = "Walang account sa email na ito";
 "reset_request_failed" = "Nabigo ang pag-reset ng password. Pakisubukang muli mamaya.";
@@ -1162,72 +1162,72 @@
 "Biometric login prompt" = "Kumpirmahin ang biometric login";
 
 /* 68 interesting facts */
-"FACT_01_TITLE" = "Pinakamatandang patuloy na ginagamit na bandila";
-"FACT_01_DESC" = "Ang Dannebrog ng Denmark ay itinuturing na pinakalumang pambansang watawat na patuloy na ginagamit mula noong 1219.";
-"FACT_02_TITLE" = "Tanging square national flag";
-"FACT_02_DESC" = "Ang Switzerland ang may tanging parisukat na pambansang watawat sa mundo. Ang Vatican ay mayroon ding parisukat na bandila ngunit ito ay isang lungsod-estado.";
+"FACT_01_TITLE" = "Isang watawat na may alamat";
+"FACT_01_DESC" = "Iniuugnay ng isang alamat ang watawat ng Denmark sa isang labanan noong 1219.";
+"FACT_02_TITLE" = "Mga parisukat na pambansang watawat";
+"FACT_02_DESC" = "Parehong parisukat ang pambansang watawat ng Switzerland at Lungsod ng Vaticano.";
 "FACT_03_TITLE" = "Watawat na hindi hugis-parihaba";
 "FACT_03_DESC" = "Ang Nepal ay may tanging pambansang watawat sa mundo na hindi hugis-parihaba.";
 "FACT_04_TITLE" = "Walang pula, puti o asul";
 "FACT_04_DESC" = "Ang Jamaica ay ang tanging bansa na may watawat na walang pula, puti o asul.";
 "FACT_05_TITLE" = "Bandila na hindi ibinababa";
-"FACT_05_DESC" = "Ang watawat ng Saudi Arabia ay hindi kailanman itinataas sa kalahating palo dahil sa sagradong teksto dito.";
-"FACT_06_TITLE" = "Batang pambansang watawat";
-"FACT_06_DESC" = "Ang bandila ng South Sudan ay pinagtibay noong 2011 pagkatapos ng kalayaan.";
-"FACT_07_TITLE" = "I-flag gamit ang AK-47";
+"FACT_05_DESC" = "Hindi kailanman ibinababa sa kalahati ng poste ang bandila ng Saudi Arabia dahil sa sagradong tekstong nakasulat dito.";
+"FACT_06_TITLE" = "Bagong pambansang bandila";
+"FACT_06_DESC" = "Ginagamit ng South Sudan ang pambansang bandilang ito mula nang maging malaya noong 2011.";
+"FACT_07_TITLE" = "Bandila na may AK-47";
 "FACT_07_DESC" = "Ang Mozambique ang tanging bansa na ang bandila ay nagtatampok ng modernong sandata—ang Kalashnikov rifle.";
 "FACT_08_TITLE" = "Halos magkaparehong mga bandila";
-"FACT_08_DESC" = "Ang mga watawat ng Romania at Chad ay halos magkatulad; sila ay karaniwang nakikilala sa pamamagitan ng lilim ng asul.";
-"FACT_09_TITLE" = "simbolismo ng Ukraine";
+"FACT_08_DESC" = "Magkahawig ang mga bandila ng Romania at Chad; karaniwang naihihiwalay ang mga ito sa tindi ng kulay asul.";
+"FACT_09_TITLE" = "Simbolismo ng Ukraine";
 "FACT_09_DESC" = "Ang asul at dilaw na bandila ng Ukraine ay tradisyonal na binibigyang kahulugan bilang kalangitan sa ibabaw ng isang bukid ng trigo.";
 "FACT_10_TITLE" = "Pinakasimpleng bandila";
 "FACT_10_DESC" = "Ang bandila ng Libya mula 1977 hanggang 2011 ay solidong berde na walang mga simbolo o pattern.";
-"FACT_11_TITLE" = "I-flag gamit ang mapa";
+"FACT_11_TITLE" = "Bandila na may mapa";
 "FACT_11_DESC" = "Ang bandila ng Cyprus ay nagpapakita ng balangkas ng isla—isang bihirang kaso sa mga pambansang watawat.";
-"FACT_12_TITLE" = "I-flag gamit ang Bibliya";
+"FACT_12_TITLE" = "Bandila na may Bibliya";
 "FACT_12_DESC" = "Ang bandila ng Dominican Republic ay nagpapakita ng isang bukas na Bibliya, na ginagawa itong ang tanging pambansang watawat na may relihiyosong aklat.";
-"FACT_13_TITLE" = "Pinaka sikat na kulay";
-"FACT_13_DESC" = "Ang pula ay ang pinakakaraniwang kulay sa mga pambansang watawat sa buong mundo.";
-"FACT_14_TITLE" = "I-flag gamit ang text";
+"FACT_13_TITLE" = "Pula sa mga pambansang bandila";
+"FACT_13_DESC" = "Makikita ang pula sa maraming pambansang bandila, kabilang ang sa Canada, Japan, at Switzerland.";
+"FACT_14_TITLE" = "Bandila na may teksto";
 "FACT_14_DESC" = "Ang teksto sa mga pambansang watawat ay bihira; isang kilalang halimbawa ay ang Saudi Arabia.";
 "FACT_15_TITLE" = "Etiquette sa bandila";
 "FACT_15_DESC" = "Maraming bansa ang may mahigpit na alituntunin kung paano ituring ang pambansang watawat.";
 "FACT_16_TITLE" = "Bandila na may iba't ibang panig";
-"FACT_16_DESC" = "Ang Paraguay ang may tanging pambansang watawat sa mundo na may iba't ibang disenyo sa obverse at reverse.";
-"FACT_17_TITLE" = "simbolismo ng Olympic";
-"FACT_17_DESC" = "Pinili ang mga kulay ng singsing sa Olympic upang kahit isang kulay ang lumitaw sa bandila ng bawat bansa.";
-"FACT_18_TITLE" = "I-flag na may pinakakumplikadong coat of arms";
-"FACT_18_DESC" = "Ang watawat ng Mexico ay nagpapakita ng isang agila na nakadapo sa isang cactus na may hawak na ahas—isa sa mga pinakadetalyadong sandata sa anumang bandila.";
-"FACT_19_TITLE" = "flag ng copycat";
-"FACT_19_DESC" = "Ang mga watawat ng Monaco at Indonesia ay halos magkapareho—pula sa itaas, puti sa ibaba. Ang pagkakaiba lamang ay ang mga sukat.";
-"FACT_20_TITLE" = "I-flag na may 50 bituin";
-"FACT_20_DESC" = "Ang watawat ng US ay may 50 bituin, isa para sa bawat estado. Ang disenyo ay binago ng 27 beses mula noong 1777.";
+"FACT_16_DESC" = "Ang Paraguay ang tanging bansa na magkaiba ang disenyo sa harap at likod ng pambansang bandila.";
+"FACT_17_TITLE" = "Simbolismo ng Olympics";
+"FACT_17_DESC" = "Anim na kulay ang gamit sa limang singsing ng Olympics at puting background nito, na pinili upang kumatawan sa mga bandila ng mga bansa sa buong mundo.";
+"FACT_18_TITLE" = "Eskudo ng Mexico";
+"FACT_18_DESC" = "Makikita sa bandila ng Mexico ang isang agilang nakadapo sa cactus at may hawak na ahas.";
+"FACT_19_TITLE" = "Magkahawig na pula-at-puting bandila";
+"FACT_19_DESC" = "Parehong pula sa itaas at puti sa ibaba ang mga bandila ng Monaco at Indonesia, pero magkaiba ang proporsyon ng mga ito.";
+"FACT_20_TITLE" = "Bandila na may 50 bituin";
+"FACT_20_DESC" = "May 50 bituin ang bandila ng Estados Unidos, isa para sa bawat estado.";
 "FACT_21_TITLE" = "Mga bandila sa hilagang bahagi";
 "FACT_21_DESC" = "Ang mga rehiyon ng Arctic ay gumagamit ng parehong pambansa at rehiyonal na mga watawat na may natatanging simbolismo.";
 "FACT_22_TITLE" = "Bandila na may krus";
-"FACT_22_DESC" = "29 na bansa ang may krus sa kanilang bandila, na ginagawa itong isa sa mga pinakasikat na simbolo sa mga pambansang watawat.";
-"FACT_23_TITLE" = "Mga tatlong kulay";
+"FACT_22_DESC" = "Makikita ang krus sa maraming pambansang bandila, kabilang ang sa Denmark, Finland, at Switzerland.";
+"FACT_23_TITLE" = "Mga bandilang may tatlong kulay";
 "FACT_23_DESC" = "Maraming bansa ang gumagamit ng simpleng three-stripe na disenyo bilang isang makasaysayang matatag na anyo ng bandila.";
 "FACT_24_TITLE" = "Bandila na may gasuklay";
-"FACT_24_DESC" = "Lumilitaw ang gasuklay sa mga watawat ng 12 bansa, karamihan ay Muslim, na sumisimbolo sa pananampalatayang Islam.";
+"FACT_24_DESC" = "Makikita ang gasuklay sa ilang pambansang bandila, kabilang ang sa Turkey, Pakistan, at Tunisia.";
 "FACT_25_TITLE" = "Simbolo ng araw";
 "FACT_25_DESC" = "Ang araw ay isa sa mga pinakakaraniwang simbolo sa mga watawat sa Asya at Timog Amerika.";
 "FACT_26_TITLE" = "Bandila na may puno";
-"FACT_26_DESC" = "Ang Lebanon ay ang tanging bansa na may puno (ang Lebanese cedar) sa watawat nito, na sumasagisag sa kawalang-hanggan at kapayapaan.";
-"FACT_27_TITLE" = "Pinakamakitid na bandila";
-"FACT_27_DESC" = "Ang watawat ng Qatar ay may pinaka-hindi pangkaraniwang aspect ratio ng anumang pambansang watawat—11:28.";
-"FACT_28_TITLE" = "Mga kumplikadong coat of arm";
-"FACT_28_DESC" = "Ang mga coat of arm sa mga watawat ng Latin America ay kadalasang may kasamang maraming detalye at makasaysayang simbolo.";
+"FACT_26_DESC" = "May punong sedro sa pambansang bandila ng Lebanon.";
+"FACT_27_TITLE" = "Proporsyon ng bandila ng Qatar";
+"FACT_27_DESC" = "Ang proporsyon ng taas sa lapad ng pambansang bandila ng Qatar ay 11:28.";
+"FACT_28_TITLE" = "Mga detalyadong eskudo";
+"FACT_28_DESC" = "Madalas na naglalaman ng maraming detalye at makasaysayang simbolo ang mga eskudo sa mga bandila ng Latin America.";
 "FACT_29_TITLE" = "Watawat ng bahaghari";
-"FACT_29_DESC" = "Ang Bolivia ay may dalawang opisyal na watawat—ang tradisyunal na tricolor at ang katutubong Wiphala rainbow flag.";
+"FACT_29_DESC" = "May dalawang opisyal na bandila ang Bolivia: ang tradisyonal na tatlong kulay at ang Wiphala na may mga kulay ng bahaghari mula sa mga katutubo.";
 "FACT_30_TITLE" = "Bandila na may gusali";
-"FACT_30_DESC" = "Ang bandila ng Cambodia ay nagpapakita ng templo ng Angkor Wat, na ginagawa itong ang tanging pambansang watawat na may gusali.";
+"FACT_30_DESC" = "Makikita ang templo ng Angkor Wat sa pambansang bandila ng Cambodia.";
 "FACT_31_TITLE" = "Makasaysayang mga pagtatalo";
 "FACT_31_DESC" = "Nagbago ang disenyo ng ilang watawat dahil sa mga alitan sa kasaysayan at pulitika sa pagitan ng mga bansa.";
 "FACT_32_TITLE" = "Bandila na may espada";
 "FACT_32_DESC" = "Ang watawat ng Sri Lanka ay nagpapakita ng isang leon na may hawak na espada, na sumisimbolo sa katapangan ng mga taong Sinhalese.";
 "FACT_33_TITLE" = "Bandila na walang asul";
-"FACT_33_DESC" = "Apat na bansa lamang ang hindi gumagamit ng asul sa kanilang mga bandila: Jamaica, Mauritania, Sri Lanka at Vatican.";
+"FACT_33_DESC" = "Walang asul sa ilang pambansang bandila, kabilang ang sa Jamaica, Japan, at Switzerland.";
 "FACT_34_TITLE" = "Mga ibon sa mga watawat";
 "FACT_34_DESC" = "Ang agila at iba pang mga ibon sa mga watawat ay sumisimbolo sa lakas, kalayaan at maharlika ng espiritu.";
 "FACT_35_TITLE" = "Simbolo ng Antarctic";
@@ -1236,68 +1236,68 @@
 "FACT_36_DESC" = "Ang bituin ay isa sa pinakalaganap na simbolo sa mga watawat sa buong mundo.";
 "FACT_37_TITLE" = "Katulad na mga scheme ng kulay";
 "FACT_37_DESC" = "Ang ilang mga bandila ay magkatulad sa kulay ngunit naiiba sa pagkakasunud-sunod ng mga guhit at emblema.";
-"FACT_38_TITLE" = "Mga bandila ng internasyonal na unyon";
-"FACT_38_DESC" = "Ang mga organisasyong supranasyonal ay mayroon ding sariling mga watawat na nagpapakita ng mga ibinahaging halaga.";
+"FACT_38_TITLE" = "Mga bandila ng mga internasyonal na organisasyon";
+"FACT_38_DESC" = "May sarili ring mga bandila ang mga supranasyonal na organisasyon na sumasalamin sa kanilang magkakatulad na pagpapahalaga.";
 "FACT_39_TITLE" = "Simbolismo ng isla";
 "FACT_39_DESC" = "Ang mga watawat ng mga bansa sa isla ay kadalasang nagtatampok ng mga simbolo ng karagatan, araw at nabigasyon.";
 "FACT_40_TITLE" = "Mga pagbabago sa paglipas ng panahon";
 "FACT_40_DESC" = "Ang ilang mga pambansang watawat ay nagbago ng dose-dosenang beses sa kasaysayan ng pulitika ng kanilang bansa.";
 "FACT_41_TITLE" = "Araw ng North Macedonia";
 "FACT_41_DESC" = "Ang bandila ng North Macedonia ay may araw na may walong sinag para sa isang bagong simula.";
-"FACT_42_TITLE" = "Belize woodcutters";
-"FACT_42_DESC" = "Ang bandila ng Belize ay isa sa iilang nagpapakita ng mga tao: mga woodcutter na may mga kasangkapan.";
-"FACT_43_TITLE" = "Ecuador condor";
+"FACT_42_TITLE" = "Mga mangangahoy ng Belize";
+"FACT_42_DESC" = "Ang bandila ng Belize ay isa sa iilang naglalarawan ng mga tao: mga magtotroso na may mga kasangkapan.";
+"FACT_43_TITLE" = "Kondor ng Ecuador";
 "FACT_43_DESC" = "Kasama sa watawat ng Ecuador ang Andean condor para sa lakas at soberanya.";
 "FACT_44_TITLE" = "Bolivia Wiphala";
-"FACT_44_DESC" = "Ginagamit ng Bolivia ang Wiphala sa tabi ng tatlong kulay bilang isang opisyal na simbolo.";
+"FACT_44_DESC" = "Ginagamit ng Bolivia ang Wiphala kasama ng bandilang may tatlong kulay bilang opisyal na simbolo.";
 "FACT_45_TITLE" = "27 bituin ng Brazil";
 "FACT_45_DESC" = "Ang bandila ng Brazil ay may 27 bituin, isa para sa bawat estado at pederal na distrito.";
 "FACT_46_TITLE" = "Dahon ng maple";
-"FACT_46_DESC" = "Nagtatampok ang watawat ng Canada ng nag-iisang 11-pointed maple leaf, na kakaiba sa mga pambansang watawat.";
+"FACT_46_DESC" = "May pulang dahon ng maple na may 11 tulis sa puting parisukat ng bandila ng Canada.";
 "FACT_47_TITLE" = "Union Jack";
-"FACT_47_DESC" = "Pinagsasama ng watawat ng UK ang mga krus ng tatlong santo: England, Scotland at Ireland.";
+"FACT_47_DESC" = "Pinagsasama ng bandila ng United Kingdom ang mga krus nina San Jorge, San Andres, at San Patricio.";
 "FACT_48_TITLE" = "Ang pagsikat ng araw ng Japan";
-"FACT_48_DESC" = "Ang pulang bilog sa puti ay kumakatawan sa pagsikat ng araw at ginamit sa bandila ng Japan mula pa noong ika-7 siglo.";
+"FACT_48_DESC" = "May pulang bilog na kumakatawan sa araw sa puting background ng pambansang bandila ng Japan.";
 "FACT_49_TITLE" = "Ashoka Chakra";
 "FACT_49_DESC" = "Nagtatampok ang watawat ng India ng 24-spoke na gulong, na sumisimbolo sa batas at galaw.";
 "FACT_50_TITLE" = "Southern Cross ng Australia";
-"FACT_50_DESC" = "Ang bandila ng Australia ay nagpapakita ng konstelasyon ng Southern Cross, na makikita lamang sa Southern Hemisphere.";
+"FACT_50_DESC" = "Kumakatawan sa konstelasyong Southern Cross ang limang bituin sa bandila ng Australia.";
 "FACT_51_TITLE" = "Southern Cross ng New Zealand";
-"FACT_51_DESC" = "Nagtatampok din ang bandila ng New Zealand ng Southern Cross, ngunit may mga pulang bituin na may talim sa puti.";
-"FACT_52_TITLE" = "taegeuk ng South Korea";
+"FACT_51_DESC" = "Makikita rin ang Southern Cross sa bandila ng New Zealand, pero pula ang mga bituin at may puting gilid.";
+"FACT_52_TITLE" = "Taegeuk ng South Korea";
 "FACT_52_DESC" = "Itinatampok sa watawat ng South Korea ang tradisyunal na simbolo at trigram na taegeuk (yin-yang).";
 "FACT_53_TITLE" = "Ang armillary sphere ng Portugal";
 "FACT_53_DESC" = "Nagtatampok ang bandila ng Portugal ng armillary sphere, isang sinaunang instrumento sa pag-navigate.";
-"FACT_54_TITLE" = "Ang dobleng ulo na agila ng Albania";
+"FACT_54_TITLE" = "Agilang may dalawang ulo ng Albania";
 "FACT_54_DESC" = "Ang watawat ng Albania ay nagpapakita ng isang itim na agila na may dalawang ulo, isang simbolo ng soberanya.";
-"FACT_55_TITLE" = "kalasag ng Kenya";
-"FACT_55_DESC" = "Nagtatampok ang bandila ng Kenya ng isang Maasai shield at crossed spears.";
+"FACT_55_TITLE" = "Kalasag ng Kenya";
+"FACT_55_DESC" = "Makikita sa bandila ng Kenya ang kalasag ng Maasai at mga sibat na nakakrus.";
 "FACT_56_TITLE" = "Ang dragon ng Wales";
-"FACT_56_DESC" = "Ang pulang dragon sa bandila ng Wales ay isa sa mga pinakalumang pambansang simbolo sa mundo.";
-"FACT_57_TITLE" = "krus ni St Andrew";
+"FACT_56_DESC" = "May pulang dragon sa puti at berdeng background ang bandila ng Wales. Opisyal na kinilala ang disenyong ito noong 1959.";
+"FACT_57_TITLE" = "Krus ni San Andres";
 "FACT_57_DESC" = "Ang bandila ng Scotland ay isang puting dayagonal na krus sa asul, ang krus ng St Andrew.";
-"FACT_58_TITLE" = "bilog ng Greenland";
+"FACT_58_TITLE" = "Bilog ng Greenland";
 "FACT_58_DESC" = "Ang bandila ng Greenland ay may pula-at-puting bilog na kumakatawan sa araw sa ibabaw ng yelo.";
 "FACT_59_TITLE" = "Pan-African na kulay";
 "FACT_59_DESC" = "Ang berde, dilaw at pula ay madalas na tinatawag na mga Pan-African na kulay at lumilitaw sa maraming mga bandila ng Africa.";
-"FACT_60_TITLE" = "Nordic crosses";
+"FACT_60_TITLE" = "Mga krus ng mga bansang Nordiko";
 "FACT_60_DESC" = "Limang bansa ang gumagamit ng Nordic cross: Denmark, Norway, Sweden, Finland at Iceland.";
-"FACT_61_TITLE" = "French tricolor";
+"FACT_61_TITLE" = "Tatlong kulay ng Pransiya";
 "FACT_61_DESC" = "Ang French blue-white-red tricolor ay naging modelo para sa maraming rebolusyonaryo at pambansang watawat.";
-"FACT_62_TITLE" = "bandila ng UN";
+"FACT_62_TITLE" = "Bandila ng UN";
 "FACT_62_DESC" = "Ang bandila ng UN ay nagpapakita ng mundo na napapalibutan ng mga sanga ng oliba sa isang asul na background.";
-"FACT_63_TITLE" = "bandila ng EU";
+"FACT_63_TITLE" = "Bandila ng EU";
 "FACT_63_DESC" = "Labindalawang ginintuang bituin sa isang bilog sa asul na sumisimbolo sa pagkakaisa ng European Union.";
-"FACT_64_TITLE" = "bandila ng Olympic";
-"FACT_64_DESC" = "Ang limang singsing sa puti ay kumakatawan sa limang may nakatirang mga kontinente at ang pandaigdigang kalikasan ng Mga Laro.";
-"FACT_65_TITLE" = "Vatican square";
+"FACT_64_TITLE" = "Bandila ng Olympics";
+"FACT_64_DESC" = "Sumisimbolo ang limang singsing ng Olympics sa puting background sa pagkakaisa ng limang kontinente at mga atleta mula sa buong mundo.";
+"FACT_65_TITLE" = "Parisukat na watawat ng Vatican";
 "FACT_65_DESC" = "Ang Vatican ay may parisukat na pambansang watawat tulad ng Switzerland.";
-"FACT_66_TITLE" = "Nauru 12 puntos";
-"FACT_66_DESC" = "Ang bandila ng Nauru ay may 12-pointed star para sa 12 tribo.";
+"FACT_66_TITLE" = "12 tulis ng bituin ng Nauru";
+"FACT_66_DESC" = "May bituing may 12 tulis ang bandila ng Nauru para sa 12 tribo.";
 "FACT_67_TITLE" = "Karpet ng Turkmenistan";
-"FACT_67_DESC" = "Ang bandila ng Turkmenistan ay may mga pattern ng karpet sa kahabaan ng hoist.";
-"FACT_68_TITLE" = "mosque ng Afghanistan";
-"FACT_68_DESC" = "Ang bandila ng Afghanistan ay nagtatampok ng isang mosque sa disenyo nito.";
+"FACT_67_DESC" = "May mga disenyong hango sa karpet sa gilid ng bandila ng Turkmenistan na katabi ng poste.";
+"FACT_68_TITLE" = "Moske ng Afghanistan";
+"FACT_68_DESC" = "Naging bahagi ng disenyo ng bandila ng Afghanistan ang isang moske.";
 
 /* Add friend & duel results */
 "Пользователь найден и добавлен" = "Nahanap at naidagdag ang user";
@@ -1313,20 +1313,20 @@
 "league.weekly_result.title.win" = "Nanalo ka sa liga";
 "league.weekly_result.title.promotion" = "Na-promote ka";
 "league.weekly_result.title.stayed" = "Nanatili ka sa liga";
-"league.weekly_result.title.demotion" = "Na-relegate ka";
+"league.weekly_result.title.demotion" = "Bumaba ka ng liga";
 "league.weekly_result.title.week_finished" = "Natapos ang linggo ng liga";
-"league.weekly_result.body.win" = "Natapos mo ang #%d at natapos ang linggo sa mga nangungunang manlalaro.";
-"league.weekly_result.body.promotion" = "Natapos mo ang #%d at nag-advance sa %@.";
-"league.weekly_result.body.stayed" = "Natapos mo ang #%d at nananatili sa %@.";
-"league.weekly_result.body.demotion" = "Natapos mo ang #%d at lumipat pababa sa %@.";
-"league.weekly_result.body.top3" = "Natapos ka sa top 3 ngayong linggo.";
-"league.weekly_result.label.rank" = "Lugar";
+"league.weekly_result.body.win" = "Nagtapos ka sa ranggong #%d, kasama ng mga nangungunang manlalaro ngayong linggo.";
+"league.weekly_result.body.promotion" = "Nagtapos ka sa ranggong #%d at umangat sa %@.";
+"league.weekly_result.body.stayed" = "Nagtapos ka sa ranggong #%d at nananatili sa %@.";
+"league.weekly_result.body.demotion" = "Nagtapos ka sa ranggong #%d at bumaba sa %@.";
+"league.weekly_result.body.top3" = "Nagtapos ka sa unang tatlo ngayong linggo.";
+"league.weekly_result.label.rank" = "Ranggo";
 "league.weekly_result.label.new_league" = "Bagong liga";
 "league.weekly_result.label.reward" = "Gantimpala";
 "league.weekly_result.label.week" = "Resulta ng linggo";
 "league.weekly_result.cta.view" = "Tingnan ang mga resulta";
 "league.weekly_result.cta.ok" = "OK";
-"league.weekly_result.cta.claim" = "Claim";
+"league.weekly_result.cta.claim" = "Kunin";
 
 "league.weekly_result.promotion.tagline" = "🔥 Bagong level!";
 "league.weekly_result.promotion.title" = "🚀 Nasa %@ ka na!";
@@ -1344,10 +1344,10 @@
 "league.weekly_result.demotion.cta" = "Sige →";
 "league.weekly_result.stayed.cta" = "Tara →";
 "home.league_banner.title" = "Natapos ang linggo ng liga";
-"home.league_banner.body.win" = "Natapos mo ang #%d at nanalo ka sa liga.";
-"home.league_banner.body.promotion" = "Natapos mo ang #%d at nag-advance sa %@.";
-"home.league_banner.body.stayed" = "Natapos mo ang #%d at nanatili sa %@.";
-"home.league_banner.body.demotion" = "Natapos mo ang #%d at lumipat pababa sa %@.";
+"home.league_banner.body.win" = "Nagtapos ka sa ranggong #%d at nanalo sa liga.";
+"home.league_banner.body.promotion" = "Nagtapos ka sa ranggong #%d at umangat sa %@.";
+"home.league_banner.body.stayed" = "Nagtapos ka sa ranggong #%d at nanatili sa %@.";
+"home.league_banner.body.demotion" = "Nagtapos ka sa ranggong #%d at bumaba sa %@.";
 "home.league_banner.cta" = "Tingnan ang mga resulta";
 /* Home layout (variant 2 / A-B) */
 "home.layout.section" = "Pangunahing screen";
@@ -1356,7 +1356,7 @@
 "home.continue" = "Magpatuloy";
 "home.settings.change" = "Baguhin";
 "home.settings.promo.title" = "Ang iyong laban, ang iyong setup";
-"home.settings.promo.subtitle" = "Rehiyon, hirap, duel o classic — tapikin at maglaro sa iyong paraan.";
+"home.settings.promo.subtitle" = "Pumili ng rehiyon at hirap, lumipat sa Duwelo o Klasiko — i-tap at maglaro sa paraang gusto mo.";
 "home.settings.apply" = "Ilapat";
 "home.settings.sheet_title" = "Mga setting ng laro";
 "home.league.xp_to_next_fmt" = "Hanggang %@: %d XP";
@@ -1365,7 +1365,7 @@
 "home.lives.refill_in_fmt" = "+%d sa loob ng %02d:%02d";
 "home.next_goal.title" = "Susunod na layunin";
 "home.quick_modes.title" = "Mabilis na laro";
-"home.social.title" = "Kaibigan";
+"home.social.title" = "Mga kaibigan";
 "home.social.friend_streak_fmt" = "%@ — %lld araw na streak";
 "home.social.catch_today" = "Habulin ngayon!";
 
@@ -1376,18 +1376,18 @@
 "home.daily.tomorrow" = "Bumalik bukas";
 "home.streak_nudge.solo_title" = "%d araw na sunod-sunod!";
 "home.streak_nudge.solo_sub" = "Huwag putulin — maglaro ngayon.";
-"home.streak_nudge.friend_title" = "Si %@ ay %d araw na sunod";
+"home.streak_nudge.friend_title" = "Si %@ ay may %d-araw na streak";
 "home.streak_nudge.friend_sub" = "Ikaw: %d araw";
 "home.streak_nudge.play" = "Maglaro";
 "home.streak_nudge.catch_up" = "Abutan";
 "home.hero.play_bonus" = "+1 F-Bucks kung maglalaro ngayon";
-"home.hero.streak_continue_fmt" = "Panatilihin ang sunod — %d/%d";
+"home.hero.streak_continue_fmt" = "Panatilihin ang streak — %d/%d";
 "home.hero.almost_perfect" = "Perpektong laro — halos!";
 "home.hero.daily_ready" = "Handa nang kunin ang araw-araw na +1 F-Bucks";
-"home.hero.catch_friend_fmt" = "Abutan si %@ — %d araw na sunod";
+"home.hero.catch_friend_fmt" = "Abutan si %@ — %d-araw na streak";
 "home.earn.section" = "Ngayon";
 "home.earn.perfect.almost" = "Halos tapos — tapusin";
-"home.earn.perfect.start" = "Simulan ngayon — i-lock";
+"home.earn.perfect.start" = "Magsimula ngayon — siguraduhin ang streak";
 "home.earn.perfect.going" = "Tapusin nang malakas ngayon";
 "home.earn.streak.almost" = "Huwag mawala ngayon";
 "home.earn.streak.start" = "Maglaro ngayon o mawawala";
@@ -1401,15 +1401,15 @@
 "home.goal.xp_remaining_detail" = "Natitira: %d XP";
 "home.goal.claim_reward_cta" = "Kunin ang mga gantimpala →";
 "home.goal.open_league" = "Buksan ang liga →";
-"home.pride.streak_fmt" = "%d araw na sunod — ituloy!";
+"home.pride.streak_fmt" = "Naglalaro nang %d araw na sunod-sunod — ituloy mo!";
 "home.pride.league_place_fmt" = "Ikaw ay #%d sa liga ngayong linggo";
 "home.pride.section_title" = "Ang iyong progreso";
-"home.pride.streak_line_one" = "Sunod: 1 araw";
-"home.pride.streak_line_fmt" = "Sunod: %d araw";
+"home.pride.streak_line_one" = "Streak: 1 araw";
+"home.pride.streak_line_fmt" = "Streak: %d araw";
 "home.pride.rank_line_fmt" = "Ranggo: #%d ngayong linggo";
 "home.pride.top10_hint" = "Tuloy sa top 10";
 "home.pride.rank_headline_fmt" = "Ngayong linggo ikaw #%d";
-"home.hero.headline.streak_alive" = "Panatilihing buhay ang sunod";
+"home.hero.headline.streak_alive" = "Panatilihin ang streak mo";
 "home.hero.headline.perfect_push" = "Perpektong laro — halos";
 "home.hero.headline.daily_up" = "Handa na ang araw-araw na bonus";
 "home.hero.headline.keep_playing" = "Mahalaga ang susunod na laro";
@@ -1417,28 +1417,30 @@
 "home.hero.detail.streak_fmt" = "%d/%d araw";
 "home.hero.detail.perfect_fmt" = "%d/%d perpekto";
 "home.hero.detail.day_fmt" = "Araw %d na sunod";
-"home.hero.detail.friend_streak" = "Sunod nila: %d araw";
-"home.hero.detail.start_streak" = "Simulan ang sunod ngayon";
+"home.hero.detail.friend_streak" = "Streak niya: %d araw";
+"home.hero.detail.start_streak" = "Simulan ang streak ngayon";
 "home.hero.hook.reward_play" = "+1 gantimpala kung maglalaro ngayon";
 "home.hero.pressure" = "Huwag mawalan ng progreso ngayon";
 "home.hero.wow.tip" = "🔥 May +1 ngayon";
 "home.sticky.hook.reward" = "+1 gantimpala kung maglalaro ngayon";
-"home.sticky.hook.streak" = "Ituloy ang sunod";
+"home.sticky.hook.streak" = "Ituloy ang streak";
 "home.sticky.hook.play" = "Mahalaga ang susunod na laro";
 "home.pride.gap_top10_fmt" = "%d pwesto na lang sa top 10";
 "home.pride.close_top10_short" = "Malapit ka sa top 10 🔥";
-"home.pride.streak_full_one" = "Sunod: 1 araw — ituloy";
-"home.pride.streak_full_fmt" = "Sunod: %d araw — ituloy";"home.pride.streak_full_fmt" = "Sunod: %d araw — ituloy";"coins" = "mga barya";
+"home.pride.streak_full_one" = "Streak: 1 araw — ituloy";
+"home.pride.streak_full_fmt" = "Streak: %d araw — ituloy";
+"home.pride.streak_full_fmt" = "Streak: %d araw — ituloy";
+"coins" = "mga barya";
 /* League motivation messages */
 "league_motivation_win_01" = "Isa ka sa mga pinakamahusay ngayong linggo. Mahusay na trabaho - ngayon panatilihin ang bilis.";
 "league_motivation_win_02" = "Ang Top 3 ay hindi aksidente. Ito ay resulta ng pare-parehong paglalaro at mahusay na pagtutok.";
-"league_motivation_win_03" = "Malakas na linggo. Patuloy na itulak sa parehong bilis — naghihintay ang susunod na liga.";
-"league_motivation_promotion_01" = "Ang ibig sabihin ng promosyon ay lumalaki ka. Ang susunod na liga ay magiging mas mahirap, ngunit handa ka na.";
+"league_motivation_win_03" = "Mahusay na linggo. Ituloy ang pagsisikap — naghihintay ang susunod na liga.";
+"league_motivation_promotion_01" = "Ang pag-angat ay tanda ng pagbuti mo. Mas mahirap ang susunod na liga, pero handa ka na.";
 "league_motivation_promotion_02" = "Gumawa ka ng isang hakbang pataas. Ngayon ang layunin ay hindi lamang upang makakuha ng mas mataas, ngunit upang manatili doon.";
-"league_motivation_stayed_01" = "Hinawakan mo ang iyong posisyon. Isang matibay na base — ngayon ay ginagawang paglago ang katatagan.";
-"league_motivation_stayed_02" = "Ang isang linggong walang atraso ay resulta na. Susunod na hakbang: maabot ang promotion zone.";
-"league_motivation_demotion_01" = "Hindi ang pinakamagandang linggo - nangyayari ito. Ang pangunahing bagay ay hindi huminto: maaari mong gawin ang susunod na mas malakas.";
-"league_motivation_demotion_02" = "Ang demosyon ay hindi ang katapusan. Ito ay isang reset point, pagkatapos ay madalas na sinusundan ang mas mahusay na pagtakbo.";
+"league_motivation_stayed_01" = "Napanatili mo ang iyong puwesto. Matibay na pundasyon ito — gamitin para mas umunlad.";
+"league_motivation_stayed_02" = "Tagumpay na rin ang isang linggong walang pag-atras. Susunod na hakbang: abutin ang sona ng pag-angat.";
+"league_motivation_demotion_01" = "Hindi ito ang pinakamagandang linggo — nangyayari talaga iyon. Ang mahalaga ay magpatuloy: maaari kang bumawi sa susunod.";
+"league_motivation_demotion_02" = "Hindi katapusan ang pagbaba ng liga. Isa itong bagong simula na maaaring humantong sa mas magagandang resulta.";
 "league_motivation_general_01" = "Bawat linggo ay isang bagong pagkakataon na tumaas nang mas mataas. Magpatuloy — dumadagdag ang pag-unlad.";
 
 /* Onboarding (hook → reward → loop) */
@@ -1464,30 +1466,30 @@
 "avatar_editor_discard_action" = "Itapon";
 "avatar_editor_continue_editing" = "Ipagpatuloy ang pag-edit";
 "avatar_editor_discard_message" = "Hindi mase-save ang iyong mga pagbabago sa avatar.";
-"avatar_editor_skin_tone" = "Tone ng balat";
+"avatar_editor_skin_tone" = "Tono ng balat";
 "avatar_editor_body" = "Katawan";
 "avatar_editor_eye_color" = "Kulay ng mata";
-"avatar_editor_expression" = "Pagpapahayag";
+"avatar_editor_expression" = "Ekspresyon";
 "avatar_editor_main_hair_color" = "Kulay ng buhok";
-"avatar_editor_hairstyle" = "Hairstyle";
+"avatar_editor_hairstyle" = "Estilo ng buhok";
 "avatar_editor_glasses" = "Salamin";
 "avatar_editor_glasses_color" = "Kulay ng salamin";
-"avatar_editor_facial_hair" = "buhok sa mukha";
+"avatar_editor_facial_hair" = "Buhok sa mukha";
 "avatar_editor_facial_hair_color" = "Kulay ng buhok sa mukha";
 "avatar_editor_headwear" = "Kasuotan sa ulo";
 "avatar_editor_headwear_color" = "Kulay ng kasuotan sa ulo";
 "avatar_editor_clothing_color" = "Kulay ng damit";
 "avatar_editor_clothing_style" = "Estilo ng pananamit";
 "avatar_editor_background_color" = "Kulay ng background";
-"avatar_editor_none" = "wala";
+"avatar_editor_none" = "Wala";
 "avatar_editor_round" = "Bilog";
-"avatar_editor_square" = "Square";
-"avatar_editor_sunglasses" = "salaming pang-araw";
-"avatar_editor_slim" = "Slim (salamin)";
-"avatar_editor_cap" = "Cap";
-"avatar_editor_beanie" = "Beanie";
+"avatar_editor_square" = "Parisukat";
+"avatar_editor_sunglasses" = "Salaming pang-araw";
+"avatar_editor_slim" = "Manipis (salamin)";
+"avatar_editor_cap" = "Sombrero";
+"avatar_editor_beanie" = "Bonet";
 "avatar_editor_bandana" = "Bandana";
-"avatar_editor_sport_cap" = "Sport cap";
+"avatar_editor_sport_cap" = "Sombrerong pang-isport";
 "avatar_editor_hat_SilverLeague" = "Ligang Pilak";
 "avatar_editor_hat_10_day_streak" = "10-araw na streak";
 "avatar_editor_hat_beginner" = "Baguhan";
@@ -1498,44 +1500,44 @@
 "avatar_editor_lock_headwear_premium_body" = "Nagbubukas ang headwear na ito gamit ang Premium. Mag-subscribe sa Premium sa mga setting ng app.";
 "avatar_editor_lock_headwear_shop_body" = "Makukuha mo ang item na ito sa customization shop — paparating na.";
 "avatar_editor_lock_headwear_generic_body" = "Hindi pa available ang item na ito.";
-"avatar_editor_opt_slim" = "slim";
-"avatar_editor_opt_regular" = "Regular";
+"avatar_editor_opt_slim" = "Payat";
+"avatar_editor_opt_regular" = "Karaniwan";
 "avatar_editor_opt_hoodie" = "Hoodie";
 "avatar_editor_opt_tshirt" = "T-Shirt";
 "avatar_editor_opt_sweater" = "Sweater";
 "avatar_editor_opt_wide" = "Malapad";
 "avatar_editor_opt_bald" = "Kalbo";
-"avatar_editor_opt_side_part" = "Gilid na bahagi";
+"avatar_editor_opt_side_part" = "Hating patagilid";
 "avatar_editor_opt_short" = "Maikli";
 "avatar_editor_opt_curl" = "Kulot";
 "avatar_editor_opt_modern" = "Moderno";
-"avatar_editor_opt_buzz" = "Buzz";
-"avatar_editor_opt_hair_waves" = "Mga alon";
+"avatar_editor_opt_buzz" = "Napakaikling buhok";
+"avatar_editor_opt_hair_waves" = "Alon-alon";
 "avatar_editor_opt_hair_spiky" = "Matinik";
-"avatar_editor_opt_hair_slick" = "Makinis";
+"avatar_editor_opt_hair_slick" = "Suklay na palikod";
 "avatar_editor_opt_hair_pompadour" = "Pompadour";
-"avatar_editor_opt_moustache" = "bigote";
-"avatar_editor_opt_trimmed" = "Pinutol";
-"avatar_editor_opt_goatee" = "Goatee";
+"avatar_editor_opt_moustache" = "Bigote";
+"avatar_editor_opt_trimmed" = "Maayos na gupit";
+"avatar_editor_opt_goatee" = "Balbas sa baba";
 "avatar_editor_opt_beard_full" = "Buong balbas";
-"avatar_editor_opt_beard_light" = "Banayad na balbas";
+"avatar_editor_opt_beard_light" = "Manipis na balbas";
 "avatar_editor_opt_beard_bushy" = "Makapal na balbas";
 "avatar_editor_opt_jacket" = "Jacket";
 
 "monthly_quest_mission_title" = "Misyon %@";
-"Friend profile progress title" = "STREAK AND PROGRESS";
-"Friend achievements placeholder" = "Friend achievements are shown as they are unlocked";
+"Friend profile progress title" = "STREAK AT PAG-UNLAD";
+"Friend achievements placeholder" = "Lalabas dito ang mga tagumpay ng kaibigan mo kapag na-unlock na ang mga ito";
 
-"Answer as many flags as possible before time runs out" = "Sagutin ang maraming watawat hangga’t maaari bago maubos ang oras";
+"Answer as many flags as possible before time runs out" = "Hulaan ang pinakamaraming bandila hangga’t maaari bago maubos ang oras";
 "Duration" = "Tagal";
-"Best score" = "Best score";
+"Best score" = "Pinakamataas na iskor";
 "Wrong answer penalty" = "Parusa sa maling sagot";
 "5 correct in a row bonus" = "Bonus sa 5 tamang sunod-sunod";
 "Best combo" = "Pinakamahusay na combo";
 "New record!" = "Bagong record!";
 "Day leaderboard place" = "Puwesto sa leaderboard ng araw";
 "Week leaderboard place" = "Puwesto sa leaderboard ng linggo";
-"Back to Modes" = "Back to Modes";
+"Back to Modes" = "Bumalik sa mga mode";
 "Start" = "Simula";
 "TC correct answers headline" = "%d tama";
 "Difficulty description TC" = "%1$d%2$@ bawat round • +%3$d%2$@ bawat 5 tamang sunod-sunod • −%4$d%2$@ bawat mali";
@@ -1546,11 +1548,11 @@
 "TC intro combo5 bonus title" = "Combo ng 5 tamang sunod-sunod";
 "TC detail time penalty fmt" = "Timer: −%1$d %2$@ (mali)";
 "TC detail time combo fmt" = "Timer: +%1$d %2$@ (5 tamang sunod-sunod)";
-"TC detail points earned" = "Points for this answer: +%d";
-"TC detail xp earned" = "XP for this answer: +%d";
-"TC detail time penalty" = "Timer: −10 s (wrong answer)";
-"TC detail time combo bonus" = "Timer: +10 s (5 correct in a row)";
-"Share TC headline" = "Time Challenge: %d correct out of %d";
+"TC detail points earned" = "Puntos para sa sagot na ito: +%d";
+"TC detail xp earned" = "XP para sa sagot na ito: +%d";
+"TC detail time penalty" = "Oras: −10 segundo (maling sagot)";
+"TC detail time combo bonus" = "Oras: +10 segundo (5 sunod-sunod na tamang sagot)";
+"Share TC headline" = "Hamon sa oras: %d tamang sagot sa %d";
 
 "Time seconds unit short" = "s";
 "TC stat best combo" = "Pinakamahusay na combo";
@@ -1561,29 +1563,29 @@
 "Share Survival headline" = "Survival: %d watawat • %d tama • max stage %d";
 "Survival mode short description" = "Limitadong buhay, tumataas na hirap — hanggang saan ka aabot?";
 "Survival difficulty blurb fmt" = "Buhay bawat session • tumataas na stage • +1 buhay bawat 10 tamang sunod-sunod";
-"Survival depth header" = "Lalim";
-"Survival stage fmt" = "Stage %d";
+"Survival depth header" = "Narating";
+"Survival stage fmt" = "Yugto %d";
 "Survival bonus life streak" = "+1 buhay (10 tamang sunod-sunod)";
-"Survival milestone banner fmt" = "Hito %d! +30 XP • +1 F-Bucks";
-"Survival next milestone fmt" = "%d pang tama para sa hito %d";
-"Survival result best depth fmt" = "Personal best na lalim: %d watawat";
+"Survival milestone banner fmt" = "Milyahe %d! +30 XP • +1 F-Bucks";
+"Survival next milestone fmt" = "%d pang tamang sagot para sa milyahe %d";
+"Survival result best depth fmt" = "Personal na rekord: %d bandila";
 "Survival result combo fmt" = "Pinakamahusay na combo sa run na ito: %d";
 "Survival result survived fmt" = "Nakalampas ka sa %d watawat";
 "Survival result stage reached fmt" = "Pinakamataas na stage: %d";
 "Survival stat correct" = "TAMA";
-"Survival intro description" = "Sagutin ang mga watawat isa-isa. Mali ay may kapalit na buhay. Tumitindi ang hirap — sirain ang record mo sa lalim.";
-"Survival intro lives title" = "Simulang buhay";
-"Survival intro best depth title" = "Pinakamahusay na lalim";
+"Survival intro description" = "Hulaan ang mga bandila nang isa-isa. Nababawasan ang buhay sa maling sagot. Tumataas ang hirap — lampasan ang rekord mo.";
+"Survival intro lives title" = "Buhay sa simula";
+"Survival intro best depth title" = "Pinakamalayong narating";
 "Survival intro choices title" = "Mga pagpipilian";
 "Survival intro timer title" = "Mga timer";
 "Survival intro timer value" = "Tulad ng Classic";
 "Survival weekly title" = "Lingguhang Survival challenge";
 "Survival weekly target fmt" = "Sa isang run ngayong linggo, makalampas sa %d watawat.";
 "Survival weekly best fmt" = "Pinakamahusay mo ngayong linggo: %d watawat";
-"Survival weekly all milestones met body" = "You've reached every weekly depth goal — up to 200 flags in one run. Brilliant!";
-"Survival weekly reward all claimed" = "All weekly survival bonuses claimed (up to +4000 XP).";
+"Survival weekly all milestones met body" = "Naabot mo ang lahat ng lingguhang layunin, hanggang 200 bandila sa isang laro. Ang galing!";
+"Survival weekly reward all claimed" = "Nakuha na ang lahat ng lingguhang bonus sa mode ng kaligtasan (hanggang +4000 XP).";
 "Survival weekly reward claimed" = "Nakuha ang lingguhang bonus (+1000 XP)";
-"Survival weekly reward hint" = "Each milestone — 25, 50, 100, then 200 flags in one run — gives +1000 XP once per week.";
+"Survival weekly reward hint" = "Bawat yugto — 25, 50, 100, at 200 bandila sa isang laro — ay nagbibigay ng +1000 XP isang beses bawat linggo.";
 
 "Survival result depth progress fmt" = "%1$d / %2$d";
 
@@ -1594,10 +1596,10 @@
 "1 hour" = "1 oras";
 
 
-"Duel announcement subtitle" = "Same duel for both players. First to score wins!";
-"User 1" = "User 1";
-"User 2" = "User 2";
-"Number of Questions" = "Questions";
+"Duel announcement subtitle" = "Pareho ang mga tanong para sa dalawang manlalaro. Panalo ang mas mataas ang iskor; kapag tabla, panalo ang mas mabilis matapos.";
+"User 1" = "Manlalaro 1";
+"User 2" = "Manlalaro 2";
+"Number of Questions" = "Mga tanong";
 
 
 /* F-Bucks screen */
@@ -1609,13 +1611,13 @@
 "fbucks.daily.title" = "Araw-araw na bonus";
 "fbucks.daily.subtitle" = "+1 F-Bucks";
 "fbucks.daily.claim" = "Kunin";
-"fbucks.daily.claimed" = "Inaangkin ngayon";
-"fbucks.daily.hint" = "+1 available ngayon — i-tap ang Claim";
+"fbucks.daily.claimed" = "Nakuha na ngayon";
+"fbucks.daily.hint" = "+1 ang makukuha ngayon — i-tap ang Kunin";
 "fbucks.earn.today.title" = "Kumita ngayon";
 "fbucks.earn.today.subtitle" = "Hanggang %d F-Bucks ang posible ngayon";
 "fbucks.earn.perfect.title" = "Perpektong laro";
-"fbucks.earn.perfect.sub" = "+1 para sa 10/10 o 15/15";
-"fbucks.earn.streak" = "Streak";
+"fbucks.earn.perfect.sub" = "+1 para sa perpektong larong kwalipikado sa gantimpala";
+"fbucks.earn.streak" = "Sunod-sunod na araw";
 "fbucks.earn.streak.sub" = "Serye (%d/10 araw)";
 "fbucks.earn.league" = "Nangunguna sa linggo";
 "fbucks.earn.league.sub" = "Tapusin sa top 3 ng iyong liga";
@@ -1626,47 +1628,47 @@
 "fbucks.want.price" = "Presyo: %d F-Bucks";
 "fbucks.want.you" = "Mayroon kang: %d";
 "fbucks.want.need" = "Kailangan ng %d pa";
-"fbucks.earn_more" = "Kumita ng mas maraming →";
+"fbucks.earn_more" = "Kumita pa →";
 "fbucks.buy_for" = "Bilhin sa halagang %d";
 "fbucks.shop.title" = "Tindahan";
 "fbucks.shop.subtitle" = "Gumastos ng F-Bucks sa mga eksklusibong item sa avatar";
 "fbucks.shop.tier.common" = "Pangkaraniwan";
 "fbucks.shop.tier.rare" = "Pambihira";
-"fbucks.shop.tier.legendary" = "maalamat";
-"fbucks.shop.limited" = "LIMITADO<ex id=\"_1\"/>";
-"fbucks.perfect.badge" = "Perpektong";
+"fbucks.shop.tier.legendary" = "Maalamat";
+"fbucks.shop.limited" = "LIMITADONG EDISYON";
+"fbucks.perfect.badge" = "Perpekto";
 "fbucks.tab.today" = "Ngayon";
-"fbucks.tab.about" = "Tungkol sa Amin";
-"fbucks.tab.history" = "KASAYSAYAN";
+"fbucks.tab.about" = "Impormasyon";
+"fbucks.tab.history" = "Mga transaksyon";
 "fbucks.tab.shop" = "Tindahan";
 "fbucks.about.title" = "Ano ang mga F-Bucks?";
-"fbucks.about.body" = "Ang F-Bucks (Flags Bucks) ay mga perang kinikita mo sa paglalaro ng World Arena Flags. Gamitin ang mga ito sa mga natatanging avatar piece, skin, at iba pang eksklusibong item.";
+"fbucks.about.body" = "Ang F-Bucks (Flags Bucks) ay pera sa laro na kinikita mo sa paglalaro ng World Arena Flags. Gamitin ito para bumili ng mga aksesorya ng avatar, skin, at iba pang eksklusibong item.";
 "fbucks.about.how" = "Paano kumita ng F-Bucks";
 "fbucks.about.perfect.title" = "Perpektong laro";
-"fbucks.about.perfect.desc" = "Kumuha ng perpektong iskor (10/10 o 15/15)";
-"fbucks.about.streak10.title" = "10-araw na sunod-sunod";
+"fbucks.about.perfect.desc" = "Sagutin nang tama ang lahat ng tanong sa larong kwalipikado sa gantimpala";
+"fbucks.about.streak10.title" = "10 araw na tuloy-tuloy";
 "fbucks.about.streak10.desc" = "Maglaro ng 10 araw nang sunud-sunod";
-"fbucks.about.streak20.title" = "20-araw na sunod-sunod";
+"fbucks.about.streak20.title" = "20 araw na tuloy-tuloy";
 "fbucks.about.streak20.desc" = "Maglaro ng 20 araw nang sunud-sunod";
-"fbucks.about.streak50.title" = "50-araw na sunod-sunod";
+"fbucks.about.streak50.title" = "50 araw na tuloy-tuloy";
 "fbucks.about.streak50.desc" = "Maglaro ng 50 araw nang sunud-sunod";
-"fbucks.about.streak100.title" = "100-araw na sunod-sunod";
+"fbucks.about.streak100.title" = "100 araw na tuloy-tuloy";
 "fbucks.about.streak100.desc" = "Maglaro ng 100 araw nang sunud-sunod";
 "fbucks.reward.plus1" = "+1 F-Bucks";
 "fbucks.reward.plus2" = "+2 F-Bucks";
 "fbucks.reward.plus5" = "+5 F-Bucks";
 "fbucks.reward.plus10" = "+10 F-Bucks";
-"fbucks.history.title" = "Tagalog";
-"fbucks.history.empty" = "Wala pang kasaysayan";
+"fbucks.history.title" = "Talaan ng mga transaksyon";
+"fbucks.history.empty" = "Wala pang transaksyon";
 "fbucks.history.empty.hint" = "Maglaro at kumita ng F-Bucks!";
 "fbucks.item.traveler_cap" = "Sumbrero ng manlalakbay";
 "fbucks.item.champion_shirt" = "T-shirt ng kampeon";
 "fbucks.item.socks" = "Medyas";
-"fbucks.item.rainbow_skin" = "Balat na bahaghari";
-"fbucks.item.gold_skin" = "Ginintuang balat";
-"fbucks.item.explorer_jacket" = "Jacket ng Explorer";
+"fbucks.item.rainbow_skin" = "Skin na bahaghari";
+"fbucks.item.gold_skin" = "Gintong skin";
+"fbucks.item.explorer_jacket" = "Jacket ng manlalakbay";
 "fbucks.item.fire_effect" = "Epekto ng apoy";
-"fbucks.item.neon_skin" = "Neon na balat";
+"fbucks.item.neon_skin" = "Neon na skin";
 "fbucks.item.stars_effect" = "Epekto ng bituin";
 "fbucks.item.champion_jacket" = "Jacket ng kampeon";
 "fbucks.tx.daily_bonus" = "Araw-araw na bonus";
@@ -1674,7 +1676,7 @@
 
 /* Duel prepare error */
 "duel.error.alert.title" = "Error";
-"duel.error.prepare_questions" = "Hindi maihanda ang mga tanong sa duel. Suriin ang iyong mga rehiyon o koneksyon at subukan muli.";
+"duel.error.prepare_questions" = "Hindi maihanda ang mga tanong sa duwelo. Suriin ang napiling mga rehiyon o koneksyon at subukang muli.";
 
 /* Duel tiebreaker */
 "duel.tiebreaker.title" = "Patas sa score — mas mabilis ang panalo";
@@ -1700,7 +1702,7 @@
 "learning.status.favorite_short" = "Paborito";
 "learning.country.train_cta" = "Idagdag sa susunod na laro";
 "learning.country.playlist_status_added" = "Naidagdag ang bansa";
-"learning.country.playlist_play_cta" = "Maglaro gamit ang pila";
+"learning.country.playlist_play_cta" = "Maglaro gamit ang napiling mga bansa";
 "learning.country.playlist_added" = "Idinagdag sa susunod na laro";
 "learning.country.playlist_duplicate" = "Nasa pila na";
 "learning.country.playlist_queue_fmt" = "%d bansa sa pila";
@@ -1710,14 +1712,14 @@
 "learning.country.section.gov" = "Mga wika at pamahalaan";
 "learning.country.section.more" = "Higit pa";
 "learning.country.region" = "Rehiyon";
-"learning.country.gallery.title" = "Gallery";
+"learning.country.gallery.title" = "Galeriya";
 "learning.country.gallery.tap_hint" = "I-tap ang tile para palakihin";
 "learning.country.a11y.favorite" = "Paborito";
 "learning.country.a11y.difficult" = "Markahan bilang mahirap";
 "learning.country.a11y.next" = "Susunod na bansa";
 "learning.country.a11y.previous" = "Nakaraang bansa";
 "learning.gallery.tile.flag" = "Pambansang watawat";
-"learning.gallery.tile.landmark" = "Palatandaan";
+"learning.gallery.tile.landmark" = "Pook na tanyag";
 "learning.gallery.tile.nature" = "Kalikasan";
 "learning.gallery.tile.culture" = "Kultura";
 "learning.gallery.tile.government" = "Pamahalaan";
@@ -1737,7 +1739,7 @@
 
 /* Duel inbox */
 "duel.challenges.title" = "Mga hamon";
-"duel.challenges.subtitle" = "Mga imbitasyon, aktibong duel at resulta";
+"duel.challenges.subtitle" = "Mga imbitasyon, aktibong duwelo, at mga resulta";
 
 // Verified subscription status
 "premium.restore.success" = "Naibalik ang mga binili.";
@@ -1801,19 +1803,19 @@
 
 "duel.reminder.cooldown" = "Maghintay bago magpadala ng panibagong paalala.";
 
-"duel.reminder.disabled" = "Pinatay ng manlalarong ito ang mga abiso sa duel.";
+"duel.reminder.disabled" = "Naka-off ang mga notification sa duwelo ng manlalarong ito.";
 
 "duel.reminder.no_device" = "Walang device ang manlalarong ito na may aktibong push notification.";
 
-"duel.reminder.completed" = "Tapos na ang duel.";
+"duel.reminder.completed" = "Tapos na ang duwelo.";
 
-"duel.reminder.missing" = "Hindi na available ang duel na ito.";
+"duel.reminder.missing" = "Hindi na available ang duwelong ito.";
 
 "Flags Brand Title" = "Mga Watawat";
 
 "lifecycle.offers" = "Mga hamon at alok";
 
-"lifecycle.offers.detail" = "Mga bonus, hamon at iba pang larong World Arena. Hanggang dalawang email sa kabuuan bawat linggo.";
+"lifecycle.offers.detail" = "Mga alok, hamon, at iba pang larong World Arena. Hanggang dalawang email sa kabuuan bawat linggo.";
 
 "lifecycle.bonus.title" = "Subukan ding maglaro sa araw?";
 
@@ -1860,4 +1862,111 @@
 "achievement.level_100.body" = "Maabot ang antas 100";
 "achievement.friends_10.title" = "Mga kaibigan sa buong mundo";
 "achievement.friends_10.body" = "Magdagdag ng 10 kaibigan";
-"inbox.duelTimeUnavailable" = "Hindi na-save ang oras ng duel na ito.";
+"inbox.duelTimeUnavailable" = "Hindi na-save ang oras ng duwelong ito.";
+
+/* Notification event localization */
+"inbox.progressCTA" = "Tingnan ang progreso ko";
+"inbox.rank" = "Iyong puwesto";
+"inbox.leagueStory" = "Nakatulong ang bawat laro sa resultang ito. Ipagdiwang ang linggong lumipas, tingnan ang puwesto mo sa liga, at piliin ang susunod na layunin. Ang bagong linggo ay panibagong pagkakataong pagbutihin ang resulta mo.";
+"inbox.levelStory" = "Ipinapakita ng antas na ito ang kaalamang nabuo mo, bandila kada bandila. Nananatili sa profile mo ang iyong karanasan. Subukan ang mas mataas na hirap o ibang rehiyon para patuloy na makatuklas ng bago.";
+"inbox.achievementStory" = "Karapat-dapat sa koleksyon mo ang bagong milyaheng ito. Buksan ang mga tagumpay para makita kung ano ang nabuksan mo at gaano ka na kalapit sa susunod na gantimpala. Patuloy na tumuklas sa sarili mong bilis.";
+"inbox.duelStory" = "Pagkakataon ang duwelo para sabay ninyong subukan ang inyong kaalaman. Buksan ang mga resulta para makita ang iskor at kasalukuyang katayuan. Nananatili sa history ang mga natapos na laro para mabalikan mo ang mga ito.";
+"inbox.messageStory" = "Maaari mong balikan ang mensaheng ito anumang oras sa history ng mga notification. Hindi nabubura ang mensahe kapag binasa ito.";
+"friends.requests.title" = "Mga kahilingan ng pagkakaibigan";
+"friends.requests.body" = "Idinagdag ka bilang kaibigan. Gusto mo rin ba siyang idagdag?";
+"notification.nudge.title" = "Pinapaalalahanan ka ni %@";
+"nudge_phrase_16" = "Hindi mo pa natatapos ang pang-araw-araw na aralin sa mga bandila!";
+
+/* Friend notification actions */
+"friends.requests.accept" = "Idagdag din";
+"friends.requests.decline" = "Tanggihan";
+"friends.requests.done" = "Tapos";
+"friends.requests.empty" = "Walang bagong kahilingan ng pagkakaibigan";
+"friends.requests.error" = "Hindi makumpleto ang aksyon. Subukan ulit.";
+"friends.requests.signin" = "Mag-sign in para makita at sagutin ang mga kahilingan ng pagkakaibigan.";
+
+/* Complete app catalog: missing interface translations, October 2026. */
+"Check your internet connection" = "Suriin ang iyong koneksyon sa internet at subukang muli.";
+"appIcon.automatic" = "Awtomatikong itugma sa wika ng app";
+"appIcon.choose" = "Pumili ng icon";
+"appIcon.suggestion" = "Isang icon sa iyong wika";
+"coins" = "mga barya";
+"duel.error.notYours" = "Ang hamon na ito ay kabilang sa ibang manlalaro. Suriin ang account kung saan ka naka-sign in.";
+"education.fbucks.body" = "Ito ang pera mo sa laro. Kumita sa paglalaro at pagtapos ng mga misyon, at gamitin ito sa mga gamit ng avatar at proteksiyon ng streak.";
+"education.fbucks.done" = "Naintindihan ko";
+"education.fbucks.shop" = "Tingnan ang tindahan";
+"education.fbucks.title" = "Nagkamit ka ng F-Bucks!";
+"facts.area" = "Lawak";
+"facts.capital" = "Kabisera";
+"facts.explanation" = "Piliin kung ano ang makikita sa likod ng country card pagkatapos sumagot.";
+"facts.map" = "Mapa";
+"facts.population" = "Populasyon";
+"facts.region" = "Rehiyon at subrehiyon";
+"facts.settings" = "Mga katotohanan ng bansa";
+"fbucks.tx.streak_restore" = "Pagpapanumbalik ng streak";
+"friends.duels.with_you" = "Mga duwelo sa iyo";
+"guide.back" = "Bumalik";
+"guide.done" = "Maglaro tayo";
+"guide.fbucks.body" = "Kumita ng F-Bucks sa paglalaro at pagtapos ng mga misyon. I-tap ang balanse para makita ang mga gantimpala, gamit ng avatar at proteksiyon ng streak.";
+"guide.fbucks.title" = "Kilalanin ang F-Bucks";
+"guide.friends.body" = "Magdagdag ng kaibigan sa pamamagitan ng kanilang profile o code. Buksan ang kanilang profile para hamunin sila sa tunggalian. Makikita ang mga imbitasyon sa “Mga hamon”. Maaari mong tanggapin o tanggihan ang mga kahilingang maging kaibigan.";
+"guide.friends.title" = "Maglaro kasama ang mga kaibigan";
+"guide.next" = "Susunod";
+"guide.play.body" = "I-tap ang “Maglaro” para magsimula.";
+"guide.play.title" = "Ang iyong susunod na laro";
+"guide.replay" = "Gabay sa app";
+"guide.settings.body" = "I-tap dito para piliin ang rehiyon, antas ng hirap at mode ng laro.";
+"guide.settings.title" = "Gawin mo itong laro mo";
+"guide.skip" = "Laktawan";
+"guide.streak.body" = "I-tap ang streak mo para makita ang kalendaryo, mga araw na naglaro ka at mga proteksiyon ng streak.";
+"guide.streak.title" = "Bawat araw ay mahalaga";
+"learning.anthem.excerpt" = "Orihinal na lyrics · sipi";
+"learning.anthem.full_lyrics_source" = "Buong lyrics at kasaysayan";
+"learning.anthem.recording_source" = "Rekording at pinagmulan ↗";
+"learning.anthem.shared_fmt" = "Ginagamit din ng %@ ang pambansang awit na ito. Maaaring iba ang awit ng rehiyon.";
+"learning.anthem.unavailable" = "Hindi ma-load ang pambansang awit. Suriin ang koneksyon at i-tap ang pindutan ng pagpapatugtog para subukang muli.";
+"learning.country.discover" = "Kilalanin ang bansa";
+"premium.benefit.anthems.body" = "Makinig sa mga rekording ng pambansang awit at alamin ang kanilang kasaysayan at kahulugan.";
+"premium.benefit.anthems.title" = "Mga pambansang awit";
+"premium.benefit.avatar.body" = "Magsuot ng Premium na palamuti sa ulo habang aktibo ang iyong subscription.";
+"premium.benefit.avatar.title" = "Palamuti sa avatar para sa Premium";
+"premium.benefit.countries.body" = "Alamin ang mga kabisera, populasyon, lawak, wika, salapi at mga kawili-wiling detalye tungkol sa mga bansa.";
+"premium.benefit.countries.title" = "Detalyadong impormasyon tungkol sa mga bansa";
+"premium.benefit.erudite.body" = "Buksan ang pinakamataas na antas ng hirap para sa mas malaking hamon.";
+"premium.benefit.erudite.title" = "Antas ng hirap: Maalam";
+"premium.benefit.learning.body" = "Mag-browse ng mga bansa at kontinente sa sarili mong bilis sa pagitan ng mga laro.";
+"premium.benefit.learning.title" = "Mga aralin tungkol sa mga bansa";
+"premium.benefit.lives.body" = "Maglaro sa Klasiko at Hamon sa Oras nang hindi naghihintay na mapunan ang mga buhay. May sariling mga patakaran pa rin ang Kaligtasan.";
+"premium.benefit.lives.title" = "Walang limitasyong mga Puso";
+"premium.benefit.map.body" = "Tingnan ang iyong pag-unlad ayon sa bansa at kontinente at pumili ng mga watawat na pag-aaralan.";
+"premium.benefit.map.title" = "Mapa ng iyong pag-unlad";
+"premium.benefit.mistakes.body" = "Balikan ang mga watawat na hindi mo natukoy nang tama.";
+"premium.benefit.mistakes.title" = "Matuto sa iyong mga pagkakamali";
+"premium.benefit.weekly.body" = "Awtomatikong kinikita para sa bawat buong 7 araw ng Premium, simula kapag na-activate ang bonus na ito. Sini-sync ang mga nakuhang reward kapag binuksan mo ang app.";
+"premium.benefit.weekly.title" = "10 F-Bucks bawat linggo";
+"premium.details.collapsed" = "Nakatiklop";
+"premium.details.expanded" = "Nakabukas";
+"premium.family.body" = "Ibahagi ang Premium sa hanggang 6 na tao, kasama ka, sa pamamagitan ng Apple Family Sharing. I-enable ang pagbabahagi ng subscription sa iyong mga setting ng pamilya ng Apple. Ang bawat manlalaro ay nagpapanatili ng kanilang sariling pag-unlad.";
+"premium.family.title" = "Isang subscription para sa iyong pamilya";
+"premium.story.countries.body" = "Alamin ang impormasyon tungkol sa mga bansa, kabisera at salapi, at pakinggan ang kanilang mga pambansang awit. Iugnay ang bawat watawat sa bansang kinakatawan nito.";
+"premium.story.countries.title" = "Bigyan ng kuwento ang bawat bandila.";
+"premium.story.enlarge" = "Palakihin ang halimbawang screen";
+"premium.story.example" = "Halimbawang screen · Ingles";
+"premium.story.headline" = "Pag-aralan ang mga watawat. Kilalanin ang mundo.";
+"premium.story.intro" = "Sulitin ang bawat pagsasanay: balikan ang mahihirap tandaan na watawat, kilalanin ang mga bansang kinakatawan nila at piliin ang susunod na pag-aaralan.";
+"premium.story.map.body" = "Makikita sa mapa ng iyong pag-unlad kung aling mga watawat ang kabisado mo na at alin ang kailangan pang balikan, para makapili ka ng susunod na pagsasanay.";
+"premium.story.map.title" = "Alamin kung ano ang susunod na matututunan.";
+"premium.story.practice.body" = "Magpatuloy sa pagsasanay nang hindi naghihintay na mapunan ang mga buhay. Sa “Aking Mga Pagkakamali”, balikan ang mga watawat na kailangan mo pang pag-aralan.";
+"premium.story.practice.title" = "Mas maraming pagsasanay. Mas matibay na kaalaman.";
+"premium.story.progress.body" = "Gawing nakikitang mga resulta ang regular na pagsasanay. Suriin ang iyong katumpakan at mga tamang sagot, pagkatapos ay gamitin ang Premium na mapa ng mundo upang piliin kung ano ang susunod na pagsasanay.";
+"premium.story.progress.title" = "Tingnan ang iyong pag-unlad";
+"premium.weekly.history" = "Lingguhang Premium na bonus";
+"premium.weekly.next" = "Susunod na lingguhang bonus: %@";
+"ranking.motivational.explanation" = "Mga posisyong nakabatay sa pag-unlad sa mga virtual na kalaban.";
+"ranking.motivational.title" = "Ranggo para sa pag-unlad";
+"streak.recovery.body_fmt" = "Naglaro ka nang %1$d araw na sunod-sunod. Ibalik ang streak sa halagang %2$d F-Bucks, o maglaro ng isa pang laro nang libre.";
+"streak.recovery.later_btn" = "Hindi ngayon";
+"streak.recovery.pay_btn_fmt" = "Ibalik · %d";
+"streak.recovery.play_btn" = "Maglaro para maibalik";
+"streak.recovery.title" = "Naputol ang streak";
+"Не удалось добавить в друзья. Попробуйте позже." = "Hindi maidagdag ang kaibigang ito. Pakisubukang muli.";
