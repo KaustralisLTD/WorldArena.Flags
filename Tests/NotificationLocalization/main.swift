@@ -49,6 +49,19 @@ extension AppNotificationLogItem {
         assert(recovery.contains("17") && recovery.contains("23"), "Lost recovery arguments: \(language)")
         let accuracy = String(format: lm.localizedString("Теперь вы можете без единой ошибки отвечать на все наши вопросы с точностью в %d%%"), 87)
         assert(accuracy.contains("87%"), "Missing formatted accuracy: \(language)")
+        let sharedScore = String(format: lm.localizedString("Share TC headline"), 13, 20)
+        let reversedScoreExamples = [
+            "ja": "20問中13問正解", "ko": "20문제 중 13문제 정답",
+            "zh": "20题中答对13题", "zh-Hant": "20題中答對13題",
+            "tr": "20 soruda 13 doğru", "hi": "20 में से 13 सही जवाब",
+            "bn": "20টির মধ্যে 13টি সঠিক উত্তর",
+            "ta": "20 கேள்விகளில் 13 சரியான பதில்கள்",
+            "te": "20 ప్రశ్నల్లో 13 సరైన సమాధానాలు"
+        ]
+        if let expected = reversedScoreExamples[language] {
+            assert(sharedScore.contains(expected), "Swapped correct/total counts: \(language) / \(sharedScore)")
+        }
+
         assert(level.displayTitle == lm.localizedString("Уровень") + " 100")
         assert(level.displayBody == lm.localizedString("Well done! Keep practicing!") + " · 99000 XP")
         assert(achievement.displayTitle == lm.localizedString("Достижения"))

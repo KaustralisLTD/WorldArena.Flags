@@ -1,6 +1,6 @@
 "Open in Game Center" = "เปิดใน Game Center";
 "Заработай %d XP" = "รับ %d XP";
-"F-BUCKS EARNED" = "F-BUCKS EARNED";
+"F-BUCKS EARNED" = "F-Bucks ที่ได้รับ";
 "Дай %d правильных ответов" = "รับคำตอบที่ถูกต้อง %d";
 "Наберите %d правильных ответов за месяц" = "รับคำตอบที่ถูกต้อง %d รายการในเดือนนี้";
 "Сыграй %d идеальных игр" = "เล่น %d เกมที่สมบูรณ์แบบ";
@@ -146,7 +146,7 @@
 "NUDGE" = "ดุน";
 "Remind" = "เตือน";
 "Reminder sent to %@" = "ส่งการแจ้งเตือนไปที่ %@ แล้ว";
-"%@ reminds you" = "%@ reminds you";
+"%@ reminds you" = "%@ เตือนคุณ";
 "nudge_phrase_1" = "อย่ายอมแพ้! คุณได้สิ่งนี้!";
 "nudge_phrase_2" = "แนวของคุณกำลังรอคุณอยู่ เล่นวันนี้!";
 "nudge_phrase_3" = "หนึ่งเกมต่อวันช่วยให้สตรีคยังคงอยู่!";
@@ -247,7 +247,7 @@
 // Language additions
 "system_language" = "ระบบ";
 "ru_language" = "รัสเซีย";
-"uk_language" = "Украйнська";
+"uk_language" = "Українська";
 "es_language" = "สเปน";
 "ca_language" = "คาตาลา";
 "zh_language" = "中文";
@@ -354,15 +354,15 @@
 "Идеальный результат" = "ผลลัพธ์ที่สมบูรณ์แบบ";
 "Идеальный результат игры" = "ผลลัพธ์ของเกมที่สมบูรณ์แบบ";
 "Получите идеальный результат в игре (10/10 или 15/15)" = "รับผลการแข่งขันที่สมบูรณ์แบบในเกม (10/10 หรือ 15/15)";
-"Серия 10 дней" = "ต่อเนื่อง 10 วัน";
+"Серия 10 дней" = "เล่นต่อเนื่อง 10 วัน";
 "Играйте 10 дней подряд" = "เล่นติดต่อกัน 10 วัน";
-"Серия 20 дней" = "ต่อเนื่อง 20 วัน";
+"Серия 20 дней" = "เล่นต่อเนื่อง 20 วัน";
 "Играйте 20 дней подряд" = "เล่นติดต่อกัน 20 วัน";
-"Серия 50 дней" = "ต่อเนื่อง 50 วัน";
+"Серия 50 дней" = "เล่นต่อเนื่อง 50 วัน";
 "Играйте 50 дней подряд" = "เล่นติดต่อกัน 50 วัน";
-"Серия 100 дней" = "ต่อเนื่อง 100 วัน";
+"Серия 100 дней" = "เล่นต่อเนื่อง 100 วัน";
 "Играйте 100 дней подряд" = "เล่นติดต่อกัน 100 วัน";
-"История начислений" = "ประวัติการทำธุรกรรม";
+"История начислений" = "ประวัติรายการ";
 "История пуста" = "ประวัติว่างเปล่า";
 "Начните играть и зарабатывать F-Bucks!" = "เริ่มเล่นและรับ F-Bucks!";
 "Магазин F-Bucks" = "ร้านเอฟ-บัคส์";
@@ -373,15 +373,15 @@
 "Особые визуальные эффекты" = "เอฟเฟ็กต์ภาพพิเศษ";
 "Эффекты" = "ผลกระทบ";
 "Анимации и спецэффекты" = "แอนิเมชั่นและเอฟเฟกต์พิเศษ";
-"Футболка чемпиона" = "เสื้อยืดแชมเปี้ยน";
+"Футболка чемпиона" = "เสื้อยืดแชมป์";
 "Кепка путешественника" = "หมวกนักเดินทาง";
-"Куртка исследователя" = "แจ็คเก็ตนักสำรวจ";
-"Золотой скин" = "ผิวทอง";
-"Радужный скин" = "ผิวสีรุ้ง";
-"Неоновый скин" = "ผิวนีออน";
+"Куртка исследователя" = "แจ็กเก็ตนักสำรวจ";
+"Золотой скин" = "สกินทอง";
+"Радужный скин" = "สกินสายรุ้ง";
+"Неоновый скин" = "สกินนีออน";
 "Эффект блёсток" = "เอฟเฟกต์ประกายไฟ";
 "Огненный эффект" = "เอฟเฟกต์ไฟ";
-"Звёздный эффект" = "สตาร์เอฟเฟ็กต์";
+"Звёздный эффект" = "เอฟเฟกต์ดาว";
 "Купить" = "ซื้อ";
 "Покупка" = "ซื้อ";
 "Текст гимна" = "ข้อความเพลงสรรเสริญพระบารมี";
@@ -426,9 +426,9 @@
 
 /* Game header popovers */
 "Total game time since start" = "เวลาเล่นเกมทั้งหมดตั้งแต่เริ่ม";
-"Time limit per question depending on difficulty" = "Time limit per question depending on difficulty";
+"Time limit per question depending on difficulty" = "เวลาต่อคำถามขึ้นอยู่กับระดับความยาก";
 "Total Game Time" = "เวลาเล่นเกมทั้งหมด";
-"Time Per Question" = "Time Per Question";
+"Time Per Question" = "เวลาต่อคำถาม";
 
 /* Game header motivation (iPad) */
 "Game motivation 1" = "คุณได้สิ่งนี้!";
@@ -712,7 +712,7 @@
 "Ранняя птица" = "เออร์ลี่เบิร์ด";
 "Достигните серии 5 дней" = "เข้าถึงสตรีค 5 วัน";
 "Стабильность" = "ความสม่ำเสมอ";
-"Серия 10 дней" = "ต่อเนื่อง 10 วัน";
+"Серия 10 дней" = "เล่นต่อเนื่อง 10 วัน";
 "Железная воля" = "เจตจำนงเหล็ก";
 "Серия 30 дней" = "ต่อเนื่องกัน 30 วัน";
 "Новичок XP" = "XP ผู้เริ่มต้น";
@@ -936,7 +936,7 @@
 "Текущая серия" = "สตรีคปัจจุบัน";
 "дней" = "วัน";
 "Точность" = "ความแม่นยำ";
-"Теперь вы можете без единой ошибки отвечать на все наши вопросы с точностью в %d%%" = "ตอนนี้คุณสามารถตอบคำถามทั้งหมดของเราได้โดยไม่มีข้อผิดพลาดเลยแม้แต่ข้อเดียว ด้วยความแม่นยำ %d%%";
+"Теперь вы можете без единой ошибки отвечать на все наши вопросы с точностью в %d%%" = "ความแม่นยำในการตอบของคุณคือ %d%%";
 "Мы будем рады, если вы захотите снова вернуться к нам!" = "เรายินดีเป็นอย่างยิ่งหากคุณต้องการกลับมาหาเราอีกครั้ง!";
 "Продолжить" = "ดำเนินการต่อ";
 
@@ -1000,7 +1000,7 @@
 
 /* Enhanced Streak View */
 "Don't break the chain! Come back tomorrow!" = "อย่าหักโซ่! กลับมาพรุ่งนี้!";
-"Time to restart your streak! You can do it!" = "Time to restart your streak! You can do it!";
+"Time to restart your streak! You can do it!" = "ได้เวลาเริ่มสถิติเล่นต่อเนื่องใหม่แล้ว! คุณทำได้!";
 
 /* Monthly XP Quest */
 "Заработай %d XP за месяц" = "รับ %d XP ในเดือนนี้";
@@ -1049,8 +1049,8 @@
 "Learn flags and countries of the World" = "เรียนรู้ธงและประเทศต่างๆ ของโลก";
 "Select Level" = "เลือกระดับ";
 "Level - %@" = "ระดับ - %@";
-"Exclusive tournaments with cash F-Bucks prizes" = "การแข่งขันสุดพิเศษพร้อมรางวัลเงินสด F-Bucks";
-"Survival Mode" = "Survival Mode";
+"Exclusive tournaments with cash F-Bucks prizes" = "ทัวร์นาเมนต์พิเศษพร้อมรางวัล F-Bucks";
+"Survival Mode" = "โหมดเอาชีวิตรอด";
 "One mistake = Game Over" = "ความผิดพลาดหนึ่งครั้ง = จบเกม";
 "Duel result push format" = "%@: %d — คุณ: %d";
 "Duel motivation win" = "อัศจรรย์! ให้สตรีคต่อไป";
@@ -1170,7 +1170,7 @@
 "FACT_03_DESC" = "เนปาลมีธงชาติเพียงแห่งเดียวในโลกที่ไม่เป็นรูปสี่เหลี่ยมผืนผ้า";
 "FACT_04_TITLE" = "ไม่มีสีแดง สีขาว หรือสีน้ำเงิน";
 "FACT_04_DESC" = "จาเมกาเป็นประเทศเดียวที่ไม่มีธงสีแดง สีขาว หรือสีน้ำเงิน";
-"FACT_05_TITLE" = "Flag that is never lowered";
+"FACT_05_TITLE" = "ธงที่ไม่เคยลดลง";
 "FACT_05_DESC" = "ธงชาติซาอุดีอาระเบียไม่เคยลดครึ่งเสา เพราะมีข้อความศักดิ์สิทธิ์อยู่บนนั้น";
 "FACT_06_TITLE" = "ธงชาติหนุ่มๆ";
 "FACT_06_DESC" = "ธงชาติซูดานใต้ถูกนำมาใช้ในปี 2554 หลังจากได้รับเอกราช";
@@ -1490,7 +1490,7 @@
 "avatar_editor_beanie" = "หมวกบีนนี่";
 "avatar_editor_bandana" = "ผ้าพันคอ";
 "avatar_editor_sport_cap" = "หมวกแก๊ปทรงสปอร์ต";
-"avatar_editor_hat_SilverLeague" = "ซิลเวอร์ลีก";
+"avatar_editor_hat_SilverLeague" = "ลีกเงิน";
 "avatar_editor_hat_10_day_streak" = "ต่อเนื่อง 10 วัน";
 "avatar_editor_hat_beginner" = "ระดับเริ่มต้น";
 "avatar_editor_hat_Premium" = "พรีเมี่ยม";
@@ -1525,19 +1525,19 @@
 "avatar_editor_opt_jacket" = "เสื้อแจ็กเกต";
 
 "monthly_quest_mission_title" = "ภารกิจ %@";
-"Friend profile progress title" = "STREAK AND PROGRESS";
-"Friend achievements placeholder" = "Friend achievements are shown as they are unlocked";
+"Friend profile progress title" = "สถิติเล่นต่อเนื่องและความคืบหน้า";
+"Friend achievements placeholder" = "ความสำเร็จของเพื่อนจะแสดงเมื่อปลดล็อกแล้ว";
 
 "Answer as many flags as possible before time runs out" = "ตอบธงให้ได้มากที่สุดก่อนหมดเวลา";
 "Duration" = "ระยะเวลา";
-"Best score" = "Best score";
+"Best score" = "คะแนนสูงสุด";
 "Wrong answer penalty" = "โทษเมื่อตอบผิด";
 "5 correct in a row bonus" = "โบนัส 5 ข้อถูกติดกัน";
 "Best combo" = "คอมโบที่ดีที่สุด";
 "New record!" = "สถิติใหม่!";
 "Day leaderboard place" = "อันดับกระดานผู้นำรายวัน";
 "Week leaderboard place" = "อันดับกระดานผู้นำรายสัปดาห์";
-"Back to Modes" = "Back to Modes";
+"Back to Modes" = "กลับไปเลือกโหมด";
 "Start" = "เริ่ม";
 "TC correct answers headline" = "%d ข้อถูก";
 "Difficulty description TC" = "%1$d%2$@ ต่อรอบ • +%3$d%2$@ ทุก 5 ข้อถูกติดกัน • −%4$d%2$@ ต่อคำตอบผิด";
@@ -1548,11 +1548,11 @@
 "TC intro combo5 bonus title" = "คอมโบ 5 ข้อถูกติดกัน";
 "TC detail time penalty fmt" = "ตัวจับเวลา: −%1$d %2$@ (ผิด)";
 "TC detail time combo fmt" = "ตัวจับเวลา: +%1$d %2$@ (5 ข้อถูกติดกัน)";
-"TC detail points earned" = "Points for this answer: +%d";
-"TC detail xp earned" = "XP for this answer: +%d";
-"TC detail time penalty" = "Timer: −10 s (wrong answer)";
-"TC detail time combo bonus" = "Timer: +10 s (5 correct in a row)";
-"Share TC headline" = "Time Challenge: %d correct out of %d";
+"TC detail points earned" = "คะแนนจากคำตอบนี้: +%d";
+"TC detail xp earned" = "XP จากคำตอบนี้: +%d";
+"TC detail time penalty" = "เวลา: −10 วินาที (ตอบผิด)";
+"TC detail time combo bonus" = "เวลา: +10 วินาที (ตอบถูก 5 ข้อติดต่อกัน)";
+"Share TC headline" = "ท้าทายเวลา: ตอบถูก %d จาก %d ข้อ";
 
 "Time seconds unit short" = "วิ";
 "TC stat best combo" = "คอมโบที่ดีที่สุด";
@@ -1582,10 +1582,10 @@
 "Survival weekly title" = "ความท้าทายเอาชีวิตรอดรายสัปดาห์";
 "Survival weekly target fmt" = "สัปดาห์นี้ให้รอด %d ธงในรอบเดียว";
 "Survival weekly best fmt" = "ดีที่สุดของคุณในสัปดาห์นี้: %d ธง";
-"Survival weekly all milestones met body" = "You've reached every weekly depth goal — up to 200 flags in one run. Brilliant!";
-"Survival weekly reward all claimed" = "All weekly survival bonuses claimed (up to +4000 XP).";
+"Survival weekly all milestones met body" = "คุณทำได้ครบทุกเป้าหมายประจำสัปดาห์แล้ว สูงสุดถึง 200 ธงในรอบเดียว เยี่ยมมาก!";
+"Survival weekly reward all claimed" = "รับโบนัสเอาชีวิตรอดประจำสัปดาห์ครบแล้ว (สูงสุด +4000 XP)";
 "Survival weekly reward claimed" = "รับโบนัสรายสัปดาห์แล้ว (+1000 XP)";
-"Survival weekly reward hint" = "Each milestone — 25, 50, 100, then 200 flags in one run — gives +1000 XP once per week.";
+"Survival weekly reward hint" = "แต่ละเป้าหมาย — 25, 50, 100 และ 200 ธงในรอบเดียว — ให้ +1000 XP เป้าหมายละหนึ่งครั้งต่อสัปดาห์";
 
 "Survival result depth progress fmt" = "%1$d / %2$d";
 
@@ -1596,81 +1596,81 @@
 "1 hour" = "1 ชั่วโมง";
 
 
-"Duel announcement subtitle" = "Same duel for both players. First to score wins!";
-"User 1" = "User 1";
-"User 2" = "User 2";
-"Number of Questions" = "Questions";
+"Duel announcement subtitle" = "ผู้เล่นทั้งสองจะได้รับคำถามเดียวกัน ผู้ที่ได้คะแนนสูงกว่าชนะ หากคะแนนเท่ากัน ผู้ที่ใช้เวลาน้อยกว่าชนะ";
+"User 1" = "ผู้เล่น 1";
+"User 2" = "ผู้เล่น 2";
+"Number of Questions" = "คำถาม";
 
 /* F-Bucks screen */
-"fbucks.close" = "Close";
+"fbucks.close" = "ปิด";
 "fbucks.currency.name" = "F-Bucks";
-"fbucks.hero.subtitle.enough" = "Enough for about %d items";
-"fbucks.hero.subtitle.rare" = "You can buy a rare item";
-"fbucks.hero.subtitle.save" = "Keep saving for something special";
-"fbucks.daily.title" = "Daily bonus";
+"fbucks.hero.subtitle.enough" = "พอซื้อได้ประมาณ %d ชิ้น";
+"fbucks.hero.subtitle.rare" = "คุณซื้อไอเทมหายากได้";
+"fbucks.hero.subtitle.save" = "สะสมต่อเพื่อซื้อไอเทมพิเศษ";
+"fbucks.daily.title" = "โบนัสประจำวัน";
 "fbucks.daily.subtitle" = "+1 F-Bucks";
-"fbucks.daily.claim" = "Claim";
-"fbucks.daily.claimed" = "Claimed today";
-"fbucks.daily.hint" = "+1 available today — tap Claim";
-"fbucks.earn.today.title" = "Earn today";
-"fbucks.earn.today.subtitle" = "Up to %d F-Bucks possible today";
-"fbucks.earn.perfect.title" = "Perfect game";
-"fbucks.earn.perfect.sub" = "+1 for 10/10 or 15/15";
-"fbucks.earn.streak" = "Streak";
-"fbucks.earn.streak.sub" = "Series (%d/10 days)";
-"fbucks.earn.league" = "Top of the week";
-"fbucks.earn.league.sub" = "Finish in the top 3 of your league";
-"fbucks.progress.title" = "Progress to next item";
+"fbucks.daily.claim" = "รับ";
+"fbucks.daily.claimed" = "รับแล้ววันนี้";
+"fbucks.daily.hint" = "วันนี้รับได้ +1 — แตะรับ";
+"fbucks.earn.today.title" = "รับเพิ่มวันนี้";
+"fbucks.earn.today.subtitle" = "วันนี้รับได้สูงสุด %d F-Bucks";
+"fbucks.earn.perfect.title" = "เกมไร้ที่ติ";
+"fbucks.earn.perfect.sub" = "+1 เมื่อได้ 10/10 หรือ 15/15";
+"fbucks.earn.streak" = "สถิติเล่นต่อเนื่อง";
+"fbucks.earn.streak.sub" = "เล่นต่อเนื่อง (%d/10 วัน)";
+"fbucks.earn.league" = "ยอดฝีมือประจำสัปดาห์";
+"fbucks.earn.league.sub" = "จบใน 3 อันดับแรกของลีก";
+"fbucks.progress.title" = "ความคืบหน้าสู่ไอเทมถัดไป";
 "fbucks.progress.percent" = "%d%%";
-"fbucks.progress.full" = "You can afford the next rewards — open the shop!";
-"fbucks.want.title" = "Next goal";
-"fbucks.want.price" = "Price: %d F-Bucks";
-"fbucks.want.you" = "You have: %d";
-"fbucks.want.need" = "Need %d more";
-"fbucks.earn_more" = "Earn more →";
-"fbucks.buy_for" = "Buy for %d";
-"fbucks.shop.title" = "Shop";
-"fbucks.shop.subtitle" = "Spend F-Bucks on exclusive avatar items";
-"fbucks.shop.tier.common" = "Common";
-"fbucks.shop.tier.rare" = "Rare";
-"fbucks.shop.tier.legendary" = "Legendary";
-"fbucks.shop.limited" = "LIMITED";
-"fbucks.perfect.badge" = "Perfect";
-"fbucks.tab.today" = "Today";
-"fbucks.tab.about" = "About";
-"fbucks.tab.history" = "History";
-"fbucks.tab.shop" = "Shop";
-"fbucks.about.title" = "What are F-Bucks?";
-"fbucks.about.body" = "F-Bucks (Flags Bucks) are in-game currency you earn by playing World Arena Flags. Spend them on unique avatar pieces, skins, and other exclusive items.";
-"fbucks.about.how" = "How to earn F-Bucks";
-"fbucks.about.perfect.title" = "Perfect game";
-"fbucks.about.perfect.desc" = "Get a perfect score (10/10 or 15/15)";
-"fbucks.about.streak10.title" = "10-day streak";
-"fbucks.about.streak10.desc" = "Play 10 days in a row";
-"fbucks.about.streak20.title" = "20-day streak";
-"fbucks.about.streak20.desc" = "Play 20 days in a row";
-"fbucks.about.streak50.title" = "50-day streak";
-"fbucks.about.streak50.desc" = "Play 50 days in a row";
-"fbucks.about.streak100.title" = "100-day streak";
-"fbucks.about.streak100.desc" = "Play 100 days in a row";
+"fbucks.progress.full" = "คุณมีพอซื้อรางวัลใหม่แล้ว — เปิดร้านค้าเลย!";
+"fbucks.want.title" = "เป้าหมายถัดไป";
+"fbucks.want.price" = "ราคา: %d F-Bucks";
+"fbucks.want.you" = "คุณมี: %d";
+"fbucks.want.need" = "ต้องการอีก %d";
+"fbucks.earn_more" = "รับเพิ่ม →";
+"fbucks.buy_for" = "ซื้อในราคา %d";
+"fbucks.shop.title" = "ร้านค้า";
+"fbucks.shop.subtitle" = "ใช้ F-Bucks ซื้อไอเทมพิเศษสำหรับอวาตาร์";
+"fbucks.shop.tier.common" = "ทั่วไป";
+"fbucks.shop.tier.rare" = "หายาก";
+"fbucks.shop.tier.legendary" = "ตำนาน";
+"fbucks.shop.limited" = "จำนวนจำกัด";
+"fbucks.perfect.badge" = "ไร้ที่ติ";
+"fbucks.tab.today" = "วันนี้";
+"fbucks.tab.about" = "เกี่ยวกับ";
+"fbucks.tab.history" = "ประวัติ";
+"fbucks.tab.shop" = "ร้านค้า";
+"fbucks.about.title" = "F-Bucks คืออะไร?";
+"fbucks.about.body" = "F-Bucks (Flags Bucks) คือสกุลเงินในเกมที่ได้รับจากการเล่น World Arena Flags ใช้ซื้อเครื่องประดับอวาตาร์ สกิน และไอเทมพิเศษอื่น ๆ ได้";
+"fbucks.about.how" = "วิธีรับ F-Bucks";
+"fbucks.about.perfect.title" = "เกมไร้ที่ติ";
+"fbucks.about.perfect.desc" = "ทำคะแนนเต็ม (10/10 หรือ 15/15)";
+"fbucks.about.streak10.title" = "เล่นต่อเนื่อง 10 วัน";
+"fbucks.about.streak10.desc" = "เล่นติดต่อกัน 10 วัน";
+"fbucks.about.streak20.title" = "เล่นต่อเนื่อง 20 วัน";
+"fbucks.about.streak20.desc" = "เล่นติดต่อกัน 20 วัน";
+"fbucks.about.streak50.title" = "เล่นต่อเนื่อง 50 วัน";
+"fbucks.about.streak50.desc" = "เล่นติดต่อกัน 50 วัน";
+"fbucks.about.streak100.title" = "เล่นต่อเนื่อง 100 วัน";
+"fbucks.about.streak100.desc" = "เล่นติดต่อกัน 100 วัน";
 "fbucks.reward.plus1" = "+1 F-Bucks";
 "fbucks.reward.plus2" = "+2 F-Bucks";
 "fbucks.reward.plus5" = "+5 F-Bucks";
 "fbucks.reward.plus10" = "+10 F-Bucks";
-"fbucks.history.title" = "Transaction history";
-"fbucks.history.empty" = "No history yet";
-"fbucks.history.empty.hint" = "Play and earn F-Bucks!";
-"fbucks.item.traveler_cap" = "Traveler's cap";
-"fbucks.item.champion_shirt" = "Champion tee";
-"fbucks.item.socks" = "Socks";
-"fbucks.item.rainbow_skin" = "Rainbow skin";
-"fbucks.item.gold_skin" = "Gold skin";
-"fbucks.item.explorer_jacket" = "Explorer jacket";
-"fbucks.item.fire_effect" = "Fire effect";
-"fbucks.item.neon_skin" = "Neon skin";
-"fbucks.item.stars_effect" = "Star effect";
-"fbucks.item.champion_jacket" = "Champion jacket";
-"fbucks.tx.daily_bonus" = "Daily bonus";
+"fbucks.history.title" = "ประวัติรายการ";
+"fbucks.history.empty" = "ยังไม่มีรายการ";
+"fbucks.history.empty.hint" = "เล่นเกมและรับ F-Bucks!";
+"fbucks.item.traveler_cap" = "หมวกนักเดินทาง";
+"fbucks.item.champion_shirt" = "เสื้อยืดแชมป์";
+"fbucks.item.socks" = "ถุงเท้า";
+"fbucks.item.rainbow_skin" = "สกินสายรุ้ง";
+"fbucks.item.gold_skin" = "สกินทอง";
+"fbucks.item.explorer_jacket" = "แจ็กเก็ตนักสำรวจ";
+"fbucks.item.fire_effect" = "เอฟเฟกต์ไฟ";
+"fbucks.item.neon_skin" = "สกินนีออน";
+"fbucks.item.stars_effect" = "เอฟเฟกต์ดาว";
+"fbucks.item.champion_jacket" = "แจ็กเก็ตแชมป์";
+"fbucks.tx.daily_bonus" = "โบนัสประจำวัน";
 "friends.remind.status_sent" = "ส่งการแจ้งเตือนแล้ว";
 
 /* Duel prepare error */

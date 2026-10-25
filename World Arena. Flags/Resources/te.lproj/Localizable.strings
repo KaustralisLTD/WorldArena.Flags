@@ -1,6 +1,6 @@
 "Open in Game Center" = "Game Center లో తెరువు";
 "Заработай %d XP" = "%d XP సంపాదించండి";
-"F-BUCKS EARNED" = "F-BUCKS EARNED";
+"F-BUCKS EARNED" = "సంపాదించిన F-Bucks";
 "Дай %d правильных ответов" = "%d సరైన సమాధానాలను పొందండి";
 "Наберите %d правильных ответов за месяц" = "ఈ నెలలో %d సరైన సమాధానాలను పొందండి";
 "Сыграй %d идеальных игр" = "%d ఖచ్చితమైన గేమ్‌లను ఆడండి";
@@ -143,7 +143,7 @@
 "See how your friends are doing" = "మీ స్నేహితులు ఎలా చేస్తున్నారో చూడండి";
 "No friends yet" = "ఇంకా స్నేహితులు లేరు";
 "Add friends to see their streaks and compete together!" = "వారి స్ట్రీక్‌లను చూడటానికి స్నేహితులను జోడించండి మరియు కలిసి పోటీ చేయండి!";
-"NUDGE" = "NUDGE";
+"NUDGE" = "గుర్తుచేయి";
 "Remind" = "గుర్తు చేయండి";
 "Reminder sent to %@" = "రిమైండర్ %@కి పంపబడింది";
 "%@ reminds you" = "%@ మీకు గుర్తు చేస్తుంది";
@@ -343,26 +343,26 @@
 "Как заработать" = "ఎలా సంపాదించాలి";
 "История" = "చరిత్ర";
 "Магазин" = "షాపింగ్ చేయండి";
-"Что такое F-Bucks?" = "F-బక్స్ అంటే ఏమిటి?";
+"Что такое F-Bucks?" = "F-Bucks అంటే ఏమిటి?";
 "F-Bucks (Flags Bucks) — это внутриигровая валюта, которую можно заработать, играя в World Arena Flags. Используйте F-Bucks для покупки уникальных элементов аватара, скинов и других эксклюзивных предметов." = "F-Bucks (ఫ్లాగ్స్ బక్స్) అనేది మీరు వరల్డ్ అరేనా ఫ్లాగ్‌లను ప్లే చేయడం ద్వారా సంపాదించగల గేమ్‌లో కరెన్సీ. ప్రత్యేకమైన అవతార్ ఐటెమ్‌లు, స్కిన్‌లు మరియు ఇతర ప్రత్యేకమైన వస్తువులను కొనుగోలు చేయడానికి F-బక్స్‌ని ఉపయోగించండి.";
 "Особенности:" = "ఫీచర్లు:";
 "Зарабатывайте за идеальные результаты в играх" = "ఖచ్చితమైన గేమ్ ఫలితాల కోసం సంపాదించండి";
 "Получайте бонусы за длинные серии дней" = "చాలా రోజుల స్ట్రీక్స్ కోసం బోనస్‌లను పొందండి";
 "Покупайте эксклюзивные элементы для аватара" = "ప్రత్యేకమైన అవతార్ వస్తువులను కొనుగోలు చేయండి";
 "Создавайте уникальный стиль" = "ప్రత్యేకమైన శైలిని సృష్టించండి";
-"Как заработать F-Bucks" = "F-బక్స్ ఎలా సంపాదించాలి";
+"Как заработать F-Bucks" = "F-Bucks ఎలా సంపాదించాలి";
 "Идеальный результат" = "పరిపూర్ణ ఫలితం";
 "Идеальный результат игры" = "పర్ఫెక్ట్ గేమ్ ఫలితం";
 "Получите идеальный результат в игре (10/10 или 15/15)" = "గేమ్‌లో ఖచ్చితమైన ఫలితాన్ని పొందండి (10/10 లేదా 15/15)";
-"Серия 10 дней" = "10 రోజుల స్ట్రీక్";
+"Серия 10 дней" = "10 రోజుల ఆట పరంపర";
 "Играйте 10 дней подряд" = "వరుసగా 10 రోజులు ఆడండి";
-"Серия 20 дней" = "20 రోజుల స్ట్రీక్";
+"Серия 20 дней" = "20 రోజుల ఆట పరంపర";
 "Играйте 20 дней подряд" = "వరుసగా 20 రోజులు ఆడండి";
-"Серия 50 дней" = "50 రోజుల పరంపర";
+"Серия 50 дней" = "50 రోజుల ఆట పరంపర";
 "Играйте 50 дней подряд" = "వరుసగా 50 రోజులు ఆడండి";
-"Серия 100 дней" = "100 రోజుల స్ట్రీక్";
+"Серия 100 дней" = "100 రోజుల ఆట పరంపర";
 "Играйте 100 дней подряд" = "వరుసగా 100 రోజులు ఆడండి";
-"История начислений" = "లావాదేవీ చరిత్ర";
+"История начислений" = "లావాదేవీల చరిత్ర";
 "История пуста" = "చరిత్ర శూన్యం";
 "Начните играть и зарабатывать F-Bucks!" = "ఆడటం మరియు F-బక్స్ సంపాదించడం ప్రారంభించండి!";
 "Магазин F-Bucks" = "F-బక్స్ దుకాణం";
@@ -373,15 +373,15 @@
 "Особые визуальные эффекты" = "ప్రత్యేక విజువల్ ఎఫెక్ట్స్";
 "Эффекты" = "ప్రభావాలు";
 "Анимации и спецэффекты" = "యానిమేషన్లు మరియు ప్రత్యేక ప్రభావాలు";
-"Футболка чемпиона" = "ఛాంపియన్ టీ-షర్ట్";
-"Кепка путешественника" = "ట్రావెలర్స్ క్యాప్";
-"Куртка исследователя" = "ఎక్స్‌ప్లోరర్ జాకెట్";
-"Золотой скин" = "బంగారు చర్మం";
-"Радужный скин" = "రెయిన్బో స్కిన్";
-"Неоновый скин" = "నియాన్ స్కిన్";
+"Футболка чемпиона" = "ఛాంపియన్ టీ-షర్టు";
+"Кепка путешественника" = "యాత్రికుడి టోపీ";
+"Куртка исследователя" = "అన్వేషకుడి జాకెట్";
+"Золотой скин" = "బంగారు రూపం";
+"Радужный скин" = "ఇంద్రధనుస్సు రూపం";
+"Неоновый скин" = "నియాన్ రూపం";
 "Эффект блёсток" = "మెరుపు ప్రభావం";
-"Огненный эффект" = "ఫైర్ ఎఫెక్ట్";
-"Звёздный эффект" = "స్టార్ ఎఫెక్ట్";
+"Огненный эффект" = "మంటల ప్రభావం";
+"Звёздный эффект" = "నక్షత్రాల ప్రభావం";
 "Купить" = "కొనండి";
 "Покупка" = "కొనుగోలు";
 "Текст гимна" = "గీతం వచనం";
@@ -426,9 +426,9 @@
 
 /* Game header popovers */
 "Total game time since start" = "ప్రారంభం నుండి మొత్తం ఆట సమయం";
-"Time limit per question depending on difficulty" = "Time limit per question depending on difficulty";
+"Time limit per question depending on difficulty" = "ప్రతి ప్రశ్నకు సమయం కఠినత స్థాయిపై ఆధారపడి ఉంటుంది";
 "Total Game Time" = "మొత్తం గేమ్ సమయం";
-"Time Per Question" = "Time Per Question";
+"Time Per Question" = "ప్రతి ప్రశ్నకు సమయం";
 
 /* Game header motivation (iPad) */
 "Game motivation 1" = "మీరు దీన్ని పొందారు!";
@@ -712,7 +712,7 @@
 "Ранняя птица" = "ప్రారంభ పక్షి";
 "Достигните серии 5 дней" = "5-రోజుల పరంపరను చేరుకోండి";
 "Стабильность" = "స్థిరత్వం";
-"Серия 10 дней" = "10-రోజుల పరంపర";
+"Серия 10 дней" = "10 రోజుల ఆట పరంపర";
 "Железная воля" = "ఐరన్ విల్";
 "Серия 30 дней" = "30-రోజుల పరంపర";
 "Новичок XP" = "XP బిగినర్స్";
@@ -936,7 +936,7 @@
 "Текущая серия" = "ప్రస్తుత స్ట్రీక్";
 "дней" = "రోజులు";
 "Точность" = "ఖచ్చితత్వం";
-"Теперь вы можете без единой ошибки отвечать на все наши вопросы с точностью в %d%%" = "ఇప్పుడు మీరు %d%% ఖచ్చితంతో ఒక్క తప్పు లేకుండా మా అన్ని ప్రశ్నలకు సమాధానం చెప్పగలరు";
+"Теперь вы можете без единой ошибки отвечать на все наши вопросы с точностью в %d%%" = "మీ సమాధానాల ఖచ్చితత్వం %d%%.";
 "Мы будем рады, если вы захотите снова вернуться к нам!" = "మీరు మళ్లీ మా వద్దకు తిరిగి రావాలనుకుంటే మేము సంతోషిస్తాము!";
 "Продолжить" = "కొనసాగించు";
 
@@ -1000,7 +1000,7 @@
 
 /* Enhanced Streak View */
 "Don't break the chain! Come back tomorrow!" = "గొలుసు తెంచుకోవద్దు! రేపు తిరిగి రా!";
-"Time to restart your streak! You can do it!" = "Time to restart your streak! You can do it!";
+"Time to restart your streak! You can do it!" = "రోజువారీ ఆట పరంపరను మళ్లీ ప్రారంభిద్దాం! మీరు సాధించగలరు!";
 
 /* Monthly XP Quest */
 "Заработай %d XP за месяц" = "ఈ నెలలో %d XP సంపాదించండి";
@@ -1049,8 +1049,8 @@
 "Learn flags and countries of the World" = "ప్రపంచంలోని జెండాలు మరియు దేశాలను తెలుసుకోండి";
 "Select Level" = "స్థాయిని ఎంచుకోండి";
 "Level - %@" = "స్థాయి - %@";
-"Exclusive tournaments with cash F-Bucks prizes" = "నగదు F-బక్స్ బహుమతులతో ప్రత్యేకమైన టోర్నమెంట్‌లు";
-"Survival Mode" = "Survival Mode";
+"Exclusive tournaments with cash F-Bucks prizes" = "F-Bucks బహుమతులతో ప్రత్యేకమైన టోర్నమెంట్‌లు";
+"Survival Mode" = "మనుగడ మోడ్";
 "One mistake = Game Over" = "ఒక తప్పు = గేమ్ ముగిసింది";
 "Duel result push format" = "%@: %d — మీరు: %d.";
 "Duel motivation win" = "అద్భుతం! పరంపరను కొనసాగించండి.";
@@ -1511,7 +1511,7 @@
 "avatar_editor_opt_short" = "పొట్టి";
 "avatar_editor_opt_curl" = "కర్ల్";
 "avatar_editor_opt_modern" = "ఆధునిక";
-"avatar_editor_opt_buzz" = "Buzz";
+"avatar_editor_opt_buzz" = "చాలా పొట్టి జుట్టు";
 "avatar_editor_opt_hair_waves" = "అలలు";
 "avatar_editor_opt_hair_spiky" = "స్పైకీ";
 "avatar_editor_opt_hair_slick" = "మృదువుగా";
@@ -1525,19 +1525,19 @@
 "avatar_editor_opt_jacket" = "జాకెట్";
 
 "monthly_quest_mission_title" = "%@ మిషన్";
-"Friend profile progress title" = "STREAK AND PROGRESS";
-"Friend achievements placeholder" = "Friend achievements are shown as they are unlocked";
+"Friend profile progress title" = "రోజువారీ ఆట పరంపర మరియు పురోగతి";
+"Friend achievements placeholder" = "మీ స్నేహితుడు సాధించిన విజయాలు ఇక్కడ కనిపిస్తాయి";
 
 "Answer as many flags as possible before time runs out" = "సమయం అయిపోకముందు ఎక్కువ జండాలకు సమాధానం ఇవ్వండి";
 "Duration" = "కాలం";
-"Best score" = "Best score";
+"Best score" = "అత్యుత్తమ స్కోరు";
 "Wrong answer penalty" = "తప్పు సమాధానానికి జరిమానా";
 "5 correct in a row bonus" = "వరుసగా 5 సరైనవికి బోనస్";
 "Best combo" = "ఉత్తమ కాంబో";
 "New record!" = "కొత్త రికార్డ్!";
 "Day leaderboard place" = "రోజువారీ లీడర్‌బోర్డ్ స్థానం";
 "Week leaderboard place" = "వారపు లీడర్‌బోర్డ్ స్థానం";
-"Back to Modes" = "Back to Modes";
+"Back to Modes" = "మోడ్ ఎంపికకు తిరిగి వెళ్లు";
 "Start" = "ప్రారంభం";
 "TC correct answers headline" = "%d సరిగ్గా";
 "Difficulty description TC" = "%1$d%2$@ రౌండుకు • వరుసగా 5 సరైనవికి +%3$d%2$@ • తప్పుకు −%4$d%2$@";
@@ -1548,11 +1548,11 @@
 "TC intro combo5 bonus title" = "వరుసగా 5 సరైన కాంబో";
 "TC detail time penalty fmt" = "టైమర్: −%1$d %2$@ (తప్పు)";
 "TC detail time combo fmt" = "టైమర్: +%1$d %2$@ (వరుసగా 5 సరైనవి)";
-"TC detail points earned" = "Points for this answer: +%d";
-"TC detail xp earned" = "XP for this answer: +%d";
-"TC detail time penalty" = "Timer: −10 s (wrong answer)";
-"TC detail time combo bonus" = "Timer: +10 s (5 correct in a row)";
-"Share TC headline" = "Time Challenge: %d correct out of %d";
+"TC detail points earned" = "ఈ సమాధానానికి పాయింట్లు: +%d";
+"TC detail xp earned" = "ఈ సమాధానానికి XP: +%d";
+"TC detail time penalty" = "సమయం: −10 సెకన్లు (తప్పు సమాధానం)";
+"TC detail time combo bonus" = "సమయం: +10 సెకన్లు (వరుసగా 5 సరైన సమాధానాలు)";
+"Share TC headline" = "సమయ సవాలు: %2$d ప్రశ్నల్లో %1$d సరైన సమాధానాలు";
 
 "Time seconds unit short" = "సెక్";
 "TC stat best combo" = "ఉత్తమ కాంబో";
@@ -1582,10 +1582,10 @@
 "Survival weekly title" = "వారపు సర్వైవల్ సవాలు";
 "Survival weekly target fmt" = "ఈ వారం ఒకే రన్‌లో %d జండాలను దాటండి.";
 "Survival weekly best fmt" = "ఈ వారం మీ ఉత్తమం: %d జండాలు";
-"Survival weekly all milestones met body" = "You've reached every weekly depth goal — up to 200 flags in one run. Brilliant!";
-"Survival weekly reward all claimed" = "All weekly survival bonuses claimed (up to +4000 XP).";
+"Survival weekly all milestones met body" = "ఒకే ఆటలో 200 జెండాల వరకు, అన్ని వారపు లక్ష్యాలను చేరుకున్నారు. అద్భుతం!";
+"Survival weekly reward all claimed" = "మనుగడ మోడ్‌లోని అన్ని వారపు బోనస్‌లు పొందారు (గరిష్ఠంగా +4000 XP).";
 "Survival weekly reward claimed" = "వారపు బోనస్ క్లెయిమ్ చేయబడింది (+1000 XP)";
-"Survival weekly reward hint" = "Each milestone — 25, 50, 100, then 200 flags in one run — gives +1000 XP once per week.";
+"Survival weekly reward hint" = "ఒకే ఆటలో 25, 50, 100 మరియు 200 జెండాల ప్రతి మైలురాయికి వారానికి ఒకసారి +1000 XP లభిస్తుంది.";
 
 "Survival result depth progress fmt" = "%1$d / %2$d";
 
@@ -1596,81 +1596,81 @@
 "1 hour" = "1 గంట";
 
 
-"Duel announcement subtitle" = "Same duel for both players. First to score wins!";
-"User 1" = "User 1";
-"User 2" = "User 2";
-"Number of Questions" = "Questions";
+"Duel announcement subtitle" = "ఇద్దరు ఆటగాళ్లకు ఒకే ప్రశ్నలు ఇస్తారు. ఎక్కువ స్కోరు సాధించినవారు గెలుస్తారు; స్కోర్లు సమానమైతే, తక్కువ సమయం తీసుకున్నవారు గెలుస్తారు.";
+"User 1" = "ఆటగాడు 1";
+"User 2" = "ఆటగాడు 2";
+"Number of Questions" = "ప్రశ్నలు";
 
 /* F-Bucks screen */
-"fbucks.close" = "Close";
+"fbucks.close" = "మూసివేయి";
 "fbucks.currency.name" = "F-Bucks";
-"fbucks.hero.subtitle.enough" = "Enough for about %d items";
-"fbucks.hero.subtitle.rare" = "You can buy a rare item";
-"fbucks.hero.subtitle.save" = "Keep saving for something special";
-"fbucks.daily.title" = "Daily bonus";
+"fbucks.hero.subtitle.enough" = "దాదాపు %d వస్తువులకు సరిపోతుంది";
+"fbucks.hero.subtitle.rare" = "మీరు అరుదైన వస్తువును కొనవచ్చు";
+"fbucks.hero.subtitle.save" = "ప్రత్యేకమైన వస్తువు కోసం పొదుపు చేస్తూ ఉండండి";
+"fbucks.daily.title" = "రోజువారీ బోనస్";
 "fbucks.daily.subtitle" = "+1 F-Bucks";
-"fbucks.daily.claim" = "Claim";
-"fbucks.daily.claimed" = "Claimed today";
-"fbucks.daily.hint" = "+1 available today — tap Claim";
-"fbucks.earn.today.title" = "Earn today";
-"fbucks.earn.today.subtitle" = "Up to %d F-Bucks possible today";
-"fbucks.earn.perfect.title" = "Perfect game";
-"fbucks.earn.perfect.sub" = "+1 for 10/10 or 15/15";
-"fbucks.earn.streak" = "Streak";
-"fbucks.earn.streak.sub" = "Series (%d/10 days)";
-"fbucks.earn.league" = "Top of the week";
-"fbucks.earn.league.sub" = "Finish in the top 3 of your league";
-"fbucks.progress.title" = "Progress to next item";
+"fbucks.daily.claim" = "పొందు";
+"fbucks.daily.claimed" = "ఈరోజు పొందారు";
+"fbucks.daily.hint" = "ఈరోజు +1 అందుబాటులో ఉంది — పొందు నొక్కండి";
+"fbucks.earn.today.title" = "ఈరోజు సంపాదించండి";
+"fbucks.earn.today.subtitle" = "ఈరోజు గరిష్ఠంగా %d F-Bucks సంపాదించవచ్చు";
+"fbucks.earn.perfect.title" = "పరిపూర్ణ ఆట";
+"fbucks.earn.perfect.sub" = "10/10 లేదా 15/15కు +1";
+"fbucks.earn.streak" = "రోజువారీ ఆట పరంపర";
+"fbucks.earn.streak.sub" = "రోజువారీ ఆట పరంపర (%d/10 రోజులు)";
+"fbucks.earn.league" = "వారంలోని అగ్రస్థానం";
+"fbucks.earn.league.sub" = "మీ లీగ్‌లో మొదటి 3 స్థానాల్లో నిలవండి";
+"fbucks.progress.title" = "తదుపరి వస్తువు వైపు పురోగతి";
 "fbucks.progress.percent" = "%d%%";
-"fbucks.progress.full" = "You can afford the next rewards — open the shop!";
-"fbucks.want.title" = "Next goal";
-"fbucks.want.price" = "Price: %d F-Bucks";
-"fbucks.want.you" = "You have: %d";
-"fbucks.want.need" = "Need %d more";
-"fbucks.earn_more" = "Earn more →";
-"fbucks.buy_for" = "Buy for %d";
-"fbucks.shop.title" = "Shop";
-"fbucks.shop.subtitle" = "Spend F-Bucks on exclusive avatar items";
-"fbucks.shop.tier.common" = "Common";
-"fbucks.shop.tier.rare" = "Rare";
-"fbucks.shop.tier.legendary" = "Legendary";
-"fbucks.shop.limited" = "LIMITED";
-"fbucks.perfect.badge" = "Perfect";
-"fbucks.tab.today" = "Today";
-"fbucks.tab.about" = "About";
-"fbucks.tab.history" = "History";
-"fbucks.tab.shop" = "Shop";
-"fbucks.about.title" = "What are F-Bucks?";
-"fbucks.about.body" = "F-Bucks (Flags Bucks) are in-game currency you earn by playing World Arena Flags. Spend them on unique avatar pieces, skins, and other exclusive items.";
-"fbucks.about.how" = "How to earn F-Bucks";
-"fbucks.about.perfect.title" = "Perfect game";
-"fbucks.about.perfect.desc" = "Get a perfect score (10/10 or 15/15)";
-"fbucks.about.streak10.title" = "10-day streak";
-"fbucks.about.streak10.desc" = "Play 10 days in a row";
-"fbucks.about.streak20.title" = "20-day streak";
-"fbucks.about.streak20.desc" = "Play 20 days in a row";
-"fbucks.about.streak50.title" = "50-day streak";
-"fbucks.about.streak50.desc" = "Play 50 days in a row";
-"fbucks.about.streak100.title" = "100-day streak";
-"fbucks.about.streak100.desc" = "Play 100 days in a row";
+"fbucks.progress.full" = "కొత్త బహుమతులు కొనడానికి మీ వద్ద సరిపడా ఉన్నాయి — దుకాణాన్ని తెరవండి!";
+"fbucks.want.title" = "తదుపరి లక్ష్యం";
+"fbucks.want.price" = "ధర: %d F-Bucks";
+"fbucks.want.you" = "మీ వద్ద: %d";
+"fbucks.want.need" = "ఇంకా %d కావాలి";
+"fbucks.earn_more" = "మరిన్ని సంపాదించండి →";
+"fbucks.buy_for" = "%dకు కొనండి";
+"fbucks.shop.title" = "దుకాణం";
+"fbucks.shop.subtitle" = "ప్రత్యేక అవతార్ వస్తువుల కోసం F-Bucks ఖర్చు చేయండి";
+"fbucks.shop.tier.common" = "సాధారణం";
+"fbucks.shop.tier.rare" = "అరుదైనది";
+"fbucks.shop.tier.legendary" = "అత్యంత అరుదైనది";
+"fbucks.shop.limited" = "పరిమితంగా";
+"fbucks.perfect.badge" = "పరిపూర్ణం";
+"fbucks.tab.today" = "ఈరోజు";
+"fbucks.tab.about" = "వివరాలు";
+"fbucks.tab.history" = "చరిత్ర";
+"fbucks.tab.shop" = "దుకాణం";
+"fbucks.about.title" = "F-Bucks అంటే ఏమిటి?";
+"fbucks.about.body" = "F-Bucks (Flags Bucks) అనేది World Arena Flags ఆడుతూ సంపాదించే ఆటలోని కరెన్సీ. ప్రత్యేక అవతార్ అలంకరణలు, రూపాలు మరియు ఇతర ప్రత్యేక వస్తువులను కొనడానికి వీటిని ఉపయోగించండి.";
+"fbucks.about.how" = "F-Bucks ఎలా సంపాదించాలి";
+"fbucks.about.perfect.title" = "పరిపూర్ణ ఆట";
+"fbucks.about.perfect.desc" = "పూర్తి మార్కులు సాధించండి (10/10 లేదా 15/15)";
+"fbucks.about.streak10.title" = "10 రోజుల ఆట పరంపర";
+"fbucks.about.streak10.desc" = "వరుసగా 10 రోజులు ఆడండి";
+"fbucks.about.streak20.title" = "20 రోజుల ఆట పరంపర";
+"fbucks.about.streak20.desc" = "వరుసగా 20 రోజులు ఆడండి";
+"fbucks.about.streak50.title" = "50 రోజుల ఆట పరంపర";
+"fbucks.about.streak50.desc" = "వరుసగా 50 రోజులు ఆడండి";
+"fbucks.about.streak100.title" = "100 రోజుల ఆట పరంపర";
+"fbucks.about.streak100.desc" = "వరుసగా 100 రోజులు ఆడండి";
 "fbucks.reward.plus1" = "+1 F-Bucks";
 "fbucks.reward.plus2" = "+2 F-Bucks";
 "fbucks.reward.plus5" = "+5 F-Bucks";
 "fbucks.reward.plus10" = "+10 F-Bucks";
-"fbucks.history.title" = "Transaction history";
-"fbucks.history.empty" = "No history yet";
-"fbucks.history.empty.hint" = "Play and earn F-Bucks!";
-"fbucks.item.traveler_cap" = "Traveler's cap";
-"fbucks.item.champion_shirt" = "Champion tee";
-"fbucks.item.socks" = "Socks";
-"fbucks.item.rainbow_skin" = "Rainbow skin";
-"fbucks.item.gold_skin" = "Gold skin";
-"fbucks.item.explorer_jacket" = "Explorer jacket";
-"fbucks.item.fire_effect" = "Fire effect";
-"fbucks.item.neon_skin" = "Neon skin";
-"fbucks.item.stars_effect" = "Star effect";
-"fbucks.item.champion_jacket" = "Champion jacket";
-"fbucks.tx.daily_bonus" = "Daily bonus";
+"fbucks.history.title" = "లావాదేవీల చరిత్ర";
+"fbucks.history.empty" = "ఇంకా లావాదేవీలు లేవు";
+"fbucks.history.empty.hint" = "ఆడండి, F-Bucks సంపాదించండి!";
+"fbucks.item.traveler_cap" = "యాత్రికుడి టోపీ";
+"fbucks.item.champion_shirt" = "ఛాంపియన్ టీ-షర్టు";
+"fbucks.item.socks" = "సాక్స్";
+"fbucks.item.rainbow_skin" = "ఇంద్రధనుస్సు రూపం";
+"fbucks.item.gold_skin" = "బంగారు రూపం";
+"fbucks.item.explorer_jacket" = "అన్వేషకుడి జాకెట్";
+"fbucks.item.fire_effect" = "మంటల ప్రభావం";
+"fbucks.item.neon_skin" = "నియాన్ రూపం";
+"fbucks.item.stars_effect" = "నక్షత్రాల ప్రభావం";
+"fbucks.item.champion_jacket" = "ఛాంపియన్ జాకెట్";
+"fbucks.tx.daily_bonus" = "రోజువారీ బోనస్";
 "friends.remind.status_sent" = "రిమైండర్ పంపబడింది!";
 
 /* Duel prepare error */

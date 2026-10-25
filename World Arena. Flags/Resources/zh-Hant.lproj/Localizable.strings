@@ -1,6 +1,6 @@
 "Open in Game Center" = "在 Game Center 中開啟";
 "Заработай %d XP" = "賺取 %d XP";
-"F-BUCKS EARNED" = "F-BUCKS EARNED";
+"F-BUCKS EARNED" = "獲得的F-Bucks";
 "Дай %d правильных ответов" = "獲得 %d 個正確答案";
 "Наберите %d правильных ответов за месяц" = "本月獲得 %d 個正確答案";
 "Сыграй %d идеальных игр" = "玩 %d 場完美遊戲";
@@ -343,25 +343,25 @@
 "Как заработать" = "如何賺取";
 "История" = "歷史";
 "Магазин" = "店鋪";
-"Что такое F-Bucks?" = "什麼是 F-Bucks？";
+"Что такое F-Bucks?" = "什麼是F-Bucks？";
 "F-Bucks (Flags Bucks) — это внутриигровая валюта, которую можно заработать, играя в World Arena Flags. Используйте F-Bucks для покупки уникальных элементов аватара, скинов и других эксклюзивных предметов." = "F-Bucks（Flags Bucks）是一種遊戲內貨幣，您可以透過玩世界競技場旗幟來賺取。使用 F-Bucks 購買獨特的頭像物品、皮膚和其他獨家物品。";
 "Особенности:" = "特徵：";
 "Зарабатывайте за идеальные результаты в играх" = "賺取完美的遊戲結果";
 "Получайте бонусы за длинные серии дней" = "獲得長日連續獎勵";
 "Покупайте эксклюзивные элементы для аватара" = "購買專屬頭像物品";
 "Создавайте уникальный стиль" = "打造獨特風格";
-"Как заработать F-Bucks" = "如何賺取 F-Bucks";
+"Как заработать F-Bucks" = "如何賺取F-Bucks";
 "Идеальный результат" = "完美的結果";
 "Идеальный результат игры" = "完美的比賽結果";
 "Получите идеальный результат в игре (10/10 или 15/15)" = "在遊戲中取得完美成績（10/10 或 15/15）";
-"Серия 10 дней" = "連續 10 天";
-"Играйте 10 дней подряд" = "連續玩10天";
-"Серия 20 дней" = "連續 20 天";
-"Играйте 20 дней подряд" = "連續玩20天";
-"Серия 50 дней" = "連續 50 天";
-"Играйте 50 дней подряд" = "連續玩50天";
-"Серия 100 дней" = "連續 100 天";
-"Играйте 100 дней подряд" = "連續玩100天";
+"Серия 10 дней" = "連續遊玩10天";
+"Играйте 10 дней подряд" = "連續10天玩遊戲";
+"Серия 20 дней" = "連續遊玩20天";
+"Играйте 20 дней подряд" = "連續20天玩遊戲";
+"Серия 50 дней" = "連續遊玩50天";
+"Играйте 50 дней подряд" = "連續50天玩遊戲";
+"Серия 100 дней" = "連續遊玩100天";
+"Играйте 100 дней подряд" = "連續100天玩遊戲";
 "История начислений" = "交易紀錄";
 "История пуста" = "歷史是空的";
 "Начните играть и зарабатывать F-Bucks!" = "開始玩遊戲並賺取 F-Bucks！";
@@ -373,15 +373,15 @@
 "Особые визуальные эффекты" = "特殊視覺效果";
 "Эффекты" = "效果";
 "Анимации и спецэффекты" = "動畫和特效";
-"Футболка чемпиона" = "冠軍 T 卹";
+"Футболка чемпиона" = "冠軍T恤";
 "Кепка путешественника" = "旅行者帽";
 "Куртка исследователя" = "探險家夾克";
-"Золотой скин" = "金皮";
-"Радужный скин" = "彩虹皮膚";
-"Неоновый скин" = "霓虹皮膚";
+"Золотой скин" = "黃金造型";
+"Радужный скин" = "彩虹造型";
+"Неоновый скин" = "霓虹造型";
 "Эффект блёсток" = "閃光效果";
-"Огненный эффект" = "火焰效果";
-"Звёздный эффект" = "明星效應";
+"Огненный эффект" = "火焰特效";
+"Звёздный эффект" = "星星特效";
 "Купить" = "買";
 "Покупка" = "購買";
 "Текст гимна" = "國歌文本";
@@ -426,9 +426,9 @@
 
 /* Game header popovers */
 "Total game time since start" = "自開始以來的總遊戲時間";
-"Time limit per question depending on difficulty" = "Time limit per question depending on difficulty";
+"Time limit per question depending on difficulty" = "每題限時取決於難度";
 "Total Game Time" = "總遊戲時間";
-"Time Per Question" = "Time Per Question";
+"Time Per Question" = "每題限時";
 
 /* Game header motivation (iPad) */
 "Game motivation 1" = "你已經得到這個了！";
@@ -712,7 +712,7 @@
 "Ранняя птица" = "早鳥";
 "Достигните серии 5 дней" = "達到 5 天連續";
 "Стабильность" = "一致性";
-"Серия 10 дней" = "連續10天";
+"Серия 10 дней" = "連續遊玩10天";
 "Железная воля" = "鋼鐵意志";
 "Серия 30 дней" = "連續30天";
 "Новичок XP" = "XP 初學者";
@@ -936,7 +936,7 @@
 "Текущая серия" = "目前連勝";
 "дней" = "天";
 "Точность" = "準確性";
-"Теперь вы можете без единой ошибки отвечать на все наши вопросы с точностью в %d%%" = "現在您可以毫無錯誤地回答我們所有問題，準確度為 %d%%";
+"Теперь вы можете без единой ошибки отвечать на все наши вопросы с точностью в %d%%" = "你的答題正確率為%d%%。";
 "Мы будем рады, если вы захотите снова вернуться к нам!" = "如果您想再次回到我們身邊，我們將很高興！";
 "Продолжить" = "繼續";
 
@@ -1000,7 +1000,7 @@
 
 /* Enhanced Streak View */
 "Don't break the chain! Come back tomorrow!" = "不要破壞鍊子！明天再來！";
-"Time to restart your streak! You can do it!" = "Time to restart your streak! You can do it!";
+"Time to restart your streak! You can do it!" = "重新開始連續遊玩吧！你一定可以！";
 
 /* Monthly XP Quest */
 "Заработай %d XP за месяц" = "本月賺取 %d XP";
@@ -1049,8 +1049,8 @@
 "Learn flags and countries of the World" = "了解世界各國的國旗和國家";
 "Select Level" = "選擇等級";
 "Level - %@" = "等級 - %@";
-"Exclusive tournaments with cash F-Bucks prizes" = "獨家錦標賽，提供現金 F-Bucks 獎品";
-"Survival Mode" = "Survival Mode";
+"Exclusive tournaments with cash F-Bucks prizes" = "包含 F-Bucks 獎品的獨家錦標賽";
+"Survival Mode" = "生存模式";
 "One mistake = Game Over" = "一個錯誤 = 遊戲結束";
 "Duel result push format" = "%@: %d — 你: %d。";
 "Duel motivation win" = "驚人的！保持連勝。";
@@ -1490,7 +1490,7 @@
 "avatar_editor_beanie" = "毛線帽";
 "avatar_editor_bandana" = "頭巾";
 "avatar_editor_sport_cap" = "運動帽";
-"avatar_editor_hat_SilverLeague" = "白銀聯盟";
+"avatar_editor_hat_SilverLeague" = "白銀聯賽";
 "avatar_editor_hat_10_day_streak" = "連續10天";
 "avatar_editor_hat_beginner" = "初學者";
 "avatar_editor_hat_Premium" = "優質的";
@@ -1525,19 +1525,19 @@
 "avatar_editor_opt_jacket" = "夾克";
 
 "monthly_quest_mission_title" = "%@任務";
-"Friend profile progress title" = "連勝與進度";
-"Friend achievements placeholder" = "好友成就會在解鎖後顯示";
+"Friend profile progress title" = "連續遊玩紀錄與進度";
+"Friend achievements placeholder" = "好友解鎖成就後，會在這裡顯示";
 
 "Answer as many flags as possible before time runs out" = "在時間結束前盡可能答對更多國旗";
 "Duration" = "時長";
-"Best score" = "Best score";
+"Best score" = "最高分";
 "Wrong answer penalty" = "答錯懲罰";
 "5 correct in a row bonus" = "連續答對 5 題獎勵";
 "Best combo" = "最佳連擊";
 "New record!" = "新紀錄！";
 "Day leaderboard place" = "日榜名次";
 "Week leaderboard place" = "週榜名次";
-"Back to Modes" = "Back to Modes";
+"Back to Modes" = "返回模式選擇";
 "Start" = "開始";
 "TC correct answers headline" = "%d 題答對";
 "Difficulty description TC" = "%1$d%2$@一局 • 連續答對 5 題 +%3$d%2$@ • 答錯 −%4$d%2$@";
@@ -1548,11 +1548,11 @@
 "TC intro combo5 bonus title" = "連對 5 題";
 "TC detail time penalty fmt" = "計時：−%1$d %2$@（錯誤）";
 "TC detail time combo fmt" = "計時：+%1$d %2$@（連續答對 5 題）";
-"TC detail points earned" = "Points for this answer: +%d";
-"TC detail xp earned" = "XP for this answer: +%d";
-"TC detail time penalty" = "Timer: −10 s (wrong answer)";
-"TC detail time combo bonus" = "Timer: +10 s (5 correct in a row)";
-"Share TC headline" = "Time Challenge: %d correct out of %d";
+"TC detail points earned" = "本題獲得的分數：+%d";
+"TC detail xp earned" = "本題獲得的經驗：+%d XP";
+"TC detail time penalty" = "剩餘時間：−10秒（回答錯誤）";
+"TC detail time combo bonus" = "剩餘時間：+10秒（連續答對5題）";
+"Share TC headline" = "限時挑戰：%2$d題中答對%1$d題";
 
 "Time seconds unit short" = "秒";
 "TC stat best combo" = "最佳連擊";
@@ -1582,10 +1582,10 @@
 "Survival weekly title" = "每週生存挑戰";
 "Survival weekly target fmt" = "本週在一局內存活 %d 面旗。";
 "Survival weekly best fmt" = "本週最佳：%d 面旗";
-"Survival weekly all milestones met body" = "You've reached every weekly depth goal — up to 200 flags in one run. Brilliant!";
-"Survival weekly reward all claimed" = "All weekly survival bonuses claimed (up to +4000 XP).";
+"Survival weekly all milestones met body" = "你已完成本週所有目標，單次闖關達到200面旗幟。太棒了！";
+"Survival weekly reward all claimed" = "本週生存模式獎勵已全部領取（最多+4000 XP）。";
 "Survival weekly reward claimed" = "已領取每週獎勵（+1000 XP）";
-"Survival weekly reward hint" = "Each milestone — 25, 50, 100, then 200 flags in one run — gives +1000 XP once per week.";
+"Survival weekly reward hint" = "單次闖關達到25、50、100和200面旗幟時，每個目標每週可領取一次+1000 XP。";
 
 "Survival result depth progress fmt" = "%1$d / %2$d";
 
@@ -1596,81 +1596,81 @@
 "1 hour" = "1 小時";
 
 
-"Duel announcement subtitle" = "Same duel for both players. First to score wins!";
-"User 1" = "User 1";
-"User 2" = "User 2";
-"Number of Questions" = "Questions";
+"Duel announcement subtitle" = "兩位玩家回答相同的問題。得分較高者獲勝；同分時，用時較短者獲勝。";
+"User 1" = "玩家1";
+"User 2" = "玩家2";
+"Number of Questions" = "題目數量";
 
 /* F-Bucks screen */
-"fbucks.close" = "Close";
+"fbucks.close" = "關閉";
 "fbucks.currency.name" = "F-Bucks";
-"fbucks.hero.subtitle.enough" = "Enough for about %d items";
-"fbucks.hero.subtitle.rare" = "You can buy a rare item";
-"fbucks.hero.subtitle.save" = "Keep saving for something special";
-"fbucks.daily.title" = "Daily bonus";
+"fbucks.hero.subtitle.enough" = "大約可購買%d件物品";
+"fbucks.hero.subtitle.rare" = "你可以購買一件稀有物品";
+"fbucks.hero.subtitle.save" = "繼續累積，換取特別物品";
+"fbucks.daily.title" = "每日獎勵";
 "fbucks.daily.subtitle" = "+1 F-Bucks";
-"fbucks.daily.claim" = "Claim";
-"fbucks.daily.claimed" = "Claimed today";
-"fbucks.daily.hint" = "+1 available today — tap Claim";
-"fbucks.earn.today.title" = "Earn today";
-"fbucks.earn.today.subtitle" = "Up to %d F-Bucks possible today";
-"fbucks.earn.perfect.title" = "Perfect game";
-"fbucks.earn.perfect.sub" = "+1 for 10/10 or 15/15";
-"fbucks.earn.streak" = "Streak";
-"fbucks.earn.streak.sub" = "Series (%d/10 days)";
-"fbucks.earn.league" = "Top of the week";
-"fbucks.earn.league.sub" = "Finish in the top 3 of your league";
-"fbucks.progress.title" = "Progress to next item";
+"fbucks.daily.claim" = "領取";
+"fbucks.daily.claimed" = "今日已領取";
+"fbucks.daily.hint" = "今天可領取1 F-Bucks，點選「領取」";
+"fbucks.earn.today.title" = "今日可賺取";
+"fbucks.earn.today.subtitle" = "今天最多可賺取%d F-Bucks";
+"fbucks.earn.perfect.title" = "滿分遊戲";
+"fbucks.earn.perfect.sub" = "答對10/10或15/15題可獲得1 F-Bucks";
+"fbucks.earn.streak" = "連續遊玩紀錄";
+"fbucks.earn.streak.sub" = "連續遊玩（%d/10天）";
+"fbucks.earn.league" = "本週高手";
+"fbucks.earn.league.sub" = "在聯賽中躋身前三名";
+"fbucks.progress.title" = "距離下一件物品";
 "fbucks.progress.percent" = "%d%%";
-"fbucks.progress.full" = "You can afford the next rewards — open the shop!";
-"fbucks.want.title" = "Next goal";
-"fbucks.want.price" = "Price: %d F-Bucks";
-"fbucks.want.you" = "You have: %d";
-"fbucks.want.need" = "Need %d more";
-"fbucks.earn_more" = "Earn more →";
-"fbucks.buy_for" = "Buy for %d";
-"fbucks.shop.title" = "Shop";
-"fbucks.shop.subtitle" = "Spend F-Bucks on exclusive avatar items";
-"fbucks.shop.tier.common" = "Common";
-"fbucks.shop.tier.rare" = "Rare";
-"fbucks.shop.tier.legendary" = "Legendary";
-"fbucks.shop.limited" = "LIMITED";
-"fbucks.perfect.badge" = "Perfect";
-"fbucks.tab.today" = "Today";
-"fbucks.tab.about" = "About";
-"fbucks.tab.history" = "History";
-"fbucks.tab.shop" = "Shop";
-"fbucks.about.title" = "What are F-Bucks?";
-"fbucks.about.body" = "F-Bucks (Flags Bucks) are in-game currency you earn by playing World Arena Flags. Spend them on unique avatar pieces, skins, and other exclusive items.";
-"fbucks.about.how" = "How to earn F-Bucks";
-"fbucks.about.perfect.title" = "Perfect game";
-"fbucks.about.perfect.desc" = "Get a perfect score (10/10 or 15/15)";
-"fbucks.about.streak10.title" = "10-day streak";
-"fbucks.about.streak10.desc" = "Play 10 days in a row";
-"fbucks.about.streak20.title" = "20-day streak";
-"fbucks.about.streak20.desc" = "Play 20 days in a row";
-"fbucks.about.streak50.title" = "50-day streak";
-"fbucks.about.streak50.desc" = "Play 50 days in a row";
-"fbucks.about.streak100.title" = "100-day streak";
-"fbucks.about.streak100.desc" = "Play 100 days in a row";
+"fbucks.progress.full" = "你已存夠購買更多獎勵的F-Bucks，快去商店看看！";
+"fbucks.want.title" = "下一個目標";
+"fbucks.want.price" = "價格：%d F-Bucks";
+"fbucks.want.you" = "你擁有：%d";
+"fbucks.want.need" = "還需要%d";
+"fbucks.earn_more" = "賺取更多 →";
+"fbucks.buy_for" = "花費%d購買";
+"fbucks.shop.title" = "商店";
+"fbucks.shop.subtitle" = "使用F-Bucks購買專屬頭像物品";
+"fbucks.shop.tier.common" = "普通";
+"fbucks.shop.tier.rare" = "稀有";
+"fbucks.shop.tier.legendary" = "傳說";
+"fbucks.shop.limited" = "限量";
+"fbucks.perfect.badge" = "滿分";
+"fbucks.tab.today" = "今天";
+"fbucks.tab.about" = "說明";
+"fbucks.tab.history" = "紀錄";
+"fbucks.tab.shop" = "商店";
+"fbucks.about.title" = "什麼是F-Bucks？";
+"fbucks.about.body" = "F-Bucks（Flags Bucks）是遊玩World Arena Flags時可以賺取的遊戲貨幣，可用於購買獨特的頭像配件、造型和其他專屬物品。";
+"fbucks.about.how" = "如何賺取F-Bucks";
+"fbucks.about.perfect.title" = "滿分遊戲";
+"fbucks.about.perfect.desc" = "獲得滿分（10/10或15/15）";
+"fbucks.about.streak10.title" = "連續遊玩10天";
+"fbucks.about.streak10.desc" = "連續10天玩遊戲";
+"fbucks.about.streak20.title" = "連續遊玩20天";
+"fbucks.about.streak20.desc" = "連續20天玩遊戲";
+"fbucks.about.streak50.title" = "連續遊玩50天";
+"fbucks.about.streak50.desc" = "連續50天玩遊戲";
+"fbucks.about.streak100.title" = "連續遊玩100天";
+"fbucks.about.streak100.desc" = "連續100天玩遊戲";
 "fbucks.reward.plus1" = "+1 F-Bucks";
 "fbucks.reward.plus2" = "+2 F-Bucks";
 "fbucks.reward.plus5" = "+5 F-Bucks";
 "fbucks.reward.plus10" = "+10 F-Bucks";
-"fbucks.history.title" = "Transaction history";
-"fbucks.history.empty" = "No history yet";
-"fbucks.history.empty.hint" = "Play and earn F-Bucks!";
-"fbucks.item.traveler_cap" = "Traveler's cap";
-"fbucks.item.champion_shirt" = "Champion tee";
-"fbucks.item.socks" = "Socks";
-"fbucks.item.rainbow_skin" = "Rainbow skin";
-"fbucks.item.gold_skin" = "Gold skin";
-"fbucks.item.explorer_jacket" = "Explorer jacket";
-"fbucks.item.fire_effect" = "Fire effect";
-"fbucks.item.neon_skin" = "Neon skin";
-"fbucks.item.stars_effect" = "Star effect";
-"fbucks.item.champion_jacket" = "Champion jacket";
-"fbucks.tx.daily_bonus" = "Daily bonus";
+"fbucks.history.title" = "交易紀錄";
+"fbucks.history.empty" = "暫無紀錄";
+"fbucks.history.empty.hint" = "玩遊戲，賺取F-Bucks！";
+"fbucks.item.traveler_cap" = "旅行者帽";
+"fbucks.item.champion_shirt" = "冠軍T恤";
+"fbucks.item.socks" = "襪子";
+"fbucks.item.rainbow_skin" = "彩虹造型";
+"fbucks.item.gold_skin" = "黃金造型";
+"fbucks.item.explorer_jacket" = "探險家夾克";
+"fbucks.item.fire_effect" = "火焰特效";
+"fbucks.item.neon_skin" = "霓虹造型";
+"fbucks.item.stars_effect" = "星星特效";
+"fbucks.item.champion_jacket" = "冠軍夾克";
+"fbucks.tx.daily_bonus" = "每日獎勵";
 "friends.remind.status_sent" = "已送出提醒";
 
 /* Duel prepare error */

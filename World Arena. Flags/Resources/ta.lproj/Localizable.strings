@@ -1,6 +1,6 @@
 "Open in Game Center" = "Game Center இல் திற";
 "Заработай %d XP" = "%d XP ஐப் பெறுங்கள்";
-"F-BUCKS EARNED" = "F-BUCKS EARNED";
+"F-BUCKS EARNED" = "பெற்ற F-Bucks";
 "Дай %d правильных ответов" = "%d சரியான பதில்களைப் பெறவும்";
 "Наберите %d правильных ответов за месяц" = "இந்த மாதம் %d சரியான பதில்களைப் பெறுங்கள்";
 "Сыграй %d идеальных игр" = "%d சரியான கேம்களை விளையாடுங்கள்";
@@ -143,7 +143,7 @@
 "See how your friends are doing" = "உங்கள் நண்பர்கள் எப்படி இருக்கிறார்கள் என்று பாருங்கள்";
 "No friends yet" = "இன்னும் நண்பர்கள் இல்லை";
 "Add friends to see their streaks and compete together!" = "நண்பர்களின் கோடுகளைப் பார்க்கவும், ஒன்றாகப் போட்டியிடவும் அவர்களைச் சேர்க்கவும்!";
-"NUDGE" = "NUDGE";
+"NUDGE" = "நினைவூட்டு";
 "Remind" = "நினைவூட்டு";
 "Reminder sent to %@" = "நினைவூட்டல் %@க்கு அனுப்பப்பட்டது";
 "%@ reminds you" = "%@ உங்களுக்கு நினைவூட்டுகிறது";
@@ -343,22 +343,22 @@
 "Как заработать" = "எப்படி சம்பாதிப்பது";
 "История" = "வரலாறு";
 "Магазин" = "கடை";
-"Что такое F-Bucks?" = "F-பக்ஸ் என்றால் என்ன?";
+"Что такое F-Bucks?" = "F-Bucks என்றால் என்ன?";
 "F-Bucks (Flags Bucks) — это внутриигровая валюта, которую можно заработать, играя в World Arena Flags. Используйте F-Bucks для покупки уникальных элементов аватара, скинов и других эксклюзивных предметов." = "F-Bucks (Flags Bucks) என்பது உலக அரங்கக் கொடிகளை விளையாடுவதன் மூலம் நீங்கள் சம்பாதிக்கக்கூடிய ஒரு விளையாட்டு நாணயமாகும். தனித்துவமான அவதார் பொருட்கள், தோல்கள் மற்றும் பிற பிரத்தியேக பொருட்களை வாங்க F-பக்ஸைப் பயன்படுத்தவும்.";
 "Особенности:" = "அம்சங்கள்:";
 "Зарабатывайте за идеальные результаты в играх" = "சரியான விளையாட்டு முடிவுகளுக்கு சம்பாதிக்கவும்";
 "Получайте бонусы за длинные серии дней" = "நீண்ட நாள் ஸ்ட்ரீக்குகளுக்கு போனஸ் கிடைக்கும்";
 "Покупайте эксклюзивные элементы для аватара" = "பிரத்யேக அவதார் பொருட்களை வாங்கவும்";
 "Создавайте уникальный стиль" = "ஒரு தனித்துவமான பாணியை உருவாக்கவும்";
-"Как заработать F-Bucks" = "F-பக்ஸ் சம்பாதிப்பது எப்படி";
+"Как заработать F-Bucks" = "F-Bucks பெறுவது எப்படி";
 "Идеальный результат" = "சரியான முடிவு";
 "Идеальный результат игры" = "சரியான விளையாட்டு முடிவு";
 "Получите идеальный результат в игре (10/10 или 15/15)" = "விளையாட்டில் சரியான முடிவைப் பெறுங்கள் (10/10 அல்லது 15/15)";
-"Серия 10 дней" = "10 நாள் ஸ்ட்ரீக்";
+"Серия 10 дней" = "10 நாள் தொடர்";
 "Играйте 10 дней подряд" = "தொடர்ந்து 10 நாட்கள் விளையாடுங்கள்";
-"Серия 20 дней" = "20 நாள் ஸ்ட்ரீக்";
+"Серия 20 дней" = "20 நாள் தொடர்";
 "Играйте 20 дней подряд" = "தொடர்ந்து 20 நாட்கள் விளையாடுங்கள்";
-"Серия 50 дней" = "50 நாள் ஸ்ட்ரீக்";
+"Серия 50 дней" = "50 நாள் தொடர்";
 "Играйте 50 дней подряд" = "தொடர்ந்து 50 நாட்கள் விளையாடுங்கள்";
 "Серия 100 дней" = "100 நாள் தொடர்";
 "Играйте 100 дней подряд" = "100 நாட்கள் தொடர்ந்து விளையாடுங்கள்";
@@ -375,10 +375,10 @@
 "Анимации и спецэффекты" = "அனிமேஷன் மற்றும் சிறப்பு விளைவுகள்";
 "Футболка чемпиона" = "சாம்பியன் டி-ஷர்ட்";
 "Кепка путешественника" = "பயணிகளின் தொப்பி";
-"Куртка исследователя" = "எக்ஸ்ப்ளோரரின் ஜாக்கெட்";
-"Золотой скин" = "தங்க தோல்";
-"Радужный скин" = "ரெயின்போ ஸ்கின்";
-"Неоновый скин" = "நியான் தோல்";
+"Куртка исследователя" = "எக்ஸ்ப்ளோரர் ஜாக்கெட்";
+"Золотой скин" = "தங்கத் தோற்றம்";
+"Радужный скин" = "வானவில் தோற்றம்";
+"Неоновый скин" = "நியான் தோற்றம்";
 "Эффект блёсток" = "பிரகாசம் விளைவு";
 "Огненный эффект" = "தீ விளைவு";
 "Звёздный эффект" = "நட்சத்திர விளைவு";
@@ -426,9 +426,9 @@
 
 /* Game header popovers */
 "Total game time since start" = "ஆட்டம் தொடங்கியதிலிருந்து மொத்த நேரம்";
-"Time limit per question depending on difficulty" = "Time limit per question depending on difficulty";
+"Time limit per question depending on difficulty" = "ஒவ்வொரு கேள்விக்கான நேரமும் சிரம நிலையைப் பொறுத்தது";
 "Total Game Time" = "மொத்த விளையாட்டு நேரம்";
-"Time Per Question" = "Time Per Question";
+"Time Per Question" = "ஒவ்வொரு கேள்விக்கான நேரம்";
 
 /* Game header motivation (iPad) */
 "Game motivation 1" = "உங்களுக்கு இது கிடைத்தது!";
@@ -936,7 +936,7 @@
 "Текущая серия" = "தற்போதைய ஸ்ட்ரீக்";
 "дней" = "நாட்கள்";
 "Точность" = "துல்லியம்";
-"Теперь вы можете без единой ошибки отвечать на все наши вопросы с точностью в %d%%" = "இப்போது %d%% துல்லியத்துடன் எந்த தவறும் இன்றி எங்கள் அனைத்து கேள்விகளுக்கும் பதிலளிக்க முடியும்";
+"Теперь вы можете без единой ошибки отвечать на все наши вопросы с точностью в %d%%" = "உங்கள் பதில்களின் துல்லியம் %d%%.";
 "Мы будем рады, если вы захотите снова вернуться к нам!" = "நீங்கள் மீண்டும் எங்களிடம் திரும்ப விரும்பினால் நாங்கள் மகிழ்ச்சியடைவோம்!";
 "Продолжить" = "தொடரவும்";
 
@@ -1000,7 +1000,7 @@
 
 /* Enhanced Streak View */
 "Don't break the chain! Come back tomorrow!" = "சங்கிலியை உடைக்காதே! நாளை திரும்பி வா!";
-"Time to restart your streak! You can do it!" = "Time to restart your streak! You can do it!";
+"Time to restart your streak! You can do it!" = "தினசரி விளையாட்டுத் தொடரை மீண்டும் தொடங்குவோம்! உங்களால் முடியும்!";
 
 /* Monthly XP Quest */
 "Заработай %d XP за месяц" = "இந்த மாதம் %d XP சம்பாதிக்கவும்";
@@ -1049,8 +1049,8 @@
 "Learn flags and countries of the World" = "உலகின் கொடிகள் மற்றும் நாடுகளைக் கற்றுக்கொள்ளுங்கள்";
 "Select Level" = "நிலை தேர்ந்தெடுக்கவும்";
 "Level - %@" = "நிலை - %@";
-"Exclusive tournaments with cash F-Bucks prizes" = "ரொக்க F-பக்ஸ் பரிசுகளுடன் கூடிய பிரத்யேக போட்டிகள்";
-"Survival Mode" = "Survival Mode";
+"Exclusive tournaments with cash F-Bucks prizes" = "F-பக்ஸ் பரிசுகளுடன் கூடிய பிரத்யேக போட்டிகள்";
+"Survival Mode" = "உயிர்வாழும் முறை";
 "One mistake = Game Over" = "ஒரு தவறு = ஆட்டம் முடிந்தது";
 "Duel result push format" = "%@: %d — நீங்கள்: %d.";
 "Duel motivation win" = "அற்புதம்! தொடரை தொடருங்கள்.";
@@ -1490,7 +1490,7 @@
 "avatar_editor_beanie" = "பீனி";
 "avatar_editor_bandana" = "பந்தனா";
 "avatar_editor_sport_cap" = "விளையாட்டு தொப்பி";
-"avatar_editor_hat_SilverLeague" = "சில்வர் லீக்";
+"avatar_editor_hat_SilverLeague" = "வெள்ளி லீக்";
 "avatar_editor_hat_10_day_streak" = "10 நாள் தொடர்";
 "avatar_editor_hat_beginner" = "ஆரம்பநிலை";
 "avatar_editor_hat_Premium" = "பிரீமியம்";
@@ -1511,7 +1511,7 @@
 "avatar_editor_opt_short" = "குறுகிய";
 "avatar_editor_opt_curl" = "சுருட்டு";
 "avatar_editor_opt_modern" = "நவீனமானது";
-"avatar_editor_opt_buzz" = "Buzz";
+"avatar_editor_opt_buzz" = "மிகக் குறுகிய முடி";
 "avatar_editor_opt_hair_waves" = "அலைகள்";
 "avatar_editor_opt_hair_spiky" = "ஸ்பைக்கி";
 "avatar_editor_opt_hair_slick" = "மென்மையாய்";
@@ -1525,19 +1525,19 @@
 "avatar_editor_opt_jacket" = "ஜாக்கெட்";
 
 "monthly_quest_mission_title" = "%@ பணி";
-"Friend profile progress title" = "STREAK AND PROGRESS";
-"Friend achievements placeholder" = "Friend achievements are shown as they are unlocked";
+"Friend profile progress title" = "தினசரி விளையாட்டுத் தொடரும் முன்னேற்றமும்";
+"Friend achievements placeholder" = "உங்கள் நண்பரின் சாதனைகள் திறக்கப்படும்போது இங்கே தோன்றும்";
 
 "Answer as many flags as possible before time runs out" = "நேரம் முடிவதற்குள் முடிந்த அளவு கொடிகளுக்கு பதிலளிக்கவும்";
 "Duration" = "கால அளவு";
-"Best score" = "Best score";
+"Best score" = "சிறந்த மதிப்பெண்";
 "Wrong answer penalty" = "தவறான பதிலுக்கு தண்டனை";
 "5 correct in a row bonus" = "தொடர்ந்து 5 சரிக்கு போனஸ்";
 "Best combo" = "சிறந்த தொடர்";
 "New record!" = "புதிய சாதனை!";
 "Day leaderboard place" = "நாள் தலைமைப் பலகை இடம்";
 "Week leaderboard place" = "வார தலைமைப் பலகை இடம்";
-"Back to Modes" = "Back to Modes";
+"Back to Modes" = "விளையாட்டு முறைகளுக்குத் திரும்பு";
 "Start" = "தொடங்கு";
 "TC correct answers headline" = "%d சரியானவை";
 "Difficulty description TC" = "%1$d%2$@ ஒரு சுற்றுக்கு • தொடர்ந்து 5 சரிக்கு +%3$d%2$@ • தவறுக்கு −%4$d%2$@";
@@ -1548,11 +1548,11 @@
 "TC intro combo5 bonus title" = "தொடர்ந்து 5 சரி காம்போ";
 "TC detail time penalty fmt" = "டைமர்: −%1$d %2$@ (தவறு)";
 "TC detail time combo fmt" = "டைமர்: +%1$d %2$@ (தொடர்ந்து 5 சரி)";
-"TC detail points earned" = "Points for this answer: +%d";
-"TC detail xp earned" = "XP for this answer: +%d";
-"TC detail time penalty" = "Timer: −10 s (wrong answer)";
-"TC detail time combo bonus" = "Timer: +10 s (5 correct in a row)";
-"Share TC headline" = "Time Challenge: %d correct out of %d";
+"TC detail points earned" = "இந்தப் பதிலுக்கான புள்ளிகள்: +%d";
+"TC detail xp earned" = "இந்தப் பதிலுக்கான XP: +%d";
+"TC detail time penalty" = "நேரம்: −10 வினாடிகள் (தவறான பதில்)";
+"TC detail time combo bonus" = "நேரம்: +10 வினாடிகள் (தொடர்ந்து 5 சரியான பதில்கள்)";
+"Share TC headline" = "நேர சவால்: %2$d கேள்விகளில் %1$d சரியான பதில்கள்";
 
 "Time seconds unit short" = "வி.";
 "TC stat best combo" = "சிறந்த தொடர்";
@@ -1582,10 +1582,10 @@
 "Survival weekly title" = "வாராந்திர உயிர் பிழைப்பு சவால்";
 "Survival weekly target fmt" = "இந்த வாரம் ஒரு ஓட்டத்தில் %d கொடிகளை கடக்கவும்.";
 "Survival weekly best fmt" = "இந்த வாரம் உங்கள் சிறந்தது: %d கொடிகள்";
-"Survival weekly all milestones met body" = "You've reached every weekly depth goal — up to 200 flags in one run. Brilliant!";
-"Survival weekly reward all claimed" = "All weekly survival bonuses claimed (up to +4000 XP).";
+"Survival weekly all milestones met body" = "ஒரே ஆட்டத்தில் 200 கொடிகள் வரை, அனைத்து வாராந்திர இலக்குகளையும் அடைந்துவிட்டீர்கள். அருமை!";
+"Survival weekly reward all claimed" = "உயிர்வாழும் முறையின் அனைத்து வாராந்திர போனஸ்களும் பெறப்பட்டன (அதிகபட்சம் +4000 XP).";
 "Survival weekly reward claimed" = "வாராந்திர போனஸ் பெறப்பட்டது (+1000 XP)";
-"Survival weekly reward hint" = "Each milestone — 25, 50, 100, then 200 flags in one run — gives +1000 XP once per week.";
+"Survival weekly reward hint" = "ஒரே ஆட்டத்தில் 25, 50, 100 மற்றும் 200 கொடிகளை அடையும் ஒவ்வொரு இலக்கும் வாரத்திற்கு ஒருமுறை +1000 XP வழங்கும்.";
 
 "Survival result depth progress fmt" = "%1$d / %2$d";
 
@@ -1596,56 +1596,56 @@
 "1 hour" = "1 மணி";
 
 
-"Duel announcement subtitle" = "Same duel for both players. First to score wins!";
-"User 1" = "User 1";
-"User 2" = "User 2";
-"Number of Questions" = "Questions";
+"Duel announcement subtitle" = "இரு வீரர்களுக்கும் ஒரே கேள்விகள் வழங்கப்படும். அதிக மதிப்பெண் பெற்றவர் வெல்வார்; மதிப்பெண்கள் சமமாக இருந்தால், குறைந்த நேரத்தில் முடித்தவர் வெல்வார்.";
+"User 1" = "வீரர் 1";
+"User 2" = "வீரர் 2";
+"Number of Questions" = "கேள்விகள்";
 
 
 /* F-Bucks screen */
 "fbucks.close" = "மூடு";
-"fbucks.currency.name" = "எஃப்-பக்ஸ்";
+"fbucks.currency.name" = "F-Bucks";
 "fbucks.hero.subtitle.enough" = "சுமார் %d உருப்படிகளுக்கு போதுமானது";
 "fbucks.hero.subtitle.rare" = "அரிய பொருளை வாங்கலாம்";
 "fbucks.hero.subtitle.save" = "ஏதாவது விசேஷத்திற்காக சேமிக்கவும்";
 "fbucks.daily.title" = "தினசரி போனஸ்";
-"fbucks.daily.subtitle" = "+1 எஃப்-பக்ஸ்";
-"fbucks.daily.claim" = "உரிமைகோரவும்";
-"fbucks.daily.claimed" = "இன்று கோரப்பட்டது";
-"fbucks.daily.hint" = "+1 இன்று கிடைக்கிறது - உரிமைகோரலைத் தட்டவும்";
+"fbucks.daily.subtitle" = "+1 F-Bucks";
+"fbucks.daily.claim" = "பெறு";
+"fbucks.daily.claimed" = "இன்று பெறப்பட்டது";
+"fbucks.daily.hint" = "இன்று +1 கிடைக்கும் — பெறு என்பதைத் தட்டவும்";
 "fbucks.earn.today.title" = "இன்று சம்பாதிக்கவும்";
-"fbucks.earn.today.subtitle" = "இன்று %d F-பக்ஸ் வரை கிடைக்கும்";
-"fbucks.earn.perfect.title" = "சரியான விளையாட்டு";
+"fbucks.earn.today.subtitle" = "இன்று %d F-Bucks வரை பெறலாம்";
+"fbucks.earn.perfect.title" = "முழு மதிப்பெண் பெற்ற ஆட்டம்";
 "fbucks.earn.perfect.sub" = "10/10 அல்லது 15/15க்கு +1";
-"fbucks.earn.streak" = "ஸ்ட்ரீக்";
+"fbucks.earn.streak" = "தினசரி விளையாட்டுத் தொடர்";
 "fbucks.earn.streak.sub" = "தொடர் (%d/10 நாட்கள்)";
-"fbucks.earn.league" = "வாரத்தின் உச்சம்";
+"fbucks.earn.league" = "வாரத்தின் சிறந்த வீரர்கள்";
 "fbucks.earn.league.sub" = "உங்கள் லீக்கின் முதல் 3 இடங்களுக்குள் முடிக்கவும்";
-"fbucks.progress.title" = "அடுத்த உருப்படிக்கு முன்னேறுங்கள்";
+"fbucks.progress.title" = "அடுத்த பொருளை நோக்கிய முன்னேற்றம்";
 "fbucks.progress.percent" = "%d%%";
 "fbucks.progress.full" = "அடுத்த வெகுமதிகளை நீங்கள் வாங்கலாம் - கடையைத் திறக்கவும்!";
 "fbucks.want.title" = "அடுத்த இலக்கு";
-"fbucks.want.price" = "விலை: %d F-பக்ஸ்";
+"fbucks.want.price" = "விலை: %d F-Bucks";
 "fbucks.want.you" = "உங்களிடம் உள்ளது: %d";
 "fbucks.want.need" = "மேலும் %d தேவை";
 "fbucks.earn_more" = "மேலும் சம்பாதிக்கவும் →";
 "fbucks.buy_for" = "%dக்கு வாங்கவும்";
 "fbucks.shop.title" = "கடை";
-"fbucks.shop.subtitle" = "பிரத்யேக அவதார் பொருட்களுக்கு F-பக்ஸ் செலவழிக்கவும்";
+"fbucks.shop.subtitle" = "பிரத்யேக அவதார் பொருட்களுக்கு F-Bucks செலவிடுங்கள்";
 "fbucks.shop.tier.common" = "பொதுவானது";
-"fbucks.shop.tier.rare" = "அரிதான";
-"fbucks.shop.tier.legendary" = "பழம்பெரும்";
-"fbucks.shop.limited" = "வரையறுக்கப்பட்டுள்ளது";
-"fbucks.perfect.badge" = "சரியானது";
+"fbucks.shop.tier.rare" = "அரிதானது";
+"fbucks.shop.tier.legendary" = "மிகவும் அரிதானது";
+"fbucks.shop.limited" = "குறைந்த எண்ணிக்கையில்";
+"fbucks.perfect.badge" = "முழு மதிப்பெண்";
 "fbucks.tab.today" = "இன்று";
-"fbucks.tab.about" = "பற்றி";
+"fbucks.tab.about" = "விவரங்கள்";
 "fbucks.tab.history" = "வரலாறு";
 "fbucks.tab.shop" = "கடை";
-"fbucks.about.title" = "F-பக்ஸ் என்றால் என்ன?";
-"fbucks.about.body" = "F-Bucks (Flags Bucks) என்பது உலக அரங்கக் கொடிகளை விளையாடுவதன் மூலம் நீங்கள் சம்பாதிக்கும் விளையாட்டு நாணயமாகும். தனித்துவமான அவதார் துண்டுகள், தோல்கள் மற்றும் பிற பிரத்தியேகப் பொருட்களுக்கு அவற்றைச் செலவிடுங்கள்.";
-"fbucks.about.how" = "F-பக்ஸ் சம்பாதிப்பது எப்படி";
-"fbucks.about.perfect.title" = "சரியான விளையாட்டு";
-"fbucks.about.perfect.desc" = "சரியான மதிப்பெண் பெறுங்கள் (10/10 அல்லது 15/15)";
+"fbucks.about.title" = "F-Bucks என்றால் என்ன?";
+"fbucks.about.body" = "F-Bucks (Flags Bucks) என்பது World Arena Flags விளையாடுவதன் மூலம் பெறும் விளையாட்டு நாணயம். அவதார் அலங்காரங்கள், தோற்றங்கள் மற்றும் பிற பிரத்யேகப் பொருட்களை வாங்க இதைப் பயன்படுத்துங்கள்.";
+"fbucks.about.how" = "F-Bucks பெறுவது எப்படி";
+"fbucks.about.perfect.title" = "முழு மதிப்பெண் பெற்ற ஆட்டம்";
+"fbucks.about.perfect.desc" = "முழு மதிப்பெண் பெறுங்கள் (10/10 அல்லது 15/15)";
 "fbucks.about.streak10.title" = "10 நாள் தொடர்";
 "fbucks.about.streak10.desc" = "தொடர்ந்து 10 நாட்கள் விளையாடுங்கள்";
 "fbucks.about.streak20.title" = "20 நாள் தொடர்";
@@ -1654,21 +1654,21 @@
 "fbucks.about.streak50.desc" = "தொடர்ந்து 50 நாட்கள் விளையாடுங்கள்";
 "fbucks.about.streak100.title" = "100 நாள் தொடர்";
 "fbucks.about.streak100.desc" = "100 நாட்கள் தொடர்ந்து விளையாடுங்கள்";
-"fbucks.reward.plus1" = "+1 எஃப்-பக்ஸ்";
-"fbucks.reward.plus2" = "+2 F-பக்ஸ்";
-"fbucks.reward.plus5" = "+5 F-பக்ஸ்";
-"fbucks.reward.plus10" = "+10 F-பக்ஸ்";
+"fbucks.reward.plus1" = "+1 F-Bucks";
+"fbucks.reward.plus2" = "+2 F-Bucks";
+"fbucks.reward.plus5" = "+5 F-Bucks";
+"fbucks.reward.plus10" = "+10 F-Bucks";
 "fbucks.history.title" = "பரிவர்த்தனை வரலாறு";
-"fbucks.history.empty" = "இதுவரை வரலாறு இல்லை";
-"fbucks.history.empty.hint" = "விளையாடி F-பக்ஸ் சம்பாதிக்கவும்!";
+"fbucks.history.empty" = "இதுவரை பரிவர்த்தனைகள் இல்லை";
+"fbucks.history.empty.hint" = "விளையாடி F-Bucks பெறுங்கள்!";
 "fbucks.item.traveler_cap" = "பயணிகளின் தொப்பி";
-"fbucks.item.champion_shirt" = "சாம்பியன் டீ";
+"fbucks.item.champion_shirt" = "சாம்பியன் டி-ஷர்ட்";
 "fbucks.item.socks" = "சாக்ஸ்";
-"fbucks.item.rainbow_skin" = "ரெயின்போ தோல்";
-"fbucks.item.gold_skin" = "தங்க தோல்";
+"fbucks.item.rainbow_skin" = "வானவில் தோற்றம்";
+"fbucks.item.gold_skin" = "தங்கத் தோற்றம்";
 "fbucks.item.explorer_jacket" = "எக்ஸ்ப்ளோரர் ஜாக்கெட்";
 "fbucks.item.fire_effect" = "தீ விளைவு";
-"fbucks.item.neon_skin" = "நியான் தோல்";
+"fbucks.item.neon_skin" = "நியான் தோற்றம்";
 "fbucks.item.stars_effect" = "நட்சத்திர விளைவு";
 "fbucks.item.champion_jacket" = "சாம்பியன் ஜாக்கெட்";
 "fbucks.tx.daily_bonus" = "தினசரி போனஸ்";

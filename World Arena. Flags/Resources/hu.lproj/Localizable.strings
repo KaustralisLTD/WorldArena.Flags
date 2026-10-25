@@ -1,6 +1,6 @@
 "Open in Game Center" = "Megnyitás a Game Centerben";
 "Заработай %d XP" = "Szerezz %d XP-t";
-"F-BUCKS EARNED" = "F-BUCKS EARNED";
+"F-BUCKS EARNED" = "SZERZETT F-BUCKS";
 "Дай %d правильных ответов" = "Szerezzen %d helyes választ";
 "Наберите %d правильных ответов за месяц" = "Szerezzen %d helyes választ ebben a hónapban";
 "Сыграй %d идеальных игр" = "Játssz %d tökéletes játékot";
@@ -43,7 +43,7 @@
 
 /* Monthly badges sample titles */
 "Алмазная лига" = "Gyémánt Liga";
-"Серия мастера" = "Master Streak";
+"Серия мастера" = "Mesteri sorozat";
 "Чемпион месяца" = "A hónap bajnoka";
 "Идеальная неделя" = "Tökéletes Hét";
 "Бронзовая лига" = "Bronz Liga";
@@ -276,7 +276,7 @@
 "Duel challenge from %@" = "%@ kihívott egy párbajra";
 "Duel result" = "Párbaj eredménye";
 "You won!" = "Te nyertél!";
-"won" = "won";
+"won" = "nyert";
 "You" = "Te";
 "Duel announcement title" = "Párbaj";
 "vs" = "vs";
@@ -343,14 +343,14 @@
 "Как заработать" = "Hogyan lehet keresni";
 "История" = "Történelem";
 "Магазин" = "Üzlet";
-"Что такое F-Bucks?" = "Mik azok az F-Bucks?";
+"Что такое F-Bucks?" = "Mi az a F-Bucks?";
 "F-Bucks (Flags Bucks) — это внутриигровая валюта, которую можно заработать, играя в World Arena Flags. Используйте F-Bucks для покупки уникальных элементов аватара, скинов и других эксклюзивных предметов." = "Az F-Bucks (Flags Bucks) egy játékon belüli pénznem, amelyet a World Arena Flags játékkal kereshet. Az F-Bucks segítségével egyedi avatarelemeket, skineket és egyéb exkluzív tárgyakat vásárolhat.";
 "Особенности:" = "Jellemzők:";
 "Зарабатывайте за идеальные результаты в играх" = "Keressen a tökéletes játékeredményekért";
 "Получайте бонусы за длинные серии дней" = "Szerezzen bónuszokat a hosszú napi sorozatokért";
 "Покупайте эксклюзивные элементы для аватара" = "Vásároljon exkluzív avatar tárgyakat";
 "Создавайте уникальный стиль" = "Hozzon létre egyedi stílust";
-"Как заработать F-Bucks" = "Hogyan lehet F-Bucks-t keresni";
+"Как заработать F-Bucks" = "Hogyan szerezhetsz F-Bucksot?";
 "Идеальный результат" = "Tökéletes Eredmény";
 "Идеальный результат игры" = "Tökéletes játékeredmény";
 "Получите идеальный результат в игре (10/10 или 15/15)" = "Tökéletes eredmény a játékban (10/10 vagy 15/15)";
@@ -362,10 +362,10 @@
 "Играйте 50 дней подряд" = "Játssz 50 egymást követő napon";
 "Серия 100 дней" = "100 napos sorozat";
 "Играйте 100 дней подряд" = "Játssz 100 egymást követő napon";
-"История начислений" = "Tranzakciós előzmények";
+"История начислений" = "Tranzakciók előzményei";
 "История пуста" = "A történelem üres";
 "Начните играть и зарабатывать F-Bucks!" = "Kezdj el játszani és keress F-Bucks-t!";
-"Магазин F-Bucks" = "F-Bucks Shop";
+"Магазин F-Bucks" = "F-Bucks bolt";
 "Потратьте F-Bucks на эксклюзивные элементы для вашего аватара" = "Költsön F-Bucksot exkluzív tárgyakra avatarodhoz";
 "Одежда" = "Ruházat";
 "Уникальные наряды и аксессуары" = "Egyedi ruhák és kiegészítők";
@@ -374,14 +374,14 @@
 "Эффекты" = "Hatások";
 "Анимации и спецэффекты" = "Animációk és speciális effektusok";
 "Футболка чемпиона" = "Bajnoki póló";
-"Кепка путешественника" = "Traveler's Cap";
-"Куртка исследователя" = "Felfedező kabátja";
-"Золотой скин" = "Arany bőr";
-"Радужный скин" = "Szivárvány bőr";
-"Неоновый скин" = "Neon Skin";
-"Эффект блёсток" = "Sparkle Effect";
-"Огненный эффект" = "Tűzhatás";
-"Звёздный эффект" = "Csillag effektus";
+"Кепка путешественника" = "Utazósapka";
+"Куртка исследователя" = "Felfedezőkabát";
+"Золотой скин" = "Arany kinézet";
+"Радужный скин" = "Szivárványszínű kinézet";
+"Неоновый скин" = "Neon kinézet";
+"Эффект блёсток" = "Csillámeffekt";
+"Огненный эффект" = "Tűzeffekt";
+"Звёздный эффект" = "Csillageffekt";
 "Купить" = "Vétel";
 "Покупка" = "Vásárlás";
 "Текст гимна" = "Himnusz szövege";
@@ -426,9 +426,9 @@
 
 /* Game header popovers */
 "Total game time since start" = "Összes játékidő a kezdés óta";
-"Time limit per question depending on difficulty" = "Time limit per question depending on difficulty";
+"Time limit per question depending on difficulty" = "A kérdésenkénti idő a nehézségi szinttől függ";
 "Total Game Time" = "Teljes játékidő";
-"Time Per Question" = "Time Per Question";
+"Time Per Question" = "Idő kérdésenként";
 
 /* Game header motivation (iPad) */
 "Game motivation 1" = "Ez megvan!";
@@ -709,7 +709,7 @@
 "Открыто" = "Feloldva";
 
 /* Achievement titles/descriptions */
-"Ранняя птица" = "Early Bird";
+"Ранняя птица" = "Korán kelő";
 "Достигните серии 5 дней" = "Érj el 5 napos sorozatot";
 "Стабильность" = "Következetesség";
 "Серия 10 дней" = "10 napos sorozat";
@@ -719,9 +719,9 @@
 "Наберите 1000 XP" = "Szerezz 1000 XP-t";
 "Олимпиец XP" = "XP olimpikon";
 "Наберите 5000 XP" = "Szerezz 5000 XP-t";
-"Легенда XP" = "XP Legend";
+"Легенда XP" = "XP-legenda";
 "Наберите 10000 XP" = "Szerezz 10000 XP-t";
-"Исследователь" = "Quest Explorer";
+"Исследователь" = "Küldetésfelfedező";
 "Сыграйте 20 игр" = "Játssz 20 játékot";
 "Ветеран" = "Veterán";
 "Сыграйте 100 игр" = "Játssz 100 játékot";
@@ -732,11 +732,11 @@
 "Серебряная лига" = "Ezüst Liga";
 "Достигните Серебра" = "Érje el az ezüstöt";
 "Золотая лига" = "Arany Liga";
-"Достигните Золота" = "Reach Gold";
+"Достигните Золота" = "Juss el az aranyligába";
 "Платиновая лига" = "Platina Liga";
 "Достигните Платины" = "Érje el a platina helyezést";
 "Алмазная лига" = "Gyémánt Liga";
-"Достигните Алмаза" = "Reach Diamond";
+"Достигните Алмаза" = "Juss el a gyémántligába";
 "Мастер лиг" = "Liga Mester";
 "Достигните Мастера" = "Érd el a Mestert";
 "Первый друг" = "Első Barát";
@@ -823,10 +823,10 @@
 "ВОССТАНОВИТЬ ПОДПИСКУ" = "ELŐFIZETÉS VISSZAÁLLÍTÁSA";
 
 // Achievements
-"Ранняя птица" = "Early Bird";
+"Ранняя птица" = "Korán kelő";
 "Железная воля" = "Vasakarat";
 "Алмазная лига" = "Gyémánt Liga";
-"Серия мастера" = "Master Streak";
+"Серия мастера" = "Mesteri sorozat";
 "Чемпион месяца" = "Havi bajnok";
 "Идеальная неделя" = "Tökéletes Hét";
 
@@ -856,7 +856,7 @@
 "Статистика" = "Statisztika";
 "Уровень" = "Szint";
 "Опыт" = "Tapasztalat";
-"Серия дней" = "Day Streak";
+"Серия дней" = "Napi sorozat";
 "Всего игр" = "Összes játék";
 "Точность" = "Pontosság";
 
@@ -936,7 +936,7 @@
 "Текущая серия" = "Aktuális sorozat";
 "дней" = "napokon";
 "Точность" = "Pontosság";
-"Теперь вы можете без единой ошибки отвечать на все наши вопросы с точностью в %d%%" = "Теперь вы можете без единой ошибки отвечать на все наши вопросы с точностью в %d%%";
+"Теперь вы можете без единой ошибки отвечать на все наши вопросы с точностью в %d%%" = "A válaszaid pontossága %d%%.";
 "Мы будем рады, если вы захотите снова вернуться к нам!" = "Örülnénk, ha még egyszer visszatérne hozzánk!";
 "Продолжить" = "Folytatás";
 
@@ -1000,7 +1000,7 @@
 
 /* Enhanced Streak View */
 "Don't break the chain! Come back tomorrow!" = "Ne szakítsa meg a láncot! Gyere vissza holnap!";
-"Time to restart your streak! You can do it!" = "Time to restart your streak! You can do it!";
+"Time to restart your streak! You can do it!" = "Ideje új sorozatot kezdeni! Menni fog!";
 
 /* Monthly XP Quest */
 "Заработай %d XP за месяц" = "Szerezz %d XP-t ebben a hónapban";
@@ -1049,8 +1049,8 @@
 "Learn flags and countries of the World" = "Ismerje meg a világ zászlóit és országait";
 "Select Level" = "Válassza a Szint lehetőséget";
 "Level - %@" = "Szint - %@";
-"Exclusive tournaments with cash F-Bucks prizes" = "Exkluzív versenyek készpénzes F-Bucks nyereményekkel";
-"Survival Mode" = "Survival Mode";
+"Exclusive tournaments with cash F-Bucks prizes" = "Exkluzív versenyek F-Bucks nyereményekkel";
+"Survival Mode" = "Túlélőmód";
 "One mistake = Game Over" = "Egy hiba = Game Over";
 "Duel result push format" = "%@: %d — Te: %d.";
 "Duel motivation win" = "Elképesztő! Folytassa a sorozatot.";
@@ -1490,7 +1490,7 @@
 "avatar_editor_beanie" = "Micisapka";
 "avatar_editor_bandana" = "Bandanna";
 "avatar_editor_sport_cap" = "Sport sapka";
-"avatar_editor_hat_SilverLeague" = "Ezüst Liga";
+"avatar_editor_hat_SilverLeague" = "Ezüstliga";
 "avatar_editor_hat_10_day_streak" = "10 napos sorozat";
 "avatar_editor_hat_beginner" = "Kezdő";
 "avatar_editor_hat_Premium" = "Prémium";
@@ -1525,19 +1525,19 @@
 "avatar_editor_opt_jacket" = "Kabát";
 
 "monthly_quest_mission_title" = "Küldetés: %@";
-"Friend profile progress title" = "STREAK AND PROGRESS";
-"Friend achievements placeholder" = "Friend achievements are shown as they are unlocked";
+"Friend profile progress title" = "SOROZAT ÉS HALADÁS";
+"Friend achievements placeholder" = "A barátod eredményei a feloldásuk után jelennek meg";
 
 "Answer as many flags as possible before time runs out" = "Válaszolj annyi zászlóra, amennyire csak tudsz, mielőtt lejár az idő";
 "Duration" = "Időtartam";
-"Best score" = "Best score";
+"Best score" = "Legjobb pontszám";
 "Wrong answer penalty" = "Büntetés rossz válaszért";
 "5 correct in a row bonus" = "Bónusz 5 egymás utáni helyesre";
 "Best combo" = "Legjobb sorozat";
 "New record!" = "Új rekord!";
 "Day leaderboard place" = "Hely a napi ranglistán";
 "Week leaderboard place" = "Hely a heti ranglistán";
-"Back to Modes" = "Back to Modes";
+"Back to Modes" = "Vissza a játékmódokhoz";
 "Start" = "Indítás";
 "TC correct answers headline" = "%d helyes";
 "Difficulty description TC" = "%1$d%2$@ kör • +%3$d%2$@ minden 5 egymás utáni helyesre • −%4$d%2$@ hibánként";
@@ -1548,11 +1548,11 @@
 "TC intro combo5 bonus title" = "5 helyes kombó";
 "TC detail time penalty fmt" = "Időzítő: −%1$d %2$@ (hiba)";
 "TC detail time combo fmt" = "Időzítő: +%1$d %2$@ (5 helyes egymás után)";
-"TC detail points earned" = "Points for this answer: +%d";
-"TC detail xp earned" = "XP for this answer: +%d";
-"TC detail time penalty" = "Timer: −10 s (wrong answer)";
-"TC detail time combo bonus" = "Timer: +10 s (5 correct in a row)";
-"Share TC headline" = "Time Challenge: %d correct out of %d";
+"TC detail points earned" = "Pontok ezért a válaszért: +%d";
+"TC detail xp earned" = "XP ezért a válaszért: +%d";
+"TC detail time penalty" = "Idő: −10 mp (hibás válasz)";
+"TC detail time combo bonus" = "Idő: +10 mp (5 helyes válasz egymás után)";
+"Share TC headline" = "Időkihívás: %1$d helyes válasz %2$d kérdésből";
 
 "Time seconds unit short" = "s";
 "TC stat best combo" = "Legjobb sorozat";
@@ -1582,10 +1582,10 @@
 "Survival weekly title" = "Heti túlélő kihívás";
 "Survival weekly target fmt" = "Ezen a héten egy futamban élj túl %d zászlót.";
 "Survival weekly best fmt" = "A heti legjobbod: %d zászló";
-"Survival weekly all milestones met body" = "You've reached every weekly depth goal — up to 200 flags in one run. Brilliant!";
-"Survival weekly reward all claimed" = "All weekly survival bonuses claimed (up to +4000 XP).";
+"Survival weekly all milestones met body" = "Minden heti célt elértél — egészen 200 zászlóig egy menetben. Remek!";
+"Survival weekly reward all claimed" = "Az összes heti túlélési bónuszt átvetted (akár +4000 XP).";
 "Survival weekly reward claimed" = "Heti bónusz beváltva (+1000 XP)";
-"Survival weekly reward hint" = "Each milestone — 25, 50, 100, then 200 flags in one run — gives +1000 XP once per week.";
+"Survival weekly reward hint" = "Minden mérföldkő — 25, 50, 100, majd 200 zászló egy menetben — hetente egyszer +1000 XP-t ér.";
 
 "Survival result depth progress fmt" = "%1$d / %2$d";
 
@@ -1596,56 +1596,56 @@
 "1 hour" = "1 óra";
 
 
-"Duel announcement subtitle" = "Same duel for both players. First to score wins!";
-"User 1" = "User 1";
-"User 2" = "User 2";
-"Number of Questions" = "Questions";
+"Duel announcement subtitle" = "Mindkét játékos ugyanazokat a kérdéseket kapja. A több pont nyer; pontegyenlőségnél a gyorsabb játékos győz.";
+"User 1" = "1. játékos";
+"User 2" = "2. játékos";
+"Number of Questions" = "Kérdések";
 
 
 /* F-Bucks screen */
-"fbucks.close" = "Közeli";
+"fbucks.close" = "Bezárás";
 "fbucks.currency.name" = "F-Bucks";
-"fbucks.hero.subtitle.enough" = "Körülbelül %d elemhez elegendő";
-"fbucks.hero.subtitle.rare" = "Ritka tárgyat vásárolhat";
-"fbucks.hero.subtitle.save" = "Tartsa a megtakarítást valami különlegesre";
+"fbucks.hero.subtitle.enough" = "Körülbelül %d tárgyra elég";
+"fbucks.hero.subtitle.rare" = "Vehetsz egy ritka tárgyat";
+"fbucks.hero.subtitle.save" = "Gyűjts tovább valami különlegesre";
 "fbucks.daily.title" = "Napi bónusz";
 "fbucks.daily.subtitle" = "+1 F-Bucks";
-"fbucks.daily.claim" = "Követelés";
-"fbucks.daily.claimed" = "Ma igényelték";
-"fbucks.daily.hint" = "A +1 ma elérhető – koppintson az Igénylés gombra";
-"fbucks.earn.today.title" = "Keressen ma";
-"fbucks.earn.today.subtitle" = "Ma akár %d F-Bucks is lehetséges";
+"fbucks.daily.claim" = "Átvétel";
+"fbucks.daily.claimed" = "Ma már átvetted";
+"fbucks.daily.hint" = "Ma +1 érhető el — koppints az Átvétel gombra";
+"fbucks.earn.today.title" = "Szerezz ma";
+"fbucks.earn.today.subtitle" = "Ma akár %d F-Bucks is szerezhető";
 "fbucks.earn.perfect.title" = "Tökéletes játék";
 "fbucks.earn.perfect.sub" = "+1 10/10-re vagy 15/15-re";
-"fbucks.earn.streak" = "Csík";
+"fbucks.earn.streak" = "Napi sorozat";
 "fbucks.earn.streak.sub" = "Sorozat (%d/10 nap)";
-"fbucks.earn.league" = "A hét csúcsa";
-"fbucks.earn.league.sub" = "Végezzen a bajnokság első 3 helyezettje között";
-"fbucks.progress.title" = "Haladás a következő elemre";
+"fbucks.earn.league" = "A hét legjobbjai";
+"fbucks.earn.league.sub" = "Végezz a ligád első 3 helyezettje között";
+"fbucks.progress.title" = "Haladás a következő tárgy felé";
 "fbucks.progress.percent" = "%d%%";
-"fbucks.progress.full" = "Megengedheti magának a következő jutalmakat – nyissa ki az üzletet!";
-"fbucks.want.title" = "Következő gól";
+"fbucks.progress.full" = "Van elég F-Bucksod az új jutalmakra — nyisd meg a boltot!";
+"fbucks.want.title" = "Következő cél";
 "fbucks.want.price" = "Ár: %d F-Bucks";
-"fbucks.want.you" = "Önnek van: %d";
+"fbucks.want.you" = "Egyenleged: %d";
 "fbucks.want.need" = "Még %d kell";
-"fbucks.earn_more" = "Keressen többet →";
-"fbucks.buy_for" = "Vásároljon %d-ért";
+"fbucks.earn_more" = "Szerezz többet →";
+"fbucks.buy_for" = "Vásárlás %d-ért";
 "fbucks.shop.title" = "Üzlet";
-"fbucks.shop.subtitle" = "Költsön F-Bucks-t exkluzív avatartárgyakra";
-"fbucks.shop.tier.common" = "Közös";
+"fbucks.shop.subtitle" = "Költs F-Bucksot exkluzív avatartárgyakra";
+"fbucks.shop.tier.common" = "Gyakori";
 "fbucks.shop.tier.rare" = "Ritka";
 "fbucks.shop.tier.legendary" = "Legendás";
 "fbucks.shop.limited" = "KORLÁTOZOTT";
 "fbucks.perfect.badge" = "Tökéletes";
 "fbucks.tab.today" = "Ma";
-"fbucks.tab.about" = "Körülbelül";
-"fbucks.tab.history" = "Történelem";
+"fbucks.tab.about" = "Információ";
+"fbucks.tab.history" = "Előzmények";
 "fbucks.tab.shop" = "Üzlet";
-"fbucks.about.title" = "Mik azok az F-Bucks?";
-"fbucks.about.body" = "Az F-Bucks (Flags Bucks) egy játékon belüli pénznem, amelyet a World Arena Flags játékkal kereshet. Töltsd el őket egyedi avatardarabokra, skinekre és egyéb exkluzív tárgyakra.";
-"fbucks.about.how" = "Hogyan lehet F-Bucks-t keresni";
+"fbucks.about.title" = "Mi az a F-Bucks?";
+"fbucks.about.body" = "A F-Bucks (Flags Bucks) a World Arena Flags játékban szerezhető fizetőeszköz. Egyedi avatarkiegészítőket, kinézeteket és más exkluzív tárgyakat vásárolhatsz belőle.";
+"fbucks.about.how" = "Hogyan szerezhetsz F-Bucksot?";
 "fbucks.about.perfect.title" = "Tökéletes játék";
-"fbucks.about.perfect.desc" = "Tökéletes pontszám (10/10 vagy 15/15)";
+"fbucks.about.perfect.desc" = "Érj el tökéletes pontszámot (10/10 vagy 15/15)";
 "fbucks.about.streak10.title" = "10 napos sorozat";
 "fbucks.about.streak10.desc" = "Játssz 10 egymást követő napon";
 "fbucks.about.streak20.title" = "20 napos sorozat";
@@ -1660,17 +1660,17 @@
 "fbucks.reward.plus10" = "+10 F-Bucks";
 "fbucks.history.title" = "Tranzakciók előzményei";
 "fbucks.history.empty" = "Még nincs előzmény";
-"fbucks.history.empty.hint" = "Játssz és keress F-Bucks-t!";
-"fbucks.item.traveler_cap" = "Utazó sapka";
-"fbucks.item.champion_shirt" = "Champion póló";
+"fbucks.history.empty.hint" = "Játssz és szerezz F-Bucksot!";
+"fbucks.item.traveler_cap" = "Utazósapka";
+"fbucks.item.champion_shirt" = "Bajnoki póló";
 "fbucks.item.socks" = "Zokni";
-"fbucks.item.rainbow_skin" = "Szivárvány bőr";
-"fbucks.item.gold_skin" = "Arany bőr";
-"fbucks.item.explorer_jacket" = "Explorer kabát";
-"fbucks.item.fire_effect" = "Tűz hatás";
-"fbucks.item.neon_skin" = "Neon bőr";
-"fbucks.item.stars_effect" = "Csillag hatás";
-"fbucks.item.champion_jacket" = "Champion kabát";
+"fbucks.item.rainbow_skin" = "Szivárványszínű kinézet";
+"fbucks.item.gold_skin" = "Arany kinézet";
+"fbucks.item.explorer_jacket" = "Felfedezőkabát";
+"fbucks.item.fire_effect" = "Tűzeffekt";
+"fbucks.item.neon_skin" = "Neon kinézet";
+"fbucks.item.stars_effect" = "Csillageffekt";
+"fbucks.item.champion_jacket" = "Bajnoki kabát";
 "fbucks.tx.daily_bonus" = "Napi bónusz";
 "friends.remind.status_sent" = "Emlékeztető elküldve!";
 

@@ -1,6 +1,6 @@
 "Open in Game Center" = "Game Center'da aç";
 "Заработай %d XP" = "%d XP kazanın";
-"F-BUCKS EARNED" = "F-BUCKS EARNED";
+"F-BUCKS EARNED" = "KAZANILAN F-BUCKS";
 "Дай %d правильных ответов" = "%d doğru yanıt alın";
 "Наберите %d правильных ответов за месяц" = "Bu ay %d doğru yanıt alın";
 "Сыграй %d идеальных игр" = "%d mükemmel oyun oyna";
@@ -350,19 +350,19 @@
 "Получайте бонусы за длинные серии дней" = "Uzun gün serileri için bonuslar alın";
 "Покупайте эксклюзивные элементы для аватара" = "Özel avatar öğeleri satın alın";
 "Создавайте уникальный стиль" = "Benzersiz bir stil yaratın";
-"Как заработать F-Bucks" = "F-Bucks Nasıl Kazanılır?";
+"Как заработать F-Bucks" = "F-Bucks nasıl kazanılır?";
 "Идеальный результат" = "Mükemmel Sonuç";
 "Идеальный результат игры" = "Mükemmel oyun sonucu";
 "Получите идеальный результат в игре (10/10 или 15/15)" = "Oyunda mükemmel bir sonuç alın (10/10 veya 15/15)";
-"Серия 10 дней" = "10 Günlük Seri";
-"Играйте 10 дней подряд" = "10 gün üst üste oyna";
-"Серия 20 дней" = "20 Günlük Seri";
-"Играйте 20 дней подряд" = "20 gün üst üste oynayın";
-"Серия 50 дней" = "50 Günlük Seri";
-"Играйте 50 дней подряд" = "50 gün üst üste oyna";
-"Серия 100 дней" = "100 Günlük Seri";
-"Играйте 100 дней подряд" = "100 gün üst üste oyna";
-"История начислений" = "İşlem Geçmişi";
+"Серия 10 дней" = "10 günlük seri";
+"Играйте 10 дней подряд" = "Art arda 10 gün oyna";
+"Серия 20 дней" = "20 günlük seri";
+"Играйте 20 дней подряд" = "Art arda 20 gün oyna";
+"Серия 50 дней" = "50 günlük seri";
+"Играйте 50 дней подряд" = "Art arda 50 gün oyna";
+"Серия 100 дней" = "100 günlük seri";
+"Играйте 100 дней подряд" = "Art arda 100 gün oyna";
+"История начислений" = "İşlem geçmişi";
 "История пуста" = "Geçmiş boş";
 "Начните играть и зарабатывать F-Bucks!" = "Oynamaya ve F-Bucks kazanmaya başlayın!";
 "Магазин F-Bucks" = "F-Bucks Mağazası";
@@ -373,15 +373,15 @@
 "Особые визуальные эффекты" = "Özel görsel efektler";
 "Эффекты" = "Efektler";
 "Анимации и спецэффекты" = "Animasyonlar ve özel efektler";
-"Футболка чемпиона" = "Şampiyon Tişörtü";
-"Кепка путешественника" = "Gezgin Şapkası";
-"Куртка исследователя" = "Kaşif Ceketi";
-"Золотой скин" = "Altın Kaplama";
-"Радужный скин" = "Gökkuşağı Görünümü";
-"Неоновый скин" = "Neon Görünümü";
+"Футболка чемпиона" = "Şampiyon tişörtü";
+"Кепка путешественника" = "Gezgin şapkası";
+"Куртка исследователя" = "Kaşif ceketi";
+"Золотой скин" = "Altın görünüm";
+"Радужный скин" = "Gökkuşağı görünümü";
+"Неоновый скин" = "Neon görünüm";
 "Эффект блёсток" = "Işıltı Etkisi";
-"Огненный эффект" = "Ateş Etkisi";
-"Звёздный эффект" = "Yıldız Etkisi";
+"Огненный эффект" = "Ateş efekti";
+"Звёздный эффект" = "Yıldız efekti";
 "Купить" = "Satın almak";
 "Покупка" = "Satın almak";
 "Текст гимна" = "Marş Metni";
@@ -426,9 +426,9 @@
 
 /* Game header popovers */
 "Total game time since start" = "Başlangıçtan bu yana toplam oyun süresi";
-"Time limit per question depending on difficulty" = "Time limit per question depending on difficulty";
+"Time limit per question depending on difficulty" = "Soru başına süre zorluk seviyesine bağlıdır";
 "Total Game Time" = "Toplam Oyun Süresi";
-"Time Per Question" = "Time Per Question";
+"Time Per Question" = "Soru başına süre";
 
 /* Game header motivation (iPad) */
 "Game motivation 1" = "Bunu aldın!";
@@ -936,7 +936,7 @@
 "Текущая серия" = "Mevcut Seri";
 "дней" = "günler";
 "Точность" = "Kesinlik";
-"Теперь вы можете без единой ошибки отвечать на все наши вопросы с точностью в %d%%" = "Artık tüm sorularımıza tek bir hata yapmadan %d%% doğrulukla yanıt verebilirsiniz";
+"Теперь вы можете без единой ошибки отвечать на все наши вопросы с точностью в %d%%" = "Yanıtlarının doğruluk oranı %d%%.";
 "Мы будем рады, если вы захотите снова вернуться к нам!" = "Tekrar bize dönmek isterseniz mutlu oluruz!";
 "Продолжить" = "Devam etmek";
 
@@ -1000,7 +1000,7 @@
 
 /* Enhanced Streak View */
 "Don't break the chain! Come back tomorrow!" = "Zinciri kırmayın! Yarın tekrar gelin!";
-"Time to restart your streak! You can do it!" = "Time to restart your streak! You can do it!";
+"Time to restart your streak! You can do it!" = "Yeni bir seri başlatma zamanı! Başarabilirsin!";
 
 /* Monthly XP Quest */
 "Заработай %d XP за месяц" = "Bu ay %d XP kazanın";
@@ -1049,8 +1049,8 @@
 "Learn flags and countries of the World" = "Dünyadaki bayrakları ve ülkeleri öğrenin";
 "Select Level" = "Seviye Seçin";
 "Level - %@" = "Seviye - %@";
-"Exclusive tournaments with cash F-Bucks prizes" = "Nakit F-Bucks ödüllü özel turnuvalar";
-"Survival Mode" = "Survival Mode";
+"Exclusive tournaments with cash F-Bucks prizes" = "F-Bucks ödüllü özel turnuvalar";
+"Survival Mode" = "Hayatta kalma modu";
 "One mistake = Game Over" = "Bir hata = Oyun Bitti";
 "Duel result push format" = "%@: %d — Siz: %d.";
 "Duel motivation win" = "İnanılmaz! Seriyi devam ettirin.";
@@ -1178,7 +1178,7 @@
 "FACT_07_DESC" = "Mozambik, bayrağında modern bir silah olan Kalaşnikof tüfeği bulunan tek ülkedir.";
 "FACT_08_TITLE" = "Neredeyse aynı bayraklar";
 "FACT_08_DESC" = "Romanya ve Çad bayrakları birbirine çok benziyor; genellikle mavinin tonuyla ayırt edilirler.";
-"FACT_09_TITLE" = "Ukraine's symbolism";
+"FACT_09_TITLE" = "Ukrayna bayrağının simgeleri";
 "FACT_09_DESC" = "Ukrayna'nın mavi ve sarı bayrağı geleneksel olarak buğday tarlasının üzerindeki gökyüzü olarak yorumlanır.";
 "FACT_10_TITLE" = "En basit bayrak";
 "FACT_10_DESC" = "Libya'nın 1977'den 2011'e kadar olan bayrağı hiçbir sembol veya desen olmaksızın düz yeşildi.";
@@ -1525,19 +1525,19 @@
 "avatar_editor_opt_jacket" = "Ceket";
 
 "monthly_quest_mission_title" = "%@ Görevi";
-"Friend profile progress title" = "STREAK AND PROGRESS";
-"Friend achievements placeholder" = "Friend achievements are shown as they are unlocked";
+"Friend profile progress title" = "SERİ VE İLERLEME";
+"Friend achievements placeholder" = "Arkadaşının başarımları açıldıkça burada görünür";
 
 "Answer as many flags as possible before time runs out" = "Süre dolmadan olabildiğince çok bayrak bil";
 "Duration" = "Süre";
-"Best score" = "Best score";
+"Best score" = "En yüksek puan";
 "Wrong answer penalty" = "Yanlış cevap cezası";
 "5 correct in a row bonus" = "Üst üste 5 doğru bonusu";
 "Best combo" = "En iyi seri";
 "New record!" = "Yeni rekor!";
 "Day leaderboard place" = "Günlük sıralamadaki yer";
 "Week leaderboard place" = "Haftalık sıralamadaki yer";
-"Back to Modes" = "Back to Modes";
+"Back to Modes" = "Mod seçimine dön";
 "Start" = "Başla";
 "TC correct answers headline" = "%d doğru";
 "Difficulty description TC" = "%1$d%2$@ tur • üst üste 5 doğruya +%3$d%2$@ • hataya −%4$d%2$@";
@@ -1548,11 +1548,11 @@
 "TC intro combo5 bonus title" = "Üst üste 5 doğru kombo";
 "TC detail time penalty fmt" = "Süre: −%1$d %2$@ (yanlış)";
 "TC detail time combo fmt" = "Süre: +%1$d %2$@ (üst üste 5 doğru)";
-"TC detail points earned" = "Points for this answer: +%d";
-"TC detail xp earned" = "XP for this answer: +%d";
-"TC detail time penalty" = "Timer: −10 s (wrong answer)";
-"TC detail time combo bonus" = "Timer: +10 s (5 correct in a row)";
-"Share TC headline" = "Time Challenge: %d correct out of %d";
+"TC detail points earned" = "Bu yanıt için puan: +%d";
+"TC detail xp earned" = "Bu yanıt için XP: +%d";
+"TC detail time penalty" = "Süre: −10 sn (yanlış yanıt)";
+"TC detail time combo bonus" = "Süre: +10 sn (art arda 5 doğru yanıt)";
+"Share TC headline" = "Zaman mücadelesi: %2$d soruda %1$d doğru";
 
 "Time seconds unit short" = "sn";
 "TC stat best combo" = "En iyi seri";
@@ -1582,10 +1582,10 @@
 "Survival weekly title" = "Haftalık Hayatta Kalma görevi";
 "Survival weekly target fmt" = "Bu hafta tek koşuda %d bayrak hayatta kal.";
 "Survival weekly best fmt" = "Bu haftaki en iyisi: %d bayrak";
-"Survival weekly all milestones met body" = "You've reached every weekly depth goal — up to 200 flags in one run. Brilliant!";
-"Survival weekly reward all claimed" = "All weekly survival bonuses claimed (up to +4000 XP).";
+"Survival weekly all milestones met body" = "Tüm haftalık hedeflere ulaştın — tek oyunda 200 bayrağa kadar. Harika!";
+"Survival weekly reward all claimed" = "Tüm haftalık hayatta kalma bonusları alındı (en fazla +4000 XP).";
 "Survival weekly reward claimed" = "Haftalık bonus alındı (+1000 XP)";
-"Survival weekly reward hint" = "Each milestone — 25, 50, 100, then 200 flags in one run — gives +1000 XP once per week.";
+"Survival weekly reward hint" = "Tek oyunda 25, 50, 100 ve 200 bayrak hedeflerinin her biri haftada bir kez +1000 XP kazandırır.";
 
 "Survival result depth progress fmt" = "%1$d / %2$d";
 
@@ -1596,81 +1596,81 @@
 "1 hour" = "1 saat";
 
 
-"Duel announcement subtitle" = "Same duel for both players. First to score wins!";
-"User 1" = "User 1";
-"User 2" = "User 2";
-"Number of Questions" = "Questions";
+"Duel announcement subtitle" = "İki oyuncuya da aynı sorular sorulur. Yüksek puan kazanır; puanlar eşitse daha hızlı bitiren kazanır.";
+"User 1" = "Oyuncu 1";
+"User 2" = "Oyuncu 2";
+"Number of Questions" = "Sorular";
 
 /* F-Bucks screen */
-"fbucks.close" = "Close";
+"fbucks.close" = "Kapat";
 "fbucks.currency.name" = "F-Bucks";
-"fbucks.hero.subtitle.enough" = "Enough for about %d items";
-"fbucks.hero.subtitle.rare" = "You can buy a rare item";
-"fbucks.hero.subtitle.save" = "Keep saving for something special";
-"fbucks.daily.title" = "Daily bonus";
+"fbucks.hero.subtitle.enough" = "Yaklaşık %d eşya için yeterli";
+"fbucks.hero.subtitle.rare" = "Nadir bir eşya alabilirsin";
+"fbucks.hero.subtitle.save" = "Özel bir şey için biriktirmeye devam et";
+"fbucks.daily.title" = "Günlük bonus";
 "fbucks.daily.subtitle" = "+1 F-Bucks";
-"fbucks.daily.claim" = "Claim";
-"fbucks.daily.claimed" = "Claimed today";
-"fbucks.daily.hint" = "+1 available today — tap Claim";
-"fbucks.earn.today.title" = "Earn today";
-"fbucks.earn.today.subtitle" = "Up to %d F-Bucks possible today";
-"fbucks.earn.perfect.title" = "Perfect game";
-"fbucks.earn.perfect.sub" = "+1 for 10/10 or 15/15";
-"fbucks.earn.streak" = "Streak";
-"fbucks.earn.streak.sub" = "Series (%d/10 days)";
-"fbucks.earn.league" = "Top of the week";
-"fbucks.earn.league.sub" = "Finish in the top 3 of your league";
-"fbucks.progress.title" = "Progress to next item";
+"fbucks.daily.claim" = "Al";
+"fbucks.daily.claimed" = "Bugün alındı";
+"fbucks.daily.hint" = "Bugün +1 alabilirsin — Al düğmesine dokun";
+"fbucks.earn.today.title" = "Bugün kazan";
+"fbucks.earn.today.subtitle" = "Bugün en fazla %d F-Bucks kazanabilirsin";
+"fbucks.earn.perfect.title" = "Kusursuz oyun";
+"fbucks.earn.perfect.sub" = "10/10 veya 15/15 için +1";
+"fbucks.earn.streak" = "Günlük seri";
+"fbucks.earn.streak.sub" = "Günlük seri (%d/10 gün)";
+"fbucks.earn.league" = "Haftanın en iyileri";
+"fbucks.earn.league.sub" = "Liginde ilk 3'e gir";
+"fbucks.progress.title" = "Sonraki eşyaya ilerleme";
 "fbucks.progress.percent" = "%d%%";
-"fbucks.progress.full" = "You can afford the next rewards — open the shop!";
-"fbucks.want.title" = "Next goal";
-"fbucks.want.price" = "Price: %d F-Bucks";
-"fbucks.want.you" = "You have: %d";
-"fbucks.want.need" = "Need %d more";
-"fbucks.earn_more" = "Earn more →";
-"fbucks.buy_for" = "Buy for %d";
-"fbucks.shop.title" = "Shop";
-"fbucks.shop.subtitle" = "Spend F-Bucks on exclusive avatar items";
-"fbucks.shop.tier.common" = "Common";
-"fbucks.shop.tier.rare" = "Rare";
-"fbucks.shop.tier.legendary" = "Legendary";
-"fbucks.shop.limited" = "LIMITED";
-"fbucks.perfect.badge" = "Perfect";
-"fbucks.tab.today" = "Today";
-"fbucks.tab.about" = "About";
-"fbucks.tab.history" = "History";
-"fbucks.tab.shop" = "Shop";
-"fbucks.about.title" = "What are F-Bucks?";
-"fbucks.about.body" = "F-Bucks (Flags Bucks) are in-game currency you earn by playing World Arena Flags. Spend them on unique avatar pieces, skins, and other exclusive items.";
-"fbucks.about.how" = "How to earn F-Bucks";
-"fbucks.about.perfect.title" = "Perfect game";
-"fbucks.about.perfect.desc" = "Get a perfect score (10/10 or 15/15)";
-"fbucks.about.streak10.title" = "10-day streak";
-"fbucks.about.streak10.desc" = "Play 10 days in a row";
-"fbucks.about.streak20.title" = "20-day streak";
-"fbucks.about.streak20.desc" = "Play 20 days in a row";
-"fbucks.about.streak50.title" = "50-day streak";
-"fbucks.about.streak50.desc" = "Play 50 days in a row";
-"fbucks.about.streak100.title" = "100-day streak";
-"fbucks.about.streak100.desc" = "Play 100 days in a row";
+"fbucks.progress.full" = "Yeni ödüller alabilecek kadar biriktirdin — mağazayı aç!";
+"fbucks.want.title" = "Sonraki hedef";
+"fbucks.want.price" = "Fiyat: %d F-Bucks";
+"fbucks.want.you" = "Bakiyen: %d";
+"fbucks.want.need" = "%d daha gerekiyor";
+"fbucks.earn_more" = "Daha fazla kazan →";
+"fbucks.buy_for" = "%d karşılığında al";
+"fbucks.shop.title" = "Mağaza";
+"fbucks.shop.subtitle" = "Özel avatar eşyaları için F-Bucks harca";
+"fbucks.shop.tier.common" = "Yaygın";
+"fbucks.shop.tier.rare" = "Nadir";
+"fbucks.shop.tier.legendary" = "Efsanevi";
+"fbucks.shop.limited" = "SINIRLI";
+"fbucks.perfect.badge" = "Kusursuz";
+"fbucks.tab.today" = "Bugün";
+"fbucks.tab.about" = "Hakkında";
+"fbucks.tab.history" = "Geçmiş";
+"fbucks.tab.shop" = "Mağaza";
+"fbucks.about.title" = "F-Bucks nedir?";
+"fbucks.about.body" = "F-Bucks (Flags Bucks), World Arena Flags oynayarak kazandığın oyun içi para birimidir. Benzersiz avatar aksesuarları, görünümler ve diğer özel eşyalar için harcayabilirsin.";
+"fbucks.about.how" = "F-Bucks nasıl kazanılır?";
+"fbucks.about.perfect.title" = "Kusursuz oyun";
+"fbucks.about.perfect.desc" = "Tam puan al (10/10 veya 15/15)";
+"fbucks.about.streak10.title" = "10 günlük seri";
+"fbucks.about.streak10.desc" = "Art arda 10 gün oyna";
+"fbucks.about.streak20.title" = "20 günlük seri";
+"fbucks.about.streak20.desc" = "Art arda 20 gün oyna";
+"fbucks.about.streak50.title" = "50 günlük seri";
+"fbucks.about.streak50.desc" = "Art arda 50 gün oyna";
+"fbucks.about.streak100.title" = "100 günlük seri";
+"fbucks.about.streak100.desc" = "Art arda 100 gün oyna";
 "fbucks.reward.plus1" = "+1 F-Bucks";
 "fbucks.reward.plus2" = "+2 F-Bucks";
 "fbucks.reward.plus5" = "+5 F-Bucks";
 "fbucks.reward.plus10" = "+10 F-Bucks";
-"fbucks.history.title" = "Transaction history";
-"fbucks.history.empty" = "No history yet";
-"fbucks.history.empty.hint" = "Play and earn F-Bucks!";
-"fbucks.item.traveler_cap" = "Traveler's cap";
-"fbucks.item.champion_shirt" = "Champion tee";
-"fbucks.item.socks" = "Socks";
-"fbucks.item.rainbow_skin" = "Rainbow skin";
-"fbucks.item.gold_skin" = "Gold skin";
-"fbucks.item.explorer_jacket" = "Explorer jacket";
-"fbucks.item.fire_effect" = "Fire effect";
-"fbucks.item.neon_skin" = "Neon skin";
-"fbucks.item.stars_effect" = "Star effect";
-"fbucks.item.champion_jacket" = "Champion jacket";
-"fbucks.tx.daily_bonus" = "Daily bonus";
+"fbucks.history.title" = "İşlem geçmişi";
+"fbucks.history.empty" = "Henüz işlem yok";
+"fbucks.history.empty.hint" = "Oyna ve F-Bucks kazan!";
+"fbucks.item.traveler_cap" = "Gezgin şapkası";
+"fbucks.item.champion_shirt" = "Şampiyon tişörtü";
+"fbucks.item.socks" = "Çorap";
+"fbucks.item.rainbow_skin" = "Gökkuşağı görünümü";
+"fbucks.item.gold_skin" = "Altın görünüm";
+"fbucks.item.explorer_jacket" = "Kaşif ceketi";
+"fbucks.item.fire_effect" = "Ateş efekti";
+"fbucks.item.neon_skin" = "Neon görünüm";
+"fbucks.item.stars_effect" = "Yıldız efekti";
+"fbucks.item.champion_jacket" = "Şampiyon ceketi";
+"fbucks.tx.daily_bonus" = "Günlük bonus";
 "friends.remind.status_sent" = "Hatırlatıcı gönderildi!";
 
 /* Duel prepare error */

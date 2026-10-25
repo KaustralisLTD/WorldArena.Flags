@@ -1,6 +1,6 @@
 "Open in Game Center" = "Άνοιγμα στο Game Center";
 "Заработай %d XP" = "Κερδίστε %d XP";
-"F-BUCKS EARNED" = "F-BUCKS EARNED";
+"F-BUCKS EARNED" = "F-BUCKS ΠΟΥ ΚΕΡΔΙΣΕΣ";
 "Дай %d правильных ответов" = "Λάβετε %d σωστές απαντήσεις";
 "Наберите %d правильных ответов за месяц" = "Λάβετε %d σωστές απαντήσεις αυτόν τον μήνα";
 "Сыграй %d идеальных игр" = "Παίξτε %d τέλεια παιχνίδια";
@@ -42,12 +42,12 @@
 "XP" = "XP";
 
 /* Monthly badges sample titles */
-"Алмазная лига" = "Diamond League";
-"Серия мастера" = "Master Streak";
+"Алмазная лига" = "Διαμαντένια λίγκα";
+"Серия мастера" = "Σερί δεξιοτεχνίας";
 "Чемпион месяца" = "Πρωταθλητής του Μήνα";
 "Идеальная неделя" = "Τέλεια εβδομάδα";
-"Бронзовая лига" = "Bronze League";
-"Лига Мастеров" = "Master League";
+"Бронзовая лига" = "Χάλκινη λίγκα";
+"Лига Мастеров" = "Λίγκα των μαιτρ";
 // General
 "World Flags" = "παγκόσμιες σημαίες";
 "Learn flags of the world" = "Μάθετε τις σημαίες του κόσμου";
@@ -200,7 +200,7 @@
 "У Швейцарии единственный квадратный флаг в мире" = "Η Ελβετία έχει τη μοναδική τετράγωνη σημαία στον κόσμο";
 "Самый сложный флаг" = "Η πιο σύνθετη σημαία";
 "У Бутана на флаге изображен дракон" = "Η σημαία του Μπουτάν έχει έναν δράκο";
-"Go Premium" = "Go Premium";
+"Go Premium" = "Απόκτησε Premium";
 "Мой профиль в World Arena Flags" = "Το προφίλ μου στο World Arena Flags";
 "My Profile Share Title" = "Το προφίλ μου στο World Arena Flags";
 "Не удалось добавить друга. Проверьте код." = "Αποτυχία προσθήκης φίλου. Ελέγξτε τον κωδικό.";
@@ -350,19 +350,19 @@
 "Получайте бонусы за длинные серии дней" = "Λάβετε μπόνους για μεγάλες μέρες σερί";
 "Покупайте эксклюзивные элементы для аватара" = "Αγοράστε αποκλειστικά αντικείμενα avatar";
 "Создавайте уникальный стиль" = "Δημιουργήστε ένα μοναδικό στυλ";
-"Как заработать F-Bucks" = "Πώς να κερδίσετε F-Bucks";
+"Как заработать F-Bucks" = "Πώς να κερδίσεις F-Bucks";
 "Идеальный результат" = "Τέλειο αποτέλεσμα";
 "Идеальный результат игры" = "Τέλειο αποτέλεσμα παιχνιδιού";
 "Получите идеальный результат в игре (10/10 или 15/15)" = "Λάβετε τέλειο αποτέλεσμα στο παιχνίδι (10/10 ή 15/15)";
 "Серия 10 дней" = "Σερί 10 ημερών";
-"Играйте 10 дней подряд" = "Παίξτε 10 ημέρες στη σειρά";
+"Играйте 10 дней подряд" = "Παίξε 10 ημέρες στη σειρά";
 "Серия 20 дней" = "Σερί 20 ημερών";
-"Играйте 20 дней подряд" = "Παίξτε 20 ημέρες στη σειρά";
+"Играйте 20 дней подряд" = "Παίξε 20 ημέρες στη σειρά";
 "Серия 50 дней" = "Σερί 50 ημερών";
-"Играйте 50 дней подряд" = "Παίξτε 50 ημέρες στη σειρά";
+"Играйте 50 дней подряд" = "Παίξε 50 ημέρες στη σειρά";
 "Серия 100 дней" = "Σερί 100 ημερών";
-"Играйте 100 дней подряд" = "Παίξτε 100 ημέρες στη σειρά";
-"История начислений" = "Ιστορικό Συναλλαγών";
+"Играйте 100 дней подряд" = "Παίξε 100 ημέρες στη σειρά";
+"История начислений" = "Ιστορικό συναλλαγών";
 "История пуста" = "Η ιστορία είναι άδεια";
 "Начните играть и зарабатывать F-Bucks!" = "Ξεκινήστε να παίζετε και να κερδίζετε F-Bucks!";
 "Магазин F-Bucks" = "Κατάστημα F-Bucks";
@@ -373,14 +373,14 @@
 "Особые визуальные эффекты" = "Ειδικά οπτικά εφέ";
 "Эффекты" = "Υπάρχοντα";
 "Анимации и спецэффекты" = "Κινούμενα σχέδια και ειδικά εφέ";
-"Футболка чемпиона" = "Πρωταθλητής T-Shirt";
-"Кепка путешественника" = "Καπάκι ταξιδιώτη";
-"Куртка исследователя" = "Μπουφάν Explorer";
-"Золотой скин" = "Χρυσό Δέρμα";
-"Радужный скин" = "Δέρμα ουράνιου τόξου";
-"Неоновый скин" = "Νέον δέρμα";
+"Футболка чемпиона" = "Μπλουζάκι πρωταθλητή";
+"Кепка путешественника" = "Καπέλο τζόκεϊ ταξιδιώτη";
+"Куртка исследователя" = "Μπουφάν εξερευνητή";
+"Золотой скин" = "Χρυσή εμφάνιση";
+"Радужный скин" = "Εμφάνιση ουράνιου τόξου";
+"Неоновый скин" = "Εμφάνιση νέον";
 "Эффект блёсток" = "Εφέ Sparkle";
-"Огненный эффект" = "Επίδραση πυρκαγιάς";
+"Огненный эффект" = "Εφέ φωτιάς";
 "Звёздный эффект" = "Εφέ αστεριού";
 "Купить" = "Αγορά";
 "Покупка" = "Αγορά";
@@ -388,7 +388,7 @@
 "Continue playing with unlimited hearts!" = "Συνεχίστε να παίζετε με απεριόριστες καρδιές!";
 "No lives available" = "Δεν υπάρχουν διαθέσιμες ζωές";
 "Unfortunately, the game is not available now: you have no lives. You can buy lives or go Premium." = "Δυστυχώς, το παιχνίδι δεν είναι διαθέσιμο τώρα: δεν έχετε ζωές. Μπορείτε να αγοράσετε ζωές ή να πάτε Premium.";
-"Go Premium" = "Go Premium";
+"Go Premium" = "Απόκτησε Premium";
 "Out of lives" = "Εκτός ζωών";
 "Get Free Lives" = "Αποκτήστε δωρεάν ζωές";
 "Watch video for +3 lives" = "Δείτε βίντεο για +3 ζωές";
@@ -426,9 +426,9 @@
 
 /* Game header popovers */
 "Total game time since start" = "Συνολικός χρόνος παιχνιδιού από την έναρξη";
-"Time limit per question depending on difficulty" = "Time limit per question depending on difficulty";
+"Time limit per question depending on difficulty" = "Ο χρόνος ανά ερώτηση εξαρτάται από τη δυσκολία";
 "Total Game Time" = "Συνολικός χρόνος παιχνιδιού";
-"Time Per Question" = "Time Per Question";
+"Time Per Question" = "Χρόνος ανά ερώτηση";
 
 /* Game header motivation (iPad) */
 "Game motivation 1" = "Το έχεις αυτό!";
@@ -439,7 +439,7 @@
 "Game motivation 6" = "Ένα ακόμα!";
 "Game motivation 7" = "Υπέροχος ρυθμός!";
 "Game motivation 8" = "Σχεδόν εκεί!";
-"%d min %d sec" = "%d min %d sec";
+"%d min %d sec" = "%d λεπ. %d δ.";
 "%d sec" = "%d δευτ";
 
 // Push Notifications
@@ -524,7 +524,7 @@
 "Статистика" = "Στατιστική";
 "Премиум подписка активна" = "Η συνδρομή Premium είναι ενεργή";
 "ВОССТАНОВИТЬ ПОДПИСКУ" = "ΕΠΑΝΑΦΟΡΑ ΣΥΝΔΡΟΜΗΣ";
-"ВЫЙТИ" = "LOG OUT";
+"ВЫЙТИ" = "ΑΠΟΣΥΝΔΕΣΗ";
 "Удалить аккаунт" = "Διαγραφή λογαριασμού";
 "Это действие нельзя отменить. Все ваши данные будут удалены навсегда." = "Αυτή η ενέργεια δεν μπορεί να αναιρεθεί. Όλα τα δεδομένα σας θα διαγραφούν οριστικά.";
 
@@ -709,19 +709,19 @@
 "Открыто" = "Ακλείδωτος";
 
 /* Achievement titles/descriptions */
-"Ранняя птица" = "Early Bird";
+"Ранняя птица" = "Πρωινό πουλί";
 "Достигните серии 5 дней" = "Φτάσε σε σερί 5 ημερών";
 "Стабильность" = "Συνοχή";
 "Серия 10 дней" = "Σερί 10 ημερών";
-"Железная воля" = "Iron Will";
+"Железная воля" = "Σιδερένια θέληση";
 "Серия 30 дней" = "Σερί 30 ημερών";
 "Новичок XP" = "XP Αρχάριος";
 "Наберите 1000 XP" = "Κερδίστε 1000 XP";
-"Олимпиец XP" = "XP Olympian";
+"Олимпиец XP" = "Ολυμπιονίκης XP";
 "Наберите 5000 XP" = "Κερδίστε 5000 XP";
-"Легенда XP" = "XP Legend";
+"Легенда XP" = "Θρύλος XP";
 "Наберите 10000 XP" = "Κερδίστε 10000 XP";
-"Исследователь" = "Quest Explorer";
+"Исследователь" = "Εξερευνητής αποστολών";
 "Сыграйте 20 игр" = "Παίξτε 20 παιχνίδια";
 "Ветеран" = "Βετεράνος";
 "Сыграйте 100 игр" = "Παίξτε 100 παιχνίδια";
@@ -729,15 +729,15 @@
 "Точность 70%" = "Φτάστε ακρίβεια 70%.";
 "Снайпер" = "Σκοπευτής ελεύθερος";
 "Точность 85%" = "Φτάστε σε ακρίβεια 85%.";
-"Серебряная лига" = "Silver League";
+"Серебряная лига" = "Ασημένια λίγκα";
 "Достигните Серебра" = "Φτάστε το ασήμι";
-"Золотая лига" = "Gold League";
+"Золотая лига" = "Χρυσή λίγκα";
 "Достигните Золота" = "Φτάσε σε χρυσό";
-"Платиновая лига" = "Platinum League";
+"Платиновая лига" = "Πλατινένια λίγκα";
 "Достигните Платины" = "Φτάστε πλατινένιο";
-"Алмазная лига" = "Diamond League";
+"Алмазная лига" = "Διαμαντένια λίγκα";
 "Достигните Алмаза" = "Φτάσε το Diamond";
-"Мастер лиг" = "League Master";
+"Мастер лиг" = "Μαιτρ των λιγκών";
 "Достигните Мастера" = "Φτάστε τον Δάσκαλο";
 "Первый друг" = "Πρώτος φίλος";
 "Добавьте друга" = "Προσθέστε έναν φίλο";
@@ -747,8 +747,8 @@
 "Поделитесь профилем" = "Μοιραστείτε το προφίλ σας";
 "Спринтер" = "Racer ταχύτητας";
 "Сыграйте 10 игр за день" = "Παίξτε 10 παιχνίδια την ημέρα";
-"XP Олимпиец" = "XP Olympian";
-"Мастер Олимпиец XP" = "Master XP Olympian";
+"XP Олимпиец" = "Ολυμπιονίκης XP";
+"Мастер Олимпиец XP" = "Μαιτρ ολυμπιονίκης XP";
 "Наберите 30000 XP" = "Κερδίστε 30000 XP";
  
 /* Settings - Added */
@@ -823,10 +823,10 @@
 "ВОССТАНОВИТЬ ПОДПИСКУ" = "ΕΠΑΝΑΦΟΡΑ ΣΥΝΔΡΟΜΗΣ";
 
 // Achievements
-"Ранняя птица" = "Early Bird";
-"Железная воля" = "Iron Will";
-"Алмазная лига" = "Diamond League";
-"Серия мастера" = "Master Streak";
+"Ранняя птица" = "Πρωινό πουλί";
+"Железная воля" = "Σιδερένια θέληση";
+"Алмазная лига" = "Διαμαντένια λίγκα";
+"Серия мастера" = "Σερί δεξιοτεχνίας";
 "Чемпион месяца" = "Μηνιαίος Πρωταθλητής";
 "Идеальная неделя" = "Τέλεια εβδομάδα";
 
@@ -936,7 +936,7 @@
 "Текущая серия" = "Τρέχον σερί";
 "дней" = "ημέρες";
 "Точность" = "Ακρίβεια";
-"Теперь вы можете без единой ошибки отвечать на все наши вопросы с точностью в %d%%" = "Теперь вы може без единой ошибки отвечать на сите наши ερωτήματα με ακρίβεια σε %d%%";
+"Теперь вы можете без единой ошибки отвечать на все наши вопросы с точностью в %d%%" = "Η ακρίβεια των απαντήσεών σου είναι %d%%.";
 "Мы будем рады, если вы захотите снова вернуться к нам!" = "Θα χαρούμε να επιστρέψετε ξανά κοντά μας!";
 "Продолжить" = "Συνεχίζω";
 
@@ -1000,7 +1000,7 @@
 
 /* Enhanced Streak View */
 "Don't break the chain! Come back tomorrow!" = "Μην σπάσεις την αλυσίδα! Επιστρέψτε αύριο!";
-"Time to restart your streak! You can do it!" = "Time to restart your streak! You can do it!";
+"Time to restart your streak! You can do it!" = "Ώρα να ξεκινήσεις ένα νέο σερί! Μπορείς να τα καταφέρεις!";
 
 /* Monthly XP Quest */
 "Заработай %d XP за месяц" = "Κερδίστε %d XP αυτόν τον μήνα";
@@ -1049,8 +1049,8 @@
 "Learn flags and countries of the World" = "Μάθετε σημαίες και χώρες του κόσμου";
 "Select Level" = "Επιλέξτε Επίπεδο";
 "Level - %@" = "Επίπεδο - %@";
-"Exclusive tournaments with cash F-Bucks prizes" = "Αποκλειστικά τουρνουά με χρηματικά έπαθλα F-Bucks";
-"Survival Mode" = "Survival Mode";
+"Exclusive tournaments with cash F-Bucks prizes" = "Αποκλειστικά τουρνουά με έπαθλα F-Bucks";
+"Survival Mode" = "Λειτουργία επιβίωσης";
 "One mistake = Game Over" = "Ένα λάθος = Game Over";
 "Duel result push format" = "%@: %d — Εσείς: %d.";
 "Duel motivation win" = "Καταπληκτικός! Συνέχισε το σερί.";
@@ -1116,7 +1116,7 @@
 "Only mastered" = "Μόνο κατακτημένο";
 "TOP weak countries for review" = "ΚΟΡΥΦΑΙΕΣ αδύναμες χώρες για έλεγχο";
 "No weak countries yet" = "Δεν υπάρχουν ακόμη αδύναμες χώρες";
-"%@ Master" = "%@ Master";
+"%@ Master" = "Μαιτρ: %@";
 "%@ Master unlocked" = "%@ Ξεκλείδωτο Master";
 "Continent mastered! Keep going." = "Κατακτήθηκε η ήπειρος! Συνεχίζω.";
 "Weekly challenge" = "Εβδομαδιαία πρόκληση";
@@ -1487,10 +1487,10 @@
 "avatar_editor_sunglasses" = "Γυαλιά ηλίου";
 "avatar_editor_slim" = "Λεπτά (γυαλιά)";
 "avatar_editor_cap" = "Καπάκι";
-"avatar_editor_beanie" = "Beanie";
+"avatar_editor_beanie" = "Σκούφος";
 "avatar_editor_bandana" = "Φουλάρι";
 "avatar_editor_sport_cap" = "Αθλητικό καπέλο";
-"avatar_editor_hat_SilverLeague" = "Silver League";
+"avatar_editor_hat_SilverLeague" = "Ασημένια λίγκα";
 "avatar_editor_hat_10_day_streak" = "Σερί 10 ημερών";
 "avatar_editor_hat_beginner" = "Αρχάριος";
 "avatar_editor_hat_Premium" = "Ασφάλιστρο";
@@ -1525,19 +1525,19 @@
 "avatar_editor_opt_jacket" = "Σακάκι";
 
 "monthly_quest_mission_title" = "Αποστολή %@";
-"Friend profile progress title" = "STREAK AND PROGRESS";
-"Friend achievements placeholder" = "Friend achievements are shown as they are unlocked";
+"Friend profile progress title" = "ΣΕΡΙ ΚΑΙ ΠΡΟΟΔΟΣ";
+"Friend achievements placeholder" = "Τα επιτεύγματα του φίλου σου εμφανίζονται καθώς τα ξεκλειδώνει";
 
 "Answer as many flags as possible before time runs out" = "Απάντησε σε όσες περισσότερες σημαίες μπορείς πριν τελειώσει ο χρόνος";
 "Duration" = "Διάρκεια";
-"Best score" = "Best score";
+"Best score" = "Καλύτερη βαθμολογία";
 "Wrong answer penalty" = "Ποινή λάθους απάντησης";
 "5 correct in a row bonus" = "Μπόνους για 5 σωστές στη σειρά";
 "Best combo" = "Καλύτερο σερί";
 "New record!" = "Νέο ρεκόρ!";
 "Day leaderboard place" = "Θέση στην ημερήσια κατάταξη";
 "Week leaderboard place" = "Θέση στην εβδομαδιαία κατάταξη";
-"Back to Modes" = "Back to Modes";
+"Back to Modes" = "Επιστροφή στις λειτουργίες";
 "Start" = "Έναρξη";
 "TC correct answers headline" = "%d σωστές";
 "Difficulty description TC" = "%1$d%2$@ γύρος • +%3$d%2$@ ανά 5 σωστές στη σειρά • −%4$d%2$@ ανά λάθος";
@@ -1548,11 +1548,11 @@
 "TC intro combo5 bonus title" = "Combo 5 σωστών στη σειρά";
 "TC detail time penalty fmt" = "Χρονόμετρο: −%1$d %2$@ (λάθος)";
 "TC detail time combo fmt" = "Χρονόμετρο: +%1$d %2$@ (5 σωστές στη σειρά)";
-"TC detail points earned" = "Points for this answer: +%d";
-"TC detail xp earned" = "XP for this answer: +%d";
-"TC detail time penalty" = "Timer: −10 s (wrong answer)";
-"TC detail time combo bonus" = "Timer: +10 s (5 correct in a row)";
-"Share TC headline" = "Time Challenge: %d correct out of %d";
+"TC detail points earned" = "Πόντοι για αυτή την απάντηση: +%d";
+"TC detail xp earned" = "XP για αυτή την απάντηση: +%d";
+"TC detail time penalty" = "Χρόνος: −10 δ. (λάθος απάντηση)";
+"TC detail time combo bonus" = "Χρόνος: +10 δ. (5 σωστές απαντήσεις στη σειρά)";
+"Share TC headline" = "Πρόκληση χρόνου: %d σωστές απαντήσεις στις %d";
 
 "Time seconds unit short" = "δ";
 "TC stat best combo" = "Καλύτερο σερί";
@@ -1582,10 +1582,10 @@
 "Survival weekly title" = "Εβδομαδιαία πρόκληση Επιβίωσης";
 "Survival weekly target fmt" = "Αυτή την εβδομάδα σε ένα παιχνίδι επέζησε %d σημαίες.";
 "Survival weekly best fmt" = "Το καλύτερό σου αυτή την εβδομάδα: %d σημαίες";
-"Survival weekly all milestones met body" = "You've reached every weekly depth goal — up to 200 flags in one run. Brilliant!";
-"Survival weekly reward all claimed" = "All weekly survival bonuses claimed (up to +4000 XP).";
+"Survival weekly all milestones met body" = "Πέτυχες όλους τους εβδομαδιαίους στόχους, μέχρι και 200 σημαίες σε ένα παιχνίδι. Μπράβο!";
+"Survival weekly reward all claimed" = "Έλαβες όλα τα εβδομαδιαία μπόνους επιβίωσης (έως +4000 XP).";
 "Survival weekly reward claimed" = "Εβδομαδιαίο μπόνους (+1000 XP)";
-"Survival weekly reward hint" = "Each milestone — 25, 50, 100, then 200 flags in one run — gives +1000 XP once per week.";
+"Survival weekly reward hint" = "Κάθε ορόσημο — 25, 50, 100 και 200 σημαίες σε ένα παιχνίδι — δίνει +1000 XP μία φορά την εβδομάδα.";
 
 "Survival result depth progress fmt" = "%1$d / %2$d";
 
@@ -1596,81 +1596,81 @@
 "1 hour" = "1 ώρα";
 
 
-"Duel announcement subtitle" = "Same duel for both players. First to score wins!";
-"User 1" = "User 1";
-"User 2" = "User 2";
-"Number of Questions" = "Questions";
+"Duel announcement subtitle" = "Και οι δύο παίκτες έχουν τις ίδιες ερωτήσεις. Κερδίζει η υψηλότερη βαθμολογία· σε ισοπαλία, κερδίζει ο ταχύτερος παίκτης.";
+"User 1" = "Παίκτης 1";
+"User 2" = "Παίκτης 2";
+"Number of Questions" = "Ερωτήσεις";
 
 
 /* F-Bucks screen */
 "fbucks.close" = "Κλείσιμο";
 "fbucks.currency.name" = "F-Bucks";
-"fbucks.hero.subtitle.enough" = "Αρκετά για περίπου %d στοιχεία";
-"fbucks.hero.subtitle.rare" = "Μπορείτε να αγοράσετε ένα σπάνιο είδος";
-"fbucks.hero.subtitle.save" = "Συνεχίστε να εξοικονομείτε χρήματα για κάτι ιδιαίτερο";
+"fbucks.hero.subtitle.enough" = "Αρκούν για περίπου %d αντικείμενα";
+"fbucks.hero.subtitle.rare" = "Μπορείς να αγοράσεις ένα σπάνιο αντικείμενο";
+"fbucks.hero.subtitle.save" = "Συνέχισε να μαζεύεις για κάτι ξεχωριστό";
 "fbucks.daily.title" = "Καθημερινό Μπόνους";
 "fbucks.daily.subtitle" = "+1 F-Bucks";
-"fbucks.daily.claim" = "Αξίωση αποζημίωσης";
-"fbucks.daily.claimed" = "Διεκδικήθηκε σήμερα";
-"fbucks.daily.hint" = "+1 διαθέσιμο σήμερα — πατήστε Διεκδίκηση";
-"fbucks.earn.today.title" = "Κερδίστε χρήματα σήμερα";
-"fbucks.earn.today.subtitle" = "Δυνατότητα έως και %d F-Bucks σήμερα";
+"fbucks.daily.claim" = "Παραλαβή";
+"fbucks.daily.claimed" = "Τα έλαβες σήμερα";
+"fbucks.daily.hint" = "+1 διαθέσιμο σήμερα — πάτησε Παραλαβή";
+"fbucks.earn.today.title" = "Κέρδισε σήμερα";
+"fbucks.earn.today.subtitle" = "Μπορείς να κερδίσεις έως %d F-Bucks σήμερα";
 "fbucks.earn.perfect.title" = "Τέλειο παιχνίδι";
 "fbucks.earn.perfect.sub" = "+1 για 10/10 ή 15/15";
-"fbucks.earn.streak" = "γραμμή διαχωρισμού επαλλήλων εφυαλωμάτων";
-"fbucks.earn.streak.sub" = "Σειρά (%d/10 ημέρες)";
+"fbucks.earn.streak" = "Σερί ημερών";
+"fbucks.earn.streak.sub" = "Σερί (%d/10 ημέρες)";
 "fbucks.earn.league" = "Κορυφή της εβδομάδας";
-"fbucks.earn.league.sub" = "Τερματίστε στις 3 πρώτες θέσεις του πρωταθλήματός σας";
-"fbucks.progress.title" = "Πρόοδος στο επόμενο θέμα";
+"fbucks.earn.league.sub" = "Τερμάτισε στις 3 πρώτες θέσεις της λίγκας σου";
+"fbucks.progress.title" = "Πρόοδος προς το επόμενο αντικείμενο";
 "fbucks.progress.percent" = "%d%%";
-"fbucks.progress.full" = "Μπορείτε να αντέξετε οικονομικά τις επόμενες επιβραβεύσεις — ανοίξτε το κατάστημα!";
-"fbucks.want.title" = "Επόμενο γκολ";
+"fbucks.progress.full" = "Έχεις αρκετά F-Bucks για νέες ανταμοιβές — άνοιξε το κατάστημα!";
+"fbucks.want.title" = "Επόμενος στόχος";
 "fbucks.want.price" = "Τιμή: %d F-Bucks";
-"fbucks.want.you" = "Έχετε: %d";
-"fbucks.want.need" = "Χρειάζεστε %d περισσότερα";
-"fbucks.earn_more" = "Κερδίστε περισσότερα →";
-"fbucks.buy_for" = "Αγοράστε για %d";
+"fbucks.want.you" = "Έχεις: %d";
+"fbucks.want.need" = "Χρειάζεσαι ακόμη %d";
+"fbucks.earn_more" = "Κέρδισε περισσότερα →";
+"fbucks.buy_for" = "Αγορά για %d";
 "fbucks.shop.title" = "Κατάστημα";
-"fbucks.shop.subtitle" = "Ξοδέψτε F-Bucks σε αποκλειστικά αντικείμενα avatar";
+"fbucks.shop.subtitle" = "Χρησιμοποίησε F-Bucks για αποκλειστικά αντικείμενα άβαταρ";
 "fbucks.shop.tier.common" = "Κοινά";
 "fbucks.shop.tier.rare" = "Σπάνια";
-"fbucks.shop.tier.legendary" = "Θρύλος";
-"fbucks.shop.limited" = "LIMITED";
+"fbucks.shop.tier.legendary" = "Θρυλικά";
+"fbucks.shop.limited" = "ΠΕΡΙΟΡΙΣΜΕΝΗ ΕΚΔΟΣΗ";
 "fbucks.perfect.badge" = "Άριστο";
 "fbucks.tab.today" = "Σήμερα";
-"fbucks.tab.about" = "Σχετικά με την";
+"fbucks.tab.about" = "Πληροφορίες";
 "fbucks.tab.history" = "Ιστορικό";
 "fbucks.tab.shop" = "Κατάστημα";
 "fbucks.about.title" = "Τι είναι τα F-Bucks;";
-"fbucks.about.body" = "Τα F-Bucks (Flags Bucks) είναι το νόμισμα του παιχνιδιού που κερδίζετε παίζοντας World Arena Flags. Ξοδέψτε τα σε μοναδικά κομμάτια avatar, αμφιέσεις και άλλα αποκλειστικά αντικείμενα.";
-"fbucks.about.how" = "Πώς να κερδίσετε F-Bucks";
+"fbucks.about.body" = "Τα F-Bucks (Flags Bucks) είναι το νόμισμα που κερδίζεις παίζοντας World Arena Flags. Χρησιμοποίησέ τα για μοναδικά αξεσουάρ άβαταρ, εμφανίσεις και άλλα αποκλειστικά αντικείμενα.";
+"fbucks.about.how" = "Πώς να κερδίσεις F-Bucks";
 "fbucks.about.perfect.title" = "Τέλειο παιχνίδι";
-"fbucks.about.perfect.desc" = "Τέλεια βαθμολογία (10/10 ή 15/15)";
+"fbucks.about.perfect.desc" = "Πέτυχε τέλεια βαθμολογία (10/10 ή 15/15)";
 "fbucks.about.streak10.title" = "Σερί 10 ημερών";
-"fbucks.about.streak10.desc" = "Παίξτε 10 ημέρες στη σειρά";
+"fbucks.about.streak10.desc" = "Παίξε 10 ημέρες στη σειρά";
 "fbucks.about.streak20.title" = "Σερί 20 ημερών";
-"fbucks.about.streak20.desc" = "Παίξτε 20 ημέρες στη σειρά";
+"fbucks.about.streak20.desc" = "Παίξε 20 ημέρες στη σειρά";
 "fbucks.about.streak50.title" = "Σερί 50 ημερών";
-"fbucks.about.streak50.desc" = "Παίξτε 50 ημέρες στη σειρά";
+"fbucks.about.streak50.desc" = "Παίξε 50 ημέρες στη σειρά";
 "fbucks.about.streak100.title" = "Σερί 100 ημερών";
-"fbucks.about.streak100.desc" = "Παίξτε 100 ημέρες στη σειρά";
+"fbucks.about.streak100.desc" = "Παίξε 100 ημέρες στη σειρά";
 "fbucks.reward.plus1" = "+1 F-Bucks";
 "fbucks.reward.plus2" = "+2 F-Bucks";
 "fbucks.reward.plus5" = "+5 F-Bucks";
 "fbucks.reward.plus10" = "+10 F-Bucks";
 "fbucks.history.title" = "Ιστορικό συναλλαγών";
 "fbucks.history.empty" = "Δεν υπάρχει ακόμη ιστορικό";
-"fbucks.history.empty.hint" = "Παίξτε και κερδίστε F-Bucks!";
+"fbucks.history.empty.hint" = "Παίξε και κέρδισε F-Bucks!";
 "fbucks.item.traveler_cap" = "Καπέλο τζόκεϊ ταξιδιώτη";
 "fbucks.item.champion_shirt" = "Μπλουζάκι πρωταθλητή";
 "fbucks.item.socks" = "Κάλτσες";
-"fbucks.item.rainbow_skin" = "Δέρμα ουράνιου τόξου";
-"fbucks.item.gold_skin" = "Χρυσό δέρμα";
-"fbucks.item.explorer_jacket" = "Μπουφάν Explorer";
-"fbucks.item.fire_effect" = "Εφέ πυρκαγιάς";
-"fbucks.item.neon_skin" = "Δέρμα νέον";
+"fbucks.item.rainbow_skin" = "Εμφάνιση ουράνιου τόξου";
+"fbucks.item.gold_skin" = "Χρυσή εμφάνιση";
+"fbucks.item.explorer_jacket" = "Μπουφάν εξερευνητή";
+"fbucks.item.fire_effect" = "Εφέ φωτιάς";
+"fbucks.item.neon_skin" = "Εμφάνιση νέον";
 "fbucks.item.stars_effect" = "Εφέ αστεριού";
-"fbucks.item.champion_jacket" = "Μπουφάν Champion";
+"fbucks.item.champion_jacket" = "Μπουφάν πρωταθλητή";
 "fbucks.tx.daily_bonus" = "Καθημερινό Μπόνους";
 "friends.remind.status_sent" = "Η υπενθύμιση στάλθηκε!";
 

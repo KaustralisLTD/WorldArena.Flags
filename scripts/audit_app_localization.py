@@ -11,7 +11,7 @@ from notification_catalog import ROOT, catalog
 # Spaces are intentionally excluded: prose such as '80% de precisión' is not
 # a printf format. All format strings used by this app omit the space flag.
 FORMAT = re.compile(r'%%|%(?:(\d+)\$)?([-+0#]*\d*(?:\.\d+)?)(ll|l|z)?([@diufgs])')
-MARKER = re.compile(r'ZXQ\d+QXZ|__\s*PERTINATE|__PERCENT|__ARROW')
+MARKER = re.compile(r'ZXQ\d+QXZ|__\s*PERTINATE|__PERCENT|__ARROW|<ex\b[^>]*>|\{\d+\}|\[ترجمة المصطلح:')
 
 def signature(value):
     arguments = collections.Counter()

@@ -1,5 +1,5 @@
 "Заработай %d XP" = "Зароби %d XP";
-"F-BUCKS EARNED" = "ОТРИМАНО F-BUCKS";
+"F-BUCKS EARNED" = "ЗАРОБЛЕНО F-BUCKS";
 "Дай %d правильных ответов" = "Дай %d правильних відповідей";
 "Наберите %d правильных ответов за месяц" = "Наберіть %d правильних відповідей за місяць";
 "Сыграй %d идеальных игр" = "Зіграйте %d ідеальних ігор";
@@ -423,15 +423,15 @@
 "Идеальный результат" = "Ідеальний результат";
 "Идеальный результат игры" = "Ідеальний результат гри";
 "Получите идеальный результат в игре (10/10 или 15/15)" = "Отримайте ідеальний результат в грі (10/10 або 15/15)";
-"Серия 10 дней" = "Серія 10 днів";
+"Серия 10 дней" = "10-денна серія";
 "Играйте 10 дней подряд" = "Грайте 10 днів поспіль";
-"Серия 20 дней" = "Серія 20 днів";
+"Серия 20 дней" = "20-денна серія";
 "Играйте 20 дней подряд" = "Грайте 20 днів поспіль";
-"Серия 50 дней" = "Серія 50 днів";
+"Серия 50 дней" = "50-денна серія";
 "Играйте 50 дней подряд" = "Грайте 50 днів поспіль";
-"Серия 100 дней" = "Серія 100 днів";
+"Серия 100 дней" = "100-денна серія";
 "Играйте 100 дней подряд" = "Грайте 100 днів поспіль";
-"История начислений" = "Історія нарахувань";
+"История начислений" = "Історія транзакцій";
 "История пуста" = "Історія порожня";
 "Начните играть и зарабатывать F-Bucks!" = "Почніть грати та заробляти F-Bucks!";
 "Магазин F-Bucks" = "Магазин F-Bucks";
@@ -442,15 +442,15 @@
 "Особые визуальные эффекты" = "Особливі візуальні ефекти";
 "Эффекты" = "Ефекти";
 "Анимации и спецэффекты" = "Анімації та спецефекти";
-"Футболка чемпиона" = "Футболка чемпіона";
+"Футболка чемпиона" = "Чемпіонська футболка";
 "Кепка путешественника" = "Кепка мандрівника";
 "Куртка исследователя" = "Куртка дослідника";
 "Золотой скин" = "Золотий скін";
-"Радужный скин" = "Веселковий скін";
+"Радужный скин" = "Райдужний скін";
 "Неоновый скин" = "Неоновий скін";
 "Эффект блёсток" = "Ефект блискіток";
-"Огненный эффект" = "Вогняний ефект";
-"Звёздный эффект" = "Зоряний ефект";
+"Огненный эффект" = "Ефект вогню";
+"Звёздный эффект" = "Ефект зірки";
 "Купить" = "Купити";
 "Покупка" = "Покупка";
 "Текст гимна" = "Текст гімну";
@@ -491,7 +491,7 @@
 
 /* Поповери заголовка гри */
 "Total game time since start" = "Загальний час гри з початку";
-"Time limit per question depending on difficulty" = "Time limit per question depending on difficulty";
+"Time limit per question depending on difficulty" = "Час на запитання залежить від складності";
 "Total Game Time" = "Загальний час гри";
 "Time Per Question" = "Час на запитання";
 
@@ -767,7 +767,7 @@
 "Ранняя птица" = "Рання пташка";
 "Достигните серии 5 дней" = "Досягніть серії 5 днів";
 "Стабильность" = "Стабільність";
-"Серия 10 дней" = "Серія 10 днів";
+"Серия 10 дней" = "10-денна серія";
 "Железная воля" = "Залізна воля";
 "Серия 30 дней" = "Серія 30 днів";
 "Новичок XP" = "Новачок XP";
@@ -922,7 +922,7 @@
 "Текущая серия" = "Поточна серія";
 "дней" = "днів";
 "Точность" = "Точність";
-"Теперь вы можете без единой ошибки отвечать на все наши вопросы с точностью в %d%%" = "Тепер ви можете без єдиної помилки відповідати на всі наші питання з точністю %d%%";
+"Теперь вы можете без единой ошибки отвечать на все наши вопросы с точностью в %d%%" = "Точність ваших відповідей — %d%%.";
 "Мы будем рады, если вы захотите снова вернуться к нам!" = "Ми будемо раді, якщо ви захочете знову повернутися до нас!";
 "Продолжить" = "Продовжити";
 
@@ -1011,8 +1011,8 @@
 "Learn flags and countries of the World" = "Вивчайте прапори та країни світу";
 "Select Level" = "Оберіть рівень";
 "Level - %@" = "Рівень - %@";
-"Exclusive tournaments with cash F-Bucks prizes" = "Ексклюзивні турніри з грошовими призами F-Bucks";
-"Survival Mode" = "Survival Mode";
+"Exclusive tournaments with cash F-Bucks prizes" = "Ексклюзивні турніри з призами F-Bucks";
+"Survival Mode" = "Режим виживання";
 "One mistake = Game Over" = "Одна помилка = кінець гри";
 "Duel result push format" = "%@: %d — Ви: %d.";
 "Duel motivation win" = "Чудово! Продовжуйте серію перемог!";
@@ -1457,7 +1457,7 @@
 "avatar_editor_beanie" = "Шапка";
 "avatar_editor_bandana" = "Бандана";
 "avatar_editor_sport_cap" = "Спортивна кепка";
-"avatar_editor_hat_SilverLeague" = "Silver League";
+"avatar_editor_hat_SilverLeague" = "Срібна ліга";
 "avatar_editor_hat_10_day_streak" = "10 днів поспіль";
 "avatar_editor_hat_beginner" = "Новачок";
 "avatar_editor_hat_Premium" = "Premium";
@@ -1492,19 +1492,19 @@
 "avatar_editor_opt_jacket" = "Куртка";
 
 "monthly_quest_mission_title" = "Місія %@";
-"Friend profile progress title" = "СЕРІЯ ТА ПРОГРЕС";
-"Friend achievements placeholder" = "Досягнення друга відображаються в міру їх відкриття";
+"Friend profile progress title" = "СЕРІЯ ДНІВ І ПРОГРЕС";
+"Friend achievements placeholder" = "Тут з’являтимуться досягнення друга в міру їх отримання";
 
 "Answer as many flags as possible before time runs out" = "Відповідай на якнайбільше прапорів, доки не скінчиться час";
 "Duration" = "Тривалість";
-"Best score" = "Best score";
+"Best score" = "Найкращий результат";
 "Wrong answer penalty" = "Штраф за помилку";
 "5 correct in a row bonus" = "Бонус за 5 вірних поспіль";
 "Best combo" = "Найкраща серія";
 "New record!" = "Новий рекорд!";
 "Day leaderboard place" = "Місце в денному рейтингу";
 "Week leaderboard place" = "Місце в тижневому рейтингу";
-"Back to Modes" = "Back to Modes";
+"Back to Modes" = "До вибору режиму";
 "Start" = "Старт";
 "TC correct answers headline" = "%d вірно";
 "Difficulty description TC" = "%1$d%2$@ на раунд • +%3$d%2$@ за комбо з 5 вірних • −%4$d%2$@ за помилку";
@@ -1515,14 +1515,14 @@
 "TC intro combo5 bonus title" = "Комбо з 5 вірних поспіль";
 "TC detail time penalty fmt" = "Таймер: −%1$d %2$@ (помилка)";
 "TC detail time combo fmt" = "Таймер: +%1$d %2$@ (5 вірних поспіль)";
-"TC detail points earned" = "Points for this answer: +%d";
-"TC detail xp earned" = "XP for this answer: +%d";
-"TC detail time penalty" = "Timer: −10 s (wrong answer)";
-"TC detail time combo bonus" = "Timer: +10 s (5 correct in a row)";
-"Share TC headline" = "Time Challenge: %d correct out of %d";
+"TC detail points earned" = "Бали за цю відповідь: +%d";
+"TC detail xp earned" = "Досвід за цю відповідь: +%d XP";
+"TC detail time penalty" = "Таймер: −10 с (неправильна відповідь)";
+"TC detail time combo bonus" = "Таймер: +10 с (5 правильних відповідей поспіль)";
+"Share TC headline" = "Випробування на час: %d правильних відповідей із %d";
 
 "Time seconds unit short" = "с";
-"Time to restart your streak! You can do it!" = "Time to restart your streak! You can do it!";
+"Time to restart your streak! You can do it!" = "Час почати нову серію днів! У тебе все вийде!";
 "TC stat best combo" = "Найкраща серія";
 "Time TC delta seconds fmt" = "%+d %@";
 "Time intro duration seconds fmt" = "%1$d%2$@";
@@ -1547,13 +1547,13 @@
 "Survival intro choices title" = "Варіанти";
 "Survival intro timer title" = "Таймери";
 "Survival intro timer value" = "Як у Класиці";
-"Survival weekly title" = "Тижневий челендж виживання";
-"Survival weekly target fmt" = "За один забіг на цьому тижні виживіть %d прапорів.";
+"Survival weekly title" = "Тижневе випробування на виживання";
+"Survival weekly target fmt" = "Пройдіть %d прапорів за одну спробу цього тижня.";
 "Survival weekly best fmt" = "Ваш найкращий результат за тиждень: %d прапорів";
-"Survival weekly all milestones met body" = "Ти вже закрив усі тижневі цілі — до 200 прапорів за один забіг. Чудово!";
-"Survival weekly reward all claimed" = "Усі тижневі бонуси отримано (до +4000 XP).";
+"Survival weekly all milestones met body" = "Усі тижневі цілі виконано — аж до 200 прапорів за одну спробу. Чудово!";
+"Survival weekly reward all claimed" = "Усі тижневі бонуси режиму виживання отримано (до +4000 XP).";
 "Survival weekly reward claimed" = "Тижневий бонус отримано (+1000 XP)";
-"Survival weekly reward hint" = "За кожну сходинку — 25, 50, 100 і 200 прапорів за один забіг — +1000 XP раз на тиждень.";
+"Survival weekly reward hint" = "За кожен рубіж — 25, 50, 100 і 200 прапорів за одну спробу — можна отримати +1000 XP один раз на тиждень.";
 
 "Survival result depth progress fmt" = "%1$d / %2$d";
 
@@ -1565,55 +1565,55 @@
 "1 hour" = "1 година";
 
 
-"Duel announcement subtitle" = "Одна й та сама дуель для обох гравців. Першим до рахунку — перемога!";
+"Duel announcement subtitle" = "Обидва гравці отримують однакові запитання. Перемагає той, у кого більше балів, а за рівного рахунку — той, хто відповів швидше.";
 "User 1" = "Гравець 1";
 "User 2" = "Гравець 2";
-"Number of Questions" = "Питання";
+"Number of Questions" = "Запитання";
 
 /* F-Bucks screen */
 "fbucks.close" = "Закрити";
 "fbucks.currency.name" = "F-Bucks";
 "fbucks.hero.subtitle.enough" = "Вистачить приблизно на %d предметів";
 "fbucks.hero.subtitle.rare" = "Ви можете купити рідкісний предмет";
-"fbucks.hero.subtitle.save" = "Зберігайте на щось особливе";
+"fbucks.hero.subtitle.save" = "Продовжуйте накопичувати на щось особливе";
 "fbucks.daily.title" = "Щоденний бонус";
-"fbucks.daily.subtitle" = "+1 F-бакс";
+"fbucks.daily.subtitle" = "+1 F-Bucks";
 "fbucks.daily.claim" = "Отримати";
 "fbucks.daily.claimed" = "Отримано сьогодні";
 "fbucks.daily.hint" = "Сьогодні можна отримати +1 — натисніть «Отримати»";
 "fbucks.earn.today.title" = "Заробіть сьогодні";
-"fbucks.earn.today.subtitle" = "Сьогодні можливо до %d F-Bucks";
+"fbucks.earn.today.subtitle" = "Сьогодні можна заробити до %d F-Bucks";
 "fbucks.earn.perfect.title" = "Ідеальна гра";
 "fbucks.earn.perfect.sub" = "+1 за 10/10 або 15/15";
-"fbucks.earn.streak" = "Серія";
+"fbucks.earn.streak" = "Серія днів";
 "fbucks.earn.streak.sub" = "Серія (%d/10 днів)";
 "fbucks.earn.league" = "Топ тижня";
-"fbucks.earn.league.sub" = "Закінчіть у топ-3 вашої ліги";
-"fbucks.progress.title" = "Перехід до наступного елемента";
+"fbucks.earn.league.sub" = "Посідайте одне з перших трьох місць у своїй лізі";
+"fbucks.progress.title" = "Прогрес до наступного предмета";
 "fbucks.progress.percent" = "%d%%";
-"fbucks.progress.full" = "Ви можете дозволити собі наступні винагороди — відкрийте магазин!";
+"fbucks.progress.full" = "У вас достатньо F-Bucks для нових винагород — відкрийте магазин!";
 "fbucks.want.title" = "Наступна мета";
-"fbucks.want.price" = "Ціна: %d баксів";
+"fbucks.want.price" = "Ціна: %d F-Bucks";
 "fbucks.want.you" = "У вас є: %d";
 "fbucks.want.need" = "Потрібно ще %d";
 "fbucks.earn_more" = "Заробляйте більше →";
 "fbucks.buy_for" = "Купити за %d";
 "fbucks.shop.title" = "Магазин";
 "fbucks.shop.subtitle" = "Витратьте F-Bucks на ексклюзивні предмети для аватарів";
-"fbucks.shop.tier.common" = "Поширений";
+"fbucks.shop.tier.common" = "Звичайний";
 "fbucks.shop.tier.rare" = "Рідкісний";
 "fbucks.shop.tier.legendary" = "Легендарний";
 "fbucks.shop.limited" = "ОБМЕЖЕНО";
 "fbucks.perfect.badge" = "Ідеально";
 "fbucks.tab.today" = "Сьогодні";
-"fbucks.tab.about" = "Про";
+"fbucks.tab.about" = "Про валюту";
 "fbucks.tab.history" = "Історія";
 "fbucks.tab.shop" = "Магазин";
 "fbucks.about.title" = "Що таке F-Bucks?";
-"fbucks.about.body" = "F-Bucks (Flags Bucks) — це внутрішньоігрова валюта, яку ви заробляєте, граючи в World Arena Flags. Витратьте їх на унікальні частини аватарів, скіни та інші ексклюзивні предмети.";
+"fbucks.about.body" = "F-Bucks (Flags Bucks) — ігрова валюта, яку ви заробляєте у World Arena Flags. Купуйте за неї аксесуари для аватара, скіни та інші ексклюзивні предмети.";
 "fbucks.about.how" = "Як заробити F-Bucks";
 "fbucks.about.perfect.title" = "Ідеальна гра";
-"fbucks.about.perfect.desc" = "Отримайте ідеальний бал (10/10 або 15/15)";
+"fbucks.about.perfect.desc" = "Наберіть максимальну кількість балів (10/10 або 15/15)";
 "fbucks.about.streak10.title" = "10-денна серія";
 "fbucks.about.streak10.desc" = "Грайте 10 днів поспіль";
 "fbucks.about.streak20.title" = "20-денна серія";
@@ -1622,23 +1622,23 @@
 "fbucks.about.streak50.desc" = "Грайте 50 днів поспіль";
 "fbucks.about.streak100.title" = "100-денна серія";
 "fbucks.about.streak100.desc" = "Грайте 100 днів поспіль";
-"fbucks.reward.plus1" = "+1 F-бакс";
-"fbucks.reward.plus2" = "+2 F-бакси";
-"fbucks.reward.plus5" = "+5 F-баксів";
-"fbucks.reward.plus10" = "+10 F-баксів";
+"fbucks.reward.plus1" = "+1 F-Bucks";
+"fbucks.reward.plus2" = "+2 F-Bucks";
+"fbucks.reward.plus5" = "+5 F-Bucks";
+"fbucks.reward.plus10" = "+10 F-Bucks";
 "fbucks.history.title" = "Історія транзакцій";
 "fbucks.history.empty" = "Історії ще немає";
 "fbucks.history.empty.hint" = "Грайте та заробляйте F-Bucks!";
-"fbucks.item.traveler_cap" = "Кепка подорожня";
+"fbucks.item.traveler_cap" = "Кепка мандрівника";
 "fbucks.item.champion_shirt" = "Чемпіонська футболка";
 "fbucks.item.socks" = "Шкарпетки";
-"fbucks.item.rainbow_skin" = "Райдужна шкіра";
-"fbucks.item.gold_skin" = "Золота шкіра";
+"fbucks.item.rainbow_skin" = "Райдужний скін";
+"fbucks.item.gold_skin" = "Золотий скін";
 "fbucks.item.explorer_jacket" = "Куртка дослідника";
 "fbucks.item.fire_effect" = "Ефект вогню";
-"fbucks.item.neon_skin" = "Неонова шкіра";
+"fbucks.item.neon_skin" = "Неоновий скін";
 "fbucks.item.stars_effect" = "Ефект зірки";
-"fbucks.item.champion_jacket" = "Куртка чемпіонка";
+"fbucks.item.champion_jacket" = "Куртка чемпіона";
 "fbucks.tx.daily_bonus" = "Щоденний бонус";
 "friends.remind.status_sent" = "Нагадування надіслано!";
 

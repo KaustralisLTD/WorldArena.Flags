@@ -1,6 +1,6 @@
 "Open in Game Center" = "Otevřít v Game Center";
 "Заработай %d XP" = "Získejte %d XP";
-"F-BUCKS EARNED" = "F-BUCKS EARNED";
+"F-BUCKS EARNED" = "ZÍSKANÉ F-BUCKS";
 "Дай %d правильных ответов" = "Získejte %d správných odpovědí";
 "Наберите %d правильных ответов за месяц" = "Získejte %d správných odpovědí tento měsíc";
 "Сыграй %d идеальных игр" = "Hrajte %d dokonalých her";
@@ -276,7 +276,7 @@
 "Duel challenge from %@" = "%@ vás vyzval na souboj";
 "Duel result" = "Výsledek duelu";
 "You won!" = "Vyhráli jste!";
-"won" = "won";
+"won" = "vyhrál";
 "You" = "Vy";
 "Duel announcement title" = "Souboj";
 "vs" = "vs";
@@ -350,19 +350,19 @@
 "Получайте бонусы за длинные серии дней" = "Získejte bonusy za dlouhé denní série";
 "Покупайте эксклюзивные элементы для аватара" = "Kupte si exkluzivní položky avatarů";
 "Создавайте уникальный стиль" = "Vytvořte jedinečný styl";
-"Как заработать F-Bucks" = "Jak vydělat F-Bucks";
+"Как заработать F-Bucks" = "Jak si vydělat F-Bucks";
 "Идеальный результат" = "Perfektní výsledek";
 "Идеальный результат игры" = "Perfektní výsledek hry";
 "Получите идеальный результат в игре (10/10 или 15/15)" = "Získejte perfektní výsledek ve hře (10/10 nebo 15/15)";
 "Серия 10 дней" = "10denní série";
-"Играйте 10 дней подряд" = "Hrajte 10 dní v řadě";
+"Играйте 10 дней подряд" = "Hraj 10 dní v řadě";
 "Серия 20 дней" = "20denní série";
-"Играйте 20 дней подряд" = "Hrajte 20 dní v řadě";
+"Играйте 20 дней подряд" = "Hraj 20 dní v řadě";
 "Серия 50 дней" = "50denní série";
-"Играйте 50 дней подряд" = "Hrajte 50 dní v řadě";
+"Играйте 50 дней подряд" = "Hraj 50 dní v řadě";
 "Серия 100 дней" = "100denní série";
-"Играйте 100 дней подряд" = "Hrajte 100 dní v řadě";
-"История начислений" = "Historie transakcí";
+"Играйте 100 дней подряд" = "Hraj 100 dní v řadě";
+"История начислений" = "Transakční historie";
 "История пуста" = "Historie je prázdná";
 "Начните играть и зарабатывать F-Bucks!" = "Začněte hrát a vydělávejte F-Bucks!";
 "Магазин F-Bucks" = "Obchod F-Bucks";
@@ -373,15 +373,15 @@
 "Особые визуальные эффекты" = "Speciální vizuální efekty";
 "Эффекты" = "Efekty";
 "Анимации и спецэффекты" = "Animace a speciální efekty";
-"Футболка чемпиона" = "Mistrovské tričko";
-"Кепка путешественника" = "Cestovatelská čepice";
-"Куртка исследователя" = "Průzkumnická bunda";
-"Золотой скин" = "Zlatá kůže";
-"Радужный скин" = "Duhová kůže";
-"Неоновый скин" = "Neonová kůže";
+"Футболка чемпиона" = "Tričko šampiona";
+"Кепка путешественника" = "Kšiltovka pro cestovatele";
+"Куртка исследователя" = "Bunda průzkumníka";
+"Золотой скин" = "Zlatý skin";
+"Радужный скин" = "Duhový skin";
+"Неоновый скин" = "Neonový skin";
 "Эффект блёсток" = "Jiskřivý efekt";
 "Огненный эффект" = "Ohnivý efekt";
-"Звёздный эффект" = "Hvězdný efekt";
+"Звёздный эффект" = "Efekt hvězdy";
 "Купить" = "Nakoupit";
 "Покупка" = "Nákup";
 "Текст гимна" = "Text hymny";
@@ -426,9 +426,9 @@
 
 /* Game header popovers */
 "Total game time since start" = "Celkový čas hry od začátku";
-"Time limit per question depending on difficulty" = "Time limit per question depending on difficulty";
+"Time limit per question depending on difficulty" = "Čas na otázku závisí na obtížnosti";
 "Total Game Time" = "Celková doba hry";
-"Time Per Question" = "Time Per Question";
+"Time Per Question" = "Čas na otázku";
 
 /* Game header motivation (iPad) */
 "Game motivation 1" = "Máš to!";
@@ -936,7 +936,7 @@
 "Текущая серия" = "Aktuální série";
 "дней" = "dní";
 "Точность" = "Přesnost";
-"Теперь вы можете без единой ошибки отвечать на все наши вопросы с точностью в %d%%" = "Теперь вы можете без единой ошибки отвечать на все наши вопросы с точностью в %d%%";
+"Теперь вы можете без единой ошибки отвечать на все наши вопросы с точностью в %d%%" = "Přesnost tvých odpovědí je %d%%.";
 "Мы будем рады, если вы захотите снова вернуться к нам!" = "Budeme rádi, pokud se k nám budete chtít znovu vrátit!";
 "Продолжить" = "Pokračovat";
 
@@ -1000,7 +1000,7 @@
 
 /* Enhanced Streak View */
 "Don't break the chain! Come back tomorrow!" = "Nepřerušte řetěz! Vrať se zítra!";
-"Time to restart your streak! You can do it!" = "Time to restart your streak! You can do it!";
+"Time to restart your streak! You can do it!" = "Je čas začít novou sérii! To zvládneš!";
 
 /* Monthly XP Quest */
 "Заработай %d XP за месяц" = "Získejte %d XP tento měsíc";
@@ -1049,8 +1049,8 @@
 "Learn flags and countries of the World" = "Naučte se vlajky a země světa";
 "Select Level" = "Vyberte Úroveň";
 "Level - %@" = "Úroveň – %@";
-"Exclusive tournaments with cash F-Bucks prizes" = "Exkluzivní turnaje s peněžními cenami F-Bucks";
-"Survival Mode" = "Survival Mode";
+"Exclusive tournaments with cash F-Bucks prizes" = "Exkluzivní turnaje s cenami F-Bucks";
+"Survival Mode" = "Režim přežití";
 "One mistake = Game Over" = "Jedna chyba = konec hry";
 "Duel result push format" = "%@: %d — Vy: %d.";
 "Duel motivation win" = "Úžasný! Pokračujte v sérii.";
@@ -1525,19 +1525,19 @@
 "avatar_editor_opt_jacket" = "Bunda";
 
 "monthly_quest_mission_title" = "Mise %@";
-"Friend profile progress title" = "STREAK AND PROGRESS";
-"Friend achievements placeholder" = "Friend achievements are shown as they are unlocked";
+"Friend profile progress title" = "SÉRIE A POKROK";
+"Friend achievements placeholder" = "Úspěchy přítele se zobrazí po jejich odemčení";
 
 "Answer as many flags as possible before time runs out" = "Odpověz na co nejvíce vlajek, než vyprší čas";
 "Duration" = "Délka";
-"Best score" = "Best score";
+"Best score" = "Nejlepší skóre";
 "Wrong answer penalty" = "Trest za špatnou odpověď";
 "5 correct in a row bonus" = "Bonus za 5 správných v řadě";
 "Best combo" = "Nejlepší série";
 "New record!" = "Nový rekord!";
 "Day leaderboard place" = "Místo v denním žebříčku";
 "Week leaderboard place" = "Místo v týdenním žebříčku";
-"Back to Modes" = "Back to Modes";
+"Back to Modes" = "Zpět na režimy";
 "Start" = "Start";
 "TC correct answers headline" = "%d správně";
 "Difficulty description TC" = "%1$d%2$@ na kolo • +%3$d%2$@ za každých 5 správných v řadě • −%4$d%2$@ za chybu";
@@ -1548,11 +1548,11 @@
 "TC intro combo5 bonus title" = "Kombo 5 správných v řadě";
 "TC detail time penalty fmt" = "Časovač: −%1$d %2$@ (chyba)";
 "TC detail time combo fmt" = "Časovač: +%1$d %2$@ (5 správných v řadě)";
-"TC detail points earned" = "Points for this answer: +%d";
-"TC detail xp earned" = "XP for this answer: +%d";
-"TC detail time penalty" = "Timer: −10 s (wrong answer)";
-"TC detail time combo bonus" = "Timer: +10 s (5 correct in a row)";
-"Share TC headline" = "Time Challenge: %d correct out of %d";
+"TC detail points earned" = "Body za tuto odpověď: +%d";
+"TC detail xp earned" = "XP za tuto odpověď: +%d";
+"TC detail time penalty" = "Čas: −10 s (chybná odpověď)";
+"TC detail time combo bonus" = "Čas: +10 s (5 správných odpovědí v řadě)";
+"Share TC headline" = "Časová výzva: %d správných odpovědí z %d";
 
 "Time seconds unit short" = "s";
 "TC stat best combo" = "Nejlepší série";
@@ -1582,10 +1582,10 @@
 "Survival weekly title" = "Týdenní Survival výzva";
 "Survival weekly target fmt" = "V jednom běhu tento týden přežij %d vlajek.";
 "Survival weekly best fmt" = "Tvůj nejlepší tento týden: %d vlajek";
-"Survival weekly all milestones met body" = "You've reached every weekly depth goal — up to 200 flags in one run. Brilliant!";
-"Survival weekly reward all claimed" = "All weekly survival bonuses claimed (up to +4000 XP).";
+"Survival weekly all milestones met body" = "Všechny týdenní cíle splněny — až 200 vlajek v jedné hře. Skvělé!";
+"Survival weekly reward all claimed" = "Všechny týdenní bonusy za přežití vyzvednuty (až +4000 XP).";
 "Survival weekly reward claimed" = "Týdenní bonus vyzvednut (+1000 XP)";
-"Survival weekly reward hint" = "Each milestone — 25, 50, 100, then 200 flags in one run — gives +1000 XP once per week.";
+"Survival weekly reward hint" = "Každý milník — 25, 50, 100 a 200 vlajek v jedné hře — přináší +1000 XP jednou týdně.";
 
 "Survival result depth progress fmt" = "%1$d / %2$d";
 
@@ -1596,82 +1596,82 @@
 "1 hour" = "1 hodina";
 
 
-"Duel announcement subtitle" = "Same duel for both players. First to score wins!";
-"User 1" = "User 1";
-"User 2" = "User 2";
-"Number of Questions" = "Questions";
+"Duel announcement subtitle" = "Oba hráči dostanou stejné otázky. Vyhrává vyšší skóre; při shodě vyhrává rychlejší hráč.";
+"User 1" = "Hráč 1";
+"User 2" = "Hráč 2";
+"Number of Questions" = "Otázky";
 
 
 /* F-Bucks screen */
 "fbucks.close" = "Zavřít";
 "fbucks.currency.name" = "F-Bucks";
 "fbucks.hero.subtitle.enough" = "Dostačující pro přibližně %d položek";
-"fbucks.hero.subtitle.rare" = "Můžete si koupit vzácnou věc";
+"fbucks.hero.subtitle.rare" = "Můžeš si koupit vzácný předmět";
 "fbucks.hero.subtitle.save" = "Šetři dál na něco speciálního";
-"fbucks.daily.title" = "Získejte denní bonus";
+"fbucks.daily.title" = "Denní bonus";
 "fbucks.daily.subtitle" = "+1 F-Bucks";
-"fbucks.daily.claim" = "Reklamace";
-"fbucks.daily.claimed" = "Uplatněno dnes";
-"fbucks.daily.hint" = "+1 k dispozici dnes — klepni na Uplatnit";
+"fbucks.daily.claim" = "Vyzvednout";
+"fbucks.daily.claimed" = "Dnes už vyzvednuto";
+"fbucks.daily.hint" = "Dnes je k dispozici +1 — klepni na Vyzvednout";
 "fbucks.earn.today.title" = "Vydělej si ještě dnes";
-"fbucks.earn.today.subtitle" = "Dnes je možné až %d F-Bucks";
+"fbucks.earn.today.subtitle" = "Dnes můžeš získat až %d F-Bucks";
 "fbucks.earn.perfect.title" = "Perfektní hra";
 "fbucks.earn.perfect.sub" = "+1 za 10/10 nebo 15/15";
-"fbucks.earn.streak" = "Streak";
+"fbucks.earn.streak" = "Denní série";
 "fbucks.earn.streak.sub" = "Série (%d/10 dní)";
-"fbucks.earn.league" = "Začátek týdne";
+"fbucks.earn.league" = "Nejlepší v týdnu";
 "fbucks.earn.league.sub" = "Skonči v první trojce své ligy";
 "fbucks.progress.title" = "Postup k další položce";
 "fbucks.progress.percent" = "%d%%";
-"fbucks.progress.full" = "Můžete si dovolit další odměny — otevřete obchod!";
+"fbucks.progress.full" = "Máš dost F-Bucks na další odměny — otevři obchod!";
 "fbucks.want.title" = "Další cíl";
 "fbucks.want.price" = "Cena: %d F-Bucks";
 "fbucks.want.you" = "Máš: %d";
-"fbucks.want.need" = "Potřebuji %d více";
+"fbucks.want.need" = "Ještě potřebuješ %d";
 "fbucks.earn_more" = "Vydělej si víc →";
 "fbucks.buy_for" = "Koupit za %d";
 "fbucks.shop.title" = "Obchod";
-"fbucks.shop.subtitle" = "Utrácejte F-Bucks za exkluzivní položky avatarů";
+"fbucks.shop.subtitle" = "Utrácej F-Bucks za exkluzivní předměty pro avatara";
 "fbucks.shop.tier.common" = "Běžné";
 "fbucks.shop.tier.rare" = "Vzácné";
 "fbucks.shop.tier.legendary" = "Legendární";
 "fbucks.shop.limited" = "OMEZENÉ";
 "fbucks.perfect.badge" = "Perfektní!";
 "fbucks.tab.today" = "Dnes";
-"fbucks.tab.about" = "O nás";
-"fbucks.tab.history" = "dějepis";
+"fbucks.tab.about" = "Informace";
+"fbucks.tab.history" = "Historie";
 "fbucks.tab.shop" = "Obchod";
 "fbucks.about.title" = "Co jsou F-Bucks?";
-"fbucks.about.body" = "F-Bucks (Flags Bucks) jsou herní měnou, kterou získáte hraním World Arena Flags. Utrácejte je za jedinečné kousky avatarů, skiny a další exkluzivní předměty.";
+"fbucks.about.body" = "F-Bucks (Flags Bucks) jsou herní měna, kterou získáváš hraním World Arena Flags. Kupuj za ně jedinečné doplňky pro avatara, skiny a další exkluzivní předměty.";
 "fbucks.about.how" = "Jak si vydělat F-Bucks";
 "fbucks.about.perfect.title" = "Perfektní hra";
 "fbucks.about.perfect.desc" = "Získej perfektní skóre (10/10 nebo 15/15)";
 "fbucks.about.streak10.title" = "10denní série";
-"fbucks.about.streak10.desc" = "Hrajte 10 dní v řadě";
+"fbucks.about.streak10.desc" = "Hraj 10 dní v řadě";
 "fbucks.about.streak20.title" = "20denní série";
-"fbucks.about.streak20.desc" = "Hrajte 20 dní v řadě";
+"fbucks.about.streak20.desc" = "Hraj 20 dní v řadě";
 "fbucks.about.streak50.title" = "50denní série";
-"fbucks.about.streak50.desc" = "Hrajte 50 dní v řadě";
+"fbucks.about.streak50.desc" = "Hraj 50 dní v řadě";
 "fbucks.about.streak100.title" = "100denní série";
-"fbucks.about.streak100.desc" = "Hrajte 100 dní v řadě";
+"fbucks.about.streak100.desc" = "Hraj 100 dní v řadě";
 "fbucks.reward.plus1" = "+1 F-Bucks";
 "fbucks.reward.plus2" = "+2 F-Bucks";
 "fbucks.reward.plus5" = "+5 F-Bucks";
 "fbucks.reward.plus10" = "+10 F-Bucks";
 "fbucks.history.title" = "Transakční historie";
 "fbucks.history.empty" = "Žádná historie";
-"fbucks.history.empty.hint" = "Hrajte a vydělávejte F-Bucks!";
+"fbucks.history.empty.hint" = "Hraj a získávej F-Bucks!";
 "fbucks.item.traveler_cap" = "Kšiltovka pro cestovatele";
-"fbucks.item.champion_shirt" = "Tričko Champion";
+"fbucks.item.champion_shirt" = "Tričko šampiona";
 "fbucks.item.socks" = "Ponožky";
-"fbucks.item.rainbow_skin" = "Duhová kůže";
-"fbucks.item.gold_skin" = "Zlatá kůže";
-"fbucks.item.explorer_jacket" = "Bunda Explorer";
-"fbucks.item.fire_effect" = "Účinek ohně";
-"fbucks.item.neon_skin" = "Neonová kůže";
+"fbucks.item.rainbow_skin" = "Duhový skin";
+"fbucks.item.gold_skin" = "Zlatý skin";
+"fbucks.item.explorer_jacket" = "Bunda průzkumníka";
+"fbucks.item.fire_effect" = "Ohnivý efekt";
+"fbucks.item.neon_skin" = "Neonový skin";
 "fbucks.item.stars_effect" = "Efekt hvězdy";
-"fbucks.item.champion_jacket" = "Bunda Champion";
-"fbucks.tx.daily_bonus" = "Získejte denní bonus";
+"fbucks.item.champion_jacket" = "Bunda šampiona";
+"fbucks.tx.daily_bonus" = "Denní bonus";
 "friends.remind.status_sent" = "Připomenutí odesláno!";
 
 /* Duel prepare error */

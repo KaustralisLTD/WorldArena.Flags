@@ -1,6 +1,6 @@
 "Open in Game Center" = "Game Centerで開く";
 "Заработай %d XP" = "%d XP を獲得";
-"F-BUCKS EARNED" = "F-BUCKS EARNED";
+"F-BUCKS EARNED" = "獲得したF-Bucks";
 "Дай %d правильных ответов" = "%d 個の正解を取得";
 "Наберите %d правильных ответов за месяц" = "今月は %d 件の正解を獲得";
 "Сыграй %d идеальных игр" = "%d 個の完璧なゲームをプレイする";
@@ -355,12 +355,12 @@
 "Идеальный результат игры" = "完璧な試合結果";
 "Получите идеальный результат в игре (10/10 или 15/15)" = "ゲームで完璧な結果を得る (10/10 または 15/15)";
 "Серия 10 дней" = "10日連続";
-"Играйте 10 дней подряд" = "10日間連続でプレイする";
+"Играйте 10 дней подряд" = "10日連続でプレイする";
 "Серия 20 дней" = "20日連続";
 "Играйте 20 дней подряд" = "20日連続でプレイする";
 "Серия 50 дней" = "50日連続";
 "Играйте 50 дней подряд" = "50日連続でプレイする";
-"Серия 100 дней" = "100日連続達成";
+"Серия 100 дней" = "100日連続";
 "Играйте 100 дней подряд" = "100日連続でプレイする";
 "История начислений" = "取引履歴";
 "История пуста" = "履歴は空です";
@@ -373,14 +373,14 @@
 "Особые визуальные эффекты" = "特殊な視覚効果";
 "Эффекты" = "効果";
 "Анимации и спецэффекты" = "アニメーションと特殊効果";
-"Футболка чемпиона" = "チャンピオン Tシャツ";
+"Футболка чемпиона" = "チャンピオンTシャツ";
 "Кепка путешественника" = "トラベラーズキャップ";
-"Куртка исследователя" = "エクスプローラーズジャケット";
+"Куртка исследователя" = "エクスプローラージャケット";
 "Золотой скин" = "ゴールドスキン";
 "Радужный скин" = "レインボースキン";
 "Неоновый скин" = "ネオンスキン";
 "Эффект блёсток" = "スパークルエフェクト";
-"Огненный эффект" = "火の効果";
+"Огненный эффект" = "火のエフェクト";
 "Звёздный эффект" = "スターエフェクト";
 "Купить" = "買う";
 "Покупка" = "購入";
@@ -426,9 +426,9 @@
 
 /* Game header popovers */
 "Total game time since start" = "開始からの合計ゲーム時間";
-"Time limit per question depending on difficulty" = "Time limit per question depending on difficulty";
+"Time limit per question depending on difficulty" = "1問あたりの制限時間は難易度によって変わります";
 "Total Game Time" = "総ゲーム時間";
-"Time Per Question" = "Time Per Question";
+"Time Per Question" = "1問あたりの時間";
 
 /* Game header motivation (iPad) */
 "Game motivation 1" = "これを持っていますね！";
@@ -629,7 +629,7 @@
 "Введите имя пользователя" = "ユーザー名を入力してください";
 "Пользователь не найден или уже в друзьях. Проверьте имя." = "ユーザーが見つからないか、すでに友達になっています。名前を確認してください。";
 "Ваша страна (флаг в профиле)" = "あなたの国 (プロフィールにある国旗)";
-"Выберите страну — её флаг будет отображаться у вас в профиле у друзей." = "Select a country — its flag will be shown in your profile to friends.";
+"Выберите страну — её флаг будет отображаться у вас в профиле у друзей." = "国を選んでください。選んだ国の旗が、フレンドに表示されるプロフィールに使われます。";
 "Не выбрано" = "未選択";
 "Ваша страна" = "あなたの国";
 
@@ -812,7 +812,7 @@
 "Введите имя пользователя" = "ユーザー名を入力してください";
 "Пользователь не найден или уже в друзьях. Проверьте имя." = "ユーザーが見つからないか、すでに友達になっています。名前を確認してください。";
 "Ваша страна (флаг в профиле)" = "あなたの国 (プロフィールにある国旗)";
-"Выберите страну — её флаг будет отображаться у вас в профиле у друзей." = "Select a country — its flag will be shown in your profile to friends.";
+"Выберите страну — её флаг будет отображаться у вас в профиле у друзей." = "国を選んでください。選んだ国の旗が、フレンドに表示されるプロフィールに使われます。";
 "Не выбрано" = "未選択";
 "Ваша страна" = "あなたの国";
 
@@ -936,7 +936,7 @@
 "Текущая серия" = "現在の連続数";
 "дней" = "日";
 "Точность" = "正確さ";
-"Теперь вы можете без единой ошибки отвечать на все наши вопросы с точностью в %d%%" = "Теперь вы можете без единой озибки отвечать на все нази вопросы с точностью в %d%%";
+"Теперь вы можете без единой ошибки отвечать на все наши вопросы с точностью в %d%%" = "回答の正答率は%d%%です。";
 "Мы будем рады, если вы захотите снова вернуться к нам!" = "また戻ってきたいと思って頂けたら嬉しいです！";
 "Продолжить" = "続く";
 
@@ -1000,7 +1000,7 @@
 
 /* Enhanced Streak View */
 "Don't break the chain! Come back tomorrow!" = "連鎖を断ち切らないでください！明日また来てね！";
-"Time to restart your streak! You can do it!" = "Time to restart your streak! You can do it!";
+"Time to restart your streak! You can do it!" = "連続プレイ記録をもう一度始めよう！きっとできる！";
 
 /* Monthly XP Quest */
 "Заработай %d XP за месяц" = "今月 %d XP を獲得";
@@ -1049,8 +1049,8 @@
 "Learn flags and countries of the World" = "世界の国旗と国を学ぶ";
 "Select Level" = "レベルの選択";
 "Level - %@" = "レベル - %@";
-"Exclusive tournaments with cash F-Bucks prizes" = "現金 F-Bucks 賞品が当たる独占トーナメント";
-"Survival Mode" = "Survival Mode";
+"Exclusive tournaments with cash F-Bucks prizes" = "F-Bucks 賞品付きの独占トーナメント";
+"Survival Mode" = "サバイバルモード";
 "One mistake = Game Over" = "1 つのミス = ゲームオーバー";
 "Duel result push format" = "%@: %d — あなた: %d。";
 "Duel motivation win" = "すばらしい！連勝を続けましょう。";
@@ -1183,7 +1183,7 @@
 "FACT_10_TITLE" = "最も単純なフラグ";
 "FACT_10_DESC" = "1977年から2011年までのリビアの国旗は緑色一色で、シンボルや模様はなかった。";
 "FACT_11_TITLE" = "地図付きの旗";
-"FACT_11_DESC" = "Cyprus's flag shows the outline of the island—a rare case among national flags.";
+"FACT_11_DESC" = "キプロスの国旗には島の輪郭が描かれています。国旗としては珍しい例です。";
 "FACT_12_TITLE" = "聖書のある旗";
 "FACT_12_DESC" = "ドミニカ共和国の国旗には開かれた聖書が描かれており、宗教書が掲載されている唯一の国旗となっています。";
 "FACT_13_TITLE" = "一番人気のカラー";
@@ -1525,19 +1525,19 @@
 "avatar_editor_opt_jacket" = "ジャケット";
 
 "monthly_quest_mission_title" = "%@のミッション";
-"Friend profile progress title" = "STREAK AND PROGRESS";
-"Friend achievements placeholder" = "Friend achievements are shown as they are unlocked";
+"Friend profile progress title" = "連続プレイ記録と進捗";
+"Friend achievements placeholder" = "フレンドの実績は、達成するとここに表示されます";
 
 "Answer as many flags as possible before time runs out" = "時間が切れる前に、できるだけ多くの国旗に答えよう";
 "Duration" = "制限時間";
-"Best score" = "Best score";
+"Best score" = "ベストスコア";
 "Wrong answer penalty" = "不正解のペナルティ";
 "5 correct in a row bonus" = "連続5正解ボーナス";
 "Best combo" = "最高コンボ";
 "New record!" = "新記録！";
 "Day leaderboard place" = "デイリーランキング順位";
 "Week leaderboard place" = "ウィークリーランキング順位";
-"Back to Modes" = "Back to Modes";
+"Back to Modes" = "モード選択に戻る";
 "Start" = "スタート";
 "TC correct answers headline" = "%d 問正解";
 "Difficulty description TC" = "%1$d%2$@のラウンド • 連続5正解で +%3$d%2$@ • 不正解で −%4$d%2$@";
@@ -1548,11 +1548,11 @@
 "TC intro combo5 bonus title" = "連続5正解コンボ";
 "TC detail time penalty fmt" = "タイマー: −%1$d %2$@（不正解）";
 "TC detail time combo fmt" = "タイマー: +%1$d %2$@（5連続正解）";
-"TC detail points earned" = "Points for this answer: +%d";
-"TC detail xp earned" = "XP for this answer: +%d";
-"TC detail time penalty" = "Timer: −10 s (wrong answer)";
-"TC detail time combo bonus" = "Timer: +10 s (5 correct in a row)";
-"Share TC headline" = "Time Challenge: %d correct out of %d";
+"TC detail points earned" = "この回答のポイント：+%d";
+"TC detail xp earned" = "この回答のXP：+%d";
+"TC detail time penalty" = "制限時間：−10秒（不正解）";
+"TC detail time combo bonus" = "制限時間：+10秒（5問連続正解）";
+"Share TC headline" = "タイムチャレンジ：%2$d問中%1$d問正解";
 
 "Time seconds unit short" = "秒";
 "TC stat best combo" = "最高コンボ";
@@ -1582,10 +1582,10 @@
 "Survival weekly title" = "ウィークリーサバイバルチャレンジ";
 "Survival weekly target fmt" = "今週1プレイで %d 国旗をクリアしよう。";
 "Survival weekly best fmt" = "今週のベスト：%d 国旗";
-"Survival weekly all milestones met body" = "You've reached every weekly depth goal — up to 200 flags in one run. Brilliant!";
-"Survival weekly reward all claimed" = "All weekly survival bonuses claimed (up to +4000 XP).";
+"Survival weekly all milestones met body" = "1回で200旗まで、今週のすべての目標を達成しました。すばらしい！";
+"Survival weekly reward all claimed" = "今週のサバイバルボーナスをすべて受け取りました（最大+4000 XP）。";
 "Survival weekly reward claimed" = "ウィークリーボーナス獲得（+1000 XP）";
-"Survival weekly reward hint" = "Each milestone — 25, 50, 100, then 200 flags in one run — gives +1000 XP once per week.";
+"Survival weekly reward hint" = "1回で25、50、100、200旗に到達するごとに、それぞれ週に1回+1000 XPを獲得できます。";
 
 "Survival result depth progress fmt" = "%1$d / %2$d";
 
@@ -1596,55 +1596,55 @@
 "1 hour" = "1時間";
 
 
-"Duel announcement subtitle" = "Same duel for both players. First to score wins!";
-"User 1" = "User 1";
-"User 2" = "User 2";
-"Number of Questions" = "Questions";
+"Duel announcement subtitle" = "両プレイヤーに同じ問題が出題されます。スコアが高い方が勝ち、同点の場合は所要時間が短い方が勝ちます。";
+"User 1" = "プレイヤー1";
+"User 2" = "プレイヤー2";
+"Number of Questions" = "問題数";
 
 
 /* F-Bucks screen */
-"fbucks.close" = "近い";
-"fbucks.currency.name" = "F-バックス";
-"fbucks.hero.subtitle.enough" = "約 %d 個のアイテムに十分な量";
-"fbucks.hero.subtitle.rare" = "珍しいアイテムが買える";
-"fbucks.hero.subtitle.save" = "特別なことのために節約を続ける";
+"fbucks.close" = "閉じる";
+"fbucks.currency.name" = "F-Bucks";
+"fbucks.hero.subtitle.enough" = "約%d個のアイテムを購入できます";
+"fbucks.hero.subtitle.rare" = "レアアイテムを購入できます";
+"fbucks.hero.subtitle.save" = "特別なアイテムのために貯めましょう";
 "fbucks.daily.title" = "毎日のボーナス";
-"fbucks.daily.subtitle" = "+1 F バック";
-"fbucks.daily.claim" = "請求";
-"fbucks.daily.claimed" = "今日請求されました";
-"fbucks.daily.hint" = "+1 は今日利用可能 — [請求] をタップします";
-"fbucks.earn.today.title" = "今日獲得しましょう";
-"fbucks.earn.today.subtitle" = "今日は最大 %d F-Bucks が可能です";
-"fbucks.earn.perfect.title" = "完璧なゲーム";
+"fbucks.daily.subtitle" = "+1 F-Bucks";
+"fbucks.daily.claim" = "受け取る";
+"fbucks.daily.claimed" = "本日受け取り済み";
+"fbucks.daily.hint" = "今日は+1を受け取れます。「受け取る」をタップ";
+"fbucks.earn.today.title" = "今日獲得できる報酬";
+"fbucks.earn.today.subtitle" = "今日は最大%d F-Bucksを獲得できます";
+"fbucks.earn.perfect.title" = "全問正解";
 "fbucks.earn.perfect.sub" = "10/10 または 15/15 の場合は +1";
-"fbucks.earn.streak" = "ストリーク";
-"fbucks.earn.streak.sub" = "シリーズ (%d/10 日)";
+"fbucks.earn.streak" = "連続プレイ記録";
+"fbucks.earn.streak.sub" = "連続プレイ（%d/10日）";
 "fbucks.earn.league" = "今週のトップ";
-"fbucks.earn.league.sub" = "リーグの上位 3 位で終了する";
-"fbucks.progress.title" = "次の項目に進む";
+"fbucks.earn.league.sub" = "リーグで上位3位以内に入る";
+"fbucks.progress.title" = "次のアイテムまでの進捗";
 "fbucks.progress.percent" = "%d%%";
-"fbucks.progress.full" = "次の報酬を手に入れる余裕があります - ショップを開いてください!";
+"fbucks.progress.full" = "新しい報酬を購入できるだけ貯まりました。ショップを開きましょう！";
 "fbucks.want.title" = "次の目標";
 "fbucks.want.price" = "価格: %d F-Bucks";
-"fbucks.want.you" = "あなたが持っているもの: %d";
+"fbucks.want.you" = "所持数：%d";
 "fbucks.want.need" = "さらに%dが必要です";
-"fbucks.earn_more" = "→ をさらに獲得しましょう";
+"fbucks.earn_more" = "もっと獲得する →";
 "fbucks.buy_for" = "%d で購入";
-"fbucks.shop.title" = "店";
-"fbucks.shop.subtitle" = "F-Bucks を限定アバター アイテムに費やす";
-"fbucks.shop.tier.common" = "一般";
+"fbucks.shop.title" = "ショップ";
+"fbucks.shop.subtitle" = "F-Bucksで限定アバターアイテムを購入しましょう";
+"fbucks.shop.tier.common" = "コモン";
 "fbucks.shop.tier.rare" = "レア";
-"fbucks.shop.tier.legendary" = "伝説の";
+"fbucks.shop.tier.legendary" = "レジェンダリー";
 "fbucks.shop.limited" = "限定";
 "fbucks.perfect.badge" = "完璧";
 "fbucks.tab.today" = "今日";
-"fbucks.tab.about" = "について";
-"fbucks.tab.history" = "歴史";
-"fbucks.tab.shop" = "店";
+"fbucks.tab.about" = "説明";
+"fbucks.tab.history" = "履歴";
+"fbucks.tab.shop" = "ショップ";
 "fbucks.about.title" = "F-Bucksとは何ですか?";
-"fbucks.about.body" = "F-Bucks (Flags Bucks) は、ワールド アリーナ フラッグスをプレイすることで獲得できるゲーム内通貨です。ユニークなアバターピース、スキン、その他の限定アイテムにそれらを費やしてください。";
+"fbucks.about.body" = "F-Bucks（Flags Bucks）は、World Arena Flagsをプレイして獲得できるゲーム内通貨です。アバターのアクセサリーやスキンなど、さまざまな限定アイテムの購入に使えます。";
 "fbucks.about.how" = "F-Bucks を稼ぐ方法";
-"fbucks.about.perfect.title" = "完璧なゲーム";
+"fbucks.about.perfect.title" = "全問正解";
 "fbucks.about.perfect.desc" = "満点を獲得する (10/10 または 15/15)";
 "fbucks.about.streak10.title" = "10日連続";
 "fbucks.about.streak10.desc" = "10日連続でプレイする";
@@ -1654,10 +1654,10 @@
 "fbucks.about.streak50.desc" = "50日連続でプレイする";
 "fbucks.about.streak100.title" = "100日連続";
 "fbucks.about.streak100.desc" = "100日連続でプレイする";
-"fbucks.reward.plus1" = "+1 F バック";
-"fbucks.reward.plus2" = "+2 F バック";
-"fbucks.reward.plus5" = "+5 F バック";
-"fbucks.reward.plus10" = "+10 F バック";
+"fbucks.reward.plus1" = "+1 F-Bucks";
+"fbucks.reward.plus2" = "+2 F-Bucks";
+"fbucks.reward.plus5" = "+5 F-Bucks";
+"fbucks.reward.plus10" = "+10 F-Bucks";
 "fbucks.history.title" = "取引履歴";
 "fbucks.history.empty" = "まだ履歴がありません";
 "fbucks.history.empty.hint" = "プレイして F-Bucks を獲得しましょう!";

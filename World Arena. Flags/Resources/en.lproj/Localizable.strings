@@ -348,19 +348,19 @@
 "Получайте бонусы за длинные серии дней" = "Get bonuses for long day streaks";
 "Покупайте эксклюзивные элементы для аватара" = "Buy exclusive avatar items";
 "Создавайте уникальный стиль" = "Create a unique style";
-"Как заработать F-Bucks" = "How to Earn F-Bucks";
+"Как заработать F-Bucks" = "How to earn F-Bucks";
 "Идеальный результат" = "Perfect Result";
 "Идеальный результат игры" = "Perfect game result";
 "Получите идеальный результат в игре (10/10 или 15/15)" = "Get a perfect result in the game (10/10 or 15/15)";
-"Серия 10 дней" = "10 Day Streak";
+"Серия 10 дней" = "10-day streak";
 "Играйте 10 дней подряд" = "Play 10 days in a row";
-"Серия 20 дней" = "20 Day Streak";
+"Серия 20 дней" = "20-day streak";
 "Играйте 20 дней подряд" = "Play 20 days in a row";
-"Серия 50 дней" = "50 Day Streak";
+"Серия 50 дней" = "50-day streak";
 "Играйте 50 дней подряд" = "Play 50 days in a row";
-"Серия 100 дней" = "100 Day Streak";
+"Серия 100 дней" = "100-day streak";
 "Играйте 100 дней подряд" = "Play 100 days in a row";
-"История начислений" = "Transaction History";
+"История начислений" = "Transaction history";
 "История пуста" = "History is empty";
 "Начните играть и зарабатывать F-Bucks!" = "Start playing and earning F-Bucks!";
 "Магазин F-Bucks" = "F-Bucks Shop";
@@ -371,15 +371,15 @@
 "Особые визуальные эффекты" = "Special visual effects";
 "Эффекты" = "Effects";
 "Анимации и спецэффекты" = "Animations and special effects";
-"Футболка чемпиона" = "Champion T-Shirt";
-"Кепка путешественника" = "Traveler's Cap";
-"Куртка исследователя" = "Explorer's Jacket";
-"Золотой скин" = "Gold Skin";
-"Радужный скин" = "Rainbow Skin";
-"Неоновый скин" = "Neon Skin";
+"Футболка чемпиона" = "Champion tee";
+"Кепка путешественника" = "Traveler's cap";
+"Куртка исследователя" = "Explorer jacket";
+"Золотой скин" = "Gold skin";
+"Радужный скин" = "Rainbow skin";
+"Неоновый скин" = "Neon skin";
 "Эффект блёсток" = "Sparkle Effect";
-"Огненный эффект" = "Fire Effect";
-"Звёздный эффект" = "Star Effect";
+"Огненный эффект" = "Fire effect";
+"Звёздный эффект" = "Star effect";
 "Купить" = "Buy";
 "Покупка" = "Purchase";
 "Текст гимна" = "Anthem Text";
@@ -934,7 +934,7 @@
 "Текущая серия" = "Current Streak";
 "дней" = "days";
 "Точность" = "Accuracy";
-"Теперь вы можете без единой ошибки отвечать на все наши вопросы с точностью в %d%%" = "You can now answer our questions with %d%% accuracy.";
+"Теперь вы можете без единой ошибки отвечать на все наши вопросы с точностью в %d%%" = "Your answer accuracy is %d%%.";
 "Мы будем рады, если вы захотите снова вернуться к нам!" = "We would be happy if you want to return to us again!";
 "Продолжить" = "Continue";
 
@@ -1047,7 +1047,7 @@
 "Learn flags and countries of the World" = "Learn flags and countries of the World";
 "Select Level" = "Select Level";
 "Level - %@" = "Level - %@";
-"Exclusive tournaments with cash F-Bucks prizes" = "Exclusive tournaments with cash F-Bucks prizes";
+"Exclusive tournaments with cash F-Bucks prizes" = "Exclusive tournaments with F-Bucks prizes";
 "Survival Mode" = "Survival Mode";
 "One mistake = Game Over" = "One mistake = Game Over";
 "Duel result push format" = "%@: %d — You: %d.";
@@ -1500,7 +1500,7 @@
 "Survival weekly title" = "Weekly Survival challenge";
 "Survival weekly target fmt" = "Reach %d flags survived in one run this week.";
 "Survival weekly best fmt" = "Your best this week: %d flags";
-"Survival weekly all milestones met body" = "You've reached every weekly depth goal — up to 200 flags in one run. Brilliant!";
+"Survival weekly all milestones met body" = "You've reached every weekly goal — up to 200 flags in one run. Brilliant!";
 "Survival weekly reward claimed" = "Weekly bonus claimed (+1000 XP)";
 "Survival weekly reward all claimed" = "All weekly survival bonuses claimed (up to +4000 XP).";
 "Survival weekly reward hint" = "Each milestone — 25, 50, 100, then 200 flags in one run — gives +1000 XP once per week.";
@@ -1515,7 +1515,7 @@
 "1 hour" = "1 hour";
 
 
-"Duel announcement subtitle" = "Same duel for both players. First to score wins!";
+"Duel announcement subtitle" = "Both players get the same questions. The higher score wins; if scores are tied, the faster player wins.";
 "User 1" = "User 1";
 "User 2" = "User 2";
 "Number of Questions" = "Questions";
@@ -1536,7 +1536,7 @@
 "fbucks.earn.perfect.title" = "Perfect game";
 "fbucks.earn.perfect.sub" = "+1 for 10/10 or 15/15";
 "fbucks.earn.streak" = "Streak";
-"fbucks.earn.streak.sub" = "Series (%d/10 days)";
+"fbucks.earn.streak.sub" = "Streak (%d/10 days)";
 "fbucks.earn.league" = "Top of the week";
 "fbucks.earn.league.sub" = "Finish in the top 3 of your league";
 "fbucks.progress.title" = "Progress to next item";
@@ -1560,7 +1560,7 @@
 "fbucks.tab.history" = "History";
 "fbucks.tab.shop" = "Shop";
 "fbucks.about.title" = "What are F-Bucks?";
-"fbucks.about.body" = "F-Bucks (Flags Bucks) are in-game currency you earn by playing World Arena Flags. Spend them on unique avatar pieces, skins, and other exclusive items.";
+"fbucks.about.body" = "F-Bucks (Flags Bucks) are the in-game currency you earn by playing World Arena Flags. Spend them on avatar accessories, skins, and other exclusive items.";
 "fbucks.about.how" = "How to earn F-Bucks";
 "fbucks.about.perfect.title" = "Perfect game";
 "fbucks.about.perfect.desc" = "Get a perfect score (10/10 or 15/15)";

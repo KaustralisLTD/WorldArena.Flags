@@ -1,6 +1,6 @@
 "Open in Game Center" = "Game Center में खोलें";
 "Заработай %d XP" = "%d XP अर्जित करें";
-"F-BUCKS EARNED" = "F-BUCKS EARNED";
+"F-BUCKS EARNED" = "कमाए गए F-Bucks";
 "Дай %d правильных ответов" = "%d सही उत्तर प्राप्त करें";
 "Наберите %d правильных ответов за месяц" = "इस माह %d सही उत्तर प्राप्त करें";
 "Сыграй %d идеальных игр" = "%d परफेक्ट गेम खेलें";
@@ -343,24 +343,24 @@
 "Как заработать" = "कैसे कमाए";
 "История" = "इतिहास";
 "Магазин" = "दुकान";
-"Что такое F-Bucks?" = "एफ-बक्स क्या हैं?";
+"Что такое F-Bucks?" = "F-Bucks क्या हैं?";
 "F-Bucks (Flags Bucks) — это внутриигровая валюта, которую можно заработать, играя в World Arena Flags. Используйте F-Bucks для покупки уникальных элементов аватара, скинов и других эксклюзивных предметов." = "एफ-बक्स (फ्लैग्स बक्स) एक इन-गेम मुद्रा है जिसे आप वर्ल्ड एरेना फ्लैग्स खेलकर कमा सकते हैं। अद्वितीय अवतार आइटम, खाल और अन्य विशिष्ट आइटम खरीदने के लिए एफ-बक्स का उपयोग करें।";
 "Особенности:" = "विशेषताएँ:";
 "Зарабатывайте за идеальные результаты в играх" = "उत्तम खेल परिणामों के लिए कमाएँ";
 "Получайте бонусы за длинные серии дней" = "लंबे दिन की स्ट्रीक्स के लिए बोनस प्राप्त करें";
 "Покупайте эксклюзивные элементы для аватара" = "विशेष अवतार आइटम खरीदें";
 "Создавайте уникальный стиль" = "एक अनूठी शैली बनाएं";
-"Как заработать F-Bucks" = "एफ-बक्स कैसे अर्जित करें";
+"Как заработать F-Bucks" = "F-Bucks कैसे कमाएँ";
 "Идеальный результат" = "उत्तम परिणाम";
 "Идеальный результат игры" = "उत्तम खेल परिणाम";
 "Получите идеальный результат в игре (10/10 или 15/15)" = "खेल में उत्तम परिणाम प्राप्त करें (10/10 या 15/15)";
-"Серия 10 дней" = "10 दिवसीय स्ट्रीक";
+"Серия 10 дней" = "10 दिन की शृंखला";
 "Играйте 10 дней подряд" = "लगातार 10 दिन खेलें";
-"Серия 20 дней" = "20 दिवसीय स्ट्रीक";
+"Серия 20 дней" = "20 दिन की शृंखला";
 "Играйте 20 дней подряд" = "लगातार 20 दिन खेलें";
-"Серия 50 дней" = "50 दिन का सिलसिला";
+"Серия 50 дней" = "50 दिन की शृंखला";
 "Играйте 50 дней подряд" = "लगातार 50 दिन खेलें";
-"Серия 100 дней" = "100 दिन का सिलसिला";
+"Серия 100 дней" = "100 दिन की शृंखला";
 "Играйте 100 дней подряд" = "लगातार 100 दिन खेलें";
 "История начислений" = "ट्रांजेक्शन इतिहास";
 "История пуста" = "इतिहास खोखला है";
@@ -375,13 +375,13 @@
 "Анимации и спецэффекты" = "एनिमेशन और विशेष प्रभाव";
 "Футболка чемпиона" = "चैंपियन टी-शर्ट";
 "Кепка путешественника" = "यात्री की टोपी";
-"Куртка исследователя" = "एक्सप्लोरर का जैकेट";
-"Золотой скин" = "सोने की त्वचा";
-"Радужный скин" = "इंद्रधनुष त्वचा";
-"Неоновый скин" = "नियॉन त्वचा";
+"Куртка исследователя" = "एक्सप्लोरर जैकेट";
+"Золотой скин" = "सुनहरी स्किन";
+"Радужный скин" = "इंद्रधनुषी स्किन";
+"Неоновый скин" = "नियॉन स्किन";
 "Эффект блёсток" = "चमक प्रभाव";
 "Огненный эффект" = "अग्नि प्रभाव";
-"Звёздный эффект" = "सितारा प्रभाव";
+"Звёздный эффект" = "तारा प्रभाव";
 "Купить" = "खरीदना";
 "Покупка" = "खरीदना";
 "Текст гимна" = "गान पाठ";
@@ -426,9 +426,9 @@
 
 /* Game header popovers */
 "Total game time since start" = "प्रारंभ से कुल खेल समय";
-"Time limit per question depending on difficulty" = "Time limit per question depending on difficulty";
+"Time limit per question depending on difficulty" = "हर सवाल के लिए समय कठिनाई के स्तर पर निर्भर करता है";
 "Total Game Time" = "कुल खेल का समय";
-"Time Per Question" = "Time Per Question";
+"Time Per Question" = "हर सवाल के लिए समय";
 
 /* Game header motivation (iPad) */
 "Game motivation 1" = "आपको यह मिल गया है!";
@@ -712,7 +712,7 @@
 "Ранняя птица" = "जल्दी उठ कर काम शुरू करने वाला व्यक्ति";
 "Достигните серии 5 дней" = "5-दिवसीय स्ट्रीक तक पहुँचें";
 "Стабильность" = "स्थिरता";
-"Серия 10 дней" = "10 दिन की लकीर";
+"Серия 10 дней" = "10 दिन की शृंखला";
 "Железная воля" = "पक्का इरदा";
 "Серия 30 дней" = "30 दिन की श्रृंखला";
 "Новичок XP" = "एक्सपी शुरुआती";
@@ -936,7 +936,7 @@
 "Текущая серия" = "वर्तमान स्ट्रीक";
 "дней" = "दिन";
 "Точность" = "शुद्धता";
-"Теперь вы можете без единой ошибки отвечать на все наши вопросы с точностью в %d%%" = "Теперь вы можете без единой ошибки отвечать на все наши вопросы с %d%% में точностью";
+"Теперь вы можете без единой ошибки отвечать на все наши вопросы с точностью в %d%%" = "आपके जवाबों की सटीकता %d%% है।";
 "Мы будем рады, если вы захотите снова вернуться к нам!" = "यदि आप दोबारा हमारे पास लौटना चाहें तो हमें खुशी होगी!";
 "Продолжить" = "जारी रखना";
 
@@ -1000,7 +1000,7 @@
 
 /* Enhanced Streak View */
 "Don't break the chain! Come back tomorrow!" = "श्रृंखला मत तोड़ो! कल फिर आना!";
-"Time to restart your streak! You can do it!" = "Time to restart your streak! You can do it!";
+"Time to restart your streak! You can do it!" = "लगातार खेलने की नई शृंखला शुरू करें! आप कर सकते हैं!";
 
 /* Monthly XP Quest */
 "Заработай %d XP за месяц" = "इस माह %d XP अर्जित करें";
@@ -1049,8 +1049,8 @@
 "Learn flags and countries of the World" = "विश्व के झंडे और देशों के बारे में जानें";
 "Select Level" = "स्तर चुनें";
 "Level - %@" = "स्तर - %@";
-"Exclusive tournaments with cash F-Bucks prizes" = "नकद एफ-बक्स पुरस्कारों के साथ विशेष टूर्नामेंट";
-"Survival Mode" = "Survival Mode";
+"Exclusive tournaments with cash F-Bucks prizes" = "एफ-बक्स पुरस्कारों के साथ विशेष टूर्नामेंट";
+"Survival Mode" = "सर्वाइवल मोड";
 "One mistake = Game Over" = "एक गलती = खेल ख़त्म";
 "Duel result push format" = "%@: %d — आप: %d.";
 "Duel motivation win" = "अद्भुत! सिलसिला जारी रखें.";
@@ -1525,19 +1525,19 @@
 "avatar_editor_opt_jacket" = "जैकेट";
 
 "monthly_quest_mission_title" = "%@ मिशन";
-"Friend profile progress title" = "STREAK AND PROGRESS";
-"Friend achievements placeholder" = "Friend achievements are shown as they are unlocked";
+"Friend profile progress title" = "लगातार खेलने की शृंखला और प्रगति";
+"Friend achievements placeholder" = "आपके दोस्त की उपलब्धियाँ अनलॉक होने पर यहाँ दिखेंगी";
 
 "Answer as many flags as possible before time runs out" = "समय खत्म होने से पहले जितनी हो सके उतनी झंडियाँ पहचानें";
 "Duration" = "अवधि";
-"Best score" = "Best score";
+"Best score" = "सर्वश्रेष्ठ स्कोर";
 "Wrong answer penalty" = "गलत जवाब पर जुर्माना";
 "5 correct in a row bonus" = "लगातार 5 सही पर बोनस";
 "Best combo" = "सबसे अच्छी लकीर";
 "New record!" = "नया रिकॉर्ड!";
 "Day leaderboard place" = "दिन की लीडरबोर्ड रैंक";
 "Week leaderboard place" = "साप्ताहिक लीडरबोर्ड रैंक";
-"Back to Modes" = "Back to Modes";
+"Back to Modes" = "मोड चयन पर लौटें";
 "Start" = "शुरू करें";
 "TC correct answers headline" = "%d सही";
 "Difficulty description TC" = "%1$d%2$@ प्रति राउंड • लगातार 5 सही पर +%3$d%2$@ • गलती पर −%4$d%2$@";
@@ -1548,11 +1548,11 @@
 "TC intro combo5 bonus title" = "लगातार 5 सही कॉम्बो";
 "TC detail time penalty fmt" = "टाइमर: −%1$d %2$@ (गलत)";
 "TC detail time combo fmt" = "टाइमर: +%1$d %2$@ (लगातार 5 सही)";
-"TC detail points earned" = "Points for this answer: +%d";
-"TC detail xp earned" = "XP for this answer: +%d";
-"TC detail time penalty" = "Timer: −10 s (wrong answer)";
-"TC detail time combo bonus" = "Timer: +10 s (5 correct in a row)";
-"Share TC headline" = "Time Challenge: %d correct out of %d";
+"TC detail points earned" = "इस जवाब के अंक: +%d";
+"TC detail xp earned" = "इस जवाब के XP: +%d";
+"TC detail time penalty" = "टाइमर: −10 सेकंड (गलत जवाब)";
+"TC detail time combo bonus" = "टाइमर: +10 सेकंड (लगातार 5 सही जवाब)";
+"Share TC headline" = "समय चुनौती: %2$d में से %1$d सही जवाब";
 
 "Time seconds unit short" = "से";
 "TC stat best combo" = "सबसे अच्छी लकीर";
@@ -1582,10 +1582,10 @@
 "Survival weekly title" = "साप्ताहिक सर्वाइवल चुनौती";
 "Survival weekly target fmt" = "इस सप्ताह एक रन में %d झंडे पार करें।";
 "Survival weekly best fmt" = "इस सप्ताह आपका सर्वश्रेष्ठ: %d झंडे";
-"Survival weekly all milestones met body" = "You've reached every weekly depth goal — up to 200 flags in one run. Brilliant!";
-"Survival weekly reward all claimed" = "All weekly survival bonuses claimed (up to +4000 XP).";
+"Survival weekly all milestones met body" = "आपने सभी साप्ताहिक लक्ष्य पूरे कर लिए — एक ही खेल में 200 झंडों तक। शानदार!";
+"Survival weekly reward all claimed" = "सर्वाइवल मोड के सभी साप्ताहिक बोनस मिल गए (अधिकतम +4000 XP)।";
 "Survival weekly reward claimed" = "साप्ताहिक बोनस मिला (+1000 XP)";
-"Survival weekly reward hint" = "Each milestone — 25, 50, 100, then 200 flags in one run — gives +1000 XP once per week.";
+"Survival weekly reward hint" = "एक ही खेल में 25, 50, 100 और 200 झंडों का हर पड़ाव, हफ़्ते में एक बार +1000 XP देता है।";
 
 "Survival result depth progress fmt" = "%1$d / %2$d";
 
@@ -1596,79 +1596,79 @@
 "1 hour" = "1 घंटा";
 
 
-"Duel announcement subtitle" = "Same duel for both players. First to score wins!";
-"User 1" = "User 1";
-"User 2" = "User 2";
-"Number of Questions" = "Questions";
+"Duel announcement subtitle" = "दोनों खिलाड़ियों को एक जैसे सवाल मिलते हैं। ज़्यादा अंक पाने वाला जीतता है; अंक बराबर हों तो कम समय लेने वाला जीतता है।";
+"User 1" = "खिलाड़ी 1";
+"User 2" = "खिलाड़ी 2";
+"Number of Questions" = "सवाल";
 
 
 /* F-Bucks screen */
-"fbucks.close" = "बंद करना";
-"fbucks.currency.name" = "एफ-बक्स";
+"fbucks.close" = "बंद करें";
+"fbucks.currency.name" = "F-Bucks";
 "fbucks.hero.subtitle.enough" = "लगभग %d आइटम के लिए पर्याप्त";
 "fbucks.hero.subtitle.rare" = "आप कोई दुर्लभ वस्तु खरीद सकते हैं";
 "fbucks.hero.subtitle.save" = "किसी विशेष चीज़ के लिए बचत करते रहें";
 "fbucks.daily.title" = "दैनिक बोनस";
-"fbucks.daily.subtitle" = "+1 एफ-बक्स";
-"fbucks.daily.claim" = "दावा";
-"fbucks.daily.claimed" = "आज दावा किया गया";
-"fbucks.daily.hint" = "+1 आज उपलब्ध है - दावा करें पर टैप करें";
+"fbucks.daily.subtitle" = "+1 F-Bucks";
+"fbucks.daily.claim" = "प्राप्त करें";
+"fbucks.daily.claimed" = "आज प्राप्त कर लिया";
+"fbucks.daily.hint" = "आज +1 उपलब्ध है — प्राप्त करें पर टैप करें";
 "fbucks.earn.today.title" = "आज ही कमाएं";
-"fbucks.earn.today.subtitle" = "आज %d तक एफ-बक्स संभव है";
-"fbucks.earn.perfect.title" = "बिल्कुल सही खेल";
+"fbucks.earn.today.subtitle" = "आज अधिकतम %d F-Bucks कमा सकते हैं";
+"fbucks.earn.perfect.title" = "पूर्ण स्कोर वाला खेल";
 "fbucks.earn.perfect.sub" = "10/10 या 15/15 के लिए +1";
-"fbucks.earn.streak" = "धारी";
+"fbucks.earn.streak" = "लगातार खेलने की शृंखला";
 "fbucks.earn.streak.sub" = "शृंखला (%d/10 दिन)";
-"fbucks.earn.league" = "सप्ताह का शीर्ष";
-"fbucks.earn.league.sub" = "अपनी लीग के शीर्ष 3 में समाप्त करें";
-"fbucks.progress.title" = "अगले आइटम पर प्रगति";
+"fbucks.earn.league" = "हफ़्ते के शीर्ष खिलाड़ी";
+"fbucks.earn.league.sub" = "अपनी लीग में शीर्ष 3 में रहें";
+"fbucks.progress.title" = "अगली वस्तु तक की प्रगति";
 "fbucks.progress.percent" = "%d%%";
-"fbucks.progress.full" = "आप अगले पुरस्कार वहन कर सकते हैं - दुकान खोलें!";
+"fbucks.progress.full" = "नई वस्तुएँ खरीदने के लिए आपके पास पर्याप्त F-Bucks हैं — दुकान खोलें!";
 "fbucks.want.title" = "अगला लक्ष्य";
-"fbucks.want.price" = "मूल्य: %d एफ-बक्स";
+"fbucks.want.price" = "कीमत: %d F-Bucks";
 "fbucks.want.you" = "आपके पास है: %d";
 "fbucks.want.need" = "%d और चाहिए";
 "fbucks.earn_more" = "अधिक कमाएँ →";
 "fbucks.buy_for" = "%d में खरीदें";
 "fbucks.shop.title" = "दुकान";
-"fbucks.shop.subtitle" = "विशिष्ट अवतार वस्तुओं पर एफ-बक्स खर्च करें";
+"fbucks.shop.subtitle" = "अवतार की विशेष वस्तुओं पर F-Bucks खर्च करें";
 "fbucks.shop.tier.common" = "सामान्य";
 "fbucks.shop.tier.rare" = "दुर्लभ";
-"fbucks.shop.tier.legendary" = "प्रसिद्ध";
+"fbucks.shop.tier.legendary" = "अत्यंत दुर्लभ";
 "fbucks.shop.limited" = "सीमित";
 "fbucks.perfect.badge" = "उत्तम";
 "fbucks.tab.today" = "आज";
-"fbucks.tab.about" = "के बारे में";
+"fbucks.tab.about" = "जानकारी";
 "fbucks.tab.history" = "इतिहास";
 "fbucks.tab.shop" = "दुकान";
-"fbucks.about.title" = "एफ-बक्स क्या हैं?";
-"fbucks.about.body" = "एफ-बक्स (फ्लैग्स बक्स) इन-गेम मुद्रा है जिसे आप वर्ल्ड एरेना फ्लैग्स खेलकर कमाते हैं। उन्हें अद्वितीय अवतार के टुकड़ों, खालों और अन्य विशिष्ट वस्तुओं पर खर्च करें।";
-"fbucks.about.how" = "एफ-बक्स कैसे अर्जित करें";
-"fbucks.about.perfect.title" = "बिल्कुल सही खेल";
+"fbucks.about.title" = "F-Bucks क्या हैं?";
+"fbucks.about.body" = "F-Bucks (Flags Bucks) खेल की मुद्रा है जिसे आप World Arena Flags खेलकर कमाते हैं। इनसे अवतार के खास सामान, स्किन और अन्य विशेष वस्तुएँ खरीदें।";
+"fbucks.about.how" = "F-Bucks कैसे कमाएँ";
+"fbucks.about.perfect.title" = "पूर्ण स्कोर वाला खेल";
 "fbucks.about.perfect.desc" = "पूर्ण स्कोर प्राप्त करें (10/10 या 15/15)";
-"fbucks.about.streak10.title" = "10 दिन की लकीर";
+"fbucks.about.streak10.title" = "10 दिन की शृंखला";
 "fbucks.about.streak10.desc" = "लगातार 10 दिन खेलें";
-"fbucks.about.streak20.title" = "20 दिन की लकीर";
+"fbucks.about.streak20.title" = "20 दिन की शृंखला";
 "fbucks.about.streak20.desc" = "लगातार 20 दिन खेलें";
-"fbucks.about.streak50.title" = "50 दिन की श्रृंखला";
+"fbucks.about.streak50.title" = "50 दिन की शृंखला";
 "fbucks.about.streak50.desc" = "लगातार 50 दिन खेलें";
-"fbucks.about.streak100.title" = "100 दिन की श्रृंखला";
+"fbucks.about.streak100.title" = "100 दिन की शृंखला";
 "fbucks.about.streak100.desc" = "लगातार 100 दिन खेलें";
-"fbucks.reward.plus1" = "+1 एफ-बक्स";
-"fbucks.reward.plus2" = "+2 एफ-बक्स";
-"fbucks.reward.plus5" = "+5 एफ-बक्स";
-"fbucks.reward.plus10" = "+10 एफ-बक्स";
+"fbucks.reward.plus1" = "+1 F-Bucks";
+"fbucks.reward.plus2" = "+2 F-Bucks";
+"fbucks.reward.plus5" = "+5 F-Bucks";
+"fbucks.reward.plus10" = "+10 F-Bucks";
 "fbucks.history.title" = "ट्रांजेक्शन इतिहास";
-"fbucks.history.empty" = "अभी तक कोई इतिहास नहीं";
-"fbucks.history.empty.hint" = "खेलें और एफ-बक्स कमाएं!";
+"fbucks.history.empty" = "अभी कोई लेन-देन नहीं है";
+"fbucks.history.empty.hint" = "खेलें और F-Bucks कमाएँ!";
 "fbucks.item.traveler_cap" = "यात्री की टोपी";
-"fbucks.item.champion_shirt" = "चैंपियन टी";
+"fbucks.item.champion_shirt" = "चैंपियन टी-शर्ट";
 "fbucks.item.socks" = "मोज़े";
-"fbucks.item.rainbow_skin" = "इंद्रधनुषी त्वचा";
-"fbucks.item.gold_skin" = "सोने की त्वचा";
+"fbucks.item.rainbow_skin" = "इंद्रधनुषी स्किन";
+"fbucks.item.gold_skin" = "सुनहरी स्किन";
 "fbucks.item.explorer_jacket" = "एक्सप्लोरर जैकेट";
 "fbucks.item.fire_effect" = "अग्नि प्रभाव";
-"fbucks.item.neon_skin" = "नीयन त्वचा";
+"fbucks.item.neon_skin" = "नियॉन स्किन";
 "fbucks.item.stars_effect" = "तारा प्रभाव";
 "fbucks.item.champion_jacket" = "चैंपियन जैकेट";
 "fbucks.tx.daily_bonus" = "दैनिक बोनस";

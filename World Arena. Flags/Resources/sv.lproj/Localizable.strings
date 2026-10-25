@@ -1,6 +1,6 @@
 "Open in Game Center" = "Öppna i Game Center";
 "Заработай %d XP" = "Tjäna %d XP";
-"F-BUCKS EARNED" = "F-BUCKS EARNED";
+"F-BUCKS EARNED" = "INTJÄNADE F-BUCKS";
 "Дай %d правильных ответов" = "Få %d rätt svar";
 "Наберите %d правильных ответов за месяц" = "Få %d rätt svar den här månaden";
 "Сыграй %d идеальных игр" = "Spela %d perfekta spel";
@@ -276,7 +276,7 @@
 "Duel challenge from %@" = "%@ utmanade dig till en duell";
 "Duel result" = "Duellresultat";
 "You won!" = "Du vann!";
-"won" = "won";
+"won" = "vann";
 "You" = "Du";
 "Duel announcement title" = "Duell";
 "vs" = "vs";
@@ -350,17 +350,17 @@
 "Получайте бонусы за длинные серии дней" = "Få bonusar för långa dagar";
 "Покупайте эксклюзивные элементы для аватара" = "Köp exklusiva avatarobjekt";
 "Создавайте уникальный стиль" = "Skapa en unik stil";
-"Как заработать F-Bucks" = "Hur man tjänar F-bucks";
+"Как заработать F-Bucks" = "Hur man tjänar F-Bucks";
 "Идеальный результат" = "Perfekt resultat";
 "Идеальный результат игры" = "Perfekt spelresultat";
 "Получите идеальный результат в игре (10/10 или 15/15)" = "Få ett perfekt resultat i spelet (10/10 eller 15/15)";
-"Серия 10 дней" = "10 dagars serie";
+"Серия 10 дней" = "10 dagars svit";
 "Играйте 10 дней подряд" = "Spela 10 dagar i rad";
-"Серия 20 дней" = "20 dagars serie";
+"Серия 20 дней" = "20 dagars svit";
 "Играйте 20 дней подряд" = "Spela 20 dagar i rad";
-"Серия 50 дней" = "50 dagars rad";
+"Серия 50 дней" = "50 dagars svit";
 "Играйте 50 дней подряд" = "Spela 50 dagar i rad";
-"Серия 100 дней" = "100 dagars rad";
+"Серия 100 дней" = "100 dagars svit";
 "Играйте 100 дней подряд" = "Spela 100 dagar i rad";
 "История начислений" = "Transaktionshistorik";
 "История пуста" = "Historiken är tom";
@@ -373,18 +373,18 @@
 "Особые визуальные эффекты" = "Speciella visuella effekter";
 "Эффекты" = "Effekter";
 "Анимации и спецэффекты" = "Animationer och specialeffekter";
-"Футболка чемпиона" = "Champion T-shirt";
+"Футболка чемпиона" = "Mästartröja";
 "Кепка путешественника" = "Resenärsmössa";
-"Куртка исследователя" = "Utforskarens jacka";
-"Золотой скин" = "Guld hud";
-"Радужный скин" = "Regnbågsskinn";
-"Неоновый скин" = "Neon hud";
+"Куртка исследователя" = "Upptäckarjacka";
+"Золотой скин" = "Guldutseende";
+"Радужный скин" = "Regnbågsutseende";
+"Неоновый скин" = "Neonutseende";
 "Эффект блёсток" = "Glittrande effekt";
 "Огненный эффект" = "Eldeffekt";
 "Звёздный эффект" = "Stjärneffekt";
 "Купить" = "Köpa";
 "Покупка" = "Köpa";
-"Текст гимна" = "Anthem Text";
+"Текст гимна" = "Nationalsångens text";
 "Continue playing with unlimited hearts!" = "Fortsätt spela med obegränsade hjärtan!";
 "No lives available" = "Inga liv tillgängliga";
 "Unfortunately, the game is not available now: you have no lives. You can buy lives or go Premium." = "Tyvärr är spelet inte tillgängligt nu: du har inga liv. Du kan köpa liv eller gå Premium.";
@@ -426,9 +426,9 @@
 
 /* Game header popovers */
 "Total game time since start" = "Total speltid sedan start";
-"Time limit per question depending on difficulty" = "Time limit per question depending on difficulty";
+"Time limit per question depending on difficulty" = "Tiden per fråga beror på svårighetsgraden";
 "Total Game Time" = "Total speltid";
-"Time Per Question" = "Time Per Question";
+"Time Per Question" = "Tid per fråga";
 
 /* Game header motivation (iPad) */
 "Game motivation 1" = "Du har det här!";
@@ -542,7 +542,7 @@
 "ЗОНА ПОВЫШЕНИЯ" = "KAMPANJZON";
 
 /* Monthly Quests */
-"Августовский Квест" = "August Quest";
+"Августовский Квест" = "Augustiuppdrag";
 "Mision de Agosto" = "Augustmissionen";
 "21 ДЕНЬ" = "21 DAGAR";
 "Заработай 40 очков квеста" = "Tjäna 40 uppdragspoäng";
@@ -709,19 +709,19 @@
 "Открыто" = "Upplåst";
 
 /* Achievement titles/descriptions */
-"Ранняя птица" = "Early Bird";
+"Ранняя птица" = "Morgonpigg";
 "Достигните серии 5 дней" = "Nå en 5-dagars rad";
 "Стабильность" = "Konsistens";
-"Серия 10 дней" = "10 dagar lång rad";
+"Серия 10 дней" = "10 dagars svit";
 "Железная воля" = "Järnvilja";
 "Серия 30 дней" = "30 dagar lång rad";
 "Новичок XP" = "XP nybörjare";
 "Наберите 1000 XP" = "Tjäna 1000 XP";
-"Олимпиец XP" = "XP Olympian";
+"Олимпиец XP" = "XP-olympier";
 "Наберите 5000 XP" = "Tjäna 5000 XP";
-"Легенда XP" = "XP Legend";
+"Легенда XP" = "XP-legend";
 "Наберите 10000 XP" = "Tjäna 10 000 XP";
-"Исследователь" = "Quest Explorer";
+"Исследователь" = "Uppdragsutforskare";
 "Сыграйте 20 игр" = "Spela 20 spel";
 "Ветеран" = "Veteran";
 "Сыграйте 100 игр" = "Spela 100 spel";
@@ -729,11 +729,11 @@
 "Точность 70%" = "Nå 70 % noggrannhet";
 "Снайпер" = "Prickskytt";
 "Точность 85%" = "Nå 85 % noggrannhet";
-"Серебряная лига" = "Silver League";
+"Серебряная лига" = "Silverligan";
 "Достигните Серебра" = "Nå Silver";
-"Золотая лига" = "Gold League";
+"Золотая лига" = "Guldligan";
 "Достигните Золота" = "Nå guld";
-"Платиновая лига" = "Platinum League";
+"Платиновая лига" = "Platinaligan";
 "Достигните Платины" = "Nå Platinum";
 "Алмазная лига" = "Diamantligan";
 "Достигните Алмаза" = "Nå Diamond";
@@ -747,8 +747,8 @@
 "Поделитесь профилем" = "Dela din profil";
 "Спринтер" = "Speed ​​Racer";
 "Сыграйте 10 игр за день" = "Spela 10 matcher på en dag";
-"XP Олимпиец" = "XP Olympian";
-"Мастер Олимпиец XP" = "Master XP Olympian";
+"XP Олимпиец" = "XP-olympier";
+"Мастер Олимпиец XP" = "Mästarolympier i XP";
 "Наберите 30000 XP" = "Tjäna 30 000 XP";
  
 /* Settings - Added */
@@ -823,7 +823,7 @@
 "ВОССТАНОВИТЬ ПОДПИСКУ" = "ÅTERSTÄLL PRENUMERATION";
 
 // Achievements
-"Ранняя птица" = "Early Bird";
+"Ранняя птица" = "Morgonpigg";
 "Железная воля" = "Järnvilja";
 "Алмазная лига" = "Diamantligan";
 "Серия мастера" = "Mästarrad";
@@ -936,7 +936,7 @@
 "Текущая серия" = "Nuvarande rad";
 "дней" = "dagar";
 "Точность" = "Noggrannhet";
-"Теперь вы можете без единой ошибки отвечать на все наши вопросы с точностью в %d%%" = "Теперь вы можете без единой ошибки отвечать на все наши вопросы с точностью в %d%%";
+"Теперь вы можете без единой ошибки отвечать на все наши вопросы с точностью в %d%%" = "Du har %d%% rätta svar.";
 "Мы будем рады, если вы захотите снова вернуться к нам!" = "Vi skulle bli glada om du vill komma tillbaka till oss igen!";
 "Продолжить" = "Fortsätta";
 
@@ -983,7 +983,7 @@
 
 /* Enhanced Game Results */
 "PERFECT!" = "PERFEKT!";
-"EXCELLENT!" = "EXCELLENT!";
+"EXCELLENT!" = "UTMÄRKT!";
 "GREAT JOB!" = "BRA JOBBAT!";
 "GOOD EFFORT!" = "GOD ANSÖKNING!";
 "KEEP TRYING!" = "FORTSÄTT FÖRSÖKA!";
@@ -1000,7 +1000,7 @@
 
 /* Enhanced Streak View */
 "Don't break the chain! Come back tomorrow!" = "Bryt inte kedjan! Kom tillbaka imorgon!";
-"Time to restart your streak! You can do it!" = "Time to restart your streak! You can do it!";
+"Time to restart your streak! You can do it!" = "Dags att börja en ny svit! Du klarar det!";
 
 /* Monthly XP Quest */
 "Заработай %d XP за месяц" = "Tjäna %d XP den här månaden";
@@ -1049,8 +1049,8 @@
 "Learn flags and countries of the World" = "Lär dig flaggor och världens länder";
 "Select Level" = "Välj Nivå";
 "Level - %@" = "Nivå - %@";
-"Exclusive tournaments with cash F-Bucks prizes" = "Exklusiva turneringar med kontanta F-Bucks-priser";
-"Survival Mode" = "Survival Mode";
+"Exclusive tournaments with cash F-Bucks prizes" = "Exklusiva turneringar med F-Bucks-priser";
+"Survival Mode" = "Överlevnadsläge";
 "One mistake = Game Over" = "Ett misstag = Game Over";
 "Duel result push format" = "%@: %d — Du: %d.";
 "Duel motivation win" = "Underbart! Håll raden igång.";
@@ -1058,7 +1058,7 @@
 "Opponent" = "Motståndare";
 "vs %@" = "vs %@";
 "Combo x%d" = "Kombination x%d";
-"Combo x%d bonus" = "Combo x%d bonus +1";
+"Combo x%d bonus" = "Kombination x%d: bonus +1";
 "Combo x%d +10 XP" = "Combo x%d +10 XP";
 "Speed bonus +1" = "Hastighetsbonus +1";
 "Speed bonus +10 XP" = "Hastighetsbonus +10 XP";
@@ -1073,7 +1073,7 @@
 "Ukraine" = "Ukraina";
 "Russia" = "Ryssland";
 "USA" = "USA";
-"Лига Чемпионов Мира" = "World Champion League";
+"Лига Чемпионов Мира" = "Världsmästarligan";
 "Price is loaded from the App Store on this screen" = "Pris laddas från App Store på den här skärmen";
 "Connecting to App Store..." = "Ansluter till App Store...";
 "Version" = "Version";
@@ -1105,7 +1105,7 @@
 "World Progress Map" = "Karta över världens framsteg";
 "Tap a country to see your correct and wrong answers" = "Tryck på ett land för att se dina rätta och felaktiga svar";
 "Greener country means better mastery" = "Grönare land betyder bättre behärskning";
-"Continent Mastery" = "Continent Mastery";
+"Continent Mastery" = "Kontinentmästerskap";
 "Mastered %d of %d countries" = "Bemästrade %d av %d länder";
 "Answered %d of %d countries" = "Besvarade %d av %d länder";
 "Total" = "Total";
@@ -1131,7 +1131,7 @@
 "Account login title" = "Skapa ditt konto";
 "Account login subtitle" = "Behåll gästläge eller logga in för att spara identitets- och säkerhetsfunktioner";
 "Login" = "Inloggning";
-"Register" = "Register";
+"Register" = "Registrera dig";
 "Sign in with Apple error 1000" = "Logga in med Apple är inte tillgängligt här. Prova på en riktig enhet eller kolla Inställningar → Apple ID.";
 "Username" = "Användarnamn";
 "Password" = "Lösenord";
@@ -1490,7 +1490,7 @@
 "avatar_editor_beanie" = "Mössa";
 "avatar_editor_bandana" = "Bandana";
 "avatar_editor_sport_cap" = "Sportmössa";
-"avatar_editor_hat_SilverLeague" = "Silver League";
+"avatar_editor_hat_SilverLeague" = "Silverligan";
 "avatar_editor_hat_10_day_streak" = "10 dagar lång rad";
 "avatar_editor_hat_beginner" = "Nybörjare";
 "avatar_editor_hat_Premium" = "Premie";
@@ -1525,19 +1525,19 @@
 "avatar_editor_opt_jacket" = "Jacka";
 
 "monthly_quest_mission_title" = "Uppdrag %@";
-"Friend profile progress title" = "STREAK AND PROGRESS";
-"Friend achievements placeholder" = "Friend achievements are shown as they are unlocked";
+"Friend profile progress title" = "SVIT OCH FRAMSTEG";
+"Friend achievements placeholder" = "Din väns prestationer visas när de låses upp";
 
 "Answer as many flags as possible before time runs out" = "Svara på så många flaggor du kan innan tiden tar slut";
 "Duration" = "Längd";
-"Best score" = "Best score";
+"Best score" = "Bästa resultat";
 "Wrong answer penalty" = "Straff vid fel svar";
 "5 correct in a row bonus" = "Bonus för 5 rätt i rad";
 "Best combo" = "Bästa serie";
 "New record!" = "Nytt rekord!";
 "Day leaderboard place" = "Placering dagens topplista";
 "Week leaderboard place" = "Placering veckans topplista";
-"Back to Modes" = "Back to Modes";
+"Back to Modes" = "Tillbaka till spellägen";
 "Start" = "Starta";
 "TC correct answers headline" = "%d rätt";
 "Difficulty description TC" = "%1$d%2$@ per runda • +%3$d%2$@ per 5 rätt i rad • −%4$d%2$@ per fel";
@@ -1548,11 +1548,11 @@
 "TC intro combo5 bonus title" = "Combo 5 rätt i rad";
 "TC detail time penalty fmt" = "Timer: −%1$d %2$@ (fel)";
 "TC detail time combo fmt" = "Timer: +%1$d %2$@ (5 rätt i rad)";
-"TC detail points earned" = "Points for this answer: +%d";
-"TC detail xp earned" = "XP for this answer: +%d";
-"TC detail time penalty" = "Timer: −10 s (wrong answer)";
-"TC detail time combo bonus" = "Timer: +10 s (5 correct in a row)";
-"Share TC headline" = "Time Challenge: %d correct out of %d";
+"TC detail points earned" = "Poäng för det här svaret: +%d";
+"TC detail xp earned" = "XP för det här svaret: +%d";
+"TC detail time penalty" = "Tid: −10 s (fel svar)";
+"TC detail time combo bonus" = "Tid: +10 s (5 rätta svar i rad)";
+"Share TC headline" = "Tidsutmaning: %d rätt av %d";
 
 "Time seconds unit short" = "s";
 "TC stat best combo" = "Bästa serie";
@@ -1577,15 +1577,15 @@
 "Survival intro lives title" = "Startliv";
 "Survival intro best depth title" = "Bästa djup";
 "Survival intro choices title" = "Val";
-"Survival intro timer title" = "Timers";
+"Survival intro timer title" = "Tidtagare";
 "Survival intro timer value" = "Som i Klassiskt";
 "Survival weekly title" = "Veckoutmaning Survival";
 "Survival weekly target fmt" = "Överlev %d flaggor i en omgång den här veckan.";
 "Survival weekly best fmt" = "Ditt bästa den här veckan: %d flaggor";
-"Survival weekly all milestones met body" = "You've reached every weekly depth goal — up to 200 flags in one run. Brilliant!";
-"Survival weekly reward all claimed" = "All weekly survival bonuses claimed (up to +4000 XP).";
+"Survival weekly all milestones met body" = "Du har nått alla veckomål, ända upp till 200 flaggor i en omgång. Strålande!";
+"Survival weekly reward all claimed" = "Alla veckobonusar i överlevnadsläget har hämtats (upp till +4000 XP).";
 "Survival weekly reward claimed" = "Veckobonus hämtad (+1000 XP)";
-"Survival weekly reward hint" = "Each milestone — 25, 50, 100, then 200 flags in one run — gives +1000 XP once per week.";
+"Survival weekly reward hint" = "Varje milstolpe — 25, 50, 100 och 200 flaggor i en omgång — ger +1000 XP en gång i veckan.";
 
 "Survival result depth progress fmt" = "%1$d / %2$d";
 
@@ -1596,32 +1596,32 @@
 "1 hour" = "1 timme";
 
 
-"Duel announcement subtitle" = "Same duel for both players. First to score wins!";
-"User 1" = "User 1";
-"User 2" = "User 2";
-"Number of Questions" = "Questions";
+"Duel announcement subtitle" = "Båda spelarna får samma frågor. Högst poäng vinner; vid lika poäng vinner den snabbaste spelaren.";
+"User 1" = "Spelare 1";
+"User 2" = "Spelare 2";
+"Number of Questions" = "Frågor";
 
 
 /* F-Bucks screen */
-"fbucks.close" = "Nära";
+"fbucks.close" = "Stäng";
 "fbucks.currency.name" = "F-Bucks";
 "fbucks.hero.subtitle.enough" = "Tillräckligt för ungefär %d föremål";
 "fbucks.hero.subtitle.rare" = "Du kan köpa en sällsynt vara";
 "fbucks.hero.subtitle.save" = "Fortsätt spara till något speciellt";
 "fbucks.daily.title" = "Daglig bonus";
 "fbucks.daily.subtitle" = "+1 F-Bucks";
-"fbucks.daily.claim" = "Krav";
-"fbucks.daily.claimed" = "Gjorde anspråk idag";
-"fbucks.daily.hint" = "+1 tillgängligt idag – tryck på Gör anspråk";
+"fbucks.daily.claim" = "Hämta";
+"fbucks.daily.claimed" = "Redan hämtad idag";
+"fbucks.daily.hint" = "+1 tillgängligt idag — tryck på Hämta";
 "fbucks.earn.today.title" = "Tjäna idag";
 "fbucks.earn.today.subtitle" = "Upp till %d F-Bucks möjligt idag";
 "fbucks.earn.perfect.title" = "Perfekt spel";
 "fbucks.earn.perfect.sub" = "+1 för 10/10 eller 15/15";
-"fbucks.earn.streak" = "Strimma";
-"fbucks.earn.streak.sub" = "Serie (%d/10 dagar)";
+"fbucks.earn.streak" = "Daglig svit";
+"fbucks.earn.streak.sub" = "Svit (%d/10 dagar)";
 "fbucks.earn.league" = "Veckans topp";
 "fbucks.earn.league.sub" = "Sluta i topp 3 i din liga";
-"fbucks.progress.title" = "Gå vidare till nästa punkt";
+"fbucks.progress.title" = "Framsteg mot nästa föremål";
 "fbucks.progress.percent" = "%d%%";
 "fbucks.progress.full" = "Du har råd med nästa belöningar — öppna butiken!";
 "fbucks.want.title" = "Nästa mål";
@@ -1630,47 +1630,47 @@
 "fbucks.want.need" = "Behöver %d till";
 "fbucks.earn_more" = "Tjäna mer →";
 "fbucks.buy_for" = "Köp för %d";
-"fbucks.shop.title" = "Handla";
+"fbucks.shop.title" = "Butik";
 "fbucks.shop.subtitle" = "Spendera F-Bucks på exklusiva avatarobjekt";
-"fbucks.shop.tier.common" = "Gemensam";
+"fbucks.shop.tier.common" = "Vanlig";
 "fbucks.shop.tier.rare" = "Sällsynt";
 "fbucks.shop.tier.legendary" = "Legendarisk";
 "fbucks.shop.limited" = "BEGRÄNSAD";
 "fbucks.perfect.badge" = "Perfekt";
 "fbucks.tab.today" = "I dag";
 "fbucks.tab.about" = "Om";
-"fbucks.tab.history" = "Historia";
-"fbucks.tab.shop" = "Handla";
+"fbucks.tab.history" = "Historik";
+"fbucks.tab.shop" = "Butik";
 "fbucks.about.title" = "Vad är F-Bucks?";
-"fbucks.about.body" = "F-Bucks (Flags Bucks) är valuta i spelet som du tjänar genom att spela World Arena Flags. Spendera dem på unika avatarbitar, skinn och andra exklusiva föremål.";
+"fbucks.about.body" = "F-Bucks (Flags Bucks) är spelvalutan som du tjänar genom att spela World Arena Flags. Köp unika avatartillbehör, utseenden och andra exklusiva föremål för dem.";
 "fbucks.about.how" = "Hur man tjänar F-Bucks";
 "fbucks.about.perfect.title" = "Perfekt spel";
 "fbucks.about.perfect.desc" = "Få ett perfekt resultat (10/10 eller 15/15)";
-"fbucks.about.streak10.title" = "10 dagar lång rad";
+"fbucks.about.streak10.title" = "10 dagars svit";
 "fbucks.about.streak10.desc" = "Spela 10 dagar i rad";
-"fbucks.about.streak20.title" = "20 dagar lång rad";
+"fbucks.about.streak20.title" = "20 dagars svit";
 "fbucks.about.streak20.desc" = "Spela 20 dagar i rad";
-"fbucks.about.streak50.title" = "50 dagar lång rad";
+"fbucks.about.streak50.title" = "50 dagars svit";
 "fbucks.about.streak50.desc" = "Spela 50 dagar i rad";
-"fbucks.about.streak100.title" = "100 dagar lång rad";
+"fbucks.about.streak100.title" = "100 dagars svit";
 "fbucks.about.streak100.desc" = "Spela 100 dagar i rad";
 "fbucks.reward.plus1" = "+1 F-Bucks";
-"fbucks.reward.plus2" = "+2 F-bucks";
-"fbucks.reward.plus5" = "+5 F-bucks";
-"fbucks.reward.plus10" = "+10 F-bucks";
+"fbucks.reward.plus2" = "+2 F-Bucks";
+"fbucks.reward.plus5" = "+5 F-Bucks";
+"fbucks.reward.plus10" = "+10 F-Bucks";
 "fbucks.history.title" = "Transaktionshistorik";
-"fbucks.history.empty" = "Ingen historia än";
+"fbucks.history.empty" = "Inga transaktioner ännu";
 "fbucks.history.empty.hint" = "Spela och tjäna F-Bucks!";
 "fbucks.item.traveler_cap" = "Resenärsmössa";
-"fbucks.item.champion_shirt" = "Champion tee";
+"fbucks.item.champion_shirt" = "Mästartröja";
 "fbucks.item.socks" = "Strumpor";
-"fbucks.item.rainbow_skin" = "Regnbågsskinn";
-"fbucks.item.gold_skin" = "Guld hud";
-"fbucks.item.explorer_jacket" = "Explorer jacka";
+"fbucks.item.rainbow_skin" = "Regnbågsutseende";
+"fbucks.item.gold_skin" = "Guldutseende";
+"fbucks.item.explorer_jacket" = "Upptäckarjacka";
 "fbucks.item.fire_effect" = "Eldeffekt";
-"fbucks.item.neon_skin" = "Neon hud";
+"fbucks.item.neon_skin" = "Neonutseende";
 "fbucks.item.stars_effect" = "Stjärneffekt";
-"fbucks.item.champion_jacket" = "Champion jacka";
+"fbucks.item.champion_jacket" = "Mästarjacka";
 "fbucks.tx.daily_bonus" = "Daglig bonus";
 "friends.remind.status_sent" = "Påminnelse skickad!";
 

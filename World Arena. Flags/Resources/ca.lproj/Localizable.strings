@@ -610,13 +610,13 @@
 "Анимации и спецэффекты" = "Animacions i efectes especials";
 "Футболка чемпиона" = "Samarreta de campió";
 "Кепка путешественника" = "Gorra de viatger";
-"Куртка исследователя" = "Jaqueta d'explorador";
-"Золотой скин" = "Skin daurat";
-"Радужный скин" = "Skin arc de Sant Martin";
-"Неоновый скин" = "Skin neó";
+"Куртка исследователя" = "Jaqueta d’explorador";
+"Золотой скин" = "Aspecte daurat";
+"Радужный скин" = "Aspecte d’arc de Sant Martí";
+"Неоновый скин" = "Aspecte de neó";
 "Эффект блёсток" = "Efecte de brillants";
-"Огненный эффект" = "Efecte de foc";
-"Звёздный эффект" = "Efecte d'estrelles";
+"Огненный эффект" = "Efecte foc";
+"Звёздный эффект" = "Efecte estrella";
 "Купить" = "Comprar";
 "Покупка" = "Compra";
 "Текст гимна" = "Text de l'Himne";
@@ -651,7 +651,7 @@
 
 /* Popovers de capçalera de joc */
 "Total Game Time" = "Temps Total del Joc";
-"Time Per Question" = "Time Per Question";
+"Time Per Question" = "Temps per pregunta";
 
 /* Game header motivation (iPad) */
 "Game motivation 1" = "Ho aconseguiràs!";
@@ -676,7 +676,7 @@
 
 /* Popovers de capçalera del joc */
 "Total game time since start" = "Temps total de la partida des de l'inici";
-"Time limit per question depending on difficulty" = "Time limit per question depending on difficulty";
+"Time limit per question depending on difficulty" = "El temps per pregunta depèn de la dificultat";
 
 // Friends messages
 "У вас пока нет друзей" = "Encara no tens amics";
@@ -803,7 +803,7 @@
 "Текущая серия" = "Ratxa actual";
 "дней" = "dies";
 "Точность" = "Precisió";
-"Теперь вы можете без единой ошибки отвечать на все наши вопросы с точностью в %d%%" = "Ara pots respondre totes les nostres preguntes sense un sol error amb %d%% de precisió";
+"Теперь вы можете без единой ошибки отвечать на все наши вопросы с точностью в %d%%" = "La precisió de les teves respostes és del %d%%.";
 "Мы будем рады, если вы захотите снова вернуться к нам!" = "Ens alegraríem si volguessis tornar a nosaltres!";
 "Продолжить" = "Continuar";
 
@@ -914,8 +914,8 @@
 "Learn flags and countries of the World" = "Aprèn banderes i països del món";
 "Select Level" = "Selecciona nivell";
 "Level - %@" = "Nivell - %@";
-"Exclusive tournaments with cash F-Bucks prizes" = "Torneigs exclusius amb premis en F-Bucks";
-"Survival Mode" = "Survival Mode";
+"Exclusive tournaments with cash F-Bucks prizes" = "Tornejos exclusius amb premis F-Bucks";
+"Survival Mode" = "Mode de supervivència";
 "One mistake = Game Over" = "Un error = fi de la partida";
 "Duel result push format" = "%@: %d — Tu: %d.";
 "Duel motivation win" = "Fantàstic! Mantén la ratxa.";
@@ -1355,7 +1355,7 @@
 "avatar_editor_beanie" = "Gorro";
 "avatar_editor_bandana" = "Bandana";
 "avatar_editor_sport_cap" = "Gorra esportiva";
-"avatar_editor_hat_SilverLeague" = "Silver League";
+"avatar_editor_hat_SilverLeague" = "Lliga de Plata";
 "avatar_editor_hat_10_day_streak" = "Ratxa de 10 dies";
 "avatar_editor_hat_beginner" = "Principiant";
 "avatar_editor_hat_Premium" = "Premium";
@@ -1390,19 +1390,19 @@
 "avatar_editor_opt_jacket" = "Jaqueta";
 
 "monthly_quest_mission_title" = "Missió %@";
-"Friend profile progress title" = "STREAK AND PROGRESS";
-"Friend achievements placeholder" = "Friend achievements are shown as they are unlocked";
+"Friend profile progress title" = "RATXA I PROGRÉS";
+"Friend achievements placeholder" = "Els assoliments del teu amic apareixeran a mesura que els desbloquegi";
 
 "Answer as many flags as possible before time runs out" = "Encerta tantes banderes com puguis abans que s’acabi el temps";
 "Duration" = "Durada";
-"Best score" = "Best score";
+"Best score" = "Millor puntuació";
 "Wrong answer penalty" = "Penalització per resposta incorrecta";
 "5 correct in a row bonus" = "Bonus per 5 encerts seguits";
 "Best combo" = "Millor ratxa";
 "New record!" = "Rècord nou!";
 "Day leaderboard place" = "Lloc al rànquing diari";
 "Week leaderboard place" = "Lloc al rànquing setmanal";
-"Back to Modes" = "Back to Modes";
+"Back to Modes" = "Torna als modes";
 "Start" = "Començar";
 "TC correct answers headline" = "%d correctes";
 "Difficulty description TC" = "%1$d%2$@ per ronda • +%3$d%2$@ cada 5 encerts seguits • −%4$d%2$@ per error";
@@ -1413,14 +1413,14 @@
 "TC intro combo5 bonus title" = "Combo de 5 encerts";
 "TC detail time penalty fmt" = "Temporitzador: −%1$d %2$@ (error)";
 "TC detail time combo fmt" = "Temporitzador: +%1$d %2$@ (5 encerts seguits)";
-"TC detail points earned" = "Points for this answer: +%d";
-"TC detail xp earned" = "XP for this answer: +%d";
-"TC detail time penalty" = "Timer: −10 s (wrong answer)";
-"TC detail time combo bonus" = "Timer: +10 s (5 correct in a row)";
-"Share TC headline" = "Time Challenge: %d correct out of %d";
+"TC detail points earned" = "Punts per aquesta resposta: +%d";
+"TC detail xp earned" = "XP per aquesta resposta: +%d";
+"TC detail time penalty" = "Temps: −10 s (resposta incorrecta)";
+"TC detail time combo bonus" = "Temps: +10 s (5 encerts seguits)";
+"Share TC headline" = "Repte contra el temps: %d encerts de %d";
 
 "Time seconds unit short" = "s";
-"Time to restart your streak! You can do it!" = "Time to restart your streak! You can do it!";
+"Time to restart your streak! You can do it!" = "És hora de començar una nova ratxa! Tu pots!";
 "TC stat best combo" = "Millor ratxa";
 "Time TC delta seconds fmt" = "%+d %@";
 "Time intro duration seconds fmt" = "%1$d%2$@";
@@ -1448,10 +1448,10 @@
 "Survival weekly title" = "Repte setmanal de supervivència";
 "Survival weekly target fmt" = "Aconsegueix %d banderes sobreviscudes en una partida aquesta setmana.";
 "Survival weekly best fmt" = "El teu millor aquesta setmana: %d banderes";
-"Survival weekly all milestones met body" = "You've reached every weekly depth goal — up to 200 flags in one run. Brilliant!";
-"Survival weekly reward all claimed" = "All weekly survival bonuses claimed (up to +4000 XP).";
+"Survival weekly all milestones met body" = "Has assolit tots els objectius setmanals, fins a 200 banderes en una partida! Genial!";
+"Survival weekly reward all claimed" = "Has rebut totes les bonificacions setmanals de supervivència (fins a +4000 XP).";
 "Survival weekly reward claimed" = "Bonus setmanal reclamat (+1000 XP)";
-"Survival weekly reward hint" = "Each milestone — 25, 50, 100, then 200 flags in one run — gives +1000 XP once per week.";
+"Survival weekly reward hint" = "Cada fita —25, 50, 100 i 200 banderes en una partida— atorga +1000 XP un cop per setmana.";
 
 "Survival result depth progress fmt" = "%1$d / %2$d";
 
@@ -1462,63 +1462,63 @@
 "1 hour" = "1 hora";
 
 
-"Duel announcement subtitle" = "Same duel for both players. First to score wins!";
-"User 1" = "User 1";
-"User 2" = "User 2";
-"Number of Questions" = "Questions";
+"Duel announcement subtitle" = "Tots dos jugadors reben les mateixes preguntes. Guanya qui aconsegueixi més punts; en cas d’empat, guanya qui trigui menys.";
+"User 1" = "Jugador 1";
+"User 2" = "Jugador 2";
+"Number of Questions" = "Preguntes";
 
 
 /* F-Bucks screen */
 "fbucks.close" = "Tanca";
 "fbucks.currency.name" = "F-Bucks";
-"fbucks.hero.subtitle.enough" = "N'hi ha prou per a UN %d articles";
-"fbucks.hero.subtitle.rare" = "Pots comprar un article poc freqüent";
+"fbucks.hero.subtitle.enough" = "N’hi ha prou per a uns %d articles";
+"fbucks.hero.subtitle.rare" = "Pots comprar un article rar";
 "fbucks.hero.subtitle.save" = "Segueix estalviant per a alguna cosa especial";
 "fbucks.daily.title" = "Bonificació diària";
 "fbucks.daily.subtitle" = "+1 F-Bucks";
-"fbucks.daily.claim" = "Reclamar";
-"fbucks.daily.claimed" = "Sol·licitat avui";
-"fbucks.daily.hint" = "+1 disponible avui: toca Sol·licita";
+"fbucks.daily.claim" = "Recull";
+"fbucks.daily.claimed" = "Ja recollit avui";
+"fbucks.daily.hint" = "Avui pots rebre +1 — toca Recull";
 "fbucks.earn.today.title" = "Guanya avui";
-"fbucks.earn.today.subtitle" = "Fins a UN %d F-Bucks possible avui";
-"fbucks.earn.perfect.title" = "Joc perfecte";
+"fbucks.earn.today.subtitle" = "Avui pots guanyar fins a %d F-Bucks";
+"fbucks.earn.perfect.title" = "Partida perfecta";
 "fbucks.earn.perfect.sub" = "+1 per 10/10 o 15/15";
-"fbucks.earn.streak" = "Ratlla";
-"fbucks.earn.streak.sub" = "Sèrie (%d/10 dies)";
+"fbucks.earn.streak" = "Ratxa";
+"fbucks.earn.streak.sub" = "Ratxa (%d/10 dies)";
 "fbucks.earn.league" = "El millor de la setmana";
 "fbucks.earn.league.sub" = "Acaba entre els 3 primers de la teva lliga";
-"fbucks.progress.title" = "Passa al punt següent";
+"fbucks.progress.title" = "Progrés cap al pròxim article";
 "fbucks.progress.percent" = "%d%%";
 "fbucks.progress.full" = "Pots pagar les pròximes recompenses: obre la botiga!";
 "fbucks.want.title" = "Següent objectiu";
 "fbucks.want.price" = "Preu: %d F-Bucks";
 "fbucks.want.you" = "Tens: %d";
-"fbucks.want.need" = "Necessites UN %d més";
+"fbucks.want.need" = "Necessites %d més";
 "fbucks.earn_more" = "Guanya més →";
-"fbucks.buy_for" = "Compra per UN %d";
+"fbucks.buy_for" = "Compra per %d";
 "fbucks.shop.title" = "Botiga";
-"fbucks.shop.subtitle" = "Gasta diners en articles exclusius per a l'avatar";
+"fbucks.shop.subtitle" = "Gasta F-Bucks en articles exclusius per a l’avatar";
 "fbucks.shop.tier.common" = "Comú";
-"fbucks.shop.tier.rare" = "POC FREQÜENT";
-"fbucks.shop.tier.legendary" = "llegendàries.";
-"fbucks.shop.limited" = "LIMITADA";
+"fbucks.shop.tier.rare" = "Rar";
+"fbucks.shop.tier.legendary" = "Llegendari";
+"fbucks.shop.limited" = "EDICIÓ LIMITADA";
 "fbucks.perfect.badge" = "Perfecte";
 "fbucks.tab.today" = "Avui";
-"fbucks.tab.about" = "Quant a";
-"fbucks.tab.history" = "Història";
+"fbucks.tab.about" = "Informació";
+"fbucks.tab.history" = "Historial";
 "fbucks.tab.shop" = "Botiga";
 "fbucks.about.title" = "Què són els F-Bucks?";
-"fbucks.about.body" = "Els F-Bucks (Flags Bucks) són la divisa del joc que guanyes jugant a World Arena Flags. Gasta-les en peces d'avatar úniques, pells i altres articles exclusius.";
-"fbucks.about.how" = "Com guanyar diners";
-"fbucks.about.perfect.title" = "Joc perfecte";
-"fbucks.about.perfect.desc" = "Obtenir una puntuació perfecta (10/10 o 15/15)";
-"fbucks.about.streak10.title" = "Racha de 10 dies";
+"fbucks.about.body" = "Els F-Bucks (Flags Bucks) són la moneda del joc que guanyes jugant a World Arena Flags. Fes-los servir per comprar accessoris per a l’avatar, aspectes i altres articles exclusius.";
+"fbucks.about.how" = "Com guanyar F-Bucks";
+"fbucks.about.perfect.title" = "Partida perfecta";
+"fbucks.about.perfect.desc" = "Aconsegueix una puntuació perfecta (10/10 o 15/15)";
+"fbucks.about.streak10.title" = "Ratxa de 10 dies";
 "fbucks.about.streak10.desc" = "Juga 10 dies seguits";
-"fbucks.about.streak20.title" = "Racha de 20 dies";
+"fbucks.about.streak20.title" = "Ratxa de 20 dies";
 "fbucks.about.streak20.desc" = "Juga 20 dies seguits";
-"fbucks.about.streak50.title" = "Racha de 50 dies";
+"fbucks.about.streak50.title" = "Ratxa de 50 dies";
 "fbucks.about.streak50.desc" = "Juga 50 dies seguits";
-"fbucks.about.streak100.title" = "Racha de 100 dies";
+"fbucks.about.streak100.title" = "Ratxa de 100 dies";
 "fbucks.about.streak100.desc" = "Juga 100 dies seguits";
 "fbucks.reward.plus1" = "+1 F-Bucks";
 "fbucks.reward.plus2" = "+2 F-Bucks";
@@ -1526,17 +1526,17 @@
 "fbucks.reward.plus10" = "+10 F-Bucks";
 "fbucks.history.title" = "Historial de transaccions";
 "fbucks.history.empty" = "Encara no hi ha historial";
-"fbucks.history.empty.hint" = "Juga i guanya diners!";
+"fbucks.history.empty.hint" = "Juga i guanya F-Bucks!";
 "fbucks.item.traveler_cap" = "Gorra de viatger";
-"fbucks.item.champion_shirt" = "Samarreta Champion";
-"fbucks.item.socks" = "Mitjó";
-"fbucks.item.rainbow_skin" = "Pell d'arc de Sant Martí";
-"fbucks.item.gold_skin" = "Pell daurada";
-"fbucks.item.explorer_jacket" = "Jaqueta Explorer";
+"fbucks.item.champion_shirt" = "Samarreta de campió";
+"fbucks.item.socks" = "Mitjons";
+"fbucks.item.rainbow_skin" = "Aspecte d’arc de Sant Martí";
+"fbucks.item.gold_skin" = "Aspecte daurat";
+"fbucks.item.explorer_jacket" = "Jaqueta d’explorador";
 "fbucks.item.fire_effect" = "Efecte foc";
-"fbucks.item.neon_skin" = "Pell de neó";
+"fbucks.item.neon_skin" = "Aspecte de neó";
 "fbucks.item.stars_effect" = "Efecte estrella";
-"fbucks.item.champion_jacket" = "Jaqueta Champion";
+"fbucks.item.champion_jacket" = "Jaqueta de campió";
 "fbucks.tx.daily_bonus" = "Bonificació diària";
 "friends.remind.status_sent" = "Recordatori enviat!";
 

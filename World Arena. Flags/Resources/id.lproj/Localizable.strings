@@ -1,6 +1,6 @@
 "Open in Game Center" = "Buka di Game Center";
 "Заработай %d XP" = "Dapatkan %d XP";
-"F-BUCKS EARNED" = "F-BUCKS EARNED";
+"F-BUCKS EARNED" = "F-BUCKS YANG DIPEROLEH";
 "Дай %d правильных ответов" = "Dapatkan %d jawaban yang benar";
 "Наберите %d правильных ответов за месяц" = "Dapatkan %d jawaban yang benar bulan ini";
 "Сыграй %d идеальных игр" = "Mainkan %d permainan yang sempurna";
@@ -276,7 +276,7 @@
 "Duel challenge from %@" = "%@ menantangmu untuk berduel";
 "Duel result" = "Hasil duel";
 "You won!" = "Anda menang!";
-"won" = "won";
+"won" = "menang";
 "You" = "Anda";
 "Duel announcement title" = "Duel";
 "vs" = "vs";
@@ -350,19 +350,19 @@
 "Получайте бонусы за длинные серии дней" = "Dapatkan bonus untuk hari yang panjang";
 "Покупайте эксклюзивные элементы для аватара" = "Beli item avatar eksklusif";
 "Создавайте уникальный стиль" = "Ciptakan gaya yang unik";
-"Как заработать F-Bucks" = "Cara Menghasilkan F-Bucks";
+"Как заработать F-Bucks" = "Cara mendapatkan F-Bucks";
 "Идеальный результат" = "Hasil Sempurna";
 "Идеальный результат игры" = "Hasil permainan yang sempurna";
 "Получите идеальный результат в игре (10/10 или 15/15)" = "Dapatkan hasil sempurna dalam permainan (10/10 atau 15/15)";
-"Серия 10 дней" = "Beruntun 10 Hari";
-"Играйте 10 дней подряд" = "Mainkan 10 hari berturut-turut";
-"Серия 20 дней" = "Beruntun 20 Hari";
-"Играйте 20 дней подряд" = "Mainkan 20 hari berturut-turut";
-"Серия 50 дней" = "Beruntun 50 Hari";
-"Играйте 50 дней подряд" = "Mainkan 50 hari berturut-turut";
-"Серия 100 дней" = "100 Hari Beruntun";
-"Играйте 100 дней подряд" = "Mainkan 100 hari berturut-turut";
-"История начислений" = "Riwayat Transaksi";
+"Серия 10 дней" = "10 hari berturut-turut";
+"Играйте 10 дней подряд" = "Bermain 10 hari berturut-turut";
+"Серия 20 дней" = "20 hari berturut-turut";
+"Играйте 20 дней подряд" = "Bermain 20 hari berturut-turut";
+"Серия 50 дней" = "50 hari berturut-turut";
+"Играйте 50 дней подряд" = "Bermain 50 hari berturut-turut";
+"Серия 100 дней" = "100 hari berturut-turut";
+"Играйте 100 дней подряд" = "Bermain 100 hari berturut-turut";
+"История начислений" = "Riwayat transaksi";
 "История пуста" = "Sejarah kosong";
 "Начните играть и зарабатывать F-Bucks!" = "Mulai bermain dan dapatkan F-Bucks!";
 "Магазин F-Bucks" = "Toko F-Bucks";
@@ -373,15 +373,15 @@
 "Особые визуальные эффекты" = "Efek visual khusus";
 "Эффекты" = "Efek";
 "Анимации и спецэффекты" = "Animasi dan efek khusus";
-"Футболка чемпиона" = "Kaos Juara";
-"Кепка путешественника" = "Topi Wisatawan";
-"Куртка исследователя" = "Jaket Penjelajah";
-"Золотой скин" = "Kulit Emas";
-"Радужный скин" = "Kulit Pelangi";
-"Неоновый скин" = "Kulit Neon";
+"Футболка чемпиона" = "Kaos juara";
+"Кепка путешественника" = "Topi wisatawan";
+"Куртка исследователя" = "Jaket penjelajah";
+"Золотой скин" = "Skin emas";
+"Радужный скин" = "Skin pelangi";
+"Неоновый скин" = "Skin neon";
 "Эффект блёсток" = "Efek Berkilau";
-"Огненный эффект" = "Efek Kebakaran";
-"Звёздный эффект" = "Efek Bintang";
+"Огненный эффект" = "Efek api";
+"Звёздный эффект" = "Efek bintang";
 "Купить" = "Membeli";
 "Покупка" = "Pembelian";
 "Текст гимна" = "Teks Lagu Kebangsaan";
@@ -426,9 +426,9 @@
 
 /* Game header popovers */
 "Total game time since start" = "Total waktu permainan sejak dimulai";
-"Time limit per question depending on difficulty" = "Time limit per question depending on difficulty";
+"Time limit per question depending on difficulty" = "Batas waktu per pertanyaan bergantung pada tingkat kesulitan";
 "Total Game Time" = "Total Waktu Permainan";
-"Time Per Question" = "Time Per Question";
+"Time Per Question" = "Waktu per pertanyaan";
 
 /* Game header motivation (iPad) */
 "Game motivation 1" = "Anda punya ini!";
@@ -717,7 +717,7 @@
 "Серия 30 дней" = "30 hari berturut-turut";
 "Новичок XP" = "XP Pemula";
 "Наберите 1000 XP" = "Hasilkan 1000 XP";
-"Олимпиец XP" = "XP Olympian";
+"Олимпиец XP" = "Olimpian XP";
 "Наберите 5000 XP" = "Hasilkan 5000 XP";
 "Легенда XP" = "Legenda XP";
 "Наберите 10000 XP" = "Hasilkan 10.000 XP";
@@ -747,7 +747,7 @@
 "Поделитесь профилем" = "Bagikan profil Anda";
 "Спринтер" = "Pembalap Kecepatan";
 "Сыграйте 10 игр за день" = "Mainkan 10 game dalam sehari";
-"XP Олимпиец" = "XP Olympian";
+"XP Олимпиец" = "Olimpian XP";
 "Мастер Олимпиец XP" = "Master Olimpiade XP";
 "Наберите 30000 XP" = "Hasilkan 30.000 XP";
  
@@ -936,7 +936,7 @@
 "Текущая серия" = "Streak saat ini";
 "дней" = "hari";
 "Точность" = "Ketepatan";
-"Теперь вы можете без единой ошибки отвечать на все наши вопросы с точностью в %d%%" = "Sekarang Anda dapat menjawab semua pertanyaan kami tanpa satu kesalahan pun dengan akurasi %d%%";
+"Теперь вы можете без единой ошибки отвечать на все наши вопросы с точностью в %d%%" = "Akurasi jawabanmu adalah %d%%.";
 "Мы будем рады, если вы захотите снова вернуться к нам!" = "Kami akan dengan senang hati jika Anda ingin kembali lagi kepada kami!";
 "Продолжить" = "Melanjutkan";
 
@@ -1000,7 +1000,7 @@
 
 /* Enhanced Streak View */
 "Don't break the chain! Come back tomorrow!" = "Jangan putuskan rantainya! Kembalilah besok!";
-"Time to restart your streak! You can do it!" = "Time to restart your streak! You can do it!";
+"Time to restart your streak! You can do it!" = "Saatnya memulai rangkaian baru! Kamu pasti bisa!";
 
 /* Monthly XP Quest */
 "Заработай %d XP за месяц" = "Dapatkan %d XP bulan ini";
@@ -1049,8 +1049,8 @@
 "Learn flags and countries of the World" = "Pelajari bendera dan negara di Dunia";
 "Select Level" = "Pilih Tingkat";
 "Level - %@" = "Tingkat - %@";
-"Exclusive tournaments with cash F-Bucks prizes" = "Turnamen eksklusif dengan hadiah uang tunai F-Bucks";
-"Survival Mode" = "Survival Mode";
+"Exclusive tournaments with cash F-Bucks prizes" = "Turnamen eksklusif dengan hadiah F-Bucks";
+"Survival Mode" = "Mode bertahan hidup";
 "One mistake = Game Over" = "Satu kesalahan = Game Over";
 "Duel result push format" = "%@: %d — Anda: %d.";
 "Duel motivation win" = "Luar biasa! Pertahankan pukulannya.";
@@ -1525,19 +1525,19 @@
 "avatar_editor_opt_jacket" = "Jaket";
 
 "monthly_quest_mission_title" = "Misi %@";
-"Friend profile progress title" = "STREAK AND PROGRESS";
-"Friend achievements placeholder" = "Friend achievements are shown as they are unlocked";
+"Friend profile progress title" = "RANGKAIAN HARI DAN KEMAJUAN";
+"Friend achievements placeholder" = "Pencapaian temanmu akan muncul setelah dibuka";
 
 "Answer as many flags as possible before time runs out" = "Jawab sebanyak mungkin bendera sebelum waktu habis";
 "Duration" = "Durasi";
-"Best score" = "Best score";
+"Best score" = "Skor terbaik";
 "Wrong answer penalty" = "Penalti jawaban salah";
 "5 correct in a row bonus" = "Bonus 5 benar beruntun";
 "Best combo" = "Kombo terbaik";
 "New record!" = "Rekor baru!";
 "Day leaderboard place" = "Peringkat papan hari ini";
 "Week leaderboard place" = "Peringkat papan mingguan";
-"Back to Modes" = "Back to Modes";
+"Back to Modes" = "Kembali ke pilihan mode";
 "Start" = "Mulai";
 "TC correct answers headline" = "%d benar";
 "Difficulty description TC" = "%1$d%2$@ per ronde • +%3$d%2$@ tiap 5 benar beruntun • −%4$d%2$@ per salah";
@@ -1548,11 +1548,11 @@
 "TC intro combo5 bonus title" = "Kombo 5 benar beruntun";
 "TC detail time penalty fmt" = "Timer: −%1$d %2$@ (salah)";
 "TC detail time combo fmt" = "Timer: +%1$d %2$@ (5 benar beruntun)";
-"TC detail points earned" = "Points for this answer: +%d";
-"TC detail xp earned" = "XP for this answer: +%d";
-"TC detail time penalty" = "Timer: −10 s (wrong answer)";
-"TC detail time combo bonus" = "Timer: +10 s (5 correct in a row)";
-"Share TC headline" = "Time Challenge: %d correct out of %d";
+"TC detail points earned" = "Poin untuk jawaban ini: +%d";
+"TC detail xp earned" = "XP untuk jawaban ini: +%d";
+"TC detail time penalty" = "Waktu: −10 dtk (jawaban salah)";
+"TC detail time combo bonus" = "Waktu: +10 dtk (5 jawaban benar berturut-turut)";
+"Share TC headline" = "Tantangan waktu: %d jawaban benar dari %d";
 
 "Time seconds unit short" = "dtk";
 "TC stat best combo" = "Kombo terbaik";
@@ -1582,10 +1582,10 @@
 "Survival weekly title" = "Tantangan Survival mingguan";
 "Survival weekly target fmt" = "Dalam satu putaran minggu ini, bertahan %d bendera.";
 "Survival weekly best fmt" = "Terbaikmu minggu ini: %d bendera";
-"Survival weekly all milestones met body" = "You've reached every weekly depth goal — up to 200 flags in one run. Brilliant!";
-"Survival weekly reward all claimed" = "All weekly survival bonuses claimed (up to +4000 XP).";
+"Survival weekly all milestones met body" = "Kamu sudah mencapai semua target mingguan, hingga 200 bendera dalam satu permainan. Hebat!";
+"Survival weekly reward all claimed" = "Semua bonus mingguan mode bertahan hidup sudah diambil (hingga +4000 XP).";
 "Survival weekly reward claimed" = "Bonus mingguan diklaim (+1000 XP)";
-"Survival weekly reward hint" = "Each milestone — 25, 50, 100, then 200 flags in one run — gives +1000 XP once per week.";
+"Survival weekly reward hint" = "Setiap target — 25, 50, 100, lalu 200 bendera dalam satu permainan — memberikan +1000 XP sekali seminggu.";
 
 "Survival result depth progress fmt" = "%1$d / %2$d";
 
@@ -1596,37 +1596,37 @@
 "1 hour" = "1 jam";
 
 
-"Duel announcement subtitle" = "Same duel for both players. First to score wins!";
-"User 1" = "User 1";
-"User 2" = "User 2";
-"Number of Questions" = "Questions";
+"Duel announcement subtitle" = "Kedua pemain mendapat pertanyaan yang sama. Skor lebih tinggi menang; jika skornya sama, pemain yang lebih cepat menang.";
+"User 1" = "Pemain 1";
+"User 2" = "Pemain 2";
+"Number of Questions" = "Pertanyaan";
 
 
 /* F-Bucks screen */
-"fbucks.close" = "Menutup";
+"fbucks.close" = "Tutup";
 "fbucks.currency.name" = "F-Bucks";
 "fbucks.hero.subtitle.enough" = "Cukup untuk sekitar %d item";
-"fbucks.hero.subtitle.rare" = "Anda dapat membeli barang langka";
+"fbucks.hero.subtitle.rare" = "Kamu bisa membeli item langka";
 "fbucks.hero.subtitle.save" = "Teruslah menabung untuk sesuatu yang istimewa";
 "fbucks.daily.title" = "Bonus harian";
 "fbucks.daily.subtitle" = "+1 F-Bucks";
-"fbucks.daily.claim" = "Mengeklaim";
+"fbucks.daily.claim" = "Klaim";
 "fbucks.daily.claimed" = "Diklaim hari ini";
 "fbucks.daily.hint" = "+1 tersedia hari ini — ketuk Klaim";
 "fbucks.earn.today.title" = "Hasilkan hari ini";
 "fbucks.earn.today.subtitle" = "Hingga %d F-Bucks dapat diperoleh hari ini";
 "fbucks.earn.perfect.title" = "Permainan yang sempurna";
 "fbucks.earn.perfect.sub" = "+1 untuk 10/10 atau 15/15";
-"fbucks.earn.streak" = "Garis";
-"fbucks.earn.streak.sub" = "Seri (%d/10 hari)";
+"fbucks.earn.streak" = "Rangkaian hari bermain";
+"fbucks.earn.streak.sub" = "Rangkaian hari (%d/10 hari)";
 "fbucks.earn.league" = "Puncak minggu ini";
-"fbucks.earn.league.sub" = "Selesaikan di 3 teratas liga Anda";
+"fbucks.earn.league.sub" = "Raih posisi 3 besar di ligamu";
 "fbucks.progress.title" = "Kemajuan ke item berikutnya";
 "fbucks.progress.percent" = "%d%%";
-"fbucks.progress.full" = "Anda dapat memperoleh hadiah berikutnya — buka toko!";
+"fbucks.progress.full" = "F-Bucksmu cukup untuk hadiah baru — buka toko!";
 "fbucks.want.title" = "Tujuan berikutnya";
 "fbucks.want.price" = "Harga: %d F-Bucks";
-"fbucks.want.you" = "Anda memiliki: %d";
+"fbucks.want.you" = "Kamu punya: %d";
 "fbucks.want.need" = "Perlu %d lagi";
 "fbucks.earn_more" = "Hasilkan lebih banyak →";
 "fbucks.buy_for" = "Beli seharga %d";
@@ -1639,36 +1639,36 @@
 "fbucks.perfect.badge" = "Sempurna";
 "fbucks.tab.today" = "Hari ini";
 "fbucks.tab.about" = "Tentang";
-"fbucks.tab.history" = "Sejarah";
+"fbucks.tab.history" = "Riwayat";
 "fbucks.tab.shop" = "Toko";
 "fbucks.about.title" = "Apa itu F-Bucks?";
-"fbucks.about.body" = "F-Bucks (Flags Bucks) adalah mata uang dalam game yang Anda peroleh dengan memainkan World Arena Flags. Belanjakan untuk membeli potongan avatar unik, skin, dan item eksklusif lainnya.";
+"fbucks.about.body" = "F-Bucks (Flags Bucks) adalah mata uang dalam game yang kamu peroleh dengan bermain World Arena Flags. Gunakan untuk membeli aksesori avatar, skin, dan item eksklusif lainnya.";
 "fbucks.about.how" = "Cara mendapatkan F-Bucks";
 "fbucks.about.perfect.title" = "Permainan yang sempurna";
 "fbucks.about.perfect.desc" = "Dapatkan skor sempurna (10/10 atau 15/15)";
 "fbucks.about.streak10.title" = "10 hari berturut-turut";
-"fbucks.about.streak10.desc" = "Mainkan 10 hari berturut-turut";
+"fbucks.about.streak10.desc" = "Bermain 10 hari berturut-turut";
 "fbucks.about.streak20.title" = "20 hari berturut-turut";
-"fbucks.about.streak20.desc" = "Mainkan 20 hari berturut-turut";
+"fbucks.about.streak20.desc" = "Bermain 20 hari berturut-turut";
 "fbucks.about.streak50.title" = "50 hari berturut-turut";
-"fbucks.about.streak50.desc" = "Mainkan 50 hari berturut-turut";
+"fbucks.about.streak50.desc" = "Bermain 50 hari berturut-turut";
 "fbucks.about.streak100.title" = "100 hari berturut-turut";
-"fbucks.about.streak100.desc" = "Mainkan 100 hari berturut-turut";
+"fbucks.about.streak100.desc" = "Bermain 100 hari berturut-turut";
 "fbucks.reward.plus1" = "+1 F-Bucks";
 "fbucks.reward.plus2" = "+2 F-Bucks";
 "fbucks.reward.plus5" = "+5 F-Bucks";
 "fbucks.reward.plus10" = "+10 F-Bucks";
 "fbucks.history.title" = "Riwayat transaksi";
-"fbucks.history.empty" = "Belum ada sejarah";
-"fbucks.history.empty.hint" = "Mainkan dan dapatkan F-Bucks!";
+"fbucks.history.empty" = "Belum ada transaksi";
+"fbucks.history.empty.hint" = "Bermain dan dapatkan F-Bucks!";
 "fbucks.item.traveler_cap" = "Topi wisatawan";
 "fbucks.item.champion_shirt" = "Kaos juara";
-"fbucks.item.socks" = "kaus kaki";
-"fbucks.item.rainbow_skin" = "Kulit pelangi";
-"fbucks.item.gold_skin" = "Kulit emas";
+"fbucks.item.socks" = "Kaus kaki";
+"fbucks.item.rainbow_skin" = "Skin pelangi";
+"fbucks.item.gold_skin" = "Skin emas";
 "fbucks.item.explorer_jacket" = "Jaket penjelajah";
 "fbucks.item.fire_effect" = "Efek api";
-"fbucks.item.neon_skin" = "Kulit neon";
+"fbucks.item.neon_skin" = "Skin neon";
 "fbucks.item.stars_effect" = "Efek bintang";
 "fbucks.item.champion_jacket" = "Jaket juara";
 "fbucks.tx.daily_bonus" = "Bonus harian";
@@ -1719,7 +1719,7 @@
 "learning.country.a11y.next" = "Negara berikutnya";
 "learning.country.a11y.previous" = "Negara sebelumnya";
 "learning.gallery.tile.flag" = "Bendera nasional";
-"learning.gallery.tile.landmark" = "Landmark";
+"learning.gallery.tile.landmark" = "Tempat terkenal";
 "learning.gallery.tile.nature" = "Alam";
 "learning.gallery.tile.culture" = "Budaya";
 "learning.gallery.tile.government" = "Pemerintahan";

@@ -1,6 +1,6 @@
 "Open in Game Center" = "Game Center에서 열기";
 "Заработай %d XP" = "%d XP를 획득하세요";
-"F-BUCKS EARNED" = "F-BUCKS EARNED";
+"F-BUCKS EARNED" = "획득한 F-Bucks";
 "Дай %d правильных ответов" = "%d개의 정답을 얻으세요";
 "Наберите %d правильных ответов за месяц" = "이번 달 %d개의 정답을 얻으세요";
 "Сыграй %d идеальных игр" = "%d개의 완벽한 게임을 플레이하세요";
@@ -350,7 +350,7 @@
 "Получайте бонусы за длинные серии дней" = "긴 하루 연속 보너스 받기";
 "Покупайте эксклюзивные элементы для аватара" = "독점 아바타 아이템 구매";
 "Создавайте уникальный стиль" = "독특한 스타일을 만들어보세요";
-"Как заработать F-Bucks" = "F-Bucks를 버는 방법";
+"Как заработать F-Bucks" = "F-Bucks를 얻는 방법";
 "Идеальный результат" = "완벽한 결과";
 "Идеальный результат игры" = "완벽한 게임 결과";
 "Получите идеальный результат в игре (10/10 или 15/15)" = "게임에서 완벽한 결과 얻기(10/10 또는 15/15)";
@@ -377,10 +377,10 @@
 "Кепка путешественника" = "여행자 모자";
 "Куртка исследователя" = "탐험가 재킷";
 "Золотой скин" = "골드 스킨";
-"Радужный скин" = "레인보우 스킨";
+"Радужный скин" = "무지개 스킨";
 "Неоновый скин" = "네온 스킨";
 "Эффект блёсток" = "스파클 효과";
-"Огненный эффект" = "화재 효과";
+"Огненный эффект" = "불꽃 효과";
 "Звёздный эффект" = "별 효과";
 "Купить" = "구입하다";
 "Покупка" = "구입";
@@ -426,9 +426,9 @@
 
 /* Game header popovers */
 "Total game time since start" = "시작 이후 총 게임 시간";
-"Time limit per question depending on difficulty" = "Time limit per question depending on difficulty";
+"Time limit per question depending on difficulty" = "문제당 제한 시간은 난이도에 따라 달라져요";
 "Total Game Time" = "총 게임 시간";
-"Time Per Question" = "Time Per Question";
+"Time Per Question" = "문제당 시간";
 
 /* Game header motivation (iPad) */
 "Game motivation 1" = "당신은 이것을 가지고 있습니다!";
@@ -936,7 +936,7 @@
 "Текущая серия" = "현재 연속";
 "дней" = "날";
 "Точность" = "정확성";
-"Теперь вы можете без единой ошибки отвечать на все наши вопросы с точностью в %d%%" = "이제 실수 없이 %d%%의 정확도로 모든 질문에 답할 수 있습니다";
+"Теперь вы можете без единой ошибки отвечать на все наши вопросы с точностью в %d%%" = "답변의 정답률은 %d%%예요.";
 "Мы будем рады, если вы захотите снова вернуться к нам!" = "당신이 우리에게 다시 돌아오고 싶다면 우리는 기쁠 것입니다!";
 "Продолжить" = "계속하다";
 
@@ -1000,7 +1000,7 @@
 
 /* Enhanced Streak View */
 "Don't break the chain! Come back tomorrow!" = "사슬을 끊지 마십시오! 내일 다시 오세요!";
-"Time to restart your streak! You can do it!" = "Time to restart your streak! You can do it!";
+"Time to restart your streak! You can do it!" = "연속 플레이 기록을 다시 시작해 봐요! 할 수 있어요!";
 
 /* Monthly XP Quest */
 "Заработай %d XP за месяц" = "이번 달에 %d XP를 획득하세요";
@@ -1049,8 +1049,8 @@
 "Learn flags and countries of the World" = "세계의 국기와 국가를 알아보세요";
 "Select Level" = "레벨 선택";
 "Level - %@" = "수준 - %@";
-"Exclusive tournaments with cash F-Bucks prizes" = "현금 F-Bucks 상금이 포함된 독점 토너먼트";
-"Survival Mode" = "Survival Mode";
+"Exclusive tournaments with cash F-Bucks prizes" = "F-Bucks 상금이 포함된 독점 토너먼트";
+"Survival Mode" = "서바이벌 모드";
 "One mistake = Game Over" = "한 번의 실수 = 게임 오버";
 "Duel result push format" = "%@: %d — 당신: %d.";
 "Duel motivation win" = "놀라운! 연속 행진을 이어가세요.";
@@ -1525,19 +1525,19 @@
 "avatar_editor_opt_jacket" = "재킷";
 
 "monthly_quest_mission_title" = "%@ 미션";
-"Friend profile progress title" = "STREAK AND PROGRESS";
-"Friend achievements placeholder" = "Friend achievements are shown as they are unlocked";
+"Friend profile progress title" = "연속 플레이 기록 및 진행 상황";
+"Friend achievements placeholder" = "친구가 업적을 달성하면 여기에 표시돼요";
 
 "Answer as many flags as possible before time runs out" = "시간이 끝나기 전에 최대한 많은 국기를 맞히세요";
 "Duration" = "제한 시간";
-"Best score" = "Best score";
+"Best score" = "최고 점수";
 "Wrong answer penalty" = "오답 페널티";
 "5 correct in a row bonus" = "연속 5정답 보너스";
 "Best combo" = "최고 콤보";
 "New record!" = "신기록!";
 "Day leaderboard place" = "일간 리더보드 순위";
 "Week leaderboard place" = "주간 리더보드 순위";
-"Back to Modes" = "Back to Modes";
+"Back to Modes" = "모드 선택으로";
 "Start" = "시작";
 "TC correct answers headline" = "%d개 정답";
 "Difficulty description TC" = "%1$d%2$@ 라운드 • 연속 5정답마다 +%3$d%2$@ • 오답마다 −%4$d%2$@";
@@ -1548,11 +1548,11 @@
 "TC intro combo5 bonus title" = "연속 5정답 콤보";
 "TC detail time penalty fmt" = "타이머: −%1$d %2$@ (오답)";
 "TC detail time combo fmt" = "타이머: +%1$d %2$@ (연속 5정답)";
-"TC detail points earned" = "Points for this answer: +%d";
-"TC detail xp earned" = "XP for this answer: +%d";
-"TC detail time penalty" = "Timer: −10 s (wrong answer)";
-"TC detail time combo bonus" = "Timer: +10 s (5 correct in a row)";
-"Share TC headline" = "Time Challenge: %d correct out of %d";
+"TC detail points earned" = "이번 답변으로 획득한 점수: +%d";
+"TC detail xp earned" = "이번 답변으로 획득한 XP: +%d";
+"TC detail time penalty" = "남은 시간: −10초 (오답)";
+"TC detail time combo bonus" = "남은 시간: +10초 (5문제 연속 정답)";
+"Share TC headline" = "시간 도전: %2$d문제 중 %1$d문제 정답";
 
 "Time seconds unit short" = "초";
 "TC stat best combo" = "최고 콤보";
@@ -1582,10 +1582,10 @@
 "Survival weekly title" = "주간 서바이벌 챌린지";
 "Survival weekly target fmt" = "이번 주 한 판에서 %d개 국기를 버티세요.";
 "Survival weekly best fmt" = "이번 주 최고 기록: %d개 국기";
-"Survival weekly all milestones met body" = "You've reached every weekly depth goal — up to 200 flags in one run. Brilliant!";
-"Survival weekly reward all claimed" = "All weekly survival bonuses claimed (up to +4000 XP).";
+"Survival weekly all milestones met body" = "한 번에 200개 깃발까지, 이번 주 목표를 모두 달성했어요. 멋져요!";
+"Survival weekly reward all claimed" = "이번 주 서바이벌 보너스를 모두 받았어요 (최대 +4000 XP).";
 "Survival weekly reward claimed" = "주간 보너스 수령 (+1000 XP)";
-"Survival weekly reward hint" = "Each milestone — 25, 50, 100, then 200 flags in one run — gives +1000 XP once per week.";
+"Survival weekly reward hint" = "한 번에 깃발 25, 50, 100, 200개에 도달할 때마다 각각 주 1회 +1000 XP를 받아요.";
 
 "Survival result depth progress fmt" = "%1$d / %2$d";
 
@@ -1596,53 +1596,53 @@
 "1 hour" = "1시간";
 
 
-"Duel announcement subtitle" = "Same duel for both players. First to score wins!";
-"User 1" = "User 1";
-"User 2" = "User 2";
-"Number of Questions" = "Questions";
+"Duel announcement subtitle" = "두 플레이어에게 같은 문제가 주어져요. 점수가 높은 쪽이 이기고, 동점이면 더 빨리 마친 쪽이 이겨요.";
+"User 1" = "플레이어 1";
+"User 2" = "플레이어 2";
+"Number of Questions" = "문제 수";
 
 
 /* F-Bucks screen */
-"fbucks.close" = "닫다";
+"fbucks.close" = "닫기";
 "fbucks.currency.name" = "F-Bucks";
-"fbucks.hero.subtitle.enough" = "약 %d 품목에 충분합니다.";
-"fbucks.hero.subtitle.rare" = "희귀한 아이템을 구입할 수 있습니다.";
-"fbucks.hero.subtitle.save" = "특별한 것을 위해 계속 저축하세요";
+"fbucks.hero.subtitle.enough" = "아이템 약 %d개를 살 수 있어요";
+"fbucks.hero.subtitle.rare" = "희귀 아이템을 살 수 있어요";
+"fbucks.hero.subtitle.save" = "특별한 아이템을 위해 계속 모아 보세요";
 "fbucks.daily.title" = "일일 보너스";
 "fbucks.daily.subtitle" = "+1 F-Bucks";
-"fbucks.daily.claim" = "주장하다";
-"fbucks.daily.claimed" = "오늘 소유권이 주장됨";
-"fbucks.daily.hint" = "오늘부터 +1 사용 가능 — 소유권 주장을 탭하세요";
+"fbucks.daily.claim" = "받기";
+"fbucks.daily.claimed" = "오늘 받음";
+"fbucks.daily.hint" = "오늘 +1을 받을 수 있어요 — 받기를 눌러 주세요";
 "fbucks.earn.today.title" = "오늘 적립";
-"fbucks.earn.today.subtitle" = "오늘 최대 %d F-Bucks 가능";
+"fbucks.earn.today.subtitle" = "오늘 최대 %d F-Bucks를 얻을 수 있어요";
 "fbucks.earn.perfect.title" = "완벽한 게임";
 "fbucks.earn.perfect.sub" = "10/10 또는 15/15에 +1";
-"fbucks.earn.streak" = "줄";
-"fbucks.earn.streak.sub" = "시리즈(%d/10일)";
-"fbucks.earn.league" = "금주의 탑";
+"fbucks.earn.streak" = "연속 플레이 기록";
+"fbucks.earn.streak.sub" = "연속 플레이 (%d/10일)";
+"fbucks.earn.league" = "이번 주 상위권";
 "fbucks.earn.league.sub" = "리그 상위 3위 안에 들기";
-"fbucks.progress.title" = "다음 항목으로 진행";
+"fbucks.progress.title" = "다음 아이템까지의 진행도";
 "fbucks.progress.percent" = "%d%%";
-"fbucks.progress.full" = "다음 보상을 받을 여유가 있습니다. 상점을 열어보세요!";
+"fbucks.progress.full" = "새로운 보상을 살 만큼 모았어요. 상점을 열어 보세요!";
 "fbucks.want.title" = "다음 목표";
 "fbucks.want.price" = "가격: %d F-Bucks";
 "fbucks.want.you" = "보유량: %d";
 "fbucks.want.need" = "%d 더 필요";
-"fbucks.earn_more" = "더 많은 수익을 얻으세요 →";
+"fbucks.earn_more" = "더 모으기 →";
 "fbucks.buy_for" = "%d에 구매";
-"fbucks.shop.title" = "가게";
-"fbucks.shop.subtitle" = "독점 아바타 아이템에 F-Bucks를 사용하세요";
-"fbucks.shop.tier.common" = "흔한";
-"fbucks.shop.tier.rare" = "희귀한";
-"fbucks.shop.tier.legendary" = "전설적인";
-"fbucks.shop.limited" = "제한된";
-"fbucks.perfect.badge" = "완벽한";
+"fbucks.shop.title" = "상점";
+"fbucks.shop.subtitle" = "F-Bucks로 특별한 아바타 아이템을 구매하세요";
+"fbucks.shop.tier.common" = "일반";
+"fbucks.shop.tier.rare" = "희귀";
+"fbucks.shop.tier.legendary" = "전설";
+"fbucks.shop.limited" = "한정판";
+"fbucks.perfect.badge" = "완벽";
 "fbucks.tab.today" = "오늘";
-"fbucks.tab.about" = "에 대한";
-"fbucks.tab.history" = "역사";
-"fbucks.tab.shop" = "가게";
+"fbucks.tab.about" = "안내";
+"fbucks.tab.history" = "내역";
+"fbucks.tab.shop" = "상점";
 "fbucks.about.title" = "F-Bucks란 무엇인가요?";
-"fbucks.about.body" = "F-Bucks(플래그 벅스)는 월드 아레나 플래그를 플레이하여 획득하는 게임 내 화폐입니다. 독특한 아바타 조각, 스킨, 기타 독점 아이템을 구입하는 데 사용하세요.";
+"fbucks.about.body" = "F-Bucks(Flags Bucks)는 World Arena Flags를 플레이하며 얻는 게임 내 화폐예요. 아바타 액세서리, 스킨 등 특별한 아이템을 구매하는 데 사용할 수 있어요.";
 "fbucks.about.how" = "F-Bucks를 얻는 방법";
 "fbucks.about.perfect.title" = "완벽한 게임";
 "fbucks.about.perfect.desc" = "만점을 받으세요(10/10 또는 15/15)";
@@ -1662,12 +1662,12 @@
 "fbucks.history.empty" = "아직 기록이 없습니다.";
 "fbucks.history.empty.hint" = "플레이하고 F-Bucks를 획득하세요!";
 "fbucks.item.traveler_cap" = "여행자 모자";
-"fbucks.item.champion_shirt" = "챔피언 티";
+"fbucks.item.champion_shirt" = "챔피언 티셔츠";
 "fbucks.item.socks" = "양말";
-"fbucks.item.rainbow_skin" = "무지개 피부";
+"fbucks.item.rainbow_skin" = "무지개 스킨";
 "fbucks.item.gold_skin" = "골드 스킨";
-"fbucks.item.explorer_jacket" = "익스플로러 재킷";
-"fbucks.item.fire_effect" = "화재 효과";
+"fbucks.item.explorer_jacket" = "탐험가 재킷";
+"fbucks.item.fire_effect" = "불꽃 효과";
 "fbucks.item.neon_skin" = "네온 스킨";
 "fbucks.item.stars_effect" = "별 효과";
 "fbucks.item.champion_jacket" = "챔피언 재킷";

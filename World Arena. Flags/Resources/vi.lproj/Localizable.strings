@@ -1,6 +1,6 @@
 "Open in Game Center" = "Mở trong Game Center";
 "Заработай %d XP" = "Kiếm %d XP";
-"F-BUCKS EARNED" = "F-BUCKS EARNED";
+"F-BUCKS EARNED" = "F-BUCKS KIẾM ĐƯỢC";
 "Дай %d правильных ответов" = "Nhận được %d câu trả lời đúng";
 "Наберите %d правильных ответов за месяц" = "Nhận được %d câu trả lời đúng trong tháng này";
 "Сыграй %d идеальных игр" = "Chơi %d trò chơi hoàn hảo";
@@ -354,13 +354,13 @@
 "Идеальный результат" = "Kết quả hoàn hảo";
 "Идеальный результат игры" = "Kết quả trò chơi hoàn hảo";
 "Получите идеальный результат в игре (10/10 или 15/15)" = "Nhận kết quả hoàn hảo trong trò chơi (10/10 hoặc 15/15)";
-"Серия 10 дней" = "Chuỗi 10 ngày";
+"Серия 10 дней" = "Chuỗi 10 ngày chơi";
 "Играйте 10 дней подряд" = "Chơi 10 ngày liên tiếp";
-"Серия 20 дней" = "Chuỗi 20 ngày";
+"Серия 20 дней" = "Chuỗi 20 ngày chơi";
 "Играйте 20 дней подряд" = "Chơi 20 ngày liên tiếp";
-"Серия 50 дней" = "Chuỗi 50 ngày";
+"Серия 50 дней" = "Chuỗi 50 ngày chơi";
 "Играйте 50 дней подряд" = "Chơi 50 ngày liên tiếp";
-"Серия 100 дней" = "Chuỗi 100 ngày";
+"Серия 100 дней" = "Chuỗi 100 ngày chơi";
 "Играйте 100 дней подряд" = "Chơi 100 ngày liên tiếp";
 "История начислений" = "Lịch sử giao dịch";
 "История пуста" = "Lịch sử trống rỗng";
@@ -373,12 +373,12 @@
 "Особые визуальные эффекты" = "Hiệu ứng hình ảnh đặc biệt";
 "Эффекты" = "Các hiệu ứng";
 "Анимации и спецэффекты" = "Hoạt hình và hiệu ứng đặc biệt";
-"Футболка чемпиона" = "Áo thun vô địch";
-"Кепка путешественника" = "Mũ du lịch";
-"Куртка исследователя" = "Áo khoác thám hiểm";
-"Золотой скин" = "Da vàng";
-"Радужный скин" = "Da cầu vồng";
-"Неоновый скин" = "Da neon";
+"Футболка чемпиона" = "Áo thun nhà vô địch";
+"Кепка путешественника" = "Mũ du khách";
+"Куртка исследователя" = "Áo khoác nhà thám hiểm";
+"Золотой скин" = "Diện mạo vàng";
+"Радужный скин" = "Diện mạo cầu vồng";
+"Неоновый скин" = "Diện mạo neon";
 "Эффект блёсток" = "Hiệu ứng lấp lánh";
 "Огненный эффект" = "Hiệu ứng lửa";
 "Звёздный эффект" = "Hiệu ứng ngôi sao";
@@ -426,9 +426,9 @@
 
 /* Game header popovers */
 "Total game time since start" = "Tổng thời gian trò chơi kể từ khi bắt đầu";
-"Time limit per question depending on difficulty" = "Time limit per question depending on difficulty";
+"Time limit per question depending on difficulty" = "Thời gian cho mỗi câu hỏi tùy thuộc vào độ khó";
 "Total Game Time" = "Tổng thời gian trò chơi";
-"Time Per Question" = "Time Per Question";
+"Time Per Question" = "Thời gian mỗi câu hỏi";
 
 /* Game header motivation (iPad) */
 "Game motivation 1" = "Bạn đã có cái này!";
@@ -712,7 +712,7 @@
 "Ранняя птица" = "Chim sớm";
 "Достигните серии 5 дней" = "Đạt đến chuỗi 5 ngày";
 "Стабильность" = "tính nhất quán";
-"Серия 10 дней" = "chuỗi 10 ngày";
+"Серия 10 дней" = "Chuỗi 10 ngày chơi";
 "Железная воля" = "Ý chí sắt đá";
 "Серия 30 дней" = "chuỗi 30 ngày";
 "Новичок XP" = "XP mới bắt đầu";
@@ -936,7 +936,7 @@
 "Текущая серия" = "Chuỗi hiện tại";
 "дней" = "ngày";
 "Точность" = "Sự chính xác";
-"Теперь вы можете без единой ошибки отвечать на все наши вопросы с точностью в %d%%" = "Bạn có thể làm điều đó để đạt được lợi ích của mình khi đạt được %d%%";
+"Теперь вы можете без единой ошибки отвечать на все наши вопросы с точностью в %d%%" = "Độ chính xác của câu trả lời là %d%%.";
 "Мы будем рады, если вы захотите снова вернуться к нам!" = "Chúng tôi sẽ rất vui nếu bạn muốn quay lại với chúng tôi lần nữa!";
 "Продолжить" = "Tiếp tục";
 
@@ -1000,7 +1000,7 @@
 
 /* Enhanced Streak View */
 "Don't break the chain! Come back tomorrow!" = "Đừng phá vỡ chuỗi! Hãy quay lại vào ngày mai!";
-"Time to restart your streak! You can do it!" = "Time to restart your streak! You can do it!";
+"Time to restart your streak! You can do it!" = "Đã đến lúc bắt đầu chuỗi ngày chơi mới! Bạn làm được mà!";
 
 /* Monthly XP Quest */
 "Заработай %d XP за месяц" = "Kiếm %d XP trong tháng này";
@@ -1049,8 +1049,8 @@
 "Learn flags and countries of the World" = "Tìm hiểu cờ và các nước trên thế giới";
 "Select Level" = "Chọn cấp độ";
 "Level - %@" = "Mức độ - %@";
-"Exclusive tournaments with cash F-Bucks prizes" = "Các giải đấu độc quyền với giải thưởng F-Bucks tiền mặt";
-"Survival Mode" = "Survival Mode";
+"Exclusive tournaments with cash F-Bucks prizes" = "Các giải đấu độc quyền với giải thưởng F-Bucks";
+"Survival Mode" = "Chế độ sinh tồn";
 "One mistake = Game Over" = "Một sai lầm = Trò chơi kết thúc";
 "Duel result push format" = "%@: %d — Bạn: %d.";
 "Duel motivation win" = "Tuyệt vời! Hãy tiếp tục duy trì chuỗi thành tích đó.";
@@ -1490,7 +1490,7 @@
 "avatar_editor_beanie" = "mũ len";
 "avatar_editor_bandana" = "khăn rằn";
 "avatar_editor_sport_cap" = "mũ thể thao";
-"avatar_editor_hat_SilverLeague" = "Giải bạc";
+"avatar_editor_hat_SilverLeague" = "Giải Bạc";
 "avatar_editor_hat_10_day_streak" = "chuỗi 10 ngày";
 "avatar_editor_hat_beginner" = "Người mới bắt đầu";
 "avatar_editor_hat_Premium" = "Phần thưởng";
@@ -1511,7 +1511,7 @@
 "avatar_editor_opt_short" = "Ngắn";
 "avatar_editor_opt_curl" = "uốn cong";
 "avatar_editor_opt_modern" = "Hiện đại";
-"avatar_editor_opt_buzz" = "Buzz";
+"avatar_editor_opt_buzz" = "Tóc húi cua";
 "avatar_editor_opt_hair_waves" = "Sóng";
 "avatar_editor_opt_hair_spiky" = "gai nhọn";
 "avatar_editor_opt_hair_slick" = "Trơn tru";
@@ -1525,19 +1525,19 @@
 "avatar_editor_opt_jacket" = "Áo khoác";
 
 "monthly_quest_mission_title" = "Nhiệm vụ %@";
-"Friend profile progress title" = "STREAK AND PROGRESS";
-"Friend achievements placeholder" = "Friend achievements are shown as they are unlocked";
+"Friend profile progress title" = "CHUỖI NGÀY CHƠI VÀ TIẾN ĐỘ";
+"Friend achievements placeholder" = "Thành tích của bạn bè sẽ xuất hiện khi được mở khóa";
 
 "Answer as many flags as possible before time runs out" = "Trả lời càng nhiều lá cờ càng tốt trước khi hết giờ";
 "Duration" = "Thời lượng";
-"Best score" = "Best score";
+"Best score" = "Điểm cao nhất";
 "Wrong answer penalty" = "Phạt khi trả lời sai";
 "5 correct in a row bonus" = "Thưởng cho 5 câu đúng liên tiếp";
 "Best combo" = "Chuỗi tốt nhất";
 "New record!" = "Kỷ lục mới!";
 "Day leaderboard place" = "Thứ hạng bảng xếp hạng ngày";
 "Week leaderboard place" = "Thứ hạng bảng xếp hạng tuần";
-"Back to Modes" = "Back to Modes";
+"Back to Modes" = "Quay lại chọn chế độ";
 "Start" = "Bắt đầu";
 "TC correct answers headline" = "%d đúng";
 "Difficulty description TC" = "%1$d%2$@ mỗi vòng • +%3$d%2$@ mỗi 5 câu đúng liên tiếp • −%4$d%2$@ mỗi sai";
@@ -1548,11 +1548,11 @@
 "TC intro combo5 bonus title" = "Combo 5 câu đúng liên tiếp";
 "TC detail time penalty fmt" = "Hẹn giờ: −%1$d %2$@ (sai)";
 "TC detail time combo fmt" = "Hẹn giờ: +%1$d %2$@ (5 đúng liên tiếp)";
-"TC detail points earned" = "Points for this answer: +%d";
-"TC detail xp earned" = "XP for this answer: +%d";
-"TC detail time penalty" = "Timer: −10 s (wrong answer)";
-"TC detail time combo bonus" = "Timer: +10 s (5 correct in a row)";
-"Share TC headline" = "Time Challenge: %d correct out of %d";
+"TC detail points earned" = "Điểm cho câu trả lời này: +%d";
+"TC detail xp earned" = "XP cho câu trả lời này: +%d";
+"TC detail time penalty" = "Thời gian: −10 giây (trả lời sai)";
+"TC detail time combo bonus" = "Thời gian: +10 giây (5 câu đúng liên tiếp)";
+"Share TC headline" = "Thử thách thời gian: đúng %d trên %d câu";
 
 "Time seconds unit short" = "giây";
 "TC stat best combo" = "Chuỗi tốt nhất";
@@ -1582,10 +1582,10 @@
 "Survival weekly title" = "Thử thách Sinh tồn hàng tuần";
 "Survival weekly target fmt" = "Trong một lượt tuần này, vượt qua %d lá cờ.";
 "Survival weekly best fmt" = "Tốt nhất tuần này của bạn: %d lá cờ";
-"Survival weekly all milestones met body" = "You've reached every weekly depth goal — up to 200 flags in one run. Brilliant!";
-"Survival weekly reward all claimed" = "All weekly survival bonuses claimed (up to +4000 XP).";
+"Survival weekly all milestones met body" = "Bạn đã đạt mọi mục tiêu tuần, đến 200 lá cờ trong một lượt chơi. Tuyệt vời!";
+"Survival weekly reward all claimed" = "Đã nhận tất cả phần thưởng sinh tồn hằng tuần (tối đa +4000 XP).";
 "Survival weekly reward claimed" = "Đã nhận thưởng tuần (+1000 XP)";
-"Survival weekly reward hint" = "Each milestone — 25, 50, 100, then 200 flags in one run — gives +1000 XP once per week.";
+"Survival weekly reward hint" = "Mỗi mốc — 25, 50, 100 rồi 200 lá cờ trong một lượt chơi — thưởng +1000 XP một lần mỗi tuần.";
 
 "Survival result depth progress fmt" = "%1$d / %2$d";
 
@@ -1596,82 +1596,82 @@
 "1 hour" = "1 giờ";
 
 
-"Duel announcement subtitle" = "Same duel for both players. First to score wins!";
-"User 1" = "User 1";
-"User 2" = "User 2";
-"Number of Questions" = "Questions";
+"Duel announcement subtitle" = "Hai người chơi nhận cùng câu hỏi. Ai có điểm cao hơn sẽ thắng; nếu bằng điểm, người hoàn thành nhanh hơn sẽ thắng.";
+"User 1" = "Người chơi 1";
+"User 2" = "Người chơi 2";
+"Number of Questions" = "Câu hỏi";
 
 
 /* F-Bucks screen */
-"fbucks.close" = "Close";
+"fbucks.close" = "Đóng";
 "fbucks.currency.name" = "F-Bucks";
-"fbucks.hero.subtitle.enough" = "Enough for about %d items";
-"fbucks.hero.subtitle.rare" = "You can buy a rare item";
-"fbucks.hero.subtitle.save" = "Keep saving for something special";
-"fbucks.daily.title" = "Daily bonus";
+"fbucks.hero.subtitle.enough" = "Đủ mua khoảng %d vật phẩm";
+"fbucks.hero.subtitle.rare" = "Bạn có thể mua một vật phẩm hiếm";
+"fbucks.hero.subtitle.save" = "Tiếp tục tích lũy để mua món đồ đặc biệt";
+"fbucks.daily.title" = "Thưởng hằng ngày";
 "fbucks.daily.subtitle" = "+1 F-Bucks";
-"fbucks.daily.claim" = "Claim";
-"fbucks.daily.claimed" = "Claimed today";
-"fbucks.daily.hint" = "+1 available today — tap Claim";
-"fbucks.earn.today.title" = "Earn today";
-"fbucks.earn.today.subtitle" = "Up to %d F-Bucks possible today";
-"fbucks.earn.perfect.title" = "Perfect game";
-"fbucks.earn.perfect.sub" = "+1 for 10/10 or 15/15";
-"fbucks.earn.streak" = "Streak";
-"fbucks.earn.streak.sub" = "Series (%d/10 days)";
-"fbucks.earn.league" = "Top of the week";
-"fbucks.earn.league.sub" = "Finish in the top 3 of your league";
-"fbucks.progress.title" = "Progress to next item";
+"fbucks.daily.claim" = "Nhận";
+"fbucks.daily.claimed" = "Đã nhận hôm nay";
+"fbucks.daily.hint" = "Hôm nay có thể nhận +1 — nhấn Nhận";
+"fbucks.earn.today.title" = "Kiếm thêm hôm nay";
+"fbucks.earn.today.subtitle" = "Hôm nay có thể kiếm tối đa %d F-Bucks";
+"fbucks.earn.perfect.title" = "Ván chơi hoàn hảo";
+"fbucks.earn.perfect.sub" = "+1 khi đạt 10/10 hoặc 15/15";
+"fbucks.earn.streak" = "Chuỗi ngày chơi";
+"fbucks.earn.streak.sub" = "Chuỗi ngày chơi (%d/10 ngày)";
+"fbucks.earn.league" = "Dẫn đầu tuần";
+"fbucks.earn.league.sub" = "Kết thúc trong top 3 của giải đấu";
+"fbucks.progress.title" = "Tiến độ đến vật phẩm tiếp theo";
 "fbucks.progress.percent" = "%d%%";
-"fbucks.progress.full" = "You can afford the next rewards — open the shop!";
-"fbucks.want.title" = "Next goal";
-"fbucks.want.price" = "Price: %d F-Bucks";
-"fbucks.want.you" = "You have: %d";
-"fbucks.want.need" = "Need %d more";
-"fbucks.earn_more" = "Earn more →";
-"fbucks.buy_for" = "Buy for %d";
-"fbucks.shop.title" = "Shop";
-"fbucks.shop.subtitle" = "Spend F-Bucks on exclusive avatar items";
-"fbucks.shop.tier.common" = "Common";
-"fbucks.shop.tier.rare" = "Rare";
-"fbucks.shop.tier.legendary" = "Legendary";
-"fbucks.shop.limited" = "LIMITED";
-"fbucks.perfect.badge" = "Perfect";
-"fbucks.tab.today" = "Today";
-"fbucks.tab.about" = "About";
-"fbucks.tab.history" = "History";
-"fbucks.tab.shop" = "Shop";
-"fbucks.about.title" = "What are F-Bucks?";
-"fbucks.about.body" = "F-Bucks (Flags Bucks) are in-game currency you earn by playing World Arena Flags. Spend them on unique avatar pieces, skins, and other exclusive items.";
-"fbucks.about.how" = "How to earn F-Bucks";
-"fbucks.about.perfect.title" = "Perfect game";
-"fbucks.about.perfect.desc" = "Get a perfect score (10/10 or 15/15)";
-"fbucks.about.streak10.title" = "10-day streak";
-"fbucks.about.streak10.desc" = "Play 10 days in a row";
-"fbucks.about.streak20.title" = "20-day streak";
-"fbucks.about.streak20.desc" = "Play 20 days in a row";
-"fbucks.about.streak50.title" = "50-day streak";
-"fbucks.about.streak50.desc" = "Play 50 days in a row";
-"fbucks.about.streak100.title" = "100-day streak";
-"fbucks.about.streak100.desc" = "Play 100 days in a row";
+"fbucks.progress.full" = "Bạn đã đủ tiền mua phần thưởng mới — mở cửa hàng nào!";
+"fbucks.want.title" = "Mục tiêu tiếp theo";
+"fbucks.want.price" = "Giá: %d F-Bucks";
+"fbucks.want.you" = "Bạn có: %d";
+"fbucks.want.need" = "Cần thêm %d";
+"fbucks.earn_more" = "Kiếm thêm →";
+"fbucks.buy_for" = "Mua với giá %d";
+"fbucks.shop.title" = "Cửa hàng";
+"fbucks.shop.subtitle" = "Dùng F-Bucks mua vật phẩm độc quyền cho ảnh đại diện";
+"fbucks.shop.tier.common" = "Thường";
+"fbucks.shop.tier.rare" = "Hiếm";
+"fbucks.shop.tier.legendary" = "Huyền thoại";
+"fbucks.shop.limited" = "GIỚI HẠN";
+"fbucks.perfect.badge" = "Hoàn hảo";
+"fbucks.tab.today" = "Hôm nay";
+"fbucks.tab.about" = "Giới thiệu";
+"fbucks.tab.history" = "Lịch sử";
+"fbucks.tab.shop" = "Cửa hàng";
+"fbucks.about.title" = "F-Bucks là gì?";
+"fbucks.about.body" = "F-Bucks (Flags Bucks) là tiền trong trò chơi mà bạn kiếm được khi chơi World Arena Flags. Dùng chúng để mua phụ kiện ảnh đại diện, diện mạo và các vật phẩm độc quyền khác.";
+"fbucks.about.how" = "Cách kiếm F-Bucks";
+"fbucks.about.perfect.title" = "Ván chơi hoàn hảo";
+"fbucks.about.perfect.desc" = "Đạt điểm tuyệt đối (10/10 hoặc 15/15)";
+"fbucks.about.streak10.title" = "Chuỗi 10 ngày chơi";
+"fbucks.about.streak10.desc" = "Chơi 10 ngày liên tiếp";
+"fbucks.about.streak20.title" = "Chuỗi 20 ngày chơi";
+"fbucks.about.streak20.desc" = "Chơi 20 ngày liên tiếp";
+"fbucks.about.streak50.title" = "Chuỗi 50 ngày chơi";
+"fbucks.about.streak50.desc" = "Chơi 50 ngày liên tiếp";
+"fbucks.about.streak100.title" = "Chuỗi 100 ngày chơi";
+"fbucks.about.streak100.desc" = "Chơi 100 ngày liên tiếp";
 "fbucks.reward.plus1" = "+1 F-Bucks";
 "fbucks.reward.plus2" = "+2 F-Bucks";
 "fbucks.reward.plus5" = "+5 F-Bucks";
 "fbucks.reward.plus10" = "+10 F-Bucks";
-"fbucks.history.title" = "Transaction history";
-"fbucks.history.empty" = "No history yet";
-"fbucks.history.empty.hint" = "Play and earn F-Bucks!";
-"fbucks.item.traveler_cap" = "Traveler's cap";
-"fbucks.item.champion_shirt" = "Champion tee";
-"fbucks.item.socks" = "Socks";
-"fbucks.item.rainbow_skin" = "Rainbow skin";
-"fbucks.item.gold_skin" = "Gold skin";
-"fbucks.item.explorer_jacket" = "Explorer jacket";
-"fbucks.item.fire_effect" = "Fire effect";
-"fbucks.item.neon_skin" = "Neon skin";
-"fbucks.item.stars_effect" = "Star effect";
-"fbucks.item.champion_jacket" = "Champion jacket";
-"fbucks.tx.daily_bonus" = "Daily bonus";
+"fbucks.history.title" = "Lịch sử giao dịch";
+"fbucks.history.empty" = "Chưa có giao dịch";
+"fbucks.history.empty.hint" = "Chơi và kiếm F-Bucks!";
+"fbucks.item.traveler_cap" = "Mũ du khách";
+"fbucks.item.champion_shirt" = "Áo thun nhà vô địch";
+"fbucks.item.socks" = "Tất";
+"fbucks.item.rainbow_skin" = "Diện mạo cầu vồng";
+"fbucks.item.gold_skin" = "Diện mạo vàng";
+"fbucks.item.explorer_jacket" = "Áo khoác nhà thám hiểm";
+"fbucks.item.fire_effect" = "Hiệu ứng lửa";
+"fbucks.item.neon_skin" = "Diện mạo neon";
+"fbucks.item.stars_effect" = "Hiệu ứng ngôi sao";
+"fbucks.item.champion_jacket" = "Áo khoác nhà vô địch";
+"fbucks.tx.daily_bonus" = "Thưởng hằng ngày";
 "friends.remind.status_sent" = "Đã gửi nhắc nhở!";
 
 /* Duel prepare error */

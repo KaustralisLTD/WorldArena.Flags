@@ -1,5 +1,5 @@
 "Заработай %d XP" = "Заработай %d XP";
-"F-BUCKS EARNED" = "ПОЛУЧЕНО F-BUCKS";
+"F-BUCKS EARNED" = "ЗАРАБОТАНО F-BUCKS";
 "Дай %d правильных ответов" = "Дай %d правильных ответов";
 "Наберите %d правильных ответов за месяц" = "Наберите %d правильных ответов за месяц";
 "Сыграй %d идеальных игр" = "Сыграй %d идеальных игр";
@@ -739,7 +739,7 @@
 "Ранняя птица" = "Ранняя птица";
 "Достигните серии 5 дней" = "Достигните серии 5 дней";
 "Стабильность" = "Стабильность";
-"Серия 10 дней" = "Серия 10 дней";
+"Серия 10 дней" = "10-дневная серия";
 "Железная воля" = "Железная воля";
 "Серия 30 дней" = "Серия 30 дней";
 "Новичок XP" = "Новичок XP";
@@ -963,7 +963,7 @@
 "Текущая серия" = "Текущая серия";
 "дней" = "дней";
 "Точность" = "Точность";
-"Теперь вы можете без единой ошибки отвечать на все наши вопросы с точностью в %d%%" = "Теперь вы можете без единой ошибки отвечать на все наши вопросы с точностью в %d%%";
+"Теперь вы можете без единой ошибки отвечать на все наши вопросы с точностью в %d%%" = "Точность ваших ответов — %d%%.";
 "Мы будем рады, если вы захотите снова вернуться к нам!" = "Мы будем рады, если вы захотите снова вернуться к нам!";
 "Продолжить" = "Продолжить";
 
@@ -1004,7 +1004,7 @@
 
 /* Enhanced Streak View */
 "Don't break the chain! Come back tomorrow!" = "Не прерывай цепочку! Возвращайся завтра!";
-"Time to restart your streak! You can do it!" = "Пора начать новую серию! У вас всё получится!";
+"Time to restart your streak! You can do it!" = "Пора начать новую серию дней! У тебя всё получится!";
 
 /* Monthly XP Quest */
 "Заработай %d XP за месяц" = "Заработай %d XP за месяц";
@@ -1025,15 +1025,15 @@
 "Как заработать F-Bucks" = "Как заработать F-Bucks";
 "Идеальный результат" = "Идеальный результат";
 "Получите идеальный результат в игре (10/10 или 15/15)" = "Получите идеальный результат в игре (10/10 или 15/15)";
-"Серия 10 дней" = "Серия 10 дней";
+"Серия 10 дней" = "10-дневная серия";
 "Играйте 10 дней подряд" = "Играйте 10 дней подряд";
-"Серия 20 дней" = "Серия 20 дней";
+"Серия 20 дней" = "20-дневная серия";
 "Играйте 20 дней подряд" = "Играйте 20 дней подряд";
-"Серия 50 дней" = "Серия 50 дней";
+"Серия 50 дней" = "50-дневная серия";
 "Играйте 50 дней подряд" = "Играйте 50 дней подряд";
-"Серия 100 дней" = "Серия 100 дней";
+"Серия 100 дней" = "Серия из 100 дней";
 "Играйте 100 дней подряд" = "Играйте 100 дней подряд";
-"История начислений" = "История начислений";
+"История начислений" = "История транзакций";
 "История пуста" = "История пуста";
 "Начните играть и зарабатывать F-Bucks!" = "Начните играть и зарабатывать F-Bucks!";
 "Магазин F-Bucks" = "Магазин F-Bucks";
@@ -1044,15 +1044,15 @@
 "Особые визуальные эффекты" = "Особые визуальные эффекты";
 "Эффекты" = "Эффекты";
 "Анимации и спецэффекты" = "Анимации и спецэффекты";
-"Футболка чемпиона" = "Футболка чемпиона";
+"Футболка чемпиона" = "Чемпионская футболка";
 "Кепка путешественника" = "Кепка путешественника";
 "Куртка исследователя" = "Куртка исследователя";
 "Золотой скин" = "Золотой скин";
 "Радужный скин" = "Радужный скин";
 "Неоновый скин" = "Неоновый скин";
 "Эффект блёсток" = "Эффект блёсток";
-"Огненный эффект" = "Огненный эффект";
-"Звёздный эффект" = "Звёздный эффект";
+"Огненный эффект" = "Эффект огня";
+"Звёздный эффект" = "Звездный эффект";
 "Купить" = "Купить";
 "Покупка" = "Покупка";
 "Текст гимна" = "Текст гимна";
@@ -1100,8 +1100,8 @@
 "Learn flags and countries of the World" = "Изучайте флаги и страны мира";
 "Select Level" = "Выберите уровень";
 "Level - %@" = "Уровень - %@";
-"Exclusive tournaments with cash F-Bucks prizes" = "Эксклюзивные турниры с денежными призами F-Bucks";
-"Survival Mode" = "Survival Mode";
+"Exclusive tournaments with cash F-Bucks prizes" = "Эксклюзивные турниры с призами F-Bucks";
+"Survival Mode" = "Режим выживания";
 "One mistake = Game Over" = "Одна ошибка = конец игры";
 "Duel result push format" = "%@: %d — Вы: %d.";
 "Duel motivation win" = "Отлично! Продолжайте серию побед!";
@@ -1460,7 +1460,7 @@
 "avatar_editor_beanie" = "Шапка";
 "avatar_editor_bandana" = "Бандана";
 "avatar_editor_sport_cap" = "Спортивная кепка";
-"avatar_editor_hat_SilverLeague" = "Silver League";
+"avatar_editor_hat_SilverLeague" = "Серебряная лига";
 "avatar_editor_hat_10_day_streak" = "10 дней подряд";
 "avatar_editor_hat_beginner" = "Новичок";
 "avatar_editor_hat_Premium" = "Premium";
@@ -1495,19 +1495,19 @@
 "avatar_editor_opt_jacket" = "Куртка";
 
 "monthly_quest_mission_title" = "Миссия %@";
-"Friend profile progress title" = "СЕРИЯ И ПРОГРЕСС";
-"Friend achievements placeholder" = "Достижения друга отображаются по мере их открытия";
+"Friend profile progress title" = "СЕРИЯ ДНЕЙ И ПРОГРЕСС";
+"Friend achievements placeholder" = "Здесь появятся достижения друга по мере их получения";
 
 "Answer as many flags as possible before time runs out" = "Угадайте как можно больше флагов, пока не истечёт время";
 "Duration" = "Длительность";
-"Best score" = "Best score";
+"Best score" = "Лучший результат";
 "Wrong answer penalty" = "Штраф за ошибку";
 "5 correct in a row bonus" = "Бонус за 5 верных подряд";
 "Best combo" = "Лучшая серия";
 "New record!" = "Новый рекорд!";
 "Day leaderboard place" = "Место в дневном рейтинге";
 "Week leaderboard place" = "Место в недельном рейтинге";
-"Back to Modes" = "Back to Modes";
+"Back to Modes" = "К выбору режима";
 "Start" = "Старт";
 "TC correct answers headline" = "%d верно";
 "Difficulty description TC" = "%1$d%2$@ за раунд • +%3$d%2$@ за комбо из 5 верных • −%4$d%2$@ за ошибку";
@@ -1516,13 +1516,13 @@
 "TC best correct record" = "Лучший результат: %d верных";
 "TC intro best correct title" = "Лучший (верные)";
 "TC intro combo5 bonus title" = "Комбо: 5 верных подряд";
-"TC detail xp earned" = "XP for this answer: +%d";
+"TC detail xp earned" = "Опыт за этот ответ: +%d XP";
 "TC detail time penalty fmt" = "Таймер: −%1$d %2$@ (ошибка)";
 "TC detail time combo fmt" = "Таймер: +%1$d %2$@ (5 верных подряд)";
-"TC detail points earned" = "Баллы за этот ответ: +%d";
+"TC detail points earned" = "Очки за этот ответ: +%d";
 "TC detail time penalty" = "Таймер: −10 с (неверный ответ)";
 "TC detail time combo bonus" = "Таймер: +10 с (5 верных ответов подряд)";
-"Share TC headline" = "Time Challenge: %d верных из %d";
+"Share TC headline" = "Испытание на время: %d верных ответов из %d";
 "Time seconds unit short" = "с";
 "TC stat best combo" = "Лучшая серия";
 "Time TC delta seconds fmt" = "%+d %@";
@@ -1548,13 +1548,13 @@
 "Survival intro choices title" = "Варианты";
 "Survival intro timer title" = "Таймеры";
 "Survival intro timer value" = "Как в Классике";
-"Survival weekly title" = "Недельный челлендж Survival";
-"Survival weekly target fmt" = "За одну попытку на этой неделе выживите %d флагов.";
+"Survival weekly title" = "Недельное испытание на выживание";
+"Survival weekly target fmt" = "Пройдите %d флагов за одну попытку на этой неделе.";
 "Survival weekly best fmt" = "Ваш лучший результат на неделе: %d флагов";
-"Survival weekly all milestones met body" = "Вы выполнили все недельные цели — до 200 флагов за забег. Отлично!";
-"Survival weekly reward all claimed" = "Все недельные бонусы получены (до +4000 XP).";
+"Survival weekly all milestones met body" = "Все недельные цели выполнены — вплоть до 200 флагов за одну попытку. Отлично!";
+"Survival weekly reward all claimed" = "Все недельные бонусы режима выживания получены (до +4000 XP).";
 "Survival weekly reward claimed" = "Недельный бонус получен (+1000 XP)";
-"Survival weekly reward hint" = "За каждую ступень — 25, 50, 100 и 200 флагов за один забег — +1000 XP раз в неделю.";
+"Survival weekly reward hint" = "За каждый рубеж — 25, 50, 100 и 200 флагов за одну попытку — можно получить +1000 XP один раз в неделю.";
 
 "Survival result depth progress fmt" = "%1$d / %2$d";
 
@@ -1566,53 +1566,53 @@
 "1 hour" = "1 час";
 
 
-"Duel announcement subtitle" = "Одна и та же дуэль для обоих игроков. Первый к счёту выигрывает.";
+"Duel announcement subtitle" = "Оба игрока получают одинаковые вопросы. Побеждает тот, у кого больше очков, а при равном счёте — тот, кто ответил быстрее.";
 "User 1" = "Игрок 1";
 "User 2" = "Игрок 2";
 "Number of Questions" = "Вопросы";
 
 /* F-Bucks screen */
-"fbucks.close" = "Закрывать";
-"fbucks.currency.name" = "F-баксы";
+"fbucks.close" = "Закрыть";
+"fbucks.currency.name" = "F-Bucks";
 "fbucks.hero.subtitle.enough" = "Хватит примерно на %d предметов";
 "fbucks.hero.subtitle.rare" = "Вы можете купить редкую вещь";
 "fbucks.hero.subtitle.save" = "Продолжайте копить на что-то особенное";
 "fbucks.daily.title" = "Ежедневный бонус";
-"fbucks.daily.subtitle" = "+1 F-бакс";
+"fbucks.daily.subtitle" = "+1 F-Bucks";
 "fbucks.daily.claim" = "Забрать";
-"fbucks.daily.claimed" = "Уже забрали сегодня";
+"fbucks.daily.claimed" = "Сегодня уже получено";
 "fbucks.daily.hint" = "+1 доступно сегодня — нажмите «Забрать».";
 "fbucks.earn.today.title" = "Заработайте сегодня";
 "fbucks.earn.today.subtitle" = "Сегодня можно получить до %d F-Bucks";
 "fbucks.earn.perfect.title" = "Идеальная игра";
 "fbucks.earn.perfect.sub" = "+1 за 10/10 или 15/15";
-"fbucks.earn.streak" = "Полоса";
+"fbucks.earn.streak" = "Серия дней";
 "fbucks.earn.streak.sub" = "Серия (%d/10 дней)";
-"fbucks.earn.league" = "Начало недели";
+"fbucks.earn.league" = "Лидеры недели";
 "fbucks.earn.league.sub" = "Финишируйте в тройке лучших в своей лиге";
-"fbucks.progress.title" = "Перейти к следующему элементу";
+"fbucks.progress.title" = "Прогресс до следующего предмета";
 "fbucks.progress.percent" = "%d%%";
-"fbucks.progress.full" = "Вы можете позволить себе следующие награды — откройте магазин!";
+"fbucks.progress.full" = "У вас достаточно F-Bucks для новых наград — откройте магазин!";
 "fbucks.want.title" = "Следующая цель";
-"fbucks.want.price" = "Цена: %d F-баксов";
+"fbucks.want.price" = "Цена: %d F-Bucks";
 "fbucks.want.you" = "У вас есть: %d";
-"fbucks.want.need" = "Нужно еще на %d";
+"fbucks.want.need" = "Нужно ещё %d";
 "fbucks.earn_more" = "Зарабатывайте больше →";
 "fbucks.buy_for" = "Купить за %d";
 "fbucks.shop.title" = "Магазин";
-"fbucks.shop.subtitle" = "Потратьте F-баксы на эксклюзивные предметы для аватаров.";
-"fbucks.shop.tier.common" = "Общий";
+"fbucks.shop.subtitle" = "Покупайте эксклюзивные предметы для аватара за F-Bucks";
+"fbucks.shop.tier.common" = "Обычный";
 "fbucks.shop.tier.rare" = "Редкий";
 "fbucks.shop.tier.legendary" = "Легендарный";
-"fbucks.shop.limited" = "ЛИМИТЕД";
+"fbucks.shop.limited" = "ОГРАНИЧЕННАЯ СЕРИЯ";
 "fbucks.perfect.badge" = "Идеальный";
 "fbucks.tab.today" = "Сегодня";
-"fbucks.tab.about" = "Про";
+"fbucks.tab.about" = "О валюте";
 "fbucks.tab.history" = "История";
 "fbucks.tab.shop" = "Магазин";
-"fbucks.about.title" = "Что такое F-баксы?";
-"fbucks.about.body" = "F-Bucks (Flags Bucks) — это внутриигровая валюта, которую вы зарабатываете, играя во флаги мировой арены. Потратьте их на уникальные части аватаров, скины и другие эксклюзивные предметы.";
-"fbucks.about.how" = "Как заработать F-баксы";
+"fbucks.about.title" = "Что такое F-Bucks?";
+"fbucks.about.body" = "F-Bucks (Flags Bucks) — игровая валюта, которую вы зарабатываете в World Arena Flags. Покупайте за неё аксессуары для аватара, скины и другие эксклюзивные предметы.";
+"fbucks.about.how" = "Как заработать F-Bucks";
 "fbucks.about.perfect.title" = "Идеальная игра";
 "fbucks.about.perfect.desc" = "Получите высший балл (10/10 или 15/15)";
 "fbucks.about.streak10.title" = "10-дневная серия";
@@ -1621,23 +1621,23 @@
 "fbucks.about.streak20.desc" = "Играйте 20 дней подряд";
 "fbucks.about.streak50.title" = "50-дневная серия";
 "fbucks.about.streak50.desc" = "Играйте 50 дней подряд";
-"fbucks.about.streak100.title" = "100-дневная полоса";
+"fbucks.about.streak100.title" = "Серия из 100 дней";
 "fbucks.about.streak100.desc" = "Играйте 100 дней подряд";
-"fbucks.reward.plus1" = "+1 F-бакс";
-"fbucks.reward.plus2" = "+2 F-бакса";
-"fbucks.reward.plus5" = "+5 F-баксов";
-"fbucks.reward.plus10" = "+10 F-баксов";
+"fbucks.reward.plus1" = "+1 F-Bucks";
+"fbucks.reward.plus2" = "+2 F-Bucks";
+"fbucks.reward.plus5" = "+5 F-Bucks";
+"fbucks.reward.plus10" = "+10 F-Bucks";
 "fbucks.history.title" = "История транзакций";
-"fbucks.history.empty" = "Пока нет истории";
-"fbucks.history.empty.hint" = "Играйте и зарабатывайте F-баксы!";
+"fbucks.history.empty" = "Операций пока нет";
+"fbucks.history.empty.hint" = "Играйте и зарабатывайте F-Bucks!";
 "fbucks.item.traveler_cap" = "Кепка путешественника";
 "fbucks.item.champion_shirt" = "Чемпионская футболка";
 "fbucks.item.socks" = "Носки";
 "fbucks.item.rainbow_skin" = "Радужный скин";
-"fbucks.item.gold_skin" = "Золотая кожа";
-"fbucks.item.explorer_jacket" = "куртка исследователя";
+"fbucks.item.gold_skin" = "Золотой скин";
+"fbucks.item.explorer_jacket" = "Куртка исследователя";
 "fbucks.item.fire_effect" = "Эффект огня";
-"fbucks.item.neon_skin" = "Неоновая кожа";
+"fbucks.item.neon_skin" = "Неоновый скин";
 "fbucks.item.stars_effect" = "Звездный эффект";
 "fbucks.item.champion_jacket" = "Чемпионская куртка";
 "fbucks.tx.daily_bonus" = "Ежедневный бонус";

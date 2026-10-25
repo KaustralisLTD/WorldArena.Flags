@@ -1,6 +1,6 @@
 "Open in Game Center" = "Deschide în Game Center";
 "Заработай %d XP" = "Câștigați %d XP";
-"F-BUCKS EARNED" = "F-BUCKS EARNED";
+"F-BUCKS EARNED" = "F-BUCKS CÂȘTIGAȚI";
 "Дай %d правильных ответов" = "Obțineți %d răspunsuri corecte";
 "Наберите %d правильных ответов за месяц" = "Obțineți %d răspunsuri corecte luna aceasta";
 "Сыграй %d идеальных игр" = "Joacă %d jocuri perfecte";
@@ -43,11 +43,11 @@
 
 /* Monthly badges sample titles */
 "Алмазная лига" = "Liga Diamond";
-"Серия мастера" = "Master Streak";
+"Серия мастера" = "Serie de maestru";
 "Чемпион месяца" = "Campionul lunii";
 "Идеальная неделя" = "Săptămâna perfectă";
 "Бронзовая лига" = "Liga de bronz";
-"Лига Мастеров" = "Master League";
+"Лига Мастеров" = "Liga Maeștrilor";
 // General
 "World Flags" = "Steaguri ale lumii";
 "Learn flags of the world" = "Învață steaguri ale lumii";
@@ -276,7 +276,7 @@
 "Duel challenge from %@" = "%@ te-a provocat la duel";
 "Duel result" = "Rezultatul duelului";
 "You won!" = "Ai câștigat!";
-"won" = "won";
+"won" = "a câștigat";
 "You" = "Tu";
 "Duel announcement title" = "Duel";
 "vs" = "vs";
@@ -354,13 +354,13 @@
 "Идеальный результат" = "Rezultat Perfect";
 "Идеальный результат игры" = "Rezultatul jocului perfect";
 "Получите идеальный результат в игре (10/10 или 15/15)" = "Obțineți un rezultat perfect în joc (10/10 sau 15/15)";
-"Серия 10 дней" = "Seria de 10 zile";
+"Серия 10 дней" = "Serie de 10 zile";
 "Играйте 10 дней подряд" = "Joacă 10 zile la rând";
-"Серия 20 дней" = "Seria de 20 de zile";
+"Серия 20 дней" = "Serie de 20 de zile";
 "Играйте 20 дней подряд" = "Joacă 20 de zile la rând";
-"Серия 50 дней" = "Seria de 50 de zile";
+"Серия 50 дней" = "Serie de 50 de zile";
 "Играйте 50 дней подряд" = "Joacă 50 de zile la rând";
-"Серия 100 дней" = "Seria de 100 de zile";
+"Серия 100 дней" = "Serie de 100 de zile";
 "Играйте 100 дней подряд" = "Joacă 100 de zile la rând";
 "История начислений" = "Istoricul tranzacțiilor";
 "История пуста" = "Istoria este goală";
@@ -373,12 +373,12 @@
 "Особые визуальные эффекты" = "Efecte vizuale speciale";
 "Эффекты" = "Efecte";
 "Анимации и спецэффекты" = "Animații și efecte speciale";
-"Футболка чемпиона" = "Tricou Champion";
+"Футболка чемпиона" = "Tricou de campion";
 "Кепка путешественника" = "Șapcă de călător";
-"Куртка исследователя" = "Jacheta de explorator";
-"Золотой скин" = "Piele de aur";
-"Радужный скин" = "Piele Curcubeu";
-"Неоновый скин" = "Piele de neon";
+"Куртка исследователя" = "Jachetă de explorator";
+"Золотой скин" = "Aspect auriu";
+"Радужный скин" = "Aspect curcubeu";
+"Неоновый скин" = "Aspect neon";
 "Эффект блёсток" = "Efect de strălucire";
 "Огненный эффект" = "Efect de foc";
 "Звёздный эффект" = "Efect de stea";
@@ -426,9 +426,9 @@
 
 /* Game header popovers */
 "Total game time since start" = "Durata totală a jocului de la început";
-"Time limit per question depending on difficulty" = "Time limit per question depending on difficulty";
+"Time limit per question depending on difficulty" = "Timpul pe întrebare depinde de dificultate";
 "Total Game Time" = "Timp total de joc";
-"Time Per Question" = "Time Per Question";
+"Time Per Question" = "Timp pe întrebare";
 
 /* Game header motivation (iPad) */
 "Game motivation 1" = "Ai asta!";
@@ -524,7 +524,7 @@
 "Статистика" = "Statistici";
 "Премиум подписка активна" = "Abonament premium activ";
 "ВОССТАНОВИТЬ ПОДПИСКУ" = "RESTAURĂ ABONAREA";
-"ВЫЙТИ" = "LOG OUT";
+"ВЫЙТИ" = "DECONECTARE";
 "Удалить аккаунт" = "Ștergeți contul";
 "Это действие нельзя отменить. Все ваши данные будут удалены навсегда." = "Această acțiune nu poate fi anulată. Toate datele tale vor fi șterse definitiv.";
 
@@ -542,7 +542,7 @@
 "ЗОНА ПОВЫШЕНИЯ" = "ZONA DE PROMOȚIE";
 
 /* Monthly Quests */
-"Августовский Квест" = "August Quest";
+"Августовский Квест" = "Misiunea din august";
 "Mision de Agosto" = "Misiunea august";
 "21 ДЕНЬ" = "21 de zile";
 "Заработай 40 очков квеста" = "Câștigă 40 de puncte de misiune";
@@ -593,7 +593,7 @@
 "Сохранить" = "Salva";
 "Уровень" = "Nivel";
 "Опыт" = "Experienţă";
-"Серия дней" = "Urma zilei";
+"Серия дней" = "Serie zilnică";
 "Всего игр" = "Total jocuri";
 "Точность" = "Precizie";
 
@@ -712,7 +712,7 @@
 "Ранняя птица" = "Pasăre timpurie";
 "Достигните серии 5 дней" = "Atingeți o serie de 5 zile";
 "Стабильность" = "Consecvență";
-"Серия 10 дней" = "serie de 10 zile";
+"Серия 10 дней" = "Serie de 10 zile";
 "Железная воля" = "Voința de Fier";
 "Серия 30 дней" = "serie de 30 de zile";
 "Новичок XP" = "XP Începător";
@@ -721,7 +721,7 @@
 "Наберите 5000 XP" = "Câștigați 5000 XP";
 "Легенда XP" = "Legenda XP";
 "Наберите 10000 XP" = "Câștigați 10000 XP";
-"Исследователь" = "Quest Explorer";
+"Исследователь" = "Explorator de misiuni";
 "Сыграйте 20 игр" = "Joacă 20 de jocuri";
 "Ветеран" = "Veteran";
 "Сыграйте 100 игр" = "Joacă 100 de jocuri";
@@ -826,7 +826,7 @@
 "Ранняя птица" = "Pasăre timpurie";
 "Железная воля" = "Voința de Fier";
 "Алмазная лига" = "Liga Diamond";
-"Серия мастера" = "Master Streak";
+"Серия мастера" = "Serie de maestru";
 "Чемпион месяца" = "Campion lunar";
 "Идеальная неделя" = "Săptămâna perfectă";
 
@@ -856,7 +856,7 @@
 "Статистика" = "Statistici";
 "Уровень" = "Nivel";
 "Опыт" = "Experienţă";
-"Серия дней" = "Day Streak";
+"Серия дней" = "Serie zilnică";
 "Всего игр" = "Total jocuri";
 "Точность" = "Precizie";
 
@@ -936,7 +936,7 @@
 "Текущая серия" = "Serie curentă";
 "дней" = "zile";
 "Точность" = "Precizie";
-"Теперь вы можете без единой ошибки отвечать на все наши вопросы с точностью в %d%%" = "Acum poți răspunde la toate întrebările noastre fără nici o greșeală, cu o acuratețe de %d%%";
+"Теперь вы можете без единой ошибки отвечать на все наши вопросы с точностью в %d%%" = "Precizia răspunsurilor tale este de %d%%.";
 "Мы будем рады, если вы захотите снова вернуться к нам!" = "Ne-am bucura dacă vrei să te întorci din nou la noi!";
 "Продолжить" = "Continua";
 
@@ -1000,7 +1000,7 @@
 
 /* Enhanced Streak View */
 "Don't break the chain! Come back tomorrow!" = "Nu rupe lanțul! Întoarce-te mâine!";
-"Time to restart your streak! You can do it!" = "Time to restart your streak! You can do it!";
+"Time to restart your streak! You can do it!" = "E timpul să începi o nouă serie! Poți reuși!";
 
 /* Monthly XP Quest */
 "Заработай %d XP за месяц" = "Câștigați %d XP luna aceasta";
@@ -1049,8 +1049,8 @@
 "Learn flags and countries of the World" = "Învață steaguri și țări ale lumii";
 "Select Level" = "Selectați Nivel";
 "Level - %@" = "Nivel - %@";
-"Exclusive tournaments with cash F-Bucks prizes" = "Turnee exclusive cu premii F-Bucks în bani";
-"Survival Mode" = "Survival Mode";
+"Exclusive tournaments with cash F-Bucks prizes" = "Turnee exclusive cu premii F-Bucks";
+"Survival Mode" = "Mod de supraviețuire";
 "One mistake = Game Over" = "O greșeală = Game Over";
 "Duel result push format" = "%@: %d — Tu: %d.";
 "Duel motivation win" = "Uimitor! Continuă șirul.";
@@ -1058,7 +1058,7 @@
 "Opponent" = "Adversar";
 "vs %@" = "vs %@";
 "Combo x%d" = "Combo x%d";
-"Combo x%d bonus" = "Combo x%d bonus +1";
+"Combo x%d bonus" = "Combinație x%d: bonus +1";
 "Combo x%d +10 XP" = "Combo x%d +10 XP";
 "Speed bonus +1" = "Bonus de viteză +1";
 "Speed bonus +10 XP" = "Bonus de viteză +10 XP";
@@ -1154,7 +1154,7 @@
 "Login / Register" = "Autentificare/Înregistrare";
 "Logged in" = "Autentificat";
 "Use Face ID / Touch ID" = "Utilizați Face ID / Touch ID";
-"Sign out" = "Sign out";
+"Sign out" = "Deconectare";
 "Active sessions" = "Sesiuni active";
 "My notifications" = "Notificările mele";
 "Other device" = "Alt dispozitiv";
@@ -1487,10 +1487,10 @@
 "avatar_editor_sunglasses" = "Ochelari de soare";
 "avatar_editor_slim" = "Slim (ochelari)";
 "avatar_editor_cap" = "Capac";
-"avatar_editor_beanie" = "Beanie";
+"avatar_editor_beanie" = "Căciulă";
 "avatar_editor_bandana" = "Bandană";
 "avatar_editor_sport_cap" = "Șapcă sport";
-"avatar_editor_hat_SilverLeague" = "Liga de argint";
+"avatar_editor_hat_SilverLeague" = "Liga de Argint";
 "avatar_editor_hat_10_day_streak" = "serie de 10 zile";
 "avatar_editor_hat_beginner" = "Începător";
 "avatar_editor_hat_Premium" = "Premium";
@@ -1511,10 +1511,10 @@
 "avatar_editor_opt_short" = "Scurt";
 "avatar_editor_opt_curl" = "Răsuci";
 "avatar_editor_opt_modern" = "Modern";
-"avatar_editor_opt_buzz" = "Buzz";
+"avatar_editor_opt_buzz" = "Tuns foarte scurt";
 "avatar_editor_opt_hair_waves" = "Valuri";
 "avatar_editor_opt_hair_spiky" = "Ţepos";
-"avatar_editor_opt_hair_slick" = "Slick";
+"avatar_editor_opt_hair_slick" = "Păr pieptănat pe spate";
 "avatar_editor_opt_hair_pompadour" = "Pompadour";
 "avatar_editor_opt_moustache" = "Mustață";
 "avatar_editor_opt_trimmed" = "Tuns";
@@ -1525,19 +1525,19 @@
 "avatar_editor_opt_jacket" = "Sacou";
 
 "monthly_quest_mission_title" = "Misiunea %@";
-"Friend profile progress title" = "STREAK AND PROGRESS";
-"Friend achievements placeholder" = "Friend achievements are shown as they are unlocked";
+"Friend profile progress title" = "SERIE ȘI PROGRES";
+"Friend achievements placeholder" = "Realizările prietenului apar pe măsură ce sunt deblocate";
 
 "Answer as many flags as possible before time runs out" = "Răspunde la cât mai multe steaguri înainte să se termine timpul";
 "Duration" = "Durată";
-"Best score" = "Best score";
+"Best score" = "Cel mai bun scor";
 "Wrong answer penalty" = "Penalizare răspuns greșit";
 "5 correct in a row bonus" = "Bonus pentru 5 corecte la rând";
 "Best combo" = "Cel mai bun șir";
 "New record!" = "Record nou!";
 "Day leaderboard place" = "Loc în clasamentul zilei";
 "Week leaderboard place" = "Loc în clasamentul săptămânii";
-"Back to Modes" = "Back to Modes";
+"Back to Modes" = "Înapoi la moduri";
 "Start" = "Start";
 "TC correct answers headline" = "%d corecte";
 "Difficulty description TC" = "%1$d%2$@ rundă • +%3$d%2$@ la fiecare 5 corecte la rând • −%4$d%2$@ per greșeală";
@@ -1548,11 +1548,11 @@
 "TC intro combo5 bonus title" = "Combo 5 corecte la rând";
 "TC detail time penalty fmt" = "Cronometru: −%1$d %2$@ (greșeală)";
 "TC detail time combo fmt" = "Cronometru: +%1$d %2$@ (5 corecte la rând)";
-"TC detail points earned" = "Points for this answer: +%d";
-"TC detail xp earned" = "XP for this answer: +%d";
-"TC detail time penalty" = "Timer: −10 s (wrong answer)";
-"TC detail time combo bonus" = "Timer: +10 s (5 correct in a row)";
-"Share TC headline" = "Time Challenge: %d correct out of %d";
+"TC detail points earned" = "Puncte pentru acest răspuns: +%d";
+"TC detail xp earned" = "XP pentru acest răspuns: +%d";
+"TC detail time penalty" = "Timp: −10 s (răspuns greșit)";
+"TC detail time combo bonus" = "Timp: +10 s (5 răspunsuri corecte la rând)";
+"Share TC headline" = "Provocare contra timpului: %d răspunsuri corecte din %d";
 
 "Time seconds unit short" = "s";
 "TC stat best combo" = "Cel mai bun șir";
@@ -1582,10 +1582,10 @@
 "Survival weekly title" = "Provocare săptămânală Supraviețuire";
 "Survival weekly target fmt" = "Într-o rundă săptămâna aceasta supraviețuiește la %d steaguri.";
 "Survival weekly best fmt" = "Cel mai bun săptămâna aceasta: %d steaguri";
-"Survival weekly all milestones met body" = "You've reached every weekly depth goal — up to 200 flags in one run. Brilliant!";
-"Survival weekly reward all claimed" = "All weekly survival bonuses claimed (up to +4000 XP).";
+"Survival weekly all milestones met body" = "Ai atins toate obiectivele săptămânale, până la 200 de steaguri într-o partidă. Excelent!";
+"Survival weekly reward all claimed" = "Ai revendicat toate bonusurile săptămânale de supraviețuire (până la +4000 XP).";
 "Survival weekly reward claimed" = "Bonus săptămânal revendicat (+1000 XP)";
-"Survival weekly reward hint" = "Each milestone — 25, 50, 100, then 200 flags in one run — gives +1000 XP once per week.";
+"Survival weekly reward hint" = "Fiecare prag — 25, 50, 100 și 200 de steaguri într-o partidă — oferă +1000 XP o dată pe săptămână.";
 
 "Survival result depth progress fmt" = "%1$d / %2$d";
 
@@ -1596,40 +1596,40 @@
 "1 hour" = "1 oră";
 
 
-"Duel announcement subtitle" = "Same duel for both players. First to score wins!";
-"User 1" = "User 1";
-"User 2" = "User 2";
-"Number of Questions" = "Questions";
+"Duel announcement subtitle" = "Ambii jucători primesc aceleași întrebări. Câștigă scorul mai mare; la egalitate, câștigă jucătorul mai rapid.";
+"User 1" = "Jucător 1";
+"User 2" = "Jucător 2";
+"Number of Questions" = "Întrebări";
 
 
 /* F-Bucks screen */
-"fbucks.close" = "Aproape";
+"fbucks.close" = "Închide";
 "fbucks.currency.name" = "F-Bucks";
 "fbucks.hero.subtitle.enough" = "Suficient pentru aproximativ %d articole";
-"fbucks.hero.subtitle.rare" = "Puteți cumpăra un articol rar";
-"fbucks.hero.subtitle.save" = "Continuați să economisiți pentru ceva special";
+"fbucks.hero.subtitle.rare" = "Poți cumpăra un obiect rar";
+"fbucks.hero.subtitle.save" = "Continuă să economisești pentru ceva special";
 "fbucks.daily.title" = "Bonus zilnic";
 "fbucks.daily.subtitle" = "+1 F-Bucks";
-"fbucks.daily.claim" = "Revendicare";
+"fbucks.daily.claim" = "Revendică";
 "fbucks.daily.claimed" = "Revendicat azi";
-"fbucks.daily.hint" = "+1 disponibil astăzi — atingeți Revendicați";
-"fbucks.earn.today.title" = "Câștigați astăzi";
-"fbucks.earn.today.subtitle" = "Până la %d F-Bucks posibil astăzi";
+"fbucks.daily.hint" = "+1 disponibil astăzi — atinge Revendică";
+"fbucks.earn.today.title" = "Câștigă astăzi";
+"fbucks.earn.today.subtitle" = "Astăzi poți câștiga până la %d F-Bucks";
 "fbucks.earn.perfect.title" = "Joc perfect";
 "fbucks.earn.perfect.sub" = "+1 pentru 10/10 sau 15/15";
-"fbucks.earn.streak" = "Streak";
+"fbucks.earn.streak" = "Serie zilnică";
 "fbucks.earn.streak.sub" = "Seria (%d/10 zile)";
 "fbucks.earn.league" = "Topul săptămânii";
-"fbucks.earn.league.sub" = "Termină în primele 3 ale ligii tale";
-"fbucks.progress.title" = "Progresul la articolul următor";
+"fbucks.earn.league.sub" = "Termină pe unul dintre primele 3 locuri din liga ta";
+"fbucks.progress.title" = "Progres către următorul obiect";
 "fbucks.progress.percent" = "%d%%";
-"fbucks.progress.full" = "Vă puteți permite următoarele recompense — deschideți magazinul!";
+"fbucks.progress.full" = "Ai destui F-Bucks pentru recompense noi — deschide magazinul!";
 "fbucks.want.title" = "Următorul obiectiv";
 "fbucks.want.price" = "Preț: %d F-Bucks";
 "fbucks.want.you" = "Ai: %d";
 "fbucks.want.need" = "Mai trebuie %d";
 "fbucks.earn_more" = "Câștigă mai mult →";
-"fbucks.buy_for" = "Cumpărați cu %d";
+"fbucks.buy_for" = "Cumpără cu %d";
 "fbucks.shop.title" = "Magazin";
 "fbucks.shop.subtitle" = "Cheltuiește F-Bucks pe articole exclusive pentru avatar";
 "fbucks.shop.tier.common" = "Comun";
@@ -1639,38 +1639,38 @@
 "fbucks.perfect.badge" = "Perfect";
 "fbucks.tab.today" = "Astăzi";
 "fbucks.tab.about" = "Despre";
-"fbucks.tab.history" = "Istorie";
+"fbucks.tab.history" = "Istoric";
 "fbucks.tab.shop" = "Magazin";
 "fbucks.about.title" = "Ce sunt F-Bucks?";
-"fbucks.about.body" = "F-Bucks (Flags Bucks) sunt moneda în joc pe care o câștigi jucând World Arena Flags. Cheltuiește-le pe piese unice de avatar, skinuri și alte articole exclusive.";
+"fbucks.about.body" = "F-Bucks (Flags Bucks) sunt moneda jocului, pe care o câștigi jucând World Arena Flags. Folosește-i pentru accesorii de avatar, aspecte și alte obiecte exclusive.";
 "fbucks.about.how" = "Cum să câștigi F-Bucks";
 "fbucks.about.perfect.title" = "Joc perfect";
-"fbucks.about.perfect.desc" = "Obțineți un scor perfect (10/10 sau 15/15)";
-"fbucks.about.streak10.title" = "serie de 10 zile";
+"fbucks.about.perfect.desc" = "Obține un scor perfect (10/10 sau 15/15)";
+"fbucks.about.streak10.title" = "Serie de 10 zile";
 "fbucks.about.streak10.desc" = "Joacă 10 zile la rând";
-"fbucks.about.streak20.title" = "serie de 20 de zile";
+"fbucks.about.streak20.title" = "Serie de 20 de zile";
 "fbucks.about.streak20.desc" = "Joacă 20 de zile la rând";
-"fbucks.about.streak50.title" = "serie de 50 de zile";
+"fbucks.about.streak50.title" = "Serie de 50 de zile";
 "fbucks.about.streak50.desc" = "Joacă 50 de zile la rând";
-"fbucks.about.streak100.title" = "serie de 100 de zile";
+"fbucks.about.streak100.title" = "Serie de 100 de zile";
 "fbucks.about.streak100.desc" = "Joacă 100 de zile la rând";
 "fbucks.reward.plus1" = "+1 F-Bucks";
-"fbucks.reward.plus2" = "+2 dolari F";
-"fbucks.reward.plus5" = "+5 dolari F";
+"fbucks.reward.plus2" = "+2 F-Bucks";
+"fbucks.reward.plus5" = "+5 F-Bucks";
 "fbucks.reward.plus10" = "+10 F-Bucks";
 "fbucks.history.title" = "Istoricul tranzacțiilor";
-"fbucks.history.empty" = "Nicio istorie încă";
+"fbucks.history.empty" = "Nicio tranzacție încă";
 "fbucks.history.empty.hint" = "Joacă și câștigă F-Bucks!";
 "fbucks.item.traveler_cap" = "Șapcă de călător";
 "fbucks.item.champion_shirt" = "Tricou de campion";
 "fbucks.item.socks" = "Șosete";
-"fbucks.item.rainbow_skin" = "Piele curcubeu";
-"fbucks.item.gold_skin" = "Piele aurie";
-"fbucks.item.explorer_jacket" = "geaca Explorer";
+"fbucks.item.rainbow_skin" = "Aspect curcubeu";
+"fbucks.item.gold_skin" = "Aspect auriu";
+"fbucks.item.explorer_jacket" = "Jachetă de explorator";
 "fbucks.item.fire_effect" = "Efect de foc";
-"fbucks.item.neon_skin" = "Piele de neon";
+"fbucks.item.neon_skin" = "Aspect neon";
 "fbucks.item.stars_effect" = "Efect de stea";
-"fbucks.item.champion_jacket" = "Jacheta Champion";
+"fbucks.item.champion_jacket" = "Jachetă de campion";
 "fbucks.tx.daily_bonus" = "Bonus zilnic";
 "friends.remind.status_sent" = "Memento trimis!";
 

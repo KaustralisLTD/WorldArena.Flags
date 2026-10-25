@@ -1,6 +1,6 @@
 "Open in Game Center" = "Otwórz w Game Center";
 "Заработай %d XP" = "Zdobądź %d XP";
-"F-BUCKS EARNED" = "ZROBIONE F-dolce";
+"F-BUCKS EARNED" = "ZDOBYTE F-BUCKS";
 "Дай %d правильных ответов" = "Uzyskaj poprawne odpowiedzi %d";
 "Наберите %d правильных ответов за месяц" = "Zdobądź poprawne odpowiedzi %d w tym miesiącu";
 "Сыграй %d идеальных игр" = "Graj w doskonałe gry %d";
@@ -342,24 +342,24 @@
 "Как заработать" = "Jak zarabiać";
 "История" = "History";
 "Магазин" = "Sklep";
-"Что такое F-Bucks?" = "Czym są F-dolce?";
+"Что такое F-Bucks?" = "Czym są F-Bucks?";
 "F-Bucks (Flags Bucks) — это внутриигровая валюта, которую можно заработать, играя в World Arena Flags. Используйте F-Bucks для покупки уникальных элементов аватара, скинов и других эксклюзивных предметов." = "F-Bucks (Flags Bucks) to waluta w grze, którą możesz zarobić grając w World Arena Flags. Użyj F-Bucks, aby kupić unikalne przedmioty awatara, skórki i inne ekskluzywne przedmioty.";
 "Особенности:" = "Cechy:";
 "Зарабатывайте за идеальные результаты в играх" = "Zarabiaj na doskonałych wynikach gry";
 "Получайте бонусы за длинные серии дней" = "Zdobądź bonusy za długie serie dni";
 "Покупайте эксклюзивные элементы для аватара" = "Kup ekskluzywne elementy awatara";
 "Создавайте уникальный стиль" = "Stwórz niepowtarzalny styl";
-"Как заработать F-Bucks" = "Jak zarobić F-dolce";
+"Как заработать F-Bucks" = "Jak zdobywać F-Bucks";
 "Идеальный результат" = "Doskonały wynik";
 "Идеальный результат игры" = "Doskonały wynik gry";
 "Получите идеальный результат в игре (10/10 или 15/15)" = "Uzyskaj doskonały wynik w grze (10/10 lub 15/15)";
-"Серия 10 дней" = "10 Day Streak";
+"Серия 10 дней" = "Seria 10 dni";
 "Играйте 10 дней подряд" = "Graj 10 dni z rzędu";
-"Серия 20 дней" = "20-dniowa passa";
+"Серия 20 дней" = "Seria 20 dni";
 "Играйте 20 дней подряд" = "Graj 20 dni z rzędu";
-"Серия 50 дней" = "50-dniowa passa";
+"Серия 50 дней" = "Seria 50 dni";
 "Играйте 50 дней подряд" = "Graj 50 dni z rzędu";
-"Серия 100 дней" = "100-dniowa passa";
+"Серия 100 дней" = "Seria 100 dni";
 "Играйте 100 дней подряд" = "Graj 100 dni z rzędu";
 "История начислений" = "Historia transakcji";
 "История пуста" = "Historia jest pusta";
@@ -375,11 +375,11 @@
 "Футболка чемпиона" = "Koszulka mistrza";
 "Кепка путешественника" = "Czapka podróżnika";
 "Куртка исследователя" = "Kurtka odkrywcy";
-"Золотой скин" = "Złota skóra";
-"Радужный скин" = "Tęczowa Skórka";
-"Неоновый скин" = "Neonowa skóra";
+"Золотой скин" = "Złota skórka";
+"Радужный скин" = "Tęczowa skórka";
+"Неоновый скин" = "Neonowa skórka";
 "Эффект блёсток" = "Efekt blasku";
-"Огненный эффект" = "Efekt Ognia";
+"Огненный эффект" = "Efekt ognia";
 "Звёздный эффект" = "Efekt gwiazdy";
 "Купить" = "Kupić";
 "Покупка" = "Zakup";
@@ -424,9 +424,9 @@
 
 /* Game header popovers */
 "Total game time since start" = "Całkowity czas gry od początku";
-"Time limit per question depending on difficulty" = "Time limit per question depending on difficulty";
+"Time limit per question depending on difficulty" = "Czas na pytanie zależy od poziomu trudności";
 "Total Game Time" = "Całkowity czas gry";
-"Time Per Question" = "Time Per Question";
+"Time Per Question" = "Czas na pytanie";
 
 /* Game header motivation (iPad) */
 "Game motivation 1" = "Masz to!";
@@ -926,7 +926,7 @@
 "Текущая серия" = "Aktualna passa";
 "дней" = "dni";
 "Точность" = "Dokładność";
-"Теперь вы можете без единой ошибки отвечать на все наши вопросы с точностью в %d%%" = "Teraz możesz odpowiadać na nasze pytania z dokładnością %d%%.";
+"Теперь вы можете без единой ошибки отвечать на все наши вопросы с точностью в %d%%" = "Dokładność twoich odpowiedzi wynosi %d%%.";
 "Мы будем рады, если вы захотите снова вернуться к нам!" = "Będzie nam miło, jeśli zechcą Państwo do nas wrócić ponownie!";
 "Продолжить" = "Kontynuować";
 
@@ -990,7 +990,7 @@
 
 /* Enhanced Streak View */
 "Don't break the chain! Come back tomorrow!" = "Nie przerywaj łańcucha! Wróć jutro!";
-"Time to restart your streak! You can do it!" = "Time to restart your streak! You can do it!";
+"Time to restart your streak! You can do it!" = "Czas zacząć nową serię! Dasz radę!";
 
 /* Monthly XP Quest */
 "Заработай %d XP за месяц" = "Zdobądź w tym miesiącu %d XP";
@@ -1041,7 +1041,7 @@
 "Select Level" = "Wybierz poziom";
 "Level - %@" = "Poziom - %@";
 "Exclusive tournaments with cash F-Bucks prizes" = "Ekskluzywne turnieje z nagrodami F-Bucks";
-"Survival Mode" = "Survival Mode";
+"Survival Mode" = "Tryb przetrwania";
 "One mistake = Game Over" = "Jeden błąd = koniec gry";
 "Duel result push format" = "%@: %d - Ty: %d.";
 "Duel motivation win" = "Swietnie! Utrzymaj serie.";
@@ -1473,7 +1473,7 @@
 "avatar_editor_beanie" = "Czapka zimowa";
 "avatar_editor_bandana" = "Bandana";
 "avatar_editor_sport_cap" = "Czapka sportowa";
-"avatar_editor_hat_SilverLeague" = "Silver League";
+"avatar_editor_hat_SilverLeague" = "Srebrna liga";
 "avatar_editor_hat_10_day_streak" = "Seria 10 dni";
 "avatar_editor_hat_beginner" = "Początkujący";
 "avatar_editor_hat_Premium" = "Premium";
@@ -1508,19 +1508,19 @@
 "avatar_editor_opt_jacket" = "Kurtka";
 
 "monthly_quest_mission_title" = "Misja %@";
-"Friend profile progress title" = "STREAK AND PROGRESS";
-"Friend achievements placeholder" = "Friend achievements are shown as they are unlocked";
+"Friend profile progress title" = "SERIA I POSTĘPY";
+"Friend achievements placeholder" = "Osiągnięcia znajomego pojawią się tutaj po ich odblokowaniu";
 
 "Answer as many flags as possible before time runs out" = "Odpowiedz na jak najwięcej flag, zanim skończy się czas";
 "Duration" = "Czas trwania";
-"Best score" = "Best score";
+"Best score" = "Najlepszy wynik";
 "Wrong answer penalty" = "Kara za błędną odpowiedź";
 "5 correct in a row bonus" = "Bonus za 5 poprawnych z rzędu";
 "Best combo" = "Najlepsza seria";
 "New record!" = "Nowy rekord!";
 "Day leaderboard place" = "Miejsce w rankingu dziennym";
 "Week leaderboard place" = "Miejsce w rankingu tygodniowym";
-"Back to Modes" = "Back to Modes";
+"Back to Modes" = "Wróć do trybów";
 "Start" = "Start";
 "TC correct answers headline" = "%d poprawnych";
 "Difficulty description TC" = "%1$d%2$@ na rundę • +%3$d%2$@ co 5 poprawnych z rzędu • −%4$d%2$@ za błąd";
@@ -1531,11 +1531,11 @@
 "TC intro combo5 bonus title" = "Combo 5 poprawnych z rzędu";
 "TC detail time penalty fmt" = "Timer: −%1$d %2$@ (błąd)";
 "TC detail time combo fmt" = "Timer: +%1$d %2$@ (5 poprawnych z rzędu)";
-"TC detail points earned" = "Points for this answer: +%d";
-"TC detail xp earned" = "XP for this answer: +%d";
-"TC detail time penalty" = "Timer: −10 s (wrong answer)";
-"TC detail time combo bonus" = "Timer: +10 s (5 correct in a row)";
-"Share TC headline" = "Time Challenge: %d correct out of %d";
+"TC detail points earned" = "Punkty za tę odpowiedź: +%d";
+"TC detail xp earned" = "XP za tę odpowiedź: +%d";
+"TC detail time penalty" = "Czas: −10 s (błędna odpowiedź)";
+"TC detail time combo bonus" = "Czas: +10 s (5 poprawnych odpowiedzi z rzędu)";
+"Share TC headline" = "Wyzwanie czasowe: %d poprawnych odpowiedzi z %d";
 
 "Time seconds unit short" = "s";
 "TC stat best combo" = "Najlepsza seria";
@@ -1565,10 +1565,10 @@
 "Survival weekly title" = "Tygodniowe wyzwanie Survival";
 "Survival weekly target fmt" = "W jednej grze w tym tygodniu przetrwaj %d flag.";
 "Survival weekly best fmt" = "Twój najlepszy wynik w tym tygodniu: %d flag";
-"Survival weekly all milestones met body" = "You've reached every weekly depth goal — up to 200 flags in one run. Brilliant!";
-"Survival weekly reward all claimed" = "All weekly survival bonuses claimed (up to +4000 XP).";
+"Survival weekly all milestones met body" = "Wszystkie cele tygodniowe osiągnięte — aż do 200 flag w jednej rozgrywce. Świetnie!";
+"Survival weekly reward all claimed" = "Odebrano wszystkie tygodniowe bonusy trybu przetrwania (do +4000 XP).";
 "Survival weekly reward claimed" = "Tygodniowy bonus odebrany (+1000 XP)";
-"Survival weekly reward hint" = "Each milestone — 25, 50, 100, then 200 flags in one run — gives +1000 XP once per week.";
+"Survival weekly reward hint" = "Każdy próg — 25, 50, 100 i 200 flag w jednej rozgrywce — daje +1000 XP raz w tygodniu.";
 
 "Survival result depth progress fmt" = "%1$d / %2$d";
 
@@ -1579,79 +1579,79 @@
 "1 hour" = "1 godzina";
 
 
-"Duel announcement subtitle" = "Same duel for both players. First to score wins!";
-"User 1" = "User 1";
-"User 2" = "User 2";
-"Number of Questions" = "Questions";
+"Duel announcement subtitle" = "Obaj gracze otrzymują te same pytania. Wygrywa wyższy wynik, a przy remisie — krótszy czas.";
+"User 1" = "Gracz 1";
+"User 2" = "Gracz 2";
+"Number of Questions" = "Pytania";
 
 
 /* F-Bucks screen */
-"fbucks.close" = "Zamknąć";
-"fbucks.currency.name" = "F-dolce";
+"fbucks.close" = "Zamknij";
+"fbucks.currency.name" = "F-Bucks";
 "fbucks.hero.subtitle.enough" = "Wystarcza na około %d elementów";
 "fbucks.hero.subtitle.rare" = "Możesz kupić rzadki przedmiot";
 "fbucks.hero.subtitle.save" = "Oszczędzaj dalej na coś wyjątkowego";
 "fbucks.daily.title" = "Codzienna premia";
-"fbucks.daily.subtitle" = "+1 F-dolce";
-"fbucks.daily.claim" = "Prawo";
-"fbucks.daily.claimed" = "Zgłoszono dzisiaj";
+"fbucks.daily.subtitle" = "+1 F-Bucks";
+"fbucks.daily.claim" = "Odbierz";
+"fbucks.daily.claimed" = "Dzisiaj już odebrano";
 "fbucks.daily.hint" = "+1 dostępne już dziś — kliknij Odbierz";
 "fbucks.earn.today.title" = "Zarabiaj już dziś";
-"fbucks.earn.today.subtitle" = "Dzisiaj możliwe do %d F-dolców";
+"fbucks.earn.today.subtitle" = "Dziś możesz zdobyć do %d F-Bucks";
 "fbucks.earn.perfect.title" = "Doskonała gra";
 "fbucks.earn.perfect.sub" = "+1 za 10/10 lub 15/15";
-"fbucks.earn.streak" = "Pasemko";
+"fbucks.earn.streak" = "Codzienna seria";
 "fbucks.earn.streak.sub" = "Seria (%d/10 dni)";
-"fbucks.earn.league" = "Początek tygodnia";
+"fbucks.earn.league" = "Najlepsi w tygodniu";
 "fbucks.earn.league.sub" = "Zakończ grę w pierwszej trójce swojej ligi";
-"fbucks.progress.title" = "Przejdź do następnego elementu";
+"fbucks.progress.title" = "Postępy do następnego przedmiotu";
 "fbucks.progress.percent" = "%d%%";
 "fbucks.progress.full" = "Możesz sobie pozwolić na kolejne nagrody — otwórz sklep!";
 "fbucks.want.title" = "Następny cel";
-"fbucks.want.price" = "Cena: %d F-dolców";
+"fbucks.want.price" = "Cena: %d F-Bucks";
 "fbucks.want.you" = "Masz: %d";
 "fbucks.want.need" = "Potrzebujesz %d więcej";
 "fbucks.earn_more" = "Zarabiaj więcej →";
 "fbucks.buy_for" = "Kup za %d";
 "fbucks.shop.title" = "Sklep";
-"fbucks.shop.subtitle" = "Wydawaj F-dolce na ekskluzywne przedmioty z awatarami";
-"fbucks.shop.tier.common" = "Wspólny";
+"fbucks.shop.subtitle" = "Wydawaj F-Bucks na wyjątkowe przedmioty dla awatara";
+"fbucks.shop.tier.common" = "Zwykły";
 "fbucks.shop.tier.rare" = "Rzadki";
 "fbucks.shop.tier.legendary" = "Legendarny";
 "fbucks.shop.limited" = "OGRANICZONY";
 "fbucks.perfect.badge" = "Doskonały";
 "fbucks.tab.today" = "Dzisiaj";
-"fbucks.tab.about" = "O";
+"fbucks.tab.about" = "Informacje";
 "fbucks.tab.history" = "Historia";
 "fbucks.tab.shop" = "Sklep";
-"fbucks.about.title" = "Czym są F-dolce?";
+"fbucks.about.title" = "Czym są F-Bucks?";
 "fbucks.about.body" = "F-Bucks (Flags Bucks) to waluta w grze, którą zdobywasz grając w World Arena Flags. Wydaj je na unikalne elementy awatara, skórki i inne ekskluzywne przedmioty.";
-"fbucks.about.how" = "Jak zarobić F-dolce";
+"fbucks.about.how" = "Jak zdobywać F-Bucks";
 "fbucks.about.perfect.title" = "Doskonała gra";
 "fbucks.about.perfect.desc" = "Zdobądź doskonały wynik (10/10 lub 15/15)";
 "fbucks.about.streak10.title" = "Seria 10 dni";
 "fbucks.about.streak10.desc" = "Graj 10 dni z rzędu";
-"fbucks.about.streak20.title" = "20-dniowa passa";
+"fbucks.about.streak20.title" = "Seria 20 dni";
 "fbucks.about.streak20.desc" = "Graj 20 dni z rzędu";
 "fbucks.about.streak50.title" = "Seria 50 dni";
 "fbucks.about.streak50.desc" = "Graj 50 dni z rzędu";
 "fbucks.about.streak100.title" = "Seria 100 dni";
 "fbucks.about.streak100.desc" = "Graj 100 dni z rzędu";
-"fbucks.reward.plus1" = "+1 F-dolce";
-"fbucks.reward.plus2" = "+2 F-dolce";
-"fbucks.reward.plus5" = "+5 F-dolców";
-"fbucks.reward.plus10" = "+10 F-dolców";
+"fbucks.reward.plus1" = "+1 F-Bucks";
+"fbucks.reward.plus2" = "+2 F-Bucks";
+"fbucks.reward.plus5" = "+5 F-Bucks";
+"fbucks.reward.plus10" = "+10 F-Bucks";
 "fbucks.history.title" = "Historia transakcji";
-"fbucks.history.empty" = "Nie ma jeszcze historii";
-"fbucks.history.empty.hint" = "Graj i zarabiaj F-dolce!";
-"fbucks.item.traveler_cap" = "Czapka podróżna";
+"fbucks.history.empty" = "Brak transakcji";
+"fbucks.history.empty.hint" = "Graj i zdobywaj F-Bucks!";
+"fbucks.item.traveler_cap" = "Czapka podróżnika";
 "fbucks.item.champion_shirt" = "Koszulka mistrza";
 "fbucks.item.socks" = "Skarpety";
-"fbucks.item.rainbow_skin" = "Tęczowa skóra";
-"fbucks.item.gold_skin" = "Złota skóra";
+"fbucks.item.rainbow_skin" = "Tęczowa skórka";
+"fbucks.item.gold_skin" = "Złota skórka";
 "fbucks.item.explorer_jacket" = "Kurtka odkrywcy";
 "fbucks.item.fire_effect" = "Efekt ognia";
-"fbucks.item.neon_skin" = "Neonowa skóra";
+"fbucks.item.neon_skin" = "Neonowa skórka";
 "fbucks.item.stars_effect" = "Efekt gwiazdy";
 "fbucks.item.champion_jacket" = "Kurtka mistrzowska";
 "fbucks.tx.daily_bonus" = "Codzienna premia";

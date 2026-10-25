@@ -1,6 +1,6 @@
 "Open in Game Center" = "Openen in Game Center";
 "Заработай %d XP" = "Verdien %d XP";
-"F-BUCKS EARNED" = "F-BUCKS VERDIENEN";
+"F-BUCKS EARNED" = "VERDIENDE F-BUCKS";
 "Дай %d правильных ответов" = "Ontvang de juiste antwoorden van %d";
 "Наберите %d правильных ответов за месяц" = "Ontvang deze maand de juiste antwoorden van %d";
 "Сыграй %d идеальных игр" = "Speel %d perfecte spellen";
@@ -349,17 +349,17 @@
 "Получайте бонусы за длинные серии дней" = "Ontvang bonussen voor lange dagen";
 "Покупайте эксклюзивные элементы для аватара" = "Koop exclusieve avataritems";
 "Создавайте уникальный стиль" = "Creëer een unieke stijl";
-"Как заработать F-Bucks" = "Hoe u F-Bucks kunt verdienen";
+"Как заработать F-Bucks" = "Zo verdien je F-Bucks";
 "Идеальный результат" = "Perfect resultaat";
 "Идеальный результат игры" = "Perfect spelresultaat";
 "Получите идеальный результат в игре (10/10 или 15/15)" = "Behaal een perfect resultaat in het spel (10/10 of 15/15)";
-"Серия 10 дней" = "10 Day Streak";
+"Серия 10 дней" = "10-daagse reeks";
 "Играйте 10 дней подряд" = "Speel 10 dagen achter elkaar";
-"Серия 20 дней" = "20 dagen reeks";
+"Серия 20 дней" = "20-dagenreeks";
 "Играйте 20 дней подряд" = "Speel 20 dagen achter elkaar";
-"Серия 50 дней" = "50 dagenreeks";
+"Серия 50 дней" = "50-dagenreeks";
 "Играйте 50 дней подряд" = "Speel 50 dagen achter elkaar";
-"Серия 100 дней" = "100 dagenreeks";
+"Серия 100 дней" = "100-dagenreeks";
 "Играйте 100 дней подряд" = "Speel 100 dagen achter elkaar";
 "История начислений" = "Transactiegeschiedenis";
 "История пуста" = "De geschiedenis is leeg";
@@ -372,12 +372,12 @@
 "Особые визуальные эффекты" = "Speciale visuele effecten";
 "Эффекты" = "Effecten";
 "Анимации и спецэффекты" = "Animaties en speciale effecten";
-"Футболка чемпиона" = "Kampioen T-shirt";
+"Футболка чемпиона" = "Kampioensshirt";
 "Кепка путешественника" = "Reizigerspet";
-"Куртка исследователя" = "Explorer's jas";
-"Золотой скин" = "Gouden huid";
-"Радужный скин" = "Regenboog huid";
-"Неоновый скин" = "Neon-huid";
+"Куртка исследователя" = "Ontdekkersjas";
+"Золотой скин" = "Gouden skin";
+"Радужный скин" = "Regenboogskin";
+"Неоновый скин" = "Neonskin";
 "Эффект блёсток" = "Sparkle-effect";
 "Огненный эффект" = "Vuureffect";
 "Звёздный эффект" = "Stereffect";
@@ -425,9 +425,9 @@
 
 /* Game header popovers */
 "Total game time since start" = "Totale speeltijd sinds start";
-"Time limit per question depending on difficulty" = "Time limit per question depending on difficulty";
+"Time limit per question depending on difficulty" = "De tijd per vraag hangt af van de moeilijkheidsgraad";
 "Total Game Time" = "Totale speeltijd";
-"Time Per Question" = "Time Per Question";
+"Time Per Question" = "Tijd per vraag";
 
 /* Game header motivation (iPad) */
 "Game motivation 1" = "Je hebt dit!";
@@ -927,7 +927,7 @@
 "Текущая серия" = "Huidige reeks";
 "дней" = "dagen";
 "Точность" = "Nauwkeurigheid";
-"Теперь вы можете без единой ошибки отвечать на все наши вопросы с точностью в %d%%" = "Je kunt onze vragen nu met een nauwkeurigheid van %d%% beantwoorden.";
+"Теперь вы можете без единой ошибки отвечать на все наши вопросы с точностью в %d%%" = "De nauwkeurigheid van je antwoorden is %d%%.";
 "Мы будем рады, если вы захотите снова вернуться к нам!" = "Wij zouden het fijn vinden als u nog een keer bij ons terug wilt komen!";
 "Продолжить" = "Doorgaan";
 
@@ -991,7 +991,7 @@
 
 /* Enhanced Streak View */
 "Don't break the chain! Come back tomorrow!" = "Breek de ketting niet! Kom morgen terug!";
-"Time to restart your streak! You can do it!" = "Time to restart your streak! You can do it!";
+"Time to restart your streak! You can do it!" = "Tijd om een nieuwe reeks te beginnen! Je kunt het!";
 
 /* Monthly XP Quest */
 "Заработай %d XP за месяц" = "Verdien deze maand %d XP";
@@ -1040,8 +1040,8 @@
 "Learn flags and countries of the World" = "Leer vlaggen en landen van de wereld";
 "Select Level" = "Selecteer niveau";
 "Level - %@" = "Niveau - %@";
-"Exclusive tournaments with cash F-Bucks prizes" = "Exclusieve toernooien met F-Bucks geldprijzen";
-"Survival Mode" = "Survival Mode";
+"Exclusive tournaments with cash F-Bucks prizes" = "Exclusieve toernooien met F-Bucks-prijzen";
+"Survival Mode" = "Overlevingsmodus";
 "One mistake = Game Over" = "Eén fout = Game Over";
 "Duel result push format" = "%@: %d - Jij: %d.";
 "Duel motivation win" = "Geweldig! Houd je reeks vast.";
@@ -1358,7 +1358,7 @@
 
 "home.goal.xp_left_fmt" = "Nog %d XP";
 "home.daily.title" = "Dagelijkse beloning";
-"home.daily.claim" = "Claim +1";
+"home.daily.claim" = "Haal +1 op";
 "home.daily.claimed" = "Geclaimd";
 "home.daily.tomorrow" = "Kom morgen terug";
 "home.streak_nudge.solo_title" = "Je hebt een reeks van %d dagen!";
@@ -1476,7 +1476,7 @@
 "avatar_editor_beanie" = "Muts";
 "avatar_editor_bandana" = "Bandana";
 "avatar_editor_sport_cap" = "Sportpet";
-"avatar_editor_hat_SilverLeague" = "Silver League";
+"avatar_editor_hat_SilverLeague" = "Zilveren competitie";
 "avatar_editor_hat_10_day_streak" = "10 dagen op rij";
 "avatar_editor_hat_beginner" = "Beginner";
 "avatar_editor_hat_Premium" = "Premium";
@@ -1511,19 +1511,19 @@
 "avatar_editor_opt_jacket" = "Jas";
 
 "monthly_quest_mission_title" = "Missie %@";
-"Friend profile progress title" = "STREAK AND PROGRESS";
-"Friend achievements placeholder" = "Friend achievements are shown as they are unlocked";
+"Friend profile progress title" = "REEKS EN VOORTGANG";
+"Friend achievements placeholder" = "De prestaties van je vriend verschijnen zodra ze zijn ontgrendeld";
 
 "Answer as many flags as possible before time runs out" = "Beantwoord zoveel mogelijk vlaggen voordat de tijd om is";
 "Duration" = "Duur";
-"Best score" = "Best score";
+"Best score" = "Beste score";
 "Wrong answer penalty" = "Straf bij fout antwoord";
 "5 correct in a row bonus" = "Bonus bij 5 goed op rij";
 "Best combo" = "Beste reeks";
 "New record!" = "Nieuw record!";
 "Day leaderboard place" = "Plek op dagelijkse ranglijst";
 "Week leaderboard place" = "Plek op wekelijkse ranglijst";
-"Back to Modes" = "Back to Modes";
+"Back to Modes" = "Terug naar spelmodi";
 "Start" = "Start";
 "TC correct answers headline" = "%d goed";
 "Difficulty description TC" = "%1$d%2$@ per ronde • +%3$d%2$@ per 5 goed op rij • −%4$d%2$@ per fout";
@@ -1534,11 +1534,11 @@
 "TC intro combo5 bonus title" = "Combo 5 goed op rij";
 "TC detail time penalty fmt" = "Timer: −%1$d %2$@ (fout)";
 "TC detail time combo fmt" = "Timer: +%1$d %2$@ (5 goed op rij)";
-"TC detail points earned" = "Points for this answer: +%d";
-"TC detail xp earned" = "XP for this answer: +%d";
-"TC detail time penalty" = "Timer: −10 s (wrong answer)";
-"TC detail time combo bonus" = "Timer: +10 s (5 correct in a row)";
-"Share TC headline" = "Time Challenge: %d correct out of %d";
+"TC detail points earned" = "Punten voor dit antwoord: +%d";
+"TC detail xp earned" = "XP voor dit antwoord: +%d";
+"TC detail time penalty" = "Timer: −10 s (fout antwoord)";
+"TC detail time combo bonus" = "Timer: +10 s (5 goede antwoorden op rij)";
+"Share TC headline" = "Tijdsuitdaging: %d van de %d goed";
 
 "Time seconds unit short" = "s";
 "TC stat best combo" = "Beste reeks";
@@ -1568,10 +1568,10 @@
 "Survival weekly title" = "Wekelijkse Survival-uitdaging";
 "Survival weekly target fmt" = "Behaal %d overleefde vlaggen in één run deze week.";
 "Survival weekly best fmt" = "Je beste deze week: %d vlaggen";
-"Survival weekly all milestones met body" = "You've reached every weekly depth goal — up to 200 flags in one run. Brilliant!";
-"Survival weekly reward all claimed" = "All weekly survival bonuses claimed (up to +4000 XP).";
+"Survival weekly all milestones met body" = "Je hebt alle weekdoelen bereikt, tot wel 200 vlaggen in één spel. Geweldig!";
+"Survival weekly reward all claimed" = "Alle wekelijkse overlevingsbonussen zijn opgehaald (tot +4000 XP).";
 "Survival weekly reward claimed" = "Wekelijkse bonus geclaimd (+1000 XP)";
-"Survival weekly reward hint" = "Each milestone — 25, 50, 100, then 200 flags in one run — gives +1000 XP once per week.";
+"Survival weekly reward hint" = "Elke mijlpaal — 25, 50, 100 en 200 vlaggen in één spel — levert eenmaal per week +1000 XP op.";
 
 "Survival result depth progress fmt" = "%1$d / %2$d";
 
@@ -1582,35 +1582,35 @@
 "1 hour" = "1 uur";
 
 
-"Duel announcement subtitle" = "Same duel for both players. First to score wins!";
-"User 1" = "User 1";
-"User 2" = "User 2";
-"Number of Questions" = "Questions";
+"Duel announcement subtitle" = "Beide spelers krijgen dezelfde vragen. De hoogste score wint; bij een gelijke score wint de snelste speler.";
+"User 1" = "Speler 1";
+"User 2" = "Speler 2";
+"Number of Questions" = "Vragen";
 
 
 /* F-Bucks screen */
-"fbucks.close" = "Dichtbij";
+"fbucks.close" = "Sluiten";
 "fbucks.currency.name" = "F-Bucks";
 "fbucks.hero.subtitle.enough" = "Genoeg voor ongeveer %d items";
 "fbucks.hero.subtitle.rare" = "Je kunt een zeldzaam item kopen";
 "fbucks.hero.subtitle.save" = "Blijf sparen voor iets bijzonders";
 "fbucks.daily.title" = "Dagelijkse bonus";
 "fbucks.daily.subtitle" = "+1 F-Bucks";
-"fbucks.daily.claim" = "Claim";
-"fbucks.daily.claimed" = "Vandaag geclaimd";
-"fbucks.daily.hint" = "+1 vandaag beschikbaar: tik op Claimen";
+"fbucks.daily.claim" = "Ophalen";
+"fbucks.daily.claimed" = "Vandaag al opgehaald";
+"fbucks.daily.hint" = "Vandaag +1 beschikbaar — tik op Ophalen";
 "fbucks.earn.today.title" = "Verdien vandaag";
 "fbucks.earn.today.subtitle" = "Tot %d F-Bucks mogelijk vandaag";
 "fbucks.earn.perfect.title" = "Perfect spel";
 "fbucks.earn.perfect.sub" = "+1 voor 10/10 of 15/15";
-"fbucks.earn.streak" = "Streep";
-"fbucks.earn.streak.sub" = "Serie (%d/10 dagen)";
-"fbucks.earn.league" = "Topje van de week";
+"fbucks.earn.streak" = "Dagelijkse reeks";
+"fbucks.earn.streak.sub" = "Reeks (%d/10 dagen)";
+"fbucks.earn.league" = "De besten van de week";
 "fbucks.earn.league.sub" = "Eindig in de top 3 van je competitie";
 "fbucks.progress.title" = "Voortgang naar het volgende item";
 "fbucks.progress.percent" = "%d%%";
 "fbucks.progress.full" = "Je kunt je de volgende beloningen veroorloven: open de winkel!";
-"fbucks.want.title" = "Volgende doelpunt";
+"fbucks.want.title" = "Volgend doel";
 "fbucks.want.price" = "Prijs: %d F-Bucks";
 "fbucks.want.you" = "Je hebt: %d";
 "fbucks.want.need" = "Er is nog %d nodig";
@@ -1624,12 +1624,12 @@
 "fbucks.shop.limited" = "BEPERKT";
 "fbucks.perfect.badge" = "Perfect";
 "fbucks.tab.today" = "Vandaag";
-"fbucks.tab.about" = "Over";
-"fbucks.tab.history" = "Geschiedenis";
+"fbucks.tab.about" = "Info";
+"fbucks.tab.history" = "Overzicht";
 "fbucks.tab.shop" = "Winkel";
 "fbucks.about.title" = "Wat zijn F-Bucks?";
-"fbucks.about.body" = "F-Bucks (Flags Bucks) zijn in-game valuta die je verdient door World Arena Flags te spelen. Geef ze uit aan unieke avatarstukken, skins en andere exclusieve items.";
-"fbucks.about.how" = "Hoe u F-Bucks kunt verdienen";
+"fbucks.about.body" = "F-Bucks (Flags Bucks) zijn de spelvaluta die je verdient door World Arena Flags te spelen. Koop er unieke avataraccessoires, skins en andere exclusieve items mee.";
+"fbucks.about.how" = "Zo verdien je F-Bucks";
 "fbucks.about.perfect.title" = "Perfect spel";
 "fbucks.about.perfect.desc" = "Behaal een perfecte score (10/10 of 15/15)";
 "fbucks.about.streak10.title" = "10-daagse reeks";
@@ -1645,18 +1645,18 @@
 "fbucks.reward.plus5" = "+5 F-Bucks";
 "fbucks.reward.plus10" = "+10 F-Bucks";
 "fbucks.history.title" = "Transactiegeschiedenis";
-"fbucks.history.empty" = "Nog geen geschiedenis";
+"fbucks.history.empty" = "Nog geen transacties";
 "fbucks.history.empty.hint" = "Speel en verdien F-Bucks!";
 "fbucks.item.traveler_cap" = "Reizigerspet";
-"fbucks.item.champion_shirt" = "Kampioen tee";
+"fbucks.item.champion_shirt" = "Kampioensshirt";
 "fbucks.item.socks" = "Sokken";
-"fbucks.item.rainbow_skin" = "Regenboog huid";
-"fbucks.item.gold_skin" = "Gouden huid";
-"fbucks.item.explorer_jacket" = "Explorer-jas";
+"fbucks.item.rainbow_skin" = "Regenboogskin";
+"fbucks.item.gold_skin" = "Gouden skin";
+"fbucks.item.explorer_jacket" = "Ontdekkersjas";
 "fbucks.item.fire_effect" = "Vuureffect";
-"fbucks.item.neon_skin" = "Neon-huid";
+"fbucks.item.neon_skin" = "Neonskin";
 "fbucks.item.stars_effect" = "Stereffect";
-"fbucks.item.champion_jacket" = "Kampioen jas";
+"fbucks.item.champion_jacket" = "Kampioensjas";
 "fbucks.tx.daily_bonus" = "Dagelijkse bonus";
 "friends.remind.status_sent" = "Herinnering verzonden!";
 

@@ -1,6 +1,6 @@
 "Open in Game Center" = "Buksan sa Game Center";
 "Заработай %d XP" = "Makakuha ng %d XP";
-"F-BUCKS EARNED" = "F-BUCKS EARNED";
+"F-BUCKS EARNED" = "NAIPONG F-BUCKS";
 "Дай %d правильных ответов" = "Kumuha ng %d tamang sagot";
 "Наберите %d правильных ответов за месяц" = "Makakuha ng %d tamang sagot ngayong buwan";
 "Сыграй %d идеальных игр" = "Maglaro ng %d perpektong laro";
@@ -36,18 +36,18 @@
 "SUPER" = "SUPER";
 
 /* Leagues medals & labels */
-"1st" = "1st";
+"1st" = "Una";
 "2nd" = "ika-2";
 "3rd" = "ika-3";
 "XP" = "XP";
 
 /* Monthly badges sample titles */
 "Алмазная лига" = "Liga ng Diamond";
-"Серия мастера" = "Master Streak";
+"Серия мастера" = "Streak ng dalubhasa";
 "Чемпион месяца" = "Kampeon ng Buwan";
 "Идеальная неделя" = "Perpektong Linggo";
 "Бронзовая лига" = "Liga ng Tanso";
-"Лига Мастеров" = "Master League";
+"Лига Мастеров" = "Liga ng mga Dalubhasa";
 // General
 "World Flags" = "Mga Watawat ng Daigdig";
 "Learn flags of the world" = "Alamin ang mga bandila ng mundo";
@@ -114,7 +114,7 @@
 "KEEP GOING" = "Magpatuloy";
 "Play Again" = "Maglaro Muli";
 "Home" = "Bahay";
-"Quest Update!" = "Quest Update!";
+"Quest Update!" = "May balita sa misyon!";
 "quest.play_again.duel" = "Ulitin ang duel";
 "Check your progress" = "Suriin ang iyong pag-unlad";
 "2x XP for 10 min!" = "2x XP sa loob ng 10 min!";
@@ -124,7 +124,7 @@
 "Statistics Share Promo" = "Naglalaro ako ng World Arena Flags — matuto ng mga world flag, magkakaibigang duel, at umakyat ng mga liga! 🎮🌍\nAking mga istatistika: Pinakamahusay na marka %d, Katumpakan %.1f%%, %d larong nilaro.\nGusto mong matuto ng mga flag at subukan ang iyong mga kasanayan? Sumali sa aming komunidad!\n%@";
 
 // Post-Game Flow
-"CLAIM XP" = "CLAIM XP";
+"CLAIM XP" = "KUNIN ANG XP";
 "TOTAL XP" = "KABUUANG XP";
 "PERFECT" = "PERPEKTO";
 "AMAZING" = "NAKAKAGANDA";
@@ -143,7 +143,7 @@
 "See how your friends are doing" = "Tingnan kung ano ang kalagayan ng iyong mga kaibigan";
 "No friends yet" = "Wala pang kaibigan";
 "Add friends to see their streaks and compete together!" = "Magdagdag ng mga kaibigan upang makita ang kanilang mga streak at makipagkumpitensya nang sama-sama!";
-"NUDGE" = "NUDGE";
+"NUDGE" = "MAGPAALALA";
 "Remind" = "Paalalahanan";
 "Reminder sent to %@" = "Ipinadala ang paalala sa %@";
 "%@ reminds you" = "Pinapaalalahanan ka ni %@";
@@ -165,7 +165,7 @@
 "CONTINUE" = "MAGPATULOY";
 "streak" = "guhit";
 "days" = "araw";
-"Quest Update!" = "Quest Update!";
+"Quest Update!" = "May balita sa misyon!";
 "Check your progress" = "Suriin ang iyong pag-unlad";
 "Заблокировано" = "Naka-lock";
 "Базовый пакет" = "Pangunahing Package";
@@ -234,7 +234,7 @@
 "Request Timeout" = "Humiling ng Timeout";
 "Server Not Found" = "Hindi Nahanap ang Server";
 "Too Many Requests" = "Napakaraming Kahilingan";
-"HTTP Error: %d" = "HTTP Error: %d";
+"HTTP Error: %d" = "Error sa HTTP: %d";
 "Not enough countries in selected regions (found %d, need at least 4)" = "Hindi sapat na mga bansa sa mga napiling rehiyon (nahanap %d, kailangan ng hindi bababa sa 4)";
 "Empty response from server" = "Walang laman na tugon mula sa server";
 
@@ -265,7 +265,7 @@
 
 // Game Modes
 "Game Mode" = "Mode ng Laro";
-"Classic" = "Classic";
+"Classic" = "Klasiko";
 "Time Challenge" = "Hamon sa Oras";
 "Time Challenge short" = "Oras";
 "Survival" = "Kaligtasan";
@@ -303,7 +303,7 @@
 "Medium" = "Katamtaman";
 "Hard" = "Mahirap";
 "Expert" = "Dalubhasa";
-"Erudite" = "Erudite";
+"Erudite" = "Maalam";
 "10 questions, 45 sec per answer" = "10 tanong, 45 segundo bawat sagot";
 "15 questions, 30 sec per answer" = "15 tanong, 30 segundo bawat sagot";
 "20 questions, 15 sec per answer" = "20 tanong, 15 segundo bawat sagot";
@@ -328,7 +328,7 @@
 /* Lives & Premium */
 "Lives" = "Buhay";
 "Next +%d in %02d:%02d" = "Susunod na +%d sa %02d:%02d";
-"Lives refill info" = "Lives refill info";
+"Lives refill info" = "Pagpuno muli ng mga buhay";
 "You will receive +%d new lives in %02d:%02d" = "Makakatanggap ka ng +%d bagong buhay sa %02d:%02d";
 "Unlimited hearts enabled" = "Pinagana ang walang limitasyong mga puso";
 "Unlimited Hearts" = "Walang limitasyong mga Puso";
@@ -343,26 +343,26 @@
 "Как заработать" = "Paano Kumita";
 "История" = "Kasaysayan";
 "Магазин" = "Mamili";
-"Что такое F-Bucks?" = "Ano ang F-Bucks?";
+"Что такое F-Bucks?" = "Ano ang mga F-Bucks?";
 "F-Bucks (Flags Bucks) — это внутриигровая валюта, которую можно заработать, играя в World Arena Flags. Используйте F-Bucks для покупки уникальных элементов аватара, скинов и других эксклюзивных предметов." = "Ang F-Bucks (Flags Bucks) ay isang in-game currency na maaari mong kitain sa pamamagitan ng paglalaro ng World Arena Flags. Gamitin ang F-Bucks para bumili ng mga natatanging avatar item, skin, at iba pang eksklusibong item.";
 "Особенности:" = "Mga Tampok:";
 "Зарабатывайте за идеальные результаты в играх" = "Kumita para sa perpektong resulta ng laro";
 "Получайте бонусы за длинные серии дней" = "Makakuha ng mga bonus para sa mahabang araw na mga streak";
 "Покупайте эксклюзивные элементы для аватара" = "Bumili ng mga eksklusibong item sa avatar";
 "Создавайте уникальный стиль" = "Gumawa ng kakaibang istilo";
-"Как заработать F-Bucks" = "Paano Kumita ng F-Bucks";
+"Как заработать F-Bucks" = "Paano kumita ng F-Bucks";
 "Идеальный результат" = "Perpektong Resulta";
 "Идеальный результат игры" = "Perpektong resulta ng laro";
 "Получите идеальный результат в игре (10/10 или 15/15)" = "Makakuha ng perpektong resulta sa laro (10/10 o 15/15)";
-"Серия 10 дней" = "10 Araw na Streak";
+"Серия 10 дней" = "10 araw na tuloy-tuloy";
 "Играйте 10 дней подряд" = "Maglaro ng 10 araw nang sunud-sunod";
-"Серия 20 дней" = "20 Araw na Streak";
+"Серия 20 дней" = "20 araw na tuloy-tuloy";
 "Играйте 20 дней подряд" = "Maglaro ng 20 araw nang sunud-sunod";
-"Серия 50 дней" = "50 Araw na Streak";
+"Серия 50 дней" = "50 araw na tuloy-tuloy";
 "Играйте 50 дней подряд" = "Maglaro ng 50 araw nang sunud-sunod";
-"Серия 100 дней" = "100 Araw na Streak";
+"Серия 100 дней" = "100 araw na tuloy-tuloy";
 "Играйте 100 дней подряд" = "Maglaro ng 100 araw nang sunud-sunod";
-"История начислений" = "Kasaysayan ng Transaksyon";
+"История начислений" = "Talaan ng mga transaksyon";
 "История пуста" = "Walang laman ang kasaysayan";
 "Начните играть и зарабатывать F-Bucks!" = "Simulan ang paglalaro at kumita ng F-Bucks!";
 "Магазин F-Bucks" = "Tindahan ng F-Bucks";
@@ -373,15 +373,15 @@
 "Особые визуальные эффекты" = "Mga espesyal na visual effect";
 "Эффекты" = "Mga epekto";
 "Анимации и спецэффекты" = "Mga animation at mga espesyal na epekto";
-"Футболка чемпиона" = "Champion T-Shirt";
-"Кепка путешественника" = "Cap ng manlalakbay";
-"Куртка исследователя" = "Jacket ng Explorer";
-"Золотой скин" = "Gintong Balat";
-"Радужный скин" = "Balat ng bahaghari";
-"Неоновый скин" = "Balat ng Neon";
-"Эффект блёсток" = "Sparkle Effect";
-"Огненный эффект" = "Epekto ng Sunog";
-"Звёздный эффект" = "Star Effect";
+"Футболка чемпиона" = "T-shirt ng kampeon";
+"Кепка путешественника" = "Sumbrero ng manlalakbay";
+"Куртка исследователя" = "Jacket ng manlalakbay";
+"Золотой скин" = "Gintong skin";
+"Радужный скин" = "Skin na bahaghari";
+"Неоновый скин" = "Neon na skin";
+"Эффект блёсток" = "Epekto ng kinang";
+"Огненный эффект" = "Epekto ng apoy";
+"Звёздный эффект" = "Epekto ng bituin";
 "Купить" = "Bumili";
 "Покупка" = "Bumili";
 "Текст гимна" = "Teksto ng Anthem";
@@ -426,9 +426,9 @@
 
 /* Game header popovers */
 "Total game time since start" = "Kabuuang oras ng laro mula nang magsimula";
-"Time limit per question depending on difficulty" = "Time limit per question depending on difficulty";
+"Time limit per question depending on difficulty" = "Ang oras sa bawat tanong ay depende sa hirap";
 "Total Game Time" = "Kabuuang Oras ng Laro";
-"Time Per Question" = "Time Per Question";
+"Time Per Question" = "Oras sa bawat tanong";
 
 /* Game header motivation (iPad) */
 "Game motivation 1" = "Nakuha mo na ito!";
@@ -503,13 +503,13 @@
 "ч" = "h";
 "м" = "m";
 "Статистика" = "Mga istatistika";
-"Профиль" = "Profile";
+"Профиль" = "Propayl";
 
 /* Profile Page */
 "ОБЗОР" = "PANGKALAHATANG-IDEYA";
-"ДОБАВИТЬ ДРУЗЕЙ" = "ADD FRIENDS";
+"ДОБАВИТЬ ДРУЗЕЙ" = "MAGDAGDAG NG MGA KAIBIGAN";
 "СЕРИИ ДРУЗЕЙ" = "KAIBIGAN STREAKS";
-"МЕСЯЧНЫЕ ДОСТИЖЕНИЯ" = "MONTHLY ACHIEVEMENTS";
+"МЕСЯЧНЫЕ ДОСТИЖЕНИЯ" = "MGA BUWANANG TAGUMPAY";
 
 /* Settings */
 "Выберите аватар" = "Pumili ng avatar";
@@ -520,11 +520,11 @@
 "profile_crop_zoom_label" = "Zoom";
 "profile_crop_cancel" = "Kanselahin";
 "profile_crop_done" = "Tapos na";
-"Имя пользователя" = "Username";
+"Имя пользователя" = "Pangalan ng gumagamit";
 "Статистика" = "Mga istatistika";
 "Премиум подписка активна" = "Aktibo ang premium na subscription";
 "ВОССТАНОВИТЬ ПОДПИСКУ" = "IBALIK ANG SUBSCRIPTION";
-"ВЫЙТИ" = "LOG OUT";
+"ВЫЙТИ" = "MAG-LOG OUT";
 "Удалить аккаунт" = "Tanggalin ang account";
 "Это действие нельзя отменить. Все ваши данные будут удалены навсегда." = "Ang pagkilos na ito ay hindi maaaring i-undo. Ang lahat ng iyong data ay permanenteng tatanggalin.";
 
@@ -538,11 +538,11 @@
 "Зона вылета - риск понижения лиги" = "Relegation zone - panganib ng demotion ng liga";
 "Безопасная зона - остаетесь в текущей лиге" = "Safe zone - manatili sa kasalukuyang liga";
 "Конец недели через %d часов" = "Matatapos ang linggo sa %d na oras";
-"ЗОНА ВЫЛЕТА" = "RELEGATION ZONE";
-"ЗОНА ПОВЫШЕНИЯ" = "PROMOTION ZONE";
+"ЗОНА ВЫЛЕТА" = "SONA NG PAGBABA";
+"ЗОНА ПОВЫШЕНИЯ" = "SONA NG PAG-AKYAT";
 
 /* Monthly Quests */
-"Августовский Квест" = "August Quest";
+"Августовский Квест" = "Misyon sa Agosto";
 "Mision de Agosto" = "Misyon ng Agosto";
 "21 ДЕНЬ" = "21 ARAW";
 "Заработай 40 очков квеста" = "Makakuha ng 40 quest point";
@@ -555,7 +555,7 @@
 "Игра" = "Laro";
 "Прогресс" = "Pag-unlad";
 "Лиги" = "Mga liga";
-"Профиль" = "Profile";
+"Профиль" = "Propayl";
 "Социальные функции" = "Mga Tampok na Panlipunan";
 "Технические вопросы" = "Mga Isyung Teknikal";
 "Нужна дополнительная помощь?" = "Kailangan ng karagdagang tulong?";
@@ -583,9 +583,9 @@
 "Бронза" = "Tanso";
 "Серебро" = "pilak";
 "Золото" = "ginto";
-"Платина" = "Platinum";
+"Платина" = "Platino";
 "Алмаз" = "brilyante";
-"Мастер" = "Master";
+"Мастер" = "Dalubhasa";
 
 /* Profile Edit */
 "Введите имя" = "Ipasok ang pangalan";
@@ -593,7 +593,7 @@
 "Сохранить" = "I-save";
 "Уровень" = "Antas";
 "Опыт" = "karanasan";
-"Серия дней" = "Day streak";
+"Серия дней" = "Sunod-sunod na araw";
 "Всего игр" = "Kabuuang mga laro";
 "Точность" = "Katumpakan";
 
@@ -645,7 +645,7 @@
 "HELP_LEAGUES_TEXT" = "Ang mga liga ay mga kumpetisyon sa iba pang mga manlalaro.\n\nMga Liga (mula sa mas mababa hanggang sa mas mataas):\n• Tanso\n• Pilak\n• Ginto\n• Platinum\n• Brilyante\n• Guro\n\nLingguhang mga update:\n• Ang nangungunang 3 manlalaro ay makakakuha ng mga gantimpala\n• Maaaring ma-demote ang mga manlalaro sa 16–20\n• Ang iba ay nananatili sa parehong liga";
 
 /* Birthday */
-"День рождения" = "Birthday";
+"День рождения" = "Kaarawan";
 "Birthday description F-bucks" = "Pahintulutan kaming batiin ka sa iyong kaarawan ng +10 F-bucks";
 "Очистить" = "Maaliwalas";
 "День рождения друга" = "Kaarawan ng kaibigan";
@@ -676,7 +676,7 @@
 
 /* Help Center – duel & progress */
 "Что такое дуэль и как её начать?" = "Ano ang tunggalian at paano ito sisimulan?";
-"Режим соревнований 1 на 1" = "1‑on‑1 competition mode";
+"Режим соревнований 1 на 1" = "Isa-laban-sa-isang paligsahan";
 "HELP_GAME_DUEL" = "Ang Duel ay isang mode kung saan sinasagot mo at ng iyong kaibigan ang parehong mga tanong upang ihambing ang mga resulta.\n\nPaano magsimula ng tunggalian:\n1. Buksan ang profile ng iyong kaibigan (mula sa listahan ng Mga Kaibigan, Liga o mga paalala)\n2. I-tap ang button na \"Hamon sa Duel.\"\n3. Kumpirmahin - ang tunggalian ay gagamit ng ibinahaging hanay ng mga tanong\n\nSa dulo:\n• Nakita mo kung sino ang nakakuha ng higit pang mga puntos\n• Ang tunggalian ay nag-uudyok at nagpapalakas ng pag-unlad ngunit HINDI nire-reset ang iyong pang-araw-araw na streak";
 "Как зарабатывать и тратить F-bucks?" = "Paano kumita at gumastos ng F-bucks?";
 "Внутриигровая валюта" = "In-game na pera";
@@ -711,21 +711,21 @@
 /* Achievement titles/descriptions */
 "Ранняя птица" = "Maagang Ibon";
 "Достигните серии 5 дней" = "Umabot ng 5 araw na sunod-sunod";
-"Стабильность" = "Consistency";
-"Серия 10 дней" = "10-araw na streak";
-"Железная воля" = "Iron Will";
+"Стабильность" = "Pagiging tuloy-tuloy";
+"Серия 10 дней" = "10 araw na tuloy-tuloy";
+"Железная воля" = "Matibay na loob";
 "Серия 30 дней" = "30-araw na streak";
 "Новичок XP" = "XP Baguhan";
 "Наберите 1000 XP" = "Makakuha ng 1000 XP";
-"Олимпиец XP" = "XP Olympian";
+"Олимпиец XP" = "Olimpiyano ng XP";
 "Наберите 5000 XP" = "Makakuha ng 5000 XP";
 "Легенда XP" = "Alamat ng XP";
 "Наберите 10000 XP" = "Makakuha ng 10000 XP";
-"Исследователь" = "Quest Explorer";
+"Исследователь" = "Tagatuklas ng misyon";
 "Сыграйте 20 игр" = "Maglaro ng 20 laro";
 "Ветеран" = "Beterano";
 "Сыграйте 100 игр" = "Maglaro ng 100 laro";
-"Меткий стрелок" = "Sharpshooter";
+"Меткий стрелок" = "Asintado";
 "Точность 70%" = "Abutin ang 70% katumpakan";
 "Снайпер" = "Sniper";
 "Точность 85%" = "Abutin ang 85% na katumpakan";
@@ -733,7 +733,7 @@
 "Достигните Серебра" = "Abutin ang Silver";
 "Золотая лига" = "Ligang Ginto";
 "Достигните Золота" = "Abutin ang Ginto";
-"Платиновая лига" = "Platinum League";
+"Платиновая лига" = "Ligang Platino";
 "Достигните Платины" = "Abutin ang Platinum";
 "Алмазная лига" = "Liga ng Diamond";
 "Достигните Алмаза" = "Abutin ang Diamond";
@@ -747,14 +747,14 @@
 "Поделитесь профилем" = "Ibahagi ang iyong profile";
 "Спринтер" = "Bilis ang magkakarera";
 "Сыграйте 10 игр за день" = "Maglaro ng 10 laro sa isang araw";
-"XP Олимпиец" = "XP Olympian";
-"Мастер Олимпиец XP" = "Master XP Olympian";
+"XP Олимпиец" = "Olimpiyano ng XP";
+"Мастер Олимпиец XP" = "Dalubhasang Olimpiyano ng XP";
 "Наберите 30000 XP" = "Makakuha ng 30000 XP";
  
 /* Settings - Added */
 "Уведомления" = "Mga abiso";
 "Приватность" = "Pagkapribado";
-"Центр помощи" = "Help Center";
+"Центр помощи" = "Sentro ng tulong";
 "Язык игры" = "Wika ng Laro";
 "Звуковые эффекты" = "Mga sound effect";
 "Вибрация" = "Panginginig ng boses";
@@ -795,9 +795,9 @@
 "дней" = "araw";
 "Текущая серия" = "Kasalukuyang Streak";
 "XP" = "XP";
-"ДОБАВИТЬ ДРУЗЕЙ" = "ADD FRIENDS";
+"ДОБАВИТЬ ДРУЗЕЙ" = "MAGDAGDAG NG MGA KAIBIGAN";
 "СЕРИИ ДРУЗЕЙ" = "KAIBIGAN STREAKS";
-"МЕСЯЧНЫЕ ДОСТИЖЕНИЯ" = "MONTHLY ACHIEVEMENTS";
+"МЕСЯЧНЫЕ ДОСТИЖЕНИЯ" = "MGA BUWANANG TAGUMPAY";
 
 // Add Friends page
 "Ваш код друга" = "Ang code ng iyong kaibigan";
@@ -824,9 +824,9 @@
 
 // Achievements
 "Ранняя птица" = "Maagang Ibon";
-"Железная воля" = "Iron Will";
+"Железная воля" = "Matibay na loob";
 "Алмазная лига" = "Liga ng Diamond";
-"Серия мастера" = "Master Streak";
+"Серия мастера" = "Streak ng dalubhasa";
 "Чемпион месяца" = "Buwanang Champion";
 "Идеальная неделя" = "Perpektong Linggo";
 
@@ -856,7 +856,7 @@
 "Статистика" = "Mga istatistika";
 "Уровень" = "Antas";
 "Опыт" = "karanasan";
-"Серия дней" = "Day Streak";
+"Серия дней" = "Sunod-sunod na araw";
 "Всего игр" = "Kabuuang Mga Laro";
 "Точность" = "Katumpakan";
 
@@ -936,7 +936,7 @@
 "Текущая серия" = "Kasalukuyang Streak";
 "дней" = "araw";
 "Точность" = "Katumpakan";
-"Теперь вы можете без единой ошибки отвечать на все наши вопросы с точностью в %d%%" = "Maaari mo na ngayong masagot ang lahat ng aming mga tanong nang walang kahit isang pagkakamali, na may %d%% na katumpakan";
+"Теперь вы можете без единой ошибки отвечать на все наши вопросы с точностью в %d%%" = "%d%% ang katumpakan ng mga sagot mo.";
 "Мы будем рады, если вы захотите снова вернуться к нам!" = "Kami ay magiging masaya kung gusto mong bumalik sa amin muli!";
 "Продолжить" = "Magpatuloy";
 
@@ -947,7 +947,7 @@
 "Столица" = "Kapital";
 
 // Country Detail View
-"Галерея" = "Gallery";
+"Галерея" = "Galeriya";
 "Информация о стране" = "Impormasyon ng Bansa";
 "Описание флага" = "Paglalarawan ng Bandila";
 "Гимн страны" = "Pambansang Awit";
@@ -956,7 +956,7 @@
 "Официальный язык" = "Opisyal na Wika";
 "Правительство" = "Pamahalaan";
 "Глава государства" = "Pinuno ng Estado";
-"Телефонный код" = "Dialing Code";
+"Телефонный код" = "Kodigo sa pagtawag";
 "Население" = "Populasyon";
 "Валюта" = "Pera";
 "Независимость" = "Kalayaan";
@@ -1000,7 +1000,7 @@
 
 /* Enhanced Streak View */
 "Don't break the chain! Come back tomorrow!" = "Huwag sirain ang kadena! Bumalik ka bukas!";
-"Time to restart your streak! You can do it!" = "Time to restart your streak! You can do it!";
+"Time to restart your streak! You can do it!" = "Oras nang magsimula ng bagong streak! Kaya mo ito!";
 
 /* Monthly XP Quest */
 "Заработай %d XP за месяц" = "Makakuha ng %d XP ngayong buwan";
@@ -1049,8 +1049,8 @@
 "Learn flags and countries of the World" = "Alamin ang mga flag at bansa sa Mundo";
 "Select Level" = "Piliin ang Antas";
 "Level - %@" = "Antas - %@";
-"Exclusive tournaments with cash F-Bucks prizes" = "Mga eksklusibong paligsahan na may mga premyong cash na F-Bucks";
-"Survival Mode" = "Survival Mode";
+"Exclusive tournaments with cash F-Bucks prizes" = "Mga eksklusibong paligsahan na may mga premyong F-Bucks";
+"Survival Mode" = "Mode ng kaligtasan";
 "One mistake = Game Over" = "Isang pagkakamali = Game Over";
 "Duel result push format" = "%@: %d — Ikaw: %d.";
 "Duel motivation win" = "Kahanga-hanga! Ipagpatuloy ang streak.";
@@ -1058,7 +1058,7 @@
 "Opponent" = "kalaban";
 "vs %@" = "vs %@";
 "Combo x%d" = "Combo x%d";
-"Combo x%d bonus" = "Combo x%d bonus +1";
+"Combo x%d bonus" = "Combo x%d: dagdag na +1";
 "Combo x%d +10 XP" = "Combo x%d +10 XP";
 "Speed bonus +1" = "Bilis na bonus +1";
 "Speed bonus +10 XP" = "Bonus sa bilis +10 XP";
@@ -1073,11 +1073,11 @@
 "Ukraine" = "Ukraine";
 "Russia" = "Russia";
 "USA" = "USA";
-"Лига Чемпионов Мира" = "World Champion League";
+"Лига Чемпионов Мира" = "Liga ng mga Kampeon ng Mundo";
 "Price is loaded from the App Store on this screen" = "Na-load ang presyo mula sa App Store sa screen na ito";
 "Connecting to App Store..." = "Kumokonekta sa App Store...";
 "Version" = "Bersyon";
-"Update" = "Update";
+"Update" = "I-update";
 "Login without @" = "mag-login nang walang @";
 "Add by username" = "Idagdag sa pamamagitan ng username";
 "Duel Summary" = "Buod ng Duel";
@@ -1244,9 +1244,9 @@
 "FACT_40_DESC" = "Ang ilang mga pambansang watawat ay nagbago ng dose-dosenang beses sa kasaysayan ng pulitika ng kanilang bansa.";
 "FACT_41_TITLE" = "Araw ng North Macedonia";
 "FACT_41_DESC" = "Ang bandila ng North Macedonia ay may araw na may walong sinag para sa isang bagong simula.";
-"FACT_42_TITLE" = "Belize woodcutters";
+"FACT_42_TITLE" = "Mga mangangahoy ng Belize";
 "FACT_42_DESC" = "Ang bandila ng Belize ay isa sa iilang nagpapakita ng mga tao: mga woodcutter na may mga kasangkapan.";
-"FACT_43_TITLE" = "Ecuador condor";
+"FACT_43_TITLE" = "Kondor ng Ecuador";
 "FACT_43_DESC" = "Kasama sa watawat ng Ecuador ang Andean condor para sa lakas at soberanya.";
 "FACT_44_TITLE" = "Bolivia Wiphala";
 "FACT_44_DESC" = "Ginagamit ng Bolivia ang Wiphala sa tabi ng tatlong kulay bilang isang opisyal na simbolo.";
@@ -1280,9 +1280,9 @@
 "FACT_58_DESC" = "Ang bandila ng Greenland ay may pula-at-puting bilog na kumakatawan sa araw sa ibabaw ng yelo.";
 "FACT_59_TITLE" = "Pan-African na kulay";
 "FACT_59_DESC" = "Ang berde, dilaw at pula ay madalas na tinatawag na mga Pan-African na kulay at lumilitaw sa maraming mga bandila ng Africa.";
-"FACT_60_TITLE" = "Nordic crosses";
+"FACT_60_TITLE" = "Mga krus ng mga bansang Nordiko";
 "FACT_60_DESC" = "Limang bansa ang gumagamit ng Nordic cross: Denmark, Norway, Sweden, Finland at Iceland.";
-"FACT_61_TITLE" = "French tricolor";
+"FACT_61_TITLE" = "Tatlong kulay ng Pransiya";
 "FACT_61_DESC" = "Ang French blue-white-red tricolor ay naging modelo para sa maraming rebolusyonaryo at pambansang watawat.";
 "FACT_62_TITLE" = "bandila ng UN";
 "FACT_62_DESC" = "Ang bandila ng UN ay nagpapakita ng mundo na napapalibutan ng mga sanga ng oliba sa isang asul na background.";
@@ -1290,7 +1290,7 @@
 "FACT_63_DESC" = "Labindalawang ginintuang bituin sa isang bilog sa asul na sumisimbolo sa pagkakaisa ng European Union.";
 "FACT_64_TITLE" = "bandila ng Olympic";
 "FACT_64_DESC" = "Ang limang singsing sa puti ay kumakatawan sa limang may nakatirang mga kontinente at ang pandaigdigang kalikasan ng Mga Laro.";
-"FACT_65_TITLE" = "Vatican square";
+"FACT_65_TITLE" = "Parisukat na watawat ng Vatican";
 "FACT_65_DESC" = "Ang Vatican ay may parisukat na pambansang watawat tulad ng Switzerland.";
 "FACT_66_TITLE" = "Nauru 12 puntos";
 "FACT_66_DESC" = "Ang bandila ng Nauru ay may 12-pointed star para sa 12 tribo.";
@@ -1326,7 +1326,7 @@
 "league.weekly_result.label.week" = "Resulta ng linggo";
 "league.weekly_result.cta.view" = "Tingnan ang mga resulta";
 "league.weekly_result.cta.ok" = "OK";
-"league.weekly_result.cta.claim" = "Claim";
+"league.weekly_result.cta.claim" = "Kunin";
 
 "league.weekly_result.promotion.tagline" = "🔥 Bagong level!";
 "league.weekly_result.promotion.title" = "🚀 Nasa %@ ka na!";
@@ -1471,7 +1471,7 @@
 "avatar_editor_eye_color" = "Kulay ng mata";
 "avatar_editor_expression" = "Pagpapahayag";
 "avatar_editor_main_hair_color" = "Kulay ng buhok";
-"avatar_editor_hairstyle" = "Hairstyle";
+"avatar_editor_hairstyle" = "Estilo ng buhok";
 "avatar_editor_glasses" = "Salamin";
 "avatar_editor_glasses_color" = "Kulay ng salamin";
 "avatar_editor_facial_hair" = "buhok sa mukha";
@@ -1483,13 +1483,13 @@
 "avatar_editor_background_color" = "Kulay ng background";
 "avatar_editor_none" = "wala";
 "avatar_editor_round" = "Bilog";
-"avatar_editor_square" = "Square";
+"avatar_editor_square" = "Parisukat";
 "avatar_editor_sunglasses" = "salaming pang-araw";
 "avatar_editor_slim" = "Slim (salamin)";
-"avatar_editor_cap" = "Cap";
-"avatar_editor_beanie" = "Beanie";
+"avatar_editor_cap" = "Sombrero";
+"avatar_editor_beanie" = "Bonet";
 "avatar_editor_bandana" = "Bandana";
-"avatar_editor_sport_cap" = "Sport cap";
+"avatar_editor_sport_cap" = "Sombrerong pang-isport";
 "avatar_editor_hat_SilverLeague" = "Ligang Pilak";
 "avatar_editor_hat_10_day_streak" = "10-araw na streak";
 "avatar_editor_hat_beginner" = "Baguhan";
@@ -1501,7 +1501,7 @@
 "avatar_editor_lock_headwear_shop_body" = "Makukuha mo ang item na ito sa customization shop — paparating na.";
 "avatar_editor_lock_headwear_generic_body" = "Hindi pa available ang item na ito.";
 "avatar_editor_opt_slim" = "slim";
-"avatar_editor_opt_regular" = "Regular";
+"avatar_editor_opt_regular" = "Karaniwan";
 "avatar_editor_opt_hoodie" = "Hoodie";
 "avatar_editor_opt_tshirt" = "T-Shirt";
 "avatar_editor_opt_sweater" = "Sweater";
@@ -1511,33 +1511,33 @@
 "avatar_editor_opt_short" = "Maikli";
 "avatar_editor_opt_curl" = "Kulot";
 "avatar_editor_opt_modern" = "Moderno";
-"avatar_editor_opt_buzz" = "Buzz";
+"avatar_editor_opt_buzz" = "Napakaikling buhok";
 "avatar_editor_opt_hair_waves" = "Mga alon";
 "avatar_editor_opt_hair_spiky" = "Matinik";
 "avatar_editor_opt_hair_slick" = "Makinis";
 "avatar_editor_opt_hair_pompadour" = "Pompadour";
 "avatar_editor_opt_moustache" = "bigote";
 "avatar_editor_opt_trimmed" = "Pinutol";
-"avatar_editor_opt_goatee" = "Goatee";
+"avatar_editor_opt_goatee" = "Balbas sa baba";
 "avatar_editor_opt_beard_full" = "Buong balbas";
 "avatar_editor_opt_beard_light" = "Banayad na balbas";
 "avatar_editor_opt_beard_bushy" = "Makapal na balbas";
 "avatar_editor_opt_jacket" = "Jacket";
 
 "monthly_quest_mission_title" = "Misyon %@";
-"Friend profile progress title" = "STREAK AND PROGRESS";
-"Friend achievements placeholder" = "Friend achievements are shown as they are unlocked";
+"Friend profile progress title" = "STREAK AT PAG-UNLAD";
+"Friend achievements placeholder" = "Lalabas dito ang mga tagumpay ng kaibigan mo kapag na-unlock na ang mga ito";
 
 "Answer as many flags as possible before time runs out" = "Sagutin ang maraming watawat hangga’t maaari bago maubos ang oras";
 "Duration" = "Tagal";
-"Best score" = "Best score";
+"Best score" = "Pinakamataas na iskor";
 "Wrong answer penalty" = "Parusa sa maling sagot";
 "5 correct in a row bonus" = "Bonus sa 5 tamang sunod-sunod";
 "Best combo" = "Pinakamahusay na combo";
 "New record!" = "Bagong record!";
 "Day leaderboard place" = "Puwesto sa leaderboard ng araw";
 "Week leaderboard place" = "Puwesto sa leaderboard ng linggo";
-"Back to Modes" = "Back to Modes";
+"Back to Modes" = "Bumalik sa mga mode";
 "Start" = "Simula";
 "TC correct answers headline" = "%d tama";
 "Difficulty description TC" = "%1$d%2$@ bawat round • +%3$d%2$@ bawat 5 tamang sunod-sunod • −%4$d%2$@ bawat mali";
@@ -1548,11 +1548,11 @@
 "TC intro combo5 bonus title" = "Combo ng 5 tamang sunod-sunod";
 "TC detail time penalty fmt" = "Timer: −%1$d %2$@ (mali)";
 "TC detail time combo fmt" = "Timer: +%1$d %2$@ (5 tamang sunod-sunod)";
-"TC detail points earned" = "Points for this answer: +%d";
-"TC detail xp earned" = "XP for this answer: +%d";
-"TC detail time penalty" = "Timer: −10 s (wrong answer)";
-"TC detail time combo bonus" = "Timer: +10 s (5 correct in a row)";
-"Share TC headline" = "Time Challenge: %d correct out of %d";
+"TC detail points earned" = "Puntos para sa sagot na ito: +%d";
+"TC detail xp earned" = "XP para sa sagot na ito: +%d";
+"TC detail time penalty" = "Oras: −10 segundo (maling sagot)";
+"TC detail time combo bonus" = "Oras: +10 segundo (5 sunod-sunod na tamang sagot)";
+"Share TC headline" = "Hamon sa oras: %d tamang sagot sa %d";
 
 "Time seconds unit short" = "s";
 "TC stat best combo" = "Pinakamahusay na combo";
@@ -1564,7 +1564,7 @@
 "Survival mode short description" = "Limitadong buhay, tumataas na hirap — hanggang saan ka aabot?";
 "Survival difficulty blurb fmt" = "Buhay bawat session • tumataas na stage • +1 buhay bawat 10 tamang sunod-sunod";
 "Survival depth header" = "Lalim";
-"Survival stage fmt" = "Stage %d";
+"Survival stage fmt" = "Yugto %d";
 "Survival bonus life streak" = "+1 buhay (10 tamang sunod-sunod)";
 "Survival milestone banner fmt" = "Hito %d! +30 XP • +1 F-Bucks";
 "Survival next milestone fmt" = "%d pang tama para sa hito %d";
@@ -1582,10 +1582,10 @@
 "Survival weekly title" = "Lingguhang Survival challenge";
 "Survival weekly target fmt" = "Sa isang run ngayong linggo, makalampas sa %d watawat.";
 "Survival weekly best fmt" = "Pinakamahusay mo ngayong linggo: %d watawat";
-"Survival weekly all milestones met body" = "You've reached every weekly depth goal — up to 200 flags in one run. Brilliant!";
-"Survival weekly reward all claimed" = "All weekly survival bonuses claimed (up to +4000 XP).";
+"Survival weekly all milestones met body" = "Naabot mo ang lahat ng lingguhang layunin, hanggang 200 bandila sa isang laro. Ang galing!";
+"Survival weekly reward all claimed" = "Nakuha na ang lahat ng lingguhang bonus sa mode ng kaligtasan (hanggang +4000 XP).";
 "Survival weekly reward claimed" = "Nakuha ang lingguhang bonus (+1000 XP)";
-"Survival weekly reward hint" = "Each milestone — 25, 50, 100, then 200 flags in one run — gives +1000 XP once per week.";
+"Survival weekly reward hint" = "Bawat yugto — 25, 50, 100, at 200 bandila sa isang laro — ay nagbibigay ng +1000 XP isang beses bawat linggo.";
 
 "Survival result depth progress fmt" = "%1$d / %2$d";
 
@@ -1596,10 +1596,10 @@
 "1 hour" = "1 oras";
 
 
-"Duel announcement subtitle" = "Same duel for both players. First to score wins!";
-"User 1" = "User 1";
-"User 2" = "User 2";
-"Number of Questions" = "Questions";
+"Duel announcement subtitle" = "Pareho ang mga tanong para sa dalawang manlalaro. Panalo ang mas mataas ang iskor; kapag tabla, panalo ang mas mabilis matapos.";
+"User 1" = "Manlalaro 1";
+"User 2" = "Manlalaro 2";
+"Number of Questions" = "Mga tanong";
 
 
 /* F-Bucks screen */
@@ -1611,13 +1611,13 @@
 "fbucks.daily.title" = "Araw-araw na bonus";
 "fbucks.daily.subtitle" = "+1 F-Bucks";
 "fbucks.daily.claim" = "Kunin";
-"fbucks.daily.claimed" = "Inaangkin ngayon";
-"fbucks.daily.hint" = "+1 available ngayon — i-tap ang Claim";
+"fbucks.daily.claimed" = "Nakuha na ngayon";
+"fbucks.daily.hint" = "+1 ang makukuha ngayon — i-tap ang Kunin";
 "fbucks.earn.today.title" = "Kumita ngayon";
 "fbucks.earn.today.subtitle" = "Hanggang %d F-Bucks ang posible ngayon";
 "fbucks.earn.perfect.title" = "Perpektong laro";
 "fbucks.earn.perfect.sub" = "+1 para sa 10/10 o 15/15";
-"fbucks.earn.streak" = "Streak";
+"fbucks.earn.streak" = "Sunod-sunod na araw";
 "fbucks.earn.streak.sub" = "Serye (%d/10 araw)";
 "fbucks.earn.league" = "Nangunguna sa linggo";
 "fbucks.earn.league.sub" = "Tapusin sa top 3 ng iyong liga";
@@ -1628,47 +1628,47 @@
 "fbucks.want.price" = "Presyo: %d F-Bucks";
 "fbucks.want.you" = "Mayroon kang: %d";
 "fbucks.want.need" = "Kailangan ng %d pa";
-"fbucks.earn_more" = "Kumita ng mas maraming →";
+"fbucks.earn_more" = "Kumita pa →";
 "fbucks.buy_for" = "Bilhin sa halagang %d";
 "fbucks.shop.title" = "Tindahan";
 "fbucks.shop.subtitle" = "Gumastos ng F-Bucks sa mga eksklusibong item sa avatar";
 "fbucks.shop.tier.common" = "Pangkaraniwan";
 "fbucks.shop.tier.rare" = "Pambihira";
-"fbucks.shop.tier.legendary" = "maalamat";
-"fbucks.shop.limited" = "LIMITADO<ex id=\"_1\"/>";
-"fbucks.perfect.badge" = "Perpektong";
+"fbucks.shop.tier.legendary" = "Maalamat";
+"fbucks.shop.limited" = "LIMITADONG EDISYON";
+"fbucks.perfect.badge" = "Perpekto";
 "fbucks.tab.today" = "Ngayon";
-"fbucks.tab.about" = "Tungkol sa Amin";
-"fbucks.tab.history" = "KASAYSAYAN";
+"fbucks.tab.about" = "Impormasyon";
+"fbucks.tab.history" = "Mga transaksyon";
 "fbucks.tab.shop" = "Tindahan";
 "fbucks.about.title" = "Ano ang mga F-Bucks?";
-"fbucks.about.body" = "Ang F-Bucks (Flags Bucks) ay mga perang kinikita mo sa paglalaro ng World Arena Flags. Gamitin ang mga ito sa mga natatanging avatar piece, skin, at iba pang eksklusibong item.";
+"fbucks.about.body" = "Ang F-Bucks (Flags Bucks) ay pera sa laro na kinikita mo sa paglalaro ng World Arena Flags. Gamitin ito para bumili ng mga aksesorya ng avatar, skin, at iba pang eksklusibong item.";
 "fbucks.about.how" = "Paano kumita ng F-Bucks";
 "fbucks.about.perfect.title" = "Perpektong laro";
 "fbucks.about.perfect.desc" = "Kumuha ng perpektong iskor (10/10 o 15/15)";
-"fbucks.about.streak10.title" = "10-araw na sunod-sunod";
+"fbucks.about.streak10.title" = "10 araw na tuloy-tuloy";
 "fbucks.about.streak10.desc" = "Maglaro ng 10 araw nang sunud-sunod";
-"fbucks.about.streak20.title" = "20-araw na sunod-sunod";
+"fbucks.about.streak20.title" = "20 araw na tuloy-tuloy";
 "fbucks.about.streak20.desc" = "Maglaro ng 20 araw nang sunud-sunod";
-"fbucks.about.streak50.title" = "50-araw na sunod-sunod";
+"fbucks.about.streak50.title" = "50 araw na tuloy-tuloy";
 "fbucks.about.streak50.desc" = "Maglaro ng 50 araw nang sunud-sunod";
-"fbucks.about.streak100.title" = "100-araw na sunod-sunod";
+"fbucks.about.streak100.title" = "100 araw na tuloy-tuloy";
 "fbucks.about.streak100.desc" = "Maglaro ng 100 araw nang sunud-sunod";
 "fbucks.reward.plus1" = "+1 F-Bucks";
 "fbucks.reward.plus2" = "+2 F-Bucks";
 "fbucks.reward.plus5" = "+5 F-Bucks";
 "fbucks.reward.plus10" = "+10 F-Bucks";
-"fbucks.history.title" = "Tagalog";
-"fbucks.history.empty" = "Wala pang kasaysayan";
+"fbucks.history.title" = "Talaan ng mga transaksyon";
+"fbucks.history.empty" = "Wala pang transaksyon";
 "fbucks.history.empty.hint" = "Maglaro at kumita ng F-Bucks!";
 "fbucks.item.traveler_cap" = "Sumbrero ng manlalakbay";
 "fbucks.item.champion_shirt" = "T-shirt ng kampeon";
 "fbucks.item.socks" = "Medyas";
-"fbucks.item.rainbow_skin" = "Balat na bahaghari";
-"fbucks.item.gold_skin" = "Ginintuang balat";
-"fbucks.item.explorer_jacket" = "Jacket ng Explorer";
+"fbucks.item.rainbow_skin" = "Skin na bahaghari";
+"fbucks.item.gold_skin" = "Gintong skin";
+"fbucks.item.explorer_jacket" = "Jacket ng manlalakbay";
 "fbucks.item.fire_effect" = "Epekto ng apoy";
-"fbucks.item.neon_skin" = "Neon na balat";
+"fbucks.item.neon_skin" = "Neon na skin";
 "fbucks.item.stars_effect" = "Epekto ng bituin";
 "fbucks.item.champion_jacket" = "Jacket ng kampeon";
 "fbucks.tx.daily_bonus" = "Araw-araw na bonus";
@@ -1712,7 +1712,7 @@
 "learning.country.section.gov" = "Mga wika at pamahalaan";
 "learning.country.section.more" = "Higit pa";
 "learning.country.region" = "Rehiyon";
-"learning.country.gallery.title" = "Gallery";
+"learning.country.gallery.title" = "Galeriya";
 "learning.country.gallery.tap_hint" = "I-tap ang tile para palakihin";
 "learning.country.a11y.favorite" = "Paborito";
 "learning.country.a11y.difficult" = "Markahan bilang mahirap";
