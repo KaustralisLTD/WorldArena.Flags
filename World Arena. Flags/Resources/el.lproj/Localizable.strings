@@ -52,9 +52,9 @@
 "World Flags" = "Σημαίες του κόσμου";
 "Learn flags of the world" = "Μάθετε τις σημαίες του κόσμου";
 "Score" = "Σκορ";
-"Exit" = "Εξοδος";
+"Exit" = "Έξοδος";
 "Error loading countries" = "Σφάλμα φόρτωσης χωρών";
-"Retry" = "Δοκιμάζω πάλι";
+"Retry" = "Δοκιμάστε ξανά";
 "System" = "Σύστημα";
 
 // Start Screen
@@ -66,7 +66,7 @@
 "All Regions" = "Όλες οι Περιφέρειες";
 "Europe" = "Ευρώπη";
 "Asia" = "Ασία";
-"Americas" = "Αμερικής";
+"Americas" = "Αμερική";
 "Africa" = "Αφρική";
 "Oceania" = "Ωκεανία";
 "North America" = "Βόρεια Αμερική";
@@ -74,21 +74,21 @@
 
 // Game Over
 "Game Over!" = "Το παιχνίδι τελείωσε!";
-"points" = "σημεία";
-"Play Again" = "Ξαναπαίζω";
+"points" = "πόντοι";
+"Play Again" = "Παίξτε ξανά";
 "Repeat Duel" = "Επανάληψη μονομαχίας";
-"Home" = "Σπίτι";
+"Home" = "Αρχική";
 
 // Statistics
-"Statistics" = "Στατιστική";
+"Statistics" = "Στατιστικά";
 "Total Games" = "Σύνολο παιχνιδιών";
 "Best Score" = "Καλύτερο σκορ";
 "Correct Answers" = "Σωστές Απαντήσεις";
 "Accuracy" = "Ακρίβεια";
-"Best Time" = "Καλύτερη ώρα";
-"Time" = "Φορά";
-"Clear" = "Σαφής";
-"Close" = "Κοντά";
+"Best Time" = "Καλύτερος χρόνος";
+"Time" = "Χρόνος";
+"Clear" = "Εκκαθάριση";
+"Close" = "Κλείσιμο";
 
 // Game Results
 "Excellent game!" = "🏆 Εξαιρετικό!";
@@ -96,11 +96,11 @@
 "Good game!" = "👍 Καλό παιχνίδι!";
 "Keep practicing!" = "💪 Συνέχισε την εξάσκηση!";
 // English (default)
-"Play Again" = "Ξαναπαίζω";
+"Play Again" = "Παίξτε ξανά";
 
 // Share
-"Share Result" = "Μερίδιο";
-"Share" = "Μερίδιο";
+"Share Result" = "Κοινοποίηση";
+"Share" = "Κοινοποίηση";
 "ACCURACY" = "Ακρίβεια";
 "TOTAL XP" = "Σύνολο XP";
 "CONTINUE" = "Συνεχίζω";
@@ -112,8 +112,8 @@
 "AMAZING" = "Καταπληκτικός";
 "GOOD" = "Καλός";
 "KEEP GOING" = "Συνεχίζω";
-"Play Again" = "Ξαναπαίζω";
-"Home" = "Σπίτι";
+"Play Again" = "Παίξτε ξανά";
+"Home" = "Αρχική";
 "Quest Update!" = "Ενημέρωση Quest!";
 "quest.play_again.duel" = "Επανάληψη μονομαχίας";
 "Check your progress" = "Ελέγξτε την πρόοδό σας";
@@ -451,7 +451,7 @@
 "Following" = "Φίλοι";
 "Days in a row" = "Μέρες στη σειρά";
 "Joined in %@" = "Στο παιχνίδι από το %@";
-"Statistics" = "Στατιστική";
+"Statistics" = "Στατιστικά";
 "Total XP" = "Σύνολο XP";
 "Current streak" = "Τρέχον σερί";
 "Best streak" = "Καλύτερο σερί";
@@ -917,7 +917,7 @@
 "Keep subscription" = "Διατήρηση συνδρομής";
 "Yes, cancel" = "Ναι, ακύρωση";
 "Are you sure you want to cancel premium? You will lose access to all premium features." = "Είστε βέβαιοι ότι θέλετε να ακυρώσετε το premium; Θα χάσετε την πρόσβαση σε όλες τις λειτουργίες premium.";
-"Close" = "Κοντά";
+"Close" = "Κλείσιμο";
 "Red" = "Κόκκινος";
 "Most popular color fact description" = "Το κόκκινο είναι παρόν στο 75% όλων των εθνικών σημαιών παγκοσμίως, καθιστώντας το το πιο δημοφιλές χρώμα σημαιών.";
 

@@ -220,19 +220,19 @@
 // Game Over
 "points" = "punts";
 "Play Again" = "Tornar a jugar";
-"Repeat Duel" = "Tornar a duelar";
+"Repeat Duel" = "Repeteix el duel";
 "Home" = "Inici";
 
 // Statistics
 "Statistics" = "Estadístiques";
-"Total Games" = "Jocs totals";
+"Total Games" = "Total de partides";
 "Best Score" = "Millor puntuació";
 "Correct Answers" = "Respostes correctes";
 "Accuracy" = "Precisió";
 "Best Time" = "Millor temps";
 "Time" = "Temps";
-"Clear" = "Netejar";
-"Close" = "Tancar";
+"Clear" = "Esborra";
+"Close" = "Tanca";
 "Clear Statistics" = "Esborrar estadístiques";
 "Are you sure you want to clear all statistics?" = "Estàs segur que vols esborrar totes les estadístiques?";
 "Cancel" = "Cancel·lar";
@@ -244,8 +244,8 @@
 "Keep practicing!" = "💪 Segueix practicant!";
 
 // Share Result
-"Share Result" = "Compartir";
-"Share" = "Compartir";
+"Share Result" = "Comparteix";
+"Share" = "Comparteix";
 "ACCURACY" = "Precisió";
 "TOTAL XP" = "XP Total";
 "CONTINUE" = "Continuar";
@@ -784,7 +784,7 @@
 "Keep subscription" = "Mantenir subscripció";
 "Yes, cancel" = "Sí, cancel·lar";
 "Are you sure you want to cancel premium? You will lose access to all premium features." = "Estàs segur que vols cancel·lar premium? Perdràs l'accés a totes les funcions premium.";
-"Close" = "Tancar";
+"Close" = "Tanca";
 "Red" = "Vermell";
 "Most popular color fact description" = "El vermell està present al 75% de totes les banderes nacionals del món, cosa que el converteix en el color de bandera més popular.";
 

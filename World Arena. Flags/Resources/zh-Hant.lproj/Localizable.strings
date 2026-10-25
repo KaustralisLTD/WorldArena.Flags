@@ -52,8 +52,8 @@
 "World Flags" = "世界國旗";
 "Learn flags of the world" = "了解世界各國國旗";
 "Score" = "分數";
-"Exit" = "出口";
-"Error loading countries" = "加載國家/地區時出錯";
+"Exit" = "離開";
+"Error loading countries" = "載入國家資料時發生錯誤";
 "Retry" = "重試";
 "System" = "系統";
 
@@ -74,17 +74,17 @@
 
 // Game Over
 "Game Over!" = "遊戲結束！";
-"points" = "點";
+"points" = "分";
 "Play Again" = "再玩一次";
 "Repeat Duel" = "再對決一次";
-"Home" = "家";
+"Home" = "首頁";
 
 // Statistics
 "Statistics" = "統計數據";
 "Total Games" = "總比賽數";
 "Best Score" = "最佳成績";
 "Correct Answers" = "正確答案";
-"Accuracy" = "準確性";
+"Accuracy" = "答對率";
 "Best Time" = "最佳時間";
 "Time" = "時間";
 "Clear" = "清除";
@@ -93,15 +93,15 @@
 // Game Results
 "Excellent game!" = "🏆 太棒了！";
 "Great result!" = "🎯 很好的結果！";
-"Good game!" = "👍 好遊戲！";
-"Keep practicing!" = "💪繼續練習！";
+"Good game!" = "👍 玩得不錯！";
+"Keep practicing!" = "💪 繼續練習！";
 // English (default)
 "Play Again" = "再玩一次";
 
 // Share
 "Share Result" = "分享";
 "Share" = "分享";
-"ACCURACY" = "準確性";
+"ACCURACY" = "答對率";
 "TOTAL XP" = "總經驗值";
 "CONTINUE" = "繼續";
 "Perfect! You're unstoppable!" = "完美的！你勢不可擋！";
@@ -113,7 +113,7 @@
 "GOOD" = "好的";
 "KEEP GOING" = "繼續前進";
 "Play Again" = "再玩一次";
-"Home" = "家";
+"Home" = "首頁";
 "Quest Update!" = "任務更新！";
 "quest.play_again.duel" = "再戰決鬥";
 "Check your progress" = "檢查您的進度";
@@ -456,7 +456,7 @@
 "Current streak" = "目前連勝";
 "Best streak" = "最佳連勝紀錄";
 "Total games" = "總比賽數";
-"Accuracy" = "準確性";
+"Accuracy" = "答對率";
 "Add Friends" = "新增好友";
 "Overview" = "概述";
 "Friend Streaks" = "好友連勝";

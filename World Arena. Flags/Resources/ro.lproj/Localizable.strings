@@ -50,17 +50,17 @@
 "Лига Мастеров" = "Liga Maeștrilor";
 // General
 "World Flags" = "Steaguri ale lumii";
-"Learn flags of the world" = "Învață steaguri ale lumii";
+"Learn flags of the world" = "Învață steagurile lumii";
 "Score" = "Scor";
 "Exit" = "Ieșire";
 "Error loading countries" = "Eroare la încărcarea țărilor";
-"Retry" = "Reîncercați";
+"Retry" = "Încearcă din nou";
 "System" = "Sistem";
 
 // Start Screen
-"Select Language" = "Selectați Limbă";
-"Select Region" = "Selectați Regiune";
-"Select Regions" = "Selectați Regiuni";
+"Select Language" = "Alege limba";
+"Select Region" = "Alege regiunea";
+"Select Regions" = "Alege regiunile";
 "Multiple Regions" = "Mai multe regiuni";
 "START GAME" = "ÎNCEPE JOCUL";
 "All Regions" = "Toate Regiunile";
@@ -87,14 +87,14 @@
 "Accuracy" = "Precizie";
 "Best Time" = "Cel mai bun timp";
 "Time" = "Timp";
-"Clear" = "Clar";
-"Close" = "Aproape";
+"Clear" = "Șterge";
+"Close" = "Închide";
 
 // Game Results
 "Excellent game!" = "🏆 Excelent!";
 "Great result!" = "🎯 Un rezultat excelent!";
 "Good game!" = "👍 Bun joc!";
-"Keep practicing!" = "💪 Continuați să exersați!";
+"Keep practicing!" = "💪 Continuă să exersezi!";
 // English (default)
 "Play Again" = "Joacă din nou";
 
@@ -917,7 +917,7 @@
 "Keep subscription" = "Păstrați abonamentul";
 "Yes, cancel" = "Da, anulează";
 "Are you sure you want to cancel premium? You will lose access to all premium features." = "Sigur doriți să anulați premium? Veți pierde accesul la toate funcțiile premium.";
-"Close" = "Aproape";
+"Close" = "Închide";
 "Red" = "Roşu";
 "Most popular color fact description" = "Roșul este prezent pe 75% din toate steagurile naționale din întreaga lume, ceea ce îl face cea mai populară culoare a steagului.";
 

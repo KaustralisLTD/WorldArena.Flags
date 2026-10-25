@@ -59,7 +59,7 @@
 "Идеальная неделя" = "Идеальная неделя";
 // General
 "World Flags" = "Флаги Мира";
-"Learn flags of the world" = "Изучайте флаги мира";
+"Learn flags of the world" = "Изучай флаги мира";
 "Score" = "Счёт";
 "Exit" = "Выход";
 "Error loading countries" = "Ошибка загрузки стран";
@@ -67,9 +67,9 @@
 "System" = "Системная";
 
 // Start Screen
-"Select Language" = "Выберите язык";
-"Select Region" = "Выберите регион";
-"Select Regions" = "Выберите регионы";
+"Select Language" = "Выбери язык";
+"Select Region" = "Выбери регион";
+"Select Regions" = "Выбери регионы";
 "Multiple Regions" = "Несколько регионов";
 "START GAME" = "НАЧАТЬ ИГРУ";
 "All Regions" = "Все регионы";
@@ -86,7 +86,7 @@
 "points" = "очков";
 "Play Again" = "Играть снова";
 "Repeat Duel" = "Повторить дуэль";
-"Home" = "На главную";
+"Home" = "Главная";
 // Russian (ru)
 "Play Again" = "Играть снова";
 // Statistics

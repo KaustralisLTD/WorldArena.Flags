@@ -52,9 +52,9 @@
 "World Flags" = "世界の国旗";
 "Learn flags of the world" = "世界の国旗を学ぶ";
 "Score" = "スコア";
-"Exit" = "出口";
+"Exit" = "終了";
 "Error loading countries" = "国の読み込みエラー";
-"Retry" = "リトライ";
+"Retry" = "再試行";
 "System" = "システム";
 
 // Start Screen
@@ -77,21 +77,21 @@
 "points" = "ポイント";
 "Play Again" = "もう一度プレイする";
 "Repeat Duel" = "もう一度対決";
-"Home" = "家";
+"Home" = "ホーム";
 
 // Statistics
 "Statistics" = "統計";
 "Total Games" = "合計ゲーム数";
 "Best Score" = "ベストスコア";
 "Correct Answers" = "正解";
-"Accuracy" = "正確さ";
+"Accuracy" = "正答率";
 "Best Time" = "ベストタイム";
 "Time" = "時間";
 "Clear" = "クリア";
-"Close" = "近い";
+"Close" = "閉じる";
 
 // Game Results
-"Excellent game!" = "🏆素晴らしい！";
+"Excellent game!" = "🏆 素晴らしい！";
 "Great result!" = "🎯 素晴らしい結果でした！";
 "Good game!" = "👍 良い試合でした！";
 "Keep practicing!" = "💪 練習を続けてください！";
@@ -101,7 +101,7 @@
 // Share
 "Share Result" = "共有";
 "Share" = "共有";
-"ACCURACY" = "正確さ";
+"ACCURACY" = "正答率";
 "TOTAL XP" = "合計XP";
 "CONTINUE" = "続く";
 "Perfect! You're unstoppable!" = "完璧！君は止められないよ！";
@@ -113,7 +113,7 @@
 "GOOD" = "良い";
 "KEEP GOING" = "続けて";
 "Play Again" = "もう一度プレイする";
-"Home" = "家";
+"Home" = "ホーム";
 "Quest Update!" = "クエスト更新！";
 "quest.play_again.duel" = "デュエルをもう一度";
 "Check your progress" = "進捗状況を確認する";
@@ -456,7 +456,7 @@
 "Current streak" = "現在のストリーク";
 "Best streak" = "ベストストリーク";
 "Total games" = "合計ゲーム数";
-"Accuracy" = "正確さ";
+"Accuracy" = "正答率";
 "Add Friends" = "友達を追加する";
 "Overview" = "概要";
 "Friend Streaks" = "フレンドストリーク";
@@ -917,7 +917,7 @@
 "Keep subscription" = "サブスクリプションを維持する";
 "Yes, cancel" = "はい、キャンセルします";
 "Are you sure you want to cancel premium? You will lose access to all premium features." = "プレミアムをキャンセルしてもよろしいですか?すべてのプレミアム機能にアクセスできなくなります。";
-"Close" = "近い";
+"Close" = "閉じる";
 "Red" = "赤";
 "Most popular color fact description" = "赤は世界中の国旗の 75% に使用されており、最も人気のある国旗の色です。";
 

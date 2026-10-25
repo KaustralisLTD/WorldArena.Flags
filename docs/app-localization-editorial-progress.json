@@ -3,8 +3,8 @@
   "standard": "AI editorial review, as selected by the user; not native-speaker certification",
   "base_revision": "391bf1aab94976d26cd9c3e1475aef99a4e318bc",
   "catalog_entries": 48677,
-  "changed_entries": 3624,
-  "reviewed_entries": 9009,
+  "changed_entries": 3850,
+  "reviewed_entries": 10209,
   "languages": {
     "ar": {
       "status": "in_progress",
@@ -310,7 +310,47 @@
         "FACT_01_TITLE": "f3edf6ab02dbbff1feec6d31990525d9cdc34f5183635dbbbec746f339862597",
         "FACT_01_DESC": "26b9cb257e50de537e456d80fb06abfadaf139efcafb9c57dd55b77a3a36971e",
         "FACT_02_TITLE": "0047fd59f2e8102ca0f60fb9e994ee9d9ad0c42d792d4bad9351608169f3e8bb",
-        "FACT_02_DESC": "55a4ebde18875a32f2ebc22f85472016caf2dbe60b9339126e2f8dfa83d27a0f"
+        "FACT_02_DESC": "55a4ebde18875a32f2ebc22f85472016caf2dbe60b9339126e2f8dfa83d27a0f",
+        "Learn flags of the world": "4fd647bcec52352b829de1171babc9ab303fb84eb861380d4205c6d9aea404df",
+        "Score": "1bf03c930bbe4b9e698c41a570e92a92f84f3ed6f679b5bfd7dade5e9879218a",
+        "Exit": "39db927c23ae2f247aa6727be57ab7cd85d25e4617adc39839a9aa2688b8144f",
+        "Error loading countries": "4963f1177a111e43d2fd06a2692d58362704ea01b06eb1fa4c79f93087a729b4",
+        "Retry": "3e5c198a7b3726980773ba7e3eb568e757c53dc0456c0531cffd587488f50597",
+        "System": "c339ab0ce05e017ee5cfeae6916b233209a663c074c7be0eabc4b17f80bb1344",
+        "Select Language": "98932540595030135972b8b041559b4ca6e2967c70be8fcb1701fd5c2b32c258",
+        "Select Region": "f270a3eb3b1e67d894663aaa2cd4f566ccffbc3b41a7ad71fb818a9065800a70",
+        "Select Regions": "dd79e52877c7f974b8bd0987c2d65f81c184eb21a4744ba357c02c2424d4f738",
+        "Multiple Regions": "f982fe9cad204ed19b22167b50a28ea9ee5429eb5ed5b6d2031ee95ab6550c44",
+        "START GAME": "62630d4ef0a41bf12ab3570e128b082f116dad35f4216c0177d7e48c63854a9b",
+        "All Regions": "e6be5e288f13ab19e322750ae22f71a37701ffbe14cf7e574274b3bc5ac79ef8",
+        "Europe": "3817bd91e8d6e8df6a1330df1fdca75f97745eb2155037a8dcb7024a270c4e04",
+        "Asia": "5e56e5985a74baf0e66476b38b16c04b1c14aa6d19316bac3439bcbbbb493920",
+        "Americas": "169718b1e614a76cab45aca68dde90bc51f8a2687bff7af1f9c992f71e198faa",
+        "Africa": "0a864599c8d2b16bd3c924f64404e7d5011ffe1257f2e170ab930fbd064203d1",
+        "Oceania": "57ae756803f6961a0da737a03480110e09ce476afc68aecbb4c40e0b3db8ec62",
+        "North America": "77891fb48b3866d02e826d1628539a122fef0faa3e0e40c8b816b946e7aa3c91",
+        "South America": "74cf26a1b886fc27b172b5fd2e4a1e384f74a6945dfef04e649bb6913184aaf8",
+        "Game Over!": "a9c25c8e2975abc5d2da9c03afd3aa1682cb1fcfa5041efda4c5d6505fb2a90a",
+        "points": "fae4c46756e0fb7c36c7d099df08afeee2c3f8e97a6e05634fc9d29a9e69a36a",
+        "Play Again": "1144cbc11fb76f8e4f498cfa7012e0bc1b170628641780f4430eb157e755ff56",
+        "Repeat Duel": "6fae60df41a674b110bdb0941820439b076b74872a37a1b9c9ba45c0d86fb317",
+        "Home": "bfcf48307970f45a81bec841cac2eaeb3a5f6e2966bc8a6bdb84b61b0f88b88b",
+        "Statistics": "e7d72f37c5cf0bdf5ce5d46ec1485da0e8bab34c5ec8106c8e46e26e15e2af30",
+        "Total Games": "5175245b8bf1061934f690a8bbaa83187b6aaecd5ebbc1dd06f7925bfee2c80a",
+        "Best Score": "d36ae0177583058f5273d1b9d690404ee6a82d3c071b0462254c9542b34312fc",
+        "Correct Answers": "2c0c416ca6f0eb718f6c65dd502de36abd39cd718121428dd368146369aecf97",
+        "Accuracy": "78bd8e55cde4876bacdd9635378ece6b3da42449cabf650f240747180cfbf3b5",
+        "Best Time": "78ddae8b13ceded6486f7933d2088b4525bcfb586bd804db4ae297a898d88d3e",
+        "Time": "a67b6409c22e049d569ad0935e3b9cd817b30cdb1b04b6ad6638601e61468567",
+        "Clear": "308cf07fa826d11841655eec10ff52e8b14f9f8f4764e3a141b994bed85ac81e",
+        "Close": "ca90c297b099ab59f2c5f69a8e7385f9fefc62f8dc08b8e5efb3a0fb262b1a64",
+        "Excellent game!": "fd68b729a476b8a5623f06d769ffbd828655558b38a10ea39a2a99611ec7258a",
+        "Great result!": "3d6b9d809d4a23245ce07a7afbd875a0cdba770e19a8be64bdff275b5114a5d0",
+        "Good game!": "5fb584cde8bf175d364bc5ec1524ffd7206aeb7c31c8fe6bd94b31549d93116f",
+        "Keep practicing!": "4b2195d734db3569234da0983241c58ed875659e11998fd8bde73a86b550534a",
+        "Share Result": "ace24891cec17c671cb7f2e186f8af05e66e4cddf7ce8688b0044c5bda19c316",
+        "Share": "ace24891cec17c671cb7f2e186f8af05e66e4cddf7ce8688b0044c5bda19c316",
+        "ACCURACY": "78bd8e55cde4876bacdd9635378ece6b3da42449cabf650f240747180cfbf3b5"
       },
       "changes": {
         "Time limit per question depending on difficulty": {
@@ -824,9 +864,37 @@
         "FACT_02_DESC": {
           "before": "تمتلك سويسرا العلم الوطني المربع الوحيد في العالم. الفاتيكان لديه أيضًا علم مربع ولكنه دولة مدينة.",
           "after": "لكل من سويسرا ودولة مدينة الفاتيكان علم وطني مربع."
+        },
+        "Clear": {
+          "before": "واضح",
+          "after": "مسح"
+        },
+        "Close": {
+          "before": "يغلق",
+          "after": "إغلاق"
+        },
+        "Home": {
+          "before": "بيت",
+          "after": "الرئيسية"
+        },
+        "Share": {
+          "before": "يشارك",
+          "after": "مشاركة"
+        },
+        "Share Result": {
+          "before": "يشارك",
+          "after": "مشاركة"
+        },
+        "Exit": {
+          "before": "مخرج",
+          "after": "خروج"
+        },
+        "Americas": {
+          "before": "الأمريكتين",
+          "after": "الأمريكتان"
         }
       },
-      "pending_count": 1312
+      "pending_count": 1272
     },
     "bn": {
       "status": "in_progress",
@@ -1132,7 +1200,47 @@
         "FACT_01_TITLE": "ae459742d378ee3afdd734a909fec8132feacfedc88f170d60b44aef017d01e8",
         "FACT_01_DESC": "c993714baea8855364e3f20fbd5c5a91d0c1219722a2a90d83a5894d35713d91",
         "FACT_02_TITLE": "10d4f9ba4c468b153e1a0086b9e8696802546751c2bd1c78cead83ef5c3b72d7",
-        "FACT_02_DESC": "9b93f024c7b837a73b9b6a5cb9fdf49242344100a30f750e2008df7295661769"
+        "FACT_02_DESC": "9b93f024c7b837a73b9b6a5cb9fdf49242344100a30f750e2008df7295661769",
+        "Learn flags of the world": "1a44e5c03a9d254b1683ef9f26d99c560a94bdc6189c3ef23d0882a56e20dcbd",
+        "Score": "52472f752f008c3610e2b430f45fb5f7880ab3d10e0814dac14ad84f87e4640a",
+        "Exit": "2e1b658a10fb6174a90abd3c66d20a3a4385c4a867bd79b4cf7b0c9d66e7d9dd",
+        "Error loading countries": "182fe7088280c3772bbc12baa3a1946773f29aeb8ef5a4caf0e741fb45c84554",
+        "Retry": "8ae1142c275ede43ac252a54924e5ee8878c32b8be4293101aa5fbb6d435b723",
+        "System": "d9b49f3a25b809cc2d4ec84646f28c2b55a6fb57a98f13216f4a61bd3b4d4c02",
+        "Select Language": "4c75131068427445e90d66530e766b135f39b390ed2f92361c834e5f7bc409c9",
+        "Select Region": "832dffa5da075cb4f613880d9184d3422a08374da426668d3cc639038a89338c",
+        "Select Regions": "832dffa5da075cb4f613880d9184d3422a08374da426668d3cc639038a89338c",
+        "Multiple Regions": "4c9d01a5aa225bcc469c21a9984f1f87efe932525ec96e71a9d21829afc9bc59",
+        "START GAME": "5671d59ef260902696ddf2236b8576a22d145b90af6d01e76c85d9580fde3511",
+        "All Regions": "bf240083d7230a2a1352965c8d6a94e068d9eb49247886af243f6a6a7c10eeda",
+        "Europe": "5e12632b874722498967567e8a26b3ee6d49fe867d88cbd7b651d7b7c521d831",
+        "Asia": "63df89427423fe2def5a845f973109f3578e055a1b8422c592a42330178153f6",
+        "Americas": "2790c1a4031ff23c6c9e07f14b46a6495d6ba314849ade7d544370a7e49127ca",
+        "Africa": "aa8a7c5bb418c97b06b80a27f50ca85f93f2b05c03c0c8225b087f53d91007f6",
+        "Oceania": "8dbeab5fa6c84bacf71bbd2fa546dbaeac38a738c1e5b96df08e77a295ac6fba",
+        "North America": "dca45747de2cf3bb5528f657d98a591a78d3ce93faa66f8d11b9fce882e10ae6",
+        "South America": "66b9d7d905e4973bfb4e7f0d034f23314cc4c7fdec1150d99253d7ede4afe104",
+        "Game Over!": "cc6c20214a442a5abe97b1437df32d1a6cf90c0922c522cd95e8aa68fe699523",
+        "points": "4f4d8823dc9bc90dc46104f09385a9206c74e076c1d24659aed3cae83a555335",
+        "Play Again": "47c758b2f5b4b092fd40dce21f6752959323ee7c03e368bc7f71aed7e6740f60",
+        "Repeat Duel": "700fd4d9f1622b7eefba5782cf4a2c7632868e44a2aad2abe2e68c4067508ae8",
+        "Home": "932f231d60ce8179a10f166ec478ff27b67faf0d138980a4633b3e3f23aeea9c",
+        "Statistics": "3efc5284f456578cfdb992f06591bc367893d14e2dd43d6da2c373b744073eaf",
+        "Total Games": "d640c5ec6b842a598355acaee1895b89442e55edfcb224b5ee9f719ba42fa750",
+        "Best Score": "d8413eb4a6cbff42654460995bfc56df87e90e655ccd93fc4588637f8a6a687f",
+        "Correct Answers": "ab0a6b2c24fde8bccd1117bd3f595f9da9fc07b1cb92e2eb3c846157bbbbe099",
+        "Accuracy": "787cb0aed30cdbe3655ba6d001f4a9eb797f284eef181e1c233f4c084cafb50f",
+        "Best Time": "93dba30f3abc795709e4ee7e7d90d91ebec2b6c8ba9812b8b324e10568a9b82a",
+        "Time": "18946e3259fc5ed6cd22c9f9ab62cc2fe7c1f9f64a25d1556325bb8ed57f6742",
+        "Clear": "f8e7092575a00c73156088ee86aff832e143a3c5c6b29e6fd46294afe69f6c0d",
+        "Close": "e7dbccddc0920bc9b75d8cab1b5467d8a2eeb52d673091e972603456bb9b480b",
+        "Excellent game!": "19d7575488180873f21c83db58dbc932fde1168414de41e3237e0794cacacd2f",
+        "Great result!": "17ff51f609d87092422acb30e8bf172e9bef3c0f9e3de9064dc16c68f35879b2",
+        "Good game!": "4d2e47d7f157cfbc643ad4d44f5560b6cec3ae2469519b430a718799035c723c",
+        "Keep practicing!": "2b0cff2a9e915a6376efac37aea1e823d2558a52855425a08f113bd0180daa9f",
+        "Share Result": "cc50565672b642de01945f70759c169ab1110f8baef115c908f4b90e3df585c8",
+        "Share": "cc50565672b642de01945f70759c169ab1110f8baef115c908f4b90e3df585c8",
+        "ACCURACY": "787cb0aed30cdbe3655ba6d001f4a9eb797f284eef181e1c233f4c084cafb50f"
       },
       "changes": {
         "Time limit per question depending on difficulty": {
@@ -1606,9 +1714,25 @@
         "FACT_02_DESC": {
           "before": "বিশ্বের একমাত্র বর্গাকার জাতীয় পতাকা রয়েছে সুইজারল্যান্ডের। ভ্যাটিকানেরও একটি বর্গাকার পতাকা রয়েছে তবে এটি একটি শহর-রাষ্ট্র।",
           "after": "সুইজারল্যান্ড ও ভ্যাটিকান সিটি—দুই দেশের জাতীয় পতাকাই বর্গাকার।"
+        },
+        "Clear": {
+          "before": "পরিষ্কার",
+          "after": "মুছে ফেলুন"
+        },
+        "Close": {
+          "before": "বন্ধ",
+          "after": "বন্ধ করুন"
+        },
+        "Home": {
+          "before": "বাড়ি",
+          "after": "হোম"
+        },
+        "Repeat Duel": {
+          "before": "ডুয়েল আবার",
+          "after": "আবার দ্বৈরথ খেলুন"
         }
       },
-      "pending_count": 1312
+      "pending_count": 1272
     },
     "ca": {
       "status": "in_progress",
@@ -1904,7 +2028,47 @@
         "FACT_01_TITLE": "9b66dd529b921a7ff7bb3e11b3c63d9e30103f7ad9794c29f71c6af480e108e3",
         "FACT_01_DESC": "77a97e76c6bc5f39aae0996aea49eafb9e900bd071c8bc28281e844f479a6c69",
         "FACT_02_TITLE": "99f9e307052416ebecfb851f4d198f5d3edc92fbd155f0dec605799006218934",
-        "FACT_02_DESC": "a5397ce76ae21ab8017c4c8a4eb764cf5f3440e0a4f2dfb77049e374321f1a9b"
+        "FACT_02_DESC": "a5397ce76ae21ab8017c4c8a4eb764cf5f3440e0a4f2dfb77049e374321f1a9b",
+        "Learn flags of the world": "a388254cb1832903735f984daa4e3e205c8e3228bdf978d2695934fbe14721b8",
+        "Score": "e613612d52aff18f9a0d7bd35f3b687e83181963fc1754d98f03bb5f29d7e76b",
+        "Exit": "d1da21c06848f3e2bee1e3b303cbdce9405a255c88f735a54dc91203c1b741a3",
+        "Error loading countries": "1ff9091e3009de2c0d9f635ad73214ed3ea1996d89f4cdaf3887f1b026e6e14d",
+        "Retry": "7cefc77f188ff7a96f7f55bc757578d5817b5ea63eb62075f6636a5b980571f7",
+        "System": "f150afd3c5994d185052d4165729e1db8eae6914164b9471c3e583edfb1db020",
+        "Select Language": "264a0cf4ce1323b23d56ae9905419e949bb01a8c6740d46eb57515aba9f83827",
+        "Select Region": "771568dc9e2c37ddc31dee4deddec3f4b20df4a80e149f302cdf22be9ae8e64f",
+        "Select Regions": "d811cbc3a06be91402aed19139d1f176b5e4425d2845e431eea19db856d34ab9",
+        "Multiple Regions": "00ed17dcee3c054836012703e3bb3b5f15863c84d285979f4adc095cff209213",
+        "START GAME": "5cb23036384be90c753b3ba033e3ccdabbd5718bbb80d4d490b99cbeaf6df551",
+        "All Regions": "41a9a81746d1cff487f9adb01e2e390feffbda3f96a07bdc0769d2f6bb7d9007",
+        "Europe": "fc30e2a579cdb971eb042715c73406cd96935bf3de3562d4800576d10fb61c80",
+        "Asia": "653539728fbbe5274ef9e7c0a9fbb5bcbd9f1e3ea77a818c94b3b2319e7e9484",
+        "Americas": "54f2813f9b70e4bc2fddf51b7650948c6b79c5ca96388ac39062e38ab8c640a5",
+        "Africa": "7c1bff9f2f3a199025857baffb5a255c4a0d9666cae73606ef1da3875040fd41",
+        "Oceania": "4773281fa64f3446d89f2aae17a0f342d1d6260ecd3b3688eb1cc483ced7947a",
+        "North America": "2a14b964eb67ba399bb2a9224387b97ea372b494401e41a8cef12e815f3593a3",
+        "South America": "5e915fbeb1ea01fbc677009c524fa97b10a88d96799ddbdad7eb6017aeabb152",
+        "Game Over!": "f513571b17d1ae61d696e1463e69d9117d9eb989560a5f9179a1952e262ff0f2",
+        "points": "b18214707ce7e8fcac190ba5f1014df4fd6844cb38aa6323bea41c73121af6af",
+        "Play Again": "e5461cab14444e9e9690046595bd139833a8cddcd65bd0f2524eaf08dbe0d83a",
+        "Repeat Duel": "481c894d9408687c071ae65d9274f7f7431cc7b5dcc4c49244ed5b5cd4a9c788",
+        "Home": "fbdcfaee9333540346dfe6c1d496890b40093ca8d406594d6c42f577eb00e8ce",
+        "Statistics": "256caf65631a2f572001a9099b808771ce65d39825d7e58329e4371ef3ff2545",
+        "Total Games": "3289386c8790ffbb37635375e061ebd1821b44f0378e2e1cb42d7e42c3ec4963",
+        "Best Score": "1f6e5ce68bee41c74661fb042a0f709c1da6e6d7418e71ea07d66c6d42b084a4",
+        "Correct Answers": "fc7be65b027cd558ef43fc1ee6d91eb284433f830fb7ac3646bb6441a8da5b3e",
+        "Accuracy": "6dcc17a7fe625154503d38114195c947fa22b37409729acfaeaa8f3706893ab4",
+        "Best Time": "3fc3844b469cdff5d85a4908e00993b3dea359f4f9a57629e606a6a6b9f18b95",
+        "Time": "47b15010ccb454c0cce6be19d03a3b29554d7c952380a0fb1dd41f10b72b20ed",
+        "Clear": "2d3a73a3cfca92ec11e37ea57eac7a707f6d808ffab5eccbe112ab9ccd10f24e",
+        "Close": "69a908cb6b15737059160bdc04cdfed0b3848ef399059867a1a9a766e081612a",
+        "Excellent game!": "c56bdb202b196840194c9bcddbb0040dbd81838a9ec3fcd6bd78141794545e35",
+        "Great result!": "b1aafdccbc8b689b5b3bba01fa5e24e81ec7a7bb612eb6de249b381580eec3f1",
+        "Good game!": "56517146c7f2cc2bffa3004bd744e1c86a329a41db1cb5916f37dbfb9150eff3",
+        "Keep practicing!": "ce2ae52fae3c25bef31208ded30c55f68b1012c9bce0a182742580ea886b721b",
+        "Share Result": "8d4b67d5872c0bd7592f351f737e624fce8f2e3a1085e0d7cb2366f436841f63",
+        "Share": "8d4b67d5872c0bd7592f351f737e624fce8f2e3a1085e0d7cb2366f436841f63",
+        "ACCURACY": "6dcc17a7fe625154503d38114195c947fa22b37409729acfaeaa8f3706893ab4"
       },
       "changes": {
         "Time limit per question depending on difficulty": {
@@ -2314,9 +2478,33 @@
         "FACT_02_DESC": {
           "before": "Suïssa té l'única bandera nacional quadrada del món. El Vaticà també en té una de quadrada però és una ciutat-estat.",
           "after": "Suïssa i la Ciutat del Vaticà tenen banderes nacionals quadrades."
+        },
+        "Clear": {
+          "before": "Netejar",
+          "after": "Esborra"
+        },
+        "Close": {
+          "before": "Tancar",
+          "after": "Tanca"
+        },
+        "Share": {
+          "before": "Compartir",
+          "after": "Comparteix"
+        },
+        "Share Result": {
+          "before": "Compartir",
+          "after": "Comparteix"
+        },
+        "Repeat Duel": {
+          "before": "Tornar a duelar",
+          "after": "Repeteix el duel"
+        },
+        "Total Games": {
+          "before": "Jocs totals",
+          "after": "Total de partides"
         }
       },
-      "pending_count": 1374
+      "pending_count": 1334
     },
     "cs": {
       "status": "in_progress",
@@ -2620,7 +2808,47 @@
         "FACT_01_TITLE": "e551794c32421ee56a89d45f9d5cea3dbb00b6cd19ba4a9a6012128d2963be11",
         "FACT_01_DESC": "d7f0954db22a355ac4ade8630f3d2f55731074db6016c4a94260a6a5f274f801",
         "FACT_02_TITLE": "a018553545dd1e2d90a45804191d2ffacd09ce92fdab1b9d4c5ed9b6a6ca3d6e",
-        "FACT_02_DESC": "58a60b254db062cdf93bfed1126cfa893b563f24dc4c2bcc8fab7bce2498f39b"
+        "FACT_02_DESC": "58a60b254db062cdf93bfed1126cfa893b563f24dc4c2bcc8fab7bce2498f39b",
+        "Learn flags of the world": "93d732c00bf5c048d508c93817505fba08fd9bdb34d242ff4ed39fb1c0750109",
+        "Score": "25b45fbb93142fe699c77941b5f785b7bfff79adcec14580a1422eb8153318c1",
+        "Exit": "67e7fff5397780c5055ca69160596b60489775f416ac307e329ca8f139b55cbc",
+        "Error loading countries": "4d1ceec1a9113370100e465de5b8bc0da2a016a129f33bfb349b7d79dc2fde61",
+        "Retry": "d352e5e289d2d291fc5c456576ce1868f447a591cebb7831b4bf5138d7f19d97",
+        "System": "6173b80eef112994ca857401d1949279c289cdc38eb4959791aeb75ef0fb7fc5",
+        "Select Language": "a05d8460f18e0f236f390da89d0eb8b159a515166c10fa3fbcae78b9cd800798",
+        "Select Region": "d3f3bb52f71f518be07c1bd76e41515a920cd8d4032c23e8e3ea9c88128d4ce8",
+        "Select Regions": "3488bd3bad9a7901a217504ea0650b9bc74f6804665b21072586df1cf2c1a961",
+        "Multiple Regions": "14c28d73445eb71a7e13cff7d8a665385cb8251242c2d73730b720209b65de81",
+        "START GAME": "48e70fdaace87c0f5c2ab66f46cfb9a6a18fcaa047feb455fcf6b1ff1fb41260",
+        "All Regions": "7a3d7bc9b427409ede8d8108c1dbf2452effe612d97a4079f171d0d7608c5136",
+        "Europe": "bbd8235905b38a8123adcfc566bdfdf4851b8ab8110cedcfa599173e430378cd",
+        "Asia": "6248b7b8784ef32212701cce23611422a204323aa11702f59e5fd60979423186",
+        "Americas": "dd62b5489dc23ae2ed77b0037015540e982e76ffd4d5d127e6f7d23b867f666b",
+        "Africa": "5278722838b30152ad9f4ebb8fbf6648a987e70fdc94901b2bb048ebc173b23a",
+        "Oceania": "4bc63026c2666270fe061ecf353997e89df85a7af2c1430f7940755dc1ed3d62",
+        "North America": "c79b6b3d08e98768410805d402cc8630415aa6821083676629c2186d027d7fe6",
+        "South America": "cc37132dc2a3c36d89851790f4126aec4efbf8c48e0c2c77a5cfb212c59aabbe",
+        "Game Over!": "70e4ecfdc2d602db9ac6fa0bf30eb6d5e42c7b9884d738d1c9608059c6cad1a8",
+        "points": "230d8358dc8e8890b4c58deeb62912ee2f20357ae92a5cc861b98e68fe31acb5",
+        "Play Again": "0a777117900273ad5adfd8969e073f7456b4d8a78588b6b2fa417fb872e92bad",
+        "Repeat Duel": "7e048aa5f508960357185b925e1982265f82aa60a29b37543342f4f2e2443ce0",
+        "Home": "79f7c9b9bb843728d34e1b6281e07b646b23072595bf875d12d420cdacc922b6",
+        "Statistics": "592e761c0f69aaeb028fe4c946fd827b8d0768aefddbe83db7400898e77a1201",
+        "Total Games": "ceb437773ded284563ced51c9f6bb9d91d6049a94424bb0a9e2bc4cb4ab05b3e",
+        "Best Score": "d911b3f8ac1a95813aea9665c13df9c0217cbc7b63739499410e660680da1842",
+        "Correct Answers": "ce13971762ff515e289c0530447d53a6303a69c130e5dca053fa0a0b2d5e3dfb",
+        "Accuracy": "065ff59b0e8e232fbea97161dae4e2418c9ec3868e4a06bbd0d82686bc778159",
+        "Best Time": "2c41646d0986ec579b882490e6453cc6bb50cf6dcc487d161b1b55b608db02c5",
+        "Time": "db72d846bf734897e03ea12fe4d7f70c2d007fe03a161f95dc88a6adc4ed496f",
+        "Clear": "8dce6280b32cf7f5b082d36e802d50b4dbe179d3d6ddaa1a78056aa4db6b2577",
+        "Close": "d2be042a9a3866126fcf7a89299cb2ffe934d1c6c9b652f8958b8c579e5c8cab",
+        "Excellent game!": "3fce6c0c7095d2fb1ede4b1ff61a219a6f9959e7c37e3613a55018d3210660cc",
+        "Great result!": "21cfab0dc7e064db75415ca772323954864b9811119c26b811c3f9f3b9c40644",
+        "Good game!": "bad4193cfb0c845a9d91f7660606705285a146ab795019caefd11a66e0ec6e20",
+        "Keep practicing!": "51dc350ee94812407f018fe998f05ea151008be77feacc71d434edb1de3eac61",
+        "Share Result": "b1b00f1522975e4adb2494a5086296685173f54c787c33da8a13c65d7e06aff1",
+        "Share": "b1b00f1522975e4adb2494a5086296685173f54c787c33da8a13c65d7e06aff1",
+        "ACCURACY": "065ff59b0e8e232fbea97161dae4e2418c9ec3868e4a06bbd0d82686bc778159"
       },
       "changes": {
         "Time limit per question depending on difficulty": {
@@ -3038,9 +3266,33 @@
         "FACT_02_DESC": {
           "before": "Švýcarsko má jedinou čtvercovou státní vlajku na světě. Vatikán má také čtvercovou vlajku, ale je městským státem.",
           "after": "Švýcarsko i Vatikán mají čtvercové státní vlajky."
+        },
+        "Clear": {
+          "before": "Jasný",
+          "after": "Vymazat"
+        },
+        "Close": {
+          "before": "Blízko",
+          "after": "Zavřít"
+        },
+        "Home": {
+          "before": "Domov",
+          "after": "Domů"
+        },
+        "Share": {
+          "before": "Podíl",
+          "after": "Sdílet"
+        },
+        "Share Result": {
+          "before": "Podíl",
+          "after": "Sdílet"
+        },
+        "Exit": {
+          "before": "Výstup",
+          "after": "Ukončit"
         }
       },
-      "pending_count": 1314
+      "pending_count": 1274
     },
     "de": {
       "status": "in_progress",
@@ -3344,7 +3596,47 @@
         "FACT_01_TITLE": "490633aec8acd7baff1528a65e46cc65d0a16bbfddc4daf185db60f19522d1de",
         "FACT_01_DESC": "03c454dcce52ba9cbd651895eeff69dd501b7b2abd02b2f2eae20921107337f4",
         "FACT_02_TITLE": "959ef677b850e1f7d239dcf1eff7b153040af097d2fa1c407915a46ec773dcf4",
-        "FACT_02_DESC": "e26af3c40a38f362fd144e76c4223f4a023c01236dd9106eeb722917cacdd866"
+        "FACT_02_DESC": "e26af3c40a38f362fd144e76c4223f4a023c01236dd9106eeb722917cacdd866",
+        "Learn flags of the world": "79ec6f4cd97539ec89854b7172f6c402a656673371a268e3ff27a816f8e177b6",
+        "Score": "163182e7e7d627c6ab2e04baee02a529551a6de33ce6030044745129c38de817",
+        "Exit": "a22c31f6e3e3591ca23bbb8a59cf60dddb028386bde043f1c6f1b7b5f8d86ada",
+        "Error loading countries": "6ef428942cbb89a1ada100a10148078d6236525b7ff1ff307f7d6189eae3f427",
+        "Retry": "948643cb59e8274f40500593ac6029afcf419fc434c870fb8177b5185e0a2e9b",
+        "System": "db6cf71cd0342d7b6bb52a1e9362d240737b099c9d21eab513537133603182c8",
+        "Select Language": "a9f2e4b70b759b1c27942c3da14ce0599b0a1e176eba925da39932b4e21ed125",
+        "Select Region": "419e24601c9720efe23e5487604f8b0d667f3ccec02742fe9c9893e8a58aa300",
+        "Select Regions": "5de3184bcaad7d86f94b319d31c0933401d7950f7a998121ea54b065af873bc9",
+        "Multiple Regions": "5cc16957de8b1a23b74c46414dea753afea161523a95678bf3382f117dec7c66",
+        "START GAME": "7c193a6ced1af79e983788838ac6a843313fd0744c31b814c2f4342941ded660",
+        "All Regions": "a4f0255479be63533050e9ffa90117e3420883084ef94de693a528d55cecf371",
+        "Europe": "fc30e2a579cdb971eb042715c73406cd96935bf3de3562d4800576d10fb61c80",
+        "Asia": "27cdbd5fe1e53e492c518e298ab9e9799524a818cf3875018684f469da9cc997",
+        "Americas": "ae89eb22e8ee9889c343520363d2020b356e8ebf24f55be13c77689993be9939",
+        "Africa": "5278722838b30152ad9f4ebb8fbf6648a987e70fdc94901b2bb048ebc173b23a",
+        "Oceania": "fd347f93579cacfb98e44f2df2aed159554692e2b8e0c1d463500b7d4c39cc74",
+        "North America": "a53fc17c6328aba44ce496a686205150f5605ff2c94efbb22e4723d87abef784",
+        "South America": "3c27eb210163b4a9d26975aa631ca641707cfa9605780e4e815df246fa521fa3",
+        "Game Over!": "f301f1ca38804bd15ecfbad61f393b97cf7da9b07b4b667c0dc746ee8112ada8",
+        "points": "867ecbb11273a0c450961e4f4836e13fc620ae0ca4f3ec128981c82acf1bfbff",
+        "Play Again": "626dd86b3b1985a888c069adac89a1f9e31d91128cb59b4d63ab56a89afd33c4",
+        "Repeat Duel": "32a1d6e82746669ea51f1b22e698c970e0ad4e5c9dfca09b5778d851015b1636",
+        "Home": "e04d24c52b3d2893ac140c8aa2f0a0d678d8114d421a1cbbd34da154bee23ec5",
+        "Statistics": "c0c20fa65564b8088406236c2237f29908e41c6b1188fc2fbe2e6eef6f29f740",
+        "Total Games": "169e03ffb16c90139fd91c9734e8f76730d52dd77fac3e290b92f053f3cfdd2c",
+        "Best Score": "26b6ad10a51998dc56dbb56e1847b86df308e96685fd8b73433910c066d7ab2c",
+        "Correct Answers": "2be123ff9fd7dbd4cf2cb727ffb7941b88d3a498c5563ee269cfa9862d31604f",
+        "Accuracy": "6a723eedba1409afe4c8ef5aa6f6e37b3b69885a81e7b228bd979ac0e7426229",
+        "Best Time": "68c1255bf9faf7944a824a44198acee41505f9c9a5853f4401b40670ec95932a",
+        "Time": "74f24931f4dcc0e6169f98dc14b2a8b24ada9db87cb1a99577f7dea2df87841e",
+        "Clear": "9de63c78485ea94a51840a0ff886796dcee9b9449e7377950cff25deb22fc6dd",
+        "Close": "b808f6e97075772fe36de2ee4ea0eb310550f84baa9ea8aa88314f21e467616d",
+        "Excellent game!": "d5e3115c69478bb9f9fba267725588a84ecfb97c4fcae6af1ae9a5a9ba342121",
+        "Great result!": "ea7529fe343609360ae3dce4aaaa6b548a8358b8ddad309f438e058c8d5141ef",
+        "Good game!": "34bbc933a4f3704af80c94954a5a442df7be54d4d0311179d590c3f4f8109886",
+        "Keep practicing!": "1e189b5098c3333accf8e09026fed0eac2c732f2e2667909ec0d74bf9485a76d",
+        "Share Result": "3050e581f29461ae253adfe7c90d3d535453a04dc34357d26c3e04234368deef",
+        "Share": "3050e581f29461ae253adfe7c90d3d535453a04dc34357d26c3e04234368deef",
+        "ACCURACY": "6a723eedba1409afe4c8ef5aa6f6e37b3b69885a81e7b228bd979ac0e7426229"
       },
       "changes": {
         "Time limit per question depending on difficulty": {
@@ -3830,9 +4122,69 @@
         "FACT_02_DESC": {
           "before": "Die Schweiz hat die einzige quadratische Nationalflagge der Welt. Der Vatikan hat ebenfalls eine quadratische Flagge, ist aber ein Stadtstaat.",
           "after": "Sowohl die Schweiz als auch die Vatikanstadt haben quadratische Nationalflaggen."
+        },
+        "Clear": {
+          "before": "Klar",
+          "after": "Leeren"
+        },
+        "Home": {
+          "before": "Heim",
+          "after": "Startseite"
+        },
+        "Share": {
+          "before": "Aktie",
+          "after": "Teilen"
+        },
+        "Share Result": {
+          "before": "Aktie",
+          "after": "Teilen"
+        },
+        "Excellent game!": {
+          "before": "ð Ausgezeichnet!",
+          "after": "🏆 Ausgezeichnet!"
+        },
+        "Great result!": {
+          "before": "ð¯ Tolles Ergebnis!",
+          "after": "🎯 Tolles Ergebnis!"
+        },
+        "Good game!": {
+          "before": "ð Gutes Spiel!",
+          "after": "👍 Gutes Spiel!"
+        },
+        "Keep practicing!": {
+          "before": "ðª Übe weiter!",
+          "after": "💪 Übe weiter!"
+        },
+        "Learn flags of the world": {
+          "before": "Lernen Sie Flaggen der Welt",
+          "after": "Lerne die Flaggen der Welt"
+        },
+        "Exit": {
+          "before": "Ausfahrt",
+          "after": "Verlassen"
+        },
+        "Retry": {
+          "before": "Wiederholen",
+          "after": "Erneut versuchen"
+        },
+        "Select Language": {
+          "before": "Wählen Sie Sprache aus",
+          "after": "Sprache wählen"
+        },
+        "Select Region": {
+          "before": "Wählen Sie Region aus",
+          "after": "Region wählen"
+        },
+        "Select Regions": {
+          "before": "Wählen Sie Regionen aus",
+          "after": "Regionen wählen"
+        },
+        "Play Again": {
+          "before": "Spielen Sie noch einmal",
+          "after": "Erneut spielen"
         }
       },
-      "pending_count": 1315
+      "pending_count": 1275
     },
     "el": {
       "status": "in_progress",
@@ -4151,7 +4503,47 @@
         "FACT_01_TITLE": "77d493ffe1dd80aa0b613643939195f2caeeee58c4a6360dab6cb476eded059c",
         "FACT_01_DESC": "0a0c59b17685e49b50f0c35e9ff409a8adef306a1565e2be4d2608af0d7debf5",
         "FACT_02_TITLE": "e128b8d16de73fa41a62b68973bd80d42ca81dc97dd1d86d0779ec4df5905319",
-        "FACT_02_DESC": "01fd42fce273ce8e1d573f4a982a84d9653cf1adf08a38d536e991e365c83722"
+        "FACT_02_DESC": "01fd42fce273ce8e1d573f4a982a84d9653cf1adf08a38d536e991e365c83722",
+        "Learn flags of the world": "1e81d7f4eeea71ef3b10e0d894d63ef164963e3dcae5a1f28befc752259bbd75",
+        "Score": "6c06e338067db363c2d8234e26ba73e9e406c15f96fa297bb407b76377707720",
+        "Exit": "6a5920d4ffad7a4275b8c5eff6b79123059ff312c390c65bcd3e4362661085d0",
+        "Error loading countries": "ad1596a2a25866a5450457cfebe6a43f0e6a4e67f42295ef46b426fd10e8c909",
+        "Retry": "7670458bdc1ba9935e52f0e4b18bb53c18a55e6c36d3da0c16d4f36f7c0599c0",
+        "System": "0a04535810cc9c6839113d3bfe93b5bfa82b5aa1f0fc443e7a837b71e58ea01a",
+        "Select Language": "0138f70f1144865d026a036f59e0cd2d121e55ecd0b4434a4d2144a148358d7e",
+        "Select Region": "21ae922d4208992a8cad3e953434e1e255fef1c3b78b87b1671747e9192bbf24",
+        "Select Regions": "4264965041c0680a2b7c76747602e689841915fa9bcd8bd03375d994dbd9fdde",
+        "Multiple Regions": "a46454a373af3a36d4bdd2bb1b097f3a59570f97a3185eea9482dec59295406c",
+        "START GAME": "f2538aceda44556c2e9258bbbe8ce5e8aa532f6dd623bc8455dbedb696de8ac3",
+        "All Regions": "cda730e2340b0543cd34698a17b2d742b3dac4a560b655b59f6a53119517a5d3",
+        "Europe": "75621c1873a5d12d9608d23f926efc3cada34f0b8d6db5679bb773a806bb4759",
+        "Asia": "4cee1527beab28fc2f6e177c0bc0ed2c39861879cc09fb23c6ce8fa085864178",
+        "Americas": "f59e90a646855e7b6b46f56f9257f02f17bd21877bf21a59cb40e077e48ba226",
+        "Africa": "ff6bb838f61e683a0346e24d8aebf6509b76f048124b9551c828f8392bd6ca7e",
+        "Oceania": "53e1bb18366d30aac9d0dbfa70821ec00f1e52f5760dd2be116600ceddf6eded",
+        "North America": "182ea887d19459f222a12490683cd93d442d876e95ac5619d8474c0cc00eda82",
+        "South America": "cf10b4ac4d31ce5b34e723ca90513269fd3ac67b6a379590d38c77fa18fde724",
+        "Game Over!": "63d73d1fcdac22b7ba6243336cb54d63882977036a064bfc77b47f973c36c089",
+        "points": "61323c8405a1034c5e2b4645360176cf28de0235be3efe385600d6c0bb7c25d3",
+        "Play Again": "088f41778c03e89398bf9457ef32def373be9616b3774a7e2b1c3915da4eabfa",
+        "Repeat Duel": "3c4b2d3694dd371fb27326394b9b1513dd190c9f428beca0dc638a055d06c020",
+        "Home": "d2278e8035a032b10deae03c1ba92a394a4e9399fe1c65b31fd6cfacce59e619",
+        "Statistics": "bc206b0d2c28069dfbb8a5817a97989ec262c922446498aa08122b44738f9c4b",
+        "Total Games": "b197bbd1f195c164c60e05c3957904343999a40befafa6cdaeb255e90e134e3e",
+        "Best Score": "dc60065b2ada09ec4c0909adfb21707368293054bedf46891e9d3742bd3130a3",
+        "Correct Answers": "730655a06ae56386ec1275c947d382ea2dc611f79098b27c260a1b5db62e0af7",
+        "Accuracy": "43f641e17fa2a4edbc581e616f13b50879867a40041abfa741ba973790aeb585",
+        "Best Time": "1e7a762c7c8477fa7aaf6ab5c3740e3d940df1f12480bff2f329f0a0b644b9ed",
+        "Time": "48a54530d700cdc9c4277fe68ad8b5663661ff65394900f377d2cc78099d0acc",
+        "Clear": "8caa29237569684b484ff39047daad8d8c2ee23faf2010b201a23a4d23547432",
+        "Close": "9586fe4a3587d40361a1e214c0284ee54c044a2e4f986b9684f6aa3dae588ab6",
+        "Excellent game!": "a18312e69a91179c871bbd0da424b42a9d4de0f0b5ad75081fec1197d08143fb",
+        "Great result!": "f8cdcedd4337c90bb81c17897083f5038337b12fe26bcec4d46108738c63b019",
+        "Good game!": "8a2bf882d66bd86dca5c4720f6ad99ef0a48f68a5ef6655e5e6a4f8e4b50df91",
+        "Keep practicing!": "f06beadd0785b8581d94f857dc2ab859f85d6462b66a8a8a2e5ffdcae6e0e048",
+        "Share Result": "b2a98d2c783b5598dbb28310c17bf9a772536fe90eb4b88ab4f4627cfaadfd3e",
+        "Share": "b2a98d2c783b5598dbb28310c17bf9a772536fe90eb4b88ab4f4627cfaadfd3e",
+        "ACCURACY": "43f641e17fa2a4edbc581e616f13b50879867a40041abfa741ba973790aeb585"
       },
       "changes": {
         "Time limit per question depending on difficulty": {
@@ -4733,9 +5125,61 @@
         "FACT_02_DESC": {
           "before": "Η Ελβετία έχει τη μοναδική τετράγωνη εθνική σημαία στον κόσμο. Το Βατικανό έχει επίσης τετράγωνη σημαία αλλά είναι πόλη-κράτος.",
           "after": "Η Ελβετία και το Βατικανό έχουν τετράγωνες εθνικές σημαίες."
+        },
+        "Clear": {
+          "before": "Σαφής",
+          "after": "Εκκαθάριση"
+        },
+        "Close": {
+          "before": "Κοντά",
+          "after": "Κλείσιμο"
+        },
+        "Home": {
+          "before": "Σπίτι",
+          "after": "Αρχική"
+        },
+        "Share": {
+          "before": "Μερίδιο",
+          "after": "Κοινοποίηση"
+        },
+        "Share Result": {
+          "before": "Μερίδιο",
+          "after": "Κοινοποίηση"
+        },
+        "Exit": {
+          "before": "Εξοδος",
+          "after": "Έξοδος"
+        },
+        "Retry": {
+          "before": "Δοκιμάζω πάλι",
+          "after": "Δοκιμάστε ξανά"
+        },
+        "Americas": {
+          "before": "Αμερικής",
+          "after": "Αμερική"
+        },
+        "points": {
+          "before": "σημεία",
+          "after": "πόντοι"
+        },
+        "Play Again": {
+          "before": "Ξαναπαίζω",
+          "after": "Παίξτε ξανά"
+        },
+        "Statistics": {
+          "before": "Στατιστική",
+          "after": "Στατιστικά"
+        },
+        "Best Time": {
+          "before": "Καλύτερη ώρα",
+          "after": "Καλύτερος χρόνος"
+        },
+        "Time": {
+          "before": "Φορά",
+          "after": "Χρόνος"
         }
       },
-      "pending_count": 1299
+      "pending_count": 1259
     },
     "en": {
       "status": "in_progress",
@@ -5036,7 +5480,47 @@
         "FACT_01_TITLE": "6c51ad9534e286fd9e547517fef5cb9549867c05186a98f15a34526b2990161f",
         "FACT_01_DESC": "069bccbe2f4528ba50f6904d90b38403b4dec844f57a003345993afd670a24db",
         "FACT_02_TITLE": "253c9de9df45f9019a25e138ebdcabecf8e88457bdacaae88d4ececfb7e7b78b",
-        "FACT_02_DESC": "7095865201a71b7c31ad34221bf226eed44d0235bca1bd82f5c4ce79e1006fbc"
+        "FACT_02_DESC": "7095865201a71b7c31ad34221bf226eed44d0235bca1bd82f5c4ce79e1006fbc",
+        "Learn flags of the world": "f57edcffdcffb21560e4f14f4d02483460f32e1dc3abcc321901b7623b8b9adc",
+        "Score": "38e5a46cbc5ad32842ac60a4f1425ac9b31c06bac685f446a06ab72b87de31ed",
+        "Exit": "d17d84a604994b722db37b35860b1ac7e8d9e43e725d0eb50702a9f7228a2999",
+        "Error loading countries": "6905b971c03c1c626649049f88f1b6f7a8afd2d2a4f1b6ef1618627a592185f7",
+        "Retry": "942087cc2d41e01304b7195558d093d10c72af8e838c7556d6a02d471ee71852",
+        "System": "6725e7bbcd28f3a8a586fa34bf191fd72dde8b61756932cd3237c17a6f196f1a",
+        "Select Language": "2d8f9954cb33c25b47902bb7f629d1b0b3e90aebb5ed2575d8e038a2a4de5b64",
+        "Select Region": "09d806f2f610fa94715d0f65d22109f3d7caa0e05ab89ee8cfbe9b68a195f0f8",
+        "Select Regions": "f77fdcc962eda4fc7b090fa186b70ab33cb46c695a30109a8725075ac1798d94",
+        "Multiple Regions": "c2d0b31be6b4124fea1c2c6f3c82b6abebbeba0a86ce2cd47d0e18abc9768f15",
+        "START GAME": "edc89c635497a0f357f08ac0a6eef7ab128c49c759b1030314c275ce3dc06b3b",
+        "All Regions": "3c13e61c515f2b1f5a441677643481358f87d0ca457c92821f447ef855692d33",
+        "Europe": "e595f45dc6c9e7665d108e8ea7940885a42e492918a522d44a1fc35494a4aa48",
+        "Asia": "7ac02ec1c874b1daffd3a062da21153fd595799cf8b5aebaa77933435bf7931c",
+        "Americas": "2d1b84c3b2d1353bb8d6c14655855517c1c1d97c4f84c01f8975688463f14aa8",
+        "Africa": "c4a371acd7c3df8bd70e49805e76cb39b1309ccac3d0f4289120079a9ad68bcd",
+        "Oceania": "4773281fa64f3446d89f2aae17a0f342d1d6260ecd3b3688eb1cc483ced7947a",
+        "North America": "64be0885bc3f641cdfb1322eb08657c8e507a240e6fdb1431109d6d56255078d",
+        "South America": "ff588b4101673e2dfdd21041b6d5bf583703ff5d296fe5c606c5489132220ef7",
+        "Game Over!": "3024e072e2099844d656c47bb7acf88e8b251c54bb12ba819614dc6847814e26",
+        "points": "c54a061dfcc125cb160421b2680feaf6d65d938d756d887fe4d8d1d046eb626e",
+        "Play Again": "82959974e9e29f102ebc1b02c9592f1dfe9b67f4e6c7daf26e95294e5e501039",
+        "Repeat Duel": "a93f1de1c15c616744ca49beed46c1e3bc810fb32f0a85d8558c6aaf54512e08",
+        "Home": "3a78695388b38b5cceefaf6796b0137877514593543b91af2752d5a17e3d736c",
+        "Statistics": "a656107e99c71dea1ba101ea816e3886370b68ca9f9ac8e5b2d79c6ffddd70a1",
+        "Total Games": "9d7f74c93e96153795f26aef6886b904a02e2a8a1ce500501acb990d9efe96c6",
+        "Best Score": "356dd38bdee53aaf874d5e3d8ce4e3a11ad9697a548023135d923bff7fa6d62e",
+        "Correct Answers": "920f39c9408e777ace93caeb42e5e14c7e6321dfd6279ca55dcc4a16ac47d43d",
+        "Accuracy": "ac991dd3c2d928da95b77afb954db61a3246be27b683f30d1232dcee625ae376",
+        "Best Time": "0439cf1b0210e23136013bf3eeb5fa2245c05756f7fd80637cc284208afdb5fb",
+        "Time": "33b93476cf597a3330653b66a658983d892ac264b5d6029a2dc642b9b1f30870",
+        "Clear": "83b12c2216efb4fdc924e1deb5182e905e4926ed0c1c324d467107f46d5a26a9",
+        "Close": "7d9eb7acb13e24625c404401d8e88b2350e32162455885f18276cf802f7701ed",
+        "Excellent game!": "d764558cd4a5961dee0f7bf813114a936ecc9cb1227c4ff72decb76dbc63882d",
+        "Great result!": "fce6b6443442b8719f3db81f66e868dcd5ebc813b9f9210fd566259b7dd60b22",
+        "Good game!": "d915d06575ccbe17f81198719d40538c1c680f158a964bf70c9305e098a9e65f",
+        "Keep practicing!": "c44e91edbb5379534309349b74eacee2ba569c86069d5f2836abd16b5119dd5a",
+        "Share Result": "29887a5ff9846ccc23327565a07e17fa6dcaea6211f1898ae825f84ae38f4223",
+        "Share": "29887a5ff9846ccc23327565a07e17fa6dcaea6211f1898ae825f84ae38f4223",
+        "ACCURACY": "ac991dd3c2d928da95b77afb954db61a3246be27b683f30d1232dcee625ae376"
       },
       "changes": {
         "Теперь вы можете без единой ошибки отвечать на все наши вопросы с точностью в %d%%": {
@@ -5196,7 +5680,7 @@
           "after": "Switzerland and Vatican City both have square national flags."
         }
       },
-      "pending_count": 1317
+      "pending_count": 1277
     },
     "es": {
       "status": "in_progress",
@@ -5491,7 +5975,47 @@
         "FACT_01_TITLE": "24b824d082be9fb86ab411c35348c992ae7e9cb9b3424537dacc0885ae3fdf16",
         "FACT_01_DESC": "6e111513f6d62dd26881187c1837bcd8a7c0b1d7ef11003cb9512010a200cbfd",
         "FACT_02_TITLE": "557916ae94069f992b767b31937b33e9dbb363c8a25cbbca368b53c459faaa39",
-        "FACT_02_DESC": "ce8963fe4458424dd46055a0a0f6640b0c81d77114028a1b76416ada71202728"
+        "FACT_02_DESC": "ce8963fe4458424dd46055a0a0f6640b0c81d77114028a1b76416ada71202728",
+        "Learn flags of the world": "db5692aece7aab9a58fb2fa86e85040ab1946a8555b647eff7ce4d52acfe5c8a",
+        "Score": "f5f03ac15d19e8c0db910019d24647838bec80cdbf51652645ae5527ec1cc0de",
+        "Exit": "93fffbf7ce799f33fad9caff872294abcb4af5caf558cdd879ec5140ad674256",
+        "Error loading countries": "d67475a607f7ebac27efa509aeac2f7802bf16f8960c81e16e1a1b94b5ec3947",
+        "Retry": "a9254c5f812829afde4d8579f6a2b763d3f285adf993cbf0247b00cabac5fb2e",
+        "System": "f150afd3c5994d185052d4165729e1db8eae6914164b9471c3e583edfb1db020",
+        "Select Language": "264a0cf4ce1323b23d56ae9905419e949bb01a8c6740d46eb57515aba9f83827",
+        "Select Region": "83448d502417f3dd0ceb0153c59939959ef9967e4b229699848a8197d3b9df8f",
+        "Select Regions": "baab29eb8d931429f5de44cb445e2cf8cc065fefe532ae2ee88bf5f05c01302f",
+        "Multiple Regions": "f92c6316f65a35fc2e6d113c46f86a133de90048f88a4c820589e8f6b6db81ab",
+        "START GAME": "5bf3886dc112a255225e79ff6a73dd394233ca692f52e42001d74d757b8b7bdb",
+        "All Regions": "7384753516febb20347f0bb7fb8271a380485c9d01a3764769bc8a928efbc7fb",
+        "Europe": "fc30e2a579cdb971eb042715c73406cd96935bf3de3562d4800576d10fb61c80",
+        "Asia": "7ac02ec1c874b1daffd3a062da21153fd595799cf8b5aebaa77933435bf7931c",
+        "Americas": "2fab3d0ba51932be9033bc5e7943a282163bba4235e0ffaad0471e7da03103d6",
+        "Africa": "b63f6788ff1e4489c639ccda252aa225a8616146e94111ea919722a3a5a1af3b",
+        "Oceania": "d04a40e727af03bc11130979b74d787bf88276f90f334401c0dbe10acbc64f6f",
+        "North America": "7293a66b73dcd08af0b88390c1f70d61d40c7f6b7b79edd2f802cba64b6fa208",
+        "South America": "01b33082fdad038600a6ff8e4bf5fa0ff6d5464007b1e5f1af8bd4bf0883f40d",
+        "Game Over!": "a2a844bd9eda39a414fef10ac439f2cd76f44356a1a52a3547b8121461f00ac9",
+        "points": "e019a5a5e9a4011f38ded55518b7e47651738c303a2edd47ec72e94e135ae463",
+        "Play Again": "b92c7344f600b33c06d41241191b8ae56440c9693ccad0b6a8039329096cc26d",
+        "Repeat Duel": "683c9af4cae168c52bb290146b26857699086ad58aebccff4ed358f43cb14e70",
+        "Home": "58fcc9468fe1f60716a71caef50fce70a6d2d46f7a2c0d0f45f1f76dc7779625",
+        "Statistics": "bb847bb458b26936e2775c99a7abcf07cc4f87b2d6abfaec0387707c16f094f6",
+        "Total Games": "14063081434d88d5b2465f9e85e40110e66ae9713f238eafd381e18e65fe8480",
+        "Best Score": "b4470ad2eb37c4deff6647070f60887b2b7fcc4fcdeaee66f849e19558c50dcb",
+        "Correct Answers": "7e7b457e5d0ef5552efe7dbaebd98a25417a9222e4e55363c6ea3134444b7791",
+        "Accuracy": "6c8b29a0a1f3b0bcdec54aa2b7874d0ad48a76f2034fdd4613e20fa6d8054f90",
+        "Best Time": "273c5a7584a279691e784f8e5df1ec7e3e96289b006ddb5ff8d38e02abd1be9d",
+        "Time": "112f861342a869c793d8c1524246927e55550975cc2739c922b001a7d7c87369",
+        "Clear": "d50a3d44683561324c2660615dd0594643d68e8f383842a78f94aaebe0a3d666",
+        "Close": "aeccae342e4bd0a70ded84675569da91c5efb3894e35929cafd851cda763a6aa",
+        "Excellent game!": "c9181e0b2dd19e01c43138859aa749db280dc62e8addb7fed838406eeb81fa4a",
+        "Great result!": "25de2471a161208b0cad38b9ae126c0b32dbb43753cec4721c5097326bfd69f9",
+        "Good game!": "105ad4ca0b1b321f2c968020525ed2f6916a6cb85d5746d8892827c7a042efaf",
+        "Keep practicing!": "ea0296237d8f7fa1afe1532310ff5e29c70b594833fe97a7a79848511eb3ebc9",
+        "Share Result": "d5e9eac00ad801cf8adb4d0eb03dc06b8b14d3be78ddd4f77ba5bc2578a653e0",
+        "Share": "d5e9eac00ad801cf8adb4d0eb03dc06b8b14d3be78ddd4f77ba5bc2578a653e0",
+        "ACCURACY": "6c8b29a0a1f3b0bcdec54aa2b7874d0ad48a76f2034fdd4613e20fa6d8054f90"
       },
       "changes": {
         "Time limit per question depending on difficulty": {
@@ -5825,9 +6349,21 @@
         "FACT_02_DESC": {
           "before": "Suiza tiene la única bandera nacional cuadrada del mundo. El Vaticano también tiene bandera cuadrada pero es una ciudad-estado.",
           "after": "Suiza y la Ciudad del Vaticano tienen banderas nacionales cuadradas."
+        },
+        "Clear": {
+          "before": "Limpiar",
+          "after": "Borrar"
+        },
+        "Multiple Regions": {
+          "before": "Varios regiones",
+          "after": "Varias regiones"
+        },
+        "Total Games": {
+          "before": "Juegos totales",
+          "after": "Total de partidas"
         }
       },
-      "pending_count": 1375
+      "pending_count": 1335
     },
     "fil": {
       "status": "in_progress",
@@ -6182,7 +6718,47 @@
         "FACT_01_TITLE": "a3d75cbf0c20fef25d38554389cab1b19d5cf45dc6cd74867eaeac9c025af07c",
         "FACT_01_DESC": "769c23e582609c0ed490e7bc4fb68eab2d49c70531aa58f4dbfb7fac27d2994f",
         "FACT_02_TITLE": "fb500bf35e6783e84aec8e23dd896e0d9af060676cbc95a7499f6255bf693300",
-        "FACT_02_DESC": "cb995d268b99c5a8ec638ae8f48278079dd7f724d5d64c6ca21a298d86666374"
+        "FACT_02_DESC": "cb995d268b99c5a8ec638ae8f48278079dd7f724d5d64c6ca21a298d86666374",
+        "Learn flags of the world": "49e3c0f813e142e031e4816258716eb3b4bb1be821212a13c2597992317712a2",
+        "Score": "55a18e3a79c75dbf84b73a287da110e5efe929d4a9712fc0a5187554e34604d0",
+        "Exit": "99a59a3a6166c743b755cbf7f0e602d4342435d9ba6b080b1cc1fbe215e8a842",
+        "Error loading countries": "0b28f35f9d0cea3710ecb642a314b8148652075a2dc4a4280f53ed3a13e0a1de",
+        "Retry": "328bfb0e99983373a61e71dcc683ed79386e825988fcb9a84f16a89e77ed2eaf",
+        "System": "f150afd3c5994d185052d4165729e1db8eae6914164b9471c3e583edfb1db020",
+        "Select Language": "ae685c93c662ec7e2be267fc7a54006f9101c339db549b86e62e48e9669dbd5a",
+        "Select Region": "e2c719d47549d811048baea0cb872b5c9a2fe7e10f951b9eef59b315765f0aea",
+        "Select Regions": "a9e8ea7f1cd41a991642a980b2f5cb6ff8176b008f43012c6c27c26aee45b81b",
+        "Multiple Regions": "780dce3d13b02fb6c2ac33ff7b48a44ac5a08f892aff4ddfb92a28ef422e14d9",
+        "START GAME": "d194cee5f4cf757594a6c4b7bff3437ed7b2456eb0b34a40e28b208981b27ab0",
+        "All Regions": "f12d47ee2f8889f5817066404df5ac3620343c497a7b52a6f6cfe47439232bb0",
+        "Europe": "fc30e2a579cdb971eb042715c73406cd96935bf3de3562d4800576d10fb61c80",
+        "Asia": "8d38c7beebdf529ab4d7017a6524868ceffa963fee17237621109e99c8b47466",
+        "Americas": "2d1b84c3b2d1353bb8d6c14655855517c1c1d97c4f84c01f8975688463f14aa8",
+        "Africa": "c4a371acd7c3df8bd70e49805e76cb39b1309ccac3d0f4289120079a9ad68bcd",
+        "Oceania": "4773281fa64f3446d89f2aae17a0f342d1d6260ecd3b3688eb1cc483ced7947a",
+        "North America": "c0028ed51d228bc8a69904af627c9a65271bdb85e1f332b37ebaa33de90a8685",
+        "South America": "5cb9457531593b0b33ef31e638c936f16514284be3bc3b4a9d58039d9451dd5f",
+        "Game Over!": "a6aaaa3e22abe6160a52e8ad446e025dcaf4825aab486ac3fc1144fdafb04bed",
+        "points": "e019a5a5e9a4011f38ded55518b7e47651738c303a2edd47ec72e94e135ae463",
+        "Play Again": "631c7b00fbc6062a96eb8e7a8467f140f2a906824ac40171acd7d2438649988c",
+        "Repeat Duel": "079d9124f72a9069c1600a1af8afd2c2740ec55c6ee6c485bc0d7b806e1a77a4",
+        "Home": "1348aeb3af07be7736ededdf0bd694e0ecaa9fb46bf2a220ecb837e2472f6f89",
+        "Statistics": "5b5ce3d87c917616ca0da48a6c064ac08befb0150dbd21f4b6bf0d2dda28d0a9",
+        "Total Games": "28860caf7fd0646723fd08797354a64799ddbdbd1c4ac55b41c8cf3beb4f158d",
+        "Best Score": "51eb6826261c2abb3f8c8c466cba5be284bccf4974b40860521c4e55711104ec",
+        "Correct Answers": "fd77afdd181258ff863495519867bd43ad8b2b59af0c528ee4fcae0276e68c30",
+        "Accuracy": "a6e6c5bd71d9744d0e99747066979bd5c30f67e05df68105bc2e140c69d422c6",
+        "Best Time": "87a14b950952f194f33a9c5419e076ea303f17b566660fab417e74aa49d97709",
+        "Time": "cdc2bc08700d64e07ea244772b0f762b9ffd0d9770eaee0b78d09f2c5ff8b201",
+        "Clear": "6aa5e1386c957b5c804f90285d4633992ef7c75f0a30e24b4cfbdb63db92e056",
+        "Close": "20da882f30a3d42cb7cf754730018f9196824bca4e1420481101006ab9a7a6cb",
+        "Excellent game!": "bac732c6647d90c152a1662c659db1212f32555b81215cba7a7d1cb4dc286461",
+        "Great result!": "483f51bc32e8c7f6cef2eb02ebce20b040a1c25df3866f02c5bdc8a70e889c03",
+        "Good game!": "a3072e20d6ac7ffba80925ec3357e640288175e81d3eedbf69d8e52b2d21df03",
+        "Keep practicing!": "5fe1633b1ff86b1d676f4a28884d7a13b9a3ae777b53a619bca35a0464bd84fa",
+        "Share Result": "6a52c9cd8fc991e4909477ad87a47795f0e085b6467bf304eb24490bf5de35a3",
+        "Share": "6a52c9cd8fc991e4909477ad87a47795f0e085b6467bf304eb24490bf5de35a3",
+        "ACCURACY": "a6e6c5bd71d9744d0e99747066979bd5c30f67e05df68105bc2e140c69d422c6"
       },
       "changes": {
         "Time limit per question depending on difficulty": {
@@ -6808,9 +7384,21 @@
         "FACT_02_DESC": {
           "before": "Ang Switzerland ang may tanging parisukat na pambansang watawat sa mundo. Ang Vatican ay mayroon ding parisukat na bandila ngunit ito ay isang lungsod-estado.",
           "after": "Parehong parisukat ang pambansang watawat ng Switzerland at Lungsod ng Vaticano."
+        },
+        "Clear": {
+          "before": "Maaliwalas",
+          "after": "Burahin"
+        },
+        "Home": {
+          "before": "Bahay",
+          "after": "Pangunahing pahina"
+        },
+        "Repeat Duel": {
+          "before": "Ulitin ang duel",
+          "after": "Ulitin ang tunggalian"
         }
       },
-      "pending_count": 1263
+      "pending_count": 1223
     },
     "fr": {
       "status": "in_progress",
@@ -7116,7 +7704,47 @@
         "FACT_01_TITLE": "b7291af0e8d9dae7b2ee34d904ff3fd98ca44b43721bde56f16d716942a85ee5",
         "FACT_01_DESC": "8b34f741082d2dcbf6e1b7aa46b7579637be3bc74e7d5348bad5db6dbd018577",
         "FACT_02_TITLE": "1e2bf06d2a69c0509b78b649ad8970a480bb26da307986c9be14c05bab604f4a",
-        "FACT_02_DESC": "89dabfc1f593d96781a6a19943421482f26d2f31454d8abf87fbad15e20368d3"
+        "FACT_02_DESC": "89dabfc1f593d96781a6a19943421482f26d2f31454d8abf87fbad15e20368d3",
+        "Learn flags of the world": "4136c6821adf8c0f68e14cae6d8786c1ae093bd260ee41c4029249280d5e6023",
+        "Score": "38e5a46cbc5ad32842ac60a4f1425ac9b31c06bac685f446a06ab72b87de31ed",
+        "Exit": "4974161dd85499c38bccc0490e9591a119ceb5b37d1496bf0ba34e0dd6cac681",
+        "Error loading countries": "049476a0bfa1f417386522b028d238cc3f1f8295ffddd17d39a807cffee8354e",
+        "Retry": "af273d956b5bec8dce62f9ad74dd744ded027486ea69dbb724e246fa9aabe692",
+        "System": "1abaf88d08a505e4695bfa847093dfb3403c306fd85d861f8b36f08f605f2893",
+        "Select Language": "7287fd562001ab3c9b61e2e84d5758d7d712bfc63eea87d1cea8ae0531bcc5c8",
+        "Select Region": "6bd9bb85c84463bfebb47aead8a5a92dd1679e185a1d9f385c2b8551cdf5a499",
+        "Select Regions": "1d9ab3d9d45ef94ddec2251f8592c1bd99f8e9b5646f066615ee49a1d040f563",
+        "Multiple Regions": "6a254f1e8ff8f864e17898934d345aae1b0068a777b3090bb17fab23f5acbd56",
+        "START GAME": "6729b86a8fb96722e892ff3d589f93315c796a5694fc0ba5d249f3bdcb3f2b12",
+        "All Regions": "4e86886c77d4b7a8999ac980097d784b903943816885845ba0bd56bb4477c2e2",
+        "Europe": "e595f45dc6c9e7665d108e8ea7940885a42e492918a522d44a1fc35494a4aa48",
+        "Asia": "6248b7b8784ef32212701cce23611422a204323aa11702f59e5fd60979423186",
+        "Americas": "679a55496a1f361698a23465d999e2ed44eca23bdbedbe40923bb79d2590efd0",
+        "Africa": "96c44291e0dbbc4535e011de129c1a09ad23b1b04580f4eabe3ab36da0fc05df",
+        "Oceania": "fa86c922c5e9e8ab3bd2776234fccf2de6374256ecb0543290603a0ccbf816c2",
+        "North America": "25509c5205ae67fe2f9f8d2c4e46d510c9ad20d532f40a7c5050fdf682e625a7",
+        "South America": "3e369ed0ffde496e878c89668d4f251f95b9468850941677e092aaa1d26973d3",
+        "Game Over!": "7a4c34a810294fdff3e193b6d9f6e0d3e193611ce53d61d85feb7333b25da89f",
+        "points": "c54a061dfcc125cb160421b2680feaf6d65d938d756d887fe4d8d1d046eb626e",
+        "Play Again": "2481f3a3de090056935763dd3d60e249fb9f411478a77b2a1795687741cf0cc7",
+        "Repeat Duel": "770584c21b87f3bb68db98fd55407f3762b4885d5f94bbc57e38a718f4a587e2",
+        "Home": "533161735639c51adb4623f3780b497601d7b82108e6f03f5b65b5dd4c89f616",
+        "Statistics": "de2151f9fcb976a7737f87f9fce6fa91ae7554eac26251af73ad9ab41bf290af",
+        "Total Games": "8407f8f12438c4fab089a8329816bbbf1f85c99621204e1e0e41acd812271a02",
+        "Best Score": "207f2ff595894475410b22a06c30ac325c06620c6a7f21053cd93b48c4463bb6",
+        "Correct Answers": "d03752c948a89f5fe98ccf37800f1eb48016182c702e1e0b62beb25caf3cc6c0",
+        "Accuracy": "a2a94f957054976222a042283d1053024906b7a8fe97f601575521e2a0c62818",
+        "Best Time": "9929309fe4ad4647388688d33f6a49fa61ea62fd2fc2056dbc490d729b40402b",
+        "Time": "47b15010ccb454c0cce6be19d03a3b29554d7c952380a0fb1dd41f10b72b20ed",
+        "Clear": "e4750da99f0f76658fcee437906b07386629bd6bd17f5821b94b8327086f399c",
+        "Close": "711e5f2e198df1b61e6bece686ba026a4b06341e8d9590498d509cf943b2c115",
+        "Excellent game!": "cbe7fc2590430b0700f1b18dfc9ac93af44a60a4ada441d336c21b4d12aa67ab",
+        "Great result!": "681b1c5090cbcd90db5147618bc4abf695ef954cbf80edfcec6c25e157ffeb6f",
+        "Good game!": "7b57eb169b1d0748faea2d4118d2fe95969cad8ca24fd86da4e960935ec1baa1",
+        "Keep practicing!": "40c0512b105da54f01115e3870cc82197feab7359e05d96b09396ffc5d1492ee",
+        "Share Result": "1316622345e8b8d453bbe5e2dc7cdfc2d033dd11608af44461357d893b6139d2",
+        "Share": "1316622345e8b8d453bbe5e2dc7cdfc2d033dd11608af44461357d893b6139d2",
+        "ACCURACY": "a2a94f957054976222a042283d1053024906b7a8fe97f601575521e2a0c62818"
       },
       "changes": {
         "Time limit per question depending on difficulty": {
@@ -7782,9 +8410,69 @@
         "FACT_02_DESC": {
           "before": "La Suisse a le seul drapeau national carré au monde. Le Vatican a aussi un drapeau carré mais c'est une cité-État.",
           "after": "La Suisse et la Cité du Vatican ont toutes deux un drapeau national carré."
+        },
+        "Clear": {
+          "before": "Clair",
+          "after": "Effacer"
+        },
+        "Home": {
+          "before": "Maison",
+          "after": "Accueil"
+        },
+        "Excellent game!": {
+          "before": "ð Excellent !",
+          "after": "🏆 Excellent !"
+        },
+        "Great result!": {
+          "before": "ð¯ Super résultat !",
+          "after": "🎯 Super résultat !"
+        },
+        "Good game!": {
+          "before": "ð Bon jeu !",
+          "after": "👍 Bon jeu !"
+        },
+        "Keep practicing!": {
+          "before": "ðª Continuez à vous entraîner !",
+          "after": "💪 Continue à t’entraîner !"
+        },
+        "Learn flags of the world": {
+          "before": "Apprenez les drapeaux du monde",
+          "after": "Apprends les drapeaux du monde"
+        },
+        "Exit": {
+          "before": "Sortie",
+          "after": "Quitter"
+        },
+        "Select Language": {
+          "before": "Sélectionnez la langue",
+          "after": "Choisir la langue"
+        },
+        "Select Region": {
+          "before": "Sélectionnez une région",
+          "after": "Choisir une région"
+        },
+        "Select Regions": {
+          "before": "Sélectionnez les régions",
+          "after": "Choisir des régions"
+        },
+        "Game Over!": {
+          "before": "Jeu terminé!",
+          "after": "Partie terminée !"
+        },
+        "Total Games": {
+          "before": "Total des jeux",
+          "after": "Total de parties"
+        },
+        "Best Score": {
+          "before": "Meilleure note",
+          "after": "Meilleur score"
+        },
+        "Best Time": {
+          "before": "Meilleur moment",
+          "after": "Meilleur temps"
         }
       },
-      "pending_count": 1313
+      "pending_count": 1273
     },
     "hi": {
       "status": "in_progress",
@@ -8086,7 +8774,47 @@
         "FACT_01_TITLE": "902d26dd51ff9265a3fd2a373e053cd72ea378d317c95ce97e7188be1a60bb79",
         "FACT_01_DESC": "54fd8aab6a5f481c77d7711a1b98a4c0b684d0b9bf4c7c52073fb3f82115e08d",
         "FACT_02_TITLE": "82f75c2b60708e6697ed7e4bccbd27b609dca8f2fe76088205f76e04f818e7af",
-        "FACT_02_DESC": "6e94bb123ff241842e552d243d22d8bef04788d1d2deacf612c7c57062446159"
+        "FACT_02_DESC": "6e94bb123ff241842e552d243d22d8bef04788d1d2deacf612c7c57062446159",
+        "Learn flags of the world": "c7cbda85522d0d6637affd728ea656c64e24ce6ade15372d5ccd2dd247220a4a",
+        "Score": "397c5d6b6cfcb0bb2357f3855a4225bcc7231f117970ea80afeed2425928385f",
+        "Exit": "c50aacd188f7be7bcf8e1bdfa811fdab3fcd357ad6181d265091584c4c2d8631",
+        "Error loading countries": "424bb20ca997c73083890156ee4704ff0ba653f88b0d691b75ac485b2b25c467",
+        "Retry": "f5823f915da98eeb87497bf1fa923c430a72fa48acab3f6aa4bb1648cdf45fbb",
+        "System": "04fb6ee460e27ed8ac10c677abff11431ede65108a8e262f10dca30a6059134d",
+        "Select Language": "9d2ff7f46150d9abce19a609407ee5e25d55683a548997fba113e5af3ad82531",
+        "Select Region": "dd41416f210de1e5d3a209a6bb6df41a6194790c922b72c99dd4f73f983da8f2",
+        "Select Regions": "8621da2f98bc5cd6ad2c0cf2bea9c4696e9210efccc646204f2247168564a3d1",
+        "Multiple Regions": "28d106d1a560640080c4eba215497c5100bd2461096f9692a87b916fd5c0be27",
+        "START GAME": "ca8047139367aa97282681afc37fdd434b3f5e5ca1275e4848f4497d91497406",
+        "All Regions": "8fb8d9a3a01fbe0bf4308baae3af4f6e198725a2e668e4ac581726573cf36448",
+        "Europe": "8fdb4f1f7f61f3456d8e18b159455abcad7479c4805424fcebe05493fcbac627",
+        "Asia": "98b7ffefa9a7d5b9c5c4a2a869bdfb5332b39b071c42d87e2d136ff8fb948ece",
+        "Americas": "ea85a8c17d5400246198fe32384da08a49bce7660fde699be5e82560047baccc",
+        "Africa": "6efa8875767321501af9a48ac582861abf5d48ffbc81914b678f5052de551f86",
+        "Oceania": "b8822e8643550a8228aed2cca817bd37925beda54b6691f0cc325c2251ec2e64",
+        "North America": "8c1319d20be6c42494bddc5be9483e12b3bc19d2ae07faebf6659988b244e7ed",
+        "South America": "e2c7b7436b513be0b9231a9885b0e21d9fef532e72552e07cb08e5844906cf71",
+        "Game Over!": "3bfdded4c4f7c24c7df131290bb1e2c7aff702448596559f0486faface4997a4",
+        "points": "397c5d6b6cfcb0bb2357f3855a4225bcc7231f117970ea80afeed2425928385f",
+        "Play Again": "c1078611179870ee6fd02ab046f9635f9a99a497c9b135a03ba6cb6ee078472b",
+        "Repeat Duel": "198d05158fbf136d9d72c08faa695015b27338ff8593b6cb499e1f53a062a578",
+        "Home": "1d705ac2a3bd824c7de20d375e52b893d4313c9201c57ce9b76d80b20815f471",
+        "Statistics": "6cbea93675c612800b2d714f882497080d1d70986ccd5c794cadafbef95e38df",
+        "Total Games": "0b06e81985c50138490fa485239df643a0e2f59e1c0c61290538afd781794185",
+        "Best Score": "2088f71de63b6f6ecec040329260bc1061d1a96e9f1543466817105a2c812af9",
+        "Correct Answers": "231921261ebcc84cd1a29a9c733eda2f1b3e015968ae2da67d3d73ccab8123fd",
+        "Accuracy": "2841bd596a4620fdd05d9176d12e5d1a168caf250ca33bc5d0985df463554754",
+        "Best Time": "70f135ced521067b47b9e0fd308fec2d77d53ef18fd19ab3619a0b7f4e54ae03",
+        "Time": "6c8b6e94d3301a9d317854317d30e18ccd5a92fed58d8ea9f9e6b8ffd8adf394",
+        "Clear": "08e94053bc50d472d01f761d799a911ce42bea334050329c66bfedb9c7cfc95d",
+        "Close": "ef9cca4a55ee043090d3e9cdd265290e84d656e43f00e9de974299ebe5f85755",
+        "Excellent game!": "7059d79fe551072aa0696d7849649df0cfadeab25b1938de84a9673e5e7044e0",
+        "Great result!": "a04d4ebd9ca7d5be0411376a5c0d555131751e6c244d851fdd07af29acb23666",
+        "Good game!": "18396bd11447a3ab98bf921824a50c8f2f731a81e1fafae3fa571d1388eb3430",
+        "Keep practicing!": "51b03df5d564dbfcb78bc1db83c0c05b213bba7929176cfaf2ee5f1332f369e1",
+        "Share Result": "d56e266880f4827fa9f9c88866b81927f7de74a6991edd6a19077ccb04732812",
+        "Share": "d56e266880f4827fa9f9c88866b81927f7de74a6991edd6a19077ccb04732812",
+        "ACCURACY": "2841bd596a4620fdd05d9176d12e5d1a168caf250ca33bc5d0985df463554754"
       },
       "changes": {
         "Time limit per question depending on difficulty": {
@@ -8552,9 +9280,61 @@
         "FACT_02_DESC": {
           "before": "स्विट्ज़रलैंड के पास दुनिया का एकमात्र वर्गाकार राष्ट्रीय ध्वज है। वेटिकन का झंडा भी चौकोर है लेकिन यह एक शहर-राज्य है।",
           "after": "स्विट्ज़रलैंड और वेटिकन सिटी, दोनों के राष्ट्रीय झंडे वर्गाकार हैं।"
+        },
+        "Clear": {
+          "before": "स्पष्ट",
+          "after": "साफ़ करें"
+        },
+        "Close": {
+          "before": "बंद करना",
+          "after": "बंद करें"
+        },
+        "Home": {
+          "before": "घर",
+          "after": "होम"
+        },
+        "Share": {
+          "before": "शेयर करना",
+          "after": "शेयर करें"
+        },
+        "Share Result": {
+          "before": "शेयर करना",
+          "after": "शेयर करें"
+        },
+        "Exit": {
+          "before": "बाहर निकलना",
+          "after": "बाहर निकलें"
+        },
+        "Select Language": {
+          "before": "भाषा चुने",
+          "after": "भाषा चुनें"
+        },
+        "START GAME": {
+          "before": "खेल शुरू",
+          "after": "खेल शुरू करें"
+        },
+        "Americas": {
+          "before": "अमेरिका की",
+          "after": "अमेरिका"
+        },
+        "Play Again": {
+          "before": "फिर से चालू करें",
+          "after": "फिर खेलें"
+        },
+        "Excellent game!": {
+          "before": "🏆उत्कृष्ट!",
+          "after": "🏆 उत्कृष्ट!"
+        },
+        "Good game!": {
+          "before": "👍अच्छा खेल!",
+          "after": "👍 अच्छा खेले!"
+        },
+        "Keep practicing!": {
+          "before": "💪अभ्यास करते रहें!",
+          "after": "💪 अभ्यास करते रहें!"
         }
       },
-      "pending_count": 1316
+      "pending_count": 1276
     },
     "hu": {
       "status": "in_progress",
@@ -8863,7 +9643,47 @@
         "FACT_01_TITLE": "99a38e112d59a51cbc64f1df7387aa2881f27201f68d87d88b39adf8b43041c7",
         "FACT_01_DESC": "51ecbcd105dfe9b69fd5b71383429ca7abe1eb4a372142114be06c01ccabffb9",
         "FACT_02_TITLE": "0565a12ae944bd13e4315260681f4009c92f0de768a406816a252144230813a3",
-        "FACT_02_DESC": "08768d6b9d14271d7c283a0ac5c2b99df0b79bc3ec5ca2163bea53e0f3c4a3e8"
+        "FACT_02_DESC": "08768d6b9d14271d7c283a0ac5c2b99df0b79bc3ec5ca2163bea53e0f3c4a3e8",
+        "Learn flags of the world": "3d613f85c64efb6ab67ef0a8b440c383df86be27ec2f60b41336a99d8dd7540b",
+        "Score": "1c26d4559b1c00220eb3f206d8a7269ecdc9b3a85c141544b7babf65daadc0ab",
+        "Exit": "2834ab0a5ba32c2a5dedf682ef8679adcba7bd4f4a5837e626181c0d40910210",
+        "Error loading countries": "493b0adf69905c0212eee2eb8971851256898ab98d1d87d022a3637504055648",
+        "Retry": "fbc9bf099f8972676f155115114ca0686be33e66ac8b630f5b72dc96c160ec59",
+        "System": "a9774e7ec93c350da81af0c0e428937ebfd969251c8d39ef819de9ee82df47af",
+        "Select Language": "29f7b4d4bc867724c2bbb70e01102288ebced61b6abb3d600aad0195bc44e41e",
+        "Select Region": "9c0d6fc8573783af19404ba04bdc22efd21b9ef4bc97022e9beb2b15a59db185",
+        "Select Regions": "d534f8d9a59b456c15c916d6248c42e114584ade584803f70391996ddfab385b",
+        "Multiple Regions": "756d66e3be8abf77765239821c0496996eef187fb51846e7d3d7ec37595d6e54",
+        "START GAME": "0a751554e341b3592f9db07df6a60b13adbb082cdccc0e750d98aa632bd98df6",
+        "All Regions": "d06138eb1190a59ba8ff49d0a400b0805ecb51e7c4e1f248bd9915f1229c1ff0",
+        "Europe": "f64a38c1170e3a405f6385765e809e8cf46f931e81d24b094c1c416e083bddc1",
+        "Asia": "45c0df190be4796c08e91601b614ec778e7b2876af946816dfa93656455b3378",
+        "Americas": "ae89eb22e8ee9889c343520363d2020b356e8ebf24f55be13c77689993be9939",
+        "Africa": "5278722838b30152ad9f4ebb8fbf6648a987e70fdc94901b2bb048ebc173b23a",
+        "Oceania": "a323d9b427fdd3c3c682e4ed17bb39bb48356a6e21ef49bf77d47824233b183f",
+        "North America": "57b36c1d6d81343b624084e1777ee4cbbba31f69d2d857f8983d406e4c4ad1b4",
+        "South America": "1b7db4bb7c79e13e2d0190e84272284c8c97201d3c20260d6738beb7c7af9a34",
+        "Game Over!": "da9396c6fe4f176f39789d2bbb9e8c1d43a09c070d1d95ddc5acee54af0d6dd6",
+        "points": "59e5c3319a458263ced4d9cfdd8e97f043184eee780fc6cf371398deca196e97",
+        "Play Again": "6a3b70f6c76e13664bba3611c08303f71f11b1b862eab1eca16cfe7c5eb0bfca",
+        "Repeat Duel": "c1fafc04c4f07a446c3fc302126e09bc1dcc0eb80aea80937db01baaa2877f64",
+        "Home": "446a706fd67dd22a325be94f35cf03fcf3abe1957ef1f2d15600733119174081",
+        "Statistics": "96bd8b4bd8f8da907548f9ed5554b8c8a479ae6480f44a877dd30c8237540e58",
+        "Total Games": "0a13571676f406955fc04a0a27cc2c28f7ee0d9266ca44836113ea4ea50b97a1",
+        "Best Score": "bd5880c851c6d90a285b797fbc68c81d22f0cc13c105f26aa32a484639cf5db4",
+        "Correct Answers": "8183d5906a2f12db2393665eac183f580e09b463bcf4618dd1cf5996c620d412",
+        "Accuracy": "53024f62405519e1414c02c7448105e243d4d60097285f009966ec3bb821d532",
+        "Best Time": "787f3acc67ae1af158f4c1da8398ee98bf25b41fe5a8b6c8909366a0de972aa7",
+        "Time": "1aa2d6b1a3ba2c5c4775049798d1a62c70f0538f57f6b15dc19d1b35787a6b33",
+        "Clear": "3f8cd2aa925b76af639fdc6860f74360d40e054f37cd7a5941ec764d8bb4ee6b",
+        "Close": "dc1d3dfaad5dfe862d4b524569a35dbc580fd4068cf8522f79c80fdd184f71d2",
+        "Excellent game!": "fcb65e9d2a0023e0b52a9de3188780e188f242aee671160eda602f35165cccb8",
+        "Great result!": "182992c3f2a6ab3bb79df07f304f543402c8070c5d735278fc71c338599818c1",
+        "Good game!": "58fdb3d5047085ba3702247b1e1a80bfc4b72fba1b6f469d1ccb6c2f80a9b65b",
+        "Keep practicing!": "bbc6d1c63cded9a3d8c28b9702ea433c186796220313dca3ab10f675a682ead1",
+        "Share Result": "cd7e914f11f3c2207b650136d32433c25519dc56be26247a4dc9c972e48371dc",
+        "Share": "cd7e914f11f3c2207b650136d32433c25519dc56be26247a4dc9c972e48371dc",
+        "ACCURACY": "53024f62405519e1414c02c7448105e243d4d60097285f009966ec3bb821d532"
       },
       "changes": {
         "Time limit per question depending on difficulty": {
@@ -9445,9 +10265,65 @@
         "FACT_02_DESC": {
           "before": "Svájc rendelkezik a világ egyetlen négyzet alakú nemzeti lobogójával. A Vatikánnak is van négyzet alakú zászlaja, de városállam.",
           "after": "Svájc és a Vatikán nemzeti zászlaja is négyzet alakú."
+        },
+        "Clear": {
+          "before": "Világos",
+          "after": "Törlés"
+        },
+        "Close": {
+          "before": "Közeli",
+          "after": "Bezárás"
+        },
+        "Home": {
+          "before": "Otthon",
+          "after": "Kezdőlap"
+        },
+        "Share": {
+          "before": "Részesedés",
+          "after": "Megosztás"
+        },
+        "Share Result": {
+          "before": "Részesedés",
+          "after": "Megosztás"
+        },
+        "Learn flags of the world": {
+          "before": "Ismerje meg a világ zászlóit",
+          "after": "Ismerd meg a világ zászlóit"
+        },
+        "Exit": {
+          "before": "Kijárat",
+          "after": "Kilépés"
+        },
+        "Retry": {
+          "before": "Próbálja újra",
+          "after": "Próbáld újra"
+        },
+        "Select Language": {
+          "before": "Válassza a Nyelv lehetőséget",
+          "after": "Nyelv kiválasztása"
+        },
+        "Select Region": {
+          "before": "Válassza ki a Régiót",
+          "after": "Régió kiválasztása"
+        },
+        "Select Regions": {
+          "before": "Válassza a Régiók lehetőséget",
+          "after": "Régiók kiválasztása"
+        },
+        "North America": {
+          "before": "Észak Amerika",
+          "after": "Észak-Amerika"
+        },
+        "points": {
+          "before": "pontokat",
+          "after": "pont"
+        },
+        "Good game!": {
+          "before": "👍 Jó játékot!",
+          "after": "👍 Jól játszottál!"
         }
       },
-      "pending_count": 1309
+      "pending_count": 1269
     },
     "id": {
       "status": "in_progress",
@@ -9757,7 +10633,47 @@
         "FACT_01_TITLE": "6ccd1b4180ac422aa90eeaf01970ac8f7ba785b192f258e67495170d5a024b4c",
         "FACT_01_DESC": "9555a36d280ea1ccfae8a9b29b8cbf6429b55ab022d6df69cbd71d3ac3d89dd0",
         "FACT_02_TITLE": "3701db7025f709b559ac2fd82767c3d594b743001b58603f3a1d2366fa0bd4c3",
-        "FACT_02_DESC": "bb15605fa2a9ff08593fe1ed2a5b69b0d6187497b1e1ca7994b2ef6893f6f62a"
+        "FACT_02_DESC": "bb15605fa2a9ff08593fe1ed2a5b69b0d6187497b1e1ca7994b2ef6893f6f62a",
+        "Learn flags of the world": "aa24cb2e8f54569f54f626a082cdaa2c2b30b896141ac59828b7b58cc713729d",
+        "Score": "34ceddc126373411cc2cc2adf13bc4ad2f5f7c4e6ce460fec2d2c9ef0423261e",
+        "Exit": "0d8b0e1435e4aa4001be5dc9f8e097778f6b5008940fd27ab801da38f44655e6",
+        "Error loading countries": "2f41c52cd1edeb19d5961ec112e84a63b451d6e333fa5002b2c8c1f89f4a142e",
+        "Retry": "e87c4533e7a0cdf14f9811879f7d7825669df5810939ff7a91dfb43315ffaa56",
+        "System": "1c466db7924386fbe638b95eba421a55cff01b29717e156942b68499289998da",
+        "Select Language": "27a1cc4fe871bc5244c6ee53801da35236e3c54da0c2aff6991fa925fc147572",
+        "Select Region": "4e551121e6bc779273c58435e5df864466922ccfafbc280136ea8916d2c4ce7e",
+        "Select Regions": "4e551121e6bc779273c58435e5df864466922ccfafbc280136ea8916d2c4ce7e",
+        "Multiple Regions": "297231e3c0db57a128f74d1055b1702c1a2f67a1b7ef73db2c05cbe6bf89c8e4",
+        "START GAME": "b3877c584284922ce68861c432f5f748ed3cb70f86cdcb2551f5075119c6aadb",
+        "All Regions": "d3beb5e4587f526da023c3657bccdc73ca517ea86ba5fa97dd01acda282fbc39",
+        "Europe": "2d1c04db2345c12428b3d80253f2db736e10cf2276103bb850a9d7b63ce0ba3d",
+        "Asia": "7ac02ec1c874b1daffd3a062da21153fd595799cf8b5aebaa77933435bf7931c",
+        "Americas": "ae89eb22e8ee9889c343520363d2020b356e8ebf24f55be13c77689993be9939",
+        "Africa": "5278722838b30152ad9f4ebb8fbf6648a987e70fdc94901b2bb048ebc173b23a",
+        "Oceania": "4773281fa64f3446d89f2aae17a0f342d1d6260ecd3b3688eb1cc483ced7947a",
+        "North America": "571655ec99523e19b35ec589714011db2bd7032d9e1a54012d0fd0c7db434957",
+        "South America": "fe8ecaa480a636e4aa4a83445c19b554b45c3f05a70ec3640cd3432ce4b43ca8",
+        "Game Over!": "397bde1148302f5cf384bc48a0f3117d3aa34962aa76215a34b3f151f24e20db",
+        "points": "cbd9c26dd58ea20842d41a74119709d02d5675be8018f2163865f5ef77ef5883",
+        "Play Again": "6369447ed401ff6bcdf957718ddd256660051e6a7f4dde08526c2147859be9be",
+        "Repeat Duel": "2d56642e55d8a93f684cb51b68d1b6ead472152875b21d9b9d90ae79567ee45d",
+        "Home": "3ae9eabbf4996c1406ea2df4d3751bcffe4c209257ad1f85c2bee1119c170c45",
+        "Statistics": "6789eb281506aeeeaf643c94bc9df1d1d9af21a13d6c33e182651f2ab9a0f60a",
+        "Total Games": "323be5a6f5ef97aba6084558348ed8ba3ab8698ef5cff4fc05cef86598107fdc",
+        "Best Score": "cb55251af5b844e571129dbe326e5122dce39898652d8879344508aa1a5254a6",
+        "Correct Answers": "3116905702bbd7d05881a3ec009fedd9cedda555a9991f30894fa4207203ec89",
+        "Accuracy": "69feba2b6bc215b73c0c70172aa9975e6c077547c45257795d145606a8c387dd",
+        "Best Time": "7346410fb049f7540cf1d159e61ae0d5276569c0b55af80cdc78d039ff772319",
+        "Time": "6986e0f0a5d89f216a2dd6f4fe32a1ac0a1422037ebe6120fb7f66ceddbbedf7",
+        "Clear": "10725a56892ea5b3d4f16bb911d065f492ade739a907673fcd2772143170b2c4",
+        "Close": "c2321fe2ff9c12a4d46ab149866232d8c601e46fbd06220dbec50f4348fecb8c",
+        "Excellent game!": "b881d7d59add9549a2b84ef93651596fd8ca91829bba8f5bf81b29a716f89ec9",
+        "Great result!": "ea54113d2cc94dfdef3fbcd296765083c7e8a2a28fbaa57e12df8fcb785c7e43",
+        "Good game!": "10c7588c0745ff071c95a7e84049f36f41adec53abc944b5583a27aa91ea865d",
+        "Keep practicing!": "fb9d158b4fe7e27d15a2d16b96cc579a6444ad8f55afc5a1f86e51b19ee78199",
+        "Share Result": "6c2dc1e065ad5ec1a570251ab9ceee337f499cdd8738970ab2425610a3bedf42",
+        "Share": "6c2dc1e065ad5ec1a570251ab9ceee337f499cdd8738970ab2425610a3bedf42",
+        "ACCURACY": "69feba2b6bc215b73c0c70172aa9975e6c077547c45257795d145606a8c387dd"
       },
       "changes": {
         "Time limit per question depending on difficulty": {
@@ -10199,9 +11115,37 @@
         "FACT_02_DESC": {
           "before": "Swiss memiliki satu-satunya bendera nasional berbentuk persegi di dunia. Vatikan juga memiliki bendera persegi tetapi merupakan negara kota.",
           "after": "Swiss dan Kota Vatikan sama-sama memiliki bendera nasional berbentuk persegi."
+        },
+        "Clear": {
+          "before": "Jernih",
+          "after": "Hapus"
+        },
+        "Close": {
+          "before": "Menutup",
+          "after": "Tutup"
+        },
+        "Home": {
+          "before": "Rumah",
+          "after": "Beranda"
+        },
+        "Share": {
+          "before": "Membagikan",
+          "after": "Bagikan"
+        },
+        "Share Result": {
+          "before": "Membagikan",
+          "after": "Bagikan"
+        },
+        "Exit": {
+          "before": "KELUAR",
+          "after": "Keluar"
+        },
+        "Retry": {
+          "before": "Mencoba kembali",
+          "after": "Coba lagi"
         }
       },
-      "pending_count": 1308
+      "pending_count": 1268
     },
     "it": {
       "status": "in_progress",
@@ -10497,7 +11441,47 @@
         "FACT_01_TITLE": "d0b9f1f50e71f15af3a37bae7243c93c93f8c60b17c5aa32efa98019736f0fcf",
         "FACT_01_DESC": "e22bdbbc2b1dc1c54e1a35e04b79786d76b56154bde50809d99d2d757ee1fee2",
         "FACT_02_TITLE": "24ecd19b042669df75d8a993b11597631f203778017fbf9a4db6664442250d09",
-        "FACT_02_DESC": "8b0a61cff5fe88a529d7c25cf8e25c6d0c2cab52310b823aca25045577e5e703"
+        "FACT_02_DESC": "8b0a61cff5fe88a529d7c25cf8e25c6d0c2cab52310b823aca25045577e5e703",
+        "Learn flags of the world": "79ee2f3cd3a86820fd71813f58be1024a279b7477bf7cdcaf3279d0282f8fba6",
+        "Score": "0b984d58dec985e1a311e6f25361d8fb53d9e901ecdab50424c9e1c382d1f99d",
+        "Exit": "58025f3619bfaf7783d8125abacb9fe1571c2b8a0a0f1ca9340f1d9243753d26",
+        "Error loading countries": "da0b3af8d834c56c3694ef9d5797b6d7e9e9a25e71803116c48ef67a7192f924",
+        "Retry": "20b5f4b8bfd56e4f8f1e8891831dc2c15a609678fdd31f9d47637d044495a884",
+        "System": "f150afd3c5994d185052d4165729e1db8eae6914164b9471c3e583edfb1db020",
+        "Select Language": "988f1a61a95361f11ddfb9af9b35c4e6e49c1a291c529427c41939abd91b97dc",
+        "Select Region": "0b1710eede99454396299893429778a9d64abf681ba61519eeb6a8c63b7781a4",
+        "Select Regions": "e9dd4780a297d576afc63af60655765e50d6a6dee8fb4dc5672e73708177abfa",
+        "Multiple Regions": "3dd15a20ccd226fef09150cd4d80808b234917a36ccde7ca2bf04be4bb030535",
+        "START GAME": "1717c7de1d96a6da510b1e1fac7696bbefa1dca84df66224b99fa79776fad006",
+        "All Regions": "46d95da1db2d3b267f87d44734c1100bcf4462fcc07a8d093ee4aef4a190d69a",
+        "Europe": "fc30e2a579cdb971eb042715c73406cd96935bf3de3562d4800576d10fb61c80",
+        "Asia": "7ac02ec1c874b1daffd3a062da21153fd595799cf8b5aebaa77933435bf7931c",
+        "Americas": "65ecb02847d53cdbc5d9228fa35bd829a6ef6bb147564fdb9ddd68de4a6c4477",
+        "Africa": "c4a371acd7c3df8bd70e49805e76cb39b1309ccac3d0f4289120079a9ad68bcd",
+        "Oceania": "4773281fa64f3446d89f2aae17a0f342d1d6260ecd3b3688eb1cc483ced7947a",
+        "North America": "dca21b58849c49bdda0afe7548c99b263c8acd2eb6122017f51f9c6d307c6aa2",
+        "South America": "a8f7822a35fad2710d067bb56969615be45d1d9604619b2ff97cdce4a15b7a22",
+        "Game Over!": "c3a31c645e77eb7a84bea08fd9bb6db5594f6477681f79e996961cbb8bad3fff",
+        "points": "7bc694665f9541857de62e38440a62bd6ba45a717e8d6b5aeb3662ad7964c4e0",
+        "Play Again": "4c4872246d9c7a6a334e1ef852a6cd852efa5429210b13fffd4b82828848a368",
+        "Repeat Duel": "91bb205356e87a9b956645028ead6b53b93d7fbf16a1f30e561149632f0fc800",
+        "Home": "3a78695388b38b5cceefaf6796b0137877514593543b91af2752d5a17e3d736c",
+        "Statistics": "29b83f6291aec9b9db09d0be4ab81d528610cba7fc47178467f27a7bdcedaedf",
+        "Total Games": "5949067e3b1c1f5cc806bbdfa102fdfaba89cb5bf70394d53ae81140c8fa287b",
+        "Best Score": "c33d7ed28d55defdcb7bfd788985e3df8f89dc60d92d3e5109096dd1baa2cd1f",
+        "Correct Answers": "f1d5dd6654af5e36103ba9a9a8c9b843e79775aff52f2cbbc2d9ea1ff9e36c92",
+        "Accuracy": "110ecc0828e683022ac447353ca7c44e1594815ac9e8dfae03bb9442d1dbc38b",
+        "Best Time": "8602361d19e767fb67bb3715f32fe2530f5f50563a55e9f3106b876468cbd738",
+        "Time": "214b5b846cf3925f87ea67310e74493e27d226b85e43eaa96c0a75a7a57b9c63",
+        "Clear": "b590f1791f57a4c24a7a4ff0dbcf56566432c3c2306fa335a3c4e2969a118a22",
+        "Close": "32d4079b315b720bb83235d10d0c23d435752b688887c4c3cb22df41a5c68223",
+        "Excellent game!": "b9a712d6aa363272860dd5726f3f0f9ed3e5465127db9f6d6a527681ea0824b1",
+        "Great result!": "252a0f08d10ddf98d8bf26d26e9e0669e1b5e06039a764e0346b61b3505e1cd2",
+        "Good game!": "a67f347c2bd1f80bb065f3baab2e47012de7f728c56ae3df2ab0dc0e16bd79a6",
+        "Keep practicing!": "de5734076d1af87a2d74fe974c4fa5368534ce7bd0f026d996cebe3320bd8c2c",
+        "Share Result": "5812e631c3aaaa5a613654f623b7827dbc9855158df903e6e6935a1ccf6e7067",
+        "Share": "5812e631c3aaaa5a613654f623b7827dbc9855158df903e6e6935a1ccf6e7067",
+        "ACCURACY": "110ecc0828e683022ac447353ca7c44e1594815ac9e8dfae03bb9442d1dbc38b"
       },
       "changes": {
         "Time limit per question depending on difficulty": {
@@ -10903,9 +11887,53 @@
         "FACT_02_DESC": {
           "before": "La Svizzera ha l'unica bandiera nazionale quadrata al mondo. Anche il Vaticano ha bandiera quadrata ma è una città-stato.",
           "after": "La Svizzera e la Città del Vaticano hanno entrambe bandiere nazionali quadrate."
+        },
+        "Clear": {
+          "before": "Chiaro",
+          "after": "Cancella"
+        },
+        "Home": {
+          "before": "Casa",
+          "after": "Home"
+        },
+        "Share": {
+          "before": "Condividere",
+          "after": "Condividi"
+        },
+        "Share Result": {
+          "before": "Condividere",
+          "after": "Condividi"
+        },
+        "Excellent game!": {
+          "before": "ð Eccellente!",
+          "after": "🏆 Eccellente!"
+        },
+        "Great result!": {
+          "before": "ð¯ Ottimo risultato!",
+          "after": "🎯 Ottimo risultato!"
+        },
+        "Good game!": {
+          "before": "ð Bel gioco!",
+          "after": "👍 Bel gioco!"
+        },
+        "Keep practicing!": {
+          "before": "ðª Continua a esercitarti!",
+          "after": "💪 Continua a esercitarti!"
+        },
+        "Score": {
+          "before": "Punto",
+          "after": "Punteggio"
+        },
+        "Exit": {
+          "before": "Uscita",
+          "after": "Esci"
+        },
+        "Total Games": {
+          "before": "Giochi totali",
+          "after": "Partite totali"
         }
       },
-      "pending_count": 1323
+      "pending_count": 1283
     },
     "ja": {
       "status": "in_progress",
@@ -11202,7 +12230,47 @@
         "FACT_01_TITLE": "b845708f41b2ab3efba336913b2e626686349639521953a2305417c551ffe337",
         "FACT_01_DESC": "4c83d4ac90692a03c538d64d9d41f1c652001fdabd80ef3df89e0021c11d3111",
         "FACT_02_TITLE": "0624d1d5a00ff91ca31d34fb536cecf14c89c2cccd08a7ada4682faad6c55733",
-        "FACT_02_DESC": "c68d1189e5d5001a07f2e5395fc34c52f797a82aa26e5d307f524d9f8d4e838f"
+        "FACT_02_DESC": "c68d1189e5d5001a07f2e5395fc34c52f797a82aa26e5d307f524d9f8d4e838f",
+        "Learn flags of the world": "61fe550f23557dc861de3d7996c40af8bc89dc2b8968539394fbfa0e7d447ab7",
+        "Score": "05a76b2eb609fb57bc7a5cb41437eaca52d15ac3ae1163e865999eb38b2550d7",
+        "Exit": "8f26d438109c877447c80b84eb7e4ba1e6768ebcfc5408f0bc3c0725956bf039",
+        "Error loading countries": "59040bba87b9dc3e8a98061312080115acb5a99f7737fe31b5dea3a96e5efc6c",
+        "Retry": "fb6cc190949da044499f8bcfc763929640af9ae3a3e929b2d230f4e423b6482b",
+        "System": "088462f65b7e8bc00db9fd7d87cf33cea200daceb9094dea9dc851b2a1851090",
+        "Select Language": "79b526e1a22244a520d2a62bbd5bf0e229d3ae31f3495d1ffe5700c73649086a",
+        "Select Region": "7b3b7deb759ca2fab28457f1011d072d88f5fe7bf213b525255818d3b4a3975d",
+        "Select Regions": "7b3b7deb759ca2fab28457f1011d072d88f5fe7bf213b525255818d3b4a3975d",
+        "Multiple Regions": "d4c41f6ec57017eea3a4e10be0655be8aad00c8ea34271d32db4c773ddb33cec",
+        "START GAME": "d7419e6e19b9c9aa7fe2b9daaf7179d98eba08ff565d639db8090f41bd8e5124",
+        "All Regions": "4c3b2a0029d34727b9829aecb529a046dfebe23a6737624feb66b8adaf4fdb8d",
+        "Europe": "5c8e2239aa2a795c90b40e339e13d2d8c3d6ead973339f907ab60f20c74c2d78",
+        "Asia": "0bfd59a2472f04fdfab6c7fe5177e5c6531416254ac1df8b47c5a12fd4af2458",
+        "Americas": "d5935f89d7ef11e98e47c08b074add2a63c828154cea77ab0c8d7f79f609ca9c",
+        "Africa": "1b16c7031fd913a984c1e9dae1ea1ee98a8c7a9257b5091670ed2c0b7d6a1b7b",
+        "Oceania": "dac18a7ae84462bb88e39802e5f4e89fce09a9942a06330045753754d06b830c",
+        "North America": "4b308ea5407aa8992d467c7186e2d858af3e44ecc7ec9612bb0668471e6f98bd",
+        "South America": "8c125436c5c535f23e68d5d2b2d1818c884275c5012619f3eaab93bd4b50e2e3",
+        "Game Over!": "2e9130a9e8c972130ed3e259da04d3d49ef0764259d6f6a9b4b6a78ed1385638",
+        "points": "80ebe4f118802a72d8ed2b0076434895eadf99658f50d6e162c6733fe2809485",
+        "Play Again": "dd805f425ee7cdf1845c3244a91de6f8ef6c2b70cd4e4aef9a6826a18d048620",
+        "Repeat Duel": "b334954f6449cb0d628689b59c0594fc10462947f730ef25712a927c64918eae",
+        "Home": "49339890223b53e958890c087644540866c0a4d1b9aa30ea54b712e0322549d8",
+        "Statistics": "beb8f56ae090386db31157af912b6b3c79131a7c44c64fb8c0f8f69d0aa72488",
+        "Total Games": "891a03fa1e1a4bd258ebe55e7856ff007d8cf5da3b12dda86f8656f274ed6cd2",
+        "Best Score": "b66dabbf09a5b9bdf269f23e98b41a01ea3efcd0c85411f38987692321eee2da",
+        "Correct Answers": "1a0ff333ba9c3f1dcd0d6dcdf6bcf703e1edbda6435dab5f191558b3e5c5f339",
+        "Accuracy": "289000f98a0a4b6e9b4ff569ccaa2d8d838b9e8ff217f27df0f5fdc97f04a0b5",
+        "Best Time": "28cd175d9d1a274a776f842eface7fe93f642db727e4ea47c7d4fe1944eb97d6",
+        "Time": "bf6267da6077b6bedde993a6ec599e9d5474eef12284b6823ef8dd0facc08f40",
+        "Clear": "df8b14c87ba1216c7a8647bd525eb4b301c68cc4aeee3a04562ffc3632b1dffe",
+        "Close": "f6c244f98893cd951392f88864ef16a239999b2e95a6cebf5f6aa8d670460637",
+        "Excellent game!": "9de69a935d07c6d1027cb9738f824c02b963dc13b1bee9fd2d899b301e5bee0f",
+        "Great result!": "6f9dbd43dc411d786770d836628e650be2d9f0b3c287e8b51896cb13bed00cf9",
+        "Good game!": "25a734bbfca3add9d5df4da1854d348cfea4983c22f9a26dd60151a483391ff3",
+        "Keep practicing!": "56ca7aff2b05c3ff75be2f50a4f0eea25c6ed452bf0ed55189eff28ce3da05d0",
+        "Share Result": "a8d79a099242cdc7b8a1106473beb32ee490eaeb2d3fe5efefce3fc5b61b3b54",
+        "Share": "a8d79a099242cdc7b8a1106473beb32ee490eaeb2d3fe5efefce3fc5b61b3b54",
+        "ACCURACY": "289000f98a0a4b6e9b4ff569ccaa2d8d838b9e8ff217f27df0f5fdc97f04a0b5"
       },
       "changes": {
         "Time limit per question depending on difficulty": {
@@ -11692,9 +12760,37 @@
         "FACT_02_DESC": {
           "before": "スイスには世界で唯一の四角い国旗があります。バチカンも四角い国旗を持っていますが、都市国家です。",
           "after": "スイスとバチカン市国の国旗は、どちらも正方形です。"
+        },
+        "Close": {
+          "before": "近い",
+          "after": "閉じる"
+        },
+        "Home": {
+          "before": "家",
+          "after": "ホーム"
+        },
+        "Exit": {
+          "before": "出口",
+          "after": "終了"
+        },
+        "Retry": {
+          "before": "リトライ",
+          "after": "再試行"
+        },
+        "Accuracy": {
+          "before": "正確さ",
+          "after": "正答率"
+        },
+        "Excellent game!": {
+          "before": "🏆素晴らしい！",
+          "after": "🏆 素晴らしい！"
+        },
+        "ACCURACY": {
+          "before": "正確さ",
+          "after": "正答率"
         }
       },
-      "pending_count": 1321
+      "pending_count": 1281
     },
     "ko": {
       "status": "in_progress",
@@ -11989,7 +13085,47 @@
         "FACT_01_TITLE": "feb9291fbf22d19aeb584f2725c12dec9f2b3e5dab486f4ed0b5bf47543508c3",
         "FACT_01_DESC": "ca16ef0d618ca0d5df97ec3280bdc5a6c7b68cb8525f3b14e87e9eb469deb609",
         "FACT_02_TITLE": "19a843195203837d8a94c55e487ce17e9d88e4e1d042caae0629850a21087c6a",
-        "FACT_02_DESC": "150c68c7a995a6cdb0eecc49ff100746242df5025a460fa781efd18919beee56"
+        "FACT_02_DESC": "150c68c7a995a6cdb0eecc49ff100746242df5025a460fa781efd18919beee56",
+        "Learn flags of the world": "6328cd431bd8e422f78150ad6b77d153a9954c457287ba46e1a3528f97d7a34f",
+        "Score": "276516218c1cd12752625e1c759b0db2a4225dbfb52a0b6621239e390e82fc2f",
+        "Exit": "22bfa6072aee5d1ee030ad3fc8df0389725a657c94c339bcad830380920860ec",
+        "Error loading countries": "3651f3d662de27ee720c346651d03f428e49ad5d47b04efed9fa6871488172de",
+        "Retry": "196856a662bd90843ddb2e1f68e1cc74617b43b35778c7b5f520c38ea80038e1",
+        "System": "3e1b87966720bd1b84685c8f749c8918314f01a6511d89fb4222f5a3582e3f05",
+        "Select Language": "19f9d4a5680e76004f1cee84e68b67defa02dcccfdf238873d35ce66201b4d37",
+        "Select Region": "a9a69c345c35cae64e4f81175a0aeee648e0b4336e5731b16353deefe212c7e6",
+        "Select Regions": "a9a69c345c35cae64e4f81175a0aeee648e0b4336e5731b16353deefe212c7e6",
+        "Multiple Regions": "4edf7682a7515131c7dd7950d9c63a365f22490ded9825598dd3710ab3439a36",
+        "START GAME": "29d6e427ba417f0a155017630b41eb2fbb95fa9d8e4bfa7b536c10785313bdf5",
+        "All Regions": "7a9092f98aa5d6bf43e9c9eea3421061207f77515312e4b9ead0bb10884ab3c7",
+        "Europe": "4e0665502d55cc0ff956b7892830f05ffe67a1a922235e1b6999c3cb15a90b6e",
+        "Asia": "c63197602fa770d6c833e0b3ef1ade1f6cb32f57a4103613ed28542806bff1a4",
+        "Americas": "d7144a78efa288a331bc27ae5e3b56e719cb8268a475cfe6eb79011c6ef6336a",
+        "Africa": "1cab88359f9dc125deb90f4cc603bc43086effd14fdb8362af5bebb132b0de12",
+        "Oceania": "d5caed45100ccf61ef4ff6378c54d313f123f63b27a5c2322b60b29bf46e4e50",
+        "North America": "8c6dd7f4e88a4419211f35353592ec16a5f86b73462efe16b05637be501fd892",
+        "South America": "dfca080cf0ad0eff15a393630b8a79e00e889373f03bdd0bce99b194e0401460",
+        "Game Over!": "867a66fd753126001e53476df00f9cc09ea1eabae4b75644d19542eea89e803c",
+        "points": "59a79337fd9ab69bc177e37e5889fb6901e3e7a1cc481cb102e62dacc3c4bcb4",
+        "Play Again": "13f08bee2b1fe464444912cb5a0cc8788532eaa2c6d8f9075b8851a801f8341c",
+        "Repeat Duel": "c0f441a4d44e3cc207708cbbfee54c997bf1cc7c2f8c92cb586e4ce9b58a09ee",
+        "Home": "034999faab0545b390f07d637f374c256031d13657c3bd951d07f7cfbbd38ec3",
+        "Statistics": "a3352d329619d0e67b78af121cde57b832f6c612cd4af42c86907005ddab18ef",
+        "Total Games": "9c6b5160f29daa6ef534a71e6f61b4c98e25bf096a290819d4b05a589b6ad6df",
+        "Best Score": "3a6770095e86c6bfe8a60a7bd6ce50dbe02eea990f1168dff60bcffbd9c374ab",
+        "Correct Answers": "a94d3f6a027a180064ca560112adfbd129207566cb4b7b20e04d15bd9d304cd2",
+        "Accuracy": "de203a44aa03c415dd974640722b2eba47246c20332d5cf748205ff099d770ba",
+        "Best Time": "f70acc26c50fd0cbada9875528c3a41401922c15c0af78fcbd421b38de5786b9",
+        "Time": "4692cef5ac69eb37bd5301ef63f765f04421250f52b6eee6c966e0b1840395a9",
+        "Clear": "c8dbc399b9247135f3ebfc81316e8a24f560b689901127cc2a50ad5388708314",
+        "Close": "1e8c10206f5b35bd96122e14038b5afd38e326a758874332b3931d6db9b25259",
+        "Excellent game!": "91bc945ab2c71bcf4f2eba6e82d1150fe2c1f36ad3474543dee46360bd3f5664",
+        "Great result!": "22ab2f18c7b61483886df80c22f10e307bdeb77799b74f2634abe699f091f8b4",
+        "Good game!": "629e81f3ef82492a7672b29507ba6075f079f990634ba84f873305490fc83ed3",
+        "Keep practicing!": "b2257f2c2db161e3eb15148f69478ca5261769c218c5622eccbc52c0a3b86f8a",
+        "Share Result": "d62648e19143c34dd1825799ef7c0deb4fe5a98728b6a9f6a0d429a583eec99a",
+        "Share": "d62648e19143c34dd1825799ef7c0deb4fe5a98728b6a9f6a0d429a583eec99a",
+        "ACCURACY": "de203a44aa03c415dd974640722b2eba47246c20332d5cf748205ff099d770ba"
       },
       "changes": {
         "Time limit per question depending on difficulty": {
@@ -12411,9 +13547,61 @@
         "FACT_02_DESC": {
           "before": "스위스는 세계에서 유일한 정사각형 국기를 보유하고 있습니다. 바티칸도 사각형 깃발을 갖고 있지만 도시국가이다.",
           "after": "스위스와 바티칸 시국의 국기는 모두 정사각형이에요."
+        },
+        "Clear": {
+          "before": "분명한",
+          "after": "지우기"
+        },
+        "Close": {
+          "before": "닫다",
+          "after": "닫기"
+        },
+        "Home": {
+          "before": "집",
+          "after": "홈"
+        },
+        "Share": {
+          "before": "공유하다",
+          "after": "공유"
+        },
+        "Share Result": {
+          "before": "공유하다",
+          "after": "공유"
+        },
+        "Exit": {
+          "before": "출구",
+          "after": "나가기"
+        },
+        "Retry": {
+          "before": "다시 해 보다",
+          "after": "다시 시도"
+        },
+        "System": {
+          "before": "체계",
+          "after": "시스템"
+        },
+        "points": {
+          "before": "전철기",
+          "after": "점"
+        },
+        "Total Games": {
+          "before": "총 게임수",
+          "after": "총 게임 수"
+        },
+        "Accuracy": {
+          "before": "정확성",
+          "after": "정답률"
+        },
+        "Best Time": {
+          "before": "최고의 시간",
+          "after": "최고 기록 시간"
+        },
+        "ACCURACY": {
+          "before": "정확성",
+          "after": "정답률"
         }
       },
-      "pending_count": 1323
+      "pending_count": 1283
     },
     "nl": {
       "status": "in_progress",
@@ -12713,7 +13901,47 @@
         "FACT_01_TITLE": "ee6907c974ec16904569759be13fb28c5edab55af30ad337c6866c3532fa61d8",
         "FACT_01_DESC": "28de7d9e296756666722a502e13497c436bdca1fc69f6b0ca40334a76d91cd07",
         "FACT_02_TITLE": "458f04d14f5e3347d0d774209a256abd30604a0e57378a1beeeaee49824d464f",
-        "FACT_02_DESC": "63f545d5f55975f76df9397fb86245bbad9e02da3853b0c0f0eaf5734a80ebc3"
+        "FACT_02_DESC": "63f545d5f55975f76df9397fb86245bbad9e02da3853b0c0f0eaf5734a80ebc3",
+        "Learn flags of the world": "a57d017f66036e146c075631edde14966c6bea9293b86286861e93d81ac32ca1",
+        "Score": "38e5a46cbc5ad32842ac60a4f1425ac9b31c06bac685f446a06ab72b87de31ed",
+        "Exit": "8f3753efb13e0c1ef74046b0a8e3dbab98a4448502eb023e2351e76117a3319c",
+        "Error loading countries": "58a092d7a139372be9964a6e5712f8115f15c8b76910483c60d5f2ec9981564e",
+        "Retry": "576434df7a00aeaed5de7efdf8b53f8c63292c5991410445f214d80fb78e0918",
+        "System": "a82700cf4120fe30b967a727f266ccf6717ecaaf4d94c405393dcab640f6c769",
+        "Select Language": "f3fc49c189f34d399f684ad5e9daca51a7c4431180090baf0bf128ace50af243",
+        "Select Region": "c68c7a3ce4f2a6651b4a0a10e52fa5fd82d9113517e676ecfa8235a70b237ccd",
+        "Select Regions": "5f095f9e9137f1f075317348aacd40c190b443308a24ae0a9b5ae4e4aff52e00",
+        "Multiple Regions": "1847ceea8129cf585f3e99d111ac9ef4f6da576c3fd021c929e7c38eef4d95a7",
+        "START GAME": "099d6a408f9acde0a1c1ca23b381c1f4b74918fc6fbe4bab9f02adce20445f74",
+        "All Regions": "ca4a2e074f9faaa89b75b015851ae392c0b7c3d12c209f534d4a7e3da391daae",
+        "Europe": "fc30e2a579cdb971eb042715c73406cd96935bf3de3562d4800576d10fb61c80",
+        "Asia": "2f0f99ce861a9dd1b5ec48829c8775e6ab3074e7c5d2f3ba999ce595e0225152",
+        "Americas": "ae89eb22e8ee9889c343520363d2020b356e8ebf24f55be13c77689993be9939",
+        "Africa": "5278722838b30152ad9f4ebb8fbf6648a987e70fdc94901b2bb048ebc173b23a",
+        "Oceania": "ed335d73ae3c6baab0c14901b9883d4b43cd67423e615017a33d89faaa408460",
+        "North America": "8c9bf4ac3dd8b9475187721743ef68f412d29fbfcd457b5e961c6f4a2d527e10",
+        "South America": "230bd65b23b30a3e209df03cec31ff6ead440c65c58ecd85e135737c28cb5050",
+        "Game Over!": "5e08365ecdbe1a9329c65c0037e367aadc0022a8a1fa8e6d489a3f085398226c",
+        "points": "bb1f9282abf399f7949427f9a58f395b0990ae45c43f95bde2fa610323a19b9e",
+        "Play Again": "032f16adf17aa33bf05323019de0b3b86fb20821a13eff797b4c4198919c0357",
+        "Repeat Duel": "3825d1f54a96baca539bc37f23c283d28f308da1a38ba4bfb8dab11194f7cafb",
+        "Home": "e4bb9f1ece9af9264a3b9e3913bbdb2cf497457167b14ced5f85688bfde74644",
+        "Statistics": "f644068d45b122f43adbff9afe01caf21cd248980c86d54019cd4399c6d1fe82",
+        "Total Games": "94e060219dfd4671e4897b555bb312b2fef9f1fda1b64255edf677fafc48d59a",
+        "Best Score": "8435094b2d55987182a3157eda5ca8543aacbf15ada70bfeb37036f7d6b84163",
+        "Correct Answers": "ae7b43ee5262785ebbf6a18356cad9ff580d802a817efd69efd79129da0e3821",
+        "Accuracy": "49e0b3c8b7028c7e54c3e08f9379f1c7b6b84b3ddf765445732317de6099d114",
+        "Best Time": "72efdb036539b1b90961092f945f5e40db2667880eec7a5d13e2513cbaacba0f",
+        "Time": "7f45f58e8654aae3ad7e237b0aad867ad767852ac859450ed727d4d495340fb3",
+        "Clear": "54e3b21697d57cf7c74d3ecd3d8254181d07b14a49093bc32e2799533c22260f",
+        "Close": "5a468430f8781796cb0380c01990cef2903893bc452eb721a4f4a2141356b450",
+        "Excellent game!": "c9c67fefb128a3c46a4e0f2b4018e7451b7762ca21f4ac8818f57e88784e5fa2",
+        "Great result!": "f77d3bc4d3341ffeef7ebd5f636cdd388943eaabd060d188954d83592ad1d7e2",
+        "Good game!": "9d6470c16a565380d3cb93a7e9dd4f77bc21f5f7b73425fe956011c80e1821a7",
+        "Keep practicing!": "f55bc745da4003685e19b2730beeb49bb55c6e89781af4e644542d2d70c9d999",
+        "Share Result": "067edb4e226ea01cde8b323fa9552050ab29cd0b7c6f1415c2d8374c8fb245ad",
+        "Share": "067edb4e226ea01cde8b323fa9552050ab29cd0b7c6f1415c2d8374c8fb245ad",
+        "ACCURACY": "49e0b3c8b7028c7e54c3e08f9379f1c7b6b84b3ddf765445732317de6099d114"
       },
       "changes": {
         "Time limit per question depending on difficulty": {
@@ -13139,9 +14367,49 @@
         "FACT_02_DESC": {
           "before": "Zwitserland heeft de enige vierkante nationale vlag ter wereld. Het Vaticaan heeft ook een vierkante vlag maar is een stadstaat.",
           "after": "Zowel Zwitserland als Vaticaanstad heeft een vierkante nationale vlag."
+        },
+        "Clear": {
+          "before": "Duidelijk",
+          "after": "Wissen"
+        },
+        "Home": {
+          "before": "Thuis",
+          "after": "Start"
+        },
+        "Share": {
+          "before": "Deel",
+          "after": "Delen"
+        },
+        "Share Result": {
+          "before": "Deel",
+          "after": "Delen"
+        },
+        "Excellent game!": {
+          "before": "ð Uitstekend!",
+          "after": "🏆 Uitstekend!"
+        },
+        "Great result!": {
+          "before": "ð¯ Geweldig resultaat!",
+          "after": "🎯 Geweldig resultaat!"
+        },
+        "Good game!": {
+          "before": "ð Goed spel!",
+          "after": "👍 Goed spel!"
+        },
+        "Keep practicing!": {
+          "before": "ðª Blijf oefenen!",
+          "after": "💪 Blijf oefenen!"
+        },
+        "Score": {
+          "before": "Scoren",
+          "after": "Score"
+        },
+        "Exit": {
+          "before": "Uitgang",
+          "after": "Afsluiten"
         }
       },
-      "pending_count": 1319
+      "pending_count": 1279
     },
     "pl": {
       "status": "in_progress",
@@ -13439,7 +14707,47 @@
         "FACT_01_TITLE": "04261a0b0693031745c4ee3625d637622f4d51aa096cdfbc04b0501862a94501",
         "FACT_01_DESC": "bd3c84f4b477a48287b048b69e8020b3c5bb95bfaa861953b82005b9b4f1e4ca",
         "FACT_02_TITLE": "b9c488d390ca4cec6b84111f6cc19407ec494f237ab3e0c429a1f4c62275ef57",
-        "FACT_02_DESC": "fcc3f28eeec468288059e1e111061a7f86cd8d68447262872876868f0767b4f3"
+        "FACT_02_DESC": "fcc3f28eeec468288059e1e111061a7f86cd8d68447262872876868f0767b4f3",
+        "Learn flags of the world": "ab2a713624147c8a368afe27bf3ee43c08e15a3bdbe0dc4486f1ded33ebba793",
+        "Score": "931647da0d5b88f23c40aa81838efbdf3cf203ae29c3a11a14d2286592fe688e",
+        "Exit": "bd4f8e31e95968ee32d98b4744b3936fe31ca98f29fe2a4d50318efa04f75924",
+        "Error loading countries": "5efa89ed61ac9b934032ffd9cc8c559cd6cad864ab67dc1e5e164dc102e1dc32",
+        "Retry": "7237b73bc691a25bb9b93e220927d567b4bae12242f34fd2ed7043b3204cb09d",
+        "System": "6725e7bbcd28f3a8a586fa34bf191fd72dde8b61756932cd3237c17a6f196f1a",
+        "Select Language": "81e5cfd89add1483361307914afb7b6e780889af26e20e224513e26d5957507a",
+        "Select Region": "a6024850ae04c89479021f29a852fd9705db24505320c9cc5697e7f0f3156d77",
+        "Select Regions": "75165ab04bc6c70145e5e7ea28cb12989e24ec553012639101a454196a024811",
+        "Multiple Regions": "e397b2dd58fe73955a539cb93e20486991ef04c6fcbf8c4fef534210c7d71e01",
+        "START GAME": "c33bcf5862780ad40715702e5c8890deac1b1a9b35c60a61e7509d7bf44a77cd",
+        "All Regions": "92c087ebc856d4ffa1a1c509027dda60a8723aa8b29666fc45672847d0ac2a9d",
+        "Europe": "fc30e2a579cdb971eb042715c73406cd96935bf3de3562d4800576d10fb61c80",
+        "Asia": "184e4b1317dac76d8e573519dd26b45652a383029ec96b3366a5101bfa92cd37",
+        "Americas": "401dc70c8c1cc4ba8fb449310a0c5581b4fb7120ce1c5948d0189d7283af43a8",
+        "Africa": "1eee37628a71fe6474728c78d7335a8819d32fe6b1ef792a4ed2c38f6a644534",
+        "Oceania": "4773281fa64f3446d89f2aae17a0f342d1d6260ecd3b3688eb1cc483ced7947a",
+        "North America": "9562083df3cf76dba922a962520c4522cd3c957bd608ea9c7249b50d851f6f86",
+        "South America": "3beaab6ff691c6f7500b718a2b63d8c6e2c2ea5a9cdc806deb805b7c313167a4",
+        "Game Over!": "6cef9d550380fd66e43d3e20a88998e1205ab1c986ae5ed20d7b5ac16fa6f4d4",
+        "points": "067a34cdead7c1c33ae3d1ff1e663f5fd33fe7ba26d3e7342625daa40ff7df96",
+        "Play Again": "c286100d60d7812aeabda149abe1c3eca3c97b9d07f3d2d05fef757e6ec60c51",
+        "Repeat Duel": "b87007a009cf95fd484db307663f7f3e1d59adc6b543526fe281bdd66bf2c32f",
+        "Home": "f40d41b3a4572b9460ba81bc054321e3a0cea9f56b9518fb4e7cd1087603e923",
+        "Statistics": "53dfc280487b7df6538e016dec3103dda0e3b0fd1787865e27756573ee9cd611",
+        "Total Games": "f072a42215c8b72cd0e3ca6f8a234e099f635e4467d6b0b3adcef109ce30cf4f",
+        "Best Score": "4e5672d6496126a2495787a7771321361356d161449dc704fb6ac0013e51e2d6",
+        "Correct Answers": "fff6badbb96a83419df3d13254071fac2c7702727eb1ab855cabd70d8f7708f8",
+        "Accuracy": "43af6ac62f56cd67717aa8eaa76a70b44c7c4fa5f61364f27b879402306740ab",
+        "Best Time": "de673c520722d1086d7ba7f3421d590a29b62cbb46937e6a516db7ecc2755d59",
+        "Time": "0c5df9b9309e4079c121eeb5e6e1c7e2a6513639462b28ad7f571f1e4611e87b",
+        "Clear": "68dbd6c2052a75b9983d8f91d25cac1e1632780a8530dfb0a03360da4eb73b06",
+        "Close": "00b8d851752c5295769111a37217e6d544388557e4d9b66d44fc0fc5c0d5c28d",
+        "Excellent game!": "cb359e8b1602170012396ec252ec85ae1d5cd074b4fff5ca1ca76092a890f049",
+        "Great result!": "41b74cd292f809504cf2299d88781808a57025ddbdd046c07a3c96fe29dc590d",
+        "Good game!": "b66d689270238ba30110dbdb71cdd6a15d1eb15e346363295e09320f786fc65c",
+        "Keep practicing!": "af2949e11fe5e7113172e2b3016df3186cf597071ef8624f7adec92672a1cd31",
+        "Share Result": "f32afb99a746718724b73a85e00201dd551c148fb4a33ce87877f569e2271aca",
+        "Share": "f32afb99a746718724b73a85e00201dd551c148fb4a33ce87877f569e2271aca",
+        "ACCURACY": "43af6ac62f56cd67717aa8eaa76a70b44c7c4fa5f61364f27b879402306740ab"
       },
       "changes": {
         "Time limit per question depending on difficulty": {
@@ -13841,9 +15149,61 @@
         "FACT_02_DESC": {
           "before": "Szwajcaria ma jedyną kwadratową flagę narodową na świecie. Watykan też ma flagę kwadratową, ale to miasto-państwo.",
           "after": "Szwajcaria i Watykan mają kwadratowe flagi narodowe."
+        },
+        "Clear": {
+          "before": "Jasne",
+          "after": "Wyczyść"
+        },
+        "Home": {
+          "before": "Dom",
+          "after": "Strona główna"
+        },
+        "Share": {
+          "before": "Udział",
+          "after": "Udostępnij"
+        },
+        "Share Result": {
+          "before": "Udział",
+          "after": "Udostępnij"
+        },
+        "Excellent game!": {
+          "before": "ð Doskonale!",
+          "after": "🏆 Doskonale!"
+        },
+        "Great result!": {
+          "before": "ð¯ Świetny wynik!",
+          "after": "🎯 Świetny wynik!"
+        },
+        "Good game!": {
+          "before": "ð Dobra gra!",
+          "after": "👍 Dobra gra!"
+        },
+        "Keep practicing!": {
+          "before": "ðª Ćwicz dalej!",
+          "after": "💪 Ćwicz dalej!"
+        },
+        "Exit": {
+          "before": "Wyjście",
+          "after": "Wyjdź"
+        },
+        "Retry": {
+          "before": "Spróbować ponownie",
+          "after": "Spróbuj ponownie"
+        },
+        "points": {
+          "before": "zwrotnica",
+          "after": "punkty"
+        },
+        "Statistics": {
+          "before": "Statystyka",
+          "after": "Statystyki"
+        },
+        "Total Games": {
+          "before": "Totalne gry",
+          "after": "Łączna liczba gier"
         }
       },
-      "pending_count": 1321
+      "pending_count": 1281
     },
     "pt-BR": {
       "status": "in_progress",
@@ -14142,7 +15502,47 @@
         "FACT_01_TITLE": "4100fa83ccd7732c72b9efb9d87548bd5dfaa439203ae052292d9b7249a34315",
         "FACT_01_DESC": "08aad8f646ee9cd798411e68fdd688d9d75def878a9ca487fa7e862f2847b211",
         "FACT_02_TITLE": "756981d8ed8c60ab2059e0fd830a24b7436f11c6efafa6cbc303ff5b17c34503",
-        "FACT_02_DESC": "9b45a505488b4602d02cd52dbb702010fc2aa10df404a87b92a8348f858cee97"
+        "FACT_02_DESC": "9b45a505488b4602d02cd52dbb702010fc2aa10df404a87b92a8348f858cee97",
+        "Learn flags of the world": "40b394c87cd52731a918d4fcbd5f8bffeb2e4c5942b31b71601a173dc141c324",
+        "Score": "b60e4b3dcf0768af0e46700d102dea59532a38c89498da2866c389772e944e3d",
+        "Exit": "2d023dea2a9d93793dcee75a664d3396a73269adb273bdac8733c6ccba59b154",
+        "Error loading countries": "7e29d2377c4f71c642a487e1d30b039c72911855ec57df79e779c05060331d8b",
+        "Retry": "b9e10688be012d8bc2adc6ec05146367b389f70d59ac274dfe32361ba63956a5",
+        "System": "f150afd3c5994d185052d4165729e1db8eae6914164b9471c3e583edfb1db020",
+        "Select Language": "b862cb38917d4745f005311b33a755cc1b93a6cc14a785a27691f7b3d353abed",
+        "Select Region": "723dacdd153ff3aab39c6ecad1e0a5388f33109a6a60ba2fd882df00ef3ae500",
+        "Select Regions": "e2220f446d293c0e4554a2b1b01e53480b368179628f70bac4947af1080b0986",
+        "Multiple Regions": "7e44bd332cc61eb361f3bdb8065c6e9735828b00c7185bd29c2727fb454c2a84",
+        "START GAME": "712d2dfdee73a3d8799e9dbe9176c0bb2e0edc07376c9d991505b7b3fcc85520",
+        "All Regions": "8286a9ba411c4dcdf634d0a82130dc2654941bc4ff85707b40258f6af7026c17",
+        "Europe": "fc30e2a579cdb971eb042715c73406cd96935bf3de3562d4800576d10fb61c80",
+        "Asia": "b00885911178cb017e671c5c49c9cd4dcddce2b21843fea3c66038152612f186",
+        "Americas": "8968c996b849fb587b88cbb13766c4371086441f23cf34616ac3afb71b1d5cc9",
+        "Africa": "b63f6788ff1e4489c639ccda252aa225a8616146e94111ea919722a3a5a1af3b",
+        "Oceania": "df3ddc01f3a729070360fe6e114145e395d0da0b35b7713248d60140f65bdded",
+        "North America": "fa346fc26189a3e883f36407f435cdd3803712afb2f8a6421ebaef285b9a7131",
+        "South America": "3460cadd41bf9877e8f0ba3f77995ad32254910fbceb1ae36e63f1da96914b7b",
+        "Game Over!": "36fcdb21e97cc9432d2ed4e6b6db3fe1cf65a94150a6ad8d34879b17650b0762",
+        "points": "0f9af438fa5b9f8f0b97dcca3108b7ceb425e37ca3aa14a29ef0c255dbf3c168",
+        "Play Again": "aeefac8fae09e539dee770b5462f01782fcf448812e906424c33e2dbf906a2c6",
+        "Repeat Duel": "683c9af4cae168c52bb290146b26857699086ad58aebccff4ed358f43cb14e70",
+        "Home": "325dfc37c9ba0aaa454e4142b4bfe68797cb61d2a8e0debe5def2bf33f0ed8ef",
+        "Statistics": "0038516d938d969af56d0b7586f887ec813ddd4b1e781c60823225aada11b851",
+        "Total Games": "a5d84d20a040da0df2030b588e3bb8c39453baccdd661a7d4a746cc03d905be0",
+        "Best Score": "5f389f0e252dbb3e023b0934e86948bac9840a351e9d019a3421e4f941b6c0b3",
+        "Correct Answers": "543d4ea9d5c4f74cf3ec02dd70e60a5bb7c5354a1ba2caf2a032128258ce69d9",
+        "Accuracy": "3336c97ea46818089e6c62973d537b3a9844c5f0e0c2e6cd3ec531794c21e6a6",
+        "Best Time": "afe30bde2708bfdfc871969b4b52b61f6a53c264571cc581be116c5f7f592a1f",
+        "Time": "214b5b846cf3925f87ea67310e74493e27d226b85e43eaa96c0a75a7a57b9c63",
+        "Clear": "5585ca453806844e33850d5f43c444f1711b5c64bd6aeb2045ecacd3df41df91",
+        "Close": "0f2bd88ef0acbda94f434542f073bf9a116aab69a63ffc6c57ceddf1033bb5e2",
+        "Excellent game!": "5801e151e317e6b97dd146b141464bf73b12c40223d06467d6c58035cd151700",
+        "Great result!": "22af8f802f9524b5bb302a2b9adb09325cba6581951f8098c1b0f56679ef2e49",
+        "Good game!": "1b85429497a23700f93a607cb2031254c1982c9ee1879917bf7c6890bcbcab41",
+        "Keep practicing!": "5b295a5c66d7393d6ea2f592483adf16a9b277ff93939d8aa04cf4dbb25cff24",
+        "Share Result": "46737d1651cc133d5189a2f143ea39b4def256c1c382184d7497290bb9224270",
+        "Share": "46737d1651cc133d5189a2f143ea39b4def256c1c382184d7497290bb9224270",
+        "ACCURACY": "3336c97ea46818089e6c62973d537b3a9844c5f0e0c2e6cd3ec531794c21e6a6"
       },
       "changes": {
         "Time limit per question depending on difficulty": {
@@ -14496,9 +15896,45 @@
         "FACT_02_DESC": {
           "before": "A Suíça tem a única bandeira nacional quadrada do mundo. O Vaticano também tem bandeira quadrada mas é cidade-Estado.",
           "after": "A Suíça e a Cidade do Vaticano têm bandeiras nacionais quadradas."
+        },
+        "Clear": {
+          "before": "Claro",
+          "after": "Limpar"
+        },
+        "Home": {
+          "before": "Lar",
+          "after": "Início"
+        },
+        "Excellent game!": {
+          "before": "ð Excelente!",
+          "after": "🏆 Excelente!"
+        },
+        "Great result!": {
+          "before": "ð¯Ótimo resultado!",
+          "after": "🎯 Ótimo resultado!"
+        },
+        "Good game!": {
+          "before": "ð Bom jogo!",
+          "after": "👍 Bom jogo!"
+        },
+        "Keep practicing!": {
+          "before": "ðª Continue praticando!",
+          "after": "💪 Continue praticando!"
+        },
+        "Exit": {
+          "before": "Saída",
+          "after": "Sair"
+        },
+        "South America": {
+          "before": "Ámérica do Sul",
+          "after": "América do Sul"
+        },
+        "Best Time": {
+          "before": "Melhor horário",
+          "after": "Melhor tempo"
         }
       },
-      "pending_count": 1320
+      "pending_count": 1280
     },
     "ro": {
       "status": "in_progress",
@@ -14807,7 +16243,47 @@
         "FACT_01_TITLE": "2a738664d29889e9c1c4425151a0ae156b88e5ecc2837bfce2fb9d9dd638c45d",
         "FACT_01_DESC": "8c990b0f3aaf67f9e5f3964092d0b86b880d4c55388ff0e56c1b70f32c51382c",
         "FACT_02_TITLE": "a639745ca4b9cba15beb64509fcaf8a3e1617fda4b0aa159e1bdf2907dbf97f5",
-        "FACT_02_DESC": "87cd94a19b6c1c97f40a811c98f6f6ce4f7619e0ba99b60ac85d8be34bbc993b"
+        "FACT_02_DESC": "87cd94a19b6c1c97f40a811c98f6f6ce4f7619e0ba99b60ac85d8be34bbc993b",
+        "Learn flags of the world": "b4b0e0004854827f585e74e3a82ee447d2c673d4e083beb080c229949baecfbc",
+        "Score": "640d6963a8af14e7fbb974ca4de165e8870f5e1a3c33677b84d4c6ff77c61b51",
+        "Exit": "491d415caac120971b3cf7708824a9d81b4c4fa46efa6c9852301036f415be98",
+        "Error loading countries": "1947e92d9d23a2db359327484d33a2bf87c27ddfabd649561a1b3aeb7a3a9520",
+        "Retry": "a09d291920163176979b89a68e755b38cc0e872ea454ef9a2d6841b1d6e876f7",
+        "System": "1c466db7924386fbe638b95eba421a55cff01b29717e156942b68499289998da",
+        "Select Language": "eb1dad24a57c600415663ee384457d827b171b46447011b2121ab537913701a4",
+        "Select Region": "254af96495fc341c96c4b0374a2f0c044a85bae50597114b43b54f2a1edb9667",
+        "Select Regions": "cbdf469a3fc350831694606bd54ca2ab691f93466b4b863623434acb473834e5",
+        "Multiple Regions": "501a41d1ef871f18c9cac85626041a0595b9c0b7d0de4382867a8929dc42c186",
+        "START GAME": "ada0d347abd936832aba12ec0f7921594ba768e63d78009668f72d8b23f398b3",
+        "All Regions": "d16be59c05b4f486c373527765e67d2f5e766379f87fbfbc48b11e2f17eadc9e",
+        "Europe": "fc30e2a579cdb971eb042715c73406cd96935bf3de3562d4800576d10fb61c80",
+        "Asia": "7ac02ec1c874b1daffd3a062da21153fd595799cf8b5aebaa77933435bf7931c",
+        "Americas": "8b410a5e7c9b7b4e3423b133f223f10e172469f85d188ab61d4cee121f64dcf9",
+        "Africa": "c4a371acd7c3df8bd70e49805e76cb39b1309ccac3d0f4289120079a9ad68bcd",
+        "Oceania": "4773281fa64f3446d89f2aae17a0f342d1d6260ecd3b3688eb1cc483ced7947a",
+        "North America": "5ce8b716faebff15f046ed48f31ce6278b10b1ea0fd3af926591986e5595eb74",
+        "South America": "de9bc35e424fcf7db5797436b116e2e9b6b5bf07e829d68d50830156b78fd0cd",
+        "Game Over!": "ee067a0ef545f5b07302d25b659b0f9e9efb7552af8293f772441c9392745ed5",
+        "points": "240e54504aff1bb8e2130ce5e4e5c8b7ca953dd453acf4da6eba4f64b13a2f26",
+        "Play Again": "6e60e1fdd45b944b834af667c481013820fc470ce6fd450127752a19de20d818",
+        "Repeat Duel": "fb1b36f6f226002b378713400fb18f2283d6ad0ce23b1d2822a73d8fcddeee9d",
+        "Home": "bb1f2fa01082b92818e5b9bc928d2e2b7822d07c05bbb67c221821b38e38071d",
+        "Statistics": "6151a7cd94fd1f1e7fdfe2ec48e72693c2fd46cd99a033291baded8012e0b4cf",
+        "Total Games": "91e0f2f3b8c357122929bb268ff7dc8cf26ff452982fc6efe8c304713019fd2c",
+        "Best Score": "f4dfe8c69d7dd09c3eeb17241dea01386a6f294467512b57de698c5981102555",
+        "Correct Answers": "8871b4813f3253e4bc83a92f629a7efc4c568f3000ec32d50427e94def509bcc",
+        "Accuracy": "e9377425975997e94c66a0ca2aba8eba5430a06135750846f3a881d64fc6bd9c",
+        "Best Time": "dc7d3683d85298fa8d40d63d7676b0bd61c24fd00f778be4d34adbedc72b51f7",
+        "Time": "63d6d96ecbb931b35bb3182b4cacd7142ec02817e56705c29eef3db9fd939046",
+        "Clear": "0fd6d63ed2dbf494753d5f5d04e52a0933b3d5cf432de1907a19e65ded4fa95e",
+        "Close": "b7f0026982e780c33344834500464527854631c01f51039d2eb87853b8370c6d",
+        "Excellent game!": "225296fa7fe851cfb8bebccfef29d568bd841fa4423dfda22c0e6e00ad4b00b9",
+        "Great result!": "b32051cfe4dcc8e524e24ef174ef0b7b7d279bec84ef717885dc0946fcb48a78",
+        "Good game!": "2a85c5b29094cc7b06d03ae7dca845f364f0ab4d3ece827802b9590f7a81ef4a",
+        "Keep practicing!": "8c7967f17fba3a661a92f47ec731cbc1e1b465f960c7938204a7d5880dcba4de",
+        "Share Result": "74045b9ef69106eaa7802bfced1dfa28596f283d286f110d20c31742e434413e",
+        "Share": "74045b9ef69106eaa7802bfced1dfa28596f283d286f110d20c31742e434413e",
+        "ACCURACY": "e9377425975997e94c66a0ca2aba8eba5430a06135750846f3a881d64fc6bd9c"
       },
       "changes": {
         "Time limit per question depending on difficulty": {
@@ -15377,9 +16853,41 @@
         "FACT_02_DESC": {
           "before": "Elveția are singurul steag național pătrat din lume. Vaticanul are și un steag pătrat, dar este un oraș-stat.",
           "after": "Elveția și Vaticanul au steaguri naționale pătrate."
+        },
+        "Clear": {
+          "before": "Clar",
+          "after": "Șterge"
+        },
+        "Close": {
+          "before": "Aproape",
+          "after": "Închide"
+        },
+        "Learn flags of the world": {
+          "before": "Învață steaguri ale lumii",
+          "after": "Învață steagurile lumii"
+        },
+        "Retry": {
+          "before": "Reîncercați",
+          "after": "Încearcă din nou"
+        },
+        "Select Language": {
+          "before": "Selectați Limbă",
+          "after": "Alege limba"
+        },
+        "Select Region": {
+          "before": "Selectați Regiune",
+          "after": "Alege regiunea"
+        },
+        "Select Regions": {
+          "before": "Selectați Regiuni",
+          "after": "Alege regiunile"
+        },
+        "Keep practicing!": {
+          "before": "💪 Continuați să exersați!",
+          "after": "💪 Continuă să exersezi!"
         }
       },
-      "pending_count": 1309
+      "pending_count": 1269
     },
     "ru": {
       "status": "in_progress",
@@ -15679,7 +17187,47 @@
         "FACT_01_TITLE": "c7108fb9f7ae234389e32fc485ceeb781466be573b91d718007abac27ee9fed4",
         "FACT_01_DESC": "d789f5d026300bc8157d03d1cd91238e750ca47ccc738343256a3b407c1f0249",
         "FACT_02_TITLE": "853227beed0209f30eba3214940c32a9f3572d6cd776c2f75fc8e62c717c5339",
-        "FACT_02_DESC": "1c00224fb80617c3c917530bac8f9ebe964ecfc5abd7377e8c2a15a45369715b"
+        "FACT_02_DESC": "1c00224fb80617c3c917530bac8f9ebe964ecfc5abd7377e8c2a15a45369715b",
+        "Learn flags of the world": "84a9b813842d8efff30165d8a7f2fb441faf901c36a3d8e48f6e65e94764ad7c",
+        "Score": "54121f46afa01431d60c3efed80a918e819ec801920e030f6845e386adf8b3f8",
+        "Exit": "75cd24c315d4591c6f315f54599c0aa852c88c6cd7f72f49f52e16006a264902",
+        "Error loading countries": "905b6bb14a8ab5c402dc23349a591f4f848a0aae37cf30904aadf61dfb591aa6",
+        "Retry": "5189135a6110bd31b69bbcb3487109995252165ac7ee7da59ead9d789f690248",
+        "System": "3860f5977042bcec19dc10fbcbca475e5d150ab4baf1444ce6cf367527fb93f8",
+        "Select Language": "c635ec3ec57546c09f4caffdfc889c4e70665f2ea6def7e40f25847821b76679",
+        "Select Region": "95e0e82d13c4f4bcd0418e71c4fc3c0953787f593c1b4e135bcf8c00d759a470",
+        "Select Regions": "af84d72139c681918e0424cf08b2a9f06c0a408c0457091c1713edab021a5d21",
+        "Multiple Regions": "4fd64ff6de1af7a480e3f08353261fc3666e0979cd349757618c04fd2e29e277",
+        "START GAME": "08ae51874d2c23268ee4f35e994f95d9428288da9bc6f274798772a2b778b560",
+        "All Regions": "504ddd410cd4497b734e56c50ad8f150ba4ff85bca934b1160f9098aa1b4fec1",
+        "Europe": "ca1c6786b80e8f59ba3076009e30bf74e3a58531922b1fe119f1186dfaa23bb6",
+        "Asia": "36d8a95a961d00e52b2baa46984c4ec3a1e8eca5b3b85077d6f0d976417467a1",
+        "Americas": "3bccf7f5745d62cd914f608f868ed9665d986efc1f899288afce1d4648d13c8f",
+        "Africa": "0c443a47d1c61fbebac15b2d0d2ee31a1d999cf4b08c3914f25f99d943adb9fb",
+        "Oceania": "83104b113adcbc772b10269b9b4bc3fc5c8b961a12e40fd1ea110b3fea36f0b6",
+        "North America": "ede5a5b90cc2f4b30367a523eda78d1017fbad3625ef8b54d068af76fd3414f7",
+        "South America": "def592d0c1e7f66ba1e001eb77c902308970b6c6a70ab000713eb8c558fbc0b5",
+        "Game Over!": "92c05ea39ca62456f77b4af7a85187f4765e8caf5cfbe01cbf3f828b801a711b",
+        "points": "f4c8ab1f368d29d90ba590ec45b8a48133204763e6d13ff878a286f6f11cbe13",
+        "Play Again": "af4e0fd6e1f6ea7cef9e579e410fdb9648fc04ac60e991bb43d19468e0f1d4c3",
+        "Repeat Duel": "78b3d41078c953fac915b12f02cd693a1db8f3338810a7153dab1d6ef2cf3faa",
+        "Home": "d328e53dc4561e099c85d45d26fea5d20aac5ffc2b949a0388eb794e30db40cb",
+        "Statistics": "fe024288d9804016129099c056b545b231909da773a34d5ef1215ea7cc3879fb",
+        "Total Games": "355b8e3268133dc97433a362c47617c0a0237718a33db7754b027beed6fd3346",
+        "Best Score": "5eb125fbadfd6944de6228b740077bdcde720f79cc65af8a5952b10c85ca5aa2",
+        "Correct Answers": "b083068e7599eab1e77caee5db13ff3013efdad41b216a16ff36925dedb343eb",
+        "Accuracy": "2f73b5866186dabb82b90a6b3ba38d1af9e06be67a5afaf774df85a2fb9d2a9a",
+        "Best Time": "a093ebe7ceecfb5516034cce217a962673dacd5f68112da90979a1a3c6d26db2",
+        "Time": "6711f073ab8b7dfc9bc90586013d3a26082d60594a783e9f2cfa39d28b38480e",
+        "Clear": "8965271d3c97c79d9dd0daae5f1c022dfc544fadffff105619bf1b445a51ce72",
+        "Close": "a7a4033657e89fc91b2c512f19a15d0f3c11a113b23192193db9063e2283f908",
+        "Excellent game!": "e0dc725d2cab954727272afc0d14fd461b517ce036784d598c6d4e7ceba707dd",
+        "Great result!": "f536083bed41c5100c5fd7cd544ccb37d30b2ecd405e9f17abc8038a573f88d0",
+        "Good game!": "3be22e9139ba53f1562e5a0f0a285cdfc4bc4d544cd7842aa3bac06a52e8c88f",
+        "Keep practicing!": "88dfb34fd52bd5a638dc1970aab97e2b2ccb61b7d4bb163572d4c6ce3b960bc2",
+        "Share Result": "dc120821c212b41e01ad78e7fa8ab83ab684997b78ced61057f9733f2eaf7e33",
+        "Share": "dc120821c212b41e01ad78e7fa8ab83ab684997b78ced61057f9733f2eaf7e33",
+        "ACCURACY": "2f73b5866186dabb82b90a6b3ba38d1af9e06be67a5afaf774df85a2fb9d2a9a"
       },
       "changes": {
         "Time to restart your streak! You can do it!": {
@@ -16069,9 +17617,25 @@
         "FACT_02_DESC": {
           "before": "Швейцария имеет единственный квадратный национальный флаг в мире. Ватикан также имеет квадратный флаг, но это город-государство.",
           "after": "У Швейцарии и Ватикана квадратные национальные флаги."
+        },
+        "Learn flags of the world": {
+          "before": "Изучайте флаги мира",
+          "after": "Изучай флаги мира"
+        },
+        "Select Language": {
+          "before": "Выберите язык",
+          "after": "Выбери язык"
+        },
+        "Select Region": {
+          "before": "Выберите регион",
+          "after": "Выбери регион"
+        },
+        "Select Regions": {
+          "before": "Выберите регионы",
+          "after": "Выбери регионы"
         }
       },
-      "pending_count": 1371
+      "pending_count": 1331
     },
     "sv": {
       "status": "in_progress",
@@ -16389,7 +17953,47 @@
         "FACT_01_TITLE": "b86caef09ddc62be81151adc6cd0e443182ac2d3290c26ef1695819eb4503ff3",
         "FACT_01_DESC": "5b5a7962ecc950b9c5a37e776788acee50554072e9963e9b6c14bd89fe3fbd82",
         "FACT_02_TITLE": "4d7e287a12bcc7c1abd2f63585306643a32c1284353e9f52424ce9f9cd29cf39",
-        "FACT_02_DESC": "eed49e7a5421d5e8a84f4ba63cec41b650b0b7ce657cdd86961a54d4060ee075"
+        "FACT_02_DESC": "eed49e7a5421d5e8a84f4ba63cec41b650b0b7ce657cdd86961a54d4060ee075",
+        "Learn flags of the world": "fb6c18961637aabd3f12b6f48de8968420e20b7bcc1b99f1cdde96621afe2d6b",
+        "Score": "2f8ebf16dfb212bcffeeacd433b3eb918157a4281160619495be858df97afa66",
+        "Exit": "2433001fee6378d4f04e014b7de7a12c528302b9a842342d4258010341ffe940",
+        "Error loading countries": "7f983df75de861d58fa179e452e862476671d1d7a0b517ed14917ee1cf76d3bd",
+        "Retry": "3c2b3d01dfbdaa224720e904c8e8b6fc22bcd565ebfe68ddc46c25c52933d361",
+        "System": "6725e7bbcd28f3a8a586fa34bf191fd72dde8b61756932cd3237c17a6f196f1a",
+        "Select Language": "ff66edf4dfe70acb6e8c73b52aaae50af6b2add9baf8c9fb9890aaa79ec69e37",
+        "Select Region": "e9721a2aa962a9f4c668a83c6754671386bbf0e8a496b324178fa6aa01a29536",
+        "Select Regions": "76f9e3151c0d4da1952e7951c897808227bfab5032ddeb4b5aa40a51af14576b",
+        "Multiple Regions": "c4c40b1d0c11a6dd5d186add93e46d6217eb20e3eb5d34dd4bba9b04e70c572f",
+        "START GAME": "3ac23cc362170168e35380795d6d58bbaefaac027be984cbcfbb879d2382f9b4",
+        "All Regions": "a4f8697e2b71c85aa62f799da154f8c22de453bb3c728ca2592afb3f70d88c1a",
+        "Europe": "fc30e2a579cdb971eb042715c73406cd96935bf3de3562d4800576d10fb61c80",
+        "Asia": "27cdbd5fe1e53e492c518e298ab9e9799524a818cf3875018684f469da9cc997",
+        "Americas": "ae89eb22e8ee9889c343520363d2020b356e8ebf24f55be13c77689993be9939",
+        "Africa": "5278722838b30152ad9f4ebb8fbf6648a987e70fdc94901b2bb048ebc173b23a",
+        "Oceania": "c5944051f44e3620303d464f7c47e3b332ac28c5dd3f126f90a4c3b2d89447d3",
+        "North America": "a53fc17c6328aba44ce496a686205150f5605ff2c94efbb22e4723d87abef784",
+        "South America": "bdb17482c4b34bf812567f7c9ea09172659687dac87534af6a7010ca79f214da",
+        "Game Over!": "8c2c36a7056b2c9dcb761e7e6de694409b2a56fe7832f1bb04982473debbf4d8",
+        "points": "80629d772f60c83b685d8d958b8890669649d99bdce094d3109892b5be47e67f",
+        "Play Again": "ab0797fc9234a0a41743855db7182312c16d0e525d316d11812813926ef63423",
+        "Repeat Duel": "7273d22487b6c2c715f4d6a26e3b1aa8f3fa0c60c2d5fe5eca22e193e04ed467",
+        "Home": "425e7e7fa82d932a4c4029127c1275098ac4f03f6d720ffa131d3d99cb30036a",
+        "Statistics": "6789eb281506aeeeaf643c94bc9df1d1d9af21a13d6c33e182651f2ab9a0f60a",
+        "Total Games": "ccfbc8211197e585830ffe68cd4211ba6b2bfbd22929fccb5a3be804368e4c91",
+        "Best Score": "ca4f65d8f7a0be7e4e9ba842639e1c267cee929659f4c9586db0c568f28e2164",
+        "Correct Answers": "680243767748c6bf4741496504ebead32d7672abc670675ac5c313731484b29c",
+        "Accuracy": "82039a8e4fde89d2122069f3949b05c7906e057da5bf72c0e4188974d9ecdcdd",
+        "Best Time": "2f9de3b1c152b82fb0d58ec9adb60e85262362fd0c4b66dfe3b37018849e185b",
+        "Time": "cdefbb07a3b84c08caf25fce9d05e8a56ae8effbabfef7cfe02450f64f901474",
+        "Clear": "c13b5d14d1fa87e259f61c839e1e63b6fc8fdfbf7a32a53aa3babb7d1534a2ab",
+        "Close": "9a2f627672396faecc143a367cd926da8c3de74f9f74430dd53e4d5491ac41d7",
+        "Excellent game!": "19913bba2b064efe7623778ef6c2486c9e210feb1271f0b061736bbad16b17cb",
+        "Great result!": "1edfc6b584017f9e566eb5b32ac974499bdc48de5d09dcec042dc382db47a540",
+        "Good game!": "45758c9b280d81ac17a4a5d94d19d40a972054e856968c648a5d63abbff58fd5",
+        "Keep practicing!": "64c9e6cb166e46312636bd20c86f0cebfbffa93848ed33cf2db6cf9355ad4a53",
+        "Share Result": "3ad5a5a11159d65e44b10d0acbe2fb7dec38c0e821095448b93e5c6e2eaab5b5",
+        "Share": "3ad5a5a11159d65e44b10d0acbe2fb7dec38c0e821095448b93e5c6e2eaab5b5",
+        "ACCURACY": "82039a8e4fde89d2122069f3949b05c7906e057da5bf72c0e4188974d9ecdcdd"
       },
       "changes": {
         "Time limit per question depending on difficulty": {
@@ -16859,9 +18463,33 @@
         "FACT_02_DESC": {
           "before": "Schweiz har den enda fyrkantiga nationalflaggan i världen. Vatikanen har också en fyrkantig flagga men är en stadsstat.",
           "after": "Både Schweiz och Vatikanstaten har kvadratiska nationalflaggor."
+        },
+        "Close": {
+          "before": "Nära",
+          "after": "Stäng"
+        },
+        "Score": {
+          "before": "Göra",
+          "after": "Poäng"
+        },
+        "Exit": {
+          "before": "Utgång",
+          "after": "Avsluta"
+        },
+        "Retry": {
+          "before": "Försöka igen",
+          "after": "Försök igen"
+        },
+        "Game Over!": {
+          "before": "Game över!",
+          "after": "Spelet är slut!"
+        },
+        "Total Games": {
+          "before": "Totalt spel",
+          "after": "Antal spel"
         }
       },
-      "pending_count": 1300
+      "pending_count": 1260
     },
     "ta": {
       "status": "in_progress",
@@ -17161,7 +18789,47 @@
         "FACT_01_TITLE": "7e285b793590c92d339a4911b2942edcd9e360ec6fd276f20bb8cabc5ac10cc8",
         "FACT_01_DESC": "8b9093b1c10aaeb9d37b4aceeb3478681b10581096cebe88fc3932f20f62026c",
         "FACT_02_TITLE": "84a48a1d671eb6da7de5e6d49da64eb8dce33b5ee02c722362c6d92384faab58",
-        "FACT_02_DESC": "698020783b0fbe3bd09747be04009a4c64f84e36c16301463a22fc573fd531a6"
+        "FACT_02_DESC": "698020783b0fbe3bd09747be04009a4c64f84e36c16301463a22fc573fd531a6",
+        "Learn flags of the world": "d834d401d2efb05c27ac64f808578ec78296a0a0995919f36696129b52dbf730",
+        "Score": "6b2759cb747691d26775784b35928ccbee4fd4a4c7146a75fb307494b765a265",
+        "Exit": "a7532ec0d9f9be3099353b59df2262a64465626e80c27e6e091a289135a55326",
+        "Error loading countries": "0427c2f3df58d6bc611b15cd67214e5e641c817f7fe070d634edbb66b70e2dc1",
+        "Retry": "0e5c87b795b6cb1c266ba9c887a0f97e3203680fddd2c887d10bf8933ac7b211",
+        "System": "569c93b81522c29832e756d0dffc633a13795b9d9ac2fcf73fd709f22dc77229",
+        "Select Language": "200577893e63388e22f08c938c586142d5a7b424c6de4d8385e6495eb735bbc5",
+        "Select Region": "bacb0e3d3ba96f09bc68f064bb8be38c6302e9e45bb5424ec08df2cdcdeb6108",
+        "Select Regions": "cc13b2e17ac15b935834649b2a46f6169fbb711deaca3a9ebe6c146c68e5d6f3",
+        "Multiple Regions": "a23ce9f329c1d175bb5345739d7cd37ea4087edb1a637052ee376b16fe19da52",
+        "START GAME": "f573b951be73eee37a3ba4275325b2828cbc512ce28ef50748001d1eb21b15ff",
+        "All Regions": "d4f283f03d187061d03ebfb57d19c0640d1b6b82f4f18812a9fbec48973821e9",
+        "Europe": "eefb03474a3f8c3f3fb2abaa6180bc7cd13ed14943e56a026cf9a454b51ff536",
+        "Asia": "318ad842903eecb8c0c60df4eb06a664f2142ff26a5a24ee535bc487a75a4624",
+        "Americas": "ab6e3a42275d7c5959e21cfab83c93b1d64f77df830dd97c8c6c81a858a32529",
+        "Africa": "415f51f0025bec525134ed7d8e6bf81a08d21855d6e9965d01fd1095743d5818",
+        "Oceania": "1de2c2583d2d4751bdfc83ae4df9910fee793ddc9a298f9345d5c5543dddc1e6",
+        "North America": "9dabe2081e8f0ac8aeadb4c2c546e35b12d3b67726c3d2c66e6e55c06433364c",
+        "South America": "7fae093eb3bfb6650e432a53eabf8cbba91b5b58756742a8199a65a064706457",
+        "Game Over!": "342179f7ef8daaeea4899a449761b404025734a291091416a0ecd643dbb2dbed",
+        "points": "19d03a4d22cb83e674f3921536d4123793d12cbc1ef175521ecb45603b436b7a",
+        "Play Again": "0c72fc3c7ff01f51a003f9da5035a686aa3dd5cdfe75bf28625dee0e22d1e737",
+        "Repeat Duel": "04a08cf9a564bedf93b102b6c66afef603c9d5554a5d5f9595116ce650d2987e",
+        "Home": "327b91c4f08e87fe15212371001efba2ea6fe7370261ad17114ba19a2111b5d8",
+        "Statistics": "644bbdbbb4491459c959caa0c6bc141a4a989de0babde1a7719d3ba69158f3f1",
+        "Total Games": "3bd8d5113d838b46edf0e13eb33dc2efc336e1caedf8d87d29cff6553169bb20",
+        "Best Score": "91c873700de67a13189ddc192fb769820a9f43f306892253029f23d18c09320a",
+        "Correct Answers": "90232b5e6364e52bbb4e7f952b14743a95d4ab008279361af82e4728e946963c",
+        "Accuracy": "b16d580da82fce03e230086ec99813997ffc1bc077849097169bfc2869d89159",
+        "Best Time": "027793c6b636e35903e678dd3307fd53f1d4bee40d58079200d0f6c15a935786",
+        "Time": "cc703d245e229725298b3323007745de8dbc52914910bda6d8298f929f06e6be",
+        "Clear": "9b0be0095842a8e8a0064dcfc5ec5c878825681065ce96e76b8be2017325cfbc",
+        "Close": "167aef4b1bccfd6187f33d5d4e26c7c1ec3826ee84ff877b0e0661d2afd6b89f",
+        "Excellent game!": "7445b1f575d3fe8a4471238476bc8a777e5f913e79fe7dc61a70b4f43f64dfa2",
+        "Great result!": "294200de660a9d04a7fcf3db18c0339145b013d418ee69ddb9b7e97e13df4273",
+        "Good game!": "7eebfa1f89895a77de38e9b72cbf1c06c775d9b4f4781b274a45af41bd383f78",
+        "Keep practicing!": "70380558f6f62b837bc2767424273edd3f0913320fc7ce211a847dfb648eeb68",
+        "Share Result": "a311424f9ac522288157b3d36815fea80534bbf81804d81d47dd0bc1ad6c035c",
+        "Share": "a311424f9ac522288157b3d36815fea80534bbf81804d81d47dd0bc1ad6c035c",
+        "ACCURACY": "b16d580da82fce03e230086ec99813997ffc1bc077849097169bfc2869d89159"
       },
       "changes": {
         "Time limit per question depending on difficulty": {
@@ -17631,9 +19299,25 @@
         "FACT_02_DESC": {
           "before": "உலகிலேயே ஒரே சதுரமான தேசியக் கொடி சுவிட்சர்லாந்தில் உள்ளது. வத்திக்கானில் ஒரு சதுர கொடி உள்ளது, ஆனால் அது ஒரு நகர-மாநிலமாகும்.",
           "after": "சுவிட்சர்லாந்து மற்றும் வத்திக்கான் நகரின் தேசியக் கொடிகள் இரண்டும் சதுர வடிவில் உள்ளன."
+        },
+        "Clear": {
+          "before": "தெளிவு",
+          "after": "அழி"
+        },
+        "Home": {
+          "before": "வீடு",
+          "after": "முகப்பு"
+        },
+        "Repeat Duel": {
+          "before": "இரட்டைப்போர் மீண்டும்",
+          "after": "மீண்டும் இருவர் போட்டி"
+        },
+        "Best Score": {
+          "before": "சிறந்த ஸ்கோர்",
+          "after": "சிறந்த மதிப்பெண்"
         }
       },
-      "pending_count": 1318
+      "pending_count": 1278
     },
     "te": {
       "status": "in_progress",
@@ -17940,7 +19624,47 @@
         "FACT_01_TITLE": "47ef2c2278fa2e0625180150bab885b22f6bd60710d44971522a66377265a8bc",
         "FACT_01_DESC": "82f1a4a918250934c877d9ea1f695df5d1d3389ac003596547cd870921ae0abf",
         "FACT_02_TITLE": "c0b57984ae6b1f72dc1bbd74c337c322cf0803290672825820e7876e309499a5",
-        "FACT_02_DESC": "7034a9f479285a40b5dd6f68dffa6fba94c17496e943f4449642219d32c547b0"
+        "FACT_02_DESC": "7034a9f479285a40b5dd6f68dffa6fba94c17496e943f4449642219d32c547b0",
+        "Learn flags of the world": "acfd812afea1e0543bd99a8bd96dd71ed1def8a67adcef2ba44edaac960583d9",
+        "Score": "e12a56a80d76e84ab2b779159a277bb93aeed3096deea081a4aa4a0b6c3c82da",
+        "Exit": "a6f75e5990d2c8afd29f374d3de55943ca34599615a1b5021f5b617d0f342a93",
+        "Error loading countries": "a35df642bf12a2876ca4c92005ed8467ba263b18a65c3fadf78764cb3ee38c4e",
+        "Retry": "393ffb35f3aa2eecac8819a98a480522c907241e7e59cd8620e9e2b0de0a7b88",
+        "System": "1dc49291a42ddd378de8954462fa281a6d30a96ad5caa1cd9b4d0b41e67bf48e",
+        "Select Language": "5b98b3ba2fca3d74cae470e9dd08e5bd981d171638904372b4ec9b205382f8e3",
+        "Select Region": "a7b5507676163a3fc4b974a00245a55e278948f44442de83fde787a1b8e36267",
+        "Select Regions": "38509846a215ef1785adc9f25527c709b47b64ac4a0b14a77a28f58a2109adf3",
+        "Multiple Regions": "721fb8cd7c98399777b265c5db1f4095a99ef682e2ed2d0bfcd3ee71e8cb17d8",
+        "START GAME": "5b1ce0323aa3e49cc1d2cba716998643ff4e62c53a2165ccf0ac758ed4e2830a",
+        "All Regions": "94be53f0743a54f1e866b69ae69262d29e66bfeb670ab6715d934b30f3880c7b",
+        "Europe": "a0a6bf4eb844617deffa74ebd167909eec1d8b89fa5cc44da50def552243541b",
+        "Asia": "5167340a519e106d539763eeb29bbd55932ff85901b53b0145fe638730ff2438",
+        "Americas": "c93fdfde73ecb3523560170e92b287621ccc5e2502cd0c7895a456e9afddc410",
+        "Africa": "66d88e4371ac1ae4cd4b8f2499d32b4048f32fcf7a3f08fce3fd07b9a2f69de5",
+        "Oceania": "2a634ae691f9732b676b25ff5b62691588f4bd62d158d7e5b333634b415c7e91",
+        "North America": "faa7db4c97b6ff30a92120ae644878440bf6351ffadbef5a8eb7eafb3862dfe6",
+        "South America": "6913ea2e30a63f9c03126272eea1df1f8ffe3c689ebd543bd329544d5b50f382",
+        "Game Over!": "661e33500a72084ab9ffd80728e75ef620a9c09c1f54605b13b60806d7a4176c",
+        "points": "523c896af55c2599137c2eb5e69e87488aa47d7dca16c61939e60018f736a4fe",
+        "Play Again": "17670ced2ac7b6c5958b15ae0290b2540951796fcb960ef083a00cc08cc00d1b",
+        "Repeat Duel": "eeec5a64f5b52dcda905409abc5766b970be917369b266602e39ac1dd4b2017a",
+        "Home": "19ea940f6f89ad6d7ca0c1fccbb20dd61fbc30818b459ca56fdc8aa51e1ee35e",
+        "Statistics": "a5ece6116a03bb410e8d5f524e9fbe7b8401ba6b77674ad1c9284953231792b7",
+        "Total Games": "d6f418ba0326f7b1bd07d9b36e928f56e793caf483e88c205de70f1ed92b8114",
+        "Best Score": "a1859f0bdcf2e095a367bd0ace2d1033599777689fdec25279d62119a2a9aaa6",
+        "Correct Answers": "197c83d702e1e02783c2dae26eb7e035e28e14f28be0424a61328a550141d267",
+        "Accuracy": "d4c842566af7d209185bd9ee14766ceecd7a3b73894cdf80919ce2728d784575",
+        "Best Time": "e462176800157784a086ed484114c0bd334d94d2708495a01e0229ce875c11f8",
+        "Time": "91f8ac9cf2039cda52675287c5d225c2395135dc36ba78bdbeedb186e941767b",
+        "Clear": "bd7418b2d94f998ceef3eb27a12daa90866479342dbc4c5f3f9a3fb021c7dd86",
+        "Close": "120eab6ff5735553b88952b7c4462f3263829b933150fe287a612f7e1c031845",
+        "Excellent game!": "61c7ba8046923c93d53003bcd84655e9e9903e7f516523c27f1337c42b297c03",
+        "Great result!": "b26f180c470dbe0dec4d0816a37dac5459bf765120461b5b9b170f59ca4770fc",
+        "Good game!": "09a0581997cd3dec841eb64828c0ad03991eab670ae7772e7c64417046e86ebd",
+        "Keep practicing!": "fd66b4f5306db303f81b731f47d86709485c16c836dc5df87534ca41e98fa18c",
+        "Share Result": "14170ec919013c87df54eacc1aaa8aac576ac4b6ce40a76a01d5fd09d90bff77",
+        "Share": "14170ec919013c87df54eacc1aaa8aac576ac4b6ce40a76a01d5fd09d90bff77",
+        "ACCURACY": "d4c842566af7d209185bd9ee14766ceecd7a3b73894cdf80919ce2728d784575"
       },
       "changes": {
         "Time limit per question depending on difficulty": {
@@ -18542,9 +20266,13 @@
         "FACT_02_DESC": {
           "before": "ప్రపంచంలోనే చతురస్రాకారంలో ఉన్న ఏకైక జాతీయ జెండా స్విట్జర్లాండ్‌లో ఉంది. వాటికన్ కూడా ఒక చతురస్రాకార జెండాను కలిగి ఉంది, అయితే ఇది నగర-రాష్ట్రంగా ఉంది.",
           "after": "స్విట్జర్లాండ్, వాటికన్ నగరం జాతీయ జెండాలు రెండూ చతురస్రాకారంలో ఉంటాయి."
+        },
+        "Repeat Duel": {
+          "before": "డ్యూయెల్ మళ్లీ",
+          "after": "మళ్లీ ముఖాముఖి పోటీ"
         }
       },
-      "pending_count": 1311
+      "pending_count": 1271
     },
     "th": {
       "status": "in_progress",
@@ -18848,7 +20576,47 @@
         "FACT_01_TITLE": "52b6719f439816b78db91407e2328fd54c58b822b8a896c0e28bddc17278b360",
         "FACT_01_DESC": "b76e7a02b8a5e1c5df2062c6184e35a64af3e338b027cbcb0c4e0f73db8bb3e3",
         "FACT_02_TITLE": "7c68aaad678568ac94786ff34ebab6b20b6b37b7062e9c60bc584dac3374d568",
-        "FACT_02_DESC": "a239a45262a3d25cffa3b57ec2af19d740c044c42558cb3d958848cb441fc46a"
+        "FACT_02_DESC": "a239a45262a3d25cffa3b57ec2af19d740c044c42558cb3d958848cb441fc46a",
+        "Learn flags of the world": "9de2a1ae4aca6a034ec7c514300fb9013b48fd0aab88b3a84139bfe7ebdf51e0",
+        "Score": "342343f6c7ebda5a4c6daac1dd3f831e811c8c8f6129c5a1f9613f050870752d",
+        "Exit": "93fa649f193ad558f19788dd906d5e98671c0adb086e3241a8180e3a284436bb",
+        "Error loading countries": "5b4a642c51b3aa4814fbadcfb981192267ce3b31bbf278504de4a5ecc8731612",
+        "Retry": "42032ae20f7634e1ef833bb32c91c5d10532510189f6f94896f7938220e63d03",
+        "System": "e4eef67ba7feb77704d713ef1b276e1db643375fc00b902264f734e7ca67e0f6",
+        "Select Language": "d86d6cfaef5c6d854aad477ef696e1684fc2725a1e8b5aa6e5da043a410c9ea6",
+        "Select Region": "d7a413a1f70ae6e280c129cfdb4652bf5a1f7d5109625b3567bf13f5ff40bc57",
+        "Select Regions": "d7a413a1f70ae6e280c129cfdb4652bf5a1f7d5109625b3567bf13f5ff40bc57",
+        "Multiple Regions": "d92b3d1b647e4cdc0cc85d881e7a044400ad934aac37e33d1105106060812a9f",
+        "START GAME": "462bd7615babd6daf1a5b33b26d3760204406541025455c50b4863dd12c28509",
+        "All Regions": "edbe6f26f9512443985b41e5cd7f593f9cdc0683ce83b9e3e15ed745547b88af",
+        "Europe": "137a8650ba44a6a676584188e1704fcf16af2d880aefaffc751b7ec72203939f",
+        "Asia": "7bd94c4a5bbc52445271510a954ce43195970aaf12aa5324526cd3dad8d343a9",
+        "Americas": "8e906f36b7d28ee0829390548d96fa4499a5da7ab7339b592a226f08366566ea",
+        "Africa": "d1a116ea501e685a0be4ed81dbc565ee988cf71b4f0d4d492fd1bf42f151a2be",
+        "Oceania": "0d589ecff55e1fa41d5e935f112c429e2e51719c33c9605192d9f6f78ee3e424",
+        "North America": "9bacd48779f87e5ef976d74b9a918bf68068ad5234a11642b736d115715e34f4",
+        "South America": "8aa926d36e233b3cd018cb3ec1edf072ef6555705c2f2f82c02861dcba8f1c58",
+        "Game Over!": "ac8fc0bdacd8322c439c5b2caeea8ce93326a7116fa1ff05b3c00333d37355fa",
+        "points": "342343f6c7ebda5a4c6daac1dd3f831e811c8c8f6129c5a1f9613f050870752d",
+        "Play Again": "486a496d1ffe2e7fa597adbd7c5effd5b0c45b2f44c6d2d6b7f7ba4d0bcbcd0c",
+        "Repeat Duel": "b8796c679b12e483e428f24c4c19836fb4675097b4173a118f9aceb1f75d8aa6",
+        "Home": "1919a7bfe726d74b14aed4679f1a6d0ef9a446b61a5f73563ff5910a24e5161b",
+        "Statistics": "e9d28eb927c1112bd84e43a0b56d3621bca8c2009c7687014ceca9e3cf643a83",
+        "Total Games": "727944054bd32c5e4369112061c6703fc00807414f18af2344e249b876c8a980",
+        "Best Score": "3caf59dad3accd00c4b2445ee88c98316b71712c390df23992775b3ae80682ee",
+        "Correct Answers": "eadae7d467f4c09aed3d5c8f1a12df4e51ca1d4d98071fb33c579a071d3fadab",
+        "Accuracy": "d5830f18ced517fa516c5313e3bc12fe1fad1e5fb22a7027d0f52cbb37ca5498",
+        "Best Time": "0e7d624adda5a9e14461fb7b9df04724751836451ba807b350774647c8bb8336",
+        "Time": "f6ead25b15e0e22e58353cc5b52c97d8be9feea58dcb0327bdd3b19c0ee50dc6",
+        "Clear": "aa4485fdb1f77749be0ab9151842891130e19cdcf77334b777c09870c677ebc2",
+        "Close": "c303002159c9dc3900c184dd38c8f565d8a74f0333121e27741329e179ff5b34",
+        "Excellent game!": "cb1c9429b4228dcb0145b18f443fae46675468491dd051b28d0c0660bc1b0430",
+        "Great result!": "3a995afe28a4e30c1a57192a560497101b68d2551405910ecf9a7bcedc731b44",
+        "Good game!": "77ad065c80ba6753538bdec6ce14757d99015525b34ef3e40b8740b70d772ed5",
+        "Keep practicing!": "ec78597339b05e9aadd9cf2035e85514ba8055ca0c01ecdac283d44f4b4a3b55",
+        "Share Result": "8ba22d386d5356f36ca68830873bdec55672d545a4e8cc12702a250142ec7f5c",
+        "Share": "8ba22d386d5356f36ca68830873bdec55672d545a4e8cc12702a250142ec7f5c",
+        "ACCURACY": "d5830f18ced517fa516c5313e3bc12fe1fad1e5fb22a7027d0f52cbb37ca5498"
       },
       "changes": {
         "Time limit per question depending on difficulty": {
@@ -19410,9 +21178,29 @@
         "FACT_02_DESC": {
           "before": "สวิตเซอร์แลนด์มีธงชาติรูปสี่เหลี่ยมจัตุรัสแห่งเดียวในโลก วาติกันก็มีธงสี่เหลี่ยมเช่นกัน แต่เป็นนครรัฐ",
           "after": "ธงชาติสวิตเซอร์แลนด์และนครรัฐวาติกันต่างเป็นรูปสี่เหลี่ยมจัตุรัส"
+        },
+        "Clear": {
+          "before": "ชัดเจน",
+          "after": "ล้าง"
+        },
+        "Home": {
+          "before": "บ้าน",
+          "after": "หน้าหลัก"
+        },
+        "Share": {
+          "before": "แบ่งปัน",
+          "after": "แชร์"
+        },
+        "Share Result": {
+          "before": "แบ่งปัน",
+          "after": "แชร์"
+        },
+        "Total Games": {
+          "before": "เกมส์รวม",
+          "after": "จำนวนเกมทั้งหมด"
         }
       },
-      "pending_count": 1314
+      "pending_count": 1274
     },
     "tr": {
       "status": "in_progress",
@@ -19721,7 +21509,47 @@
         "FACT_01_TITLE": "2e3d5e20b92a1e9b207979fc8547d91b90f15bbf7baf9be30baac6a42e7dd747",
         "FACT_01_DESC": "c228426f7841107a0a60bd2de5f0b5ca3dbf538a16315b6173197819d1883cdd",
         "FACT_02_TITLE": "e9eb4717a3540b94df5bff98af05c245db41526618007032b41e05895a8a9f58",
-        "FACT_02_DESC": "72f6c4d25630c43abb2f9976ee644cdcd957dc3ab5379042f1b11046aff11cb4"
+        "FACT_02_DESC": "72f6c4d25630c43abb2f9976ee644cdcd957dc3ab5379042f1b11046aff11cb4",
+        "Learn flags of the world": "6369faf753432549257bc852f16f90270ece37e56abb0ec3c9db8f9e6a721678",
+        "Score": "63da5e101298db1a17949928984a24ccea2e61bd129136efad9dc72fc68e2685",
+        "Exit": "246e2d6478ed06d9f0f881a200397646e1f71e25d45598860ebab6d7b980d2fa",
+        "Error loading countries": "9baf59e8aa04d486b4541af34a0225adaa3d41a4a2027b1019691d5ce4be78a6",
+        "Retry": "1f30ff52f9d5e535582c74b3e4381c1e8290c3902db4d28c42228a6d736decf1",
+        "System": "1c466db7924386fbe638b95eba421a55cff01b29717e156942b68499289998da",
+        "Select Language": "fcacb2c72528cec841e51b3794767a8270d65b295edae7f1e53a248b8ce15072",
+        "Select Region": "98087554e3956d2ce58e2152ffce05d3f95fb7acdcf324a85767311b6ae9e1f7",
+        "Select Regions": "9f93cbd70d7332e9a87c62c0825fb004ede1482dd9fbd9638d4edadb0a108ce4",
+        "Multiple Regions": "cf1b4f3595c7526fac369bcdf4645c08eea3f096a82fa5c97c57183f00c7f119",
+        "START GAME": "9f460ea231fecfb006a288fb76e6abaf90bbc621101fe028e615f32aecdac532",
+        "All Regions": "2c0400790e774c592200bff4d8433469c0ee860a8abd2133ffdf1aee97532df5",
+        "Europe": "fec3da8ba7a3b6613a6f2bab0ec1f04392bd4347cfda6e2db0bab0ce0812d947",
+        "Asia": "8d38c7beebdf529ab4d7017a6524868ceffa963fee17237621109e99c8b47466",
+        "Americas": "ae89eb22e8ee9889c343520363d2020b356e8ebf24f55be13c77689993be9939",
+        "Africa": "5278722838b30152ad9f4ebb8fbf6648a987e70fdc94901b2bb048ebc173b23a",
+        "Oceania": "d740c42f87eec875b883d3b2518e9c773c6649015b1507632435151782613961",
+        "North America": "7d920c078bfc5ee96886fb44074723c32e6810290696a9362591e570f4a5aeb8",
+        "South America": "68c3e98adb18dbb22a0c5e385f11ba9a1e1b9b6c76fd4ac79cff787ba1086c9e",
+        "Game Over!": "5f5b2772226e47826efbc4e156f6d46da627806cb1f6bb669851af4abbfdf7c1",
+        "points": "5d930776d8c8c29c6a8306e7287cc5c06531791344f68f6a94053a2cf9d74756",
+        "Play Again": "62340b2635a946013ef13dd1e27271b105d84f277c0ddd5b9b37afe839561f81",
+        "Repeat Duel": "5a1d0285b51262acd1190c6e8ace296158d5d59c7afda49c5e89925837a2045a",
+        "Home": "f463b54275f35ca474977067c3a90f4995a9d4bc9fdea7d3fb4b88715536d8dd",
+        "Statistics": "8937c7a1517b1e0314dd0fd087f32b5add837eacc62f50c760ed51c3f08633fd",
+        "Total Games": "9437d77684d8d22810aa19309ac189f0ea5bc680f33fa5d14df3d5ce52fabd1e",
+        "Best Score": "a2b37ebf490ce1d356cf495e9c7e00be70bc094998583096b8f49a8ce7dd1a5c",
+        "Correct Answers": "ece0b6184770f45273cc767ce62461d9e9da0f81e1e680b040fc5ab96c4ab7ec",
+        "Accuracy": "71481feb737172897707c04324acfb52d92bd4d370987c6fbf44b494370df8b0",
+        "Best Time": "f547462f42490388c4f234dbfaed0fbec7f5a013e433506b0d9d3a069ecf9ffc",
+        "Time": "c9a878720fa5299d6b984a6dafcee04d6f8d7c9598e6202cde567a6b50b274ee",
+        "Clear": "e306951c12fec8b7d6e434f3de8236e724dc78fe5552e4f5f3b3bdfc7bc6ccbf",
+        "Close": "7b31a9fc4816824bb502e30e5a8d4dc254a50110d875a1ef01c29e587efa4713",
+        "Excellent game!": "bcf4ca0c21612b088f617f9ed115e6f6077cd34b41b2edffc20588bd9540dd41",
+        "Great result!": "4477c4af8bd6a70a0f271498f410e733ed4cda934f109ffd1f3629feea477915",
+        "Good game!": "6bb3700af773664571959b3f6ef07eb044b83e4267fdad5c42545a1bda2c4ff5",
+        "Keep practicing!": "24a3074f381a20846991b9cdb7c68e7d279f6a7ded438056069d481397c7f49a",
+        "Share Result": "03b721bb2e07aafd5e668a84b72d749c774e0a6ad7511eb9fb815b91b1ce29ad",
+        "Share": "03b721bb2e07aafd5e668a84b72d749c774e0a6ad7511eb9fb815b91b1ce29ad",
+        "ACCURACY": "71481feb737172897707c04324acfb52d92bd4d370987c6fbf44b494370df8b0"
       },
       "changes": {
         "Time limit per question depending on difficulty": {
@@ -20367,9 +22195,49 @@
         "FACT_02_DESC": {
           "before": "İsviçre dünyadaki tek kare ulusal bayrağa sahiptir. Vatikan'ın da kare bayrağı var ama bir şehir devleti.",
           "after": "İsviçre ve Vatikan’ın ulusal bayrakları kare biçimindedir."
+        },
+        "Clear": {
+          "before": "Temizlemek",
+          "after": "Temizle"
+        },
+        "Close": {
+          "before": "Kapalı",
+          "after": "Kapat"
+        },
+        "Home": {
+          "before": "Ev",
+          "after": "Ana sayfa"
+        },
+        "Share": {
+          "before": "Paylaşmak",
+          "after": "Paylaş"
+        },
+        "Share Result": {
+          "before": "Paylaşmak",
+          "after": "Paylaş"
+        },
+        "Learn flags of the world": {
+          "before": "Dünya bayraklarını öğrenin",
+          "after": "Dünya bayraklarını öğren"
+        },
+        "Score": {
+          "before": "Gol",
+          "after": "Puan"
+        },
+        "Accuracy": {
+          "before": "Kesinlik",
+          "after": "Doğruluk oranı"
+        },
+        "Keep practicing!": {
+          "before": "💪 Pratik yapmaya devam edin!",
+          "after": "💪 Alıştırmaya devam et!"
+        },
+        "ACCURACY": {
+          "before": "Kesinlik",
+          "after": "Doğruluk oranı"
         }
       },
-      "pending_count": 1309
+      "pending_count": 1269
     },
     "uk": {
       "status": "in_progress",
@@ -20670,7 +22538,47 @@
         "FACT_01_TITLE": "407be2499ff4e7f79fe390b5cd355dda77102f54b640b64793a919c4d811aa16",
         "FACT_01_DESC": "9ef953c8c8453ffbccd067ad2193f2027a96442c7b517f29d58a00cca905cabb",
         "FACT_02_TITLE": "8b674450d2927290adffdad4acc6c01d0acd879572263a132825fa3bbdd76be8",
-        "FACT_02_DESC": "62f924e6aa4d402b485718a18533653151533cfc057aa599e079114b66a7d49f"
+        "FACT_02_DESC": "62f924e6aa4d402b485718a18533653151533cfc057aa599e079114b66a7d49f",
+        "Learn flags of the world": "78c3ad8358881a1bbafeb14006ee8c7cd8c1768a870dabee1df36b8fbe546965",
+        "Score": "6d22489aaa8c8c56793b7ad13be576b2bdf7e5f3ba74aea496c10db38643d784",
+        "Exit": "2d06306c8a900d3b68880bdd038e83ad2802513ab8d3697e1e5b1d8f9d7a7aee",
+        "Error loading countries": "87e7ef9a6bb4dc97a7baacfdbe1ea3576d738ccb7667248b7eeec115ffb587b3",
+        "Retry": "78f9a3e742aff44d4a25a1e156a0062ab8a321696f66eea24a91fdd7205da203",
+        "System": "72cb79d8cb9bcefec97f561184708cb17a2a0f91e18910fd47797e149491c438",
+        "Select Language": "d22eaa4692de6ae896b0f33f1295345e9ed107eb8010f1f12a375ac0e3e6a1c6",
+        "Select Region": "231812547213f5c76d982e6ab772b83053a7f163e2d8fc99f6cc09af1bdb431d",
+        "Select Regions": "da2b6e80116e610babb8e59a60ce681b19c723ba842e6e4f542212b10417f258",
+        "Multiple Regions": "b0f615aa973d57cbae705d6100da62f8ed1f542212ee269c2e7ac4662b38137b",
+        "START GAME": "2691f68255308545acb66d90f70304d473850f5f3ccb88bf2bb2c71f22dd75ea",
+        "All Regions": "f338cb809037ef96916b635c185eb8f5374af821f5cdf0ae81060efc1567f0b6",
+        "Europe": "21d6fb3c503e024dd08b2ded8c3e17767f5c8ffef07b6ba23e20cf852a65db39",
+        "Asia": "06c9339066c2c72be5e4d60aa6a01c3ff286b13288ad73de782c2aa263a6d706",
+        "Americas": "3bccf7f5745d62cd914f608f868ed9665d986efc1f899288afce1d4648d13c8f",
+        "Africa": "0c443a47d1c61fbebac15b2d0d2ee31a1d999cf4b08c3914f25f99d943adb9fb",
+        "Oceania": "eb4421f60125b7d71d2218ee073164b6da1a1e07ecee1733d833700ded542bd0",
+        "North America": "21cc99a378a3244309be505cdaab4399a4d3f016c278297e9c8691689ec2f223",
+        "South America": "853183bc83531c5da4f3cf7eee9492355716744266fbeef59a5d46a2792cd62c",
+        "Game Over!": "5d0dae1a2bd7d0084f151badec3aa898079ea235e4238cb318a2dbd580b1108e",
+        "points": "28924443c1cb388be16fda067cb2e34db8c9b7ee30af622161c63daf6ceb34fc",
+        "Play Again": "62919c0a9f04cd3856be2664ee68736a159895bae5a77017dcb95d7cf8f12d3b",
+        "Repeat Duel": "e7a7d402f596dffe7b845c07052b9c5c57e81005b18d74845666a025447ea5c3",
+        "Home": "df5c53bd0a073d7884230db35e1fd1046f9c147c2632e7b8a7f9902a27db0955",
+        "Statistics": "fe024288d9804016129099c056b545b231909da773a34d5ef1215ea7cc3879fb",
+        "Total Games": "971909b4ea7b11e55d7ebd74389c9e4ddc01f75052c3724924e227b1ad2a9d49",
+        "Best Score": "66cfdeffe5a741404c9f56a354a751633d17af6a81176205ad30c93b8d422e75",
+        "Correct Answers": "18eee328cc3a5e8b255cd95608049d970d83cbce03b19904aa27838c990d7c81",
+        "Accuracy": "bf77531d80860122a4e0b31b18788912bc5f5a7e72be4c153295d438c1436083",
+        "Best Time": "8066b19653e75b4e62af8aa19c8658be824e7ee7c3c29071eb2aa3755eb7e857",
+        "Time": "a5bafc46e5fb513453963481bc9a70ce88bfbcfe3f4d47b20a8a887a365bd9f6",
+        "Clear": "b742594d0ea0a89ec03630cf804a8f43311bbf657708b40d90747ec8932ae9d2",
+        "Close": "16ed60bd4576445cc7b96f8212d8cc96e9613ec13ab71f978781cc93c09c6789",
+        "Excellent game!": "64f21427360987cbc7930783d69111809de6ae5bb5714e52efcd35d2e4833004",
+        "Great result!": "57ba01d70b34f636792c86d3a76ee9399799f60fca69f602441c5acf7683cc10",
+        "Good game!": "85bf409f0ee94ad7f76d696aa2240d5680c0279370406ee088b5cae3b16a4be6",
+        "Keep practicing!": "e8f8b91fd2387d7420f84c665e6781439df27cf264f7e701158683b3475c19d5",
+        "Share Result": "b3be79c873fa36f54e13919546c8fa723d4fd5c5e0cd266fdf88b89fcd7724f2",
+        "Share": "b3be79c873fa36f54e13919546c8fa723d4fd5c5e0cd266fdf88b89fcd7724f2",
+        "ACCURACY": "bf77531d80860122a4e0b31b18788912bc5f5a7e72be4c153295d438c1436083"
       },
       "changes": {
         "Time limit per question depending on difficulty": {
@@ -21060,9 +22968,25 @@
         "FACT_02_DESC": {
           "before": "Швейцарія має єдиний квадратний національний прапор у світі. Ватикан також має квадратний прапор, але це місто-держава.",
           "after": "Швейцарія та Ватикан мають квадратні національні прапори."
+        },
+        "Learn flags of the world": {
+          "before": "Вивчайте прапори світу",
+          "after": "Вивчай прапори світу"
+        },
+        "Select Language": {
+          "before": "Оберіть мову",
+          "after": "Обери мову"
+        },
+        "Select Region": {
+          "before": "Оберіть регіон",
+          "after": "Обери регіон"
+        },
+        "Select Regions": {
+          "before": "Оберіть регіони",
+          "after": "Обери регіони"
         }
       },
-      "pending_count": 1393
+      "pending_count": 1353
     },
     "vi": {
       "status": "in_progress",
@@ -21363,7 +23287,47 @@
         "FACT_01_TITLE": "31bb05637efc454fc314e3512facf330bd5f37bd765da8fa867f5ce0e40a148b",
         "FACT_01_DESC": "d2c15493c60802d0061bcf3479cece7ae84d3a5ac356a05a5dbc2f5d0cf6bfdf",
         "FACT_02_TITLE": "36678b38b0c29cbaa380fd5002b023e186fee5e0e2c03a60bcbf236f9ea55744",
-        "FACT_02_DESC": "5f417e9240b07a8dbf1276186e1e0038d8e6c1377030268f810eec12fb75fd43"
+        "FACT_02_DESC": "5f417e9240b07a8dbf1276186e1e0038d8e6c1377030268f810eec12fb75fd43",
+        "Learn flags of the world": "71c107d8c26ff4efe114d01187dafae50678eb362da660f26c4b5861adf08983",
+        "Score": "19a81d3f2ab22559332eb250864a1a1e7bd7e2767bb3decf18286cb6710b2234",
+        "Exit": "8d82aa2e356ceb95551194a9a4aa0545c1bad204fe440cb942ebacffcd9812d5",
+        "Error loading countries": "9f22320f16cd1a09566b47ea4586bf3a5bb6f7d136b61b975cba3414a9893ace",
+        "Retry": "c58d068c7e8848577ba9fa2a3997ead249c4059d1fe0a83d06be9f56c5376940",
+        "System": "66cb299cfd8f81f85f18b48f1560733454cb89d233865fcd1a8927bb56c075e2",
+        "Select Language": "65231294efbd39627b78bfc0b5791821b18bb95466f02ceaa6fb82aa8096d53b",
+        "Select Region": "f06ea77b8903ea2a2faf5bbfaddd20f5f44f02370e8899ffef8cd6edc717f44c",
+        "Select Regions": "f06ea77b8903ea2a2faf5bbfaddd20f5f44f02370e8899ffef8cd6edc717f44c",
+        "Multiple Regions": "99dbc89df172ce252807d1d008f1ce02ba7c7b2e4b2b399793c7f297ae5be34c",
+        "START GAME": "dcbf27af919ff1c41be5ed1e5c8240a556bd3bd86ddf2be895320082f0dd95a8",
+        "All Regions": "0100550a805e6828566fb67b83720d8f5c139032584a9b7bdc5f784c10ae7677",
+        "Europe": "d5bd4c065dc14b5f1ec4bf500e1717dbdf7655613b32b65db01c0695c00c1e8c",
+        "Asia": "03e2bf1649a26d8ee1d75c5bcfa2a36120ee64b48f744660413ffe5785972655",
+        "Americas": "0b98fc303d3cdca8bb31f3238e69efe87dc33227287540a39cf82ea37ecc305b",
+        "Africa": "6a2d79f544a1124361328f0fea4daf21693fa10cd2b431ca39c7b34be360094e",
+        "Oceania": "dc3ada8444e30e0899233ef5f22d829f4cacf1993f1ad14f5135d2468f0622dc",
+        "North America": "f5d14ab2656020db45362e55c1780fd473f5b3d2bfbd12d2b8a977eac91ef154",
+        "South America": "556440b31229ed5866ce61ca532a89e9dc4027fa28bd68fc6d87f618c4d509e2",
+        "Game Over!": "f55ada29b670678317328bd9107fe3a01b381719117906699348a8d0a25e8666",
+        "points": "322ce8417e444602816c309af38405d69d3bc8e6370e50b50b0acdf4ec50ff17",
+        "Play Again": "a86380cb83307640bedb6468ac70e24d50271d1c180aecb14d10409e2d49d478",
+        "Repeat Duel": "d3df85a3e277896907210a4551dd76fdeaad44f22d1a61bac1ab9d47e8099f35",
+        "Home": "8be437ecfc37a8ef486b6d66a95e13c4f3d4be4bf0888d74aa7fa7e848e20784",
+        "Statistics": "9befe456e2485f2611885591d8d2ff352f09e19f8183223b258371edefc735c8",
+        "Total Games": "948d65fdb809aedc453b726045fc9a3f4e2e8a9091a534a81c54bb01f62fc276",
+        "Best Score": "7bdb20d698b832f938525ab70d9ee51615f6df9f956d3b67ed2904238796ea25",
+        "Correct Answers": "4f7c22dfa0ad67c371135f0da269c4309bcedf2bc6e98ea41171744bd1b07f7f",
+        "Accuracy": "f7430478d58b4cd766a254a4152b48e5eb6fd48e250fa6de211d36bb68fc3b0d",
+        "Best Time": "cd5aaae0cca48e322f948a0d093008cb28a01ec6420f6a3a498144caa78468ec",
+        "Time": "b295fd620d82e277ea7abeeeae34b51902f315253d428d01f50ee20fdcd71091",
+        "Clear": "57435a5c84449ce3565abef7db178ea496803089b880d765fd379fa926312437",
+        "Close": "5d54c2a1a341732e78a44e444f128697ef3b42c8a15d743721c76fc22f979acb",
+        "Excellent game!": "f298dd70e738e70efea05735f1983b8dd342d57e1c493f55294ed6dd185bac73",
+        "Great result!": "a76045f36df08af621921e7a46071693a06fb6e4f6af393512b0dc5650f25814",
+        "Good game!": "50f7ca3833b88d921d9c776e76c5d18644a10999cd2ff57f25d4b7c0f603fde8",
+        "Keep practicing!": "3733ddc95e94419a7000820c7962b3489443c21dfd967089953d3a78fa0516af",
+        "Share Result": "8811b78c9649752618eab209a1ce24ac7c9a1971ae6e258c65a33b68862a4209",
+        "Share": "8811b78c9649752618eab209a1ce24ac7c9a1971ae6e258c65a33b68862a4209",
+        "ACCURACY": "f7430478d58b4cd766a254a4152b48e5eb6fd48e250fa6de211d36bb68fc3b0d"
       },
       "changes": {
         "Time limit per question depending on difficulty": {
@@ -21909,9 +23873,33 @@
         "FACT_02_DESC": {
           "before": "Thụy Sĩ có quốc kỳ hình vuông duy nhất trên thế giới. Vatican cũng có cờ hình vuông nhưng là một thành bang.",
           "after": "Thụy Sĩ và Thành Vatican đều có quốc kỳ hình vuông."
+        },
+        "Clear": {
+          "before": "Thông thoáng",
+          "after": "Xóa"
+        },
+        "Exit": {
+          "before": "Ra",
+          "after": "Thoát"
+        },
+        "Africa": {
+          "before": "Châu phi",
+          "after": "Châu Phi"
+        },
+        "Repeat Duel": {
+          "before": "Chơi lại đấu",
+          "after": "Đấu lại"
+        },
+        "Accuracy": {
+          "before": "Sự chính xác",
+          "after": "Độ chính xác"
+        },
+        "ACCURACY": {
+          "before": "Sự chính xác",
+          "after": "Độ chính xác"
         }
       },
-      "pending_count": 1317
+      "pending_count": 1277
     },
     "zh": {
       "status": "in_progress",
@@ -22217,7 +24205,47 @@
         "FACT_01_TITLE": "88ea916d797892dacc4283eb27ab663fbc5df56e40425fa87a76ef94ef6b7157",
         "FACT_01_DESC": "0ea965f0307bc80d836755a91cfde47becc96439535178ac0b64967b03a5a389",
         "FACT_02_TITLE": "95c5934cc396cbe3899a794fc8568e4e1df5fc4039ee62d9b99660d69ab4ad99",
-        "FACT_02_DESC": "214b5e541fed5d97a5be85ba9d13ca36cf00147de9df05cea4f497fdb1811a5e"
+        "FACT_02_DESC": "214b5e541fed5d97a5be85ba9d13ca36cf00147de9df05cea4f497fdb1811a5e",
+        "Learn flags of the world": "e9540516033aebf331696ab8b39f2992e7ced0b2e11cb98f4f84f8cc6c00f9b7",
+        "Score": "1251e35c137ac764740b8d53aefad650e9a5f430d5967ca689e85569bf8c72d6",
+        "Exit": "498e1d59b4d787ee29cafe969574585589db49a4c02c093e8fca5e3b50600764",
+        "Error loading countries": "1afc40b1f9789f480b047e132381421dc18e4a2025c712e3a0034f9b649a394b",
+        "Retry": "b8784c8dd5636ff231b121892144e4a3977d5b874f21934c53f850cde7bac0ea",
+        "System": "5b50d7c4b5950dc523956237214f807de632f45334c3164d1e29956c7cfb03bd",
+        "Select Language": "b90a8ac9c488ce4659237c49ba9e6d271ac16d16939fb1a2d8cbc26f8d7d3b4e",
+        "Select Region": "6bbab2d8d6402ecd06aff85f58da54983845d8c12408bfbfb3bc5a0c9f265dbc",
+        "Select Regions": "6bbab2d8d6402ecd06aff85f58da54983845d8c12408bfbfb3bc5a0c9f265dbc",
+        "Multiple Regions": "06cd98c2f76bbfc27cec5a4bbe96f19e8cb220c32b7ff11adc5e5fd161ad0d7c",
+        "START GAME": "76fdc50a9a0f9f557c71937262b0a1b2c50b792492dfc2699807d5038cf2d887",
+        "All Regions": "4b9d152bb8947d657c3579ba58766863dfcd997f8404ec816a48fe01ed58f3e7",
+        "Europe": "8ef85828ff9c38e971b5bb419891dd12332a15a69ba3e7acf29d58cfb0e39ab8",
+        "Asia": "d6b5711fea6d45301743b043f39df17188ed7ae6c4409c788d3e2ecfdd8d49a1",
+        "Americas": "f111af1ed5db8d978b13896f339681fb00adcb4bd6082f17b01ae93fd3ff8c7d",
+        "Africa": "2d5b98b7b92a0e60ea334dce278455a5d0a7a2877ca9f8ad797c16b9cb8dad5d",
+        "Oceania": "3fda2b8c1af8d6446aeee759c865830d71b9266cf6648bf1a3b9c60c0e63a084",
+        "North America": "29646cf76f9a39e603c07b8b2f4857a9dfd0d5b2c3d062e304e55b8c2e2a41a0",
+        "South America": "356ec8f97f02470258cad3ef0b2de5d0d6be14b738946f3f87ec6c96c3802847",
+        "Game Over!": "1f94437bda23d7c0c047df52c9a45a4d8bb08cc48282cd88b9cf51715582c3a0",
+        "points": "b6a993c256ef577abb04b0c353affde222af27a0e4254d66bb697a154cfec553",
+        "Play Again": "1211c911b1ad25f09a2e98015e772c697b8d70d1c36417bbbbbd067d4b735e39",
+        "Repeat Duel": "58f03efb3f3b3722230099e2ed6e35d6d3e18e1020db9d2fc91762bc1e1ce108",
+        "Home": "3e0d676d2d85073dbdf636d1e132dbbc3814c6cd906ba198b503e9106c0a32a9",
+        "Statistics": "89abe8c6ac1314648ce93219561e418b38b44f1fa16eb1a0f77d5f2267dc9933",
+        "Total Games": "482bb68bb0859ea74239d6c1023797326b43fc0f969020858fc3e5714730a2ba",
+        "Best Score": "866e992787c8105ce55033bcd6de65f51a0de67da14692c3d6bb007971ac13b2",
+        "Correct Answers": "090f35ad9a73a45cab0c3e80ded1603f76ad21a4ac7469dbc1cd8008b5b8f638",
+        "Accuracy": "63564f436b6a93fb2fac06175e56f31ac4084b9019df0051e70c502220a42722",
+        "Best Time": "2c2d09a6c70a238f0c426e61b1b427558fa90e18cc888f24e53d85833b239d00",
+        "Time": "8b6ff498515bcc2ffdefa4f7b2efbe5edfcf8ba146e99308bc72024b52349ba0",
+        "Clear": "bce2377283c2455ab8b1deb7711af90638f10ef82e345eb354e9296ff9397a56",
+        "Close": "3fd47edce45b3603d4192f61dbf3e51162589b0951042a18d244132ac92e7bb7",
+        "Excellent game!": "27b684c57cb7a6f71366f95bcaa662d52ca26e418b2ffdb0c894c651f55e2f74",
+        "Great result!": "749c29da9c3122137de39b49848f02e703b485554959b895e2ac3419e092a71a",
+        "Good game!": "e4017391f5df808aa31483493db63227157a09e04cbf3105041c788ee75d70dc",
+        "Keep practicing!": "4ac2d675f3d9334d2be2035387cefca8f6fca9001fcd05a57eb72e8e4c853179",
+        "Share Result": "7e564575eb7d5eb28b69056282cbdf895d0864f6cdb8e5bc4e336c5775231b9f",
+        "Share": "7e564575eb7d5eb28b69056282cbdf895d0864f6cdb8e5bc4e336c5775231b9f",
+        "ACCURACY": "63564f436b6a93fb2fac06175e56f31ac4084b9019df0051e70c502220a42722"
       },
       "changes": {
         "Time limit per question depending on difficulty": {
@@ -22823,9 +24851,13 @@
         "FACT_02_DESC": {
           "before": "瑞士拥有世界上唯一正方形国旗。梵蒂冈也是正方形，但是城邦。",
           "after": "瑞士和梵蒂冈城国的国旗都是正方形。"
+        },
+        "Good game!": {
+          "before": "👍 好游戏！",
+          "after": "👍 玩得不错！"
         }
       },
-      "pending_count": 1360
+      "pending_count": 1320
     },
     "zh-Hant": {
       "status": "in_progress",
@@ -23131,7 +25163,47 @@
         "FACT_01_TITLE": "bc7e5fd6a3c014aaad1d5e0113344b4b8a741a0dbccda58bd6940a9b4ba5ac7f",
         "FACT_01_DESC": "3c350f8d574926309207bb6615d03b1d3da8db7ba21f5ccbf3516ad90fad17a8",
         "FACT_02_TITLE": "e7a5ade53b8f3c802de79e02d2b72e4480fbb4a5baf399fe597d8536a7bb3c89",
-        "FACT_02_DESC": "1f24c16372edf96c004c85dc5f308b27f2860448488b15050cccf0ae51682850"
+        "FACT_02_DESC": "1f24c16372edf96c004c85dc5f308b27f2860448488b15050cccf0ae51682850",
+        "Learn flags of the world": "72e525d2dbbc756346c13db1efea2cc5f51927364f9b325a055743cec3a5cb9c",
+        "Score": "6d0de2c0dead0ffcf1be80b053d0bd412527abf815b8577d881d2ca87e9b4fca",
+        "Exit": "70fbb6a5dbfa6a8dad6043025ea9041b57d8b4dffd66b94d300a47236c081bd0",
+        "Error loading countries": "466e3009522bb622fa1397f2d847b83c79c619dfcba54b2206402517abd5dcd3",
+        "Retry": "7e59d0f162931a5dd57bd27f0ad05cb09f6cc588b5831bd53312bbb7ac618f6e",
+        "System": "6df543c4a40151ec8b11573eb2f331094155564568908addda42a4cae8684f28",
+        "Select Language": "13d555d16af48850cb60e455f8dc69d458642aeabb159fbddc14c35c887add96",
+        "Select Region": "28110393efacc7710313d2a5ccf25184ffb8baeb01e18b707891183b0838f48a",
+        "Select Regions": "28110393efacc7710313d2a5ccf25184ffb8baeb01e18b707891183b0838f48a",
+        "Multiple Regions": "52129cb5aae31d1510c8b2e8cd413965fb5b8afe9bf464a53a70e10580ca392e",
+        "START GAME": "cf01757fcdc03815a2573f3df22fd06d3f8eaede7c2d08e7dab80d393a0e27e8",
+        "All Regions": "106aed973e24af85efc6b0fb01c0dcf9e4109dc95ec64a1bbd8c5248c82fb400",
+        "Europe": "e0b43d4285d096100aed8ce3ba7c81d28cfd3cdcd155b3063b2a0eb27437e639",
+        "Asia": "5bc380a91b2fe9a1464b864e5d14f1c064f799e6476e317c401a6c878d70c22f",
+        "Americas": "f111af1ed5db8d978b13896f339681fb00adcb4bd6082f17b01ae93fd3ff8c7d",
+        "Africa": "2d5b98b7b92a0e60ea334dce278455a5d0a7a2877ca9f8ad797c16b9cb8dad5d",
+        "Oceania": "3fda2b8c1af8d6446aeee759c865830d71b9266cf6648bf1a3b9c60c0e63a084",
+        "North America": "29646cf76f9a39e603c07b8b2f4857a9dfd0d5b2c3d062e304e55b8c2e2a41a0",
+        "South America": "356ec8f97f02470258cad3ef0b2de5d0d6be14b738946f3f87ec6c96c3802847",
+        "Game Over!": "10045f2ae27ea51141aa895713ea351496e9619f500ce6e215910bdf1e6f068d",
+        "points": "b6a993c256ef577abb04b0c353affde222af27a0e4254d66bb697a154cfec553",
+        "Play Again": "1211c911b1ad25f09a2e98015e772c697b8d70d1c36417bbbbbd067d4b735e39",
+        "Repeat Duel": "1868dfa08f4a4b5f760f42aa2456f0544c899b72b16893bb244e3c6b912ed487",
+        "Home": "a782f2754c833394b95d20ed9727eb0915b24dbce8a0dea6747fe04db412f53a",
+        "Statistics": "7373e28662d670ae5ca7061871bdcf760a6234874a11690e62705cdcf555988d",
+        "Total Games": "3068babd915692d11badaaa367e27b345c6cc24172626ea54b1bebf2a4538a8b",
+        "Best Score": "a443eb6b6c98c333f928d3a7e6a3d2e556f8bd37c754b88d7e9184fccd256783",
+        "Correct Answers": "2b79a3afc76feb9a954c3fdfe60dfb4d7084ecc7b5e493975ad29a555a198907",
+        "Accuracy": "88e7264283a2696a5ab399fee7474c4c2a5179627aa3d35dc2627e7f4730bbb4",
+        "Best Time": "549b7c5b050196402dcba6b40b68506b2c48209249c57a205c28a684c037fe9c",
+        "Time": "bf6267da6077b6bedde993a6ec599e9d5474eef12284b6823ef8dd0facc08f40",
+        "Clear": "bce2377283c2455ab8b1deb7711af90638f10ef82e345eb354e9296ff9397a56",
+        "Close": "c7fdddf79eaa8c4f71f4976d88201a632dad2c10b518207c8dac164252ff63ce",
+        "Excellent game!": "27b684c57cb7a6f71366f95bcaa662d52ca26e418b2ffdb0c894c651f55e2f74",
+        "Great result!": "db3a9f07f152f0d16253bc7809491edc89acfb014992fb90594f61bb7d34c9d5",
+        "Good game!": "eaba1147706c20e1ed392563bb373c85094f227fd338885890ead230cdd5023e",
+        "Keep practicing!": "170f8e01619edc112669c68a64acdf9a1ab01c3139a722f4a12a8be0ad88e9f6",
+        "Share Result": "7e564575eb7d5eb28b69056282cbdf895d0864f6cdb8e5bc4e336c5775231b9f",
+        "Share": "7e564575eb7d5eb28b69056282cbdf895d0864f6cdb8e5bc4e336c5775231b9f",
+        "ACCURACY": "88e7264283a2696a5ab399fee7474c4c2a5179627aa3d35dc2627e7f4730bbb4"
       },
       "changes": {
         "Time limit per question depending on difficulty": {
@@ -23777,9 +25849,41 @@
         "FACT_02_DESC": {
           "before": "瑞士擁有世界上唯一的方形國旗。梵蒂岡也有方形旗幟，但它是一個城邦。",
           "after": "瑞士和梵蒂岡城國的國旗都是正方形。"
+        },
+        "Home": {
+          "before": "家",
+          "after": "首頁"
+        },
+        "Exit": {
+          "before": "出口",
+          "after": "離開"
+        },
+        "Error loading countries": {
+          "before": "加載國家/地區時出錯",
+          "after": "載入國家資料時發生錯誤"
+        },
+        "points": {
+          "before": "點",
+          "after": "分"
+        },
+        "Accuracy": {
+          "before": "準確性",
+          "after": "答對率"
+        },
+        "Good game!": {
+          "before": "👍 好遊戲！",
+          "after": "👍 玩得不錯！"
+        },
+        "Keep practicing!": {
+          "before": "💪繼續練習！",
+          "after": "💪 繼續練習！"
+        },
+        "ACCURACY": {
+          "before": "準確性",
+          "after": "答對率"
         }
       },
-      "pending_count": 1312
+      "pending_count": 1272
     }
   },
   "resume_rule": "Pending keys are current catalog keys absent from reviewed; a changed value hash invalidates its prior review."

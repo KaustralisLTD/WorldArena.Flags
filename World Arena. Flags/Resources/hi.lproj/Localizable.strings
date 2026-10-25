@@ -52,21 +52,21 @@
 "World Flags" = "दुनिया के झंडे";
 "Learn flags of the world" = "दुनिया के झंडे जानें";
 "Score" = "अंक";
-"Exit" = "बाहर निकलना";
+"Exit" = "बाहर निकलें";
 "Error loading countries" = "देशों को लोड करने में त्रुटि";
 "Retry" = "पुन: प्रयास करें";
 "System" = "प्रणाली";
 
 // Start Screen
-"Select Language" = "भाषा चुने";
+"Select Language" = "भाषा चुनें";
 "Select Region" = "क्षेत्र का चयन करें";
 "Select Regions" = "क्षेत्र चुनें";
 "Multiple Regions" = "एकाधिक क्षेत्र";
-"START GAME" = "खेल शुरू";
+"START GAME" = "खेल शुरू करें";
 "All Regions" = "सभी क्षेत्र";
 "Europe" = "यूरोप";
 "Asia" = "एशिया";
-"Americas" = "अमेरिका की";
+"Americas" = "अमेरिका";
 "Africa" = "अफ़्रीका";
 "Oceania" = "ओशिनिया";
 "North America" = "उत्तरी अमेरिका";
@@ -75,9 +75,9 @@
 // Game Over
 "Game Over!" = "खेल खत्म!";
 "points" = "अंक";
-"Play Again" = "फिर से चालू करें";
+"Play Again" = "फिर खेलें";
 "Repeat Duel" = "द्वंद्व दोहराएँ";
-"Home" = "घर";
+"Home" = "होम";
 
 // Statistics
 "Statistics" = "आंकड़े";
@@ -87,20 +87,20 @@
 "Accuracy" = "शुद्धता";
 "Best Time" = "सर्वोत्तम समय";
 "Time" = "समय";
-"Clear" = "स्पष्ट";
-"Close" = "बंद करना";
+"Clear" = "साफ़ करें";
+"Close" = "बंद करें";
 
 // Game Results
-"Excellent game!" = "🏆उत्कृष्ट!";
+"Excellent game!" = "🏆 उत्कृष्ट!";
 "Great result!" = "🎯 बढ़िया परिणाम!";
-"Good game!" = "👍अच्छा खेल!";
-"Keep practicing!" = "💪अभ्यास करते रहें!";
+"Good game!" = "👍 अच्छा खेले!";
+"Keep practicing!" = "💪 अभ्यास करते रहें!";
 // English (default)
-"Play Again" = "फिर से चालू करें";
+"Play Again" = "फिर खेलें";
 
 // Share
-"Share Result" = "शेयर करना";
-"Share" = "शेयर करना";
+"Share Result" = "शेयर करें";
+"Share" = "शेयर करें";
 "ACCURACY" = "शुद्धता";
 "TOTAL XP" = "कुल एक्सपी";
 "CONTINUE" = "जारी रखना";
@@ -112,8 +112,8 @@
 "AMAZING" = "अद्भुत";
 "GOOD" = "अच्छा";
 "KEEP GOING" = "जाता रहना";
-"Play Again" = "फिर से चालू करें";
-"Home" = "घर";
+"Play Again" = "फिर खेलें";
+"Home" = "होम";
 "Quest Update!" = "खोज अद्यतन!";
 "quest.play_again.duel" = "दुबारा द्वंद्व खेलें";
 "Check your progress" = "अपनी प्रगति जांचें";
@@ -917,7 +917,7 @@
 "Keep subscription" = "सदस्यता बनाये रखें";
 "Yes, cancel" = "हाँ, रद्द करें";
 "Are you sure you want to cancel premium? You will lose access to all premium features." = "क्या आप वाकई प्रीमियम रद्द करना चाहते हैं? आप सभी प्रीमियम सुविधाओं तक पहुंच खो देंगे.";
-"Close" = "बंद करना";
+"Close" = "बंद करें";
 "Red" = "लाल";
 "Most popular color fact description" = "दुनिया भर के सभी राष्ट्रीय झंडों में से 75% पर लाल रंग मौजूद है, जो इसे सबसे लोकप्रिय ध्वज रंग बनाता है।";
 

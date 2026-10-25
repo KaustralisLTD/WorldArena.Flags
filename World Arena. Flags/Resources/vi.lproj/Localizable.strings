@@ -52,7 +52,7 @@
 "World Flags" = "Cờ thế giới";
 "Learn flags of the world" = "Tìm hiểu các lá cờ trên thế giới";
 "Score" = "Điểm";
-"Exit" = "Ra";
+"Exit" = "Thoát";
 "Error loading countries" = "Lỗi tải quốc gia";
 "Retry" = "Thử lại";
 "System" = "Hệ thống";
@@ -67,7 +67,7 @@
 "Europe" = "Châu Âu";
 "Asia" = "Châu Á";
 "Americas" = "Châu Mỹ";
-"Africa" = "Châu phi";
+"Africa" = "Châu Phi";
 "Oceania" = "Châu Đại Dương";
 "North America" = "Bắc Mỹ";
 "South America" = "Nam Mỹ";
@@ -76,7 +76,7 @@
 "Game Over!" = "Trò chơi kết thúc!";
 "points" = "điểm";
 "Play Again" = "Chơi lại";
-"Repeat Duel" = "Chơi lại đấu";
+"Repeat Duel" = "Đấu lại";
 "Home" = "Trang chủ";
 
 // Statistics
@@ -84,10 +84,10 @@
 "Total Games" = "Tổng số trò chơi";
 "Best Score" = "Điểm tốt nhất";
 "Correct Answers" = "Câu trả lời đúng";
-"Accuracy" = "Sự chính xác";
+"Accuracy" = "Độ chính xác";
 "Best Time" = "Thời gian tốt nhất";
 "Time" = "Thời gian";
-"Clear" = "Thông thoáng";
+"Clear" = "Xóa";
 "Close" = "Đóng";
 
 // Game Results
@@ -101,7 +101,7 @@
 // Share
 "Share Result" = "Chia sẻ";
 "Share" = "Chia sẻ";
-"ACCURACY" = "Sự chính xác";
+"ACCURACY" = "Độ chính xác";
 "TOTAL XP" = "Tổng kinh nghiệm";
 "CONTINUE" = "Tiếp tục";
 "Perfect! You're unstoppable!" = "Hoàn hảo! Bạn không thể ngăn cản được!";
@@ -456,7 +456,7 @@
 "Current streak" = "Chuỗi hiện tại";
 "Best streak" = "Chuỗi tốt nhất";
 "Total games" = "Tổng số trò chơi";
-"Accuracy" = "Sự chính xác";
+"Accuracy" = "Độ chính xác";
 "Add Friends" = "Thêm bạn bè";
 "Overview" = "Tổng quan";
 "Friend Streaks" = "Chuỗi bạn bè";

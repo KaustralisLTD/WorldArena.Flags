@@ -51,10 +51,10 @@
 // General
 "World Flags" = "Världens flaggor";
 "Learn flags of the world" = "Lär dig världens flaggor";
-"Score" = "Göra";
-"Exit" = "Utgång";
+"Score" = "Poäng";
+"Exit" = "Avsluta";
 "Error loading countries" = "Det gick inte att läsa in länder";
-"Retry" = "Försöka igen";
+"Retry" = "Försök igen";
 "System" = "System";
 
 // Start Screen
@@ -73,7 +73,7 @@
 "South America" = "Sydamerika";
 
 // Game Over
-"Game Over!" = "Game över!";
+"Game Over!" = "Spelet är slut!";
 "points" = "poäng";
 "Play Again" = "Spela igen";
 "Repeat Duel" = "Spela om duellen";
@@ -81,14 +81,14 @@
 
 // Statistics
 "Statistics" = "Statistik";
-"Total Games" = "Totalt spel";
+"Total Games" = "Antal spel";
 "Best Score" = "Bästa poäng";
 "Correct Answers" = "Rätt svar";
 "Accuracy" = "Noggrannhet";
 "Best Time" = "Bästa tiden";
 "Time" = "Tid";
 "Clear" = "Rensa";
-"Close" = "Nära";
+"Close" = "Stäng";
 
 // Game Results
 "Excellent game!" = "🏆 Utmärkt!";
@@ -917,7 +917,7 @@
 "Keep subscription" = "Behåll prenumerationen";
 "Yes, cancel" = "Ja, avbryt";
 "Are you sure you want to cancel premium? You will lose access to all premium features." = "Är du säker på att du vill avbryta premium? Du kommer att förlora tillgången till alla premiumfunktioner.";
-"Close" = "Nära";
+"Close" = "Stäng";
 "Red" = "Röd";
 "Most popular color fact description" = "Rött finns på 75 % av alla nationella flaggor världen över, vilket gör det till den mest populära flaggfärgen.";
 

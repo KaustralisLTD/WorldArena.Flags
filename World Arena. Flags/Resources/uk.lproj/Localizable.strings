@@ -23,7 +23,7 @@
 "Технические вопросы" = "Технічні питання";
 // General
 "World Flags" = "Прапори Світу";
-"Learn flags of the world" = "Вивчайте прапори світу";
+"Learn flags of the world" = "Вивчай прапори світу";
 "Score" = "Рахунок";
 "Exit" = "Вихід";
 "Error loading countries" = "Помилка завантаження країн";
@@ -31,9 +31,9 @@
 "System" = "Системний";
 
 // Start Screen
-"Select Language" = "Оберіть мову";
-"Select Region" = "Оберіть регіон";
-"Select Regions" = "Оберіть регіони";
+"Select Language" = "Обери мову";
+"Select Region" = "Обери регіон";
+"Select Regions" = "Обери регіони";
 "Multiple Regions" = "Кілька регіонів";
 "START GAME" = "ПОЧАТИ ГРУ";
 "All Regions" = "Всі регіони";
@@ -49,7 +49,7 @@
 "points" = "балів";
 "Play Again" = "Грати знову";
 "Repeat Duel" = "Повторити дуель";
-"Home" = "На головну";
+"Home" = "Головна";
 
 // Statistics
 "Statistics" = "Статистика";

@@ -51,7 +51,7 @@
 "World Flags" = "Bandeiras Mundiais";
 "Learn flags of the world" = "Aprenda bandeiras do mundo";
 "Score" = "Pontuação";
-"Exit" = "Saída";
+"Exit" = "Sair";
 "Error loading countries" = "Erro ao carregar países";
 "Retry" = "Tentar novamente";
 "System" = "System";
@@ -69,14 +69,14 @@
 "Africa" = "África";
 "Oceania" = "Oceânia";
 "North America" = "América do Norte";
-"South America" = "Ámérica do Sul";
+"South America" = "América do Sul";
 
 // Game Over
 "Game Over!" = "Fim de jogo!";
 "points" = "pontos";
 "Play Again" = "Play Again";
 "Repeat Duel" = "Repetir duelo";
-"Home" = "Home";
+"Home" = "Início";
 
 // Statistics
 "Statistics" = "Statistics";
@@ -84,16 +84,16 @@
 "Best Score" = "Melhor pontuação";
 "Correct Answers" = "Respostas Corretas";
 "Accuracy" = "Accuracy";
-"Best Time" = "Melhor horário";
+"Best Time" = "Melhor tempo";
 "Time" = "Tempo";
-"Clear" = "Claro";
+"Clear" = "Limpar";
 "Close" = "Fechar";
 
 // Game Results
-"Excellent game!" = "ð Excelente!";
-"Great result!" = "ð¯Ótimo resultado!";
-"Good game!" = "ð Bom jogo!";
-"Keep practicing!" = "ðª Continue praticando!";
+"Excellent game!" = "🏆 Excelente!";
+"Great result!" = "🎯 Ótimo resultado!";
+"Good game!" = "👍 Bom jogo!";
+"Keep practicing!" = "💪 Continue praticando!";
 // English (default)
 "Play Again" = "Play Again";
 
@@ -112,7 +112,7 @@
 "GOOD" = "Good";
 "KEEP GOING" = "Keep Going";
 "Play Again" = "Jogue novamente";
-"Home" = "Lar";
+"Home" = "Início";
 "Quest Update!" = "Quest Update!";
 "quest.play_again.duel" = "Repetir duelo";
 "Check your progress" = "Check your progress";

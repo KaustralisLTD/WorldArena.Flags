@@ -52,9 +52,9 @@
 "World Flags" = "Bendera Dunia";
 "Learn flags of the world" = "Pelajari bendera dunia";
 "Score" = "Skor";
-"Exit" = "KELUAR";
+"Exit" = "Keluar";
 "Error loading countries" = "Terjadi kesalahan saat memuat negara";
-"Retry" = "Mencoba kembali";
+"Retry" = "Coba lagi";
 "System" = "Sistem";
 
 // Start Screen
@@ -77,7 +77,7 @@
 "points" = "poin";
 "Play Again" = "Mainkan Lagi";
 "Repeat Duel" = "Ulang duel";
-"Home" = "Rumah";
+"Home" = "Beranda";
 
 // Statistics
 "Statistics" = "Statistik";
@@ -87,8 +87,8 @@
 "Accuracy" = "Ketepatan";
 "Best Time" = "Waktu Terbaik";
 "Time" = "Waktu";
-"Clear" = "Jernih";
-"Close" = "Menutup";
+"Clear" = "Hapus";
+"Close" = "Tutup";
 
 // Game Results
 "Excellent game!" = "🏆 Luar biasa!";
@@ -99,8 +99,8 @@
 "Play Again" = "Mainkan Lagi";
 
 // Share
-"Share Result" = "Membagikan";
-"Share" = "Membagikan";
+"Share Result" = "Bagikan";
+"Share" = "Bagikan";
 "ACCURACY" = "Ketepatan";
 "TOTAL XP" = "Jumlah XP";
 "CONTINUE" = "Melanjutkan";
@@ -113,7 +113,7 @@
 "GOOD" = "Bagus";
 "KEEP GOING" = "Terus berlanjut";
 "Play Again" = "Mainkan Lagi";
-"Home" = "Rumah";
+"Home" = "Beranda";
 "Quest Update!" = "Pembaruan Misi!";
 "quest.play_again.duel" = "Ulang duel";
 "Check your progress" = "Periksa kemajuan Anda";
@@ -917,7 +917,7 @@
 "Keep subscription" = "Tetap berlangganan";
 "Yes, cancel" = "Ya, batalkan";
 "Are you sure you want to cancel premium? You will lose access to all premium features." = "Apakah Anda yakin ingin membatalkan premi? Anda akan kehilangan akses ke semua fitur premium.";
-"Close" = "Menutup";
+"Close" = "Tutup";
 "Red" = "Merah";
 "Most popular color fact description" = "Merah hadir pada 75% dari seluruh bendera nasional di seluruh dunia, menjadikannya warna bendera paling populer.";
 

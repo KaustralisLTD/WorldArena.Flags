@@ -76,8 +76,8 @@
 "Game Over!" = "Tapos na ang laro!";
 "points" = "puntos";
 "Play Again" = "Maglaro Muli";
-"Repeat Duel" = "Ulitin ang duel";
-"Home" = "Bahay";
+"Repeat Duel" = "Ulitin ang tunggalian";
+"Home" = "Pangunahing pahina";
 
 // Statistics
 "Statistics" = "Mga istatistika";
@@ -87,7 +87,7 @@
 "Accuracy" = "Katumpakan";
 "Best Time" = "Pinakamahusay na Oras";
 "Time" = "Oras";
-"Clear" = "Maaliwalas";
+"Clear" = "Burahin";
 "Close" = "Isara";
 
 // Game Results
@@ -113,7 +113,7 @@
 "GOOD" = "Mabuti";
 "KEEP GOING" = "Magpatuloy";
 "Play Again" = "Maglaro Muli";
-"Home" = "Bahay";
+"Home" = "Pangunahing pahina";
 "Quest Update!" = "May balita sa misyon!";
 "quest.play_again.duel" = "Ulitin ang duel";
 "Check your progress" = "Suriin ang iyong pag-unlad";

@@ -50,17 +50,17 @@
 "Лига Мастеров" = "Mester Liga";
 // General
 "World Flags" = "A világ zászlói";
-"Learn flags of the world" = "Ismerje meg a világ zászlóit";
+"Learn flags of the world" = "Ismerd meg a világ zászlóit";
 "Score" = "Pontszám";
-"Exit" = "Kijárat";
+"Exit" = "Kilépés";
 "Error loading countries" = "Hiba történt az országok betöltésekor";
-"Retry" = "Próbálja újra";
+"Retry" = "Próbáld újra";
 "System" = "Rendszer";
 
 // Start Screen
-"Select Language" = "Válassza a Nyelv lehetőséget";
-"Select Region" = "Válassza ki a Régiót";
-"Select Regions" = "Válassza a Régiók lehetőséget";
+"Select Language" = "Nyelv kiválasztása";
+"Select Region" = "Régió kiválasztása";
+"Select Regions" = "Régiók kiválasztása";
 "Multiple Regions" = "Több régió";
 "START GAME" = "JÁTÉK INDÍTÁSA";
 "All Regions" = "Minden régió";
@@ -69,15 +69,15 @@
 "Americas" = "Amerika";
 "Africa" = "Afrika";
 "Oceania" = "Óceánia";
-"North America" = "Észak Amerika";
+"North America" = "Észak-Amerika";
 "South America" = "Dél-Amerika";
 
 // Game Over
 "Game Over!" = "Játék vége!";
-"points" = "pontokat";
+"points" = "pont";
 "Play Again" = "Játssz újra";
 "Repeat Duel" = "Párbaj megismétlése";
-"Home" = "Otthon";
+"Home" = "Kezdőlap";
 
 // Statistics
 "Statistics" = "Statisztika";
@@ -87,20 +87,20 @@
 "Accuracy" = "Pontosság";
 "Best Time" = "Legjobb Idő";
 "Time" = "Idő";
-"Clear" = "Világos";
-"Close" = "Közeli";
+"Clear" = "Törlés";
+"Close" = "Bezárás";
 
 // Game Results
 "Excellent game!" = "🏆 Kiváló!";
 "Great result!" = "🎯 Szuper eredmény!";
-"Good game!" = "👍 Jó játékot!";
+"Good game!" = "👍 Jól játszottál!";
 "Keep practicing!" = "💪 Gyakorolj tovább!";
 // English (default)
 "Play Again" = "Játssz újra";
 
 // Share
-"Share Result" = "Részesedés";
-"Share" = "Részesedés";
+"Share Result" = "Megosztás";
+"Share" = "Megosztás";
 "ACCURACY" = "Pontosság";
 "TOTAL XP" = "Teljes XP";
 "CONTINUE" = "Folytatás";
@@ -113,7 +113,7 @@
 "GOOD" = "Jó";
 "KEEP GOING" = "Folytasd";
 "Play Again" = "Játssz újra";
-"Home" = "Otthon";
+"Home" = "Kezdőlap";
 "Quest Update!" = "Küldetés frissítés!";
 "quest.play_again.duel" = "Párbaj megismétlése";
 "Check your progress" = "Ellenőrizze a haladást";
@@ -917,7 +917,7 @@
 "Keep subscription" = "Tartsa meg az előfizetést";
 "Yes, cancel" = "Igen, mégsem";
 "Are you sure you want to cancel premium? You will lose access to all premium features." = "Biztosan lemondja a prémiumot? Elveszíti az összes prémium funkcióhoz való hozzáférést.";
-"Close" = "Közeli";
+"Close" = "Bezárás";
 "Red" = "Piros";
 "Most popular color fact description" = "A vörös a világ nemzeti zászlóinak 75%-án megtalálható, így ez a legnépszerűbb zászlószín.";
 

@@ -3,8 +3,8 @@
 The user selected AI editorial review on 25 October 2026. **The requested complete
 review is not finished.** Coverage checks are not linguistic approval.
 
-The ledger records **9,009 reviewed entries out of 48,677**, and **3,624 distinct
-changed entries** against the editorial baseline. This continuation changed 1,022
+The ledger records **10,209 reviewed entries out of 48,677**, and **3,850 distinct
+changed entries** against the editorial baseline. This continuation changed 1,248
 entries relative to a98dd9f8. Each reviewed value has a SHA-256; a changed value
 invalidates its prior review. A reviewed value was read or directly rewritten by
 the AI against source and context, not certified by native speakers.
@@ -23,6 +23,8 @@ Across all 30 languages:
 - 7 app-icon keys and 4 first-earned-currency education keys.
 - 40 common profile/account/quest keys, ending with `World Flags` in base order:
   counters, labels, ranks, registration year and quest formats.
+- 40 common game/navigation/result keys: region selection, scores, accuracy,
+  sharing, clear/close/home actions and result feedback. Repaired damaged emojis.
 - Two factual corrections in both legacy tiles and numbered fact cards (8 keys
   per language). The rest of the country facts are still pending.
 - Additional gameplay, notification, league and streak entries recorded individually
@@ -80,9 +82,9 @@ completion or passing tests.
 
 Remaining areas include most home-screen/gameplay/result copy, older profile and
 achievement text, help and rules, country facts, errors, settings outside the icon
-section, and locale-specific extras. The first 40 pending base keys from the prior
+section, and locale-specific extras. The first 80 pending base keys from the prior
 checkpoint are now reviewed; the next unreviewed base key is expected to be
-`Learn flags of the world`. Verify against the ledger rather than relying on order.
+`TOTAL XP`. Verify against the ledger rather than relying on order.
 Cross-screen terminology, grammatical number at runtime and text fit also need
 further checking. Native-language certification is not claimed.
 

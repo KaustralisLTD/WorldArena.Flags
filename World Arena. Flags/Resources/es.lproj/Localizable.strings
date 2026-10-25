@@ -396,7 +396,7 @@
 "Select Language" = "Seleccionar idioma";
 "Select Region" = "Seleccionar región";
 "Select Regions" = "Seleccionar regiones";
-"Multiple Regions" = "Varios regiones";
+"Multiple Regions" = "Varias regiones";
 "START GAME" = "COMENZAR JUEGO";
 "All Regions" = "Todas las regiones";
 "Europe" = "Europa";
@@ -415,13 +415,13 @@
 
 // Statistics
 "Statistics" = "Estadísticas";
-"Total Games" = "Juegos totales";
+"Total Games" = "Total de partidas";
 "Best Score" = "Mejor puntuación";
 "Correct Answers" = "Respuestas correctas";
 "Accuracy" = "Precisión";
 "Best Time" = "Mejor tiempo";
 "Time" = "Tiempo";
-"Clear" = "Limpiar";
+"Clear" = "Borrar";
 "Close" = "Cerrar";
 "Clear Statistics" = "Borrar estadísticas";
 "Are you sure you want to clear all statistics?" = "¿Estás seguro de que quieres borrar todas las estadísticas?";

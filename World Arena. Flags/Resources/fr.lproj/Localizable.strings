@@ -49,17 +49,17 @@
 "Лига Мастеров" = "Ligue des Maîtres";
 // General
 "World Flags" = "Drapeaux du monde";
-"Learn flags of the world" = "Apprenez les drapeaux du monde";
+"Learn flags of the world" = "Apprends les drapeaux du monde";
 "Score" = "Score";
-"Exit" = "Sortie";
+"Exit" = "Quitter";
 "Error loading countries" = "Erreur lors du chargement des pays";
 "Retry" = "Réessayer";
 "System" = "System";
 
 // Start Screen
-"Select Language" = "Sélectionnez la langue";
-"Select Region" = "Sélectionnez une région";
-"Select Regions" = "Sélectionnez les régions";
+"Select Language" = "Choisir la langue";
+"Select Region" = "Choisir une région";
+"Select Regions" = "Choisir des régions";
 "Multiple Regions" = "Plusieurs régions";
 "START GAME" = "COMMENCER LE JEU";
 "All Regions" = "Toutes les régions";
@@ -72,28 +72,28 @@
 "South America" = "Amérique du Sud";
 
 // Game Over
-"Game Over!" = "Jeu terminé!";
+"Game Over!" = "Partie terminée !";
 "points" = "points";
 "Play Again" = "Play Again";
 "Repeat Duel" = "Rejouer le duel";
-"Home" = "Home";
+"Home" = "Accueil";
 
 // Statistics
 "Statistics" = "Statistics";
-"Total Games" = "Total des jeux";
-"Best Score" = "Meilleure note";
+"Total Games" = "Total de parties";
+"Best Score" = "Meilleur score";
 "Correct Answers" = "Réponses correctes";
 "Accuracy" = "Accuracy";
-"Best Time" = "Meilleur moment";
+"Best Time" = "Meilleur temps";
 "Time" = "Temps";
-"Clear" = "Clair";
+"Clear" = "Effacer";
 "Close" = "Fermer";
 
 // Game Results
-"Excellent game!" = "ð Excellent !";
-"Great result!" = "ð¯ Super résultat !";
-"Good game!" = "ð Bon jeu !";
-"Keep practicing!" = "ðª Continuez à vous entraîner !";
+"Excellent game!" = "🏆 Excellent !";
+"Great result!" = "🎯 Super résultat !";
+"Good game!" = "👍 Bon jeu !";
+"Keep practicing!" = "💪 Continue à t’entraîner !";
 // English (default)
 "Play Again" = "Play Again";
 
@@ -112,7 +112,7 @@
 "GOOD" = "Good";
 "KEEP GOING" = "Keep Going";
 "Play Again" = "Rejouer";
-"Home" = "Maison";
+"Home" = "Accueil";
 "Quest Update!" = "Quest Update!";
 "quest.play_again.duel" = "Rejouer le duel";
 "Check your progress" = "Check your progress";

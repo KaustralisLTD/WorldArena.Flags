@@ -44,6 +44,6 @@ Machine-readable coverage: `app-localization-audit.json`.
 ## Subsequent AI editorial review
 
 The user requested full proofreading and selected AI editorial review. Work is
-in progress: 3,624 further entries corrected and 9,009 of 48,677 entries recorded
+in progress: 3,850 further entries corrected and 10,209 of 48,677 entries recorded
 as reviewed. The complete review is **not** finished. See
 `app-localization-editorial-review.md` and the per-language/key progress ledger.

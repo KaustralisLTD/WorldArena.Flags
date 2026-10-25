@@ -52,10 +52,10 @@
 "World Flags" = "세계 국기";
 "Learn flags of the world" = "세계의 국기를 배워보세요";
 "Score" = "점수";
-"Exit" = "출구";
+"Exit" = "나가기";
 "Error loading countries" = "국가를 로드하는 중에 오류가 발생했습니다.";
-"Retry" = "다시 해 보다";
-"System" = "체계";
+"Retry" = "다시 시도";
+"System" = "시스템";
 
 // Start Screen
 "Select Language" = "언어 선택";
@@ -74,21 +74,21 @@
 
 // Game Over
 "Game Over!" = "게임 오버!";
-"points" = "전철기";
+"points" = "점";
 "Play Again" = "다시 플레이";
 "Repeat Duel" = "결투 다시 하기";
-"Home" = "집";
+"Home" = "홈";
 
 // Statistics
 "Statistics" = "통계";
-"Total Games" = "총 게임수";
+"Total Games" = "총 게임 수";
 "Best Score" = "최고 점수";
 "Correct Answers" = "정답";
-"Accuracy" = "정확성";
-"Best Time" = "최고의 시간";
+"Accuracy" = "정답률";
+"Best Time" = "최고 기록 시간";
 "Time" = "시간";
-"Clear" = "분명한";
-"Close" = "닫다";
+"Clear" = "지우기";
+"Close" = "닫기";
 
 // Game Results
 "Excellent game!" = "🏆 훌륭해요!";
@@ -99,9 +99,9 @@
 "Play Again" = "다시 플레이";
 
 // Share
-"Share Result" = "공유하다";
-"Share" = "공유하다";
-"ACCURACY" = "정확성";
+"Share Result" = "공유";
+"Share" = "공유";
+"ACCURACY" = "정답률";
 "TOTAL XP" = "총 XP";
 "CONTINUE" = "계속하다";
 "Perfect! You're unstoppable!" = "완벽한! 당신은 막을 수 없습니다!";
@@ -113,7 +113,7 @@
 "GOOD" = "좋은";
 "KEEP GOING" = "계속해서";
 "Play Again" = "다시 플레이";
-"Home" = "집";
+"Home" = "홈";
 "Quest Update!" = "퀘스트 업데이트!";
 "quest.play_again.duel" = "결투 다시 하기";
 "Check your progress" = "진행 상황을 확인하세요";
@@ -317,7 +317,7 @@
 
 // Theme
 "App Theme" = "모습";
-"System" = "체계";
+"System" = "시스템";
 "Light" = "빛";
 "Dark" = "어두운";
 
@@ -456,7 +456,7 @@
 "Current streak" = "현재 연속";
 "Best streak" = "최고의 연속";
 "Total games" = "전체 게임";
-"Accuracy" = "정확성";
+"Accuracy" = "정답률";
 "Add Friends" = "친구 추가";
 "Overview" = "개요";
 "Friend Streaks" = "친구 연속";
@@ -599,7 +599,7 @@
 
 /* Theme Settings */
 "Тема" = "주제";
-"System" = "체계";
+"System" = "시스템";
 "Light" = "빛";
 "Dark" = "어두운";
 "Выберите тему оформления приложения" = "앱 모양 테마 선택";
@@ -917,7 +917,7 @@
 "Keep subscription" = "구독 유지";
 "Yes, cancel" = "예, 취소합니다";
 "Are you sure you want to cancel premium? You will lose access to all premium features." = "프리미엄을 취소하시겠습니까? 모든 프리미엄 기능에 액세스할 수 없게 됩니다.";
-"Close" = "닫다";
+"Close" = "닫기";
 "Red" = "빨간색";
 "Most popular color fact description" = "빨간색은 전 세계 모든 국기의 75%에 나타나며 가장 인기 있는 국기 색상입니다.";
 

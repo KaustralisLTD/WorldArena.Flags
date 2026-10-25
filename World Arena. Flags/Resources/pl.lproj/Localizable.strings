@@ -52,9 +52,9 @@
 "World Flags" = "Flagi świata";
 "Learn flags of the world" = "Naucz się flag świata";
 "Score" = "Wynik";
-"Exit" = "Wyjście";
+"Exit" = "Wyjdź";
 "Error loading countries" = "Błąd podczas ładowania krajów";
-"Retry" = "Spróbować ponownie";
+"Retry" = "Spróbuj ponownie";
 "System" = "System";
 
 // Start Screen
@@ -74,33 +74,33 @@
 
 // Game Over
 "Game Over!" = "Koniec gry!";
-"points" = "zwrotnica";
+"points" = "punkty";
 "Play Again" = "Play Again";
 "Repeat Duel" = "Powtórz pojedynek";
-"Home" = "Home";
+"Home" = "Strona główna";
 
 // Statistics
-"Statistics" = "Statistics";
-"Total Games" = "Totalne gry";
+"Statistics" = "Statystyki";
+"Total Games" = "Łączna liczba gier";
 "Best Score" = "Najlepszy wynik";
 "Correct Answers" = "Prawidłowe odpowiedzi";
 "Accuracy" = "Accuracy";
 "Best Time" = "Najlepszy czas";
 "Time" = "Czas";
-"Clear" = "Jasne";
-"Close" = "Zamknąć";
+"Clear" = "Wyczyść";
+"Close" = "Zamknij";
 
 // Game Results
-"Excellent game!" = "ð Doskonale!";
-"Great result!" = "ð¯ Świetny wynik!";
-"Good game!" = "ð Dobra gra!";
-"Keep practicing!" = "ðª Ćwicz dalej!";
+"Excellent game!" = "🏆 Doskonale!";
+"Great result!" = "🎯 Świetny wynik!";
+"Good game!" = "👍 Dobra gra!";
+"Keep practicing!" = "💪 Ćwicz dalej!";
 // English (default)
 "Play Again" = "Play Again";
 
 // Share
-"Share Result" = "Udział";
-"Share" = "Udział";
+"Share Result" = "Udostępnij";
+"Share" = "Udostępnij";
 "ACCURACY" = "Dokładność";
 "TOTAL XP" = "Total XP";
 "CONTINUE" = "Continue";
@@ -113,7 +113,7 @@
 "GOOD" = "Good";
 "KEEP GOING" = "Keep Going";
 "Play Again" = "Zagraj ponownie";
-"Home" = "Dom";
+"Home" = "Strona główna";
 "Quest Update!" = "Quest Update!";
 "quest.play_again.duel" = "Powtórz pojedynek";
 "Check your progress" = "Check your progress";
@@ -449,7 +449,7 @@
 "Following" = "Znajomi";
 "Days in a row" = "Dni z rzędu";
 "Joined in %@" = "W grze od %@ roku";
-"Statistics" = "Statystyka";
+"Statistics" = "Statystyki";
 "Total XP" = "Suma PD";
 "Current streak" = "Aktualna passa";
 "Best streak" = "Najlepsza passa";

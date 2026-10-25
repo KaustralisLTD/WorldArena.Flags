@@ -51,8 +51,8 @@
 // General
 "World Flags" = "Vlaggen van de wereld";
 "Learn flags of the world" = "Leer vlaggen van de wereld";
-"Score" = "Scoren";
-"Exit" = "Uitgang";
+"Score" = "Score";
+"Exit" = "Afsluiten";
 "Error loading countries" = "Fout bij het laden van landen";
 "Retry" = "Opnieuw proberen";
 "System" = "System";
@@ -77,7 +77,7 @@
 "points" = "punten";
 "Play Again" = "Play Again";
 "Repeat Duel" = "Duel herhalen";
-"Home" = "Home";
+"Home" = "Start";
 
 // Statistics
 "Statistics" = "Statistics";
@@ -87,20 +87,20 @@
 "Accuracy" = "Accuracy";
 "Best Time" = "Beste tijd";
 "Time" = "Tijd";
-"Clear" = "Duidelijk";
-"Close" = "Dichtbij";
+"Clear" = "Wissen";
+"Close" = "Sluiten";
 
 // Game Results
-"Excellent game!" = "ð Uitstekend!";
-"Great result!" = "ð¯ Geweldig resultaat!";
-"Good game!" = "ð Goed spel!";
-"Keep practicing!" = "ðª Blijf oefenen!";
+"Excellent game!" = "🏆 Uitstekend!";
+"Great result!" = "🎯 Geweldig resultaat!";
+"Good game!" = "👍 Goed spel!";
+"Keep practicing!" = "💪 Blijf oefenen!";
 // English (default)
 "Play Again" = "Play Again";
 
 // Share
-"Share Result" = "Deel";
-"Share" = "Deel";
+"Share Result" = "Delen";
+"Share" = "Delen";
 "ACCURACY" = "Nauwkeurigheid";
 "TOTAL XP" = "Total XP";
 "CONTINUE" = "Continue";
@@ -113,7 +113,7 @@
 "GOOD" = "Good";
 "KEEP GOING" = "Keep Going";
 "Play Again" = "Speel opnieuw";
-"Home" = "Thuis";
+"Home" = "Start";
 "Quest Update!" = "Quest Update!";
 "quest.play_again.duel" = "Duel herhalen";
 "Check your progress" = "Check your progress";

@@ -76,18 +76,18 @@
 "Game Over!" = "விளையாட்டு முடிந்தது!";
 "points" = "புள்ளிகள்";
 "Play Again" = "மீண்டும் விளையாடு";
-"Repeat Duel" = "இரட்டைப்போர் மீண்டும்";
-"Home" = "வீடு";
+"Repeat Duel" = "மீண்டும் இருவர் போட்டி";
+"Home" = "முகப்பு";
 
 // Statistics
 "Statistics" = "புள்ளிவிவரங்கள்";
 "Total Games" = "மொத்த விளையாட்டுகள்";
-"Best Score" = "சிறந்த ஸ்கோர்";
+"Best Score" = "சிறந்த மதிப்பெண்";
 "Correct Answers" = "சரியான பதில்கள்";
 "Accuracy" = "துல்லியம்";
 "Best Time" = "சிறந்த நேரம்";
 "Time" = "நேரம்";
-"Clear" = "தெளிவு";
+"Clear" = "அழி";
 "Close" = "மூடு";
 
 // Game Results
@@ -113,7 +113,7 @@
 "GOOD" = "நல்லது";
 "KEEP GOING" = "தொடருங்கள்";
 "Play Again" = "மீண்டும் விளையாடு";
-"Home" = "வீடு";
+"Home" = "முகப்பு";
 "Quest Update!" = "குவெஸ்ட் அப்டேட்!";
 "quest.play_again.duel" = "இரட்டையை மீண்டும்";
 "Check your progress" = "உங்கள் முன்னேற்றத்தை சரிபார்க்கவும்";

@@ -52,7 +52,7 @@
 "World Flags" = "Světové vlajky";
 "Learn flags of the world" = "Naučte se vlajky světa";
 "Score" = "Skóre";
-"Exit" = "Výstup";
+"Exit" = "Ukončit";
 "Error loading countries" = "Při načítání zemí došlo k chybě";
 "Retry" = "Zkuste to znovu";
 "System" = "Systém";
@@ -77,7 +77,7 @@
 "points" = "body";
 "Play Again" = "Hrát znovu";
 "Repeat Duel" = "Zopakovat duel";
-"Home" = "Domov";
+"Home" = "Domů";
 
 // Statistics
 "Statistics" = "Statistika";
@@ -87,8 +87,8 @@
 "Accuracy" = "Přesnost";
 "Best Time" = "Nejlepší čas";
 "Time" = "Čas";
-"Clear" = "Jasný";
-"Close" = "Blízko";
+"Clear" = "Vymazat";
+"Close" = "Zavřít";
 
 // Game Results
 "Excellent game!" = "🏆 Výborně!";
@@ -99,8 +99,8 @@
 "Play Again" = "Hrát znovu";
 
 // Share
-"Share Result" = "Podíl";
-"Share" = "Podíl";
+"Share Result" = "Sdílet";
+"Share" = "Sdílet";
 "ACCURACY" = "Přesnost";
 "TOTAL XP" = "Celkem XP";
 "CONTINUE" = "Pokračovat";
@@ -113,7 +113,7 @@
 "GOOD" = "Dobrý";
 "KEEP GOING" = "Pokračuj";
 "Play Again" = "Hrát znovu";
-"Home" = "Domov";
+"Home" = "Domů";
 "Quest Update!" = "Aktualizace úkolu!";
 "quest.play_again.duel" = "Opakovat duel";
 "Check your progress" = "Zkontrolujte svůj pokrok";
@@ -917,7 +917,7 @@
 "Keep subscription" = "Ponechat předplatné";
 "Yes, cancel" = "Ano, zrušit";
 "Are you sure you want to cancel premium? You will lose access to all premium features." = "Opravdu chcete prémii zrušit? Ztratíte přístup ke všem prémiovým funkcím.";
-"Close" = "Blízko";
+"Close" = "Zavřít";
 "Red" = "Červený";
 "Most popular color fact description" = "Červená je přítomna na 75 % všech národních vlajek po celém světě, což z ní činí nejoblíbenější barvu vlajky.";
 

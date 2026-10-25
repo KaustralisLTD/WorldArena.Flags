@@ -50,8 +50,8 @@
 "Лига Мастеров" = "Ustalar Ligi";
 // General
 "World Flags" = "Dünya Bayrakları";
-"Learn flags of the world" = "Dünya bayraklarını öğrenin";
-"Score" = "Gol";
+"Learn flags of the world" = "Dünya bayraklarını öğren";
+"Score" = "Puan";
 "Exit" = "Çıkış";
 "Error loading countries" = "Ülkeler yüklenirken hata oluştu";
 "Retry" = "Yeniden dene";
@@ -77,31 +77,31 @@
 "points" = "puan";
 "Play Again" = "Tekrar Oyna";
 "Repeat Duel" = "Düelloyu tekrarla";
-"Home" = "Ev";
+"Home" = "Ana sayfa";
 
 // Statistics
 "Statistics" = "İstatistikler";
 "Total Games" = "Toplam Oyunlar";
 "Best Score" = "En İyi Skor";
 "Correct Answers" = "Doğru Cevaplar";
-"Accuracy" = "Kesinlik";
+"Accuracy" = "Doğruluk oranı";
 "Best Time" = "En İyi Zaman";
 "Time" = "Zaman";
-"Clear" = "Temizlemek";
-"Close" = "Kapalı";
+"Clear" = "Temizle";
+"Close" = "Kapat";
 
 // Game Results
 "Excellent game!" = "🏆 Mükemmel!";
 "Great result!" = "🎯 Harika sonuç!";
 "Good game!" = "👍 İyi oyun!";
-"Keep practicing!" = "💪 Pratik yapmaya devam edin!";
+"Keep practicing!" = "💪 Alıştırmaya devam et!";
 // English (default)
 "Play Again" = "Tekrar Oyna";
 
 // Share
-"Share Result" = "Paylaşmak";
-"Share" = "Paylaşmak";
-"ACCURACY" = "Kesinlik";
+"Share Result" = "Paylaş";
+"Share" = "Paylaş";
+"ACCURACY" = "Doğruluk oranı";
 "TOTAL XP" = "Toplam XP";
 "CONTINUE" = "Devam etmek";
 "Perfect! You're unstoppable!" = "Mükemmel! Sen durdurulamazsın!";
@@ -113,7 +113,7 @@
 "GOOD" = "İyi";
 "KEEP GOING" = "Devam etmek";
 "Play Again" = "Tekrar Oyna";
-"Home" = "Ev";
+"Home" = "Ana sayfa";
 "Quest Update!" = "Görev Güncellemesi!";
 "quest.play_again.duel" = "Düelloyu tekrarla";
 "Check your progress" = "İlerlemenizi kontrol edin";
@@ -456,7 +456,7 @@
 "Current streak" = "Mevcut seri";
 "Best streak" = "En iyi seri";
 "Total games" = "Toplam oyunlar";
-"Accuracy" = "Kesinlik";
+"Accuracy" = "Doğruluk oranı";
 "Add Friends" = "Arkadaş Ekle";
 "Overview" = "Genel Bakış";
 "Friend Streaks" = "Arkadaş Serileri";
@@ -917,7 +917,7 @@
 "Keep subscription" = "Aboneliği sürdür";
 "Yes, cancel" = "Evet, iptal et";
 "Are you sure you want to cancel premium? You will lose access to all premium features." = "Premium'u iptal etmek istediğinizden emin misiniz? Tüm premium özelliklere erişiminizi kaybedeceksiniz.";
-"Close" = "Kapalı";
+"Close" = "Kapat";
 "Red" = "Kırmızı";
 "Most popular color fact description" = "Kırmızı, dünya çapındaki tüm ulusal bayrakların %75'inde bulunur ve bu da onu en popüler bayrak rengi yapar.";
 

@@ -49,17 +49,17 @@
 "Лига Мастеров" = "Meisterliga";
 // General
 "World Flags" = "Weltflaggen";
-"Learn flags of the world" = "Lernen Sie Flaggen der Welt";
+"Learn flags of the world" = "Lerne die Flaggen der Welt";
 "Score" = "Punktzahl";
-"Exit" = "Ausfahrt";
+"Exit" = "Verlassen";
 "Error loading countries" = "Fehler beim Laden der Länder";
-"Retry" = "Wiederholen";
+"Retry" = "Erneut versuchen";
 "System" = "Systemstandard";
 
 // Start Screen
-"Select Language" = "Wählen Sie Sprache aus";
-"Select Region" = "Wählen Sie Region aus";
-"Select Regions" = "Wählen Sie Regionen aus";
+"Select Language" = "Sprache wählen";
+"Select Region" = "Region wählen";
+"Select Regions" = "Regionen wählen";
 "Multiple Regions" = "Mehrere Regionen";
 "START GAME" = "SPIEL STARTEN";
 "All Regions" = "Alle Regionen";
@@ -74,9 +74,9 @@
 // Game Over
 "Game Over!" = "Spiel vorbei!";
 "points" = "Punkte";
-"Play Again" = "Play Again";
+"Play Again" = "Erneut spielen";
 "Repeat Duel" = "Duell wiederholen";
-"Home" = "Home";
+"Home" = "Startseite";
 
 // Statistics
 "Statistics" = "Statistics";
@@ -86,20 +86,20 @@
 "Accuracy" = "Accuracy";
 "Best Time" = "Beste Zeit";
 "Time" = "Zeit";
-"Clear" = "Klar";
+"Clear" = "Leeren";
 "Close" = "Schließen";
 
 // Game Results
-"Excellent game!" = "ð Ausgezeichnet!";
-"Great result!" = "ð¯ Tolles Ergebnis!";
-"Good game!" = "ð Gutes Spiel!";
-"Keep practicing!" = "ðª Übe weiter!";
+"Excellent game!" = "🏆 Ausgezeichnet!";
+"Great result!" = "🎯 Tolles Ergebnis!";
+"Good game!" = "👍 Gutes Spiel!";
+"Keep practicing!" = "💪 Übe weiter!";
 // English (default)
-"Play Again" = "Play Again";
+"Play Again" = "Erneut spielen";
 
 // Share
-"Share Result" = "Aktie";
-"Share" = "Aktie";
+"Share Result" = "Teilen";
+"Share" = "Teilen";
 "ACCURACY" = "Genauigkeit";
 "TOTAL XP" = "Total XP";
 "CONTINUE" = "Continue";
@@ -111,8 +111,8 @@
 "AMAZING" = "Amazing";
 "GOOD" = "Good";
 "KEEP GOING" = "Keep Going";
-"Play Again" = "Spielen Sie noch einmal";
-"Home" = "Heim";
+"Play Again" = "Erneut spielen";
+"Home" = "Startseite";
 "Quest Update!" = "Quest Update!";
 "quest.play_again.duel" = "Duell wiederholen";
 "Check your progress" = "Check your progress";

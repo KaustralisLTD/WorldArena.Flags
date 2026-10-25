@@ -52,7 +52,7 @@
 "World Flags" = "أعلام العالم";
 "Learn flags of the world" = "تعلم أعلام العالم";
 "Score" = "نتيجة";
-"Exit" = "مخرج";
+"Exit" = "خروج";
 "Error loading countries" = "حدث خطأ أثناء تحميل البلدان";
 "Retry" = "أعد المحاولة";
 "System" = "نظام";
@@ -66,7 +66,7 @@
 "All Regions" = "جميع المناطق";
 "Europe" = "أوروبا";
 "Asia" = "آسيا";
-"Americas" = "الأمريكتين";
+"Americas" = "الأمريكتان";
 "Africa" = "أفريقيا";
 "Oceania" = "أوقيانوسيا";
 "North America" = "أمريكا الشمالية";
@@ -77,7 +77,7 @@
 "points" = "نقاط";
 "Play Again" = "العب مرة أخرى";
 "Repeat Duel" = "إعادة المبارزة";
-"Home" = "بيت";
+"Home" = "الرئيسية";
 
 // Statistics
 "Statistics" = "إحصائيات";
@@ -87,8 +87,8 @@
 "Accuracy" = "دقة";
 "Best Time" = "أفضل وقت";
 "Time" = "وقت";
-"Clear" = "واضح";
-"Close" = "يغلق";
+"Clear" = "مسح";
+"Close" = "إغلاق";
 
 // Game Results
 "Excellent game!" = "🏆 ممتاز!";
@@ -99,8 +99,8 @@
 "Play Again" = "العب مرة أخرى";
 
 // Share
-"Share Result" = "يشارك";
-"Share" = "يشارك";
+"Share Result" = "مشاركة";
+"Share" = "مشاركة";
 "ACCURACY" = "دقة";
 "TOTAL XP" = "إجمالي XP";
 "CONTINUE" = "يكمل";
@@ -113,7 +113,7 @@
 "GOOD" = "جيد";
 "KEEP GOING" = "يستمر في التقدم";
 "Play Again" = "العب مرة أخرى";
-"Home" = "بيت";
+"Home" = "الرئيسية";
 "Quest Update!" = "تحديث المهمة!";
 "quest.play_again.duel" = "أعد المبارزة";
 "Check your progress" = "تحقق من التقدم المحرز الخاص بك";
@@ -917,7 +917,7 @@
 "Keep subscription" = "استمر في الاشتراك";
 "Yes, cancel" = "نعم، قم بالإلغاء";
 "Are you sure you want to cancel premium? You will lose access to all premium features." = "هل أنت متأكد أنك تريد إلغاء قسط التأمين؟ سوف تفقد إمكانية الوصول إلى جميع الميزات المميزة.";
-"Close" = "يغلق";
+"Close" = "إغلاق";
 "Red" = "أحمر";
 "Most popular color fact description" = "اللون الأحمر موجود في 75% من جميع الأعلام الوطنية في جميع أنحاء العالم، مما يجعله لون العلم الأكثر شعبية.";
 

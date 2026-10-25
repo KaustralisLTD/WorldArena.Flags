@@ -76,8 +76,8 @@
 "Game Over!" = "খেলা শেষ!";
 "points" = "পয়েন্ট";
 "Play Again" = "আবার খেলুন";
-"Repeat Duel" = "ডুয়েল আবার";
-"Home" = "বাড়ি";
+"Repeat Duel" = "আবার দ্বৈরথ খেলুন";
+"Home" = "হোম";
 
 // Statistics
 "Statistics" = "পরিসংখ্যান";
@@ -87,8 +87,8 @@
 "Accuracy" = "নির্ভুলতা";
 "Best Time" = "সেরা সময়";
 "Time" = "সময়";
-"Clear" = "পরিষ্কার";
-"Close" = "বন্ধ";
+"Clear" = "মুছে ফেলুন";
+"Close" = "বন্ধ করুন";
 
 // Game Results
 "Excellent game!" = "🏆 চমৎকার!";
@@ -113,7 +113,7 @@
 "GOOD" = "ভাল";
 "KEEP GOING" = "চালিয়ে যান";
 "Play Again" = "আবার খেলুন";
-"Home" = "বাড়ি";
+"Home" = "হোম";
 "Quest Update!" = "কোয়েস্ট আপডেট!";
 "quest.play_again.duel" = "ডুয়েল আবার করুন";
 "Check your progress" = "আপনার অগ্রগতি পরীক্ষা করুন";
@@ -917,7 +917,7 @@
 "Keep subscription" = "সাবস্ক্রিপশন রাখুন";
 "Yes, cancel" = "হ্যাঁ, বাতিল করুন";
 "Are you sure you want to cancel premium? You will lose access to all premium features." = "আপনি কি প্রিমিয়াম বাতিল করার বিষয়ে নিশ্চিত? আপনি সমস্ত প্রিমিয়াম বৈশিষ্ট্যের অ্যাক্সেস হারাবেন৷";
-"Close" = "বন্ধ";
+"Close" = "বন্ধ করুন";
 "Red" = "লাল";
 "Most popular color fact description" = "বিশ্বব্যাপী সমস্ত জাতীয় পতাকার 75%-এ লাল উপস্থিত রয়েছে, যা এটিকে সবচেয়ে জনপ্রিয় পতাকার রঙে পরিণত করেছে।";
 
