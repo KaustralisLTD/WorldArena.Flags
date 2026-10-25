@@ -32,13 +32,13 @@
 "Обратная связь по World Arena Flags" = "Comentaris sobre World Arena Flags";
 
 /* Achievements */
-"Достижения" = "Logros";
-"Достижение" = "Logro";
+"Достижения" = "Assoliments";
+"Достижение" = "Assoliment";
 "ЛИЧНЫЕ РЕКОРДЫ" = "RÈCORDS PERSONALS";
 "НАГРАДЫ" = "PREMIS";
 "Лучшая серия" = "Millor ratxa";
 "Макс. лига" = "Lliga màx.";
-"Макс. XP" = "XP màx.";
+"Макс. XP" = "Màxim d’XP";
 "Открыто" = "Desblocat";
 
 /* Achievement titles/descriptions */
@@ -90,7 +90,7 @@
 "Days in a row" = "Dies seguits";
 "Текущая серия" = "Ratxa actual";
 "дней" = "dies";
-"Joined in %@" = "Unit el %@";
+"Joined in %@" = "Al joc des de %@";
 "Level %d • %d XP • %d-day streak" = "Nivell %d • %d XP • ratxa de %d dies";
 "SUPER" = "SUPER";
 
@@ -339,10 +339,10 @@
 "Интересные факты" = "Fets Curiosos";
 "Interesting facts study slides" = "Estudiar amb diapositives";
 "Interesting facts back to list" = "Tornar a la llista";
-"Самый старый флаг" = "Bandera Més Antiga";
-"Флаг Дании используется с 1219 года" = "La bandera de Dinamarca s'usa des de 1219";
-"Единственный квадратный флаг" = "Única Bandera Quadrada";
-"У Швейцарии единственный квадратный флаг в мире" = "Suïssa té l'única bandera quadrada del món";
+"Самый старый флаг" = "Una bandera amb llegenda";
+"Флаг Дании используется с 1219 года" = "Una llegenda relaciona la bandera danesa amb una batalla del 1219.";
+"Единственный квадратный флаг" = "Banderes nacionals quadrades";
+"У Швейцарии единственный квадратный флаг в мире" = "Suïssa i la Ciutat del Vaticà tenen banderes nacionals quadrades.";
 "Самый сложный флаг" = "Bandera Més Complexa";
 "У Бутана на флаге изображен дракон" = "La bandera de Bhutan té un drac";
 "Go Premium" = "Anar a Premium";
@@ -1025,10 +1025,10 @@
 "Current Streak" = "Ratxa actual";
 
 /* 68 interesting facts */
-"FACT_01_TITLE" = "Bandera nacional més antiga en ús continuat";
-"FACT_01_DESC" = "El Dannebrog de Dinamarca es considera la bandera nacional en ús continuat més antiga des del 1219.";
-"FACT_02_TITLE" = "Única bandera nacional quadrada";
-"FACT_02_DESC" = "Suïssa té l'única bandera nacional quadrada del món. El Vaticà també en té una de quadrada però és una ciutat-estat.";
+"FACT_01_TITLE" = "Una bandera amb llegenda";
+"FACT_01_DESC" = "Una llegenda relaciona la bandera danesa amb una batalla del 1219.";
+"FACT_02_TITLE" = "Banderes nacionals quadrades";
+"FACT_02_DESC" = "Suïssa i la Ciutat del Vaticà tenen banderes nacionals quadrades.";
 "FACT_03_TITLE" = "Bandera no rectangular";
 "FACT_03_DESC" = "El Nepal té l'única bandera nacional del món que no és rectangular.";
 "FACT_04_TITLE" = "Sense vermell, blanc ni blau";
@@ -1809,7 +1809,7 @@
 "Upload Photo" = "Pujar foto";
 "Virtual opponent" = "Oponent virtual";
 "appIcon.automatic" = "Adapta automàticament la icona a l’idioma de l’app";
-"appIcon.choose" = "Trieu una icona";
+"appIcon.choose" = "Tria una icona";
 "appIcon.suggestion" = "Una icona en el teu idioma";
 "ca_language" = "Català";
 "coins" = "monedes";
@@ -1832,13 +1832,13 @@
 "guide.done" = "Juguem";
 "guide.fbucks.body" = "Guanya F-Bucks jugant i completant missions. Toca el saldo per explorar recompenses, articles per a l’avatar i protectors de ratxa.";
 "guide.fbucks.title" = "Coneix F-Bucks";
-"guide.friends.body" = "Afegeix un amic des del seu perfil o codi d'amic. Obre el seu perfil per desafiar-los a un duel. Les invitacions apareixen a Reptes; Les sol·licituds d'amistat us permeten afegir o rebutjar.";
+"guide.friends.body" = "Afegeix amics des del seu perfil o amb el seu codi d’amic. Obre el perfil per desafiar-los a un duel. Les invitacions apareixen a «Reptes». Pots acceptar o rebutjar les sol·licituds d’amistat.";
 "guide.friends.title" = "Juga amb els amics";
 "guide.next" = "Següent";
-"guide.play.body" = "Toqueu Reproduir per començar. Continua apareix quan tens un joc sense acabar.";
+"guide.play.body" = "Toca «Jugar» per començar una partida.";
 "guide.play.title" = "El teu proper joc";
-"guide.replay" = "Guia d'aplicacions";
-"guide.settings.body" = "Toqueu aquí per triar una regió, dificultat i mode de joc.";
+"guide.replay" = "Guia de l’aplicació";
+"guide.settings.body" = "Toca aquí per triar una regió, la dificultat i el mode de joc.";
 "guide.settings.title" = "Fes-ne el teu joc";
 "guide.skip" = "Omet";
 "guide.streak.body" = "Toca la teva ratxa per veure el calendari, els dies que has jugat i els protectors de ratxa.";
@@ -1851,10 +1851,10 @@
 "learning.country.discover" = "Coneix millor aquest país";
 "premium.benefit.anthems.body" = "Escolta les gravacions d'himnes disponibles i descobreix la seva història i significat.";
 "premium.benefit.anthems.title" = "Himnes nacionals";
-"premium.benefit.avatar.body" = "Porteu els barrets Premium mentre la vostra subscripció estigui activa.";
-"premium.benefit.avatar.title" = "Accessori avatar Premium";
+"premium.benefit.avatar.body" = "Porta l’accessori per al cap Premium mentre la teva subscripció estigui activa.";
+"premium.benefit.avatar.title" = "Accessori Premium per a l’avatar";
 "premium.benefit.countries.body" = "Descobreix les capitals, la població, la superfície, les llengües, les monedes i curiositats de cada país.";
-"premium.benefit.countries.title" = "Diapositives detallades del país";
+"premium.benefit.countries.title" = "Fitxes detallades dels països";
 "premium.benefit.erudite.body" = "Desbloqueja la dificultat més alta per a un repte més gran.";
 "premium.benefit.erudite.title" = "Dificultat Erudit";
 "premium.benefit.learning.body" = "Navega per països i continents al teu ritme entre jocs.";
@@ -1863,25 +1863,25 @@
 "premium.benefit.lives.title" = "Cors il·limitats";
 "premium.benefit.map.body" = "Consulta el teu progrés per país i continent i troba banderes per practicar.";
 "premium.benefit.map.title" = "Mapa de progrés mundial";
-"premium.benefit.mistakes.body" = "Juga amb les banderes que abans has respost incorrectament.";
+"premium.benefit.mistakes.body" = "Practica amb les banderes que abans has identificat malament.";
 "premium.benefit.mistakes.title" = "Aprèn dels teus errors";
-"premium.benefit.weekly.body" = "S'obté automàticament per cada 7 dies complets de Premium, començant quan s'activa aquesta bonificació. Les recompenses obtingudes se sincronitzen quan obriu l'aplicació.";
+"premium.benefit.weekly.body" = "Reps una recompensa automàticament per cada 7 dies complets de Premium, a partir de l’activació d’aquesta bonificació. Les recompenses obtingudes se sincronitzen quan obres l’aplicació.";
 "premium.benefit.weekly.title" = "10 F-Bucks cada setmana";
 "premium.details.collapsed" = "Plegat";
 "premium.details.expanded" = "Desplegat";
 "premium.family.body" = "Comparteix Premium amb un màxim de 6 persones, inclòs tu, mitjançant Apple Family Sharing. Activa la compartició de subscripció a la configuració de la teva família Apple. Cada jugador manté el seu propi progrés.";
 "premium.family.title" = "Una subscripció per a la teva família";
-"premium.story.countries.body" = "Exploreu diapositives de països, capitals, monedes i enregistraments d'himnes. Connecteu una bandera amb el país que representa.";
-"premium.story.countries.title" = "Doneu una història a cada bandera.";
-"premium.story.enlarge" = "Amplieu la pantalla d'exemple";
+"premium.story.countries.body" = "Explora les fitxes dels països, les capitals, les monedes i els enregistraments d’himnes. Relaciona cada bandera amb el país que representa.";
+"premium.story.countries.title" = "Dona una història a cada bandera.";
+"premium.story.enlarge" = "Amplia la pantalla d’exemple";
 "premium.story.example" = "Pantalla d'exemple · Anglès";
-"premium.story.headline" = "Aprèn les banderes. Recordeu el món.";
+"premium.story.headline" = "Aprèn les banderes. Recorda el món.";
 "premium.story.intro" = "Fes que cada sessió valgui: practica banderes difícils, entén els països que hi ha darrere i mira què has d'aprendre després.";
 "premium.story.map.body" = "El mapa de progrés mundial mostra quines banderes coneixes bé i quines necessites repassar, per ajudar-te a triar què practicar després.";
-"premium.story.map.title" = "Sapigueu què heu d'aprendre a continuació.";
+"premium.story.map.title" = "Descobreix què aprendre després.";
 "premium.story.practice.body" = "Continua practicant sense esperar que es recuperin les vides. La secció «Els meus errors» t’ajuda a repassar les banderes que més necessites.";
 "premium.story.practice.title" = "Més pràctica. Menys buits.";
-"premium.story.progress.body" = "Converteix la pràctica habitual en resultats visibles. Reviseu la vostra precisió i les respostes correctes i, a continuació, utilitzeu el mapa del món Premium per triar què practicar a continuació.";
+"premium.story.progress.body" = "Converteix la pràctica habitual en resultats visibles. Revisa la teva precisió i les respostes correctes i fes servir el mapa del món Premium per triar què practicar després.";
 "premium.story.progress.title" = "Consulta el teu progrés";
 "premium.weekly.history" = "Bonificació setmanal de Premium";
 "premium.weekly.next" = "Propera bonificació setmanal: %@";

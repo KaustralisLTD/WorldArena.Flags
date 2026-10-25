@@ -1,8 +1,8 @@
 "Open in Game Center" = "Game Center'da aç";
-"Заработай %d XP" = "%d XP kazanın";
+"Заработай %d XP" = "%d XP kazan";
 "F-BUCKS EARNED" = "KAZANILAN F-BUCKS";
-"Дай %d правильных ответов" = "%d doğru yanıt alın";
-"Наберите %d правильных ответов за месяц" = "Bu ay %d doğru yanıt alın";
+"Дай %d правильных ответов" = "%d doğru cevap ver";
+"Наберите %d правильных ответов за месяц" = "Bu ay %d doğru cevap ver";
 "Сыграй %d идеальных игр" = "%d mükemmel oyun oyna";
 "Завершите %d игр без ошибок" = "%d oyunu hatasız bitir";
 /* Settings screen */
@@ -13,16 +13,16 @@
 "Настройки приложения" = "Uygulama Ayarları";
 "Обратная связь" = "Geri bildirim";
 "World Arena Premium" = "World Arena Premium";
-"Обратная связь по World Arena Flags" = "Dünya Arena Bayrakları hakkında geri bildirim";
+"Обратная связь по World Arena Flags" = "World Arena Flags hakkında geri bildirim";
 
 /* Achievements */
 "Достижения" = "Başarılar";
 "Достижение" = "Başarı";
-"ЛИЧНЫЕ РЕКОРДЫ" = "KİŞİSEL EN İYİLER";
+"ЛИЧНЫЕ РЕКОРДЫ" = "Kişisel rekorlar";
 "НАГРАДЫ" = "ÖDÜLLER";
 "Лучшая серия" = "En İyi Seri";
 "Макс. лига" = "Maksimum Lig";
-"Макс. XP" = "Maks. XP";
+"Макс. XP" = "En yüksek XP";
 "Открыто" = "Açıldı";
 
 /* Profile */
@@ -30,8 +30,8 @@
 "Following" = "Arkadaşlar";
 "Days in a row" = "Art arda günler";
 "Текущая серия" = "Mevcut Seri";
-"дней" = "günler";
-"Joined in %@" = "%@'da katıldı";
+"дней" = "gün";
+"Joined in %@" = "Katılma yılı: %@";
 "Level %d • %d XP • %d-day streak" = "Seviye %d • %d XP • %d günlük seri";
 "SUPER" = "SÜPER";
 
@@ -47,7 +47,7 @@
 "Чемпион месяца" = "Ayın Şampiyonu";
 "Идеальная неделя" = "Mükemmel Hafta";
 "Бронзовая лига" = "Bronz Lig";
-"Лига Мастеров" = "Ana Lig";
+"Лига Мастеров" = "Ustalar Ligi";
 // General
 "World Flags" = "Dünya Bayrakları";
 "Learn flags of the world" = "Dünya bayraklarını öğrenin";
@@ -194,10 +194,10 @@
 "Интересные факты" = "İlginç Gerçekler";
 "Interesting facts study slides" = "Slaytlarla çalış";
 "Interesting facts back to list" = "Listeye dön";
-"Самый старый флаг" = "En Eski Bayrak";
-"Флаг Дании используется с 1219 года" = "Danimarka bayrağı 1219'dan beri kullanılmaktadır";
-"Единственный квадратный флаг" = "Sadece Kare Bayrak";
-"У Швейцарии единственный квадратный флаг в мире" = "İsviçre dünyanın tek kare bayrağına sahip";
+"Самый старый флаг" = "Efsanesi olan bir bayrak";
+"Флаг Дании используется с 1219 года" = "Bir efsane, Danimarka bayrağını 1219 yılındaki bir savaşla ilişkilendirir.";
+"Единственный квадратный флаг" = "Kare biçimli ulusal bayraklar";
+"У Швейцарии единственный квадратный флаг в мире" = "İsviçre ve Vatikan’ın ulusal bayrakları kare biçimindedir.";
 "Самый сложный флаг" = "En Karmaşık Bayrak";
 "У Бутана на флаге изображен дракон" = "Butan'ın bayrağında bir ejderha var";
 "Go Premium" = "Premium'a Geçin";
@@ -448,9 +448,9 @@
 
 // Profile Page
 "League" = "Lig";
-"Following" = "Takip etme";
+"Following" = "Arkadaşlar";
 "Days in a row" = "Art arda günler";
-"Joined in %@" = "%@'da katıldı";
+"Joined in %@" = "Katılma yılı: %@";
 "Statistics" = "İstatistikler";
 "Total XP" = "Toplam XP";
 "Current streak" = "Mevcut seri";
@@ -573,7 +573,7 @@
 "Месячные цели" = "AYLIK HEDEFLER";
 
 /* Profile Statistics */
-"дней" = "günler";
+"дней" = "gün";
 "Текущая серия" = "Mevcut seri";
 "Всего изучено флагов" = "Öğrenilen toplam bayrak";
 "Текущая лига" = "Mevcut lig";
@@ -701,11 +701,11 @@
 /* Achievements */
 "Достижения" = "Başarılar";
 "Достижение" = "Başarı";
-"ЛИЧНЫЕ РЕКОРДЫ" = "Kişisel Kayıtlar";
+"ЛИЧНЫЕ РЕКОРДЫ" = "Kişisel rekorlar";
 "НАГРАДЫ" = "Ödüller";
 "Лучшая серия" = "En Uzun Seri";
 "Макс. лига" = "En Yüksek Lig";
-"Макс. XP" = "Çoğu XP";
+"Макс. XP" = "En yüksek XP";
 "Открыто" = "Açıldı";
 
 /* Achievement titles/descriptions */
@@ -792,7 +792,7 @@
 "Всего изучено флагов" = "Öğrenilen toplam bayrak";
 "Текущая лига" = "Mevcut lig";
 "Общий опыт" = "Toplam deneyim";
-"дней" = "günler";
+"дней" = "gün";
 "Текущая серия" = "Mevcut seri";
 "XP" = "XP";
 "ДОБАВИТЬ ДРУЗЕЙ" = "ARKADAŞ EKLE";
@@ -934,7 +934,7 @@
 "Лучший результат" = "En İyi Skor";
 "очков" = "puan";
 "Текущая серия" = "Mevcut Seri";
-"дней" = "günler";
+"дней" = "gün";
 "Точность" = "Kesinlik";
 "Теперь вы можете без единой ошибки отвечать на все наши вопросы с точностью в %d%%" = "Yanıtlarının doğruluk oranı %d%%.";
 "Мы будем рады, если вы захотите снова вернуться к нам!" = "Tekrar bize dönmek isterseniz mutlu oluruz!";
@@ -1162,10 +1162,10 @@
 "Biometric login prompt" = "Biyometrik girişi onaylayın";
 
 /* 68 interesting facts */
-"FACT_01_TITLE" = "Sürekli kullanılan en eski bayrak";
-"FACT_01_DESC" = "Danimarka'nın Dannebrog bayrağı, 1219'dan beri sürekli kullanılan en eski ulusal bayrak olarak kabul ediliyor.";
-"FACT_02_TITLE" = "Sadece kare ulusal bayrak";
-"FACT_02_DESC" = "İsviçre dünyadaki tek kare ulusal bayrağa sahiptir. Vatikan'ın da kare bayrağı var ama bir şehir devleti.";
+"FACT_01_TITLE" = "Efsanesi olan bir bayrak";
+"FACT_01_DESC" = "Bir efsane, Danimarka bayrağını 1219 yılındaki bir savaşla ilişkilendirir.";
+"FACT_02_TITLE" = "Kare biçimli ulusal bayraklar";
+"FACT_02_DESC" = "İsviçre ve Vatikan’ın ulusal bayrakları kare biçimindedir.";
 "FACT_03_TITLE" = "Dikdörtgen olmayan bayrak";
 "FACT_03_DESC" = "Nepal dünyada dikdörtgen olmayan tek ulusal bayrağa sahiptir.";
 "FACT_04_TITLE" = "Kırmızı, beyaz veya mavi yok";
@@ -1733,7 +1733,7 @@
 "premium.trial.start" = "7 gün ücretsiz dene";
 "premium.trial.monthly" = "7 gün ücretsiz, ardından ayda %@.";
 "premium.trial.yearly" = "7 gün ücretsiz, ardından yılda %@.";
-"premium.renewal" = "İptal edilene kadar otomatik yenilenir. App Store aboneliklerinizden yönetin veya iptal edin.";
+"premium.renewal" = "İptal edilene kadar otomatik yenilenir. App Store aboneliklerinden yönetebilir veya iptal edebilirsin.";
 "premium.subscribe" = "Abone ol";
 
 /* Duel inbox */
@@ -1887,14 +1887,14 @@
 /* Complete app catalog: missing interface translations, October 2026. */
 "Check your internet connection" = "İnternet bağlantınızı kontrol edip tekrar deneyin.";
 "appIcon.automatic" = "Uygulama diline otomatik olarak uyarla";
-"appIcon.choose" = "Bir simge seçin";
-"appIcon.suggestion" = "Dilinizde bir simge";
+"appIcon.choose" = "Bir simge seç";
+"appIcon.suggestion" = "Kendi dilinde bir simge";
 "coins" = "madeni para";
 "duel.error.notYours" = "Bu meydan okuma farklı bir oyuncuya ait. Oturum açtığınız hesabı kontrol edin.";
 "education.fbucks.body" = "Bu, oyun içi para birimindir. Oynayarak ve görevleri tamamlayarak kazan; avatar eşyaları ve günlük seri koruması satın almak için kullan.";
 "education.fbucks.done" = "Anladım";
 "education.fbucks.shop" = "Mağazayı görüntüle";
-"education.fbucks.title" = "F-Bucks kazandınız!";
+"education.fbucks.title" = "F-Bucks kazandın!";
 "facts.area" = "Alan";
 "facts.capital" = "Başkent";
 "facts.explanation" = "Yanıtladıktan sonra ülke kartının arkasında ne görüneceğini seçin.";
@@ -1907,15 +1907,15 @@
 "guide.back" = "Geri";
 "guide.done" = "Hadi oynayalım";
 "guide.fbucks.body" = "Oynayarak ve görevleri tamamlayarak F-Bucks kazan. Ödülleri, avatar eşyalarını ve seri dondurma haklarını görmek için bakiyene dokun.";
-"guide.fbucks.title" = "F-Bucks ile tanışın";
-"guide.friends.body" = "Profilinden veya arkadaş kodundan bir arkadaş ekleyin. Onları düelloya davet etmek için profillerini açın. Davetiyeler Mücadelelerde görünür; Arkadaşlık istekleri, geri ekleme veya reddetme olanağı sağlar.";
+"guide.fbucks.title" = "F-Bucks ile tanış";
+"guide.friends.body" = "Arkadaşlarını profillerinden veya arkadaş kodlarıyla ekle. Düelloya davet etmek için profillerini aç. Davetler “Meydan okumalar” bölümünde görünür. Arkadaşlık isteklerini kabul edebilir veya reddedebilirsin.";
 "guide.friends.title" = "Arkadaşlarla oyna";
 "guide.next" = "Sonraki";
-"guide.play.body" = "Başlamak için Oynat'a dokunun. Tamamlanmamış bir oyununuz olduğunda Devam seçeneği görünür.";
-"guide.play.title" = "Bir sonraki oyununuz";
+"guide.play.body" = "Oyuna başlamak için “Oyna” düğmesine dokun.";
+"guide.play.title" = "Bir sonraki oyunun";
 "guide.replay" = "Uygulama kılavuzu";
-"guide.settings.body" = "Bir bölge, zorluk ve oyun modu seçmek için buraya dokunun.";
-"guide.settings.title" = "Bunu kendi oyununuz haline getirin";
+"guide.settings.body" = "Bölge, zorluk seviyesi ve oyun modu seçmek için buraya dokun.";
+"guide.settings.title" = "Oyunu kendine göre ayarla";
 "guide.skip" = "Atla";
 "guide.streak.body" = "Takvimi, oynadığın günleri ve seri dondurma haklarını görmek için serine dokun.";
 "guide.streak.title" = "Her gün önemlidir";
@@ -1925,40 +1925,40 @@
 "learning.anthem.shared_fmt" = "Aynı milli marşı kullanan ülke: %@. Bölgesel marş farklı olabilir.";
 "learning.anthem.unavailable" = "Marş yüklenemedi. Bağlantınızı kontrol edin ve tekrar denemek için Oynat'a dokunun.";
 "learning.country.discover" = "Daha yakından bir bakış";
-"premium.benefit.anthems.body" = "Mevcut marş kayıtlarını dinleyin ve geçmişlerini ve anlamlarını keşfedin.";
+"premium.benefit.anthems.body" = "Mevcut millî marş kayıtlarını dinle, tarihlerini ve anlamlarını keşfet.";
 "premium.benefit.anthems.title" = "Milli marşlar";
-"premium.benefit.avatar.body" = "Aboneliğiniz etkinken Premium şapkasını takın.";
+"premium.benefit.avatar.body" = "Aboneliğin aktif olduğu sürece Premium baş aksesuarını tak.";
 "premium.benefit.avatar.title" = "Premium avatar aksesuarı";
 "premium.benefit.countries.body" = "Ülkelerin başkentlerini, nüfuslarını, yüzölçümlerini, dillerini, para birimlerini ve ilginç özelliklerini keşfet.";
 "premium.benefit.countries.title" = "Ayrıntılı ülke slaytları";
-"premium.benefit.erudite.body" = "Daha büyük bir mücadele için en yüksek zorluğun kilidini açın.";
-"premium.benefit.erudite.title" = "Bilgelik zorluğu";
-"premium.benefit.learning.body" = "Oyunlar arasında ülkelere ve kıtalara kendi hızınızda göz atın.";
+"premium.benefit.erudite.body" = "Daha büyük bir meydan okuma için en yüksek zorluk seviyesinin kilidini aç.";
+"premium.benefit.erudite.title" = "Bilge zorluk seviyesi";
+"premium.benefit.learning.body" = "Oyunlar arasında ülkeleri ve kıtaları kendi hızında keşfet.";
 "premium.benefit.learning.title" = "Öğrenme kitaplığı";
 "premium.benefit.lives.body" = "Canların yenilenmesini beklemeden Klasik ve Zaman Mücadelesi oyna. Hayatta kalma modunun kendi kuralları geçerli olmaya devam eder.";
 "premium.benefit.lives.title" = "Sınırsız Kalp";
-"premium.benefit.map.body" = "Ülkeye ve kıtaya göre ilerlemenizi görün ve pratik yapabileceğiniz bayraklar bulun.";
-"premium.benefit.map.title" = "Dünya ilerleme haritası";
-"premium.benefit.mistakes.body" = "Daha önce yanlış yanıtladığınız bayraklarla oynayın.";
+"premium.benefit.map.body" = "Ülke ve kıtalara göre ilerlemeni gör, alıştırma yapmak istediğin bayrakları seç.";
+"premium.benefit.map.title" = "Öğrenme ilerlemeni gösteren dünya haritası";
+"premium.benefit.mistakes.body" = "Daha önce yanlış tanıdığın bayrakları tekrar çalış.";
 "premium.benefit.mistakes.title" = "Hatalarından öğren";
-"premium.benefit.weekly.body" = "Bu bonus etkinleştirildiğinden itibaren Premium'nin her 7 günü boyunca otomatik olarak kazanılır. Uygulamayı açtığınızda kazanılan ödüller senkronize edilir.";
+"premium.benefit.weekly.body" = "Bu bonusun etkinleştirildiği tarihten itibaren Premium aboneliğiyle geçen her 7 tam gün için otomatik olarak ödül kazanırsın. Kazanılan ödüller uygulamayı açtığında eşitlenir.";
 "premium.benefit.weekly.title" = "Her hafta 10 F-Bucks";
 "premium.details.collapsed" = "Daraltıldı";
 "premium.details.expanded" = "Genişletildi";
-"premium.family.body" = "Premium'yi Apple Aile Paylaşımı aracılığıyla siz de dahil olmak üzere en fazla 6 kişiyle paylaşın. Apple aile ayarlarınızda abonelik paylaşımını etkinleştirin. Her oyuncu kendi ilerlemesini korur.";
-"premium.family.title" = "Aileniz için bir abonelik";
-"premium.story.countries.body" = "Ülke slaytlarını, başkentlerini, para birimlerini ve marş kayıtlarını keşfedin. Temsil ettiği ülkeye bir bayrak bağlayın.";
-"premium.story.countries.title" = "Her bayrağa bir hikaye verin.";
+"premium.family.body" = "Premium aboneliğini Apple Aile Paylaşımı aracılığıyla sen dahil en fazla 6 kişilik bir grupla paylaş. Apple aile ayarlarında abonelik paylaşımını etkinleştir. Her oyuncunun ilerlemesi ayrı tutulur.";
+"premium.family.title" = "Ailen için tek abonelik";
+"premium.story.countries.body" = "Ülkeleri, başkentleri, para birimlerini ve millî marş kayıtlarını keşfet. Her bayrağı temsil ettiği ülkeyle ilişkilendir.";
+"premium.story.countries.title" = "Her bayrağın ardında bir hikâye var.";
 "premium.story.enlarge" = "Örnek ekranı büyüt";
 "premium.story.example" = "Örnek ekran · İngilizce";
-"premium.story.headline" = "Bayrakları öğrenin. Dünyayı hatırla.";
-"premium.story.intro" = "Her oturumun önemli olmasını sağlayın: zor bayrakların alıştırmasını yapın, bunların arkasındaki ülkeleri anlayın ve bundan sonra ne öğreneceğinizi görün.";
+"premium.story.headline" = "Bayrakları öğren. Dünyayı keşfet.";
+"premium.story.intro" = "Her alıştırmayı verimli geçir: zor bayrakları tekrar et, temsil ettikleri ülkeleri tanı ve sırada ne öğreneceğini keşfet.";
 "premium.story.map.body" = "İlerleme haritan, hangi bayrakları iyi bildiğini ve hangilerini tekrar etmen gerektiğini göstererek sonraki alıştırmanı seçmene yardımcı olur.";
-"premium.story.map.title" = "Bundan sonra ne öğreneceğinizi bilin.";
+"premium.story.map.title" = "Sırada ne öğreneceğini keşfet.";
 "premium.story.practice.body" = "Canların yenilenmesini beklemeden alıştırmaya devam et. “Hatalarım” bölümü, tekrar etmen gereken bayraklara odaklanmanı sağlar.";
-"premium.story.practice.title" = "Daha fazla pratik. Daha az boşluk.";
-"premium.story.progress.body" = "Düzenli uygulamayı görünür sonuçlara dönüştürün. Doğruluğunuzu ve doğru cevaplarınızı gözden geçirin, ardından bir sonraki adımda ne yapacağınızı seçmek için Premium dünya haritasını kullanın.";
-"premium.story.progress.title" = "İlerlemenizi görün";
+"premium.story.practice.title" = "Daha çok alıştırma. Daha sağlam bilgi.";
+"premium.story.progress.body" = "Düzenli alıştırmayı görünür sonuçlara dönüştür. Doğruluk oranını ve doğru cevaplarını incele, ardından Premium dünya haritasıyla sıradaki alıştırmanı seç.";
+"premium.story.progress.title" = "İlerlemeni gör";
 "premium.weekly.history" = "Haftalık Premium bonusu";
 "premium.weekly.next" = "Sonraki haftalık bonus: %@";
 "ranking.motivational.explanation" = "Sanal rakipler arasında ilerlemeye dayalı konumlar.";

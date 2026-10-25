@@ -1,8 +1,8 @@
 "Open in Game Center" = "在 Game Center 中開啟";
 "Заработай %d XP" = "賺取 %d XP";
 "F-BUCKS EARNED" = "獲得的F-Bucks";
-"Дай %d правильных ответов" = "獲得 %d 個正確答案";
-"Наберите %d правильных ответов за месяц" = "本月獲得 %d 個正確答案";
+"Дай %d правильных ответов" = "答對 %d 題";
+"Наберите %d правильных ответов за месяц" = "本月答對 %d 題";
 "Сыграй %d идеальных игр" = "玩 %d 場完美遊戲";
 "Завершите %d игр без ошибок" = "無錯誤地完成 %d 場比賽";
 /* Settings screen */
@@ -18,21 +18,21 @@
 /* Achievements */
 "Достижения" = "成就";
 "Достижение" = "成就";
-"ЛИЧНЫЕ РЕКОРДЫ" = "個人最佳成績";
+"ЛИЧНЫЕ РЕКОРДЫ" = "個人紀錄";
 "НАГРАДЫ" = "獎項";
 "Лучшая серия" = "最佳連勝紀錄";
 "Макс. лига" = "最大聯賽";
-"Макс. XP" = "最大經驗值";
-"Открыто" = "解鎖";
+"Макс. XP" = "最高 XP";
+"Открыто" = "已解鎖";
 
 /* Profile */
-"League" = "聯盟";
-"Following" = "朋友們";
-"Days in a row" = "連續幾天";
-"Текущая серия" = "目前連勝";
+"League" = "聯賽";
+"Following" = "好友";
+"Days in a row" = "連續天數";
+"Текущая серия" = "目前連續遊玩紀錄";
 "дней" = "天";
-"Joined in %@" = "已加入%@";
-"Level %d • %d XP • %d-day streak" = "%d 級 • %d XP • %d 天連續";
+"Joined in %@" = "%@年加入";
+"Level %d • %d XP • %d-day streak" = "等級 %d • %d XP • 連續遊玩紀錄 %d 天";
 "SUPER" = "SUPER";
 
 /* Leagues medals & labels */
@@ -43,7 +43,7 @@
 
 /* Monthly badges sample titles */
 "Алмазная лига" = "鑽石聯賽";
-"Серия мастера" = "大師連勝";
+"Серия мастера" = "大師連續遊玩紀錄";
 "Чемпион месяца" = "本月冠軍";
 "Идеальная неделя" = "完美的一周";
 "Бронзовая лига" = "青銅聯賽";
@@ -194,10 +194,10 @@
 "Интересные факты" = "有趣的事實";
 "Interesting facts study slides" = "幻燈片學習";
 "Interesting facts back to list" = "返回列表";
-"Самый старый флаг" = "最古老的旗幟";
-"Флаг Дании используется с 1219 года" = "丹麥國旗自 1219 年以來一直使用";
-"Единственный квадратный флаг" = "只有方旗";
-"У Швейцарии единственный квадратный флаг в мире" = "瑞士擁有全世界唯一的方形國旗";
+"Самый старый флаг" = "國旗背後的傳說";
+"Флаг Дании используется с 1219 года" = "傳說將丹麥國旗的起源與1219年的一場戰役聯繫起來。";
+"Единственный квадратный флаг" = "正方形國旗";
+"У Швейцарии единственный квадратный флаг в мире" = "瑞士和梵蒂岡城國的國旗都是正方形。";
 "Самый сложный флаг" = "最複雜的標誌";
 "У Бутана на флаге изображен дракон" = "不丹的國旗上有一條龍";
 "Go Premium" = "升級至高級版";
@@ -447,10 +447,10 @@
 "Push Notification Body" = "測試您的旗幟知識並提高您的技能！ 🌍🎯";
 
 // Profile Page
-"League" = "聯盟";
-"Following" = "追蹤中";
-"Days in a row" = "連續幾天";
-"Joined in %@" = "已加入%@";
+"League" = "聯賽";
+"Following" = "好友";
+"Days in a row" = "連續天數";
+"Joined in %@" = "%@年加入";
 "Statistics" = "統計數據";
 "Total XP" = "總經驗值";
 "Current streak" = "目前連勝";
@@ -574,7 +574,7 @@
 
 /* Profile Statistics */
 "дней" = "天";
-"Текущая серия" = "目前連勝";
+"Текущая серия" = "目前連續遊玩紀錄";
 "Всего изучено флагов" = "學習的標誌總數";
 "Текущая лига" = "目前聯賽";
 "Общий опыт" = "總經驗";
@@ -701,12 +701,12 @@
 /* Achievements */
 "Достижения" = "成就";
 "Достижение" = "成就";
-"ЛИЧНЫЕ РЕКОРДЫ" = "個人記錄";
+"ЛИЧНЫЕ РЕКОРДЫ" = "個人紀錄";
 "НАГРАДЫ" = "獎項";
 "Лучшая серия" = "最長連續紀錄";
 "Макс. лига" = "最高聯賽";
-"Макс. XP" = "大多數XP";
-"Открыто" = "解鎖";
+"Макс. XP" = "最高 XP";
+"Открыто" = "已解鎖";
 
 /* Achievement titles/descriptions */
 "Ранняя птица" = "早鳥";
@@ -793,7 +793,7 @@
 "Текущая лига" = "目前聯賽";
 "Общий опыт" = "總經驗";
 "дней" = "天";
-"Текущая серия" = "目前連勝";
+"Текущая серия" = "目前連續遊玩紀錄";
 "XP" = "XP";
 "ДОБАВИТЬ ДРУЗЕЙ" = "新增好友";
 "СЕРИИ ДРУЗЕЙ" = "好友連連";
@@ -826,7 +826,7 @@
 "Ранняя птица" = "早鳥";
 "Железная воля" = "鋼鐵意志";
 "Алмазная лига" = "鑽石聯賽";
-"Серия мастера" = "大師連勝";
+"Серия мастера" = "大師連續遊玩紀錄";
 "Чемпион месяца" = "月度冠軍";
 "Идеальная неделя" = "完美的一周";
 
@@ -933,7 +933,7 @@
 "Изучено флагов" = "研究的旗幟";
 "Лучший результат" = "最佳成績";
 "очков" = "點";
-"Текущая серия" = "目前連勝";
+"Текущая серия" = "目前連續遊玩紀錄";
 "дней" = "天";
 "Точность" = "準確性";
 "Теперь вы можете без единой ошибки отвечать на все наши вопросы с точностью в %d%%" = "你的答題正確率為%d%%。";
@@ -1162,10 +1162,10 @@
 "Biometric login prompt" = "確認生物辨識登入";
 
 /* 68 interesting facts */
-"FACT_01_TITLE" = "最古老的連續使用標誌";
-"FACT_01_DESC" = "丹麥的丹尼布羅格被認為是自 1219 年以來一直使用的最古老的國旗。";
-"FACT_02_TITLE" = "唯一的方形國旗";
-"FACT_02_DESC" = "瑞士擁有世界上唯一的方形國旗。梵蒂岡也有方形旗幟，但它是一個城邦。";
+"FACT_01_TITLE" = "國旗背後的傳說";
+"FACT_01_DESC" = "傳說將丹麥國旗的起源與1219年的一場戰役聯繫起來。";
+"FACT_02_TITLE" = "正方形國旗";
+"FACT_02_DESC" = "瑞士和梵蒂岡城國的國旗都是正方形。";
 "FACT_03_TITLE" = "非矩形標誌";
 "FACT_03_DESC" = "尼泊爾擁有全世界唯一一面非長方形的國旗。";
 "FACT_04_TITLE" = "沒有紅色、白色或藍色";
@@ -1887,13 +1887,13 @@
 /* Complete app catalog: missing interface translations, October 2026. */
 "Check your internet connection" = "檢查您的網路連接，然後再試一次。";
 "appIcon.automatic" = "自動配合 App 語言";
-"appIcon.choose" = "選擇一個圖標";
-"appIcon.suggestion" = "用您的語言顯示的圖標";
+"appIcon.choose" = "選擇圖示";
+"appIcon.suggestion" = "以你的語言顯示的圖示";
 "coins" = "硬幣";
 "duel.error.notYours" = "這個挑戰屬於不同的玩家。檢查您登入的帳戶。";
 "education.fbucks.body" = "這是遊戲內貨幣。透過遊玩和完成任務取得，可用來購買頭像裝飾及連續遊玩紀錄保護道具。";
 "education.fbucks.done" = "知道了";
-"education.fbucks.shop" = "查看店鋪";
+"education.fbucks.shop" = "查看商店";
 "education.fbucks.title" = "您贏得了 F-Bucks！";
 "facts.area" = "區域";
 "facts.capital" = "首都";
@@ -1905,17 +1905,17 @@
 "fbucks.tx.streak_restore" = "恢復連續遊玩紀錄";
 "friends.duels.with_you" = "與你對決";
 "guide.back" = "後退";
-"guide.done" = "讓我們玩";
+"guide.done" = "開始吧";
 "guide.fbucks.body" = "透過遊玩和完成任務取得 F-Bucks。點選餘額，查看獎勵、頭像裝飾及連續遊玩紀錄保護道具。";
 "guide.fbucks.title" = "認識F-Bucks";
-"guide.friends.body" = "從他們的個人資料或朋友代碼中添加朋友。打開他們的個人資料，向他們發起決鬥挑戰。邀請出現在挑戰中；您可以新增好友請求或拒絕好友請求。";
+"guide.friends.body" = "透過個人資料或好友代碼加入朋友。開啟朋友的個人資料，即可發起對決邀請。邀請會顯示在「挑戰」中。好友邀請可以接受或拒絕。";
 "guide.friends.title" = "和朋友一起玩";
-"guide.next" = "下一個";
-"guide.play.body" = "點擊播放開始。當您有未完成的遊戲時，會出現「繼續」。";
+"guide.next" = "下一步";
+"guide.play.body" = "點選「遊玩」開始遊戲。";
 "guide.play.title" = "你的下一場比賽";
 "guide.replay" = "應用指南";
 "guide.settings.body" = "點擊此處選擇區域、難度和遊戲模式。";
-"guide.settings.title" = "讓它成為你的遊戲";
+"guide.settings.title" = "依照你的喜好設定遊戲";
 "guide.skip" = "跳過";
 "guide.streak.body" = "點選連續遊玩紀錄，查看日曆、遊玩日期及紀錄保護道具。";
 "guide.streak.title" = "每一天都很重要";
@@ -1925,41 +1925,41 @@
 "learning.anthem.shared_fmt" = "這裡使用的國歌與%@相同，地區歌曲可能有所不同。";
 "learning.anthem.unavailable" = "無法載入國歌。檢查您的連線並點擊「播放」重試。";
 "learning.country.discover" = "深入了解這個國家";
-"premium.benefit.anthems.body" = "聆聽可用的國歌錄音並發現它們的歷史和意義。";
+"premium.benefit.anthems.body" = "聆聽國歌錄音，了解其歷史和意義。";
 "premium.benefit.anthems.title" = "國歌";
-"premium.benefit.avatar.body" = "當您的訂閱有效時，請配戴 Premium 頭飾。";
+"premium.benefit.avatar.body" = "訂閱有效期間，你可以佩戴 Premium 頭飾。";
 "premium.benefit.avatar.title" = "Premium 頭像配件";
 "premium.benefit.countries.body" = "了解各國的首都、人口、面積、語言、貨幣和趣聞。";
 "premium.benefit.countries.title" = "詳細的國家幻燈片";
 "premium.benefit.erudite.body" = "解鎖最高難度，迎接更大的挑戰。";
 "premium.benefit.erudite.title" = "博學難度";
-"premium.benefit.learning.body" = "在遊戲之間按照您自己的步調瀏覽國家和大陸。";
+"premium.benefit.learning.body" = "在遊戲之間，按照自己的步調了解各國和各大洲。";
 "premium.benefit.learning.title" = "學習圖書館";
 "premium.benefit.lives.body" = "無須等待生命值恢復，即可暢玩經典模式和限時挑戰。生存模式仍採用其專屬規則。";
-"premium.benefit.lives.title" = "無限的心";
-"premium.benefit.map.body" = "按國家和大陸查看您的進度，並找到要練習的標誌。";
-"premium.benefit.map.title" = "世界進步圖";
-"premium.benefit.mistakes.body" = "使用您之前回答錯誤的標記進行遊戲。";
+"premium.benefit.lives.title" = "無限生命";
+"premium.benefit.map.body" = "查看各國和各大洲的學習進度，選擇要練習的國旗。";
+"premium.benefit.map.title" = "世界學習進度地圖";
+"premium.benefit.mistakes.body" = "重新練習之前認錯的國旗。";
 "premium.benefit.mistakes.title" = "從錯誤中學習";
-"premium.benefit.weekly.body" = "從啟動此獎金時開始，每滿 7 天 Premium 自動獲得一次。當您打開應用程式時，獲得的獎勵會同步。";
+"premium.benefit.weekly.body" = "此獎勵啟用後，Premium 使用時間每滿7天，你都會自動獲得一次獎勵。開啟 App 時，已獲得的獎勵會自動同步。";
 "premium.benefit.weekly.title" = "每週 10 F-Bucks";
 "premium.details.collapsed" = "已收合";
 "premium.details.expanded" = "已展開";
-"premium.family.body" = "透過 Apple 家庭共享與最多 6 人（包括您）共享 Premium。在 Apple 家庭設定中啟用訂閱共享。每個玩家都會保持自己的進度。";
+"premium.family.body" = "透過 Apple 家人共享，讓包括你在內的最多6人共享 Premium。在 Apple 家庭設定中啟用訂閱共享。每位玩家的進度分開儲存。";
 "premium.family.title" = "為您的家人提供一份訂閱";
-"premium.story.countries.body" = "探索國家/地區幻燈片、首都、貨幣和國歌錄音。將國旗與其代表的國家聯繫起來。";
+"premium.story.countries.body" = "瀏覽各國介紹，了解首都和貨幣，聆聽國歌錄音，將每面國旗與它代表的國家聯繫起來。";
 "premium.story.countries.title" = "給每面旗幟一個故事。";
 "premium.story.enlarge" = "放大範例螢幕";
 "premium.story.example" = "螢幕範例 · 英語";
-"premium.story.headline" = "學習旗幟。記住這個世界。";
-"premium.story.intro" = "讓每一堂課都有意義：練習困難的旗幟，了解背後的國家，並看看接下來要學什麼。";
+"premium.story.headline" = "學習國旗，認識世界。";
+"premium.story.intro" = "讓每次練習都有收穫：複習難記的國旗，了解它們代表的國家，找到接下來學習的方向。";
 "premium.story.map.body" = "世界學習進度地圖會顯示你熟悉的國旗和需要複習的國旗，幫助你選擇接下來練習的內容。";
-"premium.story.map.title" = "知道接下來要學什麼。";
+"premium.story.map.title" = "找到接下來的學習方向。";
 "premium.story.practice.body" = "無須等待生命值恢復，即可繼續練習。「我的錯誤」幫助你集中複習還沒記熟的國旗。";
 "premium.story.practice.title" = "多加練習，鞏固知識。";
-"premium.story.progress.body" = "將定期練習轉化為可見的結果。檢查您的準確性和正確答案，然後使用 Premium 世界地圖選擇下一步要練習的內容。";
+"premium.story.progress.body" = "讓日常練習變成看得見的進步。回顧答對率和答對題數，再用 Premium 世界地圖選擇下一步練習的內容。";
 "premium.story.progress.title" = "查看您的進步";
-"premium.weekly.history" = "每週獎金 Premium";
+"premium.weekly.history" = "Premium 每週獎勵";
 "premium.weekly.next" = "下次每週獎勵：%@";
 "ranking.motivational.explanation" = "虛擬對手之間基於進度的位置。";
 "ranking.motivational.title" = "勵志排名";

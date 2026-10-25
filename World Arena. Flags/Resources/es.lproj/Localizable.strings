@@ -35,11 +35,11 @@
 /* Achievements */
 "Достижения" = "Logros";
 "Достижение" = "Logro";
-"ЛИЧНЫЕ РЕКОРДЫ" = "RÉCORDS PERSONALES";
+"ЛИЧНЫЕ РЕКОРДЫ" = "Récords personales";
 "НАГРАДЫ" = "RECOMPENSAS";
 "Лучшая серия" = "Mejor racha";
 "Макс. лига" = "Liga máx.";
-"Макс. XP" = "XP máx.";
+"Макс. XP" = "Máximo de XP";
 "Открыто" = "Desbloqueado";
 
 /* Profile */
@@ -48,7 +48,7 @@
 "Days in a row" = "Días seguidos";
 "Текущая серия" = "Racha actual";
 "дней" = "días";
-"Joined in %@" = "Se unió en %@";
+"Joined in %@" = "En el juego desde %@";
 "Level %d • %d XP • %d-day streak" = "Nivel %d • %d XP • racha de %d días";
 "SUPER" = "SUPER";
 
@@ -304,7 +304,7 @@
 "НАГРАДЫ" = "Premios";
 "Лучшая серия" = "Racha más larga";
 "Макс. лига" = "Liga más alta";
-"Макс. XP" = "Máximo XP";
+"Макс. XP" = "Máximo de XP";
 "Открыто" = "Desbloqueado";
 
 /* Achievement titles/descriptions */
@@ -533,10 +533,10 @@
 "Интересные факты" = "Datos Curiosos";
 "Interesting facts study slides" = "Estudiar con diapositivas";
 "Interesting facts back to list" = "Volver a la lista";
-"Самый старый флаг" = "Bandera Más Antigua";
-"Флаг Дании используется с 1219 года" = "La bandera de Dinamarca se usa desde 1219";
-"Единственный квадратный флаг" = "Única Bandera Cuadrada";
-"У Швейцарии единственный квадратный флаг в мире" = "Suiza tiene la única bandera cuadrada del mundo";
+"Самый старый флаг" = "Una bandera con leyenda";
+"Флаг Дании используется с 1219 года" = "Una leyenda vincula la bandera danesa con una batalla de 1219.";
+"Единственный квадратный флаг" = "Banderas nacionales cuadradas";
+"У Швейцарии единственный квадратный флаг в мире" = "Suiza y la Ciudad del Vaticano tienen banderas nacionales cuadradas.";
 "Самый сложный флаг" = "Bandera Más Compleja";
 "У Бутана на флаге изображен дракон" = "La bandera de Bután tiene un dragón";
 "Go Premium" = "Ir a Premium";
@@ -1124,10 +1124,10 @@
 "Current Streak" = "Racha actual";
 
 /* 68 interesting facts */
-"FACT_01_TITLE" = "Bandera nacional más antigua";
-"FACT_01_DESC" = "El Dannebrog de Dinamarca se considera la bandera nacional en uso continuo más antigua desde 1219.";
-"FACT_02_TITLE" = "Única bandera nacional cuadrada";
-"FACT_02_DESC" = "Suiza tiene la única bandera nacional cuadrada del mundo. El Vaticano también tiene bandera cuadrada pero es una ciudad-estado.";
+"FACT_01_TITLE" = "Una bandera con leyenda";
+"FACT_01_DESC" = "Una leyenda vincula la bandera danesa con una batalla de 1219.";
+"FACT_02_TITLE" = "Banderas nacionales cuadradas";
+"FACT_02_DESC" = "Suiza y la Ciudad del Vaticano tienen banderas nacionales cuadradas.";
 "FACT_03_TITLE" = "Bandera no rectangular";
 "FACT_03_DESC" = "Nepal tiene la única bandera nacional del mundo que no es rectangular.";
 "FACT_04_TITLE" = "Sin rojo, blanco ni azul";
@@ -1901,7 +1901,7 @@
 "Virtual opponent" = "Oponente virtual";
 "appIcon.automatic" = "Adaptar automáticamente al idioma de la app";
 "appIcon.choose" = "Elige un icono";
-"appIcon.suggestion" = "Un ícono en tu idioma";
+"appIcon.suggestion" = "Un icono en tu idioma";
 "ca_language" = "Català";
 "coins" = "monedas";
 "duel.error.notYours" = "Este desafío pertenece a un jugador diferente. Verifique la cuenta en la que inició sesión.";
@@ -1926,7 +1926,7 @@
 "guide.friends.body" = "Añade amigos desde su perfil o con su código de amigo. Abre su perfil para retarlos a un duelo. Las invitaciones aparecen en Desafíos; puedes aceptar o rechazar las solicitudes de amistad.";
 "guide.friends.title" = "Juega con amigos";
 "guide.next" = "Siguiente";
-"guide.play.body" = "Toque Reproducir para comenzar. Continuar aparece cuando tienes un juego sin terminar.";
+"guide.play.body" = "Toca «Jugar» para empezar una partida.";
 "guide.play.title" = "Tu próximo juego";
 "guide.replay" = "Guía de la aplicación";
 "guide.settings.body" = "Toca aquí para elegir una región, dificultad y modo de juego.";
@@ -1940,9 +1940,9 @@
 "learning.anthem.shared_fmt" = "Se utiliza el mismo himno nacional que en %@. El himno regional puede ser diferente.";
 "learning.anthem.unavailable" = "No se pudo cargar el himno. Verifica tu conexión y toca Reproducir para volver a intentarlo.";
 "learning.country.discover" = "Conoce mejor este país";
-"premium.benefit.anthems.body" = "Escuche las grabaciones de himnos disponibles y descubra su historia y significado.";
+"premium.benefit.anthems.body" = "Escucha las grabaciones de himnos disponibles y descubre su historia y significado.";
 "premium.benefit.anthems.title" = "Himnos nacionales";
-"premium.benefit.avatar.body" = "Use el gorro Premium mientras su suscripción esté activa.";
+"premium.benefit.avatar.body" = "Usa el accesorio para la cabeza Premium mientras tu suscripción esté activa.";
 "premium.benefit.avatar.title" = "Accesorio de avatar Premium";
 "premium.benefit.countries.body" = "Descubre las capitales, la población, la superficie, los idiomas, las monedas y datos interesantes de cada país.";
 "premium.benefit.countries.title" = "Diapositivas detalladas de países";
@@ -1952,27 +1952,27 @@
 "premium.benefit.learning.title" = "Biblioteca de aprendizaje";
 "premium.benefit.lives.body" = "Juega al modo Clásico y al Desafío contra el Tiempo sin esperar a recuperar vidas. Supervivencia mantiene sus propias reglas.";
 "premium.benefit.lives.title" = "Corazones ilimitados";
-"premium.benefit.map.body" = "Vea su progreso por país y continente, y encuentre banderas para practicar.";
+"premium.benefit.map.body" = "Consulta tu progreso por país y continente y encuentra banderas para practicar.";
 "premium.benefit.map.title" = "Mapa de progreso mundial";
-"premium.benefit.mistakes.body" = "Juega con banderas que anteriormente respondiste incorrectamente.";
+"premium.benefit.mistakes.body" = "Practica con las banderas que antes identificaste mal.";
 "premium.benefit.mistakes.title" = "Aprende de tus errores";
 "premium.benefit.weekly.body" = "Se obtiene automáticamente por cada 7 días completos de Premium, a partir de que se activa este bono. Las recompensas obtenidas se sincronizan cuando abres la aplicación.";
 "premium.benefit.weekly.title" = "10 F-Bucks cada semana";
 "premium.details.collapsed" = "Contraído";
 "premium.details.expanded" = "Expandido";
-"premium.family.body" = "Comparte Premium con hasta 6 personas, incluido tú, a través de Apple Family Sharing. Habilite el uso compartido de suscripciones en la configuración de su familia Apple. Cada jugador mantiene su propio progreso.";
+"premium.family.body" = "Comparte Premium mediante En familia de Apple: hasta 6 personas en total, incluyéndote. Activa el uso compartido de la suscripción en los ajustes de tu familia de Apple. Cada jugador conserva su propio progreso.";
 "premium.family.title" = "Una suscripción para tu familia";
-"premium.story.countries.body" = "Explore diapositivas de países, capitales, monedas y grabaciones de himnos. Conecta una bandera con el país que representa.";
+"premium.story.countries.body" = "Explora las fichas de países, sus capitales, monedas y grabaciones de himnos. Relaciona cada bandera con el país que representa.";
 "premium.story.countries.title" = "Dale a cada bandera una historia.";
 "premium.story.enlarge" = "Ampliar pantalla de ejemplo";
 "premium.story.example" = "Pantalla de ejemplo · Inglés";
 "premium.story.headline" = "Aprende las banderas. Recuerda el mundo.";
 "premium.story.intro" = "Aprovecha cada sesión: repasa las banderas difíciles, conoce los países que representan y descubre qué aprender después.";
 "premium.story.map.body" = "Tu mapa de progreso mundial muestra qué banderas conoces bien y cuáles necesitas repasar, para ayudarte a elegir qué practicar después.";
-"premium.story.map.title" = "Sepa qué aprender a continuación.";
+"premium.story.map.title" = "Descubre qué aprender después.";
 "premium.story.practice.body" = "Sigue practicando sin esperar a recuperar vidas. La sección «Mis errores» te ayuda a repasar las banderas que más necesitas.";
 "premium.story.practice.title" = "Más práctica. Menos lagunas.";
-"premium.story.progress.body" = "Convierta la práctica habitual en resultados visibles. Revise su precisión y sus respuestas correctas, luego use el mapa mundial Premium para elegir qué practicar a continuación.";
+"premium.story.progress.body" = "Convierte la práctica habitual en resultados visibles. Revisa tu precisión y tus respuestas correctas y usa el mapa mundial Premium para elegir qué practicar después.";
 "premium.story.progress.title" = "Ver tu progreso";
 "premium.weekly.history" = "Bono semanal Premium";
 "premium.weekly.next" = "Próximo bono semanal: %@";

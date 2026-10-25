@@ -18,21 +18,21 @@
 /* Achievements */
 "Достижения" = "Prestationer";
 "Достижение" = "Prestation";
-"ЛИЧНЫЕ РЕКОРДЫ" = "PERSONLIGA BÄSTA";
+"ЛИЧНЫЕ РЕКОРДЫ" = "Personliga rekord";
 "НАГРАДЫ" = "UTMÄRKELSER";
-"Лучшая серия" = "Längsta raden";
+"Лучшая серия" = "Längsta svit";
 "Макс. лига" = "Max League";
-"Макс. XP" = "Max XP";
+"Макс. XP" = "Mest XP";
 "Открыто" = "Upplåst";
 
 /* Profile */
 "League" = "Liga";
 "Following" = "Vänner";
 "Days in a row" = "Dagar i rad";
-"Текущая серия" = "Nuvarande rad";
+"Текущая серия" = "Nuvarande svit";
 "дней" = "dagar";
-"Joined in %@" = "Gick med i %@";
-"Level %d • %d XP • %d-day streak" = "Nivå %d • %d XP • %d dagars rad";
+"Joined in %@" = "Med sedan %@";
+"Level %d • %d XP • %d-day streak" = "Nivå %d • %d XP • svit på %d dagar";
 "SUPER" = "SUPER";
 
 /* Leagues medals & labels */
@@ -43,7 +43,7 @@
 
 /* Monthly badges sample titles */
 "Алмазная лига" = "Diamantligan";
-"Серия мастера" = "Mästarrad";
+"Серия мастера" = "Mästarsvit";
 "Чемпион месяца" = "Månadens mästare";
 "Идеальная неделя" = "Perfekt vecka";
 "Бронзовая лига" = "Bronsligan";
@@ -194,10 +194,10 @@
 "Интересные факты" = "Intressanta fakta";
 "Interesting facts study slides" = "Plugga som bildspel";
 "Interesting facts back to list" = "Tillbaka till listan";
-"Самый старый флаг" = "Äldsta flaggan";
-"Флаг Дании используется с 1219 года" = "Danmarks flagga har använts sedan 1219";
-"Единственный квадратный флаг" = "Endast fyrkantig flagga";
-"У Швейцарии единственный квадратный флаг в мире" = "Schweiz har världens enda fyrkantiga flagga";
+"Самый старый флаг" = "En flagga med en legend";
+"Флаг Дании используется с 1219 года" = "En legend kopplar den danska flaggan till ett slag år 1219.";
+"Единственный квадратный флаг" = "Kvadratiska nationalflaggor";
+"У Швейцарии единственный квадратный флаг в мире" = "Både Schweiz och Vatikanstaten har kvadratiska nationalflaggor.";
 "Самый сложный флаг" = "Mest komplexa flaggan";
 "У Бутана на флаге изображен дракон" = "Bhutans flagga har en drake";
 "Go Premium" = "Gå Premium";
@@ -450,7 +450,7 @@
 "League" = "Liga";
 "Following" = "Vänner";
 "Days in a row" = "Dagar i rad";
-"Joined in %@" = "Gick med i %@";
+"Joined in %@" = "Med sedan %@";
 "Statistics" = "Statistik";
 "Total XP" = "Totalt XP";
 "Current streak" = "Nuvarande rad";
@@ -574,7 +574,7 @@
 
 /* Profile Statistics */
 "дней" = "dagar";
-"Текущая серия" = "Nuvarande rad";
+"Текущая серия" = "Nuvarande svit";
 "Всего изучено флагов" = "Totalt lärda flaggor";
 "Текущая лига" = "Nuvarande liga";
 "Общий опыт" = "Total upplevelse";
@@ -703,7 +703,7 @@
 "Достижение" = "Prestation";
 "ЛИЧНЫЕ РЕКОРДЫ" = "Personliga rekord";
 "НАГРАДЫ" = "Utmärkelser";
-"Лучшая серия" = "Längsta raden";
+"Лучшая серия" = "Längsta svit";
 "Макс. лига" = "Högsta ligan";
 "Макс. XP" = "Mest XP";
 "Открыто" = "Upplåst";
@@ -793,7 +793,7 @@
 "Текущая лига" = "Nuvarande liga";
 "Общий опыт" = "Total upplevelse";
 "дней" = "dagar";
-"Текущая серия" = "Nuvarande rad";
+"Текущая серия" = "Nuvarande svit";
 "XP" = "XP";
 "ДОБАВИТЬ ДРУЗЕЙ" = "LÄGG TILL VÄNNER";
 "СЕРИИ ДРУЗЕЙ" = "VÄN STREAKS";
@@ -826,7 +826,7 @@
 "Ранняя птица" = "Morgonpigg";
 "Железная воля" = "Järnvilja";
 "Алмазная лига" = "Diamantligan";
-"Серия мастера" = "Mästarrad";
+"Серия мастера" = "Mästarsvit";
 "Чемпион месяца" = "Månadsmästare";
 "Идеальная неделя" = "Perfekt vecka";
 
@@ -933,7 +933,7 @@
 "Изучено флагов" = "Flaggor studerade";
 "Лучший результат" = "Bästa poäng";
 "очков" = "poäng";
-"Текущая серия" = "Nuvarande rad";
+"Текущая серия" = "Nuvarande svit";
 "дней" = "dagar";
 "Точность" = "Noggrannhet";
 "Теперь вы можете без единой ошибки отвечать на все наши вопросы с точностью в %d%%" = "Du har %d%% rätta svar.";
@@ -1162,10 +1162,10 @@
 "Biometric login prompt" = "Bekräfta biometrisk inloggning";
 
 /* 68 interesting facts */
-"FACT_01_TITLE" = "Äldsta kontinuerligt använda flaggan";
-"FACT_01_DESC" = "Danmarks Dannebrog anses vara den äldsta nationalflaggan i kontinuerligt bruk sedan 1219.";
-"FACT_02_TITLE" = "Endast fyrkantig nationalflagga";
-"FACT_02_DESC" = "Schweiz har den enda fyrkantiga nationalflaggan i världen. Vatikanen har också en fyrkantig flagga men är en stadsstat.";
+"FACT_01_TITLE" = "En flagga med en legend";
+"FACT_01_DESC" = "En legend kopplar den danska flaggan till ett slag år 1219.";
+"FACT_02_TITLE" = "Kvadratiska nationalflaggor";
+"FACT_02_DESC" = "Både Schweiz och Vatikanstaten har kvadratiska nationalflaggor.";
 "FACT_03_TITLE" = "Icke-rektangulär flagga";
 "FACT_03_DESC" = "Nepal har den enda nationella flaggan i världen som inte är rektangulär.";
 "FACT_04_TITLE" = "Inget rött, vitt eller blått";
@@ -1909,10 +1909,10 @@
 "guide.done" = "Låt oss spela";
 "guide.fbucks.body" = "Tjäna F-Bucks genom att spela och slutföra uppdrag. Tryck på saldot för att se belöningar, avatarföremål och svitfrysningar.";
 "guide.fbucks.title" = "Möt F-Bucks";
-"guide.friends.body" = "Lägg till en vän från deras profil eller vänkod. Öppna deras profil för att utmana dem till en duell. Inbjudningar visas i Utmaningar; vänförfrågningar låter dig lägga tillbaka eller avvisa.";
+"guide.friends.body" = "Lägg till vänner via deras profil eller vänkod. Öppna deras profil för att utmana dem på en duell. Inbjudningar visas under ”Utmaningar”. Du kan acceptera eller avvisa vänförfrågningar.";
 "guide.friends.title" = "Spela med vänner";
 "guide.next" = "Nästa";
-"guide.play.body" = "Tryck på Spela för att starta. Fortsätt visas när du har ett oavslutat spel.";
+"guide.play.body" = "Tryck på ”Spela” för att starta ett spel.";
 "guide.play.title" = "Ditt nästa spel";
 "guide.replay" = "Appguide";
 "guide.settings.body" = "Tryck här för att välja region, svårighetsgrad och spelläge.";
@@ -1926,10 +1926,10 @@
 "learning.anthem.shared_fmt" = "Samma nationalsång används även här: %@. Den regionala sången kan skilja sig åt.";
 "learning.anthem.unavailable" = "Nationalsången kunde inte laddas. Kontrollera anslutningen och tryck på uppspelningsknappen för att försöka igen.";
 "learning.country.discover" = "En närmare titt";
-"premium.benefit.anthems.body" = "Lyssna på tillgängliga hymninspelningar och upptäck deras historia och betydelse.";
+"premium.benefit.anthems.body" = "Lyssna på tillgängliga inspelningar av nationalsånger och upptäck deras historia och betydelse.";
 "premium.benefit.anthems.title" = "Nationalsånger";
-"premium.benefit.avatar.body" = "Bär Premium huvudbonader medan ditt abonnemang är aktivt.";
-"premium.benefit.avatar.title" = "Premium avatartillbehör";
+"premium.benefit.avatar.body" = "Bär Premium-huvudbonaden så länge din prenumeration är aktiv.";
+"premium.benefit.avatar.title" = "Premium-tillbehör för din avatar";
 "premium.benefit.countries.body" = "Utforska huvudstäder, folkmängd, yta, språk, valutor och intressanta fakta om länder.";
 "premium.benefit.countries.title" = "Detaljerade landbilder";
 "premium.benefit.erudite.body" = "Lås upp den högsta svårigheten för en större utmaning.";
@@ -1942,26 +1942,26 @@
 "premium.benefit.map.title" = "Världskarta över dina framsteg";
 "premium.benefit.mistakes.body" = "Spela med flaggor som du tidigare svarat felaktigt på.";
 "premium.benefit.mistakes.title" = "Lär av dina misstag";
-"premium.benefit.weekly.body" = "Automatiskt intjänad för varje hela 7 dagar av Premium, från och med när denna bonus aktiveras. Intjänade belöningar synkroniseras när du öppnar appen.";
+"premium.benefit.weekly.body" = "Du får automatiskt en belöning för varje hel period om 7 dagar med Premium, räknat från att bonusen aktiveras. Intjänade belöningar synkroniseras när du öppnar appen.";
 "premium.benefit.weekly.title" = "10 F-Bucks varje vecka";
 "premium.details.collapsed" = "Hopfällt";
 "premium.details.expanded" = "Utfällt";
-"premium.family.body" = "Dela Premium med upp till 6 personer, inklusive dig, genom Apple Family Sharing. Aktivera prenumerationsdelning i dina Apple-familjeinställningar. Varje spelare håller sina egna framsteg.";
+"premium.family.body" = "Dela Premium via Apples Familjedelning i en grupp med upp till 6 personer, inklusive dig själv. Aktivera delning av prenumerationen i dina familjeinställningar hos Apple. Varje spelare behåller sina egna framsteg.";
 "premium.family.title" = "Ett abonnemang för din familj";
-"premium.story.countries.body" = "Utforska landsbilder, huvudstäder, valutor och hymninspelningar. Koppla ihop en flagga med landet den representerar.";
+"premium.story.countries.body" = "Utforska information om länder, huvudstäder, valutor och inspelningar av nationalsånger. Koppla varje flagga till landet den representerar.";
 "premium.story.countries.title" = "Ge varje flagga en historia.";
 "premium.story.enlarge" = "Förstora exempelskärmen";
 "premium.story.example" = "Exempelskärm · Engelska";
 "premium.story.headline" = "Lär dig flaggorna. Kom ihåg världen.";
 "premium.story.intro" = "Få varje session att räknas: träna svåra flaggor, förstå länderna bakom dem och se vad du ska lära dig härnäst.";
 "premium.story.map.body" = "Din framstegskarta visar vilka flaggor du kan väl och vilka du behöver öva mer på, så att du kan välja nästa övning.";
-"premium.story.map.title" = "Vet vad du ska lära dig härnäst.";
+"premium.story.map.title" = "Upptäck vad du kan lära dig härnäst.";
 "premium.story.practice.body" = "Fortsätt öva utan att vänta på att dina liv fylls på. I ”Mina misstag” kan du fokusera på flaggorna du behöver repetera.";
 "premium.story.practice.title" = "Mer övning. Färre luckor.";
 "premium.story.progress.body" = "Förvandla regelbunden träning till synliga resultat. Granska din noggrannhet och korrekta svar, använd sedan Premium världskartan för att välja vad du ska öva härnäst.";
 "premium.story.progress.title" = "Se dina framsteg";
-"premium.weekly.history" = "Veckovis Premium bonus";
-"premium.weekly.next" = "Nästa veckas bonus: %@";
+"premium.weekly.history" = "Veckobonus med Premium";
+"premium.weekly.next" = "Nästa veckobonus: %@";
 "ranking.motivational.explanation" = "Framstegsbaserade positioner bland virtuella motståndare.";
 "ranking.motivational.title" = "Motiverande ranking";
 "streak.recovery.body_fmt" = "Du hade en svit på %1$d dagar. Återställ den för %2$d F-Bucks eller spela en omgång till gratis.";

@@ -1,43 +1,43 @@
-"Заработай %d XP" = "Gagnez de l'XP %d";
+"Заработай %d XP" = "Gagne %d XP";
 "F-BUCKS EARNED" = "F-BUCKS GAGNÉS";
-"Дай %d правильных ответов" = "Obtenez les bonnes réponses à %d";
-"Наберите %d правильных ответов за месяц" = "Obtenez les bonnes réponses à %d ce mois-ci";
-"Сыграй %d идеальных игр" = "Jouez à des jeux parfaits %d";
-"Завершите %d игр без ошибок" = "Terminez les jeux %d sans erreurs";
+"Дай %d правильных ответов" = "Donne %d bonnes réponses";
+"Наберите %d правильных ответов за месяц" = "Donne %d bonnes réponses ce mois-ci";
+"Сыграй %d идеальных игр" = "Joue %d parties parfaites";
+"Завершите %d игр без ошибок" = "Termine %d parties sans erreur";
 /* Settings screen */
 "Настройки" = "Paramètres";
 "Аккаунт" = "Compte";
 "Профиль пользователя" = "Profil utilisateur";
-"Поддержка" = "Soutien";
+"Поддержка" = "Assistance";
 "Настройки приложения" = "Paramètres de l'application";
-"Обратная связь" = "Retour";
+"Обратная связь" = "Commentaires";
 "World Arena Premium" = "World Arena Premium";
-"Обратная связь по World Arena Flags" = "Commentaires sur les drapeaux de l'arène mondiale";
+"Обратная связь по World Arena Flags" = "Commentaires sur World Arena Flags";
 
 /* Achievements */
-"Достижения" = "Achievements";
-"Достижение" = "Achievement";
-"ЛИЧНЫЕ РЕКОРДЫ" = "PERSONAL BESTS";
+"Достижения" = "Succès";
+"Достижение" = "Succès";
+"ЛИЧНЫЕ РЕКОРДЫ" = "Records personnels";
 "НАГРАДЫ" = "AWARDS";
-"Лучшая серия" = "Best Streak";
+"Лучшая серия" = "Plus longue série";
 "Макс. лига" = "Max League";
-"Макс. XP" = "Max XP";
+"Макс. XP" = "Record d’XP";
 "Открыто" = "Unlocked";
 
 /* Profile */
 "League" = "League";
-"Following" = "Friends";
-"Days in a row" = "Days in a row";
+"Following" = "Amis";
+"Days in a row" = "Jours de suite";
 "Текущая серия" = "Current Streak";
 "дней" = "days";
-"Joined in %@" = "Joined in %@";
-"Level %d • %d XP • %d-day streak" = "Niveau %d • %d XP • Série de jours %d";
+"Joined in %@" = "Dans le jeu depuis %@";
+"Level %d • %d XP • %d-day streak" = "Niveau %d • %d XP • série de %d jours";
 "SUPER" = "SUPER";
 
 /* Leagues medals & labels */
 "1st" = "1er";
-"2nd" = "2ème";
-"3rd" = "3ème";
+"2nd" = "2e";
+"3rd" = "3e";
 "XP" = "XP";
 
 /* Monthly badges sample titles */
@@ -193,10 +193,10 @@
 "Интересные факты" = "Faits intéressants";
 "Interesting facts study slides" = "Apprendre en diapos";
 "Interesting facts back to list" = "Retour à la liste";
-"Самый старый флаг" = "Drapeau le plus ancien";
-"Флаг Дании используется с 1219 года" = "Le drapeau du Danemark est utilisé depuis 1219";
-"Единственный квадратный флаг" = "Seul drapeau carré";
-"У Швейцарии единственный квадратный флаг в мире" = "La Suisse possède le seul drapeau carré au monde";
+"Самый старый флаг" = "Un drapeau de légende";
+"Флаг Дании используется с 1219 года" = "Une légende associe le drapeau danois à une bataille de 1219.";
+"Единственный квадратный флаг" = "Des drapeaux nationaux carrés";
+"У Швейцарии единственный квадратный флаг в мире" = "La Suisse et la Cité du Vatican ont toutes deux un drapeau national carré.";
 "Самый сложный флаг" = "Drapeau le plus complexe";
 "У Бутана на флаге изображен дракон" = "Le drapeau du Bhoutan représente un dragon";
 "Go Premium" = "Go Premium";
@@ -446,9 +446,9 @@
 
 // Profile Page
 "League" = "Ligue";
-"Following" = "Suivant";
-"Days in a row" = "Des jours d'affilée";
-"Joined in %@" = "Rejoint %@";
+"Following" = "Amis";
+"Days in a row" = "Jours de suite";
+"Joined in %@" = "Dans le jeu depuis %@";
 "Statistics" = "Statistiques";
 "Total XP" = "XP totale";
 "Current streak" = "Série actuelle";
@@ -689,13 +689,13 @@
 "HELP_NOTIFICATIONS_TYPES" = "L’application peut envoyer plusieurs types de notifications :\n• Rappels de la leçon quotidienne et de la série\n• Rappels aux amis et réponses à vos rappels\n• Défis en duel et résultats des duels\n\nComment les gérer :\n1. Ouvrez les réglages de votre appareil\n2. Recherchez World Arena Flags\n3. Activez ou désactivez les types de notifications souhaités\n\nNous recommandons de laisser activés les rappels de la leçon quotidienne pour ne pas perdre votre série.";
 
 /* Achievements */
-"Достижения" = "Réalisations";
-"Достижение" = "Réalisation";
-"ЛИЧНЫЕ РЕКОРДЫ" = "Dossiers personnels";
+"Достижения" = "Succès";
+"Достижение" = "Succès";
+"ЛИЧНЫЕ РЕКОРДЫ" = "Records personnels";
 "НАГРАДЫ" = "Récompenses";
-"Лучшая серия" = "La plus longue séquence";
+"Лучшая серия" = "Plus longue série";
 "Макс. лига" = "Ligue la plus élevée";
-"Макс. XP" = "La plupart des XP";
+"Макс. XP" = "Record d’XP";
 "Открыто" = "Débloqué";
 
 /* Achievement titles/descriptions */
@@ -808,7 +808,7 @@
 
 // Settings page
 "Премиум" = "Prime";
-"World Arena Premium" = "Prime d'arène mondiale";
+"World Arena Premium" = "World Arena Premium";
 "Премиум подписка активна" = "Abonnement Premium actif";
 "ВОССТАНОВИТЬ ПОДПИСКУ" = "RESTAURER L'ABONNEMENT";
 
@@ -1150,10 +1150,10 @@
 "Current Streak" = "Série actuelle";
 
 /* 68 interesting facts */
-"FACT_01_TITLE" = "Drapeau national le plus ancien";
-"FACT_01_DESC" = "Le Dannebrog du Danemark est considéré comme le plus ancien drapeau national en usage continu depuis 1219.";
-"FACT_02_TITLE" = "Seul drapeau national carré";
-"FACT_02_DESC" = "La Suisse a le seul drapeau national carré au monde. Le Vatican a aussi un drapeau carré mais c'est une cité-État.";
+"FACT_01_TITLE" = "Un drapeau de légende";
+"FACT_01_DESC" = "Une légende associe le drapeau danois à une bataille de 1219.";
+"FACT_02_TITLE" = "Des drapeaux nationaux carrés";
+"FACT_02_DESC" = "La Suisse et la Cité du Vatican ont toutes deux un drapeau national carré.";
 "FACT_03_TITLE" = "Drapeau non rectangulaire";
 "FACT_03_DESC" = "Le Népal a le seul drapeau national au monde qui ne soit pas rectangulaire.";
 "FACT_04_TITLE" = "Sans rouge, blanc ni bleu";
@@ -1719,7 +1719,7 @@
 "premium.trial.start" = "Essayer gratuitement pendant 7 jours";
 "premium.trial.monthly" = "7 jours gratuits, puis %@ par mois.";
 "premium.trial.yearly" = "7 jours gratuits, puis %@ par an.";
-"premium.renewal" = "Renouvellement automatique sauf résiliation. Gérez ou résiliez dans vos abonnements App Store.";
+"premium.renewal" = "Renouvellement automatique sauf résiliation. Gère ou résilie ton abonnement dans les abonnements de l’App Store.";
 "premium.subscribe" = "S’abonner";
 
 /* Duel inbox */
@@ -1810,9 +1810,9 @@
 
 // Alternate Home Screen icons
 "appIcon.title" = "Icône de l’app";
-"appIcon.explanation" = "Choisissez la langue du grand texte sur l’icône d’accueil. La langue de l’app et l’icône de l’App Store restent identiques. iOS peut demander une confirmation.";
-"appIcon.selected" = "Sélectionné";
-"appIcon.error" = "Impossible de modifier l’icône. Réessayez.";
+"appIcon.explanation" = "Choisis la langue du grand texte sur l’icône de l’écran d’accueil. La langue de l’app et l’icône de l’App Store restent identiques. iOS peut demander une confirmation.";
+"appIcon.selected" = "Sélectionnée";
+"appIcon.error" = "Impossible de modifier l’icône. Réessaie.";
 
 "inbox.subtitle" = "Ton activité";
 "inbox.explanation" = "Duels, réussites et actualités au même endroit.";
@@ -1824,29 +1824,29 @@
 "inbox.syncFailed" = "Impossible d’actualiser les résultats des duels";
 
 "achievement.streak_60.title" = "Une saison de découvertes";
-"achievement.streak_60.body" = "Atteignez une série de 60 jours";
+"achievement.streak_60.body" = "Atteins une série de 60 jours";
 "achievement.streak_100.title" = "Cent levers de soleil";
-"achievement.streak_100.body" = "Atteignez une série de 100 jours";
+"achievement.streak_100.body" = "Atteins une série de 100 jours";
 "achievement.streak_365.title" = "Une année de découvertes";
-"achievement.streak_365.body" = "Atteignez une série de 365 jours";
+"achievement.streak_365.body" = "Atteins une série de 365 jours";
 "achievement.games_250.title" = "Au-delà de l'horizon";
-"achievement.games_250.body" = "Jouez 250 parties";
+"achievement.games_250.body" = "Joue 250 parties";
 "achievement.games_500.title" = "Explorateur du monde";
-"achievement.games_500.body" = "Jouez 500 parties";
+"achievement.games_500.body" = "Joue 500 parties";
 "achievement.games_1000.title" = "Mille aventures";
-"achievement.games_1000.body" = "Jouez 1000 parties";
+"achievement.games_1000.body" = "Joue 1000 parties";
 "achievement.xp_50000.title" = "La force du savoir";
-"achievement.xp_50000.body" = "Gagnez 50000 XP";
+"achievement.xp_50000.body" = "Gagne 50 000 XP";
 "achievement.xp_100000.title" = "La couronne du savoir";
-"achievement.xp_100000.body" = "Gagnez 100000 XP";
+"achievement.xp_100000.body" = "Gagne 100 000 XP";
 "achievement.level_25.title" = "Le premier sommet";
-"achievement.level_25.body" = "Atteignez le niveau 25";
+"achievement.level_25.body" = "Atteins le niveau 25";
 "achievement.level_50.title" = "De nouveaux sommets";
-"achievement.level_50.body" = "Atteignez le niveau 50";
+"achievement.level_50.body" = "Atteins le niveau 50";
 "achievement.level_100.title" = "Légende de World Arena";
-"achievement.level_100.body" = "Atteignez le niveau 100";
+"achievement.level_100.body" = "Atteins le niveau 100";
 "achievement.friends_10.title" = "Des amis dans le monde entier";
-"achievement.friends_10.body" = "Ajoutez 10 amis";
+"achievement.friends_10.body" = "Ajoute 10 amis";
 "inbox.duelTimeUnavailable" = "Le temps de ce duel n’a pas été enregistré.";
 
 /* Notification event localization */
@@ -1877,14 +1877,14 @@
 "Sign in with Apple error 1000" = "La connexion avec Apple n'est pas disponible ici. Essayez sur un vrai appareil ou vérifiez Paramètres → Identifiant Apple.";
 "Virtual opponent" = "Adversaire virtuel";
 "appIcon.automatic" = "Adapter automatiquement à la langue de l’app";
-"appIcon.choose" = "Choisissez une icône";
-"appIcon.suggestion" = "Une icône dans votre langue";
+"appIcon.choose" = "Choisis une icône";
+"appIcon.suggestion" = "Une icône dans ta langue";
 "coins" = "pièces de monnaie";
 "duel.error.notYours" = "Ce défi appartient à un autre joueur. Vérifiez le compte auquel vous êtes connecté.";
 "education.fbucks.body" = "C’est ta monnaie dans le jeu. Gagne-la en jouant et en accomplissant des missions, puis utilise-la pour acheter des accessoires d’avatar et des protections de série.";
 "education.fbucks.done" = "Compris";
 "education.fbucks.shop" = "Voir la boutique";
-"education.fbucks.title" = "Vous avez gagné F-Bucks !";
+"education.fbucks.title" = "Tu as gagné des F-Bucks !";
 "facts.area" = "Zone";
 "facts.capital" = "Capitale";
 "facts.explanation" = "Choisissez ce qui apparaît au dos de la carte du pays après avoir répondu.";
@@ -1897,16 +1897,16 @@
 "guide.back" = "Retour";
 "guide.done" = "Jouons";
 "guide.fbucks.body" = "Gagne des F-Bucks en jouant et en accomplissant des missions. Touche ton solde pour découvrir les récompenses, les accessoires d’avatar et les protections de série.";
-"guide.fbucks.title" = "Rencontrez F-Bucks";
-"guide.friends.body" = "Ajoutez un ami à partir de son profil ou de son code ami. Ouvrez leur profil pour les défier en duel. Les invitations apparaissent dans les défis ; les demandes d'amis vous permettent d'ajouter ou de refuser.";
-"guide.friends.title" = "Jouez avec des amis";
+"guide.fbucks.title" = "Découvre les F-Bucks";
+"guide.friends.body" = "Ajoute des amis depuis leur profil ou avec leur code ami. Ouvre leur profil pour les défier en duel. Les invitations apparaissent dans « Défis ». Tu peux accepter ou refuser les demandes d’amis.";
+"guide.friends.title" = "Joue avec tes amis";
 "guide.next" = "Suivant";
-"guide.play.body" = "Appuyez sur Lecture pour commencer. Continuer apparaît lorsque vous avez une partie inachevée.";
-"guide.play.title" = "Votre prochain jeu";
-"guide.replay" = "Guide des applications";
-"guide.settings.body" = "Appuyez ici pour choisir une région, une difficulté et un mode de jeu.";
-"guide.settings.title" = "Faites-en votre jeu";
-"guide.skip" = "Sauter";
+"guide.play.body" = "Touche « Jouer » pour commencer une partie.";
+"guide.play.title" = "Ta prochaine partie";
+"guide.replay" = "Guide de l’application";
+"guide.settings.body" = "Touche ici pour choisir une région, une difficulté et un mode de jeu.";
+"guide.settings.title" = "Joue à ta façon";
+"guide.skip" = "Passer";
 "guide.streak.body" = "Touche ta série pour voir le calendrier, les jours où tu as joué et tes protections de série.";
 "guide.streak.title" = "Chaque jour compte";
 "learning.anthem.excerpt" = "Paroles originales · extrait";
@@ -1915,40 +1915,40 @@
 "learning.anthem.shared_fmt" = "Cet hymne national est également utilisé par le pays suivant : %@. Le chant régional peut être différent.";
 "learning.anthem.unavailable" = "Impossible de charger l’hymne. Vérifie ta connexion et touche le bouton de lecture pour réessayer.";
 "learning.country.discover" = "Découvre ce pays";
-"premium.benefit.anthems.body" = "Écoutez les enregistrements d'hymnes disponibles et découvrez leur histoire et leur signification.";
+"premium.benefit.anthems.body" = "Écoute les enregistrements d’hymnes disponibles et découvre leur histoire et leur signification.";
 "premium.benefit.anthems.title" = "Hymnes nationaux";
-"premium.benefit.avatar.body" = "Portez le couvre-chef Premium pendant que votre abonnement est actif.";
+"premium.benefit.avatar.body" = "Porte le couvre-chef Premium tant que ton abonnement est actif.";
 "premium.benefit.avatar.title" = "Accessoire pour avatar Premium";
 "premium.benefit.countries.body" = "Découvre les capitales, la population, la superficie, les langues, les monnaies et des faits intéressants sur les pays.";
 "premium.benefit.countries.title" = "Diapositives détaillées par pays";
-"premium.benefit.erudite.body" = "Débloquez la difficulté la plus élevée pour un défi plus grand.";
+"premium.benefit.erudite.body" = "Débloque le niveau de difficulté le plus élevé pour relever un plus grand défi.";
 "premium.benefit.erudite.title" = "Difficulté Érudit";
-"premium.benefit.learning.body" = "Parcourez les pays et les continents à votre rythme entre les jeux.";
+"premium.benefit.learning.body" = "Explore les pays et les continents à ton rythme entre deux parties.";
 "premium.benefit.learning.title" = "Bibliothèque d'apprentissage";
 "premium.benefit.lives.body" = "Joue aux modes Classique et Défi contre la montre sans attendre de récupérer des vies. Le mode Survie conserve ses propres règles.";
-"premium.benefit.lives.title" = "Coeurs illimités";
-"premium.benefit.map.body" = "Visualisez vos progrès par pays et par continent et trouvez des drapeaux à pratiquer.";
-"premium.benefit.map.title" = "Carte des progrès mondiaux";
-"premium.benefit.mistakes.body" = "Jouez avec des drapeaux auxquels vous avez répondu de manière incorrecte précédemment.";
+"premium.benefit.lives.title" = "Cœurs illimités";
+"premium.benefit.map.body" = "Consulte ta progression par pays et par continent et trouve des drapeaux à réviser.";
+"premium.benefit.map.title" = "Carte de ta progression";
+"premium.benefit.mistakes.body" = "Révise les drapeaux que tu as mal identifiés.";
 "premium.benefit.mistakes.title" = "Apprends de tes erreurs";
-"premium.benefit.weekly.body" = "Gagné automatiquement pour chaque 7 jours complets de Premium, à partir de l'activation de ce bonus. Les récompenses gagnées se synchronisent lorsque vous ouvrez l'application.";
+"premium.benefit.weekly.body" = "Reçois automatiquement une récompense pour chaque période complète de 7 jours de Premium, à partir de l’activation de ce bonus. Les récompenses obtenues se synchronisent à l’ouverture de l’application.";
 "premium.benefit.weekly.title" = "10 F-Bucks chaque semaine";
 "premium.details.collapsed" = "Replié";
 "premium.details.expanded" = "Déplié";
-"premium.family.body" = "Partagez le Premium avec jusqu'à 6 personnes, dont vous, via le partage familial Apple. Activez le partage d'abonnement dans les paramètres de votre famille Apple. Chaque joueur garde sa propre progression.";
-"premium.family.title" = "Un abonnement pour votre famille";
-"premium.story.countries.body" = "Explorez les diapositives des pays, les capitales, les devises et les enregistrements d'hymnes. Reliez un drapeau au pays qu’il représente.";
-"premium.story.countries.title" = "Donnez une histoire à chaque drapeau.";
+"premium.family.body" = "Partage Premium avec un groupe de 6 personnes maximum, toi compris, grâce au partage familial Apple. Active le partage de l’abonnement dans les réglages de ta famille Apple. Chaque joueur conserve sa propre progression.";
+"premium.family.title" = "Un abonnement pour ta famille";
+"premium.story.countries.body" = "Explore les fiches des pays, leurs capitales, leurs monnaies et les enregistrements de leurs hymnes. Associe chaque drapeau au pays qu’il représente.";
+"premium.story.countries.title" = "Une histoire derrière chaque drapeau.";
 "premium.story.enlarge" = "Agrandir l'écran d'exemple";
 "premium.story.example" = "Exemple d'écran · Anglais";
-"premium.story.headline" = "Apprenez les drapeaux. Souvenez-vous du monde.";
+"premium.story.headline" = "Apprends les drapeaux. Découvre le monde.";
 "premium.story.intro" = "Profite de chaque séance : révise les drapeaux difficiles, découvre les pays qu’ils représentent et choisis ce que tu apprendras ensuite.";
 "premium.story.map.body" = "Ta carte de progression montre les drapeaux que tu connais bien et ceux à revoir, pour t’aider à choisir ton prochain entraînement.";
-"premium.story.map.title" = "Sachez quoi apprendre ensuite.";
+"premium.story.map.title" = "Découvre quoi apprendre ensuite.";
 "premium.story.practice.body" = "Continue à t’entraîner sans attendre de récupérer des vies. La section « Mes erreurs » t’aide à revoir les drapeaux qui te posent problème.";
 "premium.story.practice.title" = "Plus de pratique. Moins de lacunes.";
-"premium.story.progress.body" = "Transformez une pratique régulière en résultats visibles. Vérifiez votre précision et vos réponses correctes, puis utilisez la carte du monde Premium pour choisir ce que vous voulez pratiquer ensuite.";
-"premium.story.progress.title" = "Visualisez vos progrès";
+"premium.story.progress.body" = "Transforme un entraînement régulier en résultats visibles. Consulte ta précision et tes bonnes réponses, puis utilise la carte du monde Premium pour choisir les drapeaux à réviser.";
+"premium.story.progress.title" = "Suis ta progression";
 "premium.weekly.history" = "Bonus hebdomadaire Premium";
 "premium.weekly.next" = "Prochain bonus hebdomadaire : %@";
 "ranking.motivational.explanation" = "Positions basées sur le progrès parmi les adversaires virtuels.";

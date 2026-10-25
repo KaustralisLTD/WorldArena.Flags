@@ -1,8 +1,8 @@
 "Open in Game Center" = "Buksan sa Game Center";
 "Заработай %d XP" = "Makakuha ng %d XP";
 "F-BUCKS EARNED" = "NAIPONG F-BUCKS";
-"Дай %d правильных ответов" = "Kumuha ng %d tamang sagot";
-"Наберите %d правильных ответов за месяц" = "Makakuha ng %d tamang sagot ngayong buwan";
+"Дай %d правильных ответов" = "Sagutin nang tama ang %d tanong";
+"Наберите %d правильных ответов за месяц" = "Sagutin nang tama ang %d tanong ngayong buwan";
 "Сыграй %d идеальных игр" = "Maglaro ng %d perpektong laro";
 "Завершите %d игр без ошибок" = "Tapusin ang %d laro nang walang pagkakamali";
 /* Settings screen */
@@ -18,11 +18,11 @@
 /* Achievements */
 "Достижения" = "Mga nagawa";
 "Достижение" = "Tagumpay";
-"ЛИЧНЫЕ РЕКОРДЫ" = "MGA PINAKAMAHUSAY (PERSONAL)";
+"ЛИЧНЫЕ РЕКОРДЫ" = "Mga personal na rekord";
 "НАГРАДЫ" = "MGA PARANGAL";
 "Лучшая серия" = "Pinakamahusay na Streak";
 "Макс. лига" = "Max League";
-"Макс. XP" = "Max XP";
+"Макс. XP" = "Pinakamaraming XP";
 "Открыто" = "Na-unlock";
 
 /* Profile */
@@ -31,7 +31,7 @@
 "Days in a row" = "Sunod-sunod na araw";
 "Текущая серия" = "Kasalukuyang Streak";
 "дней" = "araw";
-"Joined in %@" = "Sumali sa %@";
+"Joined in %@" = "Nagsimulang maglaro noong %@";
 "Level %d • %d XP • %d-day streak" = "Level %d • %d XP • %d araw na sunud-sunod";
 "SUPER" = "SUPER";
 
@@ -194,10 +194,10 @@
 "Интересные факты" = "Mga Kawili-wiling Katotohanan";
 "Interesting facts study slides" = "Mag-aral gamit ang slides";
 "Interesting facts back to list" = "Balik sa listahan";
-"Самый старый флаг" = "Pinakamatandang Bandila";
-"Флаг Дании используется с 1219 года" = "Ang watawat ng Denmark ay ginamit mula noong 1219";
-"Единственный квадратный флаг" = "Tanging Square Flag";
-"У Швейцарии единственный квадратный флаг в мире" = "Ang Switzerland ay may tanging parisukat na bandila sa mundo";
+"Самый старый флаг" = "Isang watawat na may alamat";
+"Флаг Дании используется с 1219 года" = "Iniuugnay ng isang alamat ang watawat ng Denmark sa isang labanan noong 1219.";
+"Единственный квадратный флаг" = "Mga parisukat na pambansang watawat";
+"У Швейцарии единственный квадратный флаг в мире" = "Parehong parisukat ang pambansang watawat ng Switzerland at Lungsod ng Vaticano.";
 "Самый сложный флаг" = "Pinaka Kumplikadong Bandila";
 "У Бутана на флаге изображен дракон" = "Ang bandila ng Bhutan ay nagtatampok ng dragon";
 "Go Premium" = "Pumunta sa Premium";
@@ -448,9 +448,9 @@
 
 // Profile Page
 "League" = "Liga";
-"Following" = "Sinusundan";
+"Following" = "Mga kaibigan";
 "Days in a row" = "Sunod-sunod na araw";
-"Joined in %@" = "Sumali sa %@";
+"Joined in %@" = "Nagsimulang maglaro noong %@";
 "Statistics" = "Mga istatistika";
 "Total XP" = "Kabuuang XP";
 "Current streak" = "Kasalukuyang streak";
@@ -701,11 +701,11 @@
 /* Achievements */
 "Достижения" = "Mga nagawa";
 "Достижение" = "Tagumpay";
-"ЛИЧНЫЕ РЕКОРДЫ" = "Mga Personal na Tala";
+"ЛИЧНЫЕ РЕКОРДЫ" = "Mga personal na rekord";
 "НАГРАДЫ" = "Mga parangal";
 "Лучшая серия" = "Pinakamahabang Streak";
 "Макс. лига" = "Pinakamataas na Liga";
-"Макс. XP" = "Karamihan sa XP";
+"Макс. XP" = "Pinakamaraming XP";
 "Открыто" = "Na-unlock";
 
 /* Achievement titles/descriptions */
@@ -1162,10 +1162,10 @@
 "Biometric login prompt" = "Kumpirmahin ang biometric login";
 
 /* 68 interesting facts */
-"FACT_01_TITLE" = "Pinakamatandang patuloy na ginagamit na bandila";
-"FACT_01_DESC" = "Ang Dannebrog ng Denmark ay itinuturing na pinakalumang pambansang watawat na patuloy na ginagamit mula noong 1219.";
-"FACT_02_TITLE" = "Tanging square national flag";
-"FACT_02_DESC" = "Ang Switzerland ang may tanging parisukat na pambansang watawat sa mundo. Ang Vatican ay mayroon ding parisukat na bandila ngunit ito ay isang lungsod-estado.";
+"FACT_01_TITLE" = "Isang watawat na may alamat";
+"FACT_01_DESC" = "Iniuugnay ng isang alamat ang watawat ng Denmark sa isang labanan noong 1219.";
+"FACT_02_TITLE" = "Mga parisukat na pambansang watawat";
+"FACT_02_DESC" = "Parehong parisukat ang pambansang watawat ng Switzerland at Lungsod ng Vaticano.";
 "FACT_03_TITLE" = "Watawat na hindi hugis-parihaba";
 "FACT_03_DESC" = "Ang Nepal ay may tanging pambansang watawat sa mundo na hindi hugis-parihaba.";
 "FACT_04_TITLE" = "Walang pula, puti o asul";
@@ -1893,7 +1893,7 @@
 "coins" = "mga barya";
 "duel.error.notYours" = "Ang hamon na ito ay kabilang sa ibang manlalaro. Suriin ang account kung saan ka naka-sign in.";
 "education.fbucks.body" = "Ito ang pera mo sa laro. Kumita sa paglalaro at pagtapos ng mga misyon, at gamitin ito sa mga gamit ng avatar at proteksiyon ng streak.";
-"education.fbucks.done" = "Nakuha ko";
+"education.fbucks.done" = "Naintindihan ko";
 "education.fbucks.shop" = "Tingnan ang tindahan";
 "education.fbucks.title" = "Nagkamit ka ng F-Bucks!";
 "facts.area" = "Lugar";
@@ -1909,13 +1909,13 @@
 "guide.done" = "Maglaro tayo";
 "guide.fbucks.body" = "Kumita ng F-Bucks sa paglalaro at pagtapos ng mga misyon. I-tap ang balanse para makita ang mga gantimpala, gamit ng avatar at proteksiyon ng streak.";
 "guide.fbucks.title" = "Kilalanin ang F-Bucks";
-"guide.friends.body" = "Magdagdag ng kaibigan mula sa kanilang profile o friend code. Buksan ang kanilang profile upang hamunin sila sa isang tunggalian. Lumilitaw ang mga imbitasyon sa Mga Hamon; hinahayaan ka ng mga kahilingang kaibigan na idagdag o tanggihan.";
+"guide.friends.body" = "Magdagdag ng kaibigan sa pamamagitan ng kanilang profile o code. Buksan ang kanilang profile para hamunin sila sa tunggalian. Makikita ang mga imbitasyon sa “Mga hamon”. Maaari mong tanggapin o tanggihan ang mga kahilingang maging kaibigan.";
 "guide.friends.title" = "Maglaro kasama ang mga kaibigan";
 "guide.next" = "Susunod";
-"guide.play.body" = "I-tap ang Play para magsimula. Lumilitaw ang Magpatuloy kapag mayroon kang hindi natapos na laro.";
+"guide.play.body" = "I-tap ang “Maglaro” para magsimula.";
 "guide.play.title" = "Ang iyong susunod na laro";
 "guide.replay" = "Gabay sa app";
-"guide.settings.body" = "Mag-tap dito para pumili ng rehiyon, kahirapan at mode ng laro.";
+"guide.settings.body" = "I-tap dito para piliin ang rehiyon, antas ng hirap at mode ng laro.";
 "guide.settings.title" = "Gawin mo itong laro mo";
 "guide.skip" = "Laktawan";
 "guide.streak.body" = "I-tap ang streak mo para makita ang kalendaryo, mga araw na naglaro ka at mga proteksiyon ng streak.";
@@ -1926,21 +1926,21 @@
 "learning.anthem.shared_fmt" = "Ginagamit din ng %@ ang pambansang awit na ito. Maaaring iba ang awit ng rehiyon.";
 "learning.anthem.unavailable" = "Hindi ma-load ang pambansang awit. Suriin ang koneksyon at i-tap ang pindutan ng pagpapatugtog para subukang muli.";
 "learning.country.discover" = "Kilalanin ang bansa";
-"premium.benefit.anthems.body" = "Makinig sa mga available na pag-record ng anthem at tuklasin ang kanilang kasaysayan at kahulugan.";
+"premium.benefit.anthems.body" = "Makinig sa mga rekording ng pambansang awit at alamin ang kanilang kasaysayan at kahulugan.";
 "premium.benefit.anthems.title" = "Mga pambansang awit";
-"premium.benefit.avatar.body" = "Magsuot ng Premium headwear habang aktibo ang iyong subscription.";
+"premium.benefit.avatar.body" = "Magsuot ng Premium na palamuti sa ulo habang aktibo ang iyong subscription.";
 "premium.benefit.avatar.title" = "Palamuti sa avatar para sa Premium";
 "premium.benefit.countries.body" = "Alamin ang mga kabisera, populasyon, lawak, wika, salapi at mga kawili-wiling detalye tungkol sa mga bansa.";
-"premium.benefit.countries.title" = "Detalyadong mga slide ng bansa";
-"premium.benefit.erudite.body" = "I-unlock ang pinakamataas na kahirapan para sa mas malaking hamon.";
+"premium.benefit.countries.title" = "Detalyadong impormasyon tungkol sa mga bansa";
+"premium.benefit.erudite.body" = "Buksan ang pinakamataas na antas ng hirap para sa mas malaking hamon.";
 "premium.benefit.erudite.title" = "Antas ng hirap: Maalam";
 "premium.benefit.learning.body" = "Mag-browse ng mga bansa at kontinente sa sarili mong bilis sa pagitan ng mga laro.";
 "premium.benefit.learning.title" = "Mga aralin tungkol sa mga bansa";
 "premium.benefit.lives.body" = "Maglaro sa Klasiko at Hamon sa Oras nang hindi naghihintay na mapunan ang mga buhay. May sariling mga patakaran pa rin ang Kaligtasan.";
 "premium.benefit.lives.title" = "Walang limitasyong mga Puso";
-"premium.benefit.map.body" = "Tingnan ang iyong pag-unlad ayon sa bansa at kontinente, at humanap ng mga flag upang magsanay.";
-"premium.benefit.map.title" = "Mapa ng pag-unlad ng mundo";
-"premium.benefit.mistakes.body" = "Maglaro ng mga flag na dati mong nasagot nang hindi tama.";
+"premium.benefit.map.body" = "Tingnan ang iyong pag-unlad ayon sa bansa at kontinente at pumili ng mga watawat na pag-aaralan.";
+"premium.benefit.map.title" = "Mapa ng iyong pag-unlad";
+"premium.benefit.mistakes.body" = "Balikan ang mga watawat na hindi mo natukoy nang tama.";
 "premium.benefit.mistakes.title" = "Matuto sa iyong mga pagkakamali";
 "premium.benefit.weekly.body" = "Awtomatikong kinikita para sa bawat buong 7 araw ng Premium, simula kapag na-activate ang bonus na ito. Sini-sync ang mga nakuhang reward kapag binuksan mo ang app.";
 "premium.benefit.weekly.title" = "10 F-Bucks bawat linggo";
@@ -1948,16 +1948,16 @@
 "premium.details.expanded" = "Nakabukas";
 "premium.family.body" = "Ibahagi ang Premium sa hanggang 6 na tao, kasama ka, sa pamamagitan ng Apple Family Sharing. I-enable ang pagbabahagi ng subscription sa iyong mga setting ng pamilya ng Apple. Ang bawat manlalaro ay nagpapanatili ng kanilang sariling pag-unlad.";
 "premium.family.title" = "Isang subscription para sa iyong pamilya";
-"premium.story.countries.body" = "I-explore ang mga country slide, capitals, currency at mga recording ng anthem. Ikonekta ang isang bandila sa bansang kinakatawan nito.";
+"premium.story.countries.body" = "Alamin ang impormasyon tungkol sa mga bansa, kabisera at salapi, at pakinggan ang kanilang mga pambansang awit. Iugnay ang bawat watawat sa bansang kinakatawan nito.";
 "premium.story.countries.title" = "Bigyan ng kuwento ang bawat bandila.";
 "premium.story.enlarge" = "Palakihin ang halimbawang screen";
-"premium.story.example" = "Halimbawang screen · English";
-"premium.story.headline" = "Alamin ang mga flag. Alalahanin ang mundo.";
-"premium.story.intro" = "Gawing mahalaga ang bawat session: magsanay ng mahihirap na flag, unawain ang mga bansa sa likod ng mga ito at tingnan kung ano ang susunod na matututuhan.";
+"premium.story.example" = "Halimbawang screen · Ingles";
+"premium.story.headline" = "Pag-aralan ang mga watawat. Kilalanin ang mundo.";
+"premium.story.intro" = "Sulitin ang bawat pagsasanay: balikan ang mahihirap tandaan na watawat, kilalanin ang mga bansang kinakatawan nila at piliin ang susunod na pag-aaralan.";
 "premium.story.map.body" = "Makikita sa mapa ng iyong pag-unlad kung aling mga watawat ang kabisado mo na at alin ang kailangan pang balikan, para makapili ka ng susunod na pagsasanay.";
 "premium.story.map.title" = "Alamin kung ano ang susunod na matututunan.";
 "premium.story.practice.body" = "Magpatuloy sa pagsasanay nang hindi naghihintay na mapunan ang mga buhay. Sa “Aking Mga Pagkakamali”, balikan ang mga watawat na kailangan mo pang pag-aralan.";
-"premium.story.practice.title" = "Higit pang pagsasanay. Mas kaunting gaps.";
+"premium.story.practice.title" = "Mas maraming pagsasanay. Mas matibay na kaalaman.";
 "premium.story.progress.body" = "Gawing nakikitang mga resulta ang regular na pagsasanay. Suriin ang iyong katumpakan at mga tamang sagot, pagkatapos ay gamitin ang Premium na mapa ng mundo upang piliin kung ano ang susunod na pagsasanay.";
 "premium.story.progress.title" = "Tingnan ang iyong pag-unlad";
 "premium.weekly.history" = "Lingguhang Premium na bonus";

@@ -1,9 +1,9 @@
 "Заработай %d XP" = "Verdiene %d XP";
 "F-BUCKS EARNED" = "VERDIENTE F-BUCKS";
 "Дай %d правильных ответов" = "Gib %d richtige Antworten";
-"Наберите %d правильных ответов за месяц" = "Erhalten Sie diesen Monat die richtigen %d-Antworten";
-"Сыграй %d идеальных игр" = "Spielen Sie perfekte %d-Spiele";
-"Завершите %d игр без ошибок" = "Beende %d-Spiele ohne Fehler";
+"Наберите %d правильных ответов за месяц" = "Gib diesen Monat %d richtige Antworten";
+"Сыграй %d идеальных игр" = "Spiele %d perfekte Partien";
+"Завершите %d игр без ошибок" = "Beende %d Spiele ohne Fehler";
 /* Settings screen */
 "Настройки" = "Einstellungen";
 "Аккаунт" = "Konto";
@@ -16,33 +16,33 @@
 
 /* Achievements */
 "Достижения" = "Achievements";
-"Достижение" = "Achievement";
-"ЛИЧНЫЕ РЕКОРДЫ" = "PERSONAL BESTS";
+"Достижение" = "Erfolg";
+"ЛИЧНЫЕ РЕКОРДЫ" = "Persönliche Rekorde";
 "НАГРАДЫ" = "AWARDS";
-"Лучшая серия" = "Best Streak";
+"Лучшая серия" = "Längste Serie";
 "Макс. лига" = "Max League";
-"Макс. XP" = "Max XP";
-"Открыто" = "Unlocked";
+"Макс. XP" = "Höchste XP-Zahl";
+"Открыто" = "Freigeschaltet";
 
 /* Profile */
 "League" = "League";
-"Following" = "Friends";
+"Following" = "Freunde";
 "Days in a row" = "Days in a row";
-"Текущая серия" = "Current Streak";
+"Текущая серия" = "Aktuelle Serie";
 "дней" = "days";
-"Joined in %@" = "Joined in %@";
-"Level %d • %d XP • %d-day streak" = "Level %d • %d XP • %d-Tagessträhne";
+"Joined in %@" = "Dabei seit %@";
+"Level %d • %d XP • %d-day streak" = "Level %d • %d XP • Serie von %d Tagen";
 "SUPER" = "SUPER";
 
 /* Leagues medals & labels */
-"1st" = "1";
-"2nd" = "2";
-"3rd" = "3";
+"1st" = "1.";
+"2nd" = "2.";
+"3rd" = "3.";
 "XP" = "XP";
 
 /* Monthly badges sample titles */
 "Алмазная лига" = "Diamantliga";
-"Серия мастера" = "Master Streak";
+"Серия мастера" = "Meisterserie";
 "Чемпион месяца" = "Champion of the Month";
 "Идеальная неделя" = "Perfect Week";
 "Бронзовая лига" = "Bronzeliga";
@@ -193,10 +193,10 @@
 "Интересные факты" = "Interessante Fakten";
 "Interesting facts study slides" = "Mit Folien lernen";
 "Interesting facts back to list" = "Zur Liste";
-"Самый старый флаг" = "Älteste Flagge";
-"Флаг Дании используется с 1219 года" = "Die Flagge Dänemarks wird seit 1219 verwendet";
-"Единственный квадратный флаг" = "Nur quadratische Flagge";
-"У Швейцарии единственный квадратный флаг в мире" = "Die Schweiz hat die weltweit einzige quadratische Flagge";
+"Самый старый флаг" = "Eine Flagge mit einer Legende";
+"Флаг Дании используется с 1219 года" = "Eine Legende verbindet die dänische Flagge mit einer Schlacht im Jahr 1219.";
+"Единственный квадратный флаг" = "Quadratische Nationalflaggen";
+"У Швейцарии единственный квадратный флаг в мире" = "Sowohl die Schweiz als auch die Vatikanstadt haben quadratische Nationalflaggen.";
 "Самый сложный флаг" = "Die komplexeste Flagge";
 "У Бутана на флаге изображен дракон" = "Auf der Flagge Bhutans ist ein Drache zu sehen";
 "Go Premium" = "Go Premium";
@@ -445,9 +445,9 @@
 
 // Profile Page
 "League" = "Liga";
-"Following" = "Nachfolgend";
+"Following" = "Freunde";
 "Days in a row" = "Tage hintereinander";
-"Joined in %@" = "Beigetreten in %@";
+"Joined in %@" = "Dabei seit %@";
 "Statistics" = "Statistiken";
 "Total XP" = "Gesamt-XP";
 "Current streak" = "Aktuelle Serie";
@@ -571,7 +571,7 @@
 
 /* Profile Statistics */
 "дней" = "days";
-"Текущая серия" = "Current streak";
+"Текущая серия" = "Aktuelle Serie";
 "Всего изучено флагов" = "Total flags learned";
 "Текущая лига" = "Current league";
 "Общий опыт" = "Total experience";
@@ -689,13 +689,13 @@
 
 /* Achievements */
 "Достижения" = "Erfolge";
-"Достижение" = "Leistung";
-"ЛИЧНЫЕ РЕКОРДЫ" = "Persönliche Aufzeichnungen";
+"Достижение" = "Erfolg";
+"ЛИЧНЫЕ РЕКОРДЫ" = "Persönliche Rekorde";
 "НАГРАДЫ" = "Auszeichnungen";
-"Лучшая серия" = "Längster Streak";
+"Лучшая серия" = "Längste Serie";
 "Макс. лига" = "Höchste Liga";
-"Макс. XP" = "Die meisten XP";
-"Открыто" = "Entsperrt";
+"Макс. XP" = "Höchste XP-Zahl";
+"Открыто" = "Freigeschaltet";
 
 /* Achievement titles/descriptions */
 "Ранняя птица" = "Early Bird";
@@ -782,7 +782,7 @@
 "Текущая лига" = "Aktuelle Liga";
 "Общий опыт" = "Gesamterlebnis";
 "дней" = "days";
-"Текущая серия" = "Current streak";
+"Текущая серия" = "Aktuelle Serie";
 "XP" = "XP";
 "ДОБАВИТЬ ДРУЗЕЙ" = "FREUNDE HINZUFÜGEN";
 "СЕРИИ ДРУЗЕЙ" = "FREUNDSTREAKS";
@@ -815,7 +815,7 @@
 "Ранняя птица" = "Frühaufsteher";
 "Железная воля" = "Eiserner Wille";
 "Алмазная лига" = "Diamantliga";
-"Серия мастера" = "Meistersträhne";
+"Серия мастера" = "Meisterserie";
 "Чемпион месяца" = "Monatlicher Champion";
 "Идеальная неделя" = "Perfekte Woche";
 
@@ -922,7 +922,7 @@
 "Изучено флагов" = "Flaggen studiert";
 "Лучший результат" = "Bestes Ergebnis";
 "очков" = "Punkte";
-"Текущая серия" = "Aktueller Streak";
+"Текущая серия" = "Aktuelle Serie";
 "дней" = "Tage";
 "Точность" = "Genauigkeit";
 "Теперь вы можете без единой ошибки отвечать на все наши вопросы с точностью в %d%%" = "Deine Antwortgenauigkeit beträgt %d%%.";
@@ -1149,10 +1149,10 @@
 "Current Streak" = "Aktuelle Serie";
 
 /* 68 interesting facts */
-"FACT_01_TITLE" = "Älteste durchgehend genutzte Flagge";
-"FACT_01_DESC" = "Dänemarks Dannebrog gilt als die älteste seit 1219 ununterbrochen genutzte Nationalflagge.";
-"FACT_02_TITLE" = "Einzige quadratische Nationalflagge";
-"FACT_02_DESC" = "Die Schweiz hat die einzige quadratische Nationalflagge der Welt. Der Vatikan hat ebenfalls eine quadratische Flagge, ist aber ein Stadtstaat.";
+"FACT_01_TITLE" = "Eine Flagge mit einer Legende";
+"FACT_01_DESC" = "Eine Legende verbindet die dänische Flagge mit einer Schlacht im Jahr 1219.";
+"FACT_02_TITLE" = "Quadratische Nationalflaggen";
+"FACT_02_DESC" = "Sowohl die Schweiz als auch die Vatikanstadt haben quadratische Nationalflaggen.";
 "FACT_03_TITLE" = "Nicht-rechteckige Flagge";
 "FACT_03_DESC" = "Nepal hat die einzige Nationalflagge der Welt, die nicht rechteckig ist.";
 "FACT_04_TITLE" = "Ohne Rot, Weiß oder Blau";
@@ -1877,8 +1877,8 @@
 "Sign in with Apple error 1000" = "Die Anmeldung mit Apple ist hier nicht verfügbar. Probieren Sie es auf einem echten Gerät aus oder überprüfen Sie Einstellungen → Apple ID.";
 "Virtual opponent" = "Virtueller Gegner";
 "appIcon.automatic" = "Automatisch an die App-Sprache anpassen";
-"appIcon.choose" = "Wählen Sie ein Symbol";
-"appIcon.suggestion" = "Ein Symbol in Ihrer Sprache";
+"appIcon.choose" = "Wähle ein Symbol";
+"appIcon.suggestion" = "Ein Symbol in deiner Sprache";
 "coins" = "Münzen";
 "duel.error.notYours" = "Diese Herausforderung gehört einem anderen Spieler. Überprüfen Sie das Konto, bei dem Sie angemeldet sind.";
 "education.fbucks.body" = "Das ist deine Spielwährung. Verdiene sie durch Spiele und Aufgaben und kaufe damit Avatar-Artikel und Serienschutz.";
@@ -1897,15 +1897,15 @@
 "guide.back" = "Zurück";
 "guide.done" = "Lass uns spielen";
 "guide.fbucks.body" = "Verdiene F-Bucks durch Spielen und Aufgaben. Tippe auf dein Guthaben, um Belohnungen, Avatar-Artikel und Serienschutz zu entdecken.";
-"guide.fbucks.title" = "Lernen Sie F-Bucks kennen";
+"guide.fbucks.title" = "Lerne F-Bucks kennen";
 "guide.friends.body" = "Füge Freunde über ihr Profil oder ihren Freundescode hinzu. Öffne ihr Profil, um sie zu einem Duell herauszufordern. Einladungen findest du unter Herausforderungen. Freundschaftsanfragen kannst du annehmen oder ablehnen.";
-"guide.friends.title" = "Spielen Sie mit Freunden";
+"guide.friends.title" = "Spiele mit Freunden";
 "guide.next" = "Weiter";
-"guide.play.body" = "Tippen Sie zum Starten auf „Wiedergabe“. „Fortfahren“ wird angezeigt, wenn Sie ein unvollendetes Spiel haben.";
+"guide.play.body" = "Tippe auf „Spielen“, um ein Spiel zu starten.";
 "guide.play.title" = "Dein nächstes Spiel";
 "guide.replay" = "App-Anleitung";
-"guide.settings.body" = "Tippen Sie hier, um eine Region, einen Schwierigkeitsgrad und einen Spielmodus auszuwählen.";
-"guide.settings.title" = "Machen Sie es zu Ihrem Spiel";
+"guide.settings.body" = "Tippe hier, um Region, Schwierigkeitsgrad und Spielmodus auszuwählen.";
+"guide.settings.title" = "Spiele auf deine Art";
 "guide.skip" = "Überspringen";
 "guide.streak.body" = "Tippe auf deine Serie, um den Kalender, deine Spieltage und den verfügbaren Serienschutz zu sehen.";
 "guide.streak.title" = "Jeder Tag zählt";
@@ -1915,40 +1915,40 @@
 "learning.anthem.shared_fmt" = "Diese Nationalhymne wird auch hier verwendet: %@. Das regionale Lied kann davon abweichen.";
 "learning.anthem.unavailable" = "Die Hymne konnte nicht geladen werden. Prüfe deine Verbindung und tippe auf die Wiedergabetaste, um es erneut zu versuchen.";
 "learning.country.discover" = "Ein genauerer Blick";
-"premium.benefit.anthems.body" = "Hören Sie sich verfügbare Hymnenaufnahmen an und entdecken Sie deren Geschichte und Bedeutung.";
+"premium.benefit.anthems.body" = "Höre dir verfügbare Aufnahmen von Nationalhymnen an und entdecke ihre Geschichte und Bedeutung.";
 "premium.benefit.anthems.title" = "Nationalhymnen";
-"premium.benefit.avatar.body" = "Tragen Sie die Premium-Kopfbedeckung, während Ihr Abonnement aktiv ist.";
-"premium.benefit.avatar.title" = "Premium Avatar-Zubehör";
+"premium.benefit.avatar.body" = "Trage die Premium-Kopfbedeckung, solange dein Abonnement aktiv ist.";
+"premium.benefit.avatar.title" = "Premium-Avatar-Zubehör";
 "premium.benefit.countries.body" = "Entdecke Hauptstädte, Einwohnerzahlen, Flächen, Sprachen, Währungen und interessante Fakten zu den Ländern.";
 "premium.benefit.countries.title" = "Detaillierte Länderfolien";
 "premium.benefit.erudite.body" = "Schalte den höchsten Schwierigkeitsgrad für eine größere Herausforderung frei.";
 "premium.benefit.erudite.title" = "Schwierigkeitsgrad Erudit";
-"premium.benefit.learning.body" = "Durchsuchen Sie Länder und Kontinente in Ihrem eigenen Tempo zwischen den Spielen.";
+"premium.benefit.learning.body" = "Entdecke zwischen den Spielen Länder und Kontinente in deinem eigenen Tempo.";
 "premium.benefit.learning.title" = "Lernbibliothek";
 "premium.benefit.lives.body" = "Spiele Klassiker und Zeit-Herausforderung, ohne auf neue Leben zu warten. Im Modus Überleben gelten weiterhin eigene Regeln.";
 "premium.benefit.lives.title" = "Unbegrenzte Herzen";
-"premium.benefit.map.body" = "Sehen Sie sich Ihre Fortschritte nach Land und Kontinent an und finden Sie Flaggen zum Üben.";
-"premium.benefit.map.title" = "Weltfortschrittskarte";
-"premium.benefit.mistakes.body" = "Spielen Sie mit Flaggen, die Sie zuvor falsch beantwortet haben.";
+"premium.benefit.map.body" = "Sieh dir deinen Fortschritt nach Land und Kontinent an und finde Flaggen zum Üben.";
+"premium.benefit.map.title" = "Weltkarte deines Lernfortschritts";
+"premium.benefit.mistakes.body" = "Übe Flaggen, die du zuvor falsch zugeordnet hast.";
 "premium.benefit.mistakes.title" = "Lerne aus deinen Fehlern";
-"premium.benefit.weekly.body" = "Wird automatisch für alle vollen 7 Tage Premium verdient, beginnend mit der Aktivierung dieses Bonus. Verdiente Belohnungen werden synchronisiert, wenn Sie die App öffnen.";
+"premium.benefit.weekly.body" = "Ab der Aktivierung dieses Bonus erhältst du automatisch für jeweils 7 volle Tage Premium eine Belohnung. Erhaltene Belohnungen werden beim Öffnen der App synchronisiert.";
 "premium.benefit.weekly.title" = "10 F-Bucks jede Woche";
 "premium.details.collapsed" = "Eingeklappt";
 "premium.details.expanded" = "Ausgeklappt";
-"premium.family.body" = "Teilen Sie Premium mit bis zu 6 Personen, einschließlich Ihnen, über Apple Family Sharing. Aktivieren Sie die Abonnementfreigabe in Ihren Apple-Familieneinstellungen. Jeder Spieler behält seinen eigenen Fortschritt.";
-"premium.family.title" = "Ein Abonnement für Ihre Familie";
-"premium.story.countries.body" = "Entdecken Sie Länderfolien, Hauptstädte, Währungen und Hymnenaufnahmen. Verbinde eine Flagge mit dem Land, das sie repräsentiert.";
-"premium.story.countries.title" = "Geben Sie jeder Flagge eine Geschichte.";
+"premium.family.body" = "Teile Premium über die Apple-Familienfreigabe mit einer Gruppe von bis zu 6 Personen, dich eingeschlossen. Aktiviere die Abonnementfreigabe in deinen Apple-Familieneinstellungen. Jeder Spieler behält seinen eigenen Fortschritt.";
+"premium.family.title" = "Ein Abonnement für deine Familie";
+"premium.story.countries.body" = "Entdecke Länderinformationen, Hauptstädte, Währungen und Aufnahmen von Nationalhymnen. Verbinde jede Flagge mit dem Land, für das sie steht.";
+"premium.story.countries.title" = "Hinter jeder Flagge steckt eine Geschichte.";
 "premium.story.enlarge" = "Beispielbildschirm vergrößern";
 "premium.story.example" = "Beispielbildschirm · Englisch";
-"premium.story.headline" = "Lernen Sie die Flags. Erinnere dich an die Welt.";
+"premium.story.headline" = "Lerne die Flaggen. Entdecke die Welt.";
 "premium.story.intro" = "Nutze jede Übung: Wiederhole schwierige Flaggen, lerne die Länder dahinter kennen und entdecke, was du als Nächstes lernen kannst.";
 "premium.story.map.body" = "Deine Fortschrittskarte zeigt, welche Flaggen du gut kennst und welche du noch üben solltest. So kannst du deine nächste Übung auswählen.";
-"premium.story.map.title" = "Wissen Sie, was Sie als Nächstes lernen müssen.";
+"premium.story.map.title" = "Entdecke, was du als Nächstes lernen kannst.";
 "premium.story.practice.body" = "Übe weiter, ohne auf neue Leben zu warten. Unter „Meine Fehler“ kannst du gezielt die Flaggen wiederholen, die dir noch schwerfallen.";
 "premium.story.practice.title" = "Mehr Übung. Weniger Lücken.";
-"premium.story.progress.body" = "Verwandeln Sie regelmäßiges Üben in sichtbare Ergebnisse. Überprüfen Sie Ihre Genauigkeit und korrekten Antworten und wählen Sie dann anhand der Premium-Weltkarte aus, was Sie als Nächstes üben möchten.";
-"premium.story.progress.title" = "Sehen Sie Ihren Fortschritt";
+"premium.story.progress.body" = "Mach durch regelmäßiges Üben sichtbare Fortschritte. Sieh dir deine Genauigkeit und richtigen Antworten an und wähle mit der Premium-Weltkarte aus, was du als Nächstes üben möchtest.";
+"premium.story.progress.title" = "Sieh deinen Fortschritt";
 "premium.weekly.history" = "Wöchentlicher Premium-Bonus";
 "premium.weekly.next" = "Nächster wöchentlicher Bonus: %@";
 "ranking.motivational.explanation" = "Fortschrittsbasierte Positionen unter virtuellen Gegnern.";

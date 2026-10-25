@@ -13,16 +13,16 @@
 "Настройки приложения" = "Nastavení aplikace";
 "Обратная связь" = "Zpětná vazba";
 "World Arena Premium" = "World Arena Premium";
-"Обратная связь по World Arena Flags" = "Zpětná vazba o vlajkách World Arena Flags";
+"Обратная связь по World Arena Flags" = "Zpětná vazba k World Arena Flags";
 
 /* Achievements */
 "Достижения" = "Úspěchy";
 "Достижение" = "Úspěch";
-"ЛИЧНЫЕ РЕКОРДЫ" = "OSOBNÍ NEJLEPŠÍ";
+"ЛИЧНЫЕ РЕКОРДЫ" = "Osobní rekordy";
 "НАГРАДЫ" = "OCENĚNÍ";
 "Лучшая серия" = "Nejlepší série";
 "Макс. лига" = "Max liga";
-"Макс. XP" = "Max XP";
+"Макс. XP" = "Nejvíce XP";
 "Открыто" = "Odemčeno";
 
 /* Profile */
@@ -31,7 +31,7 @@
 "Days in a row" = "Dny v řadě";
 "Текущая серия" = "Aktuální série";
 "дней" = "dní";
-"Joined in %@" = "Připojil se k %@";
+"Joined in %@" = "Ve hře od roku %@";
 "Level %d • %d XP • %d-day streak" = "Úroveň %d • %d XP • %d-denní série";
 "SUPER" = "SUPER";
 
@@ -194,10 +194,10 @@
 "Интересные факты" = "Zajímavá fakta";
 "Interesting facts study slides" = "Učit se slidery";
 "Interesting facts back to list" = "Zpět na seznam";
-"Самый старый флаг" = "Nejstarší vlajka";
-"Флаг Дании используется с 1219 года" = "Dánská vlajka se používá od roku 1219";
-"Единственный квадратный флаг" = "Pouze čtvercová vlajka";
-"У Швейцарии единственный квадратный флаг в мире" = "Švýcarsko má jedinou čtvercovou vlajku na světě";
+"Самый старый флаг" = "Vlajka s legendou";
+"Флаг Дании используется с 1219 года" = "Legenda spojuje dánskou vlajku s bitvou v roce 1219.";
+"Единственный квадратный флаг" = "Čtvercové státní vlajky";
+"У Швейцарии единственный квадратный флаг в мире" = "Švýcarsko i Vatikán mají čtvercové státní vlajky.";
 "Самый сложный флаг" = "Nejsložitější vlajka";
 "У Бутана на флаге изображен дракон" = "Na vlajce Bhútánu je drak";
 "Go Premium" = "Přejít Premium";
@@ -450,7 +450,7 @@
 "League" = "Liga";
 "Following" = "Přátelé";
 "Days in a row" = "Dny v řadě";
-"Joined in %@" = "Připojil se k %@";
+"Joined in %@" = "Ve hře od roku %@";
 "Statistics" = "Statistika";
 "Total XP" = "Celkem XP";
 "Current streak" = "Aktuální série";
@@ -705,7 +705,7 @@
 "НАГРАДЫ" = "Ocenění";
 "Лучшая серия" = "Nejdelší série";
 "Макс. лига" = "Nejvyšší liga";
-"Макс. XP" = "Většina XP";
+"Макс. XP" = "Nejvíce XP";
 "Открыто" = "Odemčeno";
 
 /* Achievement titles/descriptions */
@@ -1162,10 +1162,10 @@
 "Biometric login prompt" = "Potvrďte biometrické přihlášení";
 
 /* 68 interesting facts */
-"FACT_01_TITLE" = "Nejstarší nepřetržitě používaná vlajka";
-"FACT_01_DESC" = "Dánský Dannebrog je považován za nejstarší národní vlajku, která se nepřetržitě používá od roku 1219.";
-"FACT_02_TITLE" = "Pouze čtvercová státní vlajka";
-"FACT_02_DESC" = "Švýcarsko má jedinou čtvercovou státní vlajku na světě. Vatikán má také čtvercovou vlajku, ale je městským státem.";
+"FACT_01_TITLE" = "Vlajka s legendou";
+"FACT_01_DESC" = "Legenda spojuje dánskou vlajku s bitvou v roce 1219.";
+"FACT_02_TITLE" = "Čtvercové státní vlajky";
+"FACT_02_DESC" = "Švýcarsko i Vatikán mají čtvercové státní vlajky.";
 "FACT_03_TITLE" = "Neobdélníková vlajka";
 "FACT_03_DESC" = "Nepál má jedinou státní vlajku na světě, která není obdélníková.";
 "FACT_04_TITLE" = "Žádná červená, bílá nebo modrá";
@@ -1895,7 +1895,7 @@
 "education.fbucks.body" = "Tohle je tvoje herní měna. Získáš ji hraním a plněním úkolů a utratíš za doplňky avatara a ochranu denní série.";
 "education.fbucks.done" = "Rozumím";
 "education.fbucks.shop" = "Zobrazit obchod";
-"education.fbucks.title" = "Vydělali jste F-Bucks!";
+"education.fbucks.title" = "Získal jsi F-Bucks!";
 "facts.area" = "Plocha";
 "facts.capital" = "Hlavní město";
 "facts.explanation" = "Vyberte, co se zobrazí na zadní straně karty země po odpovědi.";
@@ -1908,15 +1908,15 @@
 "guide.back" = "Zpět";
 "guide.done" = "Pojďme si hrát";
 "guide.fbucks.body" = "Získávej F-Bucks hraním a plněním úkolů. Klepni na zůstatek a prohlédni si odměny, doplňky avatara a ochranu série.";
-"guide.fbucks.title" = "Seznamte se se F-Bucks";
-"guide.friends.body" = "Přidejte přítele z jeho profilu nebo kódu přítele. Otevřete jejich profil a vyzvěte je na souboj. Pozvánky se objevují ve Výzvách; žádosti o přátelství vám umožňují přidat se zpět nebo odmítnout.";
-"guide.friends.title" = "Hrajte s přáteli";
+"guide.fbucks.title" = "Seznam se s F-Bucks";
+"guide.friends.body" = "Přidej přátele přes jejich profil nebo kód přítele. Otevři jejich profil a vyzvi je na souboj. Pozvánky najdeš v sekci „Výzvy“. Žádosti o přátelství můžeš přijmout nebo odmítnout.";
+"guide.friends.title" = "Hraj s přáteli";
 "guide.next" = "Další";
-"guide.play.body" = "Začněte klepnutím na Přehrát. Pokračovat se zobrazí, když máte nedokončenou hru.";
-"guide.play.title" = "Vaše další hra";
+"guide.play.body" = "Klepni na „Hrát“ a začni hru.";
+"guide.play.title" = "Tvoje další hra";
 "guide.replay" = "Průvodce aplikací";
 "guide.settings.body" = "Klepnutím sem vyberete region, obtížnost a herní režim.";
-"guide.settings.title" = "Udělejte z toho svou hru";
+"guide.settings.title" = "Hraj po svém";
 "guide.skip" = "Přeskočit";
 "guide.streak.body" = "Klepni na svou sérii a zobraz si kalendář, odehrané dny a ochranu série.";
 "guide.streak.title" = "Každý den se počítá";
@@ -1926,7 +1926,7 @@
 "learning.anthem.shared_fmt" = "Stejnou státní hymnu používá také tato země: %@. Regionální píseň se může lišit.";
 "learning.anthem.unavailable" = "Hymnu nelze načíst. Zkontrolujte připojení a klepnutím na Přehrát to zkuste znovu.";
 "learning.country.discover" = "Bližší pohled";
-"premium.benefit.anthems.body" = "Poslechněte si dostupné nahrávky hymny a objevte jejich historii a význam.";
+"premium.benefit.anthems.body" = "Poslechněte si dostupné nahrávky státních hymen a objevte jejich historii a význam.";
 "premium.benefit.anthems.title" = "Státní hymny";
 "premium.benefit.avatar.body" = "Když je vaše předplatné aktivní, noste pokrývku hlavy Premium.";
 "premium.benefit.avatar.title" = "Příslušenství k avataru Premium";
@@ -1937,25 +1937,25 @@
 "premium.benefit.learning.body" = "Mezi hrami procházejte země a kontinenty svým vlastním tempem.";
 "premium.benefit.learning.title" = "Výuková knihovna";
 "premium.benefit.lives.body" = "Hrajte klasický režim a časovou výzvu bez čekání na obnovení životů. Režim Přežití má nadále vlastní pravidla.";
-"premium.benefit.lives.title" = "Neomezené srdce";
+"premium.benefit.lives.title" = "Neomezené životy";
 "premium.benefit.map.body" = "Podívejte se na svůj pokrok podle země a kontinentu a najděte vlajky, které si můžete procvičit.";
-"premium.benefit.map.title" = "Mapa světového pokroku";
+"premium.benefit.map.title" = "Mapa vašeho pokroku";
 "premium.benefit.mistakes.body" = "Procvičujte vlajky, u kterých jste dříve odpověděli nesprávně.";
 "premium.benefit.mistakes.title" = "Poučte se z chyb";
-"premium.benefit.weekly.body" = "Automaticky vyděláno za každých celých 7 dní Premium, počínaje aktivací tohoto bonusu. Získané odměny se synchronizují při otevření aplikace.";
+"premium.benefit.weekly.body" = "Za každých celých 7 dní Premium automaticky získáte odměnu, počínaje aktivací tohoto bonusu. Získané odměny se synchronizují při otevření aplikace.";
 "premium.benefit.weekly.title" = "10 F-Bucks každý týden";
 "premium.details.collapsed" = "Sbaleno";
 "premium.details.expanded" = "Rozbaleno";
 "premium.family.body" = "Sdílejte Premium až se 6 lidmi, včetně vás, prostřednictvím Apple Family Sharing. Povolte sdílení předplatného ve vašem rodinném nastavení Apple. Každý hráč si udržuje svůj vlastní postup.";
 "premium.family.title" = "Jedno předplatné pro vaši rodinu";
-"premium.story.countries.body" = "Prozkoumejte snímky zemí, hlavní města, měny a nahrávky hymny. Spojte vlajku se zemí, kterou reprezentuje.";
+"premium.story.countries.body" = "Prozkoumejte informace o zemích, jejich hlavní města, měny a nahrávky státních hymen. Spojte si každou vlajku se zemí, kterou představuje.";
 "premium.story.countries.title" = "Dejte každé vlajce příběh.";
 "premium.story.enlarge" = "Zvětšit ukázkovou obrazovku";
 "premium.story.example" = "Příklad obrazovky · Angličtina";
 "premium.story.headline" = "Naučte se vlajky. Pamatujte na svět.";
-"premium.story.intro" = "Ať se každá lekce počítá: procvičte si obtížné vlajky, pochopte země za nimi a uvidíte, co se naučit dál.";
+"premium.story.intro" = "Využijte každé procvičování naplno: zopakujte si obtížné vlajky, poznejte země, které představují, a vyberte si, co se učit dál.";
 "premium.story.map.body" = "Mapa pokroku ukazuje, které vlajky už dobře znáte a které si potřebujete zopakovat, a pomáhá vám vybrat další procvičování.";
-"premium.story.map.title" = "Vědět, co se naučit dál.";
+"premium.story.map.title" = "Zjistěte, co se učit dál.";
 "premium.story.practice.body" = "Procvičujte dál bez čekání na obnovení životů. Sekce „Moje chyby“ vám pomůže zopakovat si vlajky, které vám dělají potíže.";
 "premium.story.practice.title" = "Více praxe. Méně mezer.";
 "premium.story.progress.body" = "Proměňte pravidelnou praxi ve viditelné výsledky. Zkontrolujte svou přesnost a správné odpovědi a poté pomocí mapy světa Premium vyberte, co budete dále procvičovat.";

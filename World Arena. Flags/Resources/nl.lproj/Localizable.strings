@@ -1,37 +1,37 @@
 "Open in Game Center" = "Openen in Game Center";
 "Заработай %d XP" = "Verdien %d XP";
 "F-BUCKS EARNED" = "VERDIENDE F-BUCKS";
-"Дай %d правильных ответов" = "Ontvang de juiste antwoorden van %d";
-"Наберите %d правильных ответов за месяц" = "Ontvang deze maand de juiste antwoorden van %d";
+"Дай %d правильных ответов" = "Geef %d goede antwoorden";
+"Наберите %d правильных ответов за месяц" = "Geef deze maand %d goede antwoorden";
 "Сыграй %d идеальных игр" = "Speel %d perfecte spellen";
-"Завершите %d игр без ошибок" = "Voltooi %d-spellen zonder fouten";
+"Завершите %d игр без ошибок" = "Voltooi %d spellen zonder fouten";
 /* Settings screen */
 "Настройки" = "Instellingen";
-"Аккаунт" = "Rekening";
+"Аккаунт" = "Account";
 "Профиль пользователя" = "Gebruikersprofiel";
-"Поддержка" = "Steun";
+"Поддержка" = "Ondersteuning";
 "Настройки приложения" = "App-instellingen";
 "Обратная связь" = "Terugkoppeling";
 "World Arena Premium" = "World Arena Premium";
-"Обратная связь по World Arena Flags" = "Feedback over World Arena-vlaggen";
+"Обратная связь по World Arena Flags" = "Feedback over World Arena Flags";
 
 /* Achievements */
 "Достижения" = "Achievements";
 "Достижение" = "Achievement";
-"ЛИЧНЫЕ РЕКОРДЫ" = "PERSONAL BESTS";
+"ЛИЧНЫЕ РЕКОРДЫ" = "Persoonlijke records";
 "НАГРАДЫ" = "AWARDS";
 "Лучшая серия" = "Best Streak";
 "Макс. лига" = "Max League";
-"Макс. XP" = "Max XP";
+"Макс. XP" = "Meeste XP";
 "Открыто" = "Unlocked";
 
 /* Profile */
 "League" = "League";
-"Following" = "Friends";
+"Following" = "Vrienden";
 "Days in a row" = "Days in a row";
 "Текущая серия" = "Current Streak";
 "дней" = "days";
-"Joined in %@" = "Joined in %@";
+"Joined in %@" = "Lid sinds %@";
 "Level %d • %d XP • %d-day streak" = "Niveau %d • %d XP • %d-dagreeks";
 "SUPER" = "SUPER";
 
@@ -43,13 +43,13 @@
 
 /* Monthly badges sample titles */
 "Алмазная лига" = "Diamond League";
-"Серия мастера" = "Master Streak";
+"Серия мастера" = "Meesterreeks";
 "Чемпион месяца" = "Champion of the Month";
 "Идеальная неделя" = "Perfect Week";
 "Бронзовая лига" = "Bronzen Liga";
 "Лига Мастеров" = "Master Liga";
 // General
-"World Flags" = "Wereld vlaggen";
+"World Flags" = "Vlaggen van de wereld";
 "Learn flags of the world" = "Leer vlaggen van de wereld";
 "Score" = "Scoren";
 "Exit" = "Uitgang";
@@ -194,10 +194,10 @@
 "Интересные факты" = "Interessante feiten";
 "Interesting facts study slides" = "Leren met dia's";
 "Interesting facts back to list" = "Terug naar lijst";
-"Самый старый флаг" = "Oudste vlag";
-"Флаг Дании используется с 1219 года" = "De Deense vlag wordt sinds 1219 gebruikt";
-"Единственный квадратный флаг" = "Alleen vierkante vlag";
-"У Швейцарии единственный квадратный флаг в мире" = "Zwitserland heeft de enige vierkante vlag ter wereld";
+"Самый старый флаг" = "Een vlag met een legende";
+"Флаг Дании используется с 1219 года" = "Een legende verbindt de Deense vlag met een veldslag in 1219.";
+"Единственный квадратный флаг" = "Vierkante nationale vlaggen";
+"У Швейцарии единственный квадратный флаг в мире" = "Zowel Zwitserland als Vaticaanstad heeft een vierkante nationale vlag.";
 "Самый сложный флаг" = "Meest complexe vlag";
 "У Бутана на флаге изображен дракон" = "Op de vlag van Bhutan staat een draak afgebeeld";
 "Go Premium" = "Go Premium";
@@ -447,9 +447,9 @@
 
 // Profile Page
 "League" = "Competitie";
-"Following" = "Volgende";
+"Following" = "Vrienden";
 "Days in a row" = "Dagen achter elkaar";
-"Joined in %@" = "Aangesloten bij %@";
+"Joined in %@" = "Lid sinds %@";
 "Statistics" = "Statistieken";
 "Total XP" = "Totaal XP";
 "Current streak" = "Huidige reeks";
@@ -692,11 +692,11 @@
 /* Achievements */
 "Достижения" = "Prestaties";
 "Достижение" = "Prestatie";
-"ЛИЧНЫЕ РЕКОРДЫ" = "Persoonlijke gegevens";
+"ЛИЧНЫЕ РЕКОРДЫ" = "Persoonlijke records";
 "НАГРАДЫ" = "Onderscheidingen";
 "Лучшая серия" = "Langste reeks";
 "Макс. лига" = "Hoogste Liga";
-"Макс. XP" = "De meeste XP";
+"Макс. XP" = "Meeste XP";
 "Открыто" = "Ontgrendeld";
 
 /* Achievement titles/descriptions */
@@ -809,7 +809,7 @@
 
 // Settings page
 "Премиум" = "Premie";
-"World Arena Premium" = "Wereld Arena Premium";
+"World Arena Premium" = "World Arena Premium";
 "Премиум подписка активна" = "Premium-abonnement actief";
 "ВОССТАНОВИТЬ ПОДПИСКУ" = "HERSTEL ABONNEMENT";
 
@@ -817,7 +817,7 @@
 "Ранняя птица" = "Vroege vogel";
 "Железная воля" = "Ijzeren wil";
 "Алмазная лига" = "Diamant Liga";
-"Серия мастера" = "Meester Streak";
+"Серия мастера" = "Meesterreeks";
 "Чемпион месяца" = "Maandelijkse kampioen";
 "Идеальная неделя" = "Perfecte week";
 
@@ -1152,10 +1152,10 @@
 "дней" = "dagen";
 
 /* 68 interesting facts */
-"FACT_01_TITLE" = "Oudste continu gebruikte vlag";
-"FACT_01_DESC" = "De Deense Dannebrog wordt beschouwd als de oudste nationale vlag in continu gebruik sinds 1219.";
-"FACT_02_TITLE" = "Enige vierkante nationale vlag";
-"FACT_02_DESC" = "Zwitserland heeft de enige vierkante nationale vlag ter wereld. Het Vaticaan heeft ook een vierkante vlag maar is een stadstaat.";
+"FACT_01_TITLE" = "Een vlag met een legende";
+"FACT_01_DESC" = "Een legende verbindt de Deense vlag met een veldslag in 1219.";
+"FACT_02_TITLE" = "Vierkante nationale vlaggen";
+"FACT_02_DESC" = "Zowel Zwitserland als Vaticaanstad heeft een vierkante nationale vlag.";
 "FACT_03_TITLE" = "Niet-rechthoekige vlag";
 "FACT_03_DESC" = "Nepal heeft de enige nationale vlag ter wereld die niet rechthoekig is.";
 "FACT_04_TITLE" = "Zonder rood, wit of blauw";
@@ -1878,8 +1878,8 @@
 "Sign in with Apple error 1000" = "Inloggen met Apple is hier niet mogelijk. Probeer het op een echt apparaat of controleer Instellingen → Apple ID.";
 "Virtual opponent" = "Virtuele tegenstander";
 "appIcon.automatic" = "Automatisch aanpassen aan de taal van de app";
-"appIcon.choose" = "Kies een pictogram";
-"appIcon.suggestion" = "Een pictogram in uw taal";
+"appIcon.choose" = "Kies een icoon";
+"appIcon.suggestion" = "Een icoon in je taal";
 "coins" = "munten";
 "duel.error.notYours" = "Deze uitdaging is van een andere speler. Controleer het account waarop u bent aangemeld.";
 "education.fbucks.body" = "Dit is je spelvaluta. Verdien die door te spelen en opdrachten te voltooien, en koop er avataraccessoires en bescherming voor je dagelijkse reeks mee.";
@@ -1899,10 +1899,10 @@
 "guide.done" = "Laten we spelen";
 "guide.fbucks.body" = "Verdien F-Bucks door te spelen en opdrachten te voltooien. Tik op je saldo voor beloningen, avataraccessoires en bescherming voor je reeks.";
 "guide.fbucks.title" = "Maak kennis met F-Bucks";
-"guide.friends.body" = "Voeg een vriend toe vanuit zijn/haar profiel of vriendcode. Open hun profiel om ze uit te dagen voor een duel. Uitnodigingen verschijnen in Uitdagingen; Met vriendschapsverzoeken kun je vrienden toevoegen of weigeren.";
+"guide.friends.body" = "Voeg vrienden toe via hun profiel of vriendcode. Open hun profiel om ze uit te dagen voor een duel. Uitnodigingen staan onder ‘Uitdagingen’. Je kunt vriendschapsverzoeken accepteren of weigeren.";
 "guide.friends.title" = "Speel met vrienden";
 "guide.next" = "Volgende";
-"guide.play.body" = "Tik op Afspelen om te starten. Doorgaan verschijnt als je een onvoltooid spel hebt.";
+"guide.play.body" = "Tik op ‘Spelen’ om een spel te starten.";
 "guide.play.title" = "Je volgende spel";
 "guide.replay" = "App-gids";
 "guide.settings.body" = "Tik hier om een regio, moeilijkheidsgraad en spelmodus te kiezen.";
@@ -1916,9 +1916,9 @@
 "learning.anthem.shared_fmt" = "Dit volkslied wordt ook gebruikt in: %@. Het regionale lied kan anders zijn.";
 "learning.anthem.unavailable" = "Het volkslied kon niet worden geladen. Controleer je verbinding en tik op de afspeelknop om het opnieuw te proberen.";
 "learning.country.discover" = "Een nadere blik";
-"premium.benefit.anthems.body" = "Luister naar beschikbare anthemopnames en ontdek hun geschiedenis en betekenis.";
+"premium.benefit.anthems.body" = "Luister naar beschikbare opnamen van volksliederen en ontdek hun geschiedenis en betekenis.";
 "premium.benefit.anthems.title" = "Volksliederen";
-"premium.benefit.avatar.body" = "Draag de Premium-hoofddeksels terwijl uw abonnement actief is.";
+"premium.benefit.avatar.body" = "Draag het Premium-hoofddeksel zolang je abonnement actief is.";
 "premium.benefit.avatar.title" = "Premium-avataraccessoire";
 "premium.benefit.countries.body" = "Ontdek hoofdsteden, inwonertallen, oppervlakte, talen, valuta en interessante weetjes over landen.";
 "premium.benefit.countries.title" = "Gedetailleerde landendia's";
@@ -1929,15 +1929,15 @@
 "premium.benefit.lives.body" = "Speel Klassiek en Tijdsuitdaging zonder te wachten tot je levens zijn aangevuld. Voor Overleving blijven de eigen regels gelden.";
 "premium.benefit.lives.title" = "Onbeperkte harten";
 "premium.benefit.map.body" = "Bekijk je voortgang per land en continent, en vind vlaggen om te oefenen.";
-"premium.benefit.map.title" = "Wereldvooruitgangskaart";
-"premium.benefit.mistakes.body" = "Speel met vlaggen die je eerder verkeerd hebt beantwoord.";
+"premium.benefit.map.title" = "Wereldkaart van je voortgang";
+"premium.benefit.mistakes.body" = "Oefen vlaggen die je eerder verkeerd hebt herkend.";
 "premium.benefit.mistakes.title" = "Leer van je fouten";
-"premium.benefit.weekly.body" = "Automatisch verdiend voor elke volledige 7 dagen Premium, vanaf het moment dat deze bonus wordt geactiveerd. Verdiende beloningen worden gesynchroniseerd wanneer u de app opent.";
+"premium.benefit.weekly.body" = "Je verdient automatisch een beloning voor elke volledige periode van 7 dagen Premium, vanaf de activering van deze bonus. Verdiende beloningen worden gesynchroniseerd wanneer je de app opent.";
 "premium.benefit.weekly.title" = "10 F-Bucks elke week";
 "premium.details.collapsed" = "Ingevouwen";
 "premium.details.expanded" = "Uitgevouwen";
-"premium.family.body" = "Deel Premium met maximaal 6 mensen, inclusief uzelf, via Apple Family Sharing. Schakel het delen van abonnementen in uw Apple-gezinsinstellingen in. Elke speler houdt zijn eigen voortgang bij.";
-"premium.family.title" = "Eén abonnement voor uw gezin";
+"premium.family.body" = "Deel Premium via Delen met gezin van Apple met een groep van maximaal 6 personen, inclusief jezelf. Schakel het delen van je abonnement in bij je Apple-gezinsinstellingen. Elke speler behoudt zijn eigen voortgang.";
+"premium.family.title" = "Eén abonnement voor je gezin";
 "premium.story.countries.body" = "Ontdek landendia's, hoofdsteden, valuta's en volksliedopnamen. Verbind een vlag met het land dat hij vertegenwoordigt.";
 "premium.story.countries.title" = "Geef elke vlag een verhaal.";
 "premium.story.enlarge" = "Vergroot het voorbeeldscherm";
@@ -1947,8 +1947,8 @@
 "premium.story.map.body" = "Je voortgangskaart laat zien welke vlaggen je goed kent en welke je nog moet oefenen. Zo kies je wat je hierna gaat oefenen.";
 "premium.story.map.title" = "Weet wat je vervolgens moet leren.";
 "premium.story.practice.body" = "Blijf oefenen zonder te wachten tot je levens zijn aangevuld. Met ‘Mijn fouten’ oefen je gericht de vlaggen die je nog lastig vindt.";
-"premium.story.practice.title" = "Meer oefenen. Minder gaten.";
-"premium.story.progress.body" = "Zet reguliere beoefening om in zichtbare resultaten. Controleer uw nauwkeurigheid en juiste antwoorden en gebruik vervolgens de Premium-wereldkaart om te kiezen wat u vervolgens wilt oefenen.";
+"premium.story.practice.title" = "Meer oefenen. Minder kennishiaten.";
+"premium.story.progress.body" = "Maak je vooruitgang zichtbaar door regelmatig te oefenen. Bekijk je nauwkeurigheid en goede antwoorden en gebruik de Premium-wereldkaart om je volgende oefening te kiezen.";
 "premium.story.progress.title" = "Bekijk je voortgang";
 "premium.weekly.history" = "Wekelijkse Premium-bonus";
 "premium.weekly.next" = "Volgende wekelijkse bonus: %@";

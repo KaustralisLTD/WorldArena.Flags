@@ -1,101 +1,89 @@
 # AI editorial review — in progress
 
-The user selected AI editorial review, rather than professional native-speaker
-review, on 25 October 2026. **The requested complete review is not finished.**
-Key coverage and successful tests must not be represented as linguistic approval.
+The user selected AI editorial review on 25 October 2026. **The requested complete
+review is not finished.** Coverage checks are not linguistic approval.
 
-This checkpoint directly changes 2,602 distinct locale/key entries. The review
-ledger records 4,998 reviewed entries out of 48,677, including locale-specific
-extras. It records each reviewed value's SHA-256, the remaining count per language,
-and before/after values for changes. Every language remains `in_progress`.
-A reviewed value means checked or directly rewritten by the AI against its source
-and context; it is not a guarantee of flawless native usage.
+The ledger records **9,009 reviewed entries out of 48,677**, and **3,624 distinct
+changed entries** against the editorial baseline. This continuation changed 1,022
+entries relative to a98dd9f8. Each reviewed value has a SHA-256; a changed value
+invalidates its prior review. A reviewed value was read or directly rewritten by
+the AI against source and context, not certified by native speakers.
 
-## Completed editorial scope in this checkpoint
+## Completed editorial scope
 
-- All 70 F-Bucks keys in all 30 languages: claim/close actions, daily rewards,
-  streak terminology, league rewards, prices, transaction history and shop items.
-- Shared time-challenge results, correct/total counts, survival-mode labels,
-  friend progress/achievements and weekly survival reward explanations.
-- Duel announcement: corrected the misleading English source and translations.
-  `Server/server.js:duelWinnerFromRow` compares scores first and elapsed time
-  second; the previous copy said the first player to score wins.
-- Accuracy result: replaced the contradictory promise of answering without any
-  errors at an arbitrary accuracy, and removed Cyrillic fragments in other locales.
-- Aligned equivalent shop item/streak labels in the older profile catalog keys.
-- Removed the word “cash” from the duplicated F-Bucks tournament description by
-  using the existing description without it: this is game currency, not cash.
-- Repaired identified English leftovers in achievements, league names and controls.
-- Removed translation artifacts: a Spanish `{0}`, Filipino XML and Arabic
-  translator instructions. Regression tests reject these artifacts.
+Across all 30 languages:
 
-The ledger deliberately does not count all 1,613 base keys per language as
-reviewed merely because they load successfully or pass format validation.
+- 70 F-Bucks keys: rewards, streaks, currencies, prices and shop items.
+- 49 learning keys: country panels, galleries, playback and shared national anthems.
+- 44 Premium keys: subscription wording, benefits, family sharing, weekly rewards,
+  learning progress, mistakes and expanded/collapsed accessibility labels.
+- 15 guide keys: onboarding actions, daily streaks, friends and invitations.
+- 24 `achievement.*` keys: achievement titles and thresholds. Older achievement
+  strings outside this prefix are not all reviewed yet.
+- 7 app-icon keys and 4 first-earned-currency education keys.
+- 40 common profile/account/quest keys, ending with `World Flags` in base order:
+  counters, labels, ranks, registration year and quest formats.
+- Two factual corrections in both legacy tiles and numbered fact cards (8 keys
+  per language). The rest of the country facts are still pending.
+- Additional gameplay, notification, league and streak entries recorded individually
+  in the ledger, including the earlier score/time/accuracy repairs.
 
-## Subsequent learning and Premium pass
+## Context findings and corrections
 
-- Read all 49 learning keys in all 30 languages and corrected shared-anthem meaning,
-  playlist actions, gallery terminology and country information labels.
-- Reviewed Premium copy and corrected identified map, country-area, mistakes,
-  lives and expand/collapse wording across all 30 languages.
-- Premium is still pending final revision: remaining register, mode-name, weekly
-  reward and other findings are not marked complete. Only corrected Premium
-  values are credited in the ledger at this checkpoint.
+- `ProfileView.swift` passes `userProfile.friends.count` to the misleading
+  `Following` key. The text now means friends in every language, including English.
+- Registration dates receive a year, not a location. Fixed translations that meant
+  “joined [organisation/place]” and used year-compatible wording.
+- Personal records had become personal documents/files in several languages.
+- `GameHomeVariant2View.swift` uses `home.streak_nudge.play` for both guide targets.
+  `ContentView.performStartGameFromHome` starts a game or a mode introduction.
+  Removed the unsupported guide promise that a Continue label appears, and matched
+  the actual Play label in all 30 languages. Fixed media-play translations.
+- Premium progress maps describe knowledge of flags, not conquered/weak countries.
+  Corrected land-area wording, anatomical hearts, collapse-as-destruction,
+  accessory specificity, weekly reward grammar and inconsistent address.
+- The family sharing copy retains a maximum of six people including the subscriber.
+  The weekly bonus retains full seven-day intervals from bonus activation and sync
+  on opening the app; this pass does not change entitlement logic.
+- Preserved product name World Arena Premium instead of literal translations such
+  as “World Arena prize”. Corrected answer-count word order in quest descriptions.
+
+## Verified fact corrections
+
+Switzerland is not the only country with a square national flag: Vatican City also
+has one. Source: [Swiss Federal Department of Foreign Affairs](https://www.aboutswitzerland.eda.admin.ch/en/swiss-flag).
+The prior numbered fact wrongly excluded Vatican City on the basis that it is a
+city-state. Both versions now simply identify both square national flags.
+
+The year 1219 belongs to the legend about Denmark's flag, not a proven continuous-use
+start date. The Danish embassy dates the first factual evidence to the 14th century:
+[Danish national flag](https://um.dk/estland/en/denmark-and-estonia/national-symbols/danish-national-flag).
+The tile and numbered fact now explicitly describe the legend. The former “oldest”
+headlines have been replaced so they do not preserve the unsupported implication.
 
 ## Validation
 
-- All 30 catalogs: zero missing/empty keys, format mismatches or translator markers.
-- Apple's parser loads all 30 catalogs; Foundation resolves all base keys in them.
-- Real formatted examples verify correct/total argument order for nine languages
-  that place total before correct, as well as lives timers and accuracy.
-- Six Python regression tests pass; 26 notification/server integration tests pass.
-- Compiled server notification texts are regenerated from the updated catalogs.
+- All 30 catalogs: zero missing or empty keys, placeholder mismatches or translator
+  artifacts. All reviewed hashes match the saved values.
+- Apple's parser accepts every catalog. Foundation loads every base key in all
+  bundles and checks notification history, timers, recovery and accuracy formatting.
+- Six Python catalog regression tests and 26 server integration tests pass.
+- Compiled notification catalogs regenerated, including edited achievement text.
+- No app behavior code changed in this continuation. No full simulator build was
+  repeated; the previous full build and current resource/runtime tests are distinct.
 
 ## Remaining work
 
-Continue using `app-localization-editorial-progress.json`: pending keys are the
-current catalog keys absent from its reviewed set; a changed value hash invalidates
-the prior review.
-The remaining work includes most help, country facts, Premium, onboarding,
-profile, achievements, home-screen and other gameplay copy. Also check terminology
-across those screens, singular/plural rendering and text fit in the interface.
-The preliminary English/Russian read exposed additional wording issues in older
-help and Premium copy; those reads are not marked complete in the ledger.
+Use `app-localization-editorial-progress.json` for the actual pending keys. All
+languages remain `in_progress`. Do not mark the whole app complete from prefix
+completion or passing tests.
 
-There is also a separate factual-content issue in the source: the old square-flag
-fact claims Switzerland has the world's only square flag, while another catalog
-fact describes Vatican City's square flag. This needs source verification and a
-coordinated content correction, not blind translation of the contradiction.
+Remaining areas include most home-screen/gameplay/result copy, older profile and
+achievement text, help and rules, country facts, errors, settings outside the icon
+section, and locale-specific extras. The first 40 pending base keys from the prior
+checkpoint are now reviewed; the next unreviewed base key is expected to be
+`Learn flags of the world`. Verify against the ledger rather than relying on order.
+Cross-screen terminology, grammatical number at runtime and text fit also need
+further checking. Native-language certification is not claimed.
 
 No merge, production deployment or App Store/TestFlight release is included.
-
-## Resume notes after learning/Premium correction
-
-The learning prefix (49 keys × 30 languages) has been read and revised. Country
-facts outside that prefix are still pending. This pass changed another 436
-locale/key values. The cumulative ledger now records 4,998 reviewed entries and
-2,602 changed entries; these totals deliberately exclude read-but-unresolved copy.
-
-The 44 Premium keys were read across all 30 languages. Finish these identified
-issues before marking that prefix complete:
-
-- Align informal/formal address in es, ca, fr, de, nl, hu and ro, especially
-  family sharing, avatar, anthem and story copy. Preserve the six-person total
-  including the subscriber; review Bengali wording for the maximum.
-- Clarify seven full days from bonus activation in the remaining awkward weekly
-  reward sentences (including ar, bn, id, ta, te and tr). Keep reward synchronization
-  on opening the app. Do not infer a different subscription entitlement.
-- Finish map title and practice headline wording where literal world development,
-  physical gaps or anatomical hearts remain. Check hi, bn, th, ta and te especially.
-- Review headwear copy: pt-BR says helmet, ro says winter cap. Avoid claiming a
-  specific accessory unless the actual item establishes that detail.
-- Finish country story text: Hungarian country slides became students; Filipino
-  text retains unnecessary English; Turkish wording suggests physically attaching
-  a flag. Dutch anthem recordings also retain an English fragment.
-- Continue reviewing all other unmarked keys using the ledger, including profile,
-  achievements, onboarding, help, country facts and gameplay. The earlier reading
-  of help/source facts was preliminary and is not counted as completed review.
-
-Validation for this pass: all 30 catalogs pass coverage/format and Apple parsing;
-6 catalog regression tests pass; Foundation loads all base keys and existing
-notification/time/accuracy formatting scenarios pass. No app code changed.

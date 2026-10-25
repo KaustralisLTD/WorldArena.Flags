@@ -18,32 +18,32 @@
 /* Achievements */
 "Достижения" = "Prestasi";
 "Достижение" = "Pencapaian";
-"ЛИЧНЫЕ РЕКОРДЫ" = "PRIBADI TERBAIK";
+"ЛИЧНЫЕ РЕКОРДЫ" = "Rekor pribadi";
 "НАГРАДЫ" = "PENGHARGAAN";
-"Лучшая серия" = "Garis Terbaik";
+"Лучшая серия" = "Rangkaian hari terpanjang";
 "Макс. лига" = "Liga Maks";
-"Макс. XP" = "XP Maks";
+"Макс. XP" = "XP terbanyak";
 "Открыто" = "Terbuka";
 
 /* Profile */
 "League" = "Liga";
-"Following" = "Teman-teman";
+"Following" = "Teman";
 "Days in a row" = "Hari berturut-turut";
-"Текущая серия" = "Streak saat ini";
+"Текущая серия" = "Rangkaian hari saat ini";
 "дней" = "hari";
-"Joined in %@" = "Bergabung di %@";
+"Joined in %@" = "Bergabung sejak %@";
 "Level %d • %d XP • %d-day streak" = "Level %d • %d XP • %d hari berturut-turut";
 "SUPER" = "SUPER";
 
 /* Leagues medals & labels */
-"1st" = "1";
+"1st" = "ke-1";
 "2nd" = "ke-2";
 "3rd" = "ke-3";
 "XP" = "XP";
 
 /* Monthly badges sample titles */
 "Алмазная лига" = "Liga Berlian";
-"Серия мастера" = "Garis Utama";
+"Серия мастера" = "Rangkaian hari tingkat master";
 "Чемпион месяца" = "Juara Bulan Ini";
 "Идеальная неделя" = "Minggu Sempurna";
 "Бронзовая лига" = "Liga Perunggu";
@@ -194,10 +194,10 @@
 "Интересные факты" = "Fakta Menarik";
 "Interesting facts study slides" = "Belajar dengan slide";
 "Interesting facts back to list" = "Kembali ke daftar";
-"Самый старый флаг" = "Bendera Tertua";
-"Флаг Дании используется с 1219 года" = "Bendera Denmark telah digunakan sejak tahun 1219";
-"Единственный квадратный флаг" = "Hanya Bendera Persegi";
-"У Швейцарии единственный квадратный флаг в мире" = "Swiss memiliki satu-satunya bendera persegi di dunia";
+"Самый старый флаг" = "Bendera dengan legenda";
+"Флаг Дании используется с 1219 года" = "Sebuah legenda mengaitkan bendera Denmark dengan pertempuran pada 1219.";
+"Единственный квадратный флаг" = "Bendera nasional berbentuk persegi";
+"У Швейцарии единственный квадратный флаг в мире" = "Swiss dan Kota Vatikan sama-sama memiliki bendera nasional berbentuk persegi.";
 "Самый сложный флаг" = "Bendera Paling Kompleks";
 "У Бутана на флаге изображен дракон" = "Bendera Bhutan menampilkan seekor naga";
 "Go Premium" = "Gunakan Premium";
@@ -448,9 +448,9 @@
 
 // Profile Page
 "League" = "Liga";
-"Following" = "Mengikuti";
+"Following" = "Teman";
 "Days in a row" = "Hari berturut-turut";
-"Joined in %@" = "Bergabung di %@";
+"Joined in %@" = "Bergabung sejak %@";
 "Statistics" = "Statistik";
 "Total XP" = "Jumlah XP";
 "Current streak" = "Pukulan saat ini";
@@ -574,7 +574,7 @@
 
 /* Profile Statistics */
 "дней" = "hari";
-"Текущая серия" = "Pukulan saat ini";
+"Текущая серия" = "Rangkaian hari saat ini";
 "Всего изучено флагов" = "Total bendera yang dipelajari";
 "Текущая лига" = "Liga saat ini";
 "Общий опыт" = "Pengalaman total";
@@ -701,11 +701,11 @@
 /* Achievements */
 "Достижения" = "Prestasi";
 "Достижение" = "Pencapaian";
-"ЛИЧНЫЕ РЕКОРДЫ" = "Catatan Pribadi";
+"ЛИЧНЫЕ РЕКОРДЫ" = "Rekor pribadi";
 "НАГРАДЫ" = "Penghargaan";
-"Лучшая серия" = "Garis Terpanjang";
+"Лучшая серия" = "Rangkaian hari terpanjang";
 "Макс. лига" = "Liga Tertinggi";
-"Макс. XP" = "Kebanyakan XP";
+"Макс. XP" = "XP terbanyak";
 "Открыто" = "Terbuka";
 
 /* Achievement titles/descriptions */
@@ -793,7 +793,7 @@
 "Текущая лига" = "Liga saat ini";
 "Общий опыт" = "Pengalaman total";
 "дней" = "hari";
-"Текущая серия" = "Pukulan saat ini";
+"Текущая серия" = "Rangkaian hari saat ini";
 "XP" = "XP";
 "ДОБАВИТЬ ДРУЗЕЙ" = "TAMBAHKAN TEMAN";
 "СЕРИИ ДРУЗЕЙ" = "GARIS TEMAN";
@@ -826,7 +826,7 @@
 "Ранняя птица" = "Burung Awal";
 "Железная воля" = "Kehendak Besi";
 "Алмазная лига" = "Liga Berlian";
-"Серия мастера" = "Garis Utama";
+"Серия мастера" = "Rangkaian hari tingkat master";
 "Чемпион месяца" = "Juara Bulanan";
 "Идеальная неделя" = "Minggu Sempurna";
 
@@ -933,7 +933,7 @@
 "Изучено флагов" = "Bendera Dipelajari";
 "Лучший результат" = "Skor Terbaik";
 "очков" = "poin";
-"Текущая серия" = "Streak saat ini";
+"Текущая серия" = "Rangkaian hari saat ini";
 "дней" = "hari";
 "Точность" = "Ketepatan";
 "Теперь вы можете без единой ошибки отвечать на все наши вопросы с точностью в %d%%" = "Akurasi jawabanmu adalah %d%%.";
@@ -1162,10 +1162,10 @@
 "Biometric login prompt" = "Konfirmasikan login biometrik";
 
 /* 68 interesting facts */
-"FACT_01_TITLE" = "Bendera tertua yang terus digunakan";
-"FACT_01_DESC" = "Dannebrog Denmark dianggap sebagai bendera nasional tertua yang terus digunakan sejak tahun 1219.";
-"FACT_02_TITLE" = "Hanya bendera nasional berbentuk persegi";
-"FACT_02_DESC" = "Swiss memiliki satu-satunya bendera nasional berbentuk persegi di dunia. Vatikan juga memiliki bendera persegi tetapi merupakan negara kota.";
+"FACT_01_TITLE" = "Bendera dengan legenda";
+"FACT_01_DESC" = "Sebuah legenda mengaitkan bendera Denmark dengan pertempuran pada 1219.";
+"FACT_02_TITLE" = "Bendera nasional berbentuk persegi";
+"FACT_02_DESC" = "Swiss dan Kota Vatikan sama-sama memiliki bendera nasional berbentuk persegi.";
 "FACT_03_TITLE" = "Bendera tidak berbentuk persegi panjang";
 "FACT_03_DESC" = "Nepal memiliki satu-satunya bendera nasional di dunia yang tidak berbentuk persegi panjang.";
 "FACT_04_TITLE" = "Tidak ada merah, putih atau biru";
@@ -1734,7 +1734,7 @@
 "premium.trial.start" = "Coba gratis 7 hari";
 "premium.trial.monthly" = "Gratis 7 hari, lalu %@ per bulan.";
 "premium.trial.yearly" = "Gratis 7 hari, lalu %@ per tahun.";
-"premium.renewal" = "Diperpanjang otomatis hingga dibatalkan. Kelola atau batalkan di langganan App Store Anda.";
+"premium.renewal" = "Diperpanjang otomatis hingga dibatalkan. Kelola atau batalkan di langganan App Store kamu.";
 "premium.subscribe" = "Berlangganan";
 
 /* Duel inbox */
@@ -1889,13 +1889,13 @@
 "Check your internet connection" = "Periksa koneksi internet Anda dan coba lagi.";
 "appIcon.automatic" = "Sesuaikan otomatis dengan bahasa aplikasi";
 "appIcon.choose" = "Pilih ikon";
-"appIcon.suggestion" = "Ikon dalam bahasa Anda";
+"appIcon.suggestion" = "Ikon dalam bahasamu";
 "coins" = "koin";
 "duel.error.notYours" = "Tantangan ini milik pemain lain. Periksa akun tempat Anda masuk.";
 "education.fbucks.body" = "Ini mata uang dalam game. Dapatkan dengan bermain dan menyelesaikan misi, lalu gunakan untuk membeli aksesori avatar dan pelindung rangkaian hari bermain.";
 "education.fbucks.done" = "Mengerti";
 "education.fbucks.shop" = "Lihat toko";
-"education.fbucks.title" = "Anda mendapatkan F-Bucks!";
+"education.fbucks.title" = "Kamu mendapatkan F-Bucks!";
 "facts.area" = "Daerah";
 "facts.capital" = "Ibu kota";
 "facts.explanation" = "Pilih apa yang muncul di belakang kartu negara setelah menjawab.";
@@ -1909,11 +1909,11 @@
 "guide.done" = "Ayo bermain";
 "guide.fbucks.body" = "Dapatkan F-Bucks dengan bermain dan menyelesaikan misi. Ketuk saldo untuk melihat hadiah, aksesori avatar, dan pelindung rangkaian hari bermain.";
 "guide.fbucks.title" = "Temui F-Bucks";
-"guide.friends.body" = "Tambahkan teman dari profil atau kode teman mereka. Buka profil mereka untuk menantang mereka berduel. Undangan muncul di Tantangan; permintaan pertemanan memungkinkan Anda menambahkan kembali atau menolak.";
+"guide.friends.body" = "Tambahkan teman melalui profil atau kode teman mereka. Buka profil mereka untuk mengajak berduel. Undangan muncul di “Tantangan”. Kamu bisa menerima atau menolak permintaan pertemanan.";
 "guide.friends.title" = "Bermain dengan teman";
 "guide.next" = "Selanjutnya";
-"guide.play.body" = "Ketuk Putar untuk memulai. Lanjutkan muncul ketika Anda memiliki permainan yang belum selesai.";
-"guide.play.title" = "Game Anda selanjutnya";
+"guide.play.body" = "Ketuk “Main” untuk memulai permainan.";
+"guide.play.title" = "Permainanmu berikutnya";
 "guide.replay" = "Panduan aplikasi";
 "guide.settings.body" = "Ketuk di sini untuk memilih wilayah, tingkat kesulitan, dan mode permainan.";
 "guide.settings.title" = "Jadikan itu permainanmu";
@@ -1928,26 +1928,26 @@
 "learning.country.discover" = "Melihat lebih dekat";
 "premium.benefit.anthems.body" = "Dengarkan rekaman lagu kebangsaan yang tersedia dan temukan sejarah serta maknanya.";
 "premium.benefit.anthems.title" = "Lagu kebangsaan";
-"premium.benefit.avatar.body" = "Kenakan penutup kepala Premium saat langganan Anda aktif.";
+"premium.benefit.avatar.body" = "Kenakan penutup kepala Premium selama langgananmu aktif.";
 "premium.benefit.avatar.title" = "Aksesori avatar Premium";
 "premium.benefit.countries.body" = "Kenali ibu kota, jumlah penduduk, luas wilayah, bahasa, mata uang, dan fakta menarik tentang berbagai negara.";
 "premium.benefit.countries.title" = "Slide negara yang terperinci";
 "premium.benefit.erudite.body" = "Buka tingkat kesulitan tertinggi untuk tantangan yang lebih besar.";
-"premium.benefit.erudite.title" = "Kesulitan terpelajar";
-"premium.benefit.learning.body" = "Jelajahi negara dan benua sesuai keinginan Anda di antara permainan.";
+"premium.benefit.erudite.title" = "Tingkat kesulitan Terpelajar";
+"premium.benefit.learning.body" = "Jelajahi negara dan benua dengan santai di sela-sela permainan.";
 "premium.benefit.learning.title" = "Perpustakaan pembelajaran";
 "premium.benefit.lives.body" = "Mainkan Klasik dan Tantangan waktu tanpa menunggu nyawa pulih. Mode Kelangsungan hidup tetap mengikuti aturannya sendiri.";
 "premium.benefit.lives.title" = "Nyawa tanpa batas";
-"premium.benefit.map.body" = "Lihat kemajuan Anda berdasarkan negara dan benua, dan temukan bendera untuk berlatih.";
-"premium.benefit.map.title" = "Peta kemajuan dunia";
-"premium.benefit.mistakes.body" = "Mainkan dengan bendera yang sebelumnya Anda jawab salah.";
+"premium.benefit.map.body" = "Lihat kemajuanmu menurut negara dan benua, lalu pilih bendera untuk latihan.";
+"premium.benefit.map.title" = "Peta kemajuan belajarmu";
+"premium.benefit.mistakes.body" = "Latih kembali bendera yang sebelumnya salah kamu kenali.";
 "premium.benefit.mistakes.title" = "Belajar dari kesalahan";
-"premium.benefit.weekly.body" = "Didapat secara otomatis untuk setiap 7 hari penuh Premium, dimulai saat bonus ini diaktifkan. Sinkronisasi hadiah yang diperoleh saat Anda membuka aplikasi.";
+"premium.benefit.weekly.body" = "Kamu mendapat hadiah otomatis untuk setiap 7 hari penuh Premium, terhitung sejak bonus ini diaktifkan. Hadiah yang diperoleh disinkronkan saat kamu membuka aplikasi.";
 "premium.benefit.weekly.title" = "10 F-Bucks setiap minggu";
 "premium.details.collapsed" = "Diciutkan";
 "premium.details.expanded" = "Diperluas";
-"premium.family.body" = "Bagikan Premium dengan maksimal 6 orang, termasuk Anda, melalui Apple Family Sharing. Aktifkan berbagi langganan di pengaturan keluarga Apple Anda. Setiap pemain menyimpan kemajuan mereka sendiri.";
-"premium.family.title" = "Satu langganan untuk keluarga Anda";
+"premium.family.body" = "Bagikan Premium melalui Keluarga Berbagi Apple dalam grup berisi maksimal 6 orang, termasuk kamu. Aktifkan berbagi langganan di pengaturan keluarga Apple. Kemajuan setiap pemain tetap tersimpan secara terpisah.";
+"premium.family.title" = "Satu langganan untuk keluargamu";
 "premium.story.countries.body" = "Jelajahi slide negara, ibu kota, mata uang, dan rekaman lagu kebangsaan. Hubungkan bendera dengan negara yang diwakilinya.";
 "premium.story.countries.title" = "Berikan cerita pada setiap bendera.";
 "premium.story.enlarge" = "Perbesar layar contoh";
@@ -1957,9 +1957,9 @@
 "premium.story.map.body" = "Peta kemajuanmu menunjukkan bendera yang sudah kamu kenal dengan baik dan yang perlu dilatih lagi, agar kamu bisa memilih latihan berikutnya.";
 "premium.story.map.title" = "Ketahui apa yang harus dipelajari selanjutnya.";
 "premium.story.practice.body" = "Terus berlatih tanpa menunggu nyawa pulih. Bagian “Kesalahan saya” membantumu mengulang bendera yang masih sulit dikenali.";
-"premium.story.practice.title" = "Latihan lagi. Lebih sedikit kesenjangan.";
+"premium.story.practice.title" = "Lebih banyak latihan. Pengetahuan makin kuat.";
 "premium.story.progress.body" = "Ubah latihan teratur menjadi hasil yang terlihat. Tinjau keakuratan dan jawaban yang benar, lalu gunakan peta dunia Premium untuk memilih apa yang akan dipraktikkan selanjutnya.";
-"premium.story.progress.title" = "Lihat kemajuan Anda";
+"premium.story.progress.title" = "Lihat kemajuanmu";
 "premium.weekly.history" = "Bonus Premium mingguan";
 "premium.weekly.next" = "Bonus mingguan berikutnya: %@";
 "ranking.motivational.explanation" = "Posisi berbasis kemajuan di antara lawan virtual.";

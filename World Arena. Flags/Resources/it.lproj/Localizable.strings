@@ -1,36 +1,36 @@
 "Заработай %d XP" = "Guadagna %d XP";
 "F-BUCKS EARNED" = "F-BUCKS GUADAGNATI";
-"Дай %d правильных ответов" = "Ottieni risposte corrette %d";
-"Наберите %d правильных ответов за месяц" = "Ottieni risposte corrette %d questo mese";
-"Сыграй %d идеальных игр" = "Gioca ai giochi perfetti %d";
-"Завершите %d игр без ошибок" = "Completa i giochi %d senza errori";
+"Дай %d правильных ответов" = "Dai %d risposte corrette";
+"Наберите %d правильных ответов за месяц" = "Dai %d risposte corrette questo mese";
+"Сыграй %d идеальных игр" = "Gioca %d partite perfette";
+"Завершите %d игр без ошибок" = "Completa %d partite senza errori";
 /* Settings screen */
 "Настройки" = "Impostazioni";
-"Аккаунт" = "Profilo account";
+"Аккаунт" = "Account";
 "Профиль пользователя" = "Profilo utente";
 "Поддержка" = "Supporto";
 "Настройки приложения" = "Impostazioni dell'app";
 "Обратная связь" = "Feedback";
 "World Arena Premium" = "World Arena Premium";
-"Обратная связь по World Arena Flags" = "Feedback sulle bandiere dell'arena mondiale";
+"Обратная связь по World Arena Flags" = "Feedback su World Arena Flags";
 
 /* Achievements */
-"Достижения" = "Achievements";
-"Достижение" = "Achievement";
-"ЛИЧНЫЕ РЕКОРДЫ" = "PERSONAL BESTS";
+"Достижения" = "Obiettivi";
+"Достижение" = "Obiettivo";
+"ЛИЧНЫЕ РЕКОРДЫ" = "Record personali";
 "НАГРАДЫ" = "AWARDS";
 "Лучшая серия" = "Best Streak";
 "Макс. лига" = "Max League";
-"Макс. XP" = "Max XP";
+"Макс. XP" = "Record di XP";
 "Открыто" = "Unlocked";
 
 /* Profile */
 "League" = "League";
-"Following" = "Friends";
+"Following" = "Amici";
 "Days in a row" = "Days in a row";
 "Текущая серия" = "Current Streak";
 "дней" = "days";
-"Joined in %@" = "Joined in %@";
+"Joined in %@" = "Nel gioco dal %@";
 "Level %d • %d XP • %d-day streak" = "Livello %d • %d XP • %d giorni consecutivi";
 "SUPER" = "SUPER";
 
@@ -193,10 +193,10 @@
 "Интересные факты" = "Fatti interessanti";
 "Interesting facts study slides" = "Studia a slide";
 "Interesting facts back to list" = "Torna all'elenco";
-"Самый старый флаг" = "La bandiera più antica";
-"Флаг Дании используется с 1219 года" = "La bandiera della Danimarca è utilizzata dal 1219";
-"Единственный квадратный флаг" = "Solo bandiera quadrata";
-"У Швейцарии единственный квадратный флаг в мире" = "La Svizzera ha l'unica bandiera quadrata al mondo";
+"Самый старый флаг" = "Una bandiera leggendaria";
+"Флаг Дании используется с 1219 года" = "Una leggenda lega la bandiera danese a una battaglia del 1219.";
+"Единственный квадратный флаг" = "Bandiere nazionali quadrate";
+"У Швейцарии единственный квадратный флаг в мире" = "La Svizzera e la Città del Vaticano hanno entrambe bandiere nazionali quadrate.";
 "Самый сложный флаг" = "Bandiera più complessa";
 "У Бутана на флаге изображен дракон" = "La bandiera del Bhutan raffigura un drago";
 "Go Premium" = "Go Premium";
@@ -446,9 +446,9 @@
 
 // Profile Page
 "League" = "Lega";
-"Following" = "Seguente";
+"Following" = "Amici";
 "Days in a row" = "Giorni di fila";
-"Joined in %@" = "Iscritto in %@";
+"Joined in %@" = "Nel gioco dal %@";
 "Statistics" = "Statistiche";
 "Total XP" = "XP totali";
 "Current streak" = "Serie attuale";
@@ -689,13 +689,13 @@
 "HELP_NOTIFICATIONS_TYPES" = "L’app può inviare diversi tipi di notifiche:\n• Promemoria sulla lezione giornaliera e sulla serie\n• Promemoria agli amici e risposte ai tuoi promemoria\n• Sfide in duello e risultati dei duelli\n\nCome gestirle:\n1. Apri le impostazioni del dispositivo\n2. Trova World Arena Flags\n3. Attiva o disattiva i tipi di notifica che preferisci\n\nConsigliamo di lasciare attivi i promemoria della lezione giornaliera per non perdere la serie.";
 
 /* Achievements */
-"Достижения" = "Risultati";
-"Достижение" = "Risultato";
-"ЛИЧНЫЕ РЕКОРДЫ" = "Documenti personali";
+"Достижения" = "Obiettivi";
+"Достижение" = "Obiettivo";
+"ЛИЧНЫЕ РЕКОРДЫ" = "Record personali";
 "НАГРАДЫ" = "Premi";
 "Лучшая серия" = "Serie più lunga";
 "Макс. лига" = "Lega massima";
-"Макс. XP" = "La maggior parte degli XP";
+"Макс. XP" = "Record di XP";
 "Открыто" = "Sbloccato";
 
 /* Achievement titles/descriptions */
@@ -808,7 +808,7 @@
 
 // Settings page
 "Премиум" = "Premio";
-"World Arena Premium" = "Arena mondiale Premium";
+"World Arena Premium" = "World Arena Premium";
 "Премиум подписка активна" = "Abbonamento Premium attivo";
 "ВОССТАНОВИТЬ ПОДПИСКУ" = "RIPRISTINO ABBONAMENTO";
 
@@ -1148,10 +1148,10 @@
 "Current Streak" = "Serie attuale";
 
 /* 68 interesting facts */
-"FACT_01_TITLE" = "Bandiera nazionale più antica";
-"FACT_01_DESC" = "Il Dannebrog danese è considerato la bandiera nazionale in uso continuativo più antica dal 1219.";
-"FACT_02_TITLE" = "Unica bandiera nazionale quadrata";
-"FACT_02_DESC" = "La Svizzera ha l'unica bandiera nazionale quadrata al mondo. Anche il Vaticano ha bandiera quadrata ma è una città-stato.";
+"FACT_01_TITLE" = "Una bandiera leggendaria";
+"FACT_01_DESC" = "Una leggenda lega la bandiera danese a una battaglia del 1219.";
+"FACT_02_TITLE" = "Bandiere nazionali quadrate";
+"FACT_02_DESC" = "La Svizzera e la Città del Vaticano hanno entrambe bandiere nazionali quadrate.";
 "FACT_03_TITLE" = "Bandiera non rettangolare";
 "FACT_03_DESC" = "Il Nepal ha l'unica bandiera nazionale al mondo che non è rettangolare.";
 "FACT_04_TITLE" = "Senza rosso, bianco o blu";
@@ -1898,10 +1898,10 @@
 "guide.done" = "Giochiamo";
 "guide.fbucks.body" = "Guadagna F-Bucks giocando e completando missioni. Tocca il saldo per esplorare premi, accessori per l’avatar e protezioni della serie.";
 "guide.fbucks.title" = "Ti presento F-Bucks";
-"guide.friends.body" = "Aggiungi un amico dal suo profilo o dal codice amico. Apri il loro profilo per sfidarli a duello. Gli inviti vengono visualizzati nelle Sfide; le richieste di amicizia ti consentono di aggiungere o rifiutare.";
+"guide.friends.body" = "Aggiungi amici dal loro profilo o tramite il codice amico. Apri il profilo per sfidarli a duello. Gli inviti appaiono in «Sfide». Puoi accettare o rifiutare le richieste di amicizia.";
 "guide.friends.title" = "Gioca con gli amici";
 "guide.next" = "Successivo";
-"guide.play.body" = "Tocca Riproduci per iniziare. Continua appare quando hai un gioco incompiuto.";
+"guide.play.body" = "Tocca «Gioca» per iniziare una partita.";
 "guide.play.title" = "Il tuo prossimo gioco";
 "guide.replay" = "Guida all'applicazione";
 "guide.settings.body" = "Tocca qui per scegliere una regione, una difficoltà e una modalità di gioco.";
@@ -1928,10 +1928,10 @@
 "premium.benefit.lives.body" = "Gioca in modalità Classico e Sfida a Tempo senza aspettare che le vite si ricarichino. Sopravvivenza mantiene le proprie regole.";
 "premium.benefit.lives.title" = "Cuori illimitati";
 "premium.benefit.map.body" = "Visualizza i tuoi progressi per paese e continente e trova le bandiere per esercitarti.";
-"premium.benefit.map.title" = "Mappa del progresso mondiale";
-"premium.benefit.mistakes.body" = "Gioca con le bandiere a cui in precedenza hai risposto in modo errato.";
+"premium.benefit.map.title" = "Mappa dei tuoi progressi";
+"premium.benefit.mistakes.body" = "Ripassa le bandiere che hai identificato in modo errato.";
 "premium.benefit.mistakes.title" = "Impara dai tuoi errori";
-"premium.benefit.weekly.body" = "Guadagnato automaticamente per ogni 7 giorni interi di Premium, a partire dall'attivazione di questo bonus. I premi guadagnati vengono sincronizzati quando apri l'app.";
+"premium.benefit.weekly.body" = "Ricevi automaticamente una ricompensa per ogni periodo completo di 7 giorni di Premium, a partire dall’attivazione di questo bonus. Le ricompense ottenute si sincronizzano quando apri l’app.";
 "premium.benefit.weekly.title" = "10 F-Bucks ogni settimana";
 "premium.details.collapsed" = "Compresso";
 "premium.details.expanded" = "Espanso";
@@ -1944,10 +1944,10 @@
 "premium.story.headline" = "Impara le bandiere. Ricorda il mondo.";
 "premium.story.intro" = "Dai valore a ogni sessione: esercitati con le bandiere difficili, comprendi i paesi dietro di esse e vedi cosa imparare dopo.";
 "premium.story.map.body" = "La mappa dei progressi mostra quali bandiere conosci bene e quali devi ripassare, per aiutarti a scegliere il prossimo allenamento.";
-"premium.story.map.title" = "Sapere cosa imparare dopo.";
+"premium.story.map.title" = "Scopri cosa imparare dopo.";
 "premium.story.practice.body" = "Continua ad allenarti senza aspettare che le vite si ricarichino. La sezione «I miei errori» ti aiuta a ripassare le bandiere che ti mettono in difficoltà.";
 "premium.story.practice.title" = "Più pratica. Meno lacune.";
-"premium.story.progress.body" = "Trasforma la pratica regolare in risultati visibili. Controlla la tua precisione e le risposte corrette, quindi utilizza la mappa del mondo Premium per scegliere cosa esercitarti dopo.";
+"premium.story.progress.body" = "Trasforma l’allenamento regolare in risultati visibili. Controlla la tua precisione e le risposte corrette, poi usa la mappa del mondo Premium per scegliere su quali bandiere esercitarti.";
 "premium.story.progress.title" = "Visualizza i tuoi progressi";
 "premium.weekly.history" = "Bonus settimanale Premium";
 "premium.weekly.next" = "Prossimo bonus settimanale: %@";

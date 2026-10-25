@@ -1,37 +1,37 @@
 "Заработай %d XP" = "Ganhe %d XP";
 "F-BUCKS EARNED" = "F-BUCKS GANHOS";
-"Дай %d правильных ответов" = "Obtenha as respostas corretas %d";
-"Наберите %d правильных ответов за месяц" = "Obtenha respostas corretas %d este mês";
-"Сыграй %d идеальных игр" = "Jogue jogos perfeitos %d";
-"Завершите %d игр без ошибок" = "Termine jogos %d sem erros";
+"Дай %d правильных ответов" = "Dê %d respostas corretas";
+"Наберите %d правильных ответов за месяц" = "Dê %d respostas corretas neste mês";
+"Сыграй %d идеальных игр" = "Jogue %d partidas perfeitas";
+"Завершите %d игр без ошибок" = "Conclua %d partidas sem erros";
 /* Settings screen */
 "Настройки" = "Configurações";
 "Аккаунт" = "Conta";
 "Профиль пользователя" = "Perfil de usuário";
-"Поддержка" = "Apoiar";
+"Поддержка" = "Suporte";
 "Настройки приложения" = "Configurações do aplicativo";
 "Обратная связь" = "Opinião";
 "World Arena Premium" = "World Arena Premium";
-"Обратная связь по World Arena Flags" = "Feedback sobre bandeiras da Arena Mundial";
+"Обратная связь по World Arena Flags" = "Feedback sobre World Arena Flags";
 
 /* Achievements */
 "Достижения" = "Achievements";
 "Достижение" = "Achievement";
-"ЛИЧНЫЕ РЕКОРДЫ" = "PERSONAL BESTS";
+"ЛИЧНЫЕ РЕКОРДЫ" = "Recordes pessoais";
 "НАГРАДЫ" = "AWARDS";
 "Лучшая серия" = "Best Streak";
 "Макс. лига" = "Max League";
-"Макс. XP" = "Max XP";
+"Макс. XP" = "Recorde de XP";
 "Открыто" = "Unlocked";
 
 /* Profile */
 "League" = "League";
-"Following" = "Friends";
+"Following" = "Amigos";
 "Days in a row" = "Days in a row";
 "Текущая серия" = "Current Streak";
 "дней" = "days";
-"Joined in %@" = "Joined in %@";
-"Level %d • %d XP • %d-day streak" = "Nível %d • %d XP • %d sequência de dias";
+"Joined in %@" = "No jogo desde %@";
+"Level %d • %d XP • %d-day streak" = "Nível %d • %d XP • sequência de %d dias";
 "SUPER" = "SUPER";
 
 /* Leagues medals & labels */
@@ -193,10 +193,10 @@
 "Интересные факты" = "Fatos interessantes";
 "Interesting facts study slides" = "Estudar em slides";
 "Interesting facts back to list" = "Voltar à lista";
-"Самый старый флаг" = "Bandeira mais antiga";
-"Флаг Дании используется с 1219 года" = "A bandeira da Dinamarca é usada desde 1219";
-"Единственный квадратный флаг" = "Apenas bandeira quadrada";
-"У Швейцарии единственный квадратный флаг в мире" = "A Suíça tem a única bandeira quadrada do mundo";
+"Самый старый флаг" = "Uma bandeira com uma lenda";
+"Флаг Дании используется с 1219 года" = "Uma lenda associa a bandeira dinamarquesa a uma batalha em 1219.";
+"Единственный квадратный флаг" = "Bandeiras nacionais quadradas";
+"У Швейцарии единственный квадратный флаг в мире" = "A Suíça e a Cidade do Vaticano têm bandeiras nacionais quadradas.";
 "Самый сложный флаг" = "Bandeira mais complexa";
 "У Бутана на флаге изображен дракон" = "A bandeira do Butão apresenta um dragão";
 "Go Premium" = "Go Premium";
@@ -446,9 +446,9 @@
 
 // Profile Page
 "League" = "Liga";
-"Following" = "Seguindo";
+"Following" = "Amigos";
 "Days in a row" = "Dias seguidos";
-"Joined in %@" = "Ingressou em %@";
+"Joined in %@" = "No jogo desde %@";
 "Statistics" = "Estatísticas";
 "Total XP" = "EXP total";
 "Current streak" = "Sequência atual";
@@ -691,11 +691,11 @@
 /* Achievements */
 "Достижения" = "Conquistas";
 "Достижение" = "Conquista";
-"ЛИЧНЫЕ РЕКОРДЫ" = "Registros Pessoais";
+"ЛИЧНЫЕ РЕКОРДЫ" = "Recordes pessoais";
 "НАГРАДЫ" = "Prêmios";
 "Лучшая серия" = "Sequência mais longa";
 "Макс. лига" = "Liga mais alta";
-"Макс. XP" = "Mais XP";
+"Макс. XP" = "Recorde de XP";
 "Открыто" = "Desbloqueado";
 
 /* Achievement titles/descriptions */
@@ -784,7 +784,7 @@
 "Общий опыт" = "Experiência total";
 "дней" = "days";
 "Текущая серия" = "Current streak";
-"XP" = "EXP";
+"XP" = "XP";
 "ДОБАВИТЬ ДРУЗЕЙ" = "ADICIONAR AMIGOS";
 "СЕРИИ ДРУЗЕЙ" = "AMIGOS";
 "МЕСЯЧНЫЕ ДОСТИЖЕНИЯ" = "REALIZAÇÕES MENSAIS";
@@ -808,7 +808,7 @@
 
 // Settings page
 "Премиум" = "Prêmio";
-"World Arena Premium" = "Arena Mundial Premium";
+"World Arena Premium" = "World Arena Premium";
 "Премиум подписка активна" = "Assinatura premium ativa";
 "ВОССТАНОВИТЬ ПОДПИСКУ" = "RESTAURAR ASSINATURA";
 
@@ -1150,10 +1150,10 @@
 "Current Streak" = "Sequência atual";
 
 /* 68 interesting facts */
-"FACT_01_TITLE" = "Bandeira nacional mais antiga em uso";
-"FACT_01_DESC" = "O Dannebrog da Dinamarca é considerada a bandeira nacional em uso contínuo mais antiga desde 1219.";
-"FACT_02_TITLE" = "Única bandeira nacional quadrada";
-"FACT_02_DESC" = "A Suíça tem a única bandeira nacional quadrada do mundo. O Vaticano também tem bandeira quadrada mas é cidade-Estado.";
+"FACT_01_TITLE" = "Uma bandeira com uma lenda";
+"FACT_01_DESC" = "Uma lenda associa a bandeira dinamarquesa a uma batalha em 1219.";
+"FACT_02_TITLE" = "Bandeiras nacionais quadradas";
+"FACT_02_DESC" = "A Suíça e a Cidade do Vaticano têm bandeiras nacionais quadradas.";
 "FACT_03_TITLE" = "Bandeira não retangular";
 "FACT_03_DESC" = "O Nepal tem a única bandeira nacional do mundo que não é retangular.";
 "FACT_04_TITLE" = "Sem vermelho, branco ou azul";
@@ -1895,13 +1895,13 @@
 "fbucks.tx.streak_restore" = "Restauração de sequência";
 "friends.duels.with_you" = "Duelos com você";
 "guide.back" = "Voltar";
-"guide.done" = "Vamos brincar";
+"guide.done" = "Vamos jogar";
 "guide.fbucks.body" = "Ganhe F-Bucks jogando e completando missões. Toque no saldo para explorar recompensas, acessórios de avatar e protetores de sequência.";
 "guide.fbucks.title" = "Conheça F-Bucks";
-"guide.friends.body" = "Adicione um amigo do seu perfil ou código de amigo. Abra o perfil deles para desafiá-los para um duelo. Os convites aparecem nos Desafios; solicitações de amizade permitem adicionar de volta ou recusar.";
+"guide.friends.body" = "Adicione amigos pelo perfil ou pelo código de amigo. Abra o perfil para desafiá-los a um duelo. Os convites aparecem em “Desafios”. Você pode aceitar ou recusar os pedidos de amizade.";
 "guide.friends.title" = "Jogue com amigos";
 "guide.next" = "Próximo";
-"guide.play.body" = "Toque em Reproduzir para começar. Continuar aparece quando você tem um jogo inacabado.";
+"guide.play.body" = "Toque em “Jogar” para começar uma partida.";
 "guide.play.title" = "Seu próximo jogo";
 "guide.replay" = "Guia do aplicativo";
 "guide.settings.body" = "Toque aqui para escolher uma região, dificuldade e modo de jogo.";
@@ -1917,10 +1917,10 @@
 "learning.country.discover" = "Um olhar mais atento";
 "premium.benefit.anthems.body" = "Ouça as gravações de hinos disponíveis e descubra sua história e significado.";
 "premium.benefit.anthems.title" = "Hinos nacionais";
-"premium.benefit.avatar.body" = "Use o capacete Premium enquanto sua assinatura estiver ativa.";
+"premium.benefit.avatar.body" = "Use o acessório de cabeça Premium enquanto sua assinatura estiver ativa.";
 "premium.benefit.avatar.title" = "Acessório de avatar Premium";
 "premium.benefit.countries.body" = "Explore capitais, população, área territorial, idiomas, moedas e curiosidades sobre os países.";
-"premium.benefit.countries.title" = "Slides detalhados do país";
+"premium.benefit.countries.title" = "Informações detalhadas sobre os países";
 "premium.benefit.erudite.body" = "Desbloqueie a maior dificuldade para um desafio maior.";
 "premium.benefit.erudite.title" = "Dificuldade Erudito";
 "premium.benefit.learning.body" = "Navegue por países e continentes no seu próprio ritmo entre os jogos.";
@@ -1931,11 +1931,11 @@
 "premium.benefit.map.title" = "Mapa de progresso mundial";
 "premium.benefit.mistakes.body" = "Jogue com as bandeiras que você errou anteriormente.";
 "premium.benefit.mistakes.title" = "Aprenda com seus erros";
-"premium.benefit.weekly.body" = "Ganho automático para cada 7 dias completos de Premium, começando quando este bônus é ativado. As recompensas ganhas são sincronizadas quando você abre o aplicativo.";
+"premium.benefit.weekly.body" = "Receba uma recompensa automaticamente a cada 7 dias completos de Premium, a partir da ativação deste bônus. As recompensas obtidas são sincronizadas quando você abre o aplicativo.";
 "premium.benefit.weekly.title" = "10 F-Bucks toda semana";
 "premium.details.collapsed" = "Recolhido";
 "premium.details.expanded" = "Expandido";
-"premium.family.body" = "Compartilhe Premium com até 6 pessoas, incluindo você, por meio do Apple Family Sharing. Ative o compartilhamento de assinatura nas configurações da família Apple. Cada jogador mantém seu próprio progresso.";
+"premium.family.body" = "Compartilhe o Premium pelo Compartilhamento Familiar da Apple com um grupo de até 6 pessoas, incluindo você. Ative o compartilhamento da assinatura nos ajustes da sua família Apple. Cada jogador mantém seu próprio progresso.";
 "premium.family.title" = "Uma assinatura para sua família";
 "premium.story.countries.body" = "Explore slides de países, capitais, moedas e gravações de hinos. Conecte uma bandeira ao país que ela representa.";
 "premium.story.countries.title" = "Dê uma história a cada bandeira.";

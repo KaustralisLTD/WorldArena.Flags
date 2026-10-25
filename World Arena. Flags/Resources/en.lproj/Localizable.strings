@@ -17,11 +17,11 @@
 /* Achievements */
 "Достижения" = "Achievements";
 "Достижение" = "Achievement";
-"ЛИЧНЫЕ РЕКОРДЫ" = "PERSONAL BESTS";
+"ЛИЧНЫЕ РЕКОРДЫ" = "Personal Records";
 "НАГРАДЫ" = "AWARDS";
 "Лучшая серия" = "Best Streak";
 "Макс. лига" = "Max League";
-"Макс. XP" = "Max XP";
+"Макс. XP" = "Most XP";
 "Открыто" = "Unlocked";
 
 /* Profile */
@@ -193,10 +193,10 @@
 "Интересные факты" = "Interesting Facts";
 "Interesting facts study slides" = "Study with slides";
 "Interesting facts back to list" = "Back to list";
-"Самый старый флаг" = "Oldest Flag";
-"Флаг Дании используется с 1219 года" = "Denmark's flag has been used since 1219";
-"Единственный квадратный флаг" = "Only Square Flag";
-"У Швейцарии единственный квадратный флаг в мире" = "Switzerland has the world's only square flag";
+"Самый старый флаг" = "A flag with a legend";
+"Флаг Дании используется с 1219 года" = "Legend links the Danish flag to a battle in 1219.";
+"Единственный квадратный флаг" = "Square national flags";
+"У Швейцарии единственный квадратный флаг в мире" = "Switzerland and Vatican City both have square national flags.";
 "Самый сложный флаг" = "Most Complex Flag";
 "У Бутана на флаге изображен дракон" = "Bhutan's flag features a dragon";
 "Go Premium" = "Go Premium";
@@ -446,7 +446,7 @@
 
 // Profile Page
 "League" = "League";
-"Following" = "Following";
+"Following" = "Friends";
 "Days in a row" = "Days in a row";
 "Joined in %@" = "Joined in %@";
 "Statistics" = "Statistics";
@@ -1162,10 +1162,10 @@
 "Biometric login prompt" = "Confirm biometric login";
 
 /* 68 interesting facts */
-"FACT_01_TITLE" = "Oldest continuously used flag";
-"FACT_01_DESC" = "Denmark's Dannebrog is considered the oldest national flag in continuous use since 1219.";
-"FACT_02_TITLE" = "Only square national flag";
-"FACT_02_DESC" = "Switzerland has the only square national flag in the world. The Vatican also has a square flag but is a city-state.";
+"FACT_01_TITLE" = "A flag with a legend";
+"FACT_01_DESC" = "Legend links the Danish flag to a battle in 1219.";
+"FACT_02_TITLE" = "Square national flags";
+"FACT_02_DESC" = "Switzerland and Vatican City both have square national flags.";
 "FACT_03_TITLE" = "Non-rectangular flag";
 "FACT_03_DESC" = "Nepal has the only national flag in the world that is not rectangular.";
 "FACT_04_TITLE" = "No red, white or blue";
@@ -1806,7 +1806,7 @@
 "guide.next" = "Next";
 "guide.done" = "Let’s play";
 "guide.play.title" = "Your next game";
-"guide.play.body" = "Tap Play to start. Continue appears when you have an unfinished game.";
+"guide.play.body" = "Tap “Play” to start a game.";
 "guide.settings.title" = "Make it your game";
 "guide.settings.body" = "Tap here to choose a region, difficulty and game mode.";
 "guide.streak.title" = "Every day counts";
@@ -1814,7 +1814,7 @@
 "guide.fbucks.title" = "Meet F-Bucks";
 "guide.fbucks.body" = "Earn F-Bucks by playing and completing quests. Tap your balance to explore rewards, avatar items and freezes.";
 "guide.friends.title" = "Play with friends";
-"guide.friends.body" = "Add a friend from their profile or friend code. Open their profile to challenge them to a duel. Invitations appear in Challenges; friend requests let you add back or decline.";
+"guide.friends.body" = "Add a friend from their profile or using their friend code. Open their profile to challenge them to a duel. Duel invitations appear in Challenges. You can accept or decline friend requests.";
 "education.fbucks.title" = "You earned F-Bucks!";
 "education.fbucks.body" = "This is your in-game currency. Earn it through games and quests, then spend it on avatar items and streak freezes.";
 "education.fbucks.shop" = "View shop";
@@ -1841,7 +1841,7 @@
 "premium.benefit.learning.title" = "Learning library";
 "premium.benefit.learning.body" = "Browse countries and continents at your own pace between games.";
 "premium.benefit.mistakes.title" = "Learn from your mistakes";
-"premium.benefit.mistakes.body" = "Play with flags you previously answered incorrectly.";
+"premium.benefit.mistakes.body" = "Practise flags you previously identified incorrectly.";
 "premium.benefit.erudite.title" = "Erudite difficulty";
 "premium.benefit.erudite.body" = "Unlock the highest difficulty for a greater challenge.";
 "premium.benefit.avatar.title" = "Premium avatar accessory";
@@ -1852,7 +1852,7 @@
 // Premium learning stories and earned weekly reward
 "premium.weekly.history" = "Weekly Premium bonus";
 "premium.benefit.weekly.title" = "10 F-Bucks every week";
-"premium.benefit.weekly.body" = "Automatically earned for each full 7 days of Premium, starting when this bonus is activated. Earned rewards sync when you open the app.";
+"premium.benefit.weekly.body" = "Earn a reward automatically for every full 7 days of Premium, starting when this bonus is activated. Earned rewards sync when you open the app.";
 "premium.weekly.next" = "Next weekly bonus: %@";
 "premium.story.headline" = "Learn the flags. Remember the world.";
 "premium.story.intro" = "Make every session count: practise difficult flags, understand the countries behind them and see what to learn next.";

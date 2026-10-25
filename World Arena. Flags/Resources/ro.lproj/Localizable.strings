@@ -1,10 +1,10 @@
 "Open in Game Center" = "Deschide în Game Center";
-"Заработай %d XP" = "Câștigați %d XP";
+"Заработай %d XP" = "Câștigă %d XP";
 "F-BUCKS EARNED" = "F-BUCKS CÂȘTIGAȚI";
-"Дай %d правильных ответов" = "Obțineți %d răspunsuri corecte";
-"Наберите %d правильных ответов за месяц" = "Obțineți %d răspunsuri corecte luna aceasta";
+"Дай %d правильных ответов" = "Dă %d răspunsuri corecte";
+"Наберите %d правильных ответов за месяц" = "Dă %d răspunsuri corecte luna aceasta";
 "Сыграй %d идеальных игр" = "Joacă %d jocuri perfecte";
-"Завершите %d игр без ошибок" = "Terminați %d jocuri fără greșeli";
+"Завершите %d игр без ошибок" = "Termină %d jocuri fără greșeli";
 /* Settings screen */
 "Настройки" = "Setări";
 "Аккаунт" = "Cont";
@@ -18,11 +18,11 @@
 /* Achievements */
 "Достижения" = "Realizări";
 "Достижение" = "Realizare";
-"ЛИЧНЫЕ РЕКОРДЫ" = "BEST PERSONAL";
+"ЛИЧНЫЕ РЕКОРДЫ" = "Recorduri personale";
 "НАГРАДЫ" = "PREMII";
 "Лучшая серия" = "Cea mai bună serie";
 "Макс. лига" = "Liga Max";
-"Макс. XP" = "XP maxim";
+"Макс. XP" = "Record de XP";
 "Открыто" = "Deblocat";
 
 /* Profile */
@@ -31,18 +31,18 @@
 "Days in a row" = "Zile la rând";
 "Текущая серия" = "Serie curentă";
 "дней" = "zile";
-"Joined in %@" = "S-a înscris în %@";
-"Level %d • %d XP • %d-day streak" = "Nivel %d • %d XP • %d-zile";
+"Joined in %@" = "În joc din %@";
+"Level %d • %d XP • %d-day streak" = "Nivel %d • %d XP • serie de %d zile";
 "SUPER" = "SUPER";
 
 /* Leagues medals & labels */
-"1st" = "1";
-"2nd" = "al 2-lea";
-"3rd" = "al 3-lea";
+"1st" = "Locul 1";
+"2nd" = "Locul 2";
+"3rd" = "Locul 3";
 "XP" = "XP";
 
 /* Monthly badges sample titles */
-"Алмазная лига" = "Liga Diamond";
+"Алмазная лига" = "Liga de diamant";
 "Серия мастера" = "Serie de maestru";
 "Чемпион месяца" = "Campionul lunii";
 "Идеальная неделя" = "Săptămâna perfectă";
@@ -194,10 +194,10 @@
 "Интересные факты" = "Fapte interesante";
 "Interesting facts study slides" = "Studiază în slide-uri";
 "Interesting facts back to list" = "Înapoi la listă";
-"Самый старый флаг" = "Cel mai vechi steag";
-"Флаг Дании используется с 1219 года" = "Steagul Danemarcei este folosit din 1219";
-"Единственный квадратный флаг" = "Doar steag pătrat";
-"У Швейцарии единственный квадратный флаг в мире" = "Elveția are singurul steag pătrat din lume";
+"Самый старый флаг" = "Un steag cu o legendă";
+"Флаг Дании используется с 1219 года" = "O legendă leagă steagul danez de o bătălie din 1219.";
+"Единственный квадратный флаг" = "Steaguri naționale pătrate";
+"У Швейцарии единственный квадратный флаг в мире" = "Elveția și Vaticanul au steaguri naționale pătrate.";
 "Самый сложный флаг" = "Cel mai complex steag";
 "У Бутана на флаге изображен дракон" = "Steagul Bhutanului prezintă un dragon";
 "Go Premium" = "Treci Premium";
@@ -448,9 +448,9 @@
 
 // Profile Page
 "League" = "Ligă";
-"Following" = "Urmând";
+"Following" = "Prieteni";
 "Days in a row" = "Zile la rând";
-"Joined in %@" = "S-a înscris în %@";
+"Joined in %@" = "În joc din %@";
 "Statistics" = "Statistici";
 "Total XP" = "XP total";
 "Current streak" = "Serie actuală";
@@ -701,11 +701,11 @@
 /* Achievements */
 "Достижения" = "Realizări";
 "Достижение" = "Realizare";
-"ЛИЧНЫЕ РЕКОРДЫ" = "Înregistrările personale";
+"ЛИЧНЫЕ РЕКОРДЫ" = "Recorduri personale";
 "НАГРАДЫ" = "Premii";
 "Лучшая серия" = "Cea mai lungă serie";
 "Макс. лига" = "Cea mai înaltă ligă";
-"Макс. XP" = "Majoritatea XP";
+"Макс. XP" = "Record de XP";
 "Открыто" = "Deblocat";
 
 /* Achievement titles/descriptions */
@@ -735,7 +735,7 @@
 "Достигните Золота" = "Ajunge la aur";
 "Платиновая лига" = "Liga de platină";
 "Достигните Платины" = "Ajunge la platină";
-"Алмазная лига" = "Liga Diamond";
+"Алмазная лига" = "Liga de diamant";
 "Достигните Алмаза" = "Ajunge la Diamond";
 "Мастер лиг" = "Master League";
 "Достигните Мастера" = "Ajunge la Maestru";
@@ -825,7 +825,7 @@
 // Achievements
 "Ранняя птица" = "Pasăre timpurie";
 "Железная воля" = "Voința de Fier";
-"Алмазная лига" = "Liga Diamond";
+"Алмазная лига" = "Liga de diamant";
 "Серия мастера" = "Serie de maestru";
 "Чемпион месяца" = "Campion lunar";
 "Идеальная неделя" = "Săptămâna perfectă";
@@ -1162,10 +1162,10 @@
 "Biometric login prompt" = "Confirmați autentificarea biometrică";
 
 /* 68 interesting facts */
-"FACT_01_TITLE" = "Cel mai vechi steag folosit continuu";
-"FACT_01_DESC" = "Dannebrog al Danemarcei este considerat cel mai vechi steag național în uz continuu din 1219.";
-"FACT_02_TITLE" = "Doar steag național pătrat";
-"FACT_02_DESC" = "Elveția are singurul steag național pătrat din lume. Vaticanul are și un steag pătrat, dar este un oraș-stat.";
+"FACT_01_TITLE" = "Un steag cu o legendă";
+"FACT_01_DESC" = "O legendă leagă steagul danez de o bătălie din 1219.";
+"FACT_02_TITLE" = "Steaguri naționale pătrate";
+"FACT_02_DESC" = "Elveția și Vaticanul au steaguri naționale pătrate.";
 "FACT_03_TITLE" = "Steagul nedreptunghiular";
 "FACT_03_DESC" = "Nepalul are singurul steag național din lume care nu este dreptunghiular.";
 "FACT_04_TITLE" = "Fără roșu, alb sau albastru";
@@ -1826,7 +1826,7 @@
 // Alternate Home Screen icons
 "appIcon.title" = "Pictograma aplicației";
 "appIcon.explanation" = "Alege limba textului mare de pe pictograma ecranului principal. Limba aplicației și pictograma App Store nu se schimbă. iOS poate afișa o confirmare.";
-"appIcon.selected" = "Selectat";
+"appIcon.selected" = "Selectată";
 "appIcon.error" = "Pictograma nu a putut fi schimbată. Încearcă din nou.";
 
 "inbox.subtitle" = "Activitatea ta";
@@ -1839,17 +1839,17 @@
 "inbox.syncFailed" = "Rezultatele duelurilor nu au putut fi actualizate";
 
 "achievement.streak_60.title" = "Un sezon de descoperiri";
-"achievement.streak_60.body" = "Atinge o serie de 60 zile";
+"achievement.streak_60.body" = "Atinge o serie de 60 de zile";
 "achievement.streak_100.title" = "O sută de răsărituri";
-"achievement.streak_100.body" = "Atinge o serie de 100 zile";
+"achievement.streak_100.body" = "Atinge o serie de 100 de zile";
 "achievement.streak_365.title" = "Un an de descoperiri";
-"achievement.streak_365.body" = "Atinge o serie de 365 zile";
+"achievement.streak_365.body" = "Atinge o serie de 365 de zile";
 "achievement.games_250.title" = "Dincolo de orizont";
-"achievement.games_250.body" = "Joacă 250 partide";
+"achievement.games_250.body" = "Joacă 250 de partide";
 "achievement.games_500.title" = "Explorator al lumii";
-"achievement.games_500.body" = "Joacă 500 partide";
+"achievement.games_500.body" = "Joacă 500 de partide";
 "achievement.games_1000.title" = "O mie de aventuri";
-"achievement.games_1000.body" = "Joacă 1000 partide";
+"achievement.games_1000.body" = "Joacă 1000 de partide";
 "achievement.xp_50000.title" = "Puterea cunoașterii";
 "achievement.xp_50000.body" = "Adună 50000 XP";
 "achievement.xp_100000.title" = "Coroana cunoașterii";
@@ -1888,14 +1888,14 @@
 /* Complete app catalog: missing interface translations, October 2026. */
 "Check your internet connection" = "Verificați-vă conexiunea la internet și încercați din nou.";
 "appIcon.automatic" = "Potrivire automată cu limba aplicației";
-"appIcon.choose" = "Alegeți o pictogramă";
-"appIcon.suggestion" = "O pictogramă în limba dvs";
+"appIcon.choose" = "Alege o pictogramă";
+"appIcon.suggestion" = "O pictogramă în limba ta";
 "coins" = "monede";
 "duel.error.notYours" = "Această provocare aparține unui alt jucător. Verificați contul la care sunteți conectat.";
 "education.fbucks.body" = "Aceasta este moneda din joc. Obține-o jucând și îndeplinind misiuni, apoi cumpără accesorii pentru avatar și protecție pentru seria zilnică.";
 "education.fbucks.done" = "Am înțeles";
 "education.fbucks.shop" = "Vezi magazinul";
-"education.fbucks.title" = "Ați câștigat F-Bucks!";
+"education.fbucks.title" = "Ai câștigat F-Bucks!";
 "facts.area" = "Zonă";
 "facts.capital" = "Capitală";
 "facts.explanation" = "Alegeți ce apare pe spatele cardului de țară după ce răspundeți.";
@@ -1908,14 +1908,14 @@
 "guide.back" = "Înapoi";
 "guide.done" = "Hai să ne jucăm";
 "guide.fbucks.body" = "Câștigă F-Bucks jucând și îndeplinind misiuni. Atinge soldul pentru recompense, accesorii pentru avatar și protecții ale seriei.";
-"guide.fbucks.title" = "Faceți cunoștință cu F-Bucks";
-"guide.friends.body" = "Adaugă un prieten din profilul său sau din codul de prieten. Deschide-le profilul pentru a-i provoca la un duel. Invitațiile apar în Provocări; cererile de prietenie vă permit să adăugați înapoi sau să refuzați.";
+"guide.fbucks.title" = "Descoperă F-Bucks";
+"guide.friends.body" = "Adaugă prieteni din profilul lor sau folosind codul de prieten. Deschide profilul pentru a-i provoca la duel. Invitațiile apar în „Provocări”. Poți accepta sau refuza cererile de prietenie.";
 "guide.friends.title" = "Joacă-te cu prietenii";
-"guide.next" = "În continuare";
-"guide.play.body" = "Atinge Play pentru a începe. Continuare apare când aveți un joc neterminat.";
+"guide.next" = "Înainte";
+"guide.play.body" = "Atinge „Joacă” pentru a începe un joc.";
 "guide.play.title" = "Următorul tău joc";
 "guide.replay" = "Ghid de aplicație";
-"guide.settings.body" = "Atingeți aici pentru a alege o regiune, dificultate și mod de joc.";
+"guide.settings.body" = "Atinge aici pentru a alege regiunea, dificultatea și modul de joc.";
 "guide.settings.title" = "Fă-l jocul tău";
 "guide.skip" = "Omite";
 "guide.streak.body" = "Atinge seria ta pentru a vedea calendarul, zilele în care ai jucat și protecțiile seriei.";
@@ -1926,39 +1926,39 @@
 "learning.anthem.shared_fmt" = "Acest imn național este folosit și de această țară: %@. Imnul regional poate fi diferit.";
 "learning.anthem.unavailable" = "Imnul nu a putut fi încărcat. Verifică conexiunea și atinge butonul de redare pentru a încerca din nou.";
 "learning.country.discover" = "O privire mai atentă";
-"premium.benefit.anthems.body" = "Ascultați înregistrările imnurilor disponibile și descoperiți-le istoria și semnificația.";
+"premium.benefit.anthems.body" = "Ascultă înregistrările disponibile ale imnurilor și descoperă-le istoria și semnificația.";
 "premium.benefit.anthems.title" = "Imnuri naționale";
-"premium.benefit.avatar.body" = "Purtați căciula Premium în timp ce abonamentul este activ.";
+"premium.benefit.avatar.body" = "Poartă accesoriul Premium pentru cap cât timp abonamentul tău este activ.";
 "premium.benefit.avatar.title" = "Accesoriu pentru avatar Premium";
 "premium.benefit.countries.body" = "Descoperă capitalele, populația, suprafața, limbile, monedele și curiozități despre țări.";
-"premium.benefit.countries.title" = "Diapozitive detaliate despre țară";
+"premium.benefit.countries.title" = "Informații detaliate despre țări";
 "premium.benefit.erudite.body" = "Deblochează cea mai mare dificultate pentru o provocare mai mare.";
 "premium.benefit.erudite.title" = "Nivel de dificultate Erudit";
-"premium.benefit.learning.body" = "Căutați țări și continente în propriul ritm între jocuri.";
+"premium.benefit.learning.body" = "Explorează țări și continente în ritmul tău între jocuri.";
 "premium.benefit.learning.title" = "Biblioteca de învățare";
 "premium.benefit.lives.body" = "Joacă în modurile Clasic și Provocare contra timpului fără să aștepți refacerea vieților. Modul Supraviețuire își păstrează propriile reguli.";
 "premium.benefit.lives.title" = "Inimi nelimitate";
 "premium.benefit.map.body" = "Vezi progresul tău în funcție de țară și continent și găsește steaguri de exersat.";
-"premium.benefit.map.title" = "Harta progresului mondial";
+"premium.benefit.map.title" = "Harta progresului tău";
 "premium.benefit.mistakes.body" = "Joacă-te cu steaguri la care ai răspuns greșit anterior.";
 "premium.benefit.mistakes.title" = "Învață din greșeli";
 "premium.benefit.weekly.body" = "Primești automat recompensa pentru fiecare 7 zile complete de Premium, începând de la activarea acestui bonus. Recompensele obținute se sincronizează când deschizi aplicația.";
 "premium.benefit.weekly.title" = "10 F-Bucks în fiecare săptămână";
 "premium.details.collapsed" = "Restrâns";
 "premium.details.expanded" = "Extins";
-"premium.family.body" = "Partajați Premium cu până la 6 persoane, inclusiv dvs., prin Apple Family Sharing. Activați partajarea abonamentului în setările familiei Apple. Fiecare jucător își păstrează propriul progres.";
+"premium.family.body" = "Partajează Premium prin Partajare familială Apple într-un grup de cel mult 6 persoane, inclusiv tu. Activează partajarea abonamentului în configurările familiei Apple. Fiecare jucător își păstrează propriul progres.";
 "premium.family.title" = "Un abonament pentru familia ta";
-"premium.story.countries.body" = "Explorați diapozitive de țară, capitale, monede și înregistrări de imnuri. Conectați un steag cu țara pe care o reprezintă.";
-"premium.story.countries.title" = "Dați fiecărui steag o poveste.";
-"premium.story.enlarge" = "Măriți ecranul exemplu";
+"premium.story.countries.body" = "Explorează informații despre țări, capitale, monede și înregistrări ale imnurilor. Asociază fiecare steag cu țara pe care o reprezintă.";
+"premium.story.countries.title" = "Fiecare steag are o poveste.";
+"premium.story.enlarge" = "Mărește ecranul de exemplu";
 "premium.story.example" = "Exemplu de ecran · Engleză";
 "premium.story.headline" = "Învață steaguri. Amintește-ți lumea.";
 "premium.story.intro" = "Profită de fiecare sesiune: repetă steagurile dificile, descoperă țările pe care le reprezintă și află ce să înveți în continuare.";
 "premium.story.map.body" = "Harta progresului arată ce steaguri cunoști bine și pe care trebuie să le repeți, ajutându-te să alegi următorul exercițiu.";
-"premium.story.map.title" = "Aflați ce să învățați în continuare.";
+"premium.story.map.title" = "Descoperă ce să înveți în continuare.";
 "premium.story.practice.body" = "Continuă să exersezi fără să aștepți refacerea vieților. Secțiunea „Greșelile mele” te ajută să repeți steagurile care îți dau bătăi de cap.";
-"premium.story.practice.title" = "Mai multă practică. Mai puține goluri.";
-"premium.story.progress.body" = "Transformă practica regulată în rezultate vizibile. Examinați-vă acuratețea și răspunsurile corecte, apoi utilizați harta lumii Premium pentru a alege ce să exersați în continuare.";
+"premium.story.practice.title" = "Mai mult exercițiu. Mai puține lacune.";
+"premium.story.progress.body" = "Transformă exercițiul regulat în rezultate vizibile. Verifică precizia și răspunsurile corecte, apoi folosește harta lumii Premium pentru a alege ce să exersezi în continuare.";
 "premium.story.progress.title" = "Vezi progresul tău";
 "premium.weekly.history" = "Bonus săptămânal Premium";
 "premium.weekly.next" = "Următorul bonus săptămânal: %@";

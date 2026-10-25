@@ -17,28 +17,28 @@
 
 /* Achievements */
 "Достижения" = "업적";
-"Достижение" = "성취";
+"Достижение" = "업적";
 "ЛИЧНЫЕ РЕКОРДЫ" = "개인 최고 기록";
 "НАГРАДЫ" = "수상 내역";
-"Лучшая серия" = "최고의 연속";
+"Лучшая серия" = "최장 연속 기록";
 "Макс. лига" = "맥스리그";
-"Макс. XP" = "최대 XP";
+"Макс. XP" = "최다 XP";
 "Открыто" = "잠금 해제됨";
 
 /* Profile */
 "League" = "리그";
 "Following" = "친구";
 "Days in a row" = "연속된 일수";
-"Текущая серия" = "현재 연속";
-"дней" = "날";
-"Joined in %@" = "%@에 가입함";
+"Текущая серия" = "현재 연속 기록";
+"дней" = "일";
+"Joined in %@" = "%@년 가입";
 "Level %d • %d XP • %d-day streak" = "레벨 %d • %d XP • %d일 연속";
 "SUPER" = "SUPER";
 
 /* Leagues medals & labels */
 "1st" = "1위";
 "2nd" = "2위";
-"3rd" = "3번째";
+"3rd" = "3위";
 "XP" = "XP";
 
 /* Monthly badges sample titles */
@@ -194,10 +194,10 @@
 "Интересные факты" = "흥미로운 사실";
 "Interesting facts study slides" = "슬라이드로 공부하기";
 "Interesting facts back to list" = "목록으로";
-"Самый старый флаг" = "가장 오래된 깃발";
-"Флаг Дании используется с 1219 года" = "덴마크 국기는 1219년부터 사용되었습니다.";
-"Единственный квадратный флаг" = "정사각형 깃발만";
-"У Швейцарии единственный квадратный флаг в мире" = "스위스에는 세계 유일의 정사각형 국기가 있습니다.";
+"Самый старый флаг" = "전설이 담긴 국기";
+"Флаг Дании используется с 1219 года" = "전설에 따르면 덴마크 국기는 1219년의 전투와 관련이 있어요.";
+"Единственный квадратный флаг" = "정사각형 국기";
+"У Швейцарии единственный квадратный флаг в мире" = "스위스와 바티칸 시국의 국기는 모두 정사각형이에요.";
 "Самый сложный флаг" = "가장 복잡한 플래그";
 "У Бутана на флаге изображен дракон" = "부탄의 국기에는 용이 그려져 있습니다.";
 "Go Premium" = "프리미엄으로 이동";
@@ -448,9 +448,9 @@
 
 // Profile Page
 "League" = "리그";
-"Following" = "팔로잉";
+"Following" = "친구";
 "Days in a row" = "연속된 일수";
-"Joined in %@" = "%@에 가입함";
+"Joined in %@" = "%@년 가입";
 "Statistics" = "통계";
 "Total XP" = "총 XP";
 "Current streak" = "현재 연속";
@@ -573,8 +573,8 @@
 "Месячные цели" = "월간 목표";
 
 /* Profile Statistics */
-"дней" = "날";
-"Текущая серия" = "현재 연속";
+"дней" = "일";
+"Текущая серия" = "현재 연속 기록";
 "Всего изучено флагов" = "학습된 총 플래그";
 "Текущая лига" = "현재 리그";
 "Общий опыт" = "총 경험치";
@@ -700,12 +700,12 @@
 
 /* Achievements */
 "Достижения" = "업적";
-"Достижение" = "성취";
-"ЛИЧНЫЕ РЕКОРДЫ" = "개인 기록";
+"Достижение" = "업적";
+"ЛИЧНЫЕ РЕКОРДЫ" = "개인 최고 기록";
 "НАГРАДЫ" = "수상 내역";
-"Лучшая серия" = "최장 연속";
+"Лучшая серия" = "최장 연속 기록";
 "Макс. лига" = "최고 리그";
-"Макс. XP" = "대부분의 XP";
+"Макс. XP" = "최다 XP";
 "Открыто" = "잠금 해제됨";
 
 /* Achievement titles/descriptions */
@@ -792,8 +792,8 @@
 "Всего изучено флагов" = "학습된 총 플래그";
 "Текущая лига" = "현재 리그";
 "Общий опыт" = "총 경험치";
-"дней" = "날";
-"Текущая серия" = "현재 연속";
+"дней" = "일";
+"Текущая серия" = "현재 연속 기록";
 "XP" = "XP";
 "ДОБАВИТЬ ДРУЗЕЙ" = "친구 추가";
 "СЕРИИ ДРУЗЕЙ" = "친구 연속";
@@ -933,8 +933,8 @@
 "Изучено флагов" = "연구한 플래그";
 "Лучший результат" = "최고 점수";
 "очков" = "전철기";
-"Текущая серия" = "현재 연속";
-"дней" = "날";
+"Текущая серия" = "현재 연속 기록";
+"дней" = "일";
 "Точность" = "정확성";
 "Теперь вы можете без единой ошибки отвечать на все наши вопросы с точностью в %d%%" = "답변의 정답률은 %d%%예요.";
 "Мы будем рады, если вы захотите снова вернуться к нам!" = "당신이 우리에게 다시 돌아오고 싶다면 우리는 기쁠 것입니다!";
@@ -1162,10 +1162,10 @@
 "Biometric login prompt" = "생체인식 로그인 확인";
 
 /* 68 interesting facts */
-"FACT_01_TITLE" = "가장 오래되고 지속적으로 사용되는 플래그";
-"FACT_01_DESC" = "덴마크의 Dannebrog는 1219년 이후 지속적으로 사용되는 가장 오래된 국기로 간주됩니다.";
-"FACT_02_TITLE" = "정사각형 국기만";
-"FACT_02_DESC" = "스위스는 세계에서 유일한 정사각형 국기를 보유하고 있습니다. 바티칸도 사각형 깃발을 갖고 있지만 도시국가이다.";
+"FACT_01_TITLE" = "전설이 담긴 국기";
+"FACT_01_DESC" = "전설에 따르면 덴마크 국기는 1219년의 전투와 관련이 있어요.";
+"FACT_02_TITLE" = "정사각형 국기";
+"FACT_02_DESC" = "스위스와 바티칸 시국의 국기는 모두 정사각형이에요.";
 "FACT_03_TITLE" = "직사각형이 아닌 플래그";
 "FACT_03_DESC" = "네팔은 직사각형이 아닌 세계 유일의 국기를 가지고 있습니다.";
 "FACT_04_TITLE" = "빨간색, 흰색, 파란색 없음";
@@ -1894,7 +1894,7 @@
 "duel.error.notYours" = "이 챌린지는 다른 플레이어의 것입니다. 로그인한 계정을 확인하세요.";
 "education.fbucks.body" = "게임 내 화폐예요. 게임과 미션으로 획득하고 아바타 아이템과 연속 기록 보호권을 구매하는 데 사용하세요.";
 "education.fbucks.done" = "알았어요";
-"education.fbucks.shop" = "매장 보기";
+"education.fbucks.shop" = "상점 보기";
 "education.fbucks.title" = "F-Bucks를 획득하셨습니다!";
 "facts.area" = "영역";
 "facts.capital" = "수도";
@@ -1905,21 +1905,21 @@
 "facts.settings" = "국가별 사실";
 "fbucks.tx.streak_restore" = "연속 기록 복구";
 "friends.duels.with_you" = "너와의 결투";
-"guide.back" = "뒤쪽에";
-"guide.done" = "놀자";
+"guide.back" = "뒤로";
+"guide.done" = "시작하기";
 "guide.fbucks.body" = "게임을 플레이하고 미션을 완료해 F-Bucks를 획득하세요. 잔액을 탭하면 보상, 아바타 아이템과 연속 기록 보호권을 확인할 수 있어요.";
 "guide.fbucks.title" = "F-Bucks를 만나보세요";
-"guide.friends.body" = "프로필이나 친구 코드에서 친구를 추가하세요. 프로필을 열어 결투에 도전하세요. 초대는 챌린지에 표시됩니다. 친구 요청을 통해 다시 추가하거나 거부할 수 있습니다.";
-"guide.friends.title" = "친구들과 놀아보세요";
+"guide.friends.body" = "프로필이나 친구 코드로 친구를 추가하세요. 친구 프로필에서 결투를 신청할 수 있어요. 초대는 ‘도전’에 표시되며, 친구 요청은 수락하거나 거절할 수 있어요.";
+"guide.friends.title" = "친구와 함께 플레이하세요";
 "guide.next" = "다음";
-"guide.play.body" = "시작하려면 재생을 탭하세요. 완료되지 않은 게임이 있으면 계속이 나타납니다.";
+"guide.play.body" = "‘플레이’를 탭해 게임을 시작하세요.";
 "guide.play.title" = "다음 게임";
 "guide.replay" = "앱 가이드";
 "guide.settings.body" = "지역, 난이도, 게임 모드를 선택하려면 여기를 탭하세요.";
-"guide.settings.title" = "당신의 게임을 만들어보세요";
-"guide.skip" = "건너뛰다";
+"guide.settings.title" = "나에게 맞게 설정하세요";
+"guide.skip" = "건너뛰기";
 "guide.streak.body" = "연속 기록을 탭하면 달력, 플레이한 날짜와 연속 기록 보호권을 확인할 수 있어요.";
-"guide.streak.title" = "매일이 중요하다";
+"guide.streak.title" = "하루하루가 소중해요";
 "learning.anthem.excerpt" = "원문 가사 · 발췌";
 "learning.anthem.full_lyrics_source" = "전체 가사 및 역사";
 "learning.anthem.recording_source" = "녹음 및 출처 ↗";
@@ -1933,27 +1933,27 @@
 "premium.benefit.countries.body" = "각 나라의 수도, 인구, 면적, 언어, 통화와 흥미로운 사실을 알아보세요.";
 "premium.benefit.countries.title" = "상세한 국가 슬라이드";
 "premium.benefit.erudite.body" = "더 큰 도전을 위해 가장 높은 난이도를 잠금 해제하세요.";
-"premium.benefit.erudite.title" = "박식한 난이도";
+"premium.benefit.erudite.title" = "‘학식 있는’ 난이도";
 "premium.benefit.learning.body" = "게임 사이에 자신만의 속도로 국가와 대륙을 찾아보세요.";
 "premium.benefit.learning.title" = "학습 도서관";
 "premium.benefit.lives.body" = "라이프 회복을 기다리지 않고 클래식과 시간 도전을 즐기세요. 서바이벌에는 별도의 규칙이 적용돼요.";
 "premium.benefit.lives.title" = "무제한 하트";
-"premium.benefit.map.body" = "국가 및 대륙별 진행 상황을 확인하고 연습할 플래그를 찾아보세요.";
-"premium.benefit.map.title" = "세계 진행 상황 지도";
+"premium.benefit.map.body" = "나라와 대륙별 학습 진도를 확인하고 연습할 국기를 찾아보세요.";
+"premium.benefit.map.title" = "세계 학습 진도 지도";
 "premium.benefit.mistakes.body" = "이전에 틀렸던 국기를 다시 풀어 보세요.";
 "premium.benefit.mistakes.title" = "실수에서 배우기";
-"premium.benefit.weekly.body" = "이 보너스가 활성화되면 시작하여 Premium의 7일마다 자동으로 적립됩니다. 획득한 보상은 앱을 열 때 동기화됩니다.";
+"premium.benefit.weekly.body" = "이 보너스가 활성화된 시점부터 Premium 이용 기간이 7일씩 지날 때마다 보상이 자동으로 적립돼요. 적립된 보상은 앱을 열 때 동기화돼요.";
 "premium.benefit.weekly.title" = "매주 10 F-Bucks";
 "premium.details.collapsed" = "접힘";
 "premium.details.expanded" = "펼쳐짐";
 "premium.family.body" = "Apple 가족 공유를 통해 본인을 포함해 최대 6명과 Premium를 공유할 수 있습니다. Apple 가족 설정에서 구독 공유를 활성화하세요. 각 플레이어는 자신의 진행 상황을 유지합니다.";
 "premium.family.title" = "가족을 위한 하나의 구독";
 "premium.story.countries.body" = "나라별 정보, 수도, 통화와 국가 음원을 살펴보세요. 국기가 나타내는 나라를 함께 알아보세요.";
-"premium.story.countries.title" = "각 깃발에 이야기를 들려주세요.";
+"premium.story.countries.title" = "국기에 담긴 이야기를 알아보세요.";
 "premium.story.enlarge" = "예시 화면 확대";
 "premium.story.example" = "예시 화면 · 영어";
-"premium.story.headline" = "깃발을 배우십시오. 세상을 기억하십시오.";
-"premium.story.intro" = "모든 세션을 중요하게 만드세요. 어려운 국기를 연습하고, 그 뒤에 있는 국가를 이해하고, 다음에 무엇을 배울지 알아보세요.";
+"premium.story.headline" = "국기를 배우고, 세계를 알아가세요.";
+"premium.story.intro" = "매번 알차게 연습하세요. 어려운 국기를 복습하고 그 국기가 나타내는 나라를 알아보며 다음에 배울 내용을 찾아보세요.";
 "premium.story.map.body" = "학습 진도 지도에서 잘 아는 국기와 복습이 필요한 국기를 확인하고 다음에 연습할 내용을 선택하세요.";
 "premium.story.map.title" = "다음에 무엇을 배울지 알아보세요.";
 "premium.story.practice.body" = "라이프가 회복될 때까지 기다리지 않고 계속 연습하세요. ‘내 실수’에서 복습이 필요한 국기를 집중적으로 연습할 수 있어요.";
