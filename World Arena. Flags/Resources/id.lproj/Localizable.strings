@@ -103,15 +103,15 @@
 "Share" = "Bagikan";
 "ACCURACY" = "Ketepatan";
 "TOTAL XP" = "Jumlah XP";
-"CONTINUE" = "Melanjutkan";
+"CONTINUE" = "LANJUT";
 "Perfect! You're unstoppable!" = "Sempurna! Anda tidak dapat dihentikan!";
 "Excellent performance!" = "Performa luar biasa!";
 "Well done! Keep practicing!" = "Bagus sekali! Teruslah berlatih!";
-"Don't give up! Practice makes perfect!" = "Jangan menyerah! Latihan menjadi sempurna!";
+"Don't give up! Practice makes perfect!" = "Jangan menyerah! Latihan membawa kesempurnaan!";
 "PERFECT" = "Sempurna";
 "AMAZING" = "Luar biasa";
 "GOOD" = "Bagus";
-"KEEP GOING" = "Terus berlanjut";
+"KEEP GOING" = "TERUSKAN";
 "Play Again" = "Mainkan Lagi";
 "Home" = "Beranda";
 "Quest Update!" = "Pembaruan Misi!";
@@ -119,9 +119,9 @@
 "Check your progress" = "Periksa kemajuan Anda";
 "2x XP for 10 min!" = "2x XP selama 10 menit!";
 "3x XP for 15 min!" = "3x XP selama 15 menit!";
-"Подарок за квесты" = "Hadiah pencarian harian";
-"Share Message" = "Saya mencetak %d poin di game Bendera Dunia! 🎮🌍\nUnduh dan coba kalahkan skor saya!";
-"Statistics Share Promo" = "Saya sedang bermain Bendera Arena Dunia — pelajari bendera dunia, berduel dengan teman, dan naiki liga! 🎮🌍\nStatistik saya: Skor terbaik %d, Akurasi %.1f%%, %d permainan dimainkan.\nIngin mempelajari bendera dan menguji kemampuan Anda? Bergabunglah dengan komunitas kami!\n%@";
+"Подарок за квесты" = "Hadiah misi harian";
+"Share Message" = "Saya mencetak %d poin di game World Flags! 🎮🌍\nUnduh dan coba kalahkan skor saya!";
+"Statistics Share Promo" = "Saya bermain World Arena Flags — pelajari bendera dunia, berduel dengan teman, dan naik liga! 🎮🌍\nStatistik saya: Skor terbaik %d, Akurasi %.1f%%, %d permainan dimainkan.\nIngin mempelajari bendera dan menguji kemampuan Anda? Bergabunglah dengan komunitas kami!\n%@";
 
 // Post-Game Flow
 "CLAIM XP" = "KLAIM XP";
@@ -129,49 +129,49 @@
 "PERFECT" = "SEMPURNA";
 "AMAZING" = "LUAR BIASA";
 "GOOD" = "BAGUS";
-"KEEP GOING" = "TERUS BERLANJUT";
+"KEEP GOING" = "TERUSKAN";
 "Perfect! You're unstoppable!" = "Sempurna! Anda tidak dapat dihentikan!";
 "Excellent performance!" = "Performa luar biasa!";
 "Well done! Keep practicing!" = "Bagus sekali! Teruslah berlatih!";
-"Don't give up! Practice makes perfect!" = "Jangan menyerah! Latihan menjadi sempurna!";
+"Don't give up! Practice makes perfect!" = "Jangan menyerah! Latihan membawa kesempurnaan!";
 "day streak" = "hari berturut-turut";
 "This Week" = "Minggu ini";
-"Incredible streak! You're on fire!" = "Pukulan yang luar biasa! Anda bersemangat!";
+"Incredible streak! You're on fire!" = "Rentetan yang luar biasa! Anda sedang bersemangat!";
 "Great job! Keep the momentum going!" = "Kerja bagus! Pertahankan momentumnya!";
-"Nice start! Build your streak day by day!" = "Awal yang bagus! Bangun rekor Anda hari demi hari!";
-"Your Friend Streaks" = "Coretan Teman Anda";
+"Nice start! Build your streak day by day!" = "Awal yang bagus! Perpanjang rentetan bermain Anda setiap hari!";
+"Your Friend Streaks" = "Rentetan Bermain Teman Anda";
 "See how your friends are doing" = "Lihat bagaimana kabar teman Anda";
 "No friends yet" = "Belum ada teman";
 "Add friends to see their streaks and compete together!" = "Tambahkan teman untuk melihat rekor mereka dan bersaing bersama!";
-"NUDGE" = "DORONGAN";
-"Remind" = "Mengingatkan";
+"NUDGE" = "INGATKAN";
+"Remind" = "Ingatkan";
 "Reminder sent to %@" = "Pengingat dikirim ke %@";
 "%@ reminds you" = "%@ mengingatkan Anda";
-"nudge_phrase_1" = "Jangan menyerah! Anda punya ini!";
-"nudge_phrase_2" = "Pukulanmu sedang menunggumu. Mainkan hari ini!";
-"nudge_phrase_3" = "Satu pertandingan sehari membuat rekor tersebut tetap hidup!";
+"nudge_phrase_1" = "Jangan menyerah! Anda pasti bisa!";
+"nudge_phrase_2" = "Rentetan bermain Anda menanti. Bermainlah hari ini!";
+"nudge_phrase_3" = "Satu permainan sehari menjaga rentetan bermain Anda!";
 "nudge_phrase_4" = "Kembalilah dan tunjukkan bendera itu siapa bosnya!";
 "nudge_phrase_5" = "Kami merindukanmu! Waktunya bermain cepat?";
 "nudge_phrase_6" = "Temanmu sedang bermain. Bergabunglah dengan mereka!";
-"nudge_phrase_7" = "Langkah kecil hari ini, langkah besar besok!";
-"nudge_phrase_8" = "Kamu sangat dekat! Jangan putuskan pukulannya!";
+"nudge_phrase_7" = "Langkah kecil hari ini, rentetan panjang esok hari!";
+"nudge_phrase_8" = "Sudah dekat! Jangan putuskan rentetan bermain Anda!";
 "nudge_phrase_9" = "Bendera memanggil. Jawab panggilannya!";
-"nudge_phrase_10" = "Bangkit dan bersinar — saatnya bendera!";
+"nudge_phrase_10" = "Bangun dan bersiaplah — saatnya bermain bendera!";
 "nudge_phrase_11" = "Sedikit latihan akan sangat bermanfaat!";
-"nudge_phrase_12" = "Hari ini adalah hari untuk mempertahankan rekor Anda!";
+"nudge_phrase_12" = "Pertahankan rentetan bermain Anda hari ini!";
 "nudge_phrase_13" = "Kembali ke permainan! Kami percaya padamu!";
 "nudge_phrase_14" = "Satu pertandingan lagi dan Anda akan merasa luar biasa!";
-"nudge_phrase_15" = "Pukulanmu merindukanmu. Kembali!";
-"CONTINUE" = "MELANJUTKAN";
-"streak" = "garis";
+"nudge_phrase_15" = "Rentetan bermain Anda menanti. Kembalilah!";
+"CONTINUE" = "LANJUT";
+"streak" = "rentetan";
 "days" = "hari";
 "Quest Update!" = "Pembaruan Misi!";
 "Check your progress" = "Periksa kemajuan Anda";
 "Заблокировано" = "Terkunci";
 "Базовый пакет" = "Paket Dasar";
-"Обучение" = "Sedang belajar";
+"Обучение" = "Belajar";
 "Изучай флаги и страны мира" = "Pelajari bendera dan negara di dunia";
-"Континенты" = "benua";
+"Континенты" = "Benua";
 "Европа" = "Eropa";
 "Азия" = "Asia";
 "Африка" = "Afrika";
@@ -184,7 +184,7 @@
 "Колыбель человечества" = "Tempat lahir umat manusia";
 "Новый свет" = "Dunia Baru";
 "Земля контрастов" = "Negeri yang kontras";
-"Острова Тихого океана" = "pulau-pulau di Samudera Pasifik";
+"Острова Тихого океана" = "Kepulauan di Samudra Pasifik";
 "Статистика флагов" = "Statistik Bendera";
 "Всего стран" = "Jumlah Negara";
 "Цветов на флагах" = "Warna pada Bendera";
@@ -198,20 +198,20 @@
 "Флаг Дании используется с 1219 года" = "Sebuah legenda mengaitkan bendera Denmark dengan pertempuran pada 1219.";
 "Единственный квадратный флаг" = "Bendera nasional berbentuk persegi";
 "У Швейцарии единственный квадратный флаг в мире" = "Swiss dan Kota Vatikan sama-sama memiliki bendera nasional berbentuk persegi.";
-"Самый сложный флаг" = "Bendera Paling Kompleks";
+"Самый сложный флаг" = "Bendera bergambar naga";
 "У Бутана на флаге изображен дракон" = "Bendera Bhutan menampilkan seekor naga";
 "Go Premium" = "Gunakan Premium";
-"Мой профиль в World Arena Flags" = "Profil Bendera Arena Dunia Saya";
-"My Profile Share Title" = "Profil Bendera Arena Dunia Saya";
+"Мой профиль в World Arena Flags" = "Profil World Arena Flags saya";
+"My Profile Share Title" = "Profil World Arena Flags saya";
 "Не удалось добавить друга. Проверьте код." = "Gagal menambahkan teman. Periksa kodenya.";
-"Daily Quests" = "Quest Harian";
-"Monthly Quest" = "Pencarian Bulanan";
+"Daily Quests" = "Misi Harian";
+"Monthly Quest" = "Misi Bulanan";
 
 // Learning Section
 "More facts" = "Lebih banyak fakta";
 "стран" = "negara";
 "фактов о флагах и странах" = "fakta tentang bendera dan negara";
-"Столица" = "Modal";
+"Столица" = "Ibu kota";
 
 // Continent names
 "Европа" = "Eropa";
@@ -227,15 +227,15 @@
 "Колыбель человечества" = "Tempat lahir umat manusia";
 "Новый свет" = "Dunia Baru";
 "Земля контрастов" = "Negeri yang kontras";
-"Острова Тихого океана" = "pulau-pulau di Samudera Pasifik";
+"Острова Тихого океана" = "Kepulauan di Samudra Pasifik";
 
 // Network Errors
 "No Internet Connection" = "Tidak Ada Koneksi Internet";
-"Request Timeout" = "Batas Waktu Permintaan";
+"Request Timeout" = "Waktu Permintaan Habis";
 "Server Not Found" = "Server Tidak Ditemukan";
 "Too Many Requests" = "Terlalu Banyak Permintaan";
 "HTTP Error: %d" = "Kesalahan HTTP: %d";
-"Not enough countries in selected regions (found %d, need at least 4)" = "Jumlah negara di wilayah tertentu tidak mencukupi (ditemukan %d, memerlukan setidaknya 4)";
+"Not enough countries in selected regions (found %d, need at least 4)" = "Jumlah negara di wilayah yang dipilih tidak cukup (ditemukan %d, perlu minimal 4)";
 "Empty response from server" = "Respons kosong dari server";
 
 // New additions
@@ -248,30 +248,30 @@
 "system_language" = "Sistem";
 "ru_language" = "Русский";
 "uk_language" = "Українська";
-"es_language" = "Spanyol";
-"ca_language" = "Katala";
-"zh_language" = "tidak";
+"es_language" = "Español";
+"ca_language" = "Català";
+"zh_language" = "中文";
 
 // Exit confirmation
 "Exit Confirmation" = "Apakah Anda yakin ingin keluar?";
 "Yes" = "Ya";
-"No" = "TIDAK";
+"No" = "Tidak";
 
 // New additions
 "Tap to continue" = "Ketuk untuk melanjutkan";
 "Loading flag..." = "Memuat bendera...";
 "Select Difficulty" = "Pilih Tingkat Kesulitan";
-"Game Mode" = "Modus Permainan";
+"Game Mode" = "Mode Permainan";
 
 // Game Modes
-"Game Mode" = "Modus Permainan";
+"Game Mode" = "Mode Permainan";
 "Classic" = "Klasik";
 "Time Challenge" = "Tantangan waktu";
 "Time Challenge short" = "Waktu";
-"Survival" = "Kelangsungan hidup";
+"Survival" = "Bertahan Hidup";
 "Duel" = "Duel";
 "Challenge a friend to the same game, compare results" = "Tantang teman untuk permainan yang sama, bandingkan hasilnya";
-"Challenge to Duel" = "Tantangan untuk Duel";
+"Challenge to Duel" = "Tantang Duel";
 "You won the duel!" = "Anda memenangkan duel!";
 "Duel challenge from %@" = "%@ menantangmu untuk berduel";
 "Duel result" = "Hasil duel";
@@ -280,7 +280,7 @@
 "You" = "Anda";
 "Duel announcement title" = "Duel";
 "vs" = "vs";
-"Friend add username not found" = "Pengguna \"%@\" tidak ditemukan. Periksa login.";
+"Friend add username not found" = "Pengguna \"%@\" tidak ditemukan. Periksa nama penggunanya.";
 "Start duel" = "Mulai duel";
 "24h to accept" = "24 jam untuk menerima";
 "duel_invite_popup_title" = "Tantangan duel";
@@ -289,7 +289,7 @@
 "duel_invite_popup_remind_1h" = "Ingatkan · 1 jam";
 "duel_invite_popup_decline" = "Tolak";
 
-"Accept" = "Menerima";
+"Accept" = "Terima";
 "Random opponent" = "Lawan acak";
 "Virtual opponent" = "Lawan maya";
 "No friends yet. Add friends in Profile." = "Belum ada teman. Tambahkan teman di Profil.";
@@ -301,7 +301,7 @@
 "Difficulty" = "Kesulitan";
 "Easy" = "Mudah";
 "Medium" = "Sedang";
-"Hard" = "Keras";
+"Hard" = "Sulit";
 "Expert" = "Pakar";
 "Erudite" = "Terpelajar";
 "10 questions, 45 sec per answer" = "10 pertanyaan, 45 detik per jawaban";
@@ -310,7 +310,7 @@
 "25 questions, 10 sec per answer" = "25 pertanyaan, 10 detik per jawaban";
 "30 questions, 5 sec per answer" = "30 pertanyaan, 5 detik per jawaban";
 "All %d countries of selected regions, 5 sec per answer" = "Semua %d negara di wilayah terpilih, 5 detik per jawaban";
-"All 238 countries of the world, 5 sec per answer" = "Seluruh 238 negara di dunia, 5 detik per jawaban";
+"All 238 countries of the world, 5 sec per answer" = "Semua negara dan wilayah yang tersedia, 5 detik per jawaban";
 
 "of" = "dari";
 "flags" = "bendera";
@@ -318,7 +318,7 @@
 // Theme
 "App Theme" = "Penampilan";
 "System" = "Sistem";
-"Light" = "Lampu";
+"Light" = "Terang";
 "Dark" = "Gelap";
 
 // iPad Main Screen
@@ -326,34 +326,34 @@
 "WorldArena Description" = "WorldArena adalah seri permainan pengetahuan global yang mengubah pembelajaran menjadi menyenangkan. Tebak bendera, ibu kota, perbatasan, dan banyak lagi dalam format kuis dinamis yang dirancang untuk segala usia.";
 
 /* Lives & Premium */
-"Lives" = "Hidup";
-"Next +%d in %02d:%02d" = "Berikutnya +%d di %02d:%02d";
+"Lives" = "Nyawa";
+"Next +%d in %02d:%02d" = "Berikutnya +%d dalam %02d:%02d";
 "Lives refill info" = "Info isi ulang nyawa";
-"You will receive +%d new lives in %02d:%02d" = "Anda akan menerima +%d nyawa baru di %02d:%02d";
+"You will receive +%d new lives in %02d:%02d" = "Anda akan menerima +%d nyawa baru dalam %02d:%02d";
 "Unlimited hearts enabled" = "Hati tanpa batas diaktifkan";
 "Unlimited Hearts" = "Hati Tanpa Batas";
 "Your Premium benefits" = "Manfaat Premium Anda";
 "Onboarding welcome message" = "Pilih wilayah di bawah dan mainkan game pertama Anda!";
 "Onboarding first game done" = "Pertandingan pertama selesai! Mainkan 4 game lagi dengan akurasi 70%+ untuk membuka peringkat kota Anda.";
 "F-Bucks" = "F-Bucks";
-"Flags Bucks" = "Bendera Bucks";
+"Flags Bucks" = "Flags Bucks";
 
 /* F-Bucks Info Page */
 "О F-Bucks" = "Tentang F-Bucks";
-"Как заработать" = "Cara Menghasilkan Uang";
-"История" = "Sejarah";
+"Как заработать" = "Cara Mendapatkan F-Bucks";
+"История" = "Riwayat";
 "Магазин" = "Toko";
 "Что такое F-Bucks?" = "Apa itu F-Bucks?";
 "F-Bucks (Flags Bucks) — это внутриигровая валюта, которую можно заработать, играя в World Arena Flags. Используйте F-Bucks для покупки уникальных элементов аватара, скинов и других эксклюзивных предметов." = "F-Bucks (Flags Bucks) adalah mata uang dalam game yang bisa Anda peroleh dengan memainkan World Arena Flags. Gunakan F-Bucks untuk membeli item avatar unik, skin, dan item eksklusif lainnya.";
 "Особенности:" = "Fitur:";
-"Зарабатывайте за идеальные результаты в играх" = "Hasilkan untuk hasil permainan yang sempurna";
-"Получайте бонусы за длинные серии дней" = "Dapatkan bonus untuk hari yang panjang";
+"Зарабатывайте за идеальные результаты в играх" = "Dapatkan hadiah untuk hasil permainan sempurna";
+"Получайте бонусы за длинные серии дней" = "Dapatkan bonus untuk rentetan hari bermain yang panjang";
 "Покупайте эксклюзивные элементы для аватара" = "Beli item avatar eksklusif";
 "Создавайте уникальный стиль" = "Ciptakan gaya yang unik";
 "Как заработать F-Bucks" = "Cara mendapatkan F-Bucks";
 "Идеальный результат" = "Hasil Sempurna";
 "Идеальный результат игры" = "Hasil permainan yang sempurna";
-"Получите идеальный результат в игре (10/10 или 15/15)" = "Dapatkan hasil sempurna dalam permainan (10/10 atau 15/15)";
+"Получите идеальный результат в игре (10/10 или 15/15)" = "Selesaikan permainan dengan semua jawaban benar";
 "Серия 10 дней" = "10 hari berturut-turut";
 "Играйте 10 дней подряд" = "Bermain 10 hari berturut-turut";
 "Серия 20 дней" = "20 hari berturut-turut";
@@ -363,13 +363,13 @@
 "Серия 100 дней" = "100 hari berturut-turut";
 "Играйте 100 дней подряд" = "Bermain 100 hari berturut-turut";
 "История начислений" = "Riwayat transaksi";
-"История пуста" = "Sejarah kosong";
+"История пуста" = "Riwayat kosong";
 "Начните играть и зарабатывать F-Bucks!" = "Mulai bermain dan dapatkan F-Bucks!";
 "Магазин F-Bucks" = "Toko F-Bucks";
 "Потратьте F-Bucks на эксклюзивные элементы для вашего аватара" = "Habiskan F-Bucks untuk membeli item eksklusif untuk avatar Anda";
 "Одежда" = "Pakaian";
 "Уникальные наряды и аксессуары" = "Pakaian dan aksesoris unik";
-"Скины" = "kulit";
+"Скины" = "Tampilan";
 "Особые визуальные эффекты" = "Efek visual khusus";
 "Эффекты" = "Efek";
 "Анимации и спецэффекты" = "Animasi dan efek khusus";
@@ -382,16 +382,16 @@
 "Эффект блёсток" = "Efek Berkilau";
 "Огненный эффект" = "Efek api";
 "Звёздный эффект" = "Efek bintang";
-"Купить" = "Membeli";
+"Купить" = "Beli";
 "Покупка" = "Pembelian";
 "Текст гимна" = "Teks Lagu Kebangsaan";
 "Continue playing with unlimited hearts!" = "Lanjutkan bermain dengan hati tanpa batas!";
 "No lives available" = "Tidak ada nyawa yang tersedia";
 "Unfortunately, the game is not available now: you have no lives. You can buy lives or go Premium." = "Sayangnya, game ini tidak tersedia sekarang: Anda tidak memiliki nyawa. Anda dapat membeli nyawa atau menggunakan Premium.";
 "Go Premium" = "Gunakan Premium";
-"Out of lives" = "Keluar dari kehidupan";
-"Get Free Lives" = "Dapatkan Kehidupan Gratis";
-"Watch video for +3 lives" = "Tonton video untuk +3 kehidupan";
+"Out of lives" = "Nyawa habis";
+"Get Free Lives" = "Dapatkan Nyawa Gratis";
+"Watch video for +3 lives" = "Tonton video untuk +3 nyawa";
 "Unfortunately you ran out of lives this time. Try again or come back later." = "Sayangnya Anda kehabisan nyawa kali ini. Coba lagi atau kembali lagi nanti.";
 "Out of lives headline 1" = "Hampir berhasil! 🚀";
 "Out of lives headline 2" = "Lanjut?";
@@ -399,7 +399,7 @@
 "Out of lives headline 4" = "Sangat dekat!";
 "Out of lives headline 5" = "Jangan berhenti sekarang!";
 "Out of lives headline 6" = "Satu putaran lagi?";
-"Out of lives headline 7" = "Pertahankan streak!";
+"Out of lives headline 7" = "Pertahankan rentetan bermain Anda!";
 "Out of lives continue subtitle" = "Lanjut dari sini?";
 "Continue with bonus lives" = "Lanjut (+%d nyawa)";
 "Out of lives perk resume" = "+%d nyawa — lanjut persis dari posisi terakhir";
@@ -412,7 +412,7 @@
 "OK" = "OKE";
 
 /* Premium screen */
-"Learn all countries and flags in ~2 months with Premium" = "Pelajari semua negara dan bendera dalam ~2 bulan dengan Premium";
+"Learn all countries and flags in ~2 months with Premium" = "Perluas pengetahuan tentang negara dan bendera dengan Premium";
 "Unlimited Hearts" = "Hati Tanpa Batas";
 "Personalized Practice" = "Latihan yang Dipersonalisasi";
 "Explain My Answer" = "Jelaskan Jawaban Saya";
@@ -431,8 +431,8 @@
 "Time Per Question" = "Waktu per pertanyaan";
 
 /* Game header motivation (iPad) */
-"Game motivation 1" = "Anda punya ini!";
-"Game motivation 2" = "Terus berlanjut!";
+"Game motivation 1" = "Anda pasti bisa!";
+"Game motivation 2" = "Teruskan!";
 "Game motivation 3" = "Setiap bendera penting!";
 "Game motivation 4" = "Anda bersemangat!";
 "Game motivation 5" = "Tetap fokus!";
@@ -453,22 +453,22 @@
 "Joined in %@" = "Bergabung sejak %@";
 "Statistics" = "Statistik";
 "Total XP" = "Jumlah XP";
-"Current streak" = "Pukulan saat ini";
-"Best streak" = "Pukulan terbaik";
+"Current streak" = "Rentetan saat ini";
+"Best streak" = "Rentetan terbaik";
 "Total games" = "Jumlah permainan";
 "Accuracy" = "Ketepatan";
 "Add Friends" = "Tambahkan Teman";
 "Overview" = "Ringkasan";
-"Friend Streaks" = "Coretan Teman";
+"Friend Streaks" = "Rentetan Bermain Teman";
 "Monthly Badges" = "Lencana Bulanan";
 
 /* Avatar Editor */
 "Edit Avatar" = "Sunting Avatar";
-"Cancel" = "Membatalkan";
+"Cancel" = "Batal";
 "Upload Photo" = "Unggah Foto";
 "Create Avatar" = "Buat Avatar";
 "Photo" = "Foto";
-"Create" = "Membuat";
+"Create" = "Buat";
 "Select Photo" = "Pilih Foto";
 "Upload your photo from gallery or take a new one" = "Unggah foto Anda dari galeri atau ambil yang baru";
 "Remove Photo" = "Hapus Foto";
@@ -493,22 +493,22 @@
 "Starting..." = "Mulai...";
 
 /* Main Tab Navigation */
-"Главная" = "Rumah";
+"Главная" = "Beranda";
 "Игра" = "Bermain";
-"Квесты" = "Pencarian";
+"Квесты" = "Misi";
 "Лиги" = "Liga";
-"До конца лиги: %02dч %02dм (GMT)" = "Liga berakhir pada %02dh %02dm (GMT)";
-"До конца лиги: %@ (GMT)" = "Liga berakhir pada %@ (GMT)";
-"д" = "D";
-"ч" = "H";
-"м" = "M";
+"До конца лиги: %02dч %02dм (GMT)" = "Liga berakhir dalam %02d jam %02d menit (GMT)";
+"До конца лиги: %@ (GMT)" = "Liga berakhir dalam %@ (GMT)";
+"д" = "h";
+"ч" = "j";
+"м" = "m";
 "Статистика" = "Statistik";
 "Профиль" = "Profil";
 
 /* Profile Page */
 "ОБЗОР" = "RINGKASAN";
 "ДОБАВИТЬ ДРУЗЕЙ" = "TAMBAHKAN TEMAN";
-"СЕРИИ ДРУЗЕЙ" = "GARIS TEMAN";
+"СЕРИИ ДРУЗЕЙ" = "RENTETAN BERMAIN TEMAN";
 "МЕСЯЧНЫЕ ДОСТИЖЕНИЯ" = "PENCAPAIAN BULANAN";
 
 /* Settings */
@@ -520,10 +520,10 @@
 "profile_crop_zoom_label" = "Zoom";
 "profile_crop_cancel" = "Batal";
 "profile_crop_done" = "Selesai";
-"Имя пользователя" = "Nama belakang";
+"Имя пользователя" = "Nama pengguna";
 "Статистика" = "Statistik";
-"Премиум подписка активна" = "Langganan premium aktif";
-"ВОССТАНОВИТЬ ПОДПИСКУ" = "KEMBALIKAN BERLANGGANAN";
+"Премиум подписка активна" = "Langganan Premium aktif";
+"ВОССТАНОВИТЬ ПОДПИСКУ" = "PULIHKAN LANGGANAN";
 "ВЫЙТИ" = "KELUAR";
 "Удалить аккаунт" = "Hapus akun";
 "Это действие нельзя отменить. Все ваши данные будут удалены навсегда." = "Tindakan ini tidak dapat dibatalkan. Semua data Anda akan dihapus secara permanen.";
@@ -538,15 +538,15 @@
 "Зона вылета - риск понижения лиги" = "Zona degradasi - risiko penurunan liga";
 "Безопасная зона - остаетесь в текущей лиге" = "Zona aman - tetap di liga saat ini";
 "Конец недели через %d часов" = "Minggu berakhir dalam %d jam";
-"ЗОНА ВЫЛЕТА" = "ZONA RELEGASI";
+"ЗОНА ВЫЛЕТА" = "ZONA DEGRADASI";
 "ЗОНА ПОВЫШЕНИЯ" = "ZONA PROMOSI";
 
 /* Monthly Quests */
-"Августовский Квест" = "Pencarian Agustus";
+"Августовский Квест" = "Misi Agustus";
 "Mision de Agosto" = "Misi Agustus";
 "21 ДЕНЬ" = "21 HARI";
-"Заработай 40 очков квеста" = "Hasilkan 40 poin pencarian";
-"ЕЖЕДНЕВНЫЕ КВЕСТЫ" = "PERTANYAAN HARIAN";
+"Заработай 40 очков квеста" = "Dapatkan 40 poin misi";
+"ЕЖЕДНЕВНЫЕ КВЕСТЫ" = "MISI HARIAN";
 
 /* Help Center */
 "Популярные темы" = "Topik populer";
@@ -566,9 +566,9 @@
 "%d тем" = "%d topik";
 
 /* Daily Quests */
-"Продли свою серию" = "Perpanjang pukulan Anda";
+"Продли свою серию" = "Perpanjang rentetan bermain Anda";
 "Сыграй 3 игры подряд" = "Mainkan 3 game berturut-turut";
-"Достигни точности 80%" = "Mencapai akurasi 80%.";
+"Достигни точности 80%" = "Capai akurasi 80%";
 "МЕСЯЧНЫЕ ЦЕЛИ" = "TUJUAN BULANAN";
 "Месячные цели" = "TUJUAN BULANAN";
 
@@ -585,69 +585,69 @@
 "Золото" = "Emas";
 "Платина" = "Platinum";
 "Алмаз" = "Berlian";
-"Мастер" = "Menguasai";
+"Мастер" = "Master";
 
 /* Profile Edit */
 "Введите имя" = "Masukkan nama";
-"Отмена" = "Membatalkan";
-"Сохранить" = "Menyimpan";
+"Отмена" = "Batal";
+"Сохранить" = "Simpan";
 "Уровень" = "Tingkat";
 "Опыт" = "Pengalaman";
-"Серия дней" = "Hari berturut-turut";
+"Серия дней" = "Rentetan Hari Bermain";
 "Всего игр" = "Jumlah permainan";
-"Точность" = "Ketepatan";
+"Точность" = "Akurasi";
 
 /* Theme Settings */
 "Тема" = "Tema";
 "System" = "Sistem";
-"Light" = "Lampu";
+"Light" = "Terang";
 "Dark" = "Gelap";
 "Выберите тему оформления приложения" = "Pilih tema tampilan aplikasi";
 "Следует системным настройкам" = "Mengikuti pengaturan sistem";
-"Светлое оформление" = "Penampilan ringan";
+"Светлое оформление" = "Tampilan terang";
 "Темное оформление" = "Penampilan gelap";
 
 /* Monthly Quests - Additional */
 "Сыграй %d игр" = "Mainkan %d permainan";
 "Завершите %d игр в этом месяце" = "Selesaikan %d game bulan ini";
 "Точность %d%%" = "Akurasi %d%%";
-"Достигните точности %d%% в играх" = "Mencapai akurasi %d%% dalam game";
+"Достигните точности %d%% в играх" = "Capai akurasi %d%% dalam permainan";
 "Серия %d дней" = "%d hari berturut-turut";
 "Поддерживайте серию %d дней подряд" = "Pertahankan %d hari berturut-turut";
 "10Ч" = "10 jam";
 
 /* Friends */
-"Ваш код друга" = "Kode temanmu";
+"Ваш код друга" = "Kode pertemanan Anda";
 "Добавить по коду" = "Tambahkan dengan kode";
 "Введите код друга" = "Masukkan kode teman";
-"Добавить" = "Menambahkan";
+"Добавить" = "Tambah";
 "Добавить друзей" = "Tambahkan Teman";
 "Готово" = "Selesai";
 "Скопировано" = "Disalin";
-"Мой код друга" = "Kode temanku";
+"Мой код друга" = "Kode pertemanan saya";
 "Добавить по имени (логину)" = "Tambahkan berdasarkan nama pengguna";
 "Введите имя пользователя" = "Masukkan nama pengguna";
 "Пользователь не найден или уже в друзьях. Проверьте имя." = "Pengguna tidak ditemukan atau sudah berteman. Periksa namanya.";
-"Ваша страна (флаг в профиле)" = "Negara Anda (tandai di profil)";
+"Ваша страна (флаг в профиле)" = "Negara Anda (bendera di profil)";
 "Выберите страну — её флаг будет отображаться у вас в профиле у друзей." = "Pilih negara — benderanya akan ditampilkan di profil Anda kepada teman-teman.";
 "Не выбрано" = "Tidak dipilih";
-"Ваша страна" = "negaramu";
+"Ваша страна" = "Negara Anda";
 
 /* Help Center topics */
-"Как играть в World Arena Flags?" = "Bagaimana cara memainkan Bendera Arena Dunia?";
+"Как играть в World Arena Flags?" = "Bagaimana cara bermain World Arena Flags?";
 "Основы игры и правила" = "Dasar-dasar dan aturan";
-"HELP_GAME_RULES" = "Bendera Arena Dunia adalah permainan menyenangkan untuk mempelajari bendera dunia!\n\nAturan:\n1. Anda melihat bendera suatu negara\n2. Pilih nama yang benar dari pilihan\n3. Dapatkan XP untuk jawaban yang benar\n4. Pertahankan rutinitas harian Anda\n5. Naik level dan naiki liga\n\nSemakin banyak Anda bermain, semakin banyak bendera yang Anda pelajari!";
-"Что такое серия дней?" = "Apa itu coretan?";
-"Как работает система серий" = "Cara kerja sistem coretan";
-"HELP_STREAK_TEXT" = "Pukulan menunjukkan berapa hari berturut-turut Anda bermain.\n\nCara menyimpannya:\n• Mainkan setidaknya satu permainan setiap hari\n• Garis tersebut akan direset jika Anda melewatkan satu hari\n• Pukulan yang lebih panjang akan memberikan lebih banyak bonus XP\n\nStreak membantu membangun kebiasaan belajar!";
+"HELP_GAME_RULES" = "World Arena Flags adalah permainan seru untuk mempelajari bendera dunia!\n\nAturan:\n1. Anda melihat bendera suatu negara\n2. Pilih nama yang benar dari pilihan yang tersedia\n3. Dapatkan XP untuk jawaban yang benar\n4. Pertahankan rentetan bermain harian Anda\n5. Naik level dan naik liga\n\nSemakin sering bermain, semakin banyak bendera yang Anda pelajari!";
+"Что такое серия дней?" = "Apa itu rentetan bermain?";
+"Как работает система серий" = "Cara kerja rentetan bermain";
+"HELP_STREAK_TEXT" = "Rentetan bermain mencatat hari-hari berturut-turut Anda bermain.\n\n• Mainkan setidaknya satu permainan setiap hari untuk memperpanjangnya.\n• Pembeku rentetan dapat melindungi hari yang terlewat jika tersedia.\n• Buka kalender rentetan untuk melihat hari bermain dan perlindungan yang tersedia.\n\nLatihan rutin membantu membangun kebiasaan belajar!";
 "Как работают лиги?" = "Bagaimana cara kerja liga?";
 "Система рейтингов и соревнований" = "Sistem pemeringkatan dan kompetisi";
-"HELP_LEAGUES_TEXT" = "Liga adalah kompetisi dengan pemain lain.\n\nLiga (dari rendah ke tinggi):\n• Perunggu\n• Perak\n• Emas\n• Platina\n• Berlian\n• Guru\n\nPembaruan mingguan:\n• 3 pemain teratas mendapat hadiah\n• Pemain di peringkat 16-20 dapat diturunkan pangkatnya\n• Yang lainnya tetap berada pada kondisi yang sama";
+"HELP_LEAGUES_TEXT" = "Liga memungkinkan Anda bersaing dengan pemain lain.\n\nDari terendah ke tertinggi:\n• Perunggu\n• Perak\n• Emas\n• Platinum\n• Berlian\n• Master\n\nPosisi mingguan menentukan apakah Anda naik, bertahan, atau turun liga. Zona promosi dan degradasi bergantung pada kemajuan Anda dan ditampilkan di tabel liga. Anda mendapat F-Bucks saat naik liga.";
 
 /* Birthday */
 "День рождения" = "Hari ulang tahun";
 "Birthday description F-bucks" = "Izinkan kami mengucapkan selamat kepada Anda pada hari ulang tahun Anda dengan +10 F-bucks";
-"Очистить" = "Jernih";
+"Очистить" = "Hapus";
 "День рождения друга" = "ulang tahun teman";
 "Friend birthday push body" = "Hari ini %@ merayakan ulang tahun mereka — ucapkan selamat kepada mereka! (berikan +10 menit Triple XP atau +1 F-bucks)";
 "С днём рождения!" = "Selamat ulang tahun!";
@@ -661,42 +661,42 @@
 /* Help Center – profile & skin */
 "Как изменить аватар?" = "Bagaimana cara mengubah avatar?";
 "Персонализация профиля" = "Kustomisasi profil";
-"HELP_PROFILE_AVATAR" = "Untuk mengubah avatar Anda:\n1. Buka tab Profil\n2. Ketuk ikon roda gigi (Pengaturan)\n3. Pilih \"Profil pengguna\"\n4. Pilih avatar baru atau unggah foto\n5. Ketuk \"Simpan\"";
-"Как работает создание скина?" = "Bagaimana cara kerja editor kulit?";
+"HELP_PROFILE_AVATAR" = "Untuk mengubah avatar:\n1. Buka Profil dan ketuk avatar untuk mengedit profil.\n2. Buka editor avatar atau pilih foto dari galeri.\n3. Sesuaikan avatar atau potong foto.\n4. Simpan perubahan.";
+"Как работает создание скина?" = "Bagaimana cara kerja editor tampilan?";
 "Редактор аватара и элементы" = "Editor avatar dan item";
-"HELP_PROFILE_SKIN_EDITOR" = "Di editor kulit Anda membangun tampilan Anda dari beberapa kategori:\n• Pakaian\n• Aksesori\n• Kacamata\n• Warna Kulit\n• Rambut\n• Wajah (mata, mulut, dll.)\n\nCara menggunakannya:\n1. Buka Profil → Pengaturan → Profil pengguna → Edit avatar\n2. Beralih ke tab \"Buat kulit\".\n3. Pilih kategori di bilah atas (topi, kemeja, kacamata, ikon palet, dll.)\n4. Pilih item tertentu pada grid di bawah – item tersebut akan langsung muncul di pratinjau\n5. Ketuk \"Simpan Avatar\" untuk menerapkan skin ke profil Anda\n\nBeberapa item mungkin dikunci (ikon kunci) – item tersebut akan terbuka seiring kemajuan Anda atau dengan biaya yang tidak sedikit.";
+"HELP_PROFILE_SKIN_EDITOR" = "Gunakan editor avatar untuk menyesuaikan tampilan: pakaian, aksesori, kacamata, warna kulit, rambut, dan fitur wajah.\n\nBuka profil, ketuk avatar, lalu buka editor avatar. Pilih kategori dan item untuk melihatnya di pratinjau. Simpan perubahan untuk menerapkannya ke profil.\n\nItem dengan ikon kunci mungkin memerlukan kemajuan atau F-Bucks untuk dibuka.";
 
 /* Help Center – friends & social */
 "Как добавить друзей?" = "Bagaimana cara menambah teman?";
 "Социальные функции" = "Fitur sosial";
-"HELP_SOCIAL_ADD_FRIENDS" = "Untuk menambahkan teman:\n1. Buka tab Profil\n2. Ketuk \"Tambahkan Teman\"\n3. Bagikan kode teman Anda atau masukkan kode/login pemain lain\n4. Kirim permintaan pertemanan\n\nDengan teman Anda dapat:\n• Bandingkan statistik\n• Lihat kemajuan mereka\n• Bersaing dalam liga dan duel";
+"HELP_SOCIAL_ADD_FRIENDS" = "Untuk menambahkan teman:\n1. Buka tab Profil\n2. Ketuk \"Tambahkan Teman\"\n3. Bagikan kode pertemanan Anda atau masukkan kode atau nama pengguna pemain lain\n4. Kirim permintaan pertemanan\n\nBersama teman, Anda dapat:\n• Membandingkan statistik\n• Melihat kemajuan mereka\n• Bersaing di liga dan duel";
 "Как работают напоминания друзьям?" = "Bagaimana cara kerja pengingat ke teman?";
 "Пуш-уведомления о ежедневном уроке" = "Pemberitahuan push tentang pelajaran harian";
-"HELP_SOCIAL_REMINDERS" = "Setelah menyelesaikan permainan, Anda melihat layar dengan teman-teman Anda dan coretan mereka:\n• Teman yang sudah bermain hari ini menunjukkan nyala api dan jumlah hari berturut-turut\n• Teman yang belum bermain hari ini menunjukkan tombol \"Ingatkan\".\n\nCara mengirim pengingat:\n1. Setelah permainan Anda, buka layar \"Ingatkan teman\".\n2. Ketuk \"Ingatkan\" di samping teman tertentu\n3. Jika notifikasi diaktifkan, mereka akan mendapat pemberitahuan bahwa pelajaran hari ini belum selesai\n\nPengingat membantu teman-teman menjaga prestasi mereka dan belajar secara teratur.";
+"HELP_SOCIAL_REMINDERS" = "Setelah menyelesaikan permainan, Anda melihat layar berisi teman dan rentetan bermain mereka:\n• Teman yang sudah bermain hari ini ditandai dengan ikon api dan jumlah hari berturut-turut\n• Teman yang belum bermain hari ini memiliki tombol \"Ingatkan\"\n\nCara mengirim pengingat:\n1. Setelah bermain, buka layar \"Ingatkan teman\"\n2. Ketuk \"Ingatkan\" di samping nama teman\n3. Jika notifikasi diaktifkan, mereka akan menerima notifikasi push bahwa pelajaran hari ini belum selesai\n\nPengingat membantu teman mempertahankan rentetan bermain dan belajar secara rutin.";
 
 /* Help Center – duel & progress */
 "Что такое дуэль и как её начать?" = "Apa itu duel dan bagaimana memulainya?";
 "Режим соревнований 1 на 1" = "Mode kompetisi 1 lawan 1";
-"HELP_GAME_DUEL" = "Duel adalah mode di mana Anda dan teman Anda menjawab pertanyaan yang sama untuk membandingkan hasil.\n\nCara memulai duel:\n1. Buka profil teman Anda (dari daftar Teman, Liga, atau pengingat)\n2. Ketuk tombol \"Tantangan Duel\".\n3. Konfirmasi – duel akan menggunakan serangkaian pertanyaan bersama\n\nPada akhirnya:\n• Anda melihat siapa yang mencetak poin lebih banyak\n• Duel memotivasi dan meningkatkan kemajuan tetapi TIDAK mengatur ulang rekor harian Anda";
+"HELP_GAME_DUEL" = "Duel adalah mode ketika Anda dan teman menjawab pertanyaan yang sama untuk membandingkan hasil.\n\nCara memulai duel:\n1. Buka profil teman dari daftar Teman, Liga, atau pengingat\n2. Ketuk \"Tantang Duel\"\n3. Konfirmasikan — duel akan menggunakan kumpulan pertanyaan yang sama\n\nDi akhir permainan:\n• Anda melihat siapa yang mendapat poin lebih banyak\n• Duel memberi motivasi dan membantu kemajuan, tetapi TIDAK mengatur ulang rentetan bermain harian Anda";
 "Как зарабатывать и тратить F-bucks?" = "Bagaimana cara mendapatkan dan membelanjakan F-bucks?";
 "Внутриигровая валюта" = "Mata uang dalam game";
-"HELP_PROGRESS_FBUCKS" = "F-bucks (Flags Bucks) adalah mata uang dalam game World Arena Flags.\n\nCara mendapatkan F-bucks:\n• Untuk permainan yang sempurna (semua jawaban benar)\n• Untuk pukulan harian yang panjang\n• Untuk menyelesaikan misi dan pencapaian\n\nUntuk apa membelanjakannya:\n• Membeli elemen skin dan avatar eksklusif\n• Membuka kunci aksesori dan efek langka\n\nPenting: F-bucks bukanlah uang sungguhan. Mereka tidak dapat ditarik atau ditukar dengan mata uang riil.";
+"HELP_PROGRESS_FBUCKS" = "F-Bucks (Flags Bucks) adalah mata uang dalam World Arena Flags.\n\nCara mendapatkannya:\n• Menjawab semua pertanyaan dengan benar dalam permainan yang memenuhi syarat hadiah\n• Mempertahankan rentetan hari bermain yang panjang\n• Menyelesaikan misi dan pencapaian\n\nKegunaannya:\n• Membeli tampilan dan item avatar eksklusif\n• Membuka aksesori dan efek langka\n\nPenting: F-Bucks bukan uang sungguhan. F-Bucks tidak dapat ditarik atau ditukar dengan mata uang nyata.";
 "Как работают квесты и достижения?" = "Bagaimana cara kerja misi dan pencapaian?";
-"Месячные задания и артефакты" = "Pencarian dan artefak bulanan";
-"HELP_PROGRESS_QUESTS" = "Di tab \"Misi\" Anda melihat:\n• Quest harian (jika tersedia)\n• Misi bulanan dan kemajuan total 0–40\n\nCara kerjanya:\n1. Selesaikan tugas: mainkan jumlah permainan yang diperlukan, tebak bendera wilayah tertentu, dll.\n2. Setiap misi yang diselesaikan memberikan kemajuan dan hadiah\n3. Total kemajuan bulanan ditampilkan dalam header berwarna sebagai batang\n\nPencapaian (artefak) terbuka untuk kondisi khusus:\n• Garis-garis panjang\n• Akurasi tinggi\n• Tempat tinggi di liga\nPrestasi yang tidak terkunci ditampilkan di profil Anda.";
+"Месячные задания и артефакты" = "Misi dan artefak bulanan";
+"HELP_PROGRESS_QUESTS" = "Di tab \"Misi\", Anda melihat:\n• Misi harian, jika tersedia\n• Misi bulanan dan kemajuan total 0–40\n\nCara kerjanya:\n1. Selesaikan tugas: mainkan jumlah permainan yang diperlukan, tebak bendera wilayah tertentu, dan sebagainya\n2. Setiap misi yang selesai memberikan kemajuan dan hadiah\n3. Kemajuan bulanan ditampilkan sebagai bilah di bagian atas yang berwarna\n\nPencapaian (artefak) terbuka dengan memenuhi syarat khusus:\n• Rentetan bermain yang panjang\n• Akurasi tinggi\n• Peringkat tinggi di liga\nPencapaian yang terbuka ditampilkan di profil Anda.";
 
 /* Help Center – notifications */
 "Уведомления: какие бывают и как их настроить?" = "Notifikasi: jenis dan cara mengelolanya?";
 "Ежедневный урок, дуэли и напоминания" = "Pelajaran harian, duel, dan pengingat";
-"HELP_NOTIFICATIONS_TYPES" = "Aplikasi ini dapat mengirimkan beberapa jenis notifikasi:\n• Pelajaran harian dan pengingat beruntun\n• Pengingat ke teman dan tanggapan terhadap pengingat Anda\n• Tantangan duel dan hasil duel\n\nCara mengelola notifikasi:\n1. Buka pengaturan perangkat Anda\n2. Temukan Bendera Arena Dunia\n3. Aktifkan atau nonaktifkan jenis notifikasi sesuai keinginan Anda\n\nKami menyarankan untuk membiarkan pengingat pelajaran harian diaktifkan agar Anda tidak kehilangan pukulan Anda.";
+"HELP_NOTIFICATIONS_TYPES" = "Aplikasi mendukung pengingat latihan harian, pengingat rentetan, pengingat dari teman, undangan duel, dan hasil duel.\n\nPilih pengingat yang diinginkan di pengaturan notifikasi aplikasi. Pengaturan perangkat menentukan apakah World Arena Flags boleh menampilkan notifikasi.\n\nPengingat harian dapat membantu Anda ingat untuk berlatih.";
 
 /* Help Center – technical issues */
 "Проблемы с загрузкой флагов" = "Bendera tidak dimuat";
 "Что делать если флаги не загружаются" = "Apa yang harus dilakukan jika bendera tidak dimuat";
-"HELP_TECH_FLAGS_NOT_LOADING" = "Jika bendera tidak dimuat:\n1. Periksa koneksi internet Anda\n2. Mulai ulang aplikasi\n3. Hapus cache di pengaturan aplikasi (jika tersedia)\n4. Perbarui aplikasi ke versi terbaru\n5. Hubungi dukungan jika masalah terus berlanjut";
+"HELP_TECH_FLAGS_NOT_LOADING" = "Jika bendera tidak dimuat:\n1. Periksa koneksi internet.\n2. Mulai ulang aplikasi.\n3. Pasang pembaruan aplikasi terbaru.\n4. Hubungi dukungan jika masalah berlanjut.";
 "Синхронизация данных" = "Sinkronisasi data";
 "Как сохранить прогресс" = "Bagaimana menjaga kemajuan Anda tetap aman";
-"HELP_TECH_DATA_SYNC" = "Kemajuan Anda disimpan secara otomatis di perangkat.\n\nUntuk mencadangkannya:\n• Gunakan iCloud atau cadangan perangkat Anda\n• Ekspor data melalui pengaturan privasi (jika tersedia)\n• Buat cadangan perangkat Anda secara rutin\n\nJika Anda mengganti perangkat, pulihkan cadangan sebelum meluncurkan game agar kemajuan Anda tidak hilang.";
+"HELP_TECH_DATA_SYNC" = "Kemajuan Anda otomatis disimpan di perangkat. Aplikasi juga dapat menyalin kemajuan lokal melalui iCloud jika tersedia untuk Akun Apple Anda.\n\n• Perbarui cadangan perangkat secara rutin.\n• Gunakan Akun Apple yang sama saat memulihkan kemajuan dari iCloud.\n• Anda dapat mengekspor data permainan dari pengaturan privasi aplikasi.\n\nSetelah mengganti perangkat, pastikan kemajuan sudah dipulihkan sebelum menghapus cadangan lama.";
 
 /* Achievements */
 "Достижения" = "Prestasi";
@@ -709,26 +709,26 @@
 "Открыто" = "Terbuka";
 
 /* Achievement titles/descriptions */
-"Ранняя птица" = "Burung Awal";
+"Ранняя птица" = "Si Pagi";
 "Достигните серии 5 дней" = "Capai rekor 5 hari berturut-turut";
 "Стабильность" = "Konsistensi";
 "Серия 10 дней" = "10 hari berturut-turut";
-"Железная воля" = "Kehendak Besi";
+"Железная воля" = "Tekad Baja";
 "Серия 30 дней" = "30 hari berturut-turut";
-"Новичок XP" = "XP Pemula";
+"Новичок XP" = "Pemula XP";
 "Наберите 1000 XP" = "Hasilkan 1000 XP";
 "Олимпиец XP" = "Olimpian XP";
 "Наберите 5000 XP" = "Hasilkan 5000 XP";
 "Легенда XP" = "Legenda XP";
 "Наберите 10000 XP" = "Hasilkan 10.000 XP";
-"Исследователь" = "Penjelajah Pencarian";
+"Исследователь" = "Penjelajah Misi";
 "Сыграйте 20 игр" = "Mainkan 20 pertandingan";
 "Ветеран" = "Veteran";
 "Сыграйте 100 игр" = "Mainkan 100 permainan";
 "Меткий стрелок" = "Penembak jitu";
-"Точность 70%" = "Mencapai akurasi 70%.";
+"Точность 70%" = "Capai akurasi 70%";
 "Снайпер" = "Penembak jitu";
-"Точность 85%" = "Mencapai akurasi 85%.";
+"Точность 85%" = "Capai akurasi 85%";
 "Серебряная лига" = "Liga Perak";
 "Достигните Серебра" = "Raih Perak";
 "Золотая лига" = "Liga Emas";
@@ -736,9 +736,9 @@
 "Платиновая лига" = "Liga Platinum";
 "Достигните Платины" = "Raih Platinum";
 "Алмазная лига" = "Liga Berlian";
-"Достигните Алмаза" = "Jangkau Berlian";
+"Достигните Алмаза" = "Capai Liga Berlian";
 "Мастер лиг" = "Master Liga";
-"Достигните Мастера" = "Jangkau Guru";
+"Достигните Мастера" = "Capai Liga Master";
 "Первый друг" = "Teman Pertama";
 "Добавьте друга" = "Tambahkan teman";
 "Своя команда" = "Tim Anda";
@@ -753,7 +753,7 @@
  
 /* Settings - Added */
 "Уведомления" = "Pemberitahuan";
-"Приватность" = "Pribadi";
+"Приватность" = "Privasi";
 "Центр помощи" = "Pusat Bantuan";
 "Язык игры" = "Bahasa Permainan";
 "Звуковые эффекты" = "Efek suara";
@@ -763,7 +763,7 @@
 "Основные уведомления" = "Pemberitahuan utama";
 "Напоминания об игре" = "Pengingat permainan";
 "Ежедневные напоминания" = "Pengingat harian";
-"Напоминания о серии" = "Pengingat beruntun";
+"Напоминания о серии" = "Pengingat rentetan bermain";
 "Время напоминания" = "Waktu pengingat";
 "Время" = "Waktu";
 "Достижения и прогресс" = "Prestasi dan kemajuan";
@@ -796,35 +796,35 @@
 "Текущая серия" = "Rangkaian hari saat ini";
 "XP" = "XP";
 "ДОБАВИТЬ ДРУЗЕЙ" = "TAMBAHKAN TEMAN";
-"СЕРИИ ДРУЗЕЙ" = "GARIS TEMAN";
+"СЕРИИ ДРУЗЕЙ" = "RENTETAN BERMAIN TEMAN";
 "МЕСЯЧНЫЕ ДОСТИЖЕНИЯ" = "PENCAPAIAN BULANAN";
 
 // Add Friends page
-"Ваш код друга" = "Kode temanmu";
+"Ваш код друга" = "Kode pertemanan Anda";
 "Добавить по коду" = "Tambahkan dengan kode";
 "Введите код друга" = "Masukkan kode teman";
-"Добавить" = "Menambahkan";
+"Добавить" = "Tambah";
 "Добавить друзей" = "Tambahkan Teman";
 "Готово" = "Selesai";
 "Скопировано" = "Disalin";
-"Мой код друга" = "Kode temanku";
+"Мой код друга" = "Kode pertemanan saya";
 "Добавить по имени (логину)" = "Tambahkan berdasarkan nama pengguna";
 "Введите имя пользователя" = "Masukkan nama pengguna";
 "Пользователь не найден или уже в друзьях. Проверьте имя." = "Pengguna tidak ditemukan atau sudah berteman. Periksa namanya.";
-"Ваша страна (флаг в профиле)" = "Negara Anda (tandai di profil)";
+"Ваша страна (флаг в профиле)" = "Negara Anda (bendera di profil)";
 "Выберите страну — её флаг будет отображаться у вас в профиле у друзей." = "Pilih negara — benderanya akan ditampilkan di profil Anda kepada teman-teman.";
 "Не выбрано" = "Tidak dipilih";
-"Ваша страна" = "negaramu";
+"Ваша страна" = "Negara Anda";
 
 // Settings page
-"Премиум" = "Premi";
+"Премиум" = "Premium";
 "World Arena Premium" = "World Arena Premium";
-"Премиум подписка активна" = "Langganan premium aktif";
-"ВОССТАНОВИТЬ ПОДПИСКУ" = "KEMBALIKAN BERLANGGANAN";
+"Премиум подписка активна" = "Langganan Premium aktif";
+"ВОССТАНОВИТЬ ПОДПИСКУ" = "PULIHKAN LANGGANAN";
 
 // Achievements
-"Ранняя птица" = "Burung Awal";
-"Железная воля" = "Kehendak Besi";
+"Ранняя птица" = "Si Pagi";
+"Железная воля" = "Tekad Baja";
 "Алмазная лига" = "Liga Berlian";
 "Серия мастера" = "Rangkaian hari tingkat master";
 "Чемпион месяца" = "Juara Bulanan";
@@ -832,10 +832,10 @@
 
 // Friends messages
 "У вас пока нет друзей" = "Kamu belum punya teman";
-"Добавьте друзей, чтобы видеть их серии" = "Tambahkan teman untuk melihat coretan mereka";
+"Добавьте друзей, чтобы видеть их серии" = "Tambahkan teman untuk melihat rentetan bermain mereka";
 
 // Quests page
-"Щоденні квести" = "Quest Harian";
+"Щоденні квести" = "Misi Harian";
 "Сыграй 3 игры" = "Mainkan 3 permainan";
 "Дай 10 правильных ответов" = "Berikan 10 jawaban yang benar";
 "Заработай 500 XP" = "Hasilkan 500 XP";
@@ -844,27 +844,27 @@
 "Сыграй 10 игр" = "Mainkan 10 pertandingan";
 "Завершите 10 игр в этом месяце" = "Selesaikan 10 game bulan ini";
 "Точность 62%" = "Akurasi 62%";
-"Достигните точности 62% в играх" = "Mencapai akurasi 62% dalam game";
-"Серия 3 дней" = "Beruntun 3 hari";
+"Достигните точности 62% в играх" = "Capai akurasi 62% dalam permainan";
+"Серия 3 дней" = "Rentetan 3 hari";
 "Поддерживайте серию 3 дней подряд" = "Pertahankan rekor 3 hari berturut-turut";
 
 // Profile page buttons
-"Отмена" = "Membatalkan";
-"Сохранить" = "Menyimpan";
+"Отмена" = "Batal";
+"Сохранить" = "Simpan";
 
 // Profile statistics
 "Статистика" = "Statistik";
 "Уровень" = "Tingkat";
 "Опыт" = "Pengalaman";
-"Серия дней" = "Garis Harian";
+"Серия дней" = "Rentetan Hari Bermain";
 "Всего игр" = "Jumlah Permainan";
-"Точность" = "Ketepatan";
+"Точность" = "Akurasi";
 
 // Avatar Editor
 "Edit Avatar" = "Sunting Avatar";
 "Upload photo" = "Unggah Foto";
 "Photo" = "Foto";
-"Create" = "Membuat";
+"Create" = "Buat";
 "Select photo" = "Pilih Foto";
 "Upload your photo from gallery or take a new one" = "Unggah foto Anda dari galeri atau ambil yang baru";
 "Save Avatar" = "Simpan Avatar";
@@ -874,8 +874,8 @@
 
 /* Subscription Management */
 "Управление подпиской" = "Manajemen Langganan";
-"Ваша премиум подписка активна" = "Langganan premium Anda aktif";
-"Текущий план" = "Rencana Saat Ini";
+"Ваша премиум подписка активна" = "Langganan Premium Anda aktif";
+"Текущий план" = "Paket Saat Ini";
 "Цена" = "Harga";
 "месяц" = "bulan";
 "Информация о платежах" = "Informasi Penagihan";
@@ -883,8 +883,8 @@
 "Следующий платеж" = "Pembayaran Berikutnya";
 "Статус" = "Status";
 "Активна" = "Aktif";
-"Премиум преимущества" = "Manfaat Premi";
-"Безлимитные жизни" = "Kehidupan Tanpa Batas";
+"Премиум преимущества" = "Manfaat Premium";
+"Безлимитные жизни" = "Nyawa Tanpa Batas";
 "Играйте без ожидания" = "Mainkan tanpa menunggu";
 "Раздел Обучения" = "Bagian Pembelajaran";
 "Изучайте флаги и страны" = "Pelajari bendera dan negara";
@@ -893,13 +893,13 @@
 "Мои ошибки" = "Kesalahan saya";
 "Анализ ваших ошибок" = "Analisis kesalahan Anda";
 "Отменить подписку" = "Batalkan Berlangganan";
-"Закрыть" = "Menutup";
-"Отмена" = "Membatalkan";
-"Вы уверены, что хотите отменить премиум подписку? Вы потеряете доступ ко всем премиум функциям." = "Apakah Anda yakin ingin membatalkan langganan premium Anda? Anda akan kehilangan akses ke semua fitur premium.";
+"Закрыть" = "Tutup";
+"Отмена" = "Batal";
+"Вы уверены, что хотите отменить премиум подписку? Вы потеряете доступ ко всем премиум функциям." = "Yakin ingin membatalkan langganan Premium? Anda akan kehilangan akses ke semua fitur Premium.";
 
 "Manage subscription" = "Kelola langganan";
-"Your premium subscription is active" = "Langganan premium Anda aktif";
-"Current plan" = "Rencana saat ini";
+"Your premium subscription is active" = "Langganan Premium Anda aktif";
+"Current plan" = "Paket saat ini";
 "Price" = "Harga";
 "month" = "bulan";
 "year" = "tahun";
@@ -908,43 +908,43 @@
 "Next payment" = "Pembayaran berikutnya";
 "Status" = "Status";
 "Active" = "Aktif";
-"Premium benefits" = "Manfaat premi";
-"My mistakes" = "kesalahan saya";
+"Premium benefits" = "Manfaat Premium";
+"My mistakes" = "Kesalahan saya";
 "Analysis of your mistakes" = "Analisis kesalahan Anda";
 "Premium tournaments" = "Turnamen premium";
 "Exclusive tournaments with F-Bucks prizes" = "Turnamen eksklusif dengan hadiah F-Bucks";
 "Cancel subscription" = "Batalkan langganan";
 "Keep subscription" = "Tetap berlangganan";
 "Yes, cancel" = "Ya, batalkan";
-"Are you sure you want to cancel premium? You will lose access to all premium features." = "Apakah Anda yakin ingin membatalkan premi? Anda akan kehilangan akses ke semua fitur premium.";
+"Are you sure you want to cancel premium? You will lose access to all premium features." = "Yakin ingin membatalkan Premium? Anda akan kehilangan akses ke semua fitur Premium.";
 "Close" = "Tutup";
 "Red" = "Merah";
-"Most popular color fact description" = "Merah hadir pada 75% dari seluruh bendera nasional di seluruh dunia, menjadikannya warna bendera paling populer.";
+"Most popular color fact description" = "Merah terdapat pada banyak bendera nasional, termasuk bendera Kanada, Jepang, dan Swiss.";
 
 /* Friend Management */
-"Флаг в профиле" = "Tandai di profil";
+"Флаг в профиле" = "Bendera di profil";
 "Удалить из друзей" = "Hapus dari Teman";
 "Удалить друга" = "Hapus Teman";
 "Вы уверены, что хотите удалить %@ из друзей и перестать следить за его успехами?" = "Apakah Anda yakin ingin menghapus %@ dari teman dan berhenti mengikuti perkembangannya?";
 
 /* Subscription Cancellation */
-"Нам очень жаль, что вы отменили премиум подписку" = "Kami menyesal Anda membatalkan langganan premium Anda";
-"Ваши результаты за период премиум подписки:" = "Hasil Anda selama periode berlangganan premium:";
+"Нам очень жаль, что вы отменили премиум подписку" = "Kami menyesal Anda membatalkan langganan Premium";
+"Ваши результаты за период премиум подписки:" = "Hasil Anda selama berlangganan Premium:";
 "Изучено флагов" = "Bendera Dipelajari";
 "Лучший результат" = "Skor Terbaik";
 "очков" = "poin";
 "Текущая серия" = "Rangkaian hari saat ini";
 "дней" = "hari";
-"Точность" = "Ketepatan";
+"Точность" = "Akurasi";
 "Теперь вы можете без единой ошибки отвечать на все наши вопросы с точностью в %d%%" = "Akurasi jawabanmu adalah %d%%.";
 "Мы будем рады, если вы захотите снова вернуться к нам!" = "Kami akan dengan senang hati jika Anda ingin kembali lagi kepada kami!";
-"Продолжить" = "Melanjutkan";
+"Продолжить" = "Lanjut";
 
 /* Learning Section New Strings */
 "ВСЕ СТРАНЫ" = "SEMUA NEGARA";
 "Все страны" = "Semua Negara";
 "стран" = "negara";
-"Столица" = "Modal";
+"Столица" = "Ibu kota";
 
 // Country Detail View
 "Галерея" = "Galeri";
@@ -960,9 +960,9 @@
 "Население" = "Populasi";
 "Валюта" = "Mata uang";
 "Независимость" = "Kemerdekaan";
-"Площадь" = "Daerah";
+"Площадь" = "Luas";
 "Описание" = "Keterangan";
-"История" = "Sejarah";
+"История" = "Riwayat";
 "Музыка" = "Musik";
 "Природа" = "Alam";
 "Историческая информация о стране" = "Informasi sejarah tentang negara";
@@ -970,16 +970,16 @@
 "Уникальная природа и ландшафты этой страны" = "Alam dan pemandangan unik negara ini";
 
 /* Premium restrictions */
-"Premium Feature" = "Fitur Unggulan";
-"Erudite Level - Premium Only" = "Level Erudite - Hanya Premium";
+"Premium Feature" = "Fitur Premium";
+"Erudite Level - Premium Only" = "Tingkat Terpelajar — Khusus Premium";
 "My Mistakes - Premium Only" = "Kesalahan Saya - Hanya Premium";
 "This feature is available only for Premium users" = "Fitur ini hanya tersedia untuk pengguna Premium";
 "Continue with Premium" = "Lanjutkan dengan Premium";
 "Get Premium access to unlock:" = "Dapatkan akses Premium untuk membuka kunci:";
 "• Erudite difficulty level" = "• Tingkat kesulitan terpelajar";
 "• My Mistakes section" = "• Bagian Kesalahan Saya";
-"• Unlimited lives" = "• Kehidupan tanpa batas";
-"• All premium features" = "• Semua fitur premium";
+"• Unlimited lives" = "• Nyawa tanpa batas";
+"• All premium features" = "• Semua fitur Premium";
 
 /* Enhanced Game Results */
 "PERFECT!" = "SEMPURNA!";
@@ -1008,8 +1008,8 @@
 
 /* League end popup */
 "Итоги лиги" = "Hasil liga";
-"Вы заняли %d место." = "Anda menempatkan %d.";
-"Вы поднялись в лигу: %@" = "Anda dipromosikan menjadi %@.";
+"Вы заняли %d место." = "Anda finis di peringkat %d.";
+"Вы поднялись в лигу: %@" = "Anda naik ke %@.";
 "Вы остались в текущей лиге." = "Anda tetap di liga Anda saat ini.";
 "Вы понижены в лигу: %@" = "Anda diturunkan ke %@.";
 
@@ -1020,54 +1020,54 @@
 "Sign in with Apple ID in Settings → App Store to see prices. Tap an option or Retry to try again." = "Masuk dengan ID Apple di Pengaturan → App Store untuk melihat harga. Ketuk salah satu opsi atau Coba lagi untuk mencoba lagi.";
 
 /* Home Lives Promo */
-"Unlock your full progress" = "Buka kunci kemajuan penuh Anda";
+"Unlock your full progress" = "Buka seluruh potensi Anda";
 "Get Premium tools for faster learning and better game results" = "Dapatkan alat Premium untuk belajar lebih cepat dan hasil permainan yang lebih baik";
 "Learning section" = "Bagian pembelajaran";
-"Train flags and countries in a structured mode" = "Latih bendera dan negara dalam mode terstruktur";
+"Train flags and countries in a structured mode" = "Pelajari bendera dan negara secara terstruktur";
 "Erudite difficulty" = "Kesulitan terpelajar";
 "Advanced challenge with deeper knowledge checks" = "Tantangan tingkat lanjut dengan pemeriksaan pengetahuan yang lebih dalam";
-"My mistakes" = "kesalahan saya";
+"My mistakes" = "Kesalahan saya";
 "Focus on weak topics and improve accuracy" = "Fokus pada topik yang lemah dan tingkatkan akurasi";
 "Personalized practice" = "Latihan yang dipersonalisasi";
 "Adaptive sessions based on your progress" = "Sesi adaptif berdasarkan kemajuan Anda";
 "Explain my answer" = "Jelaskan jawaban saya";
 "Understand every mistake and learn faster" = "Pahami setiap kesalahan dan pelajari lebih cepat";
-"Up to +750% faster flag learning with Premium" = "Pembelajaran bendera hingga +750% lebih cepat dengan Premium";
+"Up to +750% faster flag learning with Premium" = "Lebih banyak cara berlatih bendera dengan Premium";
 "Play without waiting and keep your learning momentum" = "Mainkan tanpa menunggu dan pertahankan momentum belajar Anda";
-"Train flags, listen to anthems, and explore detailed country profiles" = "Latih bendera, dengarkan lagu kebangsaan, dan jelajahi profil negara secara mendetail";
+"Train flags, listen to anthems, and explore detailed country profiles" = "Berlatih mengenali bendera, dengarkan lagu kebangsaan, dan jelajahi profil negara secara mendetail";
 "Restore Purchases" = "Pulihkan Pembelian";
 "Have a promo code?" = "Punya kode promo?";
 "Redeem Offer Code" = "Tukarkan Kode Penawaran";
 "Auto-renewable subscription" = "Langganan yang dapat diperpanjang secara otomatis";
 "Monthly Premium Title" = "Premium Bulanan: nilai maksimum";
-"Yearly Premium Title" = "TAHUN Premium. Bendera dan negara";
+"Yearly Premium Title" = "Premium Tahunan. Bendera dan negara";
 "Duration: 1 month (auto-renewable)" = "Durasi: 1 bulan (dapat diperpanjang secara otomatis)";
 "Duration: 1 year (auto-renewable)" = "Durasi: 1 tahun (dapat diperpanjang secara otomatis)";
-"Premium Monthly" = "Premi Bulanan";
-"Yearly Premium" = "Premi Tahunan";
+"Premium Monthly" = "Premium Bulanan";
+"Yearly Premium" = "Premium Tahunan";
 "Save %d%%" = "Hemat %d%%";
 "Learn flags and countries of the World" = "Pelajari bendera dan negara di Dunia";
 "Select Level" = "Pilih Tingkat";
 "Level - %@" = "Tingkat - %@";
 "Exclusive tournaments with cash F-Bucks prizes" = "Turnamen eksklusif dengan hadiah F-Bucks";
 "Survival Mode" = "Mode bertahan hidup";
-"One mistake = Game Over" = "Satu kesalahan = Game Over";
+"One mistake = Game Over" = "Satu kesalahan = Permainan Berakhir";
 "Duel result push format" = "%@: %d — Anda: %d.";
-"Duel motivation win" = "Luar biasa! Pertahankan pukulannya.";
+"Duel motivation win" = "Luar biasa! Pertahankan rentetan bermain Anda.";
 "Duel motivation lose" = "Waktunya pertandingan ulang! Kamu bisa.";
 "Opponent" = "Lawan";
-"vs %@" = "vs%@";
+"vs %@" = "vs %@";
 "Combo x%d" = "Kombo x%d";
 "Combo x%d bonus" = "Kombo x%d bonus +1";
 "Combo x%d +10 XP" = "Kombo x%d +10 XP";
 "Speed bonus +1" = "Bonus kecepatan +1";
 "Speed bonus +10 XP" = "Bonus kecepatan +10 XP";
 "Global ranking by countries" = "Peringkat global berdasarkan negara";
-"Country rank line" = "%@ Anda #%d di %@";
-"World rank line" = "🌎 Kamu #%d di dunia";
-"World rank line no emoji" = "Anda #%d di dunia";
-"Friend country rank line" = "%1$@ %2$@ #%3$d · %4$@";
-"Friend world rank line" = "%1$@ #%2$d";
+"Country rank line" = "%@ Anda peringkat #%d di %@";
+"World rank line" = "🌎 Anda peringkat #%d di dunia";
+"World rank line no emoji" = "Anda peringkat #%d di dunia";
+"Friend country rank line" = "%1$@ %2$@ berada di peringkat #%3$d di %4$@";
+"Friend world rank line" = "%1$@ berada di peringkat #%2$d dunia";
 "Spain" = "Spanyol";
 "Poland" = "Polandia";
 "Ukraine" = "Ukraina";
@@ -1077,20 +1077,20 @@
 "Price is loaded from the App Store on this screen" = "Harga dimuat dari App Store di layar ini";
 "Connecting to App Store..." = "Menghubungkan ke App Store...";
 "Version" = "Versi";
-"Update" = "Memperbarui";
-"Login without @" = "masuk tanpa @";
+"Update" = "Perbarui";
+"Login without @" = "nama pengguna tanpa @";
 "Add by username" = "Tambahkan berdasarkan nama pengguna";
 "Duel Summary" = "Ringkasan Duel";
 "No duel history yet" = "Belum ada riwayat duel";
 "You already outranked %d%% of players in your city" = "Anda sudah mengungguli %d%% pemain di kota Anda";
 "Goal: keep 90% accuracy in first challenge" = "Sasaran: menjaga akurasi 90% pada tantangan pertama";
 "Challenge ends in %d sec" = "Tantangan berakhir dalam %d detik";
-"Defeat" = "Mengalahkan";
+"Defeat" = "Kekalahan";
 "Victory" = "Kemenangan";
 "All" = "Semua";
 "Wins" = "Menang";
-"Losses" = "Kerugian";
-"Duel Summary Share Header" = "Duelku menghasilkan Bendera Arena Dunia";
+"Losses" = "Kekalahan";
+"Duel Summary Share Header" = "Hasil duel saya di World Arena Flags";
 "View Detailed Results" = "Lihat Hasil Terperinci";
 "Detailed Results" = "Hasil Terperinci";
 "Correct" = "Benar";
@@ -1098,7 +1098,7 @@
 "Flag" = "Bendera";
 "Your answer" = "Jawaban Anda";
 "Time is up" = "Waktu habis";
-"Search" = "Mencari";
+"Search" = "Cari";
 "3x XP for 10 min!" = "3x XP selama 10 menit!";
 "КАРТА ПРОГРЕССА" = "PETA KEMAJUAN";
 "Карта прогресса мира" = "Peta Kemajuan Dunia";
@@ -1107,53 +1107,53 @@
 "Greener country means better mastery" = "Negara yang lebih hijau berarti penguasaan yang lebih baik";
 "Continent Mastery" = "Penguasaan Benua";
 "Mastered %d of %d countries" = "Menguasai %d dari %d negara";
-"Answered %d of %d countries" = "Dijawab %d dari %d negara";
+"Answered %d of %d countries" = "Sudah menjawab tentang %d dari %d negara";
 "Total" = "Total";
 "Map" = "Peta";
-"Weak countries" = "Negara-negara lemah";
+"Weak countries" = "Negara yang perlu diulang";
 "All countries" = "Semua negara";
-"Only weak" = "Hanya lemah";
-"Only mastered" = "Hanya dikuasai";
-"TOP weak countries for review" = "Negara-negara terlemah teratas untuk ditinjau";
-"No weak countries yet" = "Belum ada negara yang lemah";
-"%@ Master" = "%@ Guru";
-"%@ Master unlocked" = "%@ Master terbuka";
-"Continent mastered! Keep going." = "Benua dikuasai! Terus berlanjut.";
+"Only weak" = "Hanya yang perlu diulang";
+"Only mastered" = "Hanya yang dikuasai";
+"TOP weak countries for review" = "Negara yang paling perlu diulang";
+"No weak countries yet" = "Belum ada negara yang perlu diulang";
+"%@ Master" = "Master %@";
+"%@ Master unlocked" = "Gelar Master %@ terbuka";
+"Continent mastered! Keep going." = "Benua dikuasai! Teruskan.";
 "Weekly challenge" = "Tantangan mingguan";
-"Weak country sessions this week" = "Sesi negara yang lemah minggu ini";
-"Start Weak Countries Training" = "Mulai Pelatihan Negara-Negara Lemah";
+"Weak country sessions this week" = "Sesi pengulangan negara minggu ini";
+"Start Weak Countries Training" = "Mulai Latihan Negara yang Perlu Diulang";
 "Progress map subtitle" = "Lacak kemajuan Anda berdasarkan negara dan benua";
-"How is Mastered calculated?" = "Bagaimana cara Menguasai dihitung?";
+"How is Mastered calculated?" = "Kapan sebuah negara dianggap dikuasai?";
 "Duel Summary subtitle" = "Lihat riwayat duel Anda dan hasil detailnya";
 "F-Bucks subtitle" = "Hasilkan dan belanjakan F-Bucks, mata uang dalam game";
-"Mastered explanation" = "Suatu negara dianggap menguasai jika Anda telah menjawabnya minimal 3 kali dan memiliki minimal 80% jawaban benar.";
+"Mastered explanation" = "Sebuah negara dianggap dikuasai jika Anda sudah menjawab tentang negara itu minimal 3 kali dengan setidaknya 80% jawaban benar.";
 "Name" = "Nama";
 "Account login title" = "Buat akun Anda";
-"Account login subtitle" = "Pertahankan mode tamu atau masuk untuk menyimpan fitur identitas dan keamanan";
+"Account login subtitle" = "Lanjutkan sebagai tamu atau masuk untuk menyimpan identitas dan menggunakan fitur keamanan";
 "Login" = "Login";
 "Register" = "Daftar";
 "Sign in with Apple error 1000" = "Masuk dengan Apple tidak tersedia di sini. Coba di perangkat asli atau periksa Pengaturan → ID Apple.";
-"Username" = "Nama belakang";
+"Username" = "Nama pengguna";
 "Password" = "Kata sandi";
 "Create account" = "Buat akun";
 "Forgot password?" = "Lupa kata sandi?";
 "Continue with Google" = "Lanjutkan dengan Google";
-"Google login" = "masuk Google";
-"Continue" = "Melanjutkan";
+"Google login" = "Masuk dengan Google";
+"Continue" = "Lanjut";
 "Enter Google email" = "Masukkan email Google Anda";
 "Current password" = "Kata sandi saat ini";
 "New password" = "Kata sandi baru";
 "Repeat new password" = "Ulangi kata sandi baru";
 "Change password" = "Ubah kata sandi";
 "Reset password" = "Setel ulang kata sandi";
-"Reset code" = "Setel ulang kode";
+"Reset code" = "Kode reset";
 "Send reset code" = "Kirim kode reset";
 "No account with this email" = "Tidak ada akun dengan email ini";
 "reset_request_failed" = "Penyetelan ulang kata sandi gagal. Silakan coba lagi nanti.";
 "registration_failed" = "Pendaftaran gagal. Silakan coba lagi.";
 "Login / Register" = "Masuk / Daftar";
-"Logged in" = "Masuk";
-"Use Face ID / Touch ID" = "Gunakan ID Wajah / ID Sentuh";
+"Logged in" = "Sudah masuk";
+"Use Face ID / Touch ID" = "Gunakan Face ID / Touch ID";
 "Sign out" = "Keluar";
 "Active sessions" = "Sesi aktif";
 "My notifications" = "Notifikasi saya";
@@ -1172,62 +1172,62 @@
 "FACT_04_DESC" = "Jamaika adalah satu-satunya negara dengan bendera tanpa warna merah, putih atau biru.";
 "FACT_05_TITLE" = "Bendera yang tidak pernah diturunkan";
 "FACT_05_DESC" = "Bendera Arab Saudi tidak pernah dikibarkan setengah tiang karena terdapat teks suci di atasnya.";
-"FACT_06_TITLE" = "Bendera nasional muda";
-"FACT_06_DESC" = "Bendera Sudan Selatan diadopsi pada tahun 2011 setelah kemerdekaan.";
+"FACT_06_TITLE" = "Bendera nasional yang baru";
+"FACT_06_DESC" = "Sudan Selatan menggunakan bendera nasional ini sejak merdeka pada 2011.";
 "FACT_07_TITLE" = "Bendera dengan AK-47";
 "FACT_07_DESC" = "Mozambik adalah satu-satunya negara yang benderanya menampilkan senjata modern—senapan Kalashnikov.";
 "FACT_08_TITLE" = "Bendera yang hampir identik";
-"FACT_08_DESC" = "Bendera Rumania dan Chad sangat mirip; mereka biasanya dibedakan berdasarkan warna biru.";
+"FACT_08_DESC" = "Bendera Rumania dan Chad sangat mirip; biasanya dibedakan berdasarkan nuansa warna birunya.";
 "FACT_09_TITLE" = "Simbolisme Ukraina";
 "FACT_09_DESC" = "Bendera biru dan kuning Ukraina secara tradisional diartikan sebagai langit di atas ladang gandum.";
 "FACT_10_TITLE" = "Bendera paling sederhana";
 "FACT_10_DESC" = "Bendera Libya dari tahun 1977 hingga 2011 berwarna hijau solid tanpa simbol atau pola.";
-"FACT_11_TITLE" = "Tandai dengan peta";
+"FACT_11_TITLE" = "Bendera dengan peta";
 "FACT_11_DESC" = "Bendera Siprus menunjukkan garis besar pulaunya—hal yang jarang terjadi pada bendera nasional.";
-"FACT_12_TITLE" = "Tandai dengan Alkitab";
+"FACT_12_TITLE" = "Bendera dengan Alkitab";
 "FACT_12_DESC" = "Bendera Republik Dominika memperlihatkan Alkitab terbuka, menjadikannya satu-satunya bendera nasional yang memiliki buku agama.";
-"FACT_13_TITLE" = "Warna paling populer";
-"FACT_13_DESC" = "Merah adalah warna paling umum pada bendera nasional di seluruh dunia.";
-"FACT_14_TITLE" = "Tandai dengan teks";
+"FACT_13_TITLE" = "Merah pada bendera nasional";
+"FACT_13_DESC" = "Merah terdapat pada banyak bendera nasional, termasuk bendera Kanada, Jepang, dan Swiss.";
+"FACT_14_TITLE" = "Bendera dengan teks";
 "FACT_14_DESC" = "Teks pada bendera nasional jarang ditemukan; salah satu contoh yang terkenal adalah Arab Saudi.";
 "FACT_15_TITLE" = "Etiket bendera";
 "FACT_15_DESC" = "Banyak negara memiliki aturan ketat tentang cara memperlakukan bendera nasional.";
 "FACT_16_TITLE" = "Bendera dengan sisi yang berbeda";
 "FACT_16_DESC" = "Paraguay memiliki satu-satunya bendera nasional di dunia dengan desain berbeda di bagian depan dan belakang.";
 "FACT_17_TITLE" = "Simbolisme Olimpiade";
-"FACT_17_DESC" = "Warna cincin Olimpiade dipilih agar setidaknya satu warna muncul di bendera setiap negara.";
-"FACT_18_TITLE" = "Bendera dengan lambang paling rumit";
-"FACT_18_DESC" = "Bendera Meksiko menampilkan seekor elang yang bertengger di atas kaktus sambil memegang seekor ular—salah satu lambang paling detail di bendera mana pun.";
-"FACT_19_TITLE" = "Bendera peniru";
-"FACT_19_DESC" = "Bendera Monaco dan Indonesia hampir sama—merah di atas, putih di bawah. Perbedaannya hanya pada proporsinya.";
+"FACT_17_DESC" = "Lima cincin Olimpiade dan latar putihnya menggunakan enam warna yang dipilih untuk mewakili bendera negara-negara di seluruh dunia.";
+"FACT_18_TITLE" = "Lambang Meksiko";
+"FACT_18_DESC" = "Bendera Meksiko menampilkan elang di atas kaktus yang memegang ular.";
+"FACT_19_TITLE" = "Bendera merah-putih yang serupa";
+"FACT_19_DESC" = "Monako dan Indonesia sama-sama menggunakan merah di atas putih pada benderanya, tetapi proporsi kedua bendera berbeda.";
 "FACT_20_TITLE" = "Bendera dengan 50 bintang";
-"FACT_20_DESC" = "Bendera AS memiliki 50 bintang, satu untuk setiap negara bagian. Desainnya telah diubah sebanyak 27 kali sejak tahun 1777.";
+"FACT_20_DESC" = "Bendera Amerika Serikat memiliki 50 bintang, satu untuk setiap negara bagian.";
 "FACT_21_TITLE" = "Bendera paling utara";
 "FACT_21_DESC" = "Wilayah Arktik menggunakan bendera nasional dan regional dengan simbolisme yang unik.";
-"FACT_22_TITLE" = "Bendera dengan tanda silang";
-"FACT_22_DESC" = "29 negara memiliki tanda silang pada benderanya, menjadikannya salah satu simbol paling populer di bendera nasional.";
-"FACT_23_TITLE" = "tiga warna";
+"FACT_22_TITLE" = "Bendera dengan salib";
+"FACT_22_DESC" = "Salib terdapat pada banyak bendera nasional, termasuk bendera Denmark, Finlandia, dan Swiss.";
+"FACT_23_TITLE" = "Bendera tiga warna";
 "FACT_23_DESC" = "Banyak negara menggunakan desain tiga garis sederhana sebagai bentuk bendera yang stabil secara historis.";
 "FACT_24_TITLE" = "Bendera dengan bulan sabit";
-"FACT_24_DESC" = "Bulan sabit muncul di bendera 12 negara, sebagian besar beragama Islam, melambangkan keyakinan Islam.";
+"FACT_24_DESC" = "Bulan sabit terdapat pada beberapa bendera nasional, termasuk bendera Turki, Pakistan, dan Tunisia.";
 "FACT_25_TITLE" = "Simbol matahari";
 "FACT_25_DESC" = "Matahari adalah salah satu simbol paling umum pada bendera di Asia dan Amerika Selatan.";
 "FACT_26_TITLE" = "Bendera dengan pohon";
-"FACT_26_DESC" = "Lebanon adalah satu-satunya negara dengan pohon (pohon cedar Lebanon) di benderanya, yang melambangkan keabadian dan perdamaian.";
-"FACT_27_TITLE" = "Bendera tersempit";
-"FACT_27_DESC" = "Bendera Qatar memiliki rasio aspek yang paling tidak biasa dibandingkan bendera nasional mana pun—11:28.";
+"FACT_26_DESC" = "Bendera nasional Lebanon menampilkan pohon aras.";
+"FACT_27_TITLE" = "Proporsi bendera Qatar";
+"FACT_27_DESC" = "Bendera nasional Qatar memiliki perbandingan tinggi terhadap lebar 11:28.";
 "FACT_28_TITLE" = "Lambang yang rumit";
 "FACT_28_DESC" = "Lambang pada bendera Amerika Latin sering kali memuat banyak detail dan simbol sejarah.";
 "FACT_29_TITLE" = "Bendera pelangi";
-"FACT_29_DESC" = "Bolivia memiliki dua bendera resmi—tiga warna tradisional dan bendera pelangi asli Wiphala.";
-"FACT_30_TITLE" = "Tandai dengan bangunan";
-"FACT_30_DESC" = "Bendera Kamboja bergambar Kuil Angkor Wat, menjadikannya satu-satunya bendera nasional yang memiliki bangunan.";
+"FACT_29_DESC" = "Bolivia memiliki dua bendera resmi: bendera tiga warna tradisional dan bendera pelangi Wiphala milik masyarakat adat.";
+"FACT_30_TITLE" = "Bendera dengan bangunan";
+"FACT_30_DESC" = "Bendera nasional Kamboja menggambarkan kuil Angkor Wat.";
 "FACT_31_TITLE" = "Perselisihan sejarah";
 "FACT_31_DESC" = "Desain beberapa bendera telah berubah karena perselisihan sejarah dan politik antar negara.";
 "FACT_32_TITLE" = "Bendera dengan pedang";
 "FACT_32_DESC" = "Bendera Sri Lanka bergambar singa memegang pedang, melambangkan keberanian masyarakat Sinhala.";
 "FACT_33_TITLE" = "Bendera tanpa warna biru";
-"FACT_33_DESC" = "Hanya empat negara yang tidak menggunakan warna biru pada benderanya: Jamaika, Mauritania, Sri Lanka, dan Vatikan.";
+"FACT_33_DESC" = "Beberapa bendera nasional tidak mengandung warna biru, termasuk bendera Jamaika, Jepang, dan Swiss.";
 "FACT_34_TITLE" = "Burung di bendera";
 "FACT_34_DESC" = "Elang dan burung lain di bendera melambangkan kekuatan, kemandirian, dan keagungan jiwa.";
 "FACT_35_TITLE" = "Simbol Antartika";
@@ -1245,59 +1245,59 @@
 "FACT_41_TITLE" = "Matahari Makedonia Utara";
 "FACT_41_DESC" = "Bendera Makedonia Utara memiliki matahari dengan delapan sinar untuk awal yang baru.";
 "FACT_42_TITLE" = "Penebang kayu Belize";
-"FACT_42_DESC" = "Bendera Belize adalah salah satu dari sedikit bendera yang diperlihatkan kepada orang-orang: penebang kayu dengan peralatan.";
+"FACT_42_DESC" = "Bendera Belize adalah salah satu dari sedikit bendera yang menampilkan manusia: penebang kayu dengan peralatan.";
 "FACT_43_TITLE" = "Kondor Ekuador";
 "FACT_43_DESC" = "Bendera Ekuador menampilkan burung condor Andean untuk kekuatan dan kedaulatan.";
 "FACT_44_TITLE" = "Bolivia Wiphala";
-"FACT_44_DESC" = "Bolivia menggunakan Wiphala bersama dengan tiga warna sebagai simbol resmi.";
+"FACT_44_DESC" = "Bolivia menggunakan Wiphala bersama bendera tiga warna sebagai simbol resmi.";
 "FACT_45_TITLE" = "27 bintang Brasil";
 "FACT_45_DESC" = "Bendera Brasil mempunyai 27 bintang, satu untuk setiap negara bagian dan distrik federal.";
 "FACT_46_TITLE" = "Daun maple";
-"FACT_46_DESC" = "Bendera Kanada menampilkan daun maple berujung 11, unik di antara bendera nasional.";
-"FACT_47_TITLE" = "serikat jack";
-"FACT_47_DESC" = "Bendera Inggris menggabungkan salib tiga orang suci: Inggris, Skotlandia dan Irlandia.";
+"FACT_46_DESC" = "Bendera Kanada menampilkan daun maple merah berujung 11 pada bidang persegi putih.";
+"FACT_47_TITLE" = "Union Jack";
+"FACT_47_DESC" = "Bendera Britania Raya menggabungkan salib Santo Georgius, Santo Andreas, dan Santo Patrick.";
 "FACT_48_TITLE" = "Matahari terbit di Jepang";
-"FACT_48_DESC" = "Lingkaran merah di atas putih melambangkan terbitnya matahari dan telah digunakan pada bendera Jepang sejak abad ke-7.";
+"FACT_48_DESC" = "Bendera nasional Jepang menampilkan lingkaran merah yang melambangkan matahari pada latar putih.";
 "FACT_49_TITLE" = "Cakra Asoka";
 "FACT_49_DESC" = "Bendera India memiliki roda dengan 24 jari, melambangkan hukum dan gerak.";
 "FACT_50_TITLE" = "Salib Selatan Australia";
-"FACT_50_DESC" = "Bendera Australia menunjukkan konstelasi Salib Selatan, yang hanya terlihat di Belahan Bumi Selatan.";
+"FACT_50_DESC" = "Lima bintang pada bendera Australia mewakili rasi Salib Selatan.";
 "FACT_51_TITLE" = "Salib Selatan Selandia Baru";
 "FACT_51_DESC" = "Bendera Selandia Baru juga menampilkan Salib Selatan, tetapi dengan bintang merah berpinggiran putih.";
 "FACT_52_TITLE" = "Taegeuk Korea Selatan";
 "FACT_52_DESC" = "Bendera Korea Selatan menampilkan simbol dan trigram tradisional taegeuk (yin-yang).";
-"FACT_53_TITLE" = "lingkup persenjataan Portugal";
-"FACT_53_DESC" = "Bendera Portugal menampilkan bola armillary, instrumen navigasi kuno.";
+"FACT_53_TITLE" = "Bola armiler Portugal";
+"FACT_53_DESC" = "Bendera Portugal menampilkan bola armiler, alat navigasi kuno.";
 "FACT_54_TITLE" = "Elang berkepala dua Albania";
 "FACT_54_DESC" = "Bendera Albania bergambar elang berkepala dua berwarna hitam, simbol kedaulatan.";
-"FACT_55_TITLE" = "perisai Kenya";
+"FACT_55_TITLE" = "Perisai Kenya";
 "FACT_55_DESC" = "Bendera Kenya menampilkan perisai Maasai dan tombak bersilang.";
 "FACT_56_TITLE" = "Naga Wales";
-"FACT_56_DESC" = "Naga merah pada bendera Wales adalah salah satu simbol nasional tertua di dunia.";
-"FACT_57_TITLE" = "salib St Andrew";
+"FACT_56_DESC" = "Bendera Wales menampilkan naga merah pada latar putih dan hijau. Desain ini diakui secara resmi pada 1959.";
+"FACT_57_TITLE" = "Salib Santo Andreas";
 "FACT_57_DESC" = "Bendera Skotlandia adalah salib diagonal putih dengan warna biru, salib St Andrew.";
-"FACT_58_TITLE" = "lingkaran Greenland";
+"FACT_58_TITLE" = "Lingkaran Greenland";
 "FACT_58_DESC" = "Bendera Greenland memiliki lingkaran merah-putih yang melambangkan matahari di atas es.";
 "FACT_59_TITLE" = "Warna Pan-Afrika";
 "FACT_59_DESC" = "Hijau, kuning dan merah sering disebut warna Pan-Afrika dan muncul di banyak bendera Afrika.";
 "FACT_60_TITLE" = "Salib Nordik";
 "FACT_60_DESC" = "Lima negara menggunakan salib Nordik: Denmark, Norwegia, Swedia, Finlandia, dan Islandia.";
-"FACT_61_TITLE" = "tiga warna Perancis";
+"FACT_61_TITLE" = "Bendera tiga warna Prancis";
 "FACT_61_DESC" = "Tiga warna biru-putih-merah Perancis menjadi model bagi banyak bendera revolusioner dan nasional.";
 "FACT_62_TITLE" = "Bendera PBB";
 "FACT_62_DESC" = "Bendera PBB menunjukkan dunia dikelilingi oleh cabang zaitun dengan latar belakang biru.";
 "FACT_63_TITLE" = "Bendera UE";
 "FACT_63_DESC" = "Dua belas bintang emas dalam lingkaran berwarna biru melambangkan persatuan Uni Eropa.";
 "FACT_64_TITLE" = "Bendera Olimpiade";
-"FACT_64_DESC" = "Lima cincin berwarna putih mewakili lima benua yang dihuni dan sifat global dari Olimpiade tersebut.";
-"FACT_65_TITLE" = "Lapangan Vatikan";
+"FACT_64_DESC" = "Lima cincin Olimpiade pada latar putih melambangkan persatuan lima benua dan atlet dari seluruh dunia.";
+"FACT_65_TITLE" = "Bendera persegi Vatikan";
 "FACT_65_DESC" = "Vatikan memiliki bendera nasional berbentuk persegi seperti Swiss.";
-"FACT_66_TITLE" = "Nauru 12 poin";
+"FACT_66_TITLE" = "12 ujung bintang Nauru";
 "FACT_66_DESC" = "Bendera Nauru memiliki bintang berujung 12 untuk 12 suku.";
 "FACT_67_TITLE" = "Karpet Turkmenistan";
-"FACT_67_DESC" = "Bendera Turkmenistan memiliki pola karpet di sepanjang kerekannya.";
+"FACT_67_DESC" = "Bendera Turkmenistan memiliki motif karpet di sepanjang sisi dekat tiang.";
 "FACT_68_TITLE" = "Masjid Afganistan";
-"FACT_68_DESC" = "Bendera Afghanistan menampilkan masjid dalam desainnya.";
+"FACT_68_DESC" = "Bendera Afghanistan pernah menampilkan masjid dalam desainnya.";
 
 /* Add friend & duel results */
 "Пользователь найден и добавлен" = "Pengguna ditemukan dan ditambahkan";
@@ -1315,18 +1315,18 @@
 "league.weekly_result.title.stayed" = "Anda bertahan di liga";
 "league.weekly_result.title.demotion" = "Anda terdegradasi";
 "league.weekly_result.title.week_finished" = "Pekan liga selesai";
-"league.weekly_result.body.win" = "Anda menyelesaikan #%d dan mengakhiri minggu ini di antara pemain top.";
-"league.weekly_result.body.promotion" = "Anda menyelesaikan #%d dan melanjutkan ke %@.";
-"league.weekly_result.body.stayed" = "Anda menyelesaikan #%d dan tetap di %@.";
-"league.weekly_result.body.demotion" = "Anda menyelesaikan #%d dan turun ke %@.";
+"league.weekly_result.body.win" = "Anda finis di peringkat #%d dan menutup minggu ini di antara pemain terbaik.";
+"league.weekly_result.body.promotion" = "Anda finis di peringkat #%d dan naik ke %@.";
+"league.weekly_result.body.stayed" = "Anda finis di peringkat #%d dan tetap di %@.";
+"league.weekly_result.body.demotion" = "Anda finis di peringkat #%d dan turun ke %@.";
 "league.weekly_result.body.top3" = "Anda finis di 3 teratas minggu ini.";
-"league.weekly_result.label.rank" = "Tempat";
+"league.weekly_result.label.rank" = "Peringkat";
 "league.weekly_result.label.new_league" = "Liga baru";
 "league.weekly_result.label.reward" = "Hadiah";
 "league.weekly_result.label.week" = "Hasil minggu";
 "league.weekly_result.cta.view" = "Lihat hasil";
 "league.weekly_result.cta.ok" = "OKE";
-"league.weekly_result.cta.claim" = "Mengeklaim";
+"league.weekly_result.cta.claim" = "Klaim";
 
 "league.weekly_result.promotion.tagline" = "🔥 Level baru!";
 "league.weekly_result.promotion.title" = "🚀 Kamu di %@!";
@@ -1344,10 +1344,10 @@
 "league.weekly_result.demotion.cta" = "Oke →";
 "league.weekly_result.stayed.cta" = "Lanjut →";
 "home.league_banner.title" = "Pekan liga selesai";
-"home.league_banner.body.win" = "Anda menyelesaikan #%d dan memenangkan liga.";
-"home.league_banner.body.promotion" = "Anda menyelesaikan #%d dan melanjutkan ke %@.";
-"home.league_banner.body.stayed" = "Anda menyelesaikan #%d dan tetap di %@.";
-"home.league_banner.body.demotion" = "Anda menyelesaikan #%d dan pindah ke %@.";
+"home.league_banner.body.win" = "Anda finis di peringkat #%d dan memenangkan liga.";
+"home.league_banner.body.promotion" = "Anda finis di peringkat #%d dan naik ke %@.";
+"home.league_banner.body.stayed" = "Anda finis di peringkat #%d dan tetap di %@.";
+"home.league_banner.body.demotion" = "Anda finis di peringkat #%d dan turun ke %@.";
 "home.league_banner.cta" = "Lihat hasil";
 /* Home layout (variant 2 / A-B) */
 "home.layout.section" = "Layar beranda";
@@ -1366,7 +1366,7 @@
 "home.next_goal.title" = "Target berikutnya";
 "home.quick_modes.title" = "Main cepat";
 "home.social.title" = "Teman";
-"home.social.friend_streak_fmt" = "%@ — rangkaian %lld hari";
+"home.social.friend_streak_fmt" = "%@ — rentetan %lld hari";
 "home.social.catch_today" = "Kejar hari ini!";
 
 "home.goal.xp_left_fmt" = "Tersisa %d XP";
@@ -1374,24 +1374,24 @@
 "home.daily.claim" = "Klaim +1";
 "home.daily.claimed" = "Sudah diklaim";
 "home.daily.tomorrow" = "Kembali besok";
-"home.streak_nudge.solo_title" = "Kamu streak %d hari!";
+"home.streak_nudge.solo_title" = "Rentetan bermain Anda sudah %d hari!";
 "home.streak_nudge.solo_sub" = "Jangan putus — main sekarang.";
-"home.streak_nudge.friend_title" = "%@ streak %d hari";
+"home.streak_nudge.friend_title" = "%@ memiliki rentetan %d hari";
 "home.streak_nudge.friend_sub" = "Kamu: %d hari";
 "home.streak_nudge.play" = "Main";
 "home.streak_nudge.catch_up" = "Kejar";
 "home.hero.play_bonus" = "+1 F-Bucks jika main sekarang";
-"home.hero.streak_continue_fmt" = "Pertahankan streak — %d/%d";
+"home.hero.streak_continue_fmt" = "Pertahankan rentetan — %d/%d";
 "home.hero.almost_perfect" = "Permainan sempurna — hampir!";
 "home.hero.daily_ready" = "+1 F-Bucks harian siap diambil";
-"home.hero.catch_friend_fmt" = "Kejar %@ — streak %d hari";
+"home.hero.catch_friend_fmt" = "Kejar %@ — rentetan %d hari";
 "home.earn.section" = "Hari ini";
 "home.earn.perfect.almost" = "Hampir selesai — tuntaskan";
-"home.earn.perfect.start" = "Mulai sekarang — kunci";
-"home.earn.perfect.going" = "Tutup kuat hari ini";
+"home.earn.perfect.start" = "Mulai sekarang — amankan rentetan Anda";
+"home.earn.perfect.going" = "Tutup hari ini dengan hasil terbaik";
 "home.earn.streak.almost" = "Jangan hilangkan sekarang";
-"home.earn.streak.start" = "Main sekarang atau kehilangan";
-"home.earn.streak.going" = "Main sekarang atau kehilangan";
+"home.earn.streak.start" = "Main sekarang atau rentetan terputus";
+"home.earn.streak.going" = "Main sekarang atau rentetan terputus";
 "home.earn.league.hint" = "Berjuang untuk top 3";
 "home.earn.league.almost" = "Kamu sangat dekat";
 "home.earn.done" = "Selesai!";
@@ -1404,12 +1404,12 @@
 "home.pride.streak_fmt" = "%d hari berturut-turut — lanjut!";
 "home.pride.league_place_fmt" = "Kamu #%d di liga minggu ini";
 "home.pride.section_title" = "Progresmu";
-"home.pride.streak_line_one" = "Streak: 1 hari";
-"home.pride.streak_line_fmt" = "Streak: %d hari";
+"home.pride.streak_line_one" = "Rentetan: 1 hari";
+"home.pride.streak_line_fmt" = "Rentetan: %d hari";
 "home.pride.rank_line_fmt" = "Peringkat: #%d minggu ini";
 "home.pride.top10_hint" = "Lanjut ke top 10";
 "home.pride.rank_headline_fmt" = "Minggu ini kamu #%d";
-"home.hero.headline.streak_alive" = "Jaga streak tetap hidup";
+"home.hero.headline.streak_alive" = "Pertahankan rentetan bermain";
 "home.hero.headline.perfect_push" = "Permainan sempurna — hampir";
 "home.hero.headline.daily_up" = "Bonus harian siap";
 "home.hero.headline.keep_playing" = "Permainan berikutnya penting";
@@ -1417,22 +1417,22 @@
 "home.hero.detail.streak_fmt" = "%d/%d hari";
 "home.hero.detail.perfect_fmt" = "%d/%d sempurna";
 "home.hero.detail.day_fmt" = "Hari ke-%d berturut-turut";
-"home.hero.detail.friend_streak" = "Streak mereka: %d hari";
-"home.hero.detail.start_streak" = "Mulai streak hari ini";
+"home.hero.detail.friend_streak" = "Rentetan mereka: %d hari";
+"home.hero.detail.start_streak" = "Mulai rentetan bermain hari ini";
 "home.hero.hook.reward_play" = "+1 hadiah jika main sekarang";
 "home.hero.pressure" = "Jangan kehilangan progres hari ini";
 "home.hero.wow.tip" = "🔥 +1 tersedia hari ini";
 "home.sticky.hook.reward" = "+1 hadiah jika main sekarang";
-"home.sticky.hook.streak" = "Lanjutkan streak";
+"home.sticky.hook.streak" = "Lanjutkan rentetan bermain";
 "home.sticky.hook.play" = "Permainan berikutnya penting";
 "home.pride.gap_top10_fmt" = "Tinggal %d slot ke top 10";
 "home.pride.close_top10_short" = "Kamu dekat top 10 🔥";
-"home.pride.streak_full_one" = "Streak: 1 hari — lanjut";
-"home.pride.streak_full_fmt" = "Streak: %d hari — lanjut";
-"home.pride.streak_full_fmt" = "Streak: %d hari — lanjut";
+"home.pride.streak_full_one" = "Rentetan: 1 hari — teruskan";
+"home.pride.streak_full_fmt" = "Rentetan: %d hari — teruskan";
+"home.pride.streak_full_fmt" = "Rentetan: %d hari — teruskan";
 "coins" = "koin";
 /* League motivation messages */
-"league_motivation_win_01" = "Anda termasuk yang terbaik minggu ini. Kerja bagus — sekarang ikuti perkembangannya.";
+"league_motivation_win_01" = "Anda termasuk yang terbaik minggu ini. Kerja bagus — pertahankan ritmenya.";
 "league_motivation_win_02" = "3 teratas bukanlah suatu kebetulan. Itu hasil permainan yang konsisten dan fokus yang baik.";
 "league_motivation_win_03" = "Minggu yang kuat. Teruslah berusaha dengan kecepatan yang sama — liga berikutnya sudah menunggu.";
 "league_motivation_promotion_01" = "Promosi berarti Anda berkembang. Liga berikutnya akan lebih sulit, tetapi Anda siap.";
@@ -1440,7 +1440,7 @@
 "league_motivation_stayed_01" = "Anda mempertahankan posisi Anda. Basis yang kokoh – kini ubah stabilitas menjadi pertumbuhan.";
 "league_motivation_stayed_02" = "Seminggu tanpa kemunduran sudah merupakan hasil. Langkah selanjutnya: mencapai zona promosi.";
 "league_motivation_demotion_01" = "Bukan minggu terbaik – itu terjadi. Hal utama adalah jangan berhenti: Anda bisa menghadapi yang berikutnya dengan lebih kuat.";
-"league_motivation_demotion_02" = "Penurunan pangkat bukanlah akhir dari segalanya. Ini adalah titik reset, yang sering diikuti dengan proses yang lebih baik.";
+"league_motivation_demotion_02" = "Degradasi bukan akhir dari segalanya. Ini awal baru yang bisa diikuti hasil lebih baik.";
 "league_motivation_general_01" = "Setiap minggu adalah kesempatan baru untuk naik lebih tinggi. Teruskan — kemajuan bertambah.";
 
 /* Onboarding (hook → reward → loop) */
@@ -1450,7 +1450,7 @@
 "onboarding_reward_correct" = "Benar! 🎉";
 "onboarding_reward_almost" = "Hampir — jawabannya %@";
 "onboarding_reward_plus_one" = "+1 hadiah";
-"onboarding_reward_streak" = "Mulai streak-mu";
+"onboarding_reward_streak" = "Mulai rentetan bermain Anda";
 "onboarding_loop_line1" = "Main 1 menit sehari";
 "onboarding_loop_line2" = "Buka hadiah";
 "onboarding_loop_line3" = "Naik peringkat liga";
@@ -1463,7 +1463,7 @@
 "avatar_editor_edit_avatar" = "Sunting Avatar";
 "avatar_editor_done" = "Selesai";
 "avatar_editor_discard_title" = "Hapus perubahan?";
-"avatar_editor_discard_action" = "Membuang";
+"avatar_editor_discard_action" = "Buang";
 "avatar_editor_continue_editing" = "Lanjutkan mengedit";
 "avatar_editor_discard_message" = "Perubahan avatar Anda tidak akan disimpan.";
 "avatar_editor_skin_tone" = "Warna kulit";
@@ -1487,13 +1487,13 @@
 "avatar_editor_sunglasses" = "Kacamata hitam";
 "avatar_editor_slim" = "Ramping (kacamata)";
 "avatar_editor_cap" = "Topi";
-"avatar_editor_beanie" = "Beanie";
+"avatar_editor_beanie" = "Topi rajut";
 "avatar_editor_bandana" = "Bandana";
 "avatar_editor_sport_cap" = "Topi olahraga";
 "avatar_editor_hat_SilverLeague" = "Liga Perak";
 "avatar_editor_hat_10_day_streak" = "10 hari berturut-turut";
 "avatar_editor_hat_beginner" = "Pemula";
-"avatar_editor_hat_Premium" = "Premi";
+"avatar_editor_hat_Premium" = "Premium";
 "avatar_editor_editor_section_coming_soon" = "Bagian ini untuk sementara tidak tersedia — akan segera hadir kembali.";
 "avatar_editor_lock_item_title" = "Terkunci";
 "avatar_editor_lock_item_ok" = "OKE";
@@ -1502,23 +1502,23 @@
 "avatar_editor_lock_headwear_generic_body" = "Item ini belum tersedia.";
 "avatar_editor_opt_slim" = "Langsing";
 "avatar_editor_opt_regular" = "Biasa";
-"avatar_editor_opt_hoodie" = "berkerudung";
-"avatar_editor_opt_tshirt" = "kaos";
+"avatar_editor_opt_hoodie" = "Jaket bertudung";
+"avatar_editor_opt_tshirt" = "Kaus";
 "avatar_editor_opt_sweater" = "Sweter";
 "avatar_editor_opt_wide" = "Lebar";
 "avatar_editor_opt_bald" = "Botak";
-"avatar_editor_opt_side_part" = "Bagian samping";
+"avatar_editor_opt_side_part" = "Belah samping";
 "avatar_editor_opt_short" = "Pendek";
 "avatar_editor_opt_curl" = "Keriting";
 "avatar_editor_opt_modern" = "Modern";
-"avatar_editor_opt_buzz" = "Berdengung";
-"avatar_editor_opt_hair_waves" = "Ombak";
+"avatar_editor_opt_buzz" = "Cepak";
+"avatar_editor_opt_hair_waves" = "Bergelombang";
 "avatar_editor_opt_hair_spiky" = "Runcing";
-"avatar_editor_opt_hair_slick" = "Licin";
-"avatar_editor_opt_hair_pompadour" = "Nada warna merah muda";
+"avatar_editor_opt_hair_slick" = "Klimis";
+"avatar_editor_opt_hair_pompadour" = "Pompadour";
 "avatar_editor_opt_moustache" = "Kumis";
 "avatar_editor_opt_trimmed" = "Dipangkas";
-"avatar_editor_opt_goatee" = "janggut";
+"avatar_editor_opt_goatee" = "Janggut kambing";
 "avatar_editor_opt_beard_full" = "Jenggot penuh";
 "avatar_editor_opt_beard_light" = "Jenggot tipis";
 "avatar_editor_opt_beard_bushy" = "Jenggot lebat";
@@ -1528,15 +1528,15 @@
 "Friend profile progress title" = "RANGKAIAN HARI DAN KEMAJUAN";
 "Friend achievements placeholder" = "Pencapaian temanmu akan muncul setelah dibuka";
 
-"Answer as many flags as possible before time runs out" = "Jawab sebanyak mungkin bendera sebelum waktu habis";
+"Answer as many flags as possible before time runs out" = "Tebak sebanyak mungkin bendera sebelum waktu habis";
 "Duration" = "Durasi";
 "Best score" = "Skor terbaik";
 "Wrong answer penalty" = "Penalti jawaban salah";
 "5 correct in a row bonus" = "Bonus 5 benar beruntun";
 "Best combo" = "Kombo terbaik";
 "New record!" = "Rekor baru!";
-"Day leaderboard place" = "Peringkat papan hari ini";
-"Week leaderboard place" = "Peringkat papan mingguan";
+"Day leaderboard place" = "Posisi di peringkat harian";
+"Week leaderboard place" = "Posisi di peringkat mingguan";
 "Back to Modes" = "Kembali ke pilihan mode";
 "Start" = "Mulai";
 "TC correct answers headline" = "%d benar";
@@ -1560,27 +1560,27 @@
 "Time intro duration seconds fmt" = "%1$d%2$@";
 "Time intro penalty seconds fmt" = "−%1$d%2$@";
 "Time intro bonus seconds fmt" = "+%1$d%2$@";
-"Share Survival headline" = "Survival: %d bendera • %d benar • tahap maks %d";
+"Share Survival headline" = "Bertahan Hidup: %d bendera dilewati • %d benar • tahap maks %d";
 "Survival mode short description" = "Nyawa terbatas, kesulitan naik — sejauh mana kamu bisa?";
 "Survival difficulty blurb fmt" = "Nyawa sesi • tahap naik • +1 nyawa tiap 10 benar beruntun";
-"Survival depth header" = "Kedalaman";
+"Survival depth header" = "Kemajuan";
 "Survival stage fmt" = "Tahap %d";
 "Survival bonus life streak" = "+1 nyawa (10 benar beruntun)";
 "Survival milestone banner fmt" = "Tonggak %d! +30 XP • +1 F-Bucks";
 "Survival next milestone fmt" = "Lagi %d benar menuju tonggak %d";
-"Survival result best depth fmt" = "Rekor kedalaman pribadi: %d bendera";
+"Survival result best depth fmt" = "Rekor pribadi: %d bendera";
 "Survival result combo fmt" = "Kombo terbaik di putaran ini: %d";
 "Survival result survived fmt" = "Kamu bertahan %d bendera";
 "Survival result stage reached fmt" = "Tahap tertinggi: %d";
 "Survival stat correct" = "BENAR";
-"Survival intro description" = "Jawab bendera demi bendera. Salah mengurangi nyawa. Kesulitan naik — pecahkan rekor kedalamanmu.";
+"Survival intro description" = "Tebak bendera satu per satu. Jawaban salah mengurangi nyawa. Kesulitan terus meningkat — pecahkan rekor Anda.";
 "Survival intro lives title" = "Nyawa awal";
-"Survival intro best depth title" = "Kedalaman terbaik";
+"Survival intro best depth title" = "Kemajuan terbaik";
 "Survival intro choices title" = "Pilihan";
 "Survival intro timer title" = "Timer";
 "Survival intro timer value" = "Seperti Klasik";
-"Survival weekly title" = "Tantangan Survival mingguan";
-"Survival weekly target fmt" = "Dalam satu putaran minggu ini, bertahan %d bendera.";
+"Survival weekly title" = "Tantangan Bertahan Hidup mingguan";
+"Survival weekly target fmt" = "Lewati %d bendera dalam satu putaran minggu ini.";
 "Survival weekly best fmt" = "Terbaikmu minggu ini: %d bendera";
 "Survival weekly all milestones met body" = "Kamu sudah mencapai semua target mingguan, hingga 200 bendera dalam satu permainan. Hebat!";
 "Survival weekly reward all claimed" = "Semua bonus mingguan mode bertahan hidup sudah diambil (hingga +4000 XP).";
@@ -1616,7 +1616,7 @@
 "fbucks.earn.today.title" = "Hasilkan hari ini";
 "fbucks.earn.today.subtitle" = "Hingga %d F-Bucks dapat diperoleh hari ini";
 "fbucks.earn.perfect.title" = "Permainan yang sempurna";
-"fbucks.earn.perfect.sub" = "+1 untuk 10/10 atau 15/15";
+"fbucks.earn.perfect.sub" = "+1 untuk permainan sempurna yang memenuhi syarat hadiah";
 "fbucks.earn.streak" = "Rangkaian hari bermain";
 "fbucks.earn.streak.sub" = "Rangkaian hari (%d/10 hari)";
 "fbucks.earn.league" = "Puncak minggu ini";
@@ -1645,7 +1645,7 @@
 "fbucks.about.body" = "F-Bucks (Flags Bucks) adalah mata uang dalam game yang kamu peroleh dengan bermain World Arena Flags. Gunakan untuk membeli aksesori avatar, skin, dan item eksklusif lainnya.";
 "fbucks.about.how" = "Cara mendapatkan F-Bucks";
 "fbucks.about.perfect.title" = "Permainan yang sempurna";
-"fbucks.about.perfect.desc" = "Dapatkan skor sempurna (10/10 atau 15/15)";
+"fbucks.about.perfect.desc" = "Jawab semua pertanyaan dengan benar dalam permainan yang memenuhi syarat hadiah";
 "fbucks.about.streak10.title" = "10 hari berturut-turut";
 "fbucks.about.streak10.desc" = "Bermain 10 hari berturut-turut";
 "fbucks.about.streak20.title" = "20 hari berturut-turut";
@@ -1747,14 +1747,14 @@
 "premium.access.until" = "Akses hingga";
 
 // Streak calendar and freeze inventory
-"streak.calendar.title" = "Kalender streak";
+"streak.calendar.title" = "Kalender rentetan bermain";
 "streak.calendar.played" = "Dimainkan";
 "streak.calendar.frozen" = "Dibekukan";
 "streak.calendar.missed" = "Terlewat";
 "streak.calendar.open_day" = "Belum bermain";
 "streak.calendar.previous" = "Bulan sebelumnya";
 "streak.calendar.next" = "Bulan berikutnya";
-"streak.freeze.title" = "Pembeku streak";
+"streak.freeze.title" = "Pembeku rentetan";
 "streak.freeze.repair" = "Pulihkan kemarin · 1 pembeku";
 "streak.freeze.friends" = "Bantu temanmu";
 "streak.freeze.give" = "Beri 1 pembeku";
@@ -1763,11 +1763,11 @@
 "streak.freeze.sent" = "Pembeku terkirim!";
 "streak.freeze.retry" = "Gagal menyinkronkan. Coba lagi untuk menyelesaikan hadiah tertunda.";
 "streak.freeze.no_friends" = "Belum ada teman yang kehabisan pembeku.";
-"streak.freeze.explanation" = "Satu pembeku melindungi satu hari terlewat secara otomatis tanpa menghitungnya sebagai hari bermain. Siapkan sebelum jeda atau pulihkan kemarin.";
+"streak.freeze.explanation" = "Satu pembeku melindungi satu hari yang terlewat secara otomatis. Hari yang dibekukan tidak dihitung sebagai hari bermain. Siapkan stok sebelum beristirahat, atau gunakan satu pembeku untuk memulihkan hari kemarin.";
 
 // Avatar shop and wardrobe
 "shop.avatar" = "Avatarmu";
-"shop.preview_hint" = "Coba sebelum membeli. Menerapkan akan mengganti foto profil dengan avatar ini.";
+"shop.preview_hint" = "Coba item sebelum membelinya. Menerapkan item akan mengganti foto profil dengan avatar ini.";
 "shop.wardrobe" = "Lemari";
 "shop.empty" = "Barang yang dibeli akan muncul di sini.";
 "shop.equipped" = "Dipakai";
@@ -1815,7 +1815,7 @@
 
 "lifecycle.offers" = "Tantangan dan penawaran";
 
-"lifecycle.offers.detail" = "Bonus, tantangan, dan game World Arena lainnya. Total paling banyak dua email per minggu.";
+"lifecycle.offers.detail" = "Penawaran, tantangan, dan game World Arena lainnya. Total paling banyak dua email per minggu.";
 
 "lifecycle.bonus.title" = "Coba bermain di siang hari?";
 
@@ -1867,11 +1867,11 @@
 /* Notification event localization */
 "inbox.progressCTA" = "Lihat progres saya";
 "inbox.rank" = "Posisimu";
-"inbox.leagueStory" = "Lihat peringkat liga dan pilih target untuk minggu baru.";
-"inbox.levelStory" = "Pengetahuanmu bertambah dengan setiap bendera. Coba tingkat kesulitan atau wilayah lain.";
-"inbox.achievementStory" = "Buka pencapaian untuk melihat hadiah dan progres menuju target berikutnya.";
-"inbox.duelStory" = "Buka hasil duel untuk membandingkan skor. Permainan yang selesai tetap ada di riwayat.";
-"inbox.messageStory" = "Setelah dibaca, pesan ini tetap bisa dilihat di riwayat notifikasi.";
+"inbox.leagueStory" = "Setiap permainan berkontribusi pada hasil ini. Rayakan pencapaian minggu ini, lalu lihat peringkat liga dan pilih target berikutnya. Minggu baru adalah kesempatan baru untuk meningkatkan hasil Anda.";
+"inbox.levelStory" = "Level ini mencerminkan pengetahuan yang Anda bangun, bendera demi bendera. Pengalaman Anda tetap tersimpan di profil. Coba tingkat kesulitan lebih tinggi atau wilayah lain untuk terus menemukan hal baru.";
+"inbox.achievementStory" = "Pencapaian baru layak mendapat tempat dalam koleksi Anda. Buka daftar pencapaian untuk melihat apa yang sudah terbuka dan seberapa dekat Anda dengan hadiah berikutnya. Terus jelajahi sesuai ritme Anda.";
+"inbox.duelStory" = "Duel adalah kesempatan untuk menguji pengetahuan bersama. Buka hasil duel untuk melihat skor dan status saat ini. Permainan yang selesai tetap ada di riwayat agar dapat dilihat kembali nanti.";
+"inbox.messageStory" = "Anda dapat kembali ke pesan ini kapan saja melalui riwayat notifikasi. Membaca pesan tidak akan menghapusnya.";
 "friends.requests.title" = "Permintaan pertemanan";
 "friends.requests.body" = "Telah menambahkanmu sebagai teman. Ingin menambahkan balik?";
 "notification.nudge.title" = "%@ mengingatkanmu";
@@ -1896,7 +1896,7 @@
 "education.fbucks.done" = "Mengerti";
 "education.fbucks.shop" = "Lihat toko";
 "education.fbucks.title" = "Kamu mendapatkan F-Bucks!";
-"facts.area" = "Daerah";
+"facts.area" = "Luas";
 "facts.capital" = "Ibu kota";
 "facts.explanation" = "Pilih apa yang muncul di belakang kartu negara setelah menjawab.";
 "facts.map" = "Peta";
@@ -1964,9 +1964,9 @@
 "premium.weekly.next" = "Bonus mingguan berikutnya: %@";
 "ranking.motivational.explanation" = "Posisi berbasis kemajuan di antara lawan virtual.";
 "ranking.motivational.title" = "Peringkat motivasi";
-"streak.recovery.body_fmt" = "Kamu memiliki rangkaian bermain selama %1$d hari. Pulihkan dengan %2$d F-Bucks, atau mainkan satu permainan lagi secara gratis.";
+"streak.recovery.body_fmt" = "Anda memiliki rentetan bermain %1$d hari. Pulihkan dengan %2$d F-Bucks, atau mainkan satu permainan lagi secara gratis.";
 "streak.recovery.later_btn" = "Jangan sekarang";
 "streak.recovery.pay_btn_fmt" = "Pulihkan · %d";
-"streak.recovery.play_btn" = "Putar untuk memulihkan";
-"streak.recovery.title" = "Rangkaian hari bermain terputus";
+"streak.recovery.play_btn" = "Main untuk memulihkan";
+"streak.recovery.title" = "Rentetan hari bermain terputus";
 "Не удалось добавить в друзья. Попробуйте позже." = "Tidak dapat menambahkan teman ini. Silakan coba lagi.";

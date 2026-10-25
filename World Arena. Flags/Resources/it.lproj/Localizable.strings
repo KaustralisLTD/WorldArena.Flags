@@ -101,8 +101,8 @@
 "Share Result" = "Condividi";
 "Share" = "Condividi";
 "ACCURACY" = "Precisione";
-"TOTAL XP" = "Total XP";
-"CONTINUE" = "Continue";
+"TOTAL XP" = "XP TOTALI";
+"CONTINUE" = "CONTINUA";
 "Perfect! You're unstoppable!" = "Perfect! You're unstoppable!";
 "Excellent performance!" = "Excellent performance!";
 "Well done! Keep practicing!" = "Well done! Keep practicing!";
@@ -110,25 +110,25 @@
 "PERFECT" = "Perfect";
 "AMAZING" = "Amazing";
 "GOOD" = "Good";
-"KEEP GOING" = "Keep Going";
+"KEEP GOING" = "CONTINUA COSÌ";
 "Play Again" = "Gioca di nuovo";
 "Home" = "Home";
 "Quest Update!" = "Quest Update!";
 "quest.play_again.duel" = "Ripeti duello";
 "Check your progress" = "Check your progress";
-"2x XP for 10 min!" = "2 XP per 10 minuti!";
-"3x XP for 15 min!" = "3 XP per 15 minuti!";
-"Подарок за квесты" = "Regalo di ricerca giornaliera";
-"Share Message" = "Ho segnato %d punti nel gioco World Flags! ð®ð\nScaricalo e prova a battere il mio punteggio!";
-"Statistics Share Promo" = "Sto giocando a World Arena Flags: impara le bandiere del mondo, duella con gli amici e scala i campionati! ð®ð\nLe mie statistiche: miglior punteggio %d, precisione %.1f%%, partite giocate %d.\nVuoi imparare le bandiere e mettere alla prova le tue abilità? Unisciti alla nostra comunità!\n%@";
+"2x XP for 10 min!" = "XP doppi per 10 minuti!";
+"3x XP for 15 min!" = "XP tripli per 15 minuti!";
+"Подарок за квесты" = "Ricompensa delle missioni giornaliere";
+"Share Message" = "Ho segnato %d punti in World Flags! 🎮🌍\nScaricalo e prova a battere il mio punteggio!";
+"Statistics Share Promo" = "Gioco a World Arena Flags: impara le bandiere del mondo, sfida gli amici e scala le leghe! 🎮🌍\nLe mie statistiche: miglior punteggio %d, precisione %.1f%%, %d partite giocate.\nVuoi imparare le bandiere e mettere alla prova le tue abilità? Unisciti alla nostra comunità!\n%@";
 
 // Post-Game Flow
-"CLAIM XP" = "RICHIEDI XP";
-"TOTAL XP" = "PE TOTALI";
+"CLAIM XP" = "RISCUOTI XP";
+"TOTAL XP" = "XP TOTALI";
 "PERFECT" = "PERFETTO";
 "AMAZING" = "SORPRENDENTE";
 "GOOD" = "BENE";
-"KEEP GOING" = "CONTINUARE";
+"KEEP GOING" = "CONTINUA COSÌ";
 "Perfect! You're unstoppable!" = "Perfetto! Sei inarrestabile!";
 "Excellent performance!" = "Prestazione eccellente!";
 "Well done! Keep practicing!" = "Ben fatto! Continua a esercitarti!";
@@ -137,32 +137,32 @@
 "This Week" = "Questa settimana";
 "Incredible streak! You're on fire!" = "Serie incredibile! Sei in fiamme!";
 "Great job! Keep the momentum going!" = "Ottimo lavoro! Mantieni lo slancio!";
-"Nice start! Build your streak day by day!" = "Bel inizio! Costruisci la tua serie di vittorie giorno dopo giorno!";
-"Your Friend Streaks" = "Il tuo amico segna";
-"See how your friends are doing" = "Guarda come stanno i tuoi amici";
+"Nice start! Build your streak day by day!" = "Bell’inizio! Allunga la tua serie giorno dopo giorno!";
+"Your Friend Streaks" = "Le serie dei tuoi amici";
+"See how your friends are doing" = "Scopri i progressi dei tuoi amici";
 "No friends yet" = "Nessun amico ancora";
 "Add friends to see their streaks and compete together!" = "Aggiungi amici per vedere le loro serie consecutive e competere insieme!";
-"NUDGE" = "SPORGIMENTO";
-"Remind" = "Ricordare";
+"NUDGE" = "INVIA PROMEMORIA";
+"Remind" = "Ricorda";
 "Reminder sent to %@" = "Promemoria inviato a %@";
 "%@ reminds you" = "%@ te lo ricorda";
-"nudge_phrase_1" = "Non arrenderti! Hai questo!";
-"nudge_phrase_2" = "La tua serie di vittorie ti sta aspettando. Gioca oggi!";
-"nudge_phrase_3" = "Una partita al giorno mantiene viva la serie di vittorie consecutive!";
-"nudge_phrase_4" = "Torna indietro e mostra a quelle bandiere chi comanda!";
+"nudge_phrase_1" = "Non arrenderti! Puoi farcela!";
+"nudge_phrase_2" = "La tua serie ti aspetta. Gioca oggi!";
+"nudge_phrase_3" = "Una partita al giorno mantiene viva la serie!";
+"nudge_phrase_4" = "Torna e mostra alle bandiere chi comanda!";
 "nudge_phrase_5" = "Ci manchi! È ora di una partita veloce?";
 "nudge_phrase_6" = "I tuoi amici stanno giocando. Unisciti a loro!";
-"nudge_phrase_7" = "Piccolo passo oggi, grande successo domani!";
-"nudge_phrase_8" = "Sei così vicino! Non interrompere la serie di vittorie!";
+"nudge_phrase_7" = "Un piccolo passo oggi, una grande serie domani!";
+"nudge_phrase_8" = "Ci sei quasi! Non interrompere la serie!";
 "nudge_phrase_9" = "Le bandiere chiamano. Rispondi alla chiamata!";
-"nudge_phrase_10" = "Alzati e risplendi: è l'ora della bandiera!";
+"nudge_phrase_10" = "Svegliati! È l’ora delle bandiere!";
 "nudge_phrase_11" = "Un po’ di pratica aiuta molto!";
-"nudge_phrase_12" = "Oggi è il giorno giusto per mantenere il tuo record!";
+"nudge_phrase_12" = "Oggi è il giorno giusto per mantenere la tua serie!";
 "nudge_phrase_13" = "Rimettiti in gioco! Noi crediamo in te!";
-"nudge_phrase_14" = "Ancora un gioco e ti sentirai benissimo!";
-"nudge_phrase_15" = "La tua serie di vittorie ti manca. Ritorno!";
-"CONTINUE" = "CONTINUARE";
-"streak" = "strisciante";
+"nudge_phrase_14" = "Ancora una partita e ti sentirai alla grande!";
+"nudge_phrase_15" = "Manchi alla tua serie. Torna a giocare!";
+"CONTINUE" = "CONTINUA";
+"streak" = "serie";
 "days" = "giorni";
 "Quest Update!" = "Aggiornamento delle missioni!";
 "Check your progress" = "Controlla i tuoi progressi";
@@ -184,27 +184,27 @@
 "Новый свет" = "The New World";
 "Земля контрастов" = "Land of contrasts";
 "Острова Тихого океана" = "Pacific Ocean islands";
-"Статистика флагов" = "Statistiche di segnalazione";
+"Статистика флагов" = "Statistiche sulle bandiere";
 "Всего стран" = "Paesi totali";
 "Цветов на флагах" = "Colori sulle bandiere";
 "Самый популярный цвет" = "Colore più popolare";
 "Красный" = "Rosso";
 "Флагов с крестом" = "Bandiere con croce";
 "Интересные факты" = "Fatti interessanti";
-"Interesting facts study slides" = "Studia a slide";
+"Interesting facts study slides" = "Studia con le schede";
 "Interesting facts back to list" = "Torna all'elenco";
 "Самый старый флаг" = "Una bandiera leggendaria";
 "Флаг Дании используется с 1219 года" = "Una leggenda lega la bandiera danese a una battaglia del 1219.";
 "Единственный квадратный флаг" = "Bandiere nazionali quadrate";
 "У Швейцарии единственный квадратный флаг в мире" = "La Svizzera e la Città del Vaticano hanno entrambe bandiere nazionali quadrate.";
-"Самый сложный флаг" = "Bandiera più complessa";
+"Самый сложный флаг" = "Una bandiera con un drago";
 "У Бутана на флаге изображен дракон" = "La bandiera del Bhutan raffigura un drago";
 "Go Premium" = "Go Premium";
 "Мой профиль в World Arena Flags" = "Il mio profilo World Arena Flags";
 "My Profile Share Title" = "Il mio profilo World Arena Flags";
 "Не удалось добавить друга. Проверьте код." = "Impossibile aggiungere un amico. Controlla il codice.";
 "Daily Quests" = "Missioni giornaliere";
-"Monthly Quest" = "Ricerca mensile";
+"Monthly Quest" = "Missione mensile";
 
 // Learning Section
 "More facts" = "Altri fatti";
@@ -230,11 +230,11 @@
 
 // Network Errors
 "No Internet Connection" = "Nessuna connessione Internet";
-"Request Timeout" = "Richiedi timeout";
+"Request Timeout" = "Tempo di attesa della richiesta scaduto";
 "Server Not Found" = "Server non trovato";
 "Too Many Requests" = "Troppe richieste";
 "HTTP Error: %d" = "Errore HTTP: %d";
-"Not enough countries in selected regions (found %d, need at least 4)" = "Paesi insufficienti nelle regioni selezionate (trovato %d, ne servono almeno 4)";
+"Not enough countries in selected regions (found %d, need at least 4)" = "Paesi insufficienti nelle regioni selezionate (trovati: %d; minimo richiesto: 4)";
 "Empty response from server" = "Risposta vuota dal server";
 
 // New additions
@@ -245,11 +245,11 @@
 "Subregion" = "Sottoregione";
 // Language additions
 "system_language" = "Sistema";
-"ru_language" = "Russo";
-"uk_language" = "Ucraino";
-"es_language" = "Spagnolo";
-"ca_language" = "Català ";
-"zh_language" = "ä¸æ";
+"ru_language" = "Русский";
+"uk_language" = "Українська";
+"es_language" = "Español";
+"ca_language" = "Català";
+"zh_language" = "中文";
 
 // Exit confirmation
 "Exit Confirmation" = "Sei sicuro di voler uscire?";
@@ -258,12 +258,12 @@
 
 // New additions
 "Tap to continue" = "Tocca per continuare";
-"Loading flag..." = "Caricamento flag...";
+"Loading flag..." = "Caricamento della bandiera…";
 "Select Difficulty" = "Seleziona Difficoltà";
-"Game Mode" = "Modalita di gioco";
+"Game Mode" = "Modalità di gioco";
 
 // Game Modes
-"Game Mode" = "Modalita di gioco";
+"Game Mode" = "Modalità di gioco";
 "Classic" = "Classico";
 "Time Challenge" = "Sfida a Tempo";
 "Time Challenge short" = "Tempo";
@@ -276,7 +276,7 @@
 "Duel result" = "Risultato del duello";
 "You won!" = "Hai vinto!";
 "won" = "vinto";
-"You" = "Voi";
+"You" = "Tu";
 "Duel announcement title" = "Duello";
 "vs" = "contro";
 "Friend add username not found" = "Utente «%@» non trovato. Controlla il nome utente.";
@@ -288,7 +288,7 @@
 "duel_invite_popup_remind_1h" = "Promemoria · 1 h";
 "duel_invite_popup_decline" = "Rifiuta";
 
-"Accept" = "Accettare";
+"Accept" = "Accetta";
 "Random opponent" = "Avversario casuale";
 "No friends yet. Add friends in Profile." = "Nessun amico ancora. Aggiungi amici nel profilo.";
 "Standard multiple choice game" = "Gioco standard a scelta multipla";
@@ -296,7 +296,7 @@
 "Game until first mistake" = "Gioco fino al primo errore";
 
 // Difficulty
-"Difficulty" = "Difficolta";
+"Difficulty" = "Difficoltà";
 "Easy" = "Facile";
 "Medium" = "Medio";
 "Hard" = "Difficile";
@@ -307,8 +307,8 @@
 "20 questions, 15 sec per answer" = "20 domande, 15 secondi per risposta";
 "25 questions, 10 sec per answer" = "25 domande, 10 secondi per risposta";
 "30 questions, 5 sec per answer" = "30 domande, 5 secondi per risposta";
-"All %d countries of selected regions, 5 sec per answer" = "Tutti i paesi %d delle regioni selezionate, 5 secondi per risposta";
-"All 238 countries of the world, 5 sec per answer" = "Tutti i 238 paesi del mondo, 5 secondi per risposta";
+"All %d countries of selected regions, 5 sec per answer" = "Tutti i %d paesi delle regioni selezionate, 5 secondi per risposta";
+"All 238 countries of the world, 5 sec per answer" = "Tutti i paesi e territori disponibili, 5 secondi per risposta";
 
 "of" = "Di";
 "flags" = "bandiere";
@@ -316,12 +316,12 @@
 // Theme
 "App Theme" = "Aspetto";
 "System" = "System";
-"Light" = "Light";
-"Dark" = "Dark";
+"Light" = "Chiaro";
+"Dark" = "Scuro";
 
 // iPad Main Screen
-"Challenge Yourself, Learn the World" = "Sfida te stesso, impara il mondo";
-"WorldArena Description" = "WorldArena è una serie di giochi di conoscenza globale che trasforma l'apprendimento in divertimento. Indovina bandiere, maiuscole, bordi e molto altro in un formato quiz dinamico progettato per tutte le età.";
+"Challenge Yourself, Learn the World" = "Sfida te stesso, scopri il mondo";
+"WorldArena Description" = "World Arena è una serie di giochi educativi sulla geografia che rende divertente imparare. Scopri bandiere, capitali, confini e molto altro con quiz dinamici adatti a tutte le età.";
 
 /* Lives & Premium */
 "Lives" = "Vite";
@@ -333,25 +333,25 @@
 "Your Premium benefits" = "I tuoi vantaggi Premium";
 "Onboarding welcome message" = "Scegli una regione e gioca la tua prima partita!";
 "Onboarding first game done" = "Prima partita completata! Giocane altre 4 con 70%+ di precisione per sbloccare la classifica della tua città.";
-"F-Bucks" = "F-buck";
-"Flags Bucks" = "Bandiere di dollari";
+"F-Bucks" = "F-Bucks";
+"Flags Bucks" = "Flags Bucks";
 
 /* F-Bucks Info Page */
 "О F-Bucks" = "A proposito di F-Bucks";
 "Как заработать" = "Come Guadagnare";
-"История" = "History";
+"История" = "Cronologia";
 "Магазин" = "Negozio";
 "Что такое F-Bucks?" = "Cosa sono i F-Bucks?";
 "F-Bucks (Flags Bucks) — это внутриигровая валюта, которую можно заработать, играя в World Arena Flags. Используйте F-Bucks для покупки уникальных элементов аватара, скинов и других эксклюзивных предметов." = "F-Bucks (Flags Bucks) è una valuta di gioco che puoi guadagnare giocando a World Arena Flags. Usa F-Bucks per acquistare oggetti avatar unici, skin e altri oggetti esclusivi.";
 "Особенности:" = "Caratteristiche:";
 "Зарабатывайте за идеальные результаты в играх" = "Guadagna per risultati di gioco perfetti";
-"Получайте бонусы за длинные серии дней" = "Ottieni bonus per le serie di giornate lunghe";
+"Получайте бонусы за длинные серии дней" = "Ottieni bonus per le lunghe serie di giorni";
 "Покупайте эксклюзивные элементы для аватара" = "Acquista oggetti avatar esclusivi";
 "Создавайте уникальный стиль" = "Crea uno stile unico";
 "Как заработать F-Bucks" = "Come guadagnare F-Bucks";
 "Идеальный результат" = "Risultato perfetto";
 "Идеальный результат игры" = "Risultato di gioco perfetto";
-"Получите идеальный результат в игре (10/10 или 15/15)" = "Ottieni un risultato perfetto nel gioco (10/10 o 15/15)";
+"Получите идеальный результат в игре (10/10 или 15/15)" = "Completa una partita senza errori";
 "Серия 10 дней" = "Serie di 10 giorni";
 "Играйте 10 дней подряд" = "Gioca 10 giorni di fila";
 "Серия 20 дней" = "Serie di 20 giorni";
@@ -361,13 +361,13 @@
 "Серия 100 дней" = "Serie di 100 giorni";
 "Играйте 100 дней подряд" = "Gioca 100 giorni di fila";
 "История начислений" = "Cronologia delle transazioni";
-"История пуста" = "La storia è vuota";
+"История пуста" = "La cronologia è vuota";
 "Начните играть и зарабатывать F-Bucks!" = "Inizia a giocare e guadagna F-Bucks!";
 "Магазин F-Bucks" = "Negozio F-Bucks";
 "Потратьте F-Bucks на эксклюзивные элементы для вашего аватара" = "Spendi F-Bucks su oggetti esclusivi per il tuo avatar";
 "Одежда" = "Vestiario";
 "Уникальные наряды и аксессуары" = "Abiti e accessori unici";
-"Скины" = "Pelli";
+"Скины" = "Skin";
 "Особые визуальные эффекты" = "Effetti visivi speciali";
 "Эффекты" = "Effetti";
 "Анимации и спецэффекты" = "Animazioni ed effetti speciali";
@@ -380,8 +380,8 @@
 "Эффект блёсток" = "Effetto scintillante";
 "Огненный эффект" = "Effetto fuoco";
 "Звёздный эффект" = "Effetto stella";
-"Купить" = "Acquistare";
-"Покупка" = "Acquistare";
+"Купить" = "Acquista";
+"Покупка" = "Acquisto";
 "Текст гимна" = "Testo dell'inno";
 "Continue playing with unlimited hearts!" = "Continua a giocare con cuori illimitati!";
 "No lives available" = "Nessuna vita disponibile";
@@ -410,16 +410,16 @@
 "OK" = "OK";
 
 /* Premium screen */
-"Learn all countries and flags in ~2 months with Premium" = "Impara tutti i paesi e le bandiere in circa 2 mesi con Premium";
+"Learn all countries and flags in ~2 months with Premium" = "Approfondisci la conoscenza di paesi e bandiere con Premium";
 "Unlimited Hearts" = "Cuori illimitati";
 "Personalized Practice" = "Pratica personalizzata";
 "Explain My Answer" = "Spiega la mia risposta";
 "Roleplay Scenarios" = "Scenari di gioco di ruolo";
 "Access 'My Mistakes'" = "Accedi a \"I miei errori\"";
 "My Mistakes" = "I miei errori";
-"Erudite Difficulty" = "Difficoltà erudita";
+"Erudite Difficulty" = "Difficoltà Erudito";
 "Learning Section" = "Sezione Apprendimento";
-"UPGRADE TO PREMIUM" = "AGGIORNAMENTO A PREMIUM";
+"UPGRADE TO PREMIUM" = "PASSA A PREMIUM";
 "NO THANKS" = "NO GRAZIE";
 
 /* Game header popovers */
@@ -429,8 +429,8 @@
 "Time Per Question" = "Tempo per domanda";
 
 /* Game header motivation (iPad) */
-"Game motivation 1" = "Hai questo!";
-"Game motivation 2" = "Continuare!";
+"Game motivation 1" = "Puoi farcela!";
+"Game motivation 2" = "Continua così!";
 "Game motivation 3" = "Ogni bandiera conta!";
 "Game motivation 4" = "Sei in fiamme!";
 "Game motivation 5" = "Rimani concentrato!";
@@ -442,7 +442,7 @@
 
 // Push Notifications
 "Push Notification Title" = "È ora di esercitarsi!";
-"Push Notification Body" = "Metti alla prova la tua conoscenza della bandiera e migliora le tue abilità! ðð¯";
+"Push Notification Body" = "Metti alla prova la tua conoscenza delle bandiere e migliora le tue abilità! 🌍🎯";
 
 // Profile Page
 "League" = "Lega";
@@ -452,21 +452,21 @@
 "Statistics" = "Statistiche";
 "Total XP" = "XP totali";
 "Current streak" = "Serie attuale";
-"Best streak" = "Miglior serie di vittorie";
-"Total games" = "Giochi totali";
+"Best streak" = "Serie migliore";
+"Total games" = "Partite totali";
 "Accuracy" = "Precisione";
 "Add Friends" = "Aggiungi amici";
 "Overview" = "Panoramica";
-"Friend Streaks" = "Strisce di amici";
+"Friend Streaks" = "Serie degli amici";
 "Monthly Badges" = "Badge mensili";
 
 /* Avatar Editor */
 "Edit Avatar" = "Edit Avatar";
-"Cancel" = "Cancellare";
+"Cancel" = "Annulla";
 "Upload Photo" = "Carica foto";
 "Create Avatar" = "Crea l'avatar";
 "Photo" = "Photo";
-"Create" = "Create";
+"Create" = "Crea";
 "Select Photo" = "Seleziona Foto";
 "Upload your photo from gallery or take a new one" = "Upload your photo from gallery or take a new one";
 "Remove Photo" = "Rimuovi foto";
@@ -487,27 +487,27 @@
 "Accessories" = "Accessori";
 
 /* Game Loading */
-"Loading flags..." = "Caricamento flag...";
-"Starting..." = "Di partenza...";
+"Loading flags..." = "Caricamento delle bandiere…";
+"Starting..." = "Avvio…";
 
 /* Main Tab Navigation */
-"Главная" = "Casa";
+"Главная" = "Home";
 "Игра" = "Play";
 "Квесты" = "Missioni";
 "Лиги" = "Leagues";
-"До конца лиги: %02dч %02dм (GMT)" = "Il campionato termina tra %02dh %02dm (GMT)";
-"До конца лиги: %@ (GMT)" = "Il campionato termina tra %@ (GMT)";
-"д" = "D";
-"ч" = "H";
-"м" = "M";
+"До конца лиги: %02dч %02dм (GMT)" = "La lega termina tra %02d h %02d min (GMT)";
+"До конца лиги: %@ (GMT)" = "La lega termina tra %@ (GMT)";
+"д" = "g";
+"ч" = "h";
+"м" = "min";
 "Статистика" = "Statistics";
 "Профиль" = "Profile";
 
 /* Profile Page */
 "ОБЗОР" = "PANORAMICA";
 "ДОБАВИТЬ ДРУЗЕЙ" = "ADD FRIENDS";
-"СЕРИИ ДРУЗЕЙ" = "FRIEND STREAKS";
-"МЕСЯЧНЫЕ ДОСТИЖЕНИЯ" = "MONTHLY ACHIEVEMENTS";
+"СЕРИИ ДРУЗЕЙ" = "SERIE DEGLI AMICI";
+"МЕСЯЧНЫЕ ДОСТИЖЕНИЯ" = "TRAGUARDI MENSILI";
 
 /* Settings */
 "Выберите аватар" = "Scegli l'avatar";
@@ -521,26 +521,26 @@
 "Имя пользователя" = "Nome utente";
 "Статистика" = "Statistics";
 "Премиум подписка активна" = "Premium subscription active";
-"ВОССТАНОВИТЬ ПОДПИСКУ" = "RESTORE SUBSCRIPTION";
-"ВЫЙТИ" = "DISCONNETTERSI";
+"ВОССТАНОВИТЬ ПОДПИСКУ" = "RIPRISTINA ABBONAMENTO";
+"ВЫЙТИ" = "ESCI";
 "Удалить аккаунт" = "Elimina account";
 "Это действие нельзя отменить. Все ваши данные будут удалены навсегда." = "Questa azione non può essere annullata. Tutti i tuoi dati verranno eliminati definitivamente.";
 
 /* Language Selection */
 "Выберите язык игры" = "Scegli la lingua del gioco";
-"Язык интерфейса игры и заданий" = "Interfaccia di gioco e linguaggio delle attività";
+"Язык интерфейса игры и заданий" = "Lingua dell’interfaccia e delle domande";
 
 /* Leagues */
-"Вы занимаете #%d место" = "Ti sei classificato #%d";
-"Зона повышения - переход в следующую лигу!" = "Zona promozione: passa al campionato successivo!";
-"Зона вылета - риск понижения лиги" = "Zona retrocessione: rischio retrocessione in campionato";
-"Безопасная зона - остаетесь в текущей лиге" = "Zona sicura: rimani nel campionato attuale";
+"Вы занимаете #%d место" = "Sei in posizione n. %d";
+"Зона повышения - переход в следующую лигу!" = "Zona promozione: sali alla lega successiva!";
+"Зона вылета - риск понижения лиги" = "Zona retrocessione: rischi di scendere di lega";
+"Безопасная зона - остаетесь в текущей лиге" = "Zona sicura: rimani nella lega attuale";
 "Конец недели через %d часов" = "La settimana termina tra %d ore";
-"ЗОНА ВЫЛЕТА" = "ZONA RETROEGAZIONE";
+"ЗОНА ВЫЛЕТА" = "ZONA RETROCESSIONE";
 "ЗОНА ПОВЫШЕНИЯ" = "ZONA DI PROMOZIONE";
 
 /* Monthly Quests */
-"Августовский Квест" = "Ricerca di agosto";
+"Августовский Квест" = "Missione di agosto";
 "Mision de Agosto" = "Missione di agosto";
 "21 ДЕНЬ" = "21 GIORNI";
 "Заработай 40 очков квеста" = "Guadagna 40 punti missione";
@@ -561,10 +561,10 @@
 "Результаты поиска" = "Risultati della ricerca";
 "Ничего не найдено" = "Niente trovato";
 "Попробуйте другие ключевые слова" = "Prova parole chiave diverse";
-"%d тем" = "Argomenti %d";
+"%d тем" = "%d argomenti";
 
 /* Daily Quests */
-"Продли свою серию" = "Estendi la tua serie di vittorie consecutive";
+"Продли свою серию" = "Prolunga la tua serie";
 "Сыграй 3 игры подряд" = "Gioca 3 partite di fila";
 "Достигни точности 80%" = "Ottieni una precisione dell'80%.";
 "МЕСЯЧНЫЕ ЦЕЛИ" = "OBIETTIVI MENSILI";
@@ -573,8 +573,8 @@
 /* Profile Statistics */
 "дней" = "days";
 "Текущая серия" = "Current streak";
-"Всего изучено флагов" = "Total flags learned";
-"Текущая лига" = "Current league";
+"Всего изучено флагов" = "Bandiere imparate in totale";
+"Текущая лига" = "Lega attuale";
 "Общий опыт" = "Total experience";
 
 /* League Names */
@@ -587,38 +587,38 @@
 
 /* Profile Edit */
 "Введите имя" = "Inserisci il nome";
-"Отмена" = "Cancel";
+"Отмена" = "Annulla";
 "Сохранить" = "Save";
 "Уровень" = "Level";
 "Опыт" = "Experience";
 "Серия дней" = "Day streak";
-"Всего игр" = "Total games";
+"Всего игр" = "Partite totali";
 "Точность" = "Accuracy";
 
 /* Theme Settings */
 "Тема" = "Tema";
 "System" = "Sistema";
-"Light" = "Leggero";
-"Dark" = "Buio";
+"Light" = "Chiaro";
+"Dark" = "Scuro";
 "Выберите тему оформления приложения" = "Scegli il tema dell'app";
 "Следует системным настройкам" = "Segue le impostazioni di sistema";
 "Светлое оформление" = "Aspetto chiaro";
 "Темное оформление" = "Aspetto scuro";
 
 /* Monthly Quests - Additional */
-"Сыграй %d игр" = "Gioca ai giochi %d";
-"Завершите %d игр в этом месяце" = "Completa i giochi %d questo mese";
+"Сыграй %d игр" = "Gioca %d partite";
+"Завершите %d игр в этом месяце" = "Completa %d partite questo mese";
 "Точность %d%%" = "Precisione %d%%";
-"Достигните точности %d%% в играх" = "Ottieni la precisione %d%% nei giochi";
-"Серия %d дней" = "Serie di giorni %d";
-"Поддерживайте серию %d дней подряд" = "Mantieni una serie di giorni consecutivi %d";
-"10Ч" = "10H";
+"Достигните точности %d%% в играх" = "Raggiungi una precisione del %d%% nelle partite";
+"Серия %d дней" = "Serie di %d giorni";
+"Поддерживайте серию %d дней подряд" = "Mantieni una serie di %d giorni consecutivi";
+"10Ч" = "10 h";
 
 /* Friends */
 "Ваш код друга" = "Your friend code";
 "Добавить по коду" = "Add by code";
 "Введите код друга" = "Enter friend code";
-"Добавить" = "Add";
+"Добавить" = "Aggiungi";
 "Добавить друзей" = "Add Friends";
 "Готово" = "Done";
 "Скопировано" = "Copied";
@@ -635,12 +635,12 @@
 "Как играть в World Arena Flags?" = "Come si gioca a World Arena Flags?";
 "Основы игры и правила" = "Nozioni di base e regole";
 "HELP_GAME_RULES" = "World Arena Flags è un gioco divertente per imparare le bandiere del mondo!\n\nRegole:\n1. Vedi la bandiera di un paese\n2. Scegli il nome corretto dalle opzioni\n3. Guadagna XP per le risposte corrette\n4. Mantieni la tua serie giornaliera\n5. Sali di livello e scala i campionati\n\nPiù giochi, più bandiere impari!";
-"Что такое серия дней?" = "Cos'è una striscia?";
+"Что такое серия дней?" = "Che cos’è una serie di giorni?";
 "Как работает система серий" = "Come funziona il sistema delle serie";
-"HELP_STREAK_TEXT" = "Una serie mostra quanti giorni di fila hai giocato.\n\nCome mantenerlo:\n• Gioca almeno un gioco ogni giorno\n• La serie si azzera se salti un giorno\n• Le serie più lunghe danno più XP bonus\n\nStreak aiuta a costruire un'abitudine di apprendimento!";
-"Как работают лиги?" = "Come funzionano i campionati?";
-"Система рейтингов и соревнований" = "Sistema di rating e competizione";
-"HELP_LEAGUES_TEXT" = "I campionati sono competizioni con altri giocatori.\n\nLeghe (dal più basso al più alto):\n• Bronzo\n• Argento\n• Oro\n• Platino\n• Diamante\n• Maestro\n\nAggiornamenti settimanali:\n• I primi 3 giocatori ricevono premi\n• I giocatori nella fascia 16-20 potrebbero essere retrocessi\n• Gli altri rimangono nella stessa lega";
+"HELP_STREAK_TEXT" = "La serie conta i giorni consecutivi in cui giochi.\n\n• Gioca almeno una partita ogni giorno per prolungarla.\n• I congelamenti disponibili possono proteggere i giorni saltati.\n• Apri il calendario della serie per vedere i giorni giocati e le protezioni disponibili.\n\nEsercitarsi regolarmente aiuta a prendere l’abitudine di imparare!";
+"Как работают лиги?" = "Come funzionano le leghe?";
+"Система рейтингов и соревнований" = "Sistema di classifiche e competizioni";
+"HELP_LEAGUES_TEXT" = "Le leghe ti permettono di competere con altri giocatori.\n\nDalla più bassa alla più alta:\n• Bronzo\n• Argento\n• Oro\n• Platino\n• Diamante\n• Maestro\n\nLa tua posizione settimanale determina se sali, rimani o scendi di lega. Le zone di promozione e retrocessione dipendono dai tuoi progressi e sono mostrate nella classifica. Una promozione ti fa guadagnare F-Bucks.";
 
 /* Birthday */
 "День рождения" = "Compleanno";
@@ -659,10 +659,10 @@
 /* Help Center – profile & skin */
 "Как изменить аватар?" = "Come cambiare avatar?";
 "Персонализация профиля" = "Personalizzazione del profilo";
-"HELP_PROFILE_AVATAR" = "Per cambiare avatar:\n1. Apri la scheda Profilo\n2. Tocca l’icona dell’ingranaggio (Impostazioni)\n3. Seleziona \"Profilo utente\"\n4. Scegli un nuovo avatar o carica una foto\n5. Tocca \"Salva\"";
+"HELP_PROFILE_AVATAR" = "Per cambiare avatar:\n1. Apri Profilo e tocca il tuo avatar per modificare il profilo.\n2. Apri l’editor dell’avatar oppure scegli una foto dalla libreria.\n3. Personalizza l’avatar o ritaglia la foto.\n4. Salva le modifiche.";
 "Как работает создание скина?" = "Come funziona l’editor di skin?";
 "Редактор аватара и элементы" = "Editor avatar ed elementi";
-"HELP_PROFILE_SKIN_EDITOR" = "Nell’editor di skin crei il tuo look partendo da diverse categorie:\n• Abbigliamento (Clothing)\n• Accessori (Accessories)\n• Occhiali (Glasses)\n• Tono della pelle (Skin Tone)\n• Capelli (Hair)\n• Viso (Face: occhi, bocca, ecc.)\n\nCome usarlo:\n1. Apri Profilo → Impostazioni → Profilo utente → Modifica avatar\n2. Passa alla scheda \"Create skin\"\n3. Scegli una categoria nella barra superiore (icone di cappello, maglietta, occhiali, tavolozza, ecc.)\n4. In basso seleziona un elemento specifico: apparirà subito nell’anteprima\n5. Tocca \"Save Avatar\" per applicare lo skin al profilo\n\nAlcuni elementi possono essere bloccati (icona lucchetto): si sbloccano con il progresso o con gli F‑bucks.";
+"HELP_PROFILE_SKIN_EDITOR" = "Usa l’editor dell’avatar per personalizzare abbigliamento, accessori, occhiali, tono della pelle, capelli e lineamenti del viso.\n\nApri il profilo, tocca il tuo avatar e apri l’editor. Scegli una categoria e un elemento per visualizzarlo nell’anteprima. Salva le modifiche per applicarle al profilo.\n\nGli elementi contrassegnati da un lucchetto possono richiedere progressi o F-Bucks per essere sbloccati.";
 
 /* Help Center – friends & social */
 "Как добавить друзей?" = "Come aggiungere amici?";
@@ -675,18 +675,18 @@
 /* Help Center – duel & progress */
 "Что такое дуэль и как её начать?" = "Che cos’è un duello e come iniziarlo?";
 "Режим соревнований 1 на 1" = "Modalità di competizione 1 contro 1";
-"HELP_GAME_DUEL" = "Il duello è una modalità in cui tu e il tuo amico rispondete alle stesse domande per confrontare i risultati.\n\nCome avviare un duello:\n1. Apri il profilo dell’amico (da Amici, Leghe o promemoria)\n2. Tocca il pulsante \"Challenge to Duel\"\n3. Conferma: il duello utilizzerà un set condiviso di domande\n\nAlla fine:\n• Vedi chi ha totalizzato più punti\n• Il duello motiva e migliora il progresso, ma NON azzera la tua serie giornaliera";
+"HELP_GAME_DUEL" = "In duello, tu e il tuo amico rispondete alle stesse domande per confrontare i risultati.\n\nApri il profilo dell’amico, tocca Sfida a duello e conferma. Vince chi ottiene più punti. In caso di parità, vince chi impiega meno tempo.\n\nPerdere un duello non azzera la tua serie giornaliera.";
 "Как зарабатывать и тратить F-bucks?" = "Come guadagnare e spendere F‑bucks?";
 "Внутриигровая валюта" = "Valuta di gioco";
-"HELP_PROGRESS_FBUCKS" = "I F‑bucks (Flags Bucks) sono la valuta interna di World Arena Flags.\n\nCome guadagnare F‑bucks:\n• Per partite perfette (tutte le risposte corrette)\n• Per lunghe serie giornaliere\n• Per il completamento di missioni e obiettivi\n\nSu cosa spenderli:\n• Acquisto di elementi esclusivi per skin e avatar\n• Sblocco di accessori ed effetti rari\n\nImportante: i F‑bucks non sono denaro reale. Non possono essere prelevati o convertiti in valuta reale.";
+"HELP_PROGRESS_FBUCKS" = "I F-Bucks (Flags Bucks) sono la valuta interna di World Arena Flags.\n\nCome guadagnare F-Bucks:\n• Per le partite idonee completate senza errori\n• Per lunghe serie giornaliere\n• Per il completamento di missioni e obiettivi\n\nSu cosa spenderli:\n• Acquisto di elementi esclusivi per skin e avatar\n• Sblocco di accessori ed effetti rari\n\nImportante: i F-Bucks non sono denaro reale. Non possono essere prelevati o convertiti in valuta reale.";
 "Как работают квесты и достижения?" = "Come funzionano missioni e obiettivi?";
 "Месячные задания и артефакты" = "Missioni mensili e artefatti";
-"HELP_PROGRESS_QUESTS" = "Nella scheda \"Missioni\" vedi:\n• Missioni giornaliere (se disponibili)\n• Missioni mensili e progresso totale 0–40\n\nCome funziona:\n1. Completa le attività: gioca il numero richiesto di partite, indovina bandiere di determinate regioni, ecc.\n2. Ogni missione completata fornisce progresso e ricompense\n3. Il progresso mensile totale è mostrato nell’intestazione colorata come una barra\n\nGli obiettivi (artefatti) si sbloccano con condizioni speciali:\n• Serie lunghe\n• Alta precisione\n• Buone posizioni nelle leghe\nGli obiettivi sbloccati compaiono nel profilo.";
+"HELP_PROGRESS_QUESTS" = "Nella scheda \"Missioni\" vedi:\n• Missioni giornaliere (se disponibili)\n• Missioni mensili e progressi complessivi\n\nCome funziona:\n1. Completa le attività: gioca il numero richiesto di partite, indovina bandiere di determinate regioni, ecc.\n2. Ogni missione completata fornisce progresso e ricompense\n3. Il progresso mensile totale è mostrato nell’intestazione colorata come una barra\n\nGli obiettivi (artefatti) si sbloccano con condizioni speciali:\n• Serie lunghe\n• Alta precisione\n• Buone posizioni nelle leghe\nGli obiettivi sbloccati compaiono nel profilo.";
 
 /* Help Center – notifications */
 "Уведомления: какие бывают и как их настроить?" = "Notifiche: quali tipi esistono e come impostarle?";
 "Ежедневный урок, дуэли и напоминания" = "Lezione giornaliera, duelli e promemoria";
-"HELP_NOTIFICATIONS_TYPES" = "L’app può inviare diversi tipi di notifiche:\n• Promemoria sulla lezione giornaliera e sulla serie\n• Promemoria agli amici e risposte ai tuoi promemoria\n• Sfide in duello e risultati dei duelli\n\nCome gestirle:\n1. Apri le impostazioni del dispositivo\n2. Trova World Arena Flags\n3. Attiva o disattiva i tipi di notifica che preferisci\n\nConsigliamo di lasciare attivi i promemoria della lezione giornaliera per non perdere la serie.";
+"HELP_NOTIFICATIONS_TYPES" = "L’app supporta promemoria di pratica quotidiana, della serie e degli amici, oltre a inviti e risultati dei duelli.\n\nScegli i promemoria desiderati nelle impostazioni delle notifiche dell’app. Le impostazioni del dispositivo determinano se World Arena Flags può mostrare notifiche.\n\nI promemoria quotidiani possono aiutarti a ricordare di esercitarti.";
 
 /* Achievements */
 "Достижения" = "Obiettivi";
@@ -711,10 +711,10 @@
 "Наберите 5000 XP" = "Guadagna 5000 XP";
 "Легенда XP" = "Leggenda XP";
 "Наберите 10000 XP" = "Guadagna 10.000 XP";
-"Исследователь" = "Esploratore di missioni";
+"Исследователь" = "Esploratore";
 "Сыграйте 20 игр" = "Gioca 20 partite";
 "Ветеран" = "Veterano";
-"Сыграйте 100 игр" = "Gioca a 100 giochi";
+"Сыграйте 100 игр" = "Gioca 100 partite";
 "Меткий стрелок" = "Tiratore scelto";
 "Точность 70%" = "Raggiungi una precisione del 70%.";
 "Снайпер" = "Cecchino";
@@ -728,14 +728,14 @@
 "Алмазная лига" = "Lega Diamante";
 "Достигните Алмаза" = "Raggiungi il Diamante";
 "Мастер лиг" = "Maestro della Lega";
-"Достигните Мастера" = "Raggiungi il Maestro";
+"Достигните Мастера" = "Raggiungi la lega Maestro";
 "Первый друг" = "Primo amico";
 "Добавьте друга" = "Aggiungi un amico";
 "Своя команда" = "La tua squadra";
 "Добавьте 5 друзей" = "Aggiungi 5 amici";
 "Расскажите друзьям" = "Spargi la voce";
 "Поделитесь профилем" = "Condividi il tuo profilo";
-"Спринтер" = "Corridore di velocità";
+"Спринтер" = "Velocista";
 "Сыграйте 10 игр за день" = "Gioca 10 partite in un giorno";
 "XP Олимпиец" = "XP olimpico";
 "Мастер Олимпиец XP" = "Maestro Olimpico XP";
@@ -745,7 +745,7 @@
 "Уведомления" = "Notifiche";
 "Приватность" = "Privacy";
 "Центр помощи" = "Centro assistenza";
-"Язык игры" = "Linguaggio del gioco";
+"Язык игры" = "Lingua del gioco";
 "Звуковые эффекты" = "Effetti sonori";
 "Вибрация" = "Vibrazione";
 
@@ -753,9 +753,9 @@
 "Основные уведомления" = "Principali notifiche";
 "Напоминания об игре" = "Promemoria del gioco";
 "Ежедневные напоминания" = "Promemoria giornalieri";
-"Напоминания о серии" = "Promemoria delle sequenze";
-"Время напоминания" = "Tempo di promemoria";
-"Время" = "Tempo";
+"Напоминания о серии" = "Promemoria della serie";
+"Время напоминания" = "Orario del promemoria";
+"Время" = "Orario";
 "Достижения и прогресс" = "Risultati e progressi";
 "Социальные уведомления" = "Notifiche sociali";
 "Друзья" = "Amici";
@@ -767,9 +767,9 @@
 "Заявки в друзья" = "Richieste di amicizia";
 "Сбор данных" = "Raccolta dati";
 "Аналитика использования" = "Analisi dell'utilizzo";
-"Отчеты о сбоях" = "Rapporti sugli incidenti";
+"Отчеты о сбоях" = "Rapporti sugli arresti anomali";
 "Управление данными" = "Gestione dei dati";
-"Политика конфиденциальности" = "politica sulla riservatezza";
+"Политика конфиденциальности" = "Informativa sulla privacy";
 "Ознакомьтесь с нашей политикой конфиденциальности" = "Leggi la nostra politica sulla privacy";
 "Условия использования" = "Termini di servizio";
 "Прочитайте наши условия использования" = "Leggi i nostri termini di servizio";
@@ -779,21 +779,21 @@
 "Безвозвратно удалить все ваши данные" = "Elimina definitivamente tutti i tuoi dati";
 
 // Profile page
-"Всего изучено флагов" = "Totale flag appresi";
-"Текущая лига" = "Campionato attuale";
+"Всего изучено флагов" = "Bandiere imparate in totale";
+"Текущая лига" = "Lega attuale";
 "Общий опыт" = "Esperienza totale";
 "дней" = "days";
 "Текущая серия" = "Current streak";
 "XP" = "XP";
 "ДОБАВИТЬ ДРУЗЕЙ" = "AGGIUNGI AMICI";
-"СЕРИИ ДРУЗЕЙ" = "STREET DI AMICI";
-"МЕСЯЧНЫЕ ДОСТИЖЕНИЯ" = "REALIZZAZIONI MENSILI";
+"СЕРИИ ДРУЗЕЙ" = "SERIE DEGLI AMICI";
+"МЕСЯЧНЫЕ ДОСТИЖЕНИЯ" = "TRAGUARDI MENSILI";
 
 // Add Friends page
 "Ваш код друга" = "Il tuo codice amico";
 "Добавить по коду" = "Aggiungi tramite codice";
 "Введите код друга" = "Inserisci il codice amico";
-"Добавить" = "Aggiungere";
+"Добавить" = "Aggiungi";
 "Добавить друзей" = "Aggiungi amici";
 "Готово" = "Fatto";
 "Скопировано" = "Copiato";
@@ -807,10 +807,10 @@
 "Ваша страна" = "Il tuo paese";
 
 // Settings page
-"Премиум" = "Premio";
+"Премиум" = "Premium";
 "World Arena Premium" = "World Arena Premium";
 "Премиум подписка активна" = "Abbonamento Premium attivo";
-"ВОССТАНОВИТЬ ПОДПИСКУ" = "RIPRISTINO ABBONAMENTO";
+"ВОССТАНОВИТЬ ПОДПИСКУ" = "RIPRISTINA ABBONAMENTO";
 
 // Achievements
 "Ранняя птица" = "Mattiniero";
@@ -832,14 +832,14 @@
 "%d/7 дней активности" = "%d/7 giorni attivi";
 "Месячные цели" = "Obiettivi mensili";
 "Сыграй 10 игр" = "Gioca a 10 partite";
-"Завершите 10 игр в этом месяце" = "Completa 10 giochi questo mese";
+"Завершите 10 игр в этом месяце" = "Completa 10 partite questo mese";
 "Точность 62%" = "Precisione 62%";
 "Достигните точности 62% в играх" = "Ottieni una precisione del 62% nei giochi";
 "Серия 3 дней" = "Serie di 3 giorni";
 "Поддерживайте серию 3 дней подряд" = "Mantieni una serie di 3 giorni consecutivi";
 
 // Profile page buttons
-"Отмена" = "Cancel";
+"Отмена" = "Annulla";
 "Сохранить" = "Salva";
 
 // Profile statistics
@@ -847,14 +847,14 @@
 "Уровень" = "Livello";
 "Опыт" = "Esperienza";
 "Серия дней" = "Serie di giorni";
-"Всего игр" = "Giochi totali";
+"Всего игр" = "Partite totali";
 "Точность" = "Accuracy";
 
 // Avatar Editor
 "Edit Avatar" = "Modifica avatar";
 "Upload photo" = "Carica foto";
 "Photo" = "Foto";
-"Create" = "Creare";
+"Create" = "Crea";
 "Select photo" = "Seleziona Foto";
 "Upload your photo from gallery or take a new one" = "Carica la tua foto dalla galleria o scattane una nuova";
 "Save Avatar" = "Salva l'avatar";
@@ -878,13 +878,13 @@
 "Играйте без ожидания" = "Gioca senza aspettare";
 "Раздел Обучения" = "Sezione Apprendimento";
 "Изучайте флаги и страны" = "Impara bandiere e paesi";
-"Сложность Эрудит" = "Difficoltà erudita";
+"Сложность Эрудит" = "Difficoltà Erudito";
 "Продвинутые вопросы" = "Domande avanzate";
 "Мои ошибки" = "I miei errori";
 "Анализ ваших ошибок" = "Analisi dei tuoi errori";
 "Отменить подписку" = "Annulla abbonamento";
-"Закрыть" = "Vicino";
-"Отмена" = "Cancellare";
+"Закрыть" = "Chiudi";
+"Отмена" = "Annulla";
 "Вы уверены, что хотите отменить премиум подписку? Вы потеряете доступ ко всем премиум функциям." = "Sei sicuro di voler annullare il tuo abbonamento premium? Perderai l'accesso a tutte le funzionalità premium.";
 
 "Manage subscription" = "Gestisci abbonamento";
@@ -909,13 +909,13 @@
 "Are you sure you want to cancel premium? You will lose access to all premium features." = "Sei sicuro di voler annullare premium? Perderai l'accesso a tutte le funzionalità premium.";
 "Close" = "Chiudi";
 "Red" = "Rosso";
-"Most popular color fact description" = "Il rosso è presente sul 75% di tutte le bandiere nazionali del mondo, rendendolo il colore di bandiera più popolare.";
+"Most popular color fact description" = "Il rosso compare su molte bandiere nazionali, tra cui quelle di Canada, Giappone e Svizzera.";
 
 /* Friend Management */
 "Флаг в профиле" = "Bandiera nel profilo";
 "Удалить из друзей" = "Rimuovi dagli amici";
 "Удалить друга" = "Rimuovi amico";
-"Вы уверены, что хотите удалить %@ из друзей и перестать следить за его успехами?" = "Sei sicuro di voler rimuovere %@ dagli amici e smettere di seguire i loro progressi?";
+"Вы уверены, что хотите удалить %@ из друзей и перестать следить за его успехами?" = "Vuoi rimuovere %@ dagli amici e smettere di seguirne i progressi?";
 
 /* Subscription Cancellation */
 "Нам очень жаль, что вы отменили премиум подписку" = "Siamo spiacenti che tu abbia annullato il tuo abbonamento premium";
@@ -928,7 +928,7 @@
 "Точность" = "Precisione";
 "Теперь вы можете без единой ошибки отвечать на все наши вопросы с точностью в %d%%" = "La precisione delle tue risposte è del %d%%.";
 "Мы будем рады, если вы захотите снова вернуться к нам!" = "Saremmo felici se volessi tornare di nuovo da noi!";
-"Продолжить" = "Continuare";
+"Продолжить" = "Continua";
 
 /* Learning Section New Strings */
 "ВСЕ СТРАНЫ" = "TUTTI I PAESI";
@@ -946,13 +946,13 @@
 "Официальный язык" = "Lingua ufficiale";
 "Правительство" = "Governo";
 "Глава государства" = "Capo dello Stato";
-"Телефонный код" = "Codice di composizione";
+"Телефонный код" = "Prefisso telefonico";
 "Население" = "Popolazione";
 "Валюта" = "Valuta";
 "Независимость" = "Indipendenza";
-"Площадь" = "Zona";
+"Площадь" = "Superficie";
 "Описание" = "Descrizione";
-"История" = "Storia";
+"История" = "Cronologia";
 "Музыка" = "Musica";
 "Природа" = "Natura";
 "Историческая информация о стране" = "Informazioni storiche sul paese";
@@ -977,11 +977,11 @@
 "GREAT JOB!" = "OTTIMO LAVORO!";
 "GOOD EFFORT!" = "BUON IMPEGNO!";
 "KEEP TRYING!" = "CONTINUA A PROVARE!";
-"Absolutely incredible! You're a true champion! 🎉" = "Assolutamente incredibile! Sei un vero campione! ð";
+"Absolutely incredible! You're a true champion! 🎉" = "Incredibile! Sei un vero campione! 🎉";
 "Outstanding performance! You're almost perfect! ✨" = "Prestazioni eccezionali! Sei quasi perfetto! ✨";
-"Fantastic work! You're doing amazing! 🚀" = "Lavoro fantastico! Stai andando alla grande! ð";
-"Nice job! Keep up the great work! 💫" = "Bel lavoro! Continuate così! ð«";
-"Don't give up! Every expert was once a beginner! 🌱" = "Non arrenderti! Ogni esperto una volta era un principiante! ð±";
+"Fantastic work! You're doing amazing! 🚀" = "Lavoro fantastico! Stai andando alla grande! 🚀";
+"Nice job! Keep up the great work! 💫" = "Bel lavoro! Continua così! 💫";
+"Don't give up! Every expert was once a beginner! 🌱" = "Non arrenderti! Ogni esperto è stato un principiante! 🌱";
 "XP EARNED" = "XP GUADAGNATI";
 "XP boost time remaining" = "Ancora %d:%02d — gioca di nuovo!";
 "XP boost you have remaining" = "Hai ancora %@ %@";
@@ -997,10 +997,10 @@
 "Заработайте %d XP играя минимум 7 дней в месяц" = "Guadagna %d XP giocando almeno 7 giorni questo mese";
 
 /* League end popup */
-"Итоги лиги" = "Risultati del campionato";
-"Вы заняли %d место." = "Hai piazzato %d.";
+"Итоги лиги" = "Risultati della lega";
+"Вы заняли %d место." = "Hai raggiunto la posizione n. %d.";
 "Вы поднялись в лигу: %@" = "Sei stato promosso a %@.";
-"Вы остались в текущей лиге." = "Sei rimasto nel tuo campionato attuale.";
+"Вы остались в текущей лиге." = "Sei rimasto nella lega attuale.";
 "Вы понижены в лигу: %@" = "Sei stato retrocesso a %@.";
 
 /* Premium placeholders when products not loaded */
@@ -1011,20 +1011,20 @@
 
 /* Home Lives Promo */
 "Unlock your full progress" = "Sblocca tutto il tuo progresso";
-"Get Premium tools for faster learning and better game results" = "Ottieni strumenti Premium per imparare piu velocemente e migliorare i risultati";
+"Get Premium tools for faster learning and better game results" = "Ottieni strumenti Premium per imparare più velocemente e migliorare i risultati";
 "Learning section" = "Sezione Apprendimento";
-"Train flags and countries in a structured mode" = "Allena bandiere e paesi in una modalita strutturata";
-"Erudite difficulty" = "Difficolta Erudito";
-"Advanced challenge with deeper knowledge checks" = "Sfida avanzata con verifiche di conoscenza piu profonde";
+"Train flags and countries in a structured mode" = "Impara bandiere e paesi in una modalità strutturata";
+"Erudite difficulty" = "Difficoltà Erudito";
+"Advanced challenge with deeper knowledge checks" = "Una sfida avanzata per mettere alla prova le tue conoscenze più approfondite";
 "My mistakes" = "I miei errori";
 "Focus on weak topics and improve accuracy" = "Concentrati sui punti deboli e migliora la precisione";
 "Personalized practice" = "Pratica personalizzata";
 "Adaptive sessions based on your progress" = "Sessioni adattive basate sui tuoi progressi";
 "Explain my answer" = "Spiega la mia risposta";
-"Understand every mistake and learn faster" = "Capisci ogni errore e impara piu velocemente";
-"Up to +750% faster flag learning with Premium" = "Fino al +750% di apprendimento bandiere piu rapido con Premium";
+"Understand every mistake and learn faster" = "Comprendi ogni errore e impara più velocemente";
+"Up to +750% faster flag learning with Premium" = "Più modi per esercitarti con le bandiere grazie a Premium";
 "Play without waiting and keep your learning momentum" = "Gioca senza attese e mantieni il ritmo di apprendimento";
-"Train flags, listen to anthems, and explore detailed country profiles" = "Allena le bandiere, ascolta gli inni ed esplora profili paese dettagliati";
+"Train flags, listen to anthems, and explore detailed country profiles" = "Esercitati con le bandiere, ascolta gli inni ed esplora le schede dettagliate dei paesi";
 "Restore Purchases" = "Ripristina acquisti";
 "Have a promo code?" = "Hai un codice promo?";
 "Redeem Offer Code" = "Riscatta codice offerta";
@@ -1041,17 +1041,17 @@
 "Level - %@" = "Livello - %@";
 "Exclusive tournaments with cash F-Bucks prizes" = "Tornei esclusivi con premi F-Bucks";
 "Survival Mode" = "Modalità sopravvivenza";
-"One mistake = Game Over" = "Un errore = Game Over";
+"One mistake = Game Over" = "Un errore = fine partita";
 "Duel result push format" = "%@: %d - Tu: %d.";
 "Duel motivation win" = "Fantastico! Continua la serie.";
-"Duel motivation lose" = "Ora rivincita! Puoi farcela.";
+"Duel motivation lose" = "È l’ora della rivincita! Puoi farcela.";
 "Opponent" = "Avversario";
-"vs %@" = "rispetto a %@";
-"Combo x%d" = "Combinato x%d";
+"vs %@" = "contro %@";
+"Combo x%d" = "Combo x%d";
 "Combo x%d bonus" = "Bonus combo x%d +1";
 "Combo x%d +10 XP" = "Combo x%d +10 XP";
-"Speed bonus +1" = "Bonus velocita +1";
-"Speed bonus +10 XP" = "Bonus velocita +10 XP";
+"Speed bonus +1" = "Bonus velocità +1";
+"Speed bonus +10 XP" = "Bonus velocità +10 XP";
 "Global ranking by countries" = "Classifica globale per paesi";
 "Country rank line" = "%@ Sei #%d in %@";
 "World rank line" = "🌎 Sei #%d nel mondo";
@@ -1068,19 +1068,19 @@
 "Connecting to App Store..." = "Connessione all'App Store...";
 "Version" = "Versione";
 "Update" = "Aggiorna";
-"Login without @" = "login senza @";
+"Login without @" = "Nome utente senza @";
 "Add by username" = "Aggiungi per nome utente";
 "Duel Summary" = "Riepilogo duelli";
 "No duel history yet" = "Nessuna cronologia duelli";
 "You already outranked %d%% of players in your city" = "Hai già superato %d%% dei giocatori nella tua città";
-"Goal: keep 90% accuracy in first challenge" = "Obiettivo: mantenere una precisione di 90% nella prima sfida";
+"Goal: keep 90% accuracy in first challenge" = "Obiettivo: mantenere una precisione del 90% nella prima sfida";
 "Challenge ends in %d sec" = "La sfida termina tra %d sec";
 "Defeat" = "Sconfitta";
 "Victory" = "Vittoria";
 "All" = "Tutto";
 "Wins" = "Vittorie";
 "Losses" = "Sconfitte";
-"Duel Summary Share Header" = "Il risultato del mio duello è World Arena Flags";
+"Duel Summary Share Header" = "I miei risultati nei duelli di World Arena Flags";
 "View Detailed Results" = "Vedi risultati dettagliati";
 "Detailed Results" = "Risultati dettagliati";
 "Correct" = "Corretto";
@@ -1089,8 +1089,8 @@
 "Your answer" = "La tua risposta";
 "Time is up" = "Tempo scaduto";
 "Search" = "Cerca";
-"3x XP for 10 min!" = "3 XP per 10 minuti!";
-"КАРТА ПРОГРЕССА" = "MAPA PROGRESSI";
+"3x XP for 10 min!" = "XP tripli per 10 minuti!";
+"КАРТА ПРОГРЕССА" = "MAPPA DEI PROGRESSI";
 "Карта прогресса мира" = "Mappa progressi mondo";
 "World Progress Map" = "Mappa progressi mondo";
 "Tap a country to see your correct and wrong answers" = "Tocca un paese per vedere risposte corrette ed errate";
@@ -1100,24 +1100,24 @@
 "Mastered %d of %d countries" = "%d di %d paesi padroneggiati";
 "Total" = "Totale";
 "Map" = "Mappa";
-"Weak countries" = "Paesi deboli";
+"Weak countries" = "Paesi da ripassare";
 "All countries" = "Tutti i paesi";
-"Only weak" = "Solo deboli";
+"Only weak" = "Solo da ripassare";
 "Only mastered" = "Solo padroneggiati";
-"TOP weak countries for review" = "Top paesi deboli da ripassare";
-"No weak countries yet" = "Nessun paese debole ancora";
-"%@ Master" = "%@ Maestro";
-"%@ Master unlocked" = "%@ Maestro sbloccato";
+"TOP weak countries for review" = "Paesi da ripassare per primi";
+"No weak countries yet" = "Nessun paese da ripassare per ora";
+"%@ Master" = "Maestro: %@";
+"%@ Master unlocked" = "Titolo Maestro sbloccato: %@";
 "Continent mastered! Keep going." = "Continente padroneggiato! Continua così.";
 "Weekly challenge" = "Sfida settimanale";
-"Weak country sessions this week" = "Sessioni paesi deboli questa settimana";
-"Start Weak Countries Training" = "Inizia allenamento paesi deboli";
+"Weak country sessions this week" = "Sessioni sui paesi da ripassare questa settimana";
+"Start Weak Countries Training" = "Inizia a ripassare i paesi";
 "Progress map subtitle" = "Segui i tuoi progressi per paese e continente";
 "How is Mastered calculated?" = "Come si calcola «Padroneggiato»?";
 "Mastered explanation" = "Un paese conta come padroneggiato con almeno 3 risposte e almeno 80% corrette.";
 "Name" = "Nome";
 "Account login title" = "Crea il tuo account";
-"Account login subtitle" = "Resta in modalità ospite o accedi per salvare identità e sicurezza";
+"Account login subtitle" = "Resta in modalità ospite oppure accedi per proteggere la tua identità e il tuo account";
 "Login" = "Accedi";
 "Register" = "Registrati";
 "Username" = "Nome utente";
@@ -1159,7 +1159,7 @@
 "FACT_05_TITLE" = "Bandiera mai a mezz'asta";
 "FACT_05_DESC" = "La bandiera dell'Arabia Saudita non viene mai issata a mezz'asta per il testo sacro.";
 "FACT_06_TITLE" = "Bandiera nazionale giovane";
-"FACT_06_DESC" = "La bandiera del Sudan del Sud è stata adottata nel 2011 dopo l'indipendenza.";
+"FACT_06_DESC" = "Il Sudan del Sud usa questa bandiera nazionale dall’indipendenza nel 2011.";
 "FACT_07_TITLE" = "Bandiera con AK-47";
 "FACT_07_DESC" = "Il Mozambico è l'unico paese la cui bandiera mostra un'arma moderna: il fucile Kalashnikov.";
 "FACT_08_TITLE" = "Bandiere quasi identiche";
@@ -1172,8 +1172,8 @@
 "FACT_11_DESC" = "La bandiera di Cipro mostra il contorno dell'isola, un caso raro tra le bandiere nazionali.";
 "FACT_12_TITLE" = "Bandiera con Bibbia";
 "FACT_12_DESC" = "La bandiera della Repubblica Dominicana mostra una Bibbia aperta, l'unica bandiera nazionale con un libro religioso.";
-"FACT_13_TITLE" = "Colore più diffuso";
-"FACT_13_DESC" = "Il rosso è il colore più comune sulle bandiere nazionali del mondo.";
+"FACT_13_TITLE" = "Il rosso sulle bandiere nazionali";
+"FACT_13_DESC" = "Il rosso compare su molte bandiere nazionali, tra cui quelle di Canada, Giappone e Svizzera.";
 "FACT_14_TITLE" = "Bandiera con testo";
 "FACT_14_DESC" = "Il testo sulle bandiere nazionali è raro; un esempio noto è l'Arabia Saudita.";
 "FACT_15_TITLE" = "Galateo delle bandiere";
@@ -1181,39 +1181,39 @@
 "FACT_16_TITLE" = "Bandiera con due lati diversi";
 "FACT_16_DESC" = "Il Paraguay ha l'unica bandiera nazionale al mondo con disegni diversi su recto e verso.";
 "FACT_17_TITLE" = "Simbolismo olimpico";
-"FACT_17_DESC" = "I colori degli anelli olimpici furono scelti così che almeno uno appaia su ogni bandiera nazionale.";
-"FACT_18_TITLE" = "Bandiera con lo stemma più complesso";
-"FACT_18_DESC" = "La bandiera del Messico mostra un'aquila su un cactus con un serpente, uno degli stemmi più dettagliati.";
-"FACT_19_TITLE" = "Bandiere copiate";
-"FACT_19_DESC" = "Le bandiere di Monaco e Indonesia sono quasi identiche: rosso sopra, bianco sotto. Solo le proporzioni differiscono.";
+"FACT_17_DESC" = "I cinque anelli olimpici e lo sfondo bianco utilizzano sei colori, scelti per rappresentare le bandiere delle nazioni del mondo.";
+"FACT_18_TITLE" = "Lo stemma del Messico";
+"FACT_18_DESC" = "La bandiera del Messico mostra un’aquila su un cactus che tiene un serpente.";
+"FACT_19_TITLE" = "Bandiere rosse e bianche simili";
+"FACT_19_DESC" = "Sia Monaco sia l’Indonesia usano il rosso sopra il bianco nelle loro bandiere, ma con proporzioni diverse.";
 "FACT_20_TITLE" = "Bandiera con 50 stelle";
-"FACT_20_DESC" = "La bandiera USA ha 50 stelle, una per ogni stato. Il design è cambiato 27 volte dal 1777.";
+"FACT_20_DESC" = "La bandiera degli Stati Uniti ha 50 stelle, una per ogni stato.";
 "FACT_21_TITLE" = "Bandiere più a nord";
 "FACT_21_DESC" = "Le regioni artiche usano bandiere nazionali e regionali con simbolismo unico.";
 "FACT_22_TITLE" = "Bandiera con croce";
-"FACT_22_DESC" = "29 paesi hanno una croce sulla bandiera, uno dei simboli più usati.";
+"FACT_22_DESC" = "Una croce compare su molte bandiere nazionali, tra cui quelle di Danimarca, Finlandia e Svizzera.";
 "FACT_23_TITLE" = "Tricolori";
 "FACT_23_DESC" = "Molti paesi usano un design a tre strisce come forma di bandiera storicamente stabile.";
 "FACT_24_TITLE" = "Bandiera con mezzaluna";
-"FACT_24_DESC" = "La mezzaluna appare sulle bandiere di 12 paesi, soprattutto musulmani, simbolo della fede islamica.";
+"FACT_24_DESC" = "La mezzaluna compare su diverse bandiere nazionali, tra cui quelle di Turchia, Pakistan e Tunisia.";
 "FACT_25_TITLE" = "Simbolo del sole";
 "FACT_25_DESC" = "Il sole è uno dei simboli più comuni sulle bandiere in Asia e Sudamerica.";
 "FACT_26_TITLE" = "Bandiera con albero";
-"FACT_26_DESC" = "Il Libano è l'unico paese con un albero (il cedro) sulla bandiera, simbolo di eternità e pace.";
-"FACT_27_TITLE" = "Bandiera più stretta";
-"FACT_27_DESC" = "La bandiera del Qatar ha il rapporto d'aspetto più insolito: 11:28.";
+"FACT_26_DESC" = "La bandiera nazionale del Libano raffigura un cedro.";
+"FACT_27_TITLE" = "Le proporzioni della bandiera del Qatar";
+"FACT_27_DESC" = "La bandiera nazionale del Qatar ha un rapporto tra altezza e larghezza di 11:28.";
 "FACT_28_TITLE" = "Stemmi complessi";
 "FACT_28_DESC" = "Gli stemmi sulle bandiere latinoamericane includono spesso molti dettagli e simboli storici.";
 "FACT_29_TITLE" = "Bandiera arcobaleno";
 "FACT_29_DESC" = "La Bolivia ha due bandiere ufficiali: il tricolore tradizionale e la Wiphala indigena.";
 "FACT_30_TITLE" = "Bandiera con edificio";
-"FACT_30_DESC" = "La bandiera della Cambogia mostra il tempio di Angkor Wat, l'unica bandiera nazionale con un edificio.";
+"FACT_30_DESC" = "La bandiera nazionale della Cambogia raffigura il tempio di Angkor Wat.";
 "FACT_31_TITLE" = "Dispute storiche";
 "FACT_31_DESC" = "Il design di alcune bandiere è cambiato per dispute storiche e politiche.";
 "FACT_32_TITLE" = "Bandiera con spada";
 "FACT_32_DESC" = "La bandiera dello Sri Lanka mostra un leone con spada, simbolo del coraggio dei singalesi.";
 "FACT_33_TITLE" = "Bandiera senza blu";
-"FACT_33_DESC" = "Solo quattro paesi non usano il blu: Giamaica, Mauritania, Sri Lanka e Vaticano.";
+"FACT_33_DESC" = "Alcune bandiere nazionali non contengono il blu, tra cui quelle di Giamaica, Giappone e Svizzera.";
 "FACT_34_TITLE" = "Uccelli sulle bandiere";
 "FACT_34_DESC" = "L'aquila e altri uccelli sulle bandiere simboleggiano forza, indipendenza e nobiltà.";
 "FACT_35_TITLE" = "Simbolo antartico";
@@ -1239,15 +1239,15 @@
 "FACT_45_TITLE" = "27 stelle del Brasile";
 "FACT_45_DESC" = "La bandiera brasiliana ha 27 stelle, una per stato e il distretto federale.";
 "FACT_46_TITLE" = "Foglia d'acero";
-"FACT_46_DESC" = "La bandiera del Canada ha una sola foglia d'acero a 11 punte, unica tra le bandiere nazionali.";
+"FACT_46_DESC" = "La bandiera del Canada presenta una foglia d’acero rossa a 11 punte su un quadrato bianco.";
 "FACT_47_TITLE" = "Union Jack";
-"FACT_47_DESC" = "La bandiera britannica combina le croci di tre santi: Inghilterra, Scozia e Irlanda.";
+"FACT_47_DESC" = "La bandiera del Regno Unito combina le croci di san Giorgio, sant’Andrea e san Patrizio.";
 "FACT_48_TITLE" = "Sole nascente del Giappone";
-"FACT_48_DESC" = "Il cerchio rosso su bianco rappresenta il sole nascente e si usa in Giappone dal VII secolo.";
+"FACT_48_DESC" = "La bandiera nazionale del Giappone presenta un cerchio rosso che rappresenta il sole su uno sfondo bianco.";
 "FACT_49_TITLE" = "Ashoka Chakra";
 "FACT_49_DESC" = "La bandiera dell'India ha una ruota a 24 raggi, simbolo di legge e movimento.";
 "FACT_50_TITLE" = "Croce del Sud dell'Australia";
-"FACT_50_DESC" = "La bandiera australiana mostra la costellazione della Croce del Sud, visibile solo nell'emisfero sud.";
+"FACT_50_DESC" = "Cinque stelle sulla bandiera australiana rappresentano la costellazione della Croce del Sud.";
 "FACT_51_TITLE" = "Croce del Sud della Nuova Zelanda";
 "FACT_51_DESC" = "Anche la bandiera neozelandese mostra la Croce del Sud, con stelle rosse bordate di bianco.";
 "FACT_52_TITLE" = "Taegeuk della Corea del Sud";
@@ -1259,7 +1259,7 @@
 "FACT_55_TITLE" = "Scudo del Kenya";
 "FACT_55_DESC" = "La bandiera del Kenya mostra uno scudo masai e lance incrociate.";
 "FACT_56_TITLE" = "Drago del Galles";
-"FACT_56_DESC" = "Il drago rosso del Galles è uno dei simboli nazionali più antichi al mondo.";
+"FACT_56_DESC" = "La bandiera del Galles mostra un drago rosso su sfondo bianco e verde. Questo disegno è stato riconosciuto ufficialmente nel 1959.";
 "FACT_57_TITLE" = "Croce di sant'Andrea";
 "FACT_57_DESC" = "La bandiera scozzese è una croce diagonale bianca su blu, la croce di sant'Andrea.";
 "FACT_58_TITLE" = "Cerchio della Groenlandia";
@@ -1275,7 +1275,7 @@
 "FACT_63_TITLE" = "Bandiera dell'UE";
 "FACT_63_DESC" = "Dodici stelle d'oro in cerchio su blu simboleggiano l'unità dell'Unione europea.";
 "FACT_64_TITLE" = "Bandiera olimpica";
-"FACT_64_DESC" = "I cinque anelli su bianco rappresentano i cinque continenti abitati e la natura globale dei Giochi.";
+"FACT_64_DESC" = "I cinque anelli olimpici su sfondo bianco simboleggiano l’unione di cinque continenti e di atleti da tutto il mondo.";
 "FACT_65_TITLE" = "Bandiera quadrata del Vaticano";
 "FACT_65_DESC" = "Il Vaticano ha bandiera nazionale quadrata come la Svizzera.";
 "FACT_66_TITLE" = "12 punte di Nauru";
@@ -1370,7 +1370,7 @@
 "home.hero.catch_friend_fmt" = "Raggiungi %@ — serie di %d giorni";
 "home.earn.section" = "Oggi";
 "home.earn.perfect.almost" = "Quasi finito — completala";
-"home.earn.perfect.start" = "Inizia ora — bloccalo";
+"home.earn.perfect.start" = "Inizia ora e assicurati la ricompensa";
 "home.earn.perfect.going" = "Chiudi forte oggi";
 "home.earn.streak.almost" = "Non perderla ora";
 "home.earn.streak.start" = "Gioca ora o la perdi";
@@ -1416,7 +1416,7 @@
 "coins" = "monete";
 "league_motivation_win_01" = "Sei stato tra i migliori questa settimana. Ottimo — mantieni il ritmo.";
 "league_motivation_win_02" = "Top 3 non è un caso. È il risultato di costanza e buona concentrazione.";
-"league_motivation_win_03" = "Settimana forte. Continua così — la prossima lega ti aspetta.";
+"league_motivation_win_03" = "Un’ottima settimana. Continua così: la prossima lega ti aspetta.";
 "league_motivation_promotion_01" = "La promozione significa che stai crescendo. La prossima lega sarà più dura, ma sei pronto.";
 "league_motivation_promotion_02" = "Hai fatto un passo in avanti. Ora l'obiettivo è restarci, non solo arrivarci.";
 "league_motivation_stayed_01" = "Hai mantenuto la posizione. Buona base — ora trasforma la stabilità in crescita.";
@@ -1468,10 +1468,10 @@
 "avatar_editor_square" = "Quadrati";
 "avatar_editor_sunglasses" = "Occhiali da sole";
 "avatar_editor_slim" = "Sottili";
-"avatar_editor_cap" = "Cappello";
+"avatar_editor_cap" = "Cappellino";
 "avatar_editor_beanie" = "Berretto";
 "avatar_editor_bandana" = "Bandana";
-"avatar_editor_sport_cap" = "Cappello sportivo";
+"avatar_editor_sport_cap" = "Cappellino sportivo";
 "avatar_editor_hat_SilverLeague" = "Lega Argento";
 "avatar_editor_hat_10_day_streak" = "Serie 10 giorni";
 "avatar_editor_hat_beginner" = "Principiante";
@@ -1484,7 +1484,7 @@
 "avatar_editor_lock_headwear_generic_body" = "Questo elemento non è ancora disponibile.";
 "avatar_editor_opt_slim" = "Snello";
 "avatar_editor_opt_regular" = "Normale";
-"avatar_editor_opt_hoodie" = "Felpa";
+"avatar_editor_opt_hoodie" = "Felpa con cappuccio";
 "avatar_editor_opt_tshirt" = "T-shirt";
 "avatar_editor_opt_sweater" = "Maglione";
 "avatar_editor_opt_wide" = "Largo";
@@ -1494,15 +1494,15 @@
 "avatar_editor_opt_curl" = "Ricci";
 "avatar_editor_opt_modern" = "Moderno";
 "avatar_editor_opt_buzz" = "Rasato";
-"avatar_editor_opt_hair_waves" = "Onde";
+"avatar_editor_opt_hair_waves" = "Mossi";
 "avatar_editor_opt_hair_spiky" = "A punta";
-"avatar_editor_opt_hair_slick" = "Liscio";
+"avatar_editor_opt_hair_slick" = "Pettinati all’indietro";
 "avatar_editor_opt_hair_pompadour" = "Pompadour";
 "avatar_editor_opt_moustache" = "Baffi";
-"avatar_editor_opt_trimmed" = "Contorno";
+"avatar_editor_opt_trimmed" = "Barba rifinita";
 "avatar_editor_opt_goatee" = "Pizzetto";
 "avatar_editor_opt_beard_full" = "Barba folta";
-"avatar_editor_opt_beard_light" = "Barba chiara";
+"avatar_editor_opt_beard_light" = "Barba leggera";
 "avatar_editor_opt_beard_bushy" = "Barba foltissima";
 "avatar_editor_opt_jacket" = "Giacca";
 
@@ -1526,7 +1526,7 @@
 "Difficulty TC erudite all" = "Tutti i paesi • %1$d%2$@ a round • +%3$d%2$@ ogni 5 corrette di fila • −%4$d%2$@ per errore";
 "Difficulty TC erudite regions" = "%1$d paesi • %2$d%3$@ a round • +%4$d%3$@ ogni 5 corrette di fila • −%5$d%3$@ per errore";
 "TC best correct record" = "Miglior punteggio: %d corrette";
-"TC intro best correct title" = "Migliore (corrette)";
+"TC intro best correct title" = "Record di risposte corrette";
 "TC intro combo5 bonus title" = "Combo 5 corrette";
 "TC detail time penalty fmt" = "Timer: −%1$d %2$@ (errore)";
 "TC detail time combo fmt" = "Timer: +%1$d %2$@ (5 corrette di fila)";
@@ -1544,23 +1544,23 @@
 "Time intro bonus seconds fmt" = "+%1$d%2$@";
 "Share Survival headline" = "Sopravvivenza: %d bandiere • %d corrette • livello max %d";
 "Survival mode short description" = "Vite limitate, difficoltà crescente — fin dove arrivi?";
-"Survival difficulty blurb fmt" = "Vite sessione • stage crescenti • +1 vita ogni 10 corrette di fila";
-"Survival depth header" = "Profondità";
+"Survival difficulty blurb fmt" = "Vite per partita • difficoltà crescente • +1 vita ogni 10 risposte corrette di fila";
+"Survival depth header" = "Avanzamento";
 "Survival stage fmt" = "Fase %d";
 "Survival bonus life streak" = "+1 vita (10 corrette di fila)";
 "Survival milestone banner fmt" = "Traguardo %d! +30 XP • +1 F-Bucks";
 "Survival next milestone fmt" = "Ancora %d corrette per il traguardo %d";
-"Survival result best depth fmt" = "Record personale di profondità: %d bandiere";
+"Survival result best depth fmt" = "Record personale: %d bandiere";
 "Survival result combo fmt" = "Miglior serie in questa partita: %d";
 "Survival result survived fmt" = "Hai superato %d bandiere";
 "Survival result stage reached fmt" = "Fase massima raggiunta: %d";
 "Survival stat correct" = "CORRETTO";
-"Survival intro description" = "Rispondi a una bandiera dopo l’altra. Gli errori costano vite. La difficoltà sale — batti il tuo record di profondità.";
+"Survival intro description" = "Affronta una bandiera dopo l’altra. Gli errori costano vite. La difficoltà aumenta: batti il tuo record di avanzamento.";
 "Survival intro lives title" = "Vite iniziali";
-"Survival intro best depth title" = "Miglior profondità";
+"Survival intro best depth title" = "Miglior avanzamento";
 "Survival intro choices title" = "Scelte";
 "Survival intro timer title" = "Timer";
-"Survival intro timer value" = "Come in Classica";
+"Survival intro timer value" = "Come in modalità Classico";
 "Survival weekly title" = "Sfida settimanale Sopravvivenza";
 "Survival weekly target fmt" = "Raggiungi %d bandiere in una partita questa settimana.";
 "Survival weekly best fmt" = "Il tuo miglior punteggio questa settimana: %d bandiere";
@@ -1599,7 +1599,7 @@
 "fbucks.earn.today.title" = "Guadagna oggi";
 "fbucks.earn.today.subtitle" = "Oggi puoi guadagnare fino a %d F-Bucks";
 "fbucks.earn.perfect.title" = "Partita perfetta";
-"fbucks.earn.perfect.sub" = "+1 per 10/10 o 15/15";
+"fbucks.earn.perfect.sub" = "+1 per una partita perfetta idonea";
 "fbucks.earn.streak" = "Serie giornaliera";
 "fbucks.earn.streak.sub" = "Serie (%d/10 giorni)";
 "fbucks.earn.league" = "Il top della settimana";
@@ -1628,7 +1628,7 @@
 "fbucks.about.body" = "I F-Bucks (Flags Bucks) sono la valuta di gioco che guadagni giocando a World Arena Flags. Usali per acquistare accessori per avatar, aspetti e altri oggetti esclusivi.";
 "fbucks.about.how" = "Come guadagnare F-Bucks";
 "fbucks.about.perfect.title" = "Partita perfetta";
-"fbucks.about.perfect.desc" = "Ottieni un punteggio perfetto (10/10 o 15/15)";
+"fbucks.about.perfect.desc" = "Rispondi correttamente a ogni domanda in una partita idonea";
 "fbucks.about.streak10.title" = "Serie di 10 giorni";
 "fbucks.about.streak10.desc" = "Gioca 10 giorni di fila";
 "fbucks.about.streak20.title" = "Serie di 20 giorni";
@@ -1778,7 +1778,7 @@
 
 "Server error. Try again." = "Server non disponibile. Riprova";
 
-"Invalid server response." = "Server non disponibile";
+"Invalid server response." = "Risposta del server non valida.";
 
 "duel.network.error" = "Server non disponibile. Riprova";
 
@@ -1850,11 +1850,11 @@
 /* Notification event localization */
 "inbox.progressCTA" = "Vedi i miei progressi";
 "inbox.rank" = "La tua posizione";
-"inbox.leagueStory" = "Controlla la tua posizione in lega e scegli un obiettivo per la nuova settimana.";
-"inbox.levelStory" = "Le tue conoscenze crescono con ogni bandiera. Prova un’altra difficoltà o regione.";
-"inbox.achievementStory" = "Apri i traguardi per vedere i premi e i progressi verso il prossimo obiettivo.";
-"inbox.duelStory" = "Apri i risultati dei duelli per confrontare i punteggi. Le partite concluse restano nella cronologia.";
-"inbox.messageStory" = "Puoi ritrovare questo messaggio nella cronologia delle notifiche dopo averlo letto.";
+"inbox.leagueStory" = "Ogni partita ha contribuito a questo risultato. Prenditi un momento per festeggiare i progressi della settimana, poi consulta la classifica della lega e scegli il prossimo obiettivo. Una nuova settimana è una nuova occasione per migliorare il tuo risultato.";
+"inbox.levelStory" = "Questo livello rappresenta le conoscenze che hai acquisito, una bandiera alla volta. L’esperienza guadagnata resta nel tuo profilo. Prova una difficoltà maggiore o una regione diversa per continuare a scoprire qualcosa di nuovo.";
+"inbox.achievementStory" = "Un nuovo traguardo merita un posto nella tua collezione. Apri i tuoi obiettivi per vedere cosa hai sbloccato e quanto manca alla prossima ricompensa. Continua a esplorare al tuo ritmo.";
+"inbox.duelStory" = "Un duello è un’occasione per mettere alla prova insieme le vostre conoscenze. Apri i risultati del duello per consultare i punteggi e lo stato attuale. Le partite completate restano nella cronologia, così potrai consultarle di nuovo in seguito.";
+"inbox.messageStory" = "Puoi tornare a questo messaggio in qualsiasi momento dalla cronologia delle notifiche. Leggere un messaggio non lo elimina.";
 "friends.requests.title" = "Richieste di amicizia";
 "friends.requests.body" = "Ti ha aggiunto come amico. Vuoi ricambiare?";
 "notification.nudge.title" = "%@ te lo ricorda";
@@ -1872,8 +1872,8 @@
 "Check your internet connection" = "Controlla la connessione Internet e riprova.";
 "Duel Summary subtitle" = "Visualizza la cronologia dei tuoi duelli e i risultati dettagliati";
 "F-Bucks subtitle" = "Guadagna e spendi F-Bucks, la valuta del gioco";
-"HELP_TECH_DATA_SYNC" = "I tuoi progressi vengono salvati automaticamente sul dispositivo.\n\nPer eseguire il backup:\n• Utilizza iCloud o il backup del tuo dispositivo\n• Esporta i dati tramite le impostazioni sulla privacy (se disponibili)\n• Crea regolarmente backup del tuo dispositivo\n\nSe cambi dispositivo, ripristina il backup prima di avviare il gioco in modo da non perdere i tuoi progressi progresso.";
-"HELP_TECH_FLAGS_NOT_LOADING" = "Se i flag non vengono caricati: \n1. Controlla la tua connessione Internet\n2. Riavvia l'app\n3. Svuota la cache nelle impostazioni dell'app (se disponibile)\n4. Aggiorna l'app all'ultima versione\n5. Contatta l'assistenza se il problema persiste";
+"HELP_TECH_DATA_SYNC" = "I progressi vengono salvati automaticamente sul dispositivo. L’app può anche sincronizzarli tramite iCloud quando il servizio è disponibile per il tuo account Apple.\n\n• Mantieni aggiornati i backup del dispositivo.\n• Usa lo stesso account Apple per ripristinare i progressi da iCloud.\n• Puoi esportare i dati di gioco dalle impostazioni sulla privacy dell’app.\n\nDopo aver cambiato dispositivo, verifica che i progressi siano stati ripristinati prima di eliminare il vecchio backup.";
+"HELP_TECH_FLAGS_NOT_LOADING" = "Se le bandiere non si caricano:\n1. Controlla la connessione Internet.\n2. Riavvia l’app.\n3. Installa l’ultimo aggiornamento dell’app.\n4. Contatta l’assistenza se il problema persiste.";
 "Sign in with Apple error 1000" = "L'accesso con Apple non è disponibile qui. Prova su un dispositivo reale o controlla Impostazioni → ID Apple.";
 "Virtual opponent" = "Avversario virtuale";
 "appIcon.automatic" = "Adatta automaticamente alla lingua dell’app";
@@ -1885,15 +1885,15 @@
 "education.fbucks.done" = "Capito";
 "education.fbucks.shop" = "Visualizza il negozio";
 "education.fbucks.title" = "Hai guadagnato F-Bucks!";
-"facts.area" = "Zona";
+"facts.area" = "Superficie";
 "facts.capital" = "Capitale";
 "facts.explanation" = "Scegli cosa appare sul retro della scheda del paese dopo aver risposto.";
 "facts.map" = "Mappa";
 "facts.population" = "Popolazione";
 "facts.region" = "Regione e sottoregione";
-"facts.settings" = "Fatti nazionali";
+"facts.settings" = "Informazioni sui paesi";
 "fbucks.tx.streak_restore" = "Ripristino della serie";
-"friends.duels.with_you" = "Duella con te";
+"friends.duels.with_you" = "Duelli con te";
 "guide.back" = "Indietro";
 "guide.done" = "Giochiamo";
 "guide.fbucks.body" = "Guadagna F-Bucks giocando e completando missioni. Tocca il saldo per esplorare premi, accessori per l’avatar e protezioni della serie.";
@@ -1958,10 +1958,10 @@
 "streak.recovery.body_fmt" = "Avevi una serie di %1$d giorni. Ripristinala per %2$d F-Bucks oppure gioca un’altra partita gratis.";
 "streak.recovery.later_btn" = "Non ora";
 "streak.recovery.pay_btn_fmt" = "Ripristina · %d";
-"streak.recovery.play_btn" = "Riproduci per ripristinare";
+"streak.recovery.play_btn" = "Gioca per ripristinare";
 "streak.recovery.title" = "Serie giornaliera interrotta";
 "Как сохранить прогресс" = "Come mantenere i tuoi progressi al sicuro";
 "Не удалось добавить в друзья. Попробуйте позже." = "Impossibile aggiungere questo amico. Per favore riprova.";
-"Проблемы с загрузкой флагов" = "I flag non vengono caricati";
+"Проблемы с загрузкой флагов" = "Le bandiere non si caricano";
 "Синхронизация данных" = "Sincronizzazione dati";
-"Что делать если флаги не загружаются" = "Cosa fare se i flag non vengono caricati";
+"Что делать если флаги не загружаются" = "Cosa fare se le bandiere non si caricano";

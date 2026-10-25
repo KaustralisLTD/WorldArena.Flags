@@ -9,8 +9,8 @@
 "Завершите %d игр в этом месяце" = "本月完成 %d 场游戏";
 "Точность %d%%" = "准确率 %d%%";
 "Достигните точности %d%% в играх" = "在游戏中达到 %d%% 的准确率";
-"Серия %d дней" = "%d 天连胜";
-"Поддерживайте серию %d дней подряд" = "保持连续 %d 天的连胜";
+"Серия %d дней" = "连续游玩 %d 天";
+"Поддерживайте серию %d дней подряд" = "连续 %d 天坚持游玩";
 /* Help Center Categories */
 "Игра" = "游戏";
 "Прогресс" = "进度";
@@ -80,14 +80,14 @@
 
 /* Profile Page */
 "ОБЗОР" = "概览";
-"Всего изучено флагов" = "已学习旗帜总数";
+"Всего изучено флагов" = "已学习国旗总数";
 "Текущая лига" = "当前联赛";
 "Общий опыт" = "总经验";
 "дней" = "天";
 "Текущая серия" = "当前连续游玩记录";
 "XP" = "经验值";
 "ДОБАВИТЬ ДРУЗЕЙ" = "添加朋友";
-"СЕРИИ ДРУЗЕЙ" = "朋友连胜";
+"СЕРИИ ДРУЗЕЙ" = "好友的连续游玩记录";
 "МЕСЯЧНЫЕ ДОСТИЖЕНИЯ" = "月度成就";
 
 // Add Friends page
@@ -115,14 +115,14 @@
 
 // Achievements – titles and descriptions
 "Ранняя птица" = "早起的鸟儿";
-"Достигните серии 5 дней" = "达到5天连续";
+"Достигните серии 5 дней" = "连续游玩 5 天";
 "Стабильность" = "持之以恒";
 "Серия 10 дней" = "连续游玩10天";
 "Железная воля" = "钢铁意志";
-"Серия 30 дней" = "30天连续";
+"Серия 30 дней" = "连续游玩 30 天";
 "Новичок XP" = "XP新手";
 "Наберите 1000 XP" = "获得1000 XP";
-"Олимпиец XP" = "XP奥运";
+"Олимпиец XP" = "XP 奥运选手";
 "Наберите 5000 XP" = "获得5000 XP";
 "Легенда XP" = "XP传奇";
 "Наберите 10000 XP" = "获得10000 XP";
@@ -142,7 +142,7 @@
 "Достигните Платины" = "达到铂金";
 "Алмазная лига" = "钻石联赛";
 "Достигните Алмаза" = "达到钻石";
-"Мастер лиг" = "大师联赛";
+"Мастер лиг" = "联赛大师";
 "Достигните Мастера" = "达到大师";
 "Первый друг" = "第一个好友";
 "Добавьте друга" = "添加一位好友";
@@ -152,8 +152,8 @@
 "Поделитесь профилем" = "分享个人资料";
 "Спринтер" = "冲刺者";
 "Сыграйте 10 игр за день" = "一天内进行10局游戏";
-"XP Олимпиец" = "XP奥运";
-"Мастер Олимпиец XP" = "XP奥运大师";
+"XP Олимпиец" = "XP 奥运选手";
+"Мастер Олимпиец XP" = "XP 奥运大师";
 "Наберите 30000 XP" = "获得30000 XP";
 "Серия мастера" = "大师连续游玩记录";
 "Чемпион месяца" = "月度冠军";
@@ -181,13 +181,13 @@
 "Язык интерфейса игры и заданий" = "游戏界面和任务语言";
 
 /* Leagues */
-"Вы занимаете #%d место" = "您排名第 #%d 位";
+"Вы занимаете #%d место" = "您排名第 %d 位";
 "Зона повышения - переход в следующую лигу!" = "晋级区 - 晋升到下一个联赛！";
 "Зона вылета - риск понижения лиги" = "降级区 - 有降级风险";
 "Безопасная зона - остаетесь в текущей лиге" = "安全区 - 保持当前联赛";
 "Конец недели через %d часов" = "本周将在 %d 小时后结束";
-"До конца лиги: %02dч %02dм (GMT)" = "联赛结束时间：%02d小时 %02d分钟 (GMT)";
-"До конца лиги: %@ (GMT)" = "联赛结束时间：%@ (GMT)";
+"До конца лиги: %02dч %02dм (GMT)" = "距联赛结束：%02d小时 %02d分钟 (GMT)";
+"До конца лиги: %@ (GMT)" = "距联赛结束：%@ (GMT)";
 "д" = "天";
 "ч" = "小时";
 "м" = "分钟";
@@ -198,7 +198,7 @@
 "Августовский Квест" = "八月任务";
 "Mision de Agosto" = "八月任务";
 "21 ДЕНЬ" = "21 天";
-"Заработай 40 очков квеста" = "获得 40 任务积分";
+"Заработай 40 очков квеста" = "获得 40 点任务积分";
 "ЕЖЕДНЕВНЫЕ КВЕСТЫ" = "每日任务";
 "Месячные цели" = "每月目标";
 "МЕСЯЧНЫЕ ЦЕЛИ" = "每月目标";
@@ -270,7 +270,7 @@
 "Well done! Keep practicing!" = "做得好！继续练习！";
 "Don't give up! Practice makes perfect!" = "不要放弃！熟能生巧！";
 "PERFECT" = "完美";
-"AMAZING" = "惊人";
+"AMAZING" = "太棒了";
 "GOOD" = "好";
 "KEEP GOING" = "继续加油";
 "Play Again" = "再玩一次";
@@ -281,50 +281,50 @@
 "2x XP for 10 min!" = "10分钟双倍经验！";
 "3x XP for 15 min!" = "15分钟三倍经验！";
 "Подарок за квесты" = "每日任务奖励";
-"Share Message" = "我在World Flags游戏中获得了%d分！🎮🌍\n下载并尝试打破我的记录！";
+"Share Message" = "我在 World Arena Flags 中获得了 %d 分！🎮🌍\n下载游戏，试试打破我的纪录！\n";
 "Statistics Share Promo" = "我在玩 World Arena Flags — 学世界国旗、与好友对决、冲击联赛！🎮🌍\n我的数据：最高分 %d，正确率 %.1f%%，共玩 %d 局。\n想学国旗、挑战自己？加入我们！\n%@";
 
 // Post-Game Flow
 "CLAIM XP" = "领取经验";
 "TOTAL XP" = "总经验";
 "PERFECT" = "完美";
-"AMAZING" = "惊人";
+"AMAZING" = "太棒了";
 "GOOD" = "良好";
 "KEEP GOING" = "继续";
 "Perfect! You're unstoppable!" = "完美！你势不可挡！";
 "Excellent performance!" = "出色的表现！";
 "Well done! Keep practicing!" = "做得好！继续练习！";
 "Don't give up! Practice makes perfect!" = "不要放弃！熟能生巧！";
-"day streak" = "天连胜";
+"day streak" = "天连续游玩";
 "This Week" = "本周";
-"Incredible streak! You're on fire!" = "难以置信的连胜！你火力全开！";
+"Incredible streak! You're on fire!" = "连续记录太棒了！你状态正佳！";
 "Great job! Keep the momentum going!" = "干得好！保持势头！";
-"Nice start! Build your streak day by day!" = "好的开始！日复一日地建立你的连胜！";
-"Your Friend Streaks" = "你朋友的连胜";
+"Nice start! Build your streak day by day!" = "开了个好头！每天游玩，延续你的记录！";
+"Your Friend Streaks" = "好友的连续游玩记录";
 "See how your friends are doing" = "看看你的朋友表现如何";
 "No friends yet" = "还没有朋友";
-"Add friends to see their streaks and compete together!" = "添加朋友以查看他们的连胜并一起竞争！";
+"Add friends to see their streaks and compete together!" = "添加好友，查看他们的连续游玩记录，一起挑战！";
 "NUDGE" = "提醒";
 "Remind" = "提醒";
 "Reminder sent to %@" = "已向 %@ 发送提醒";
 "%@ reminds you" = "%@ 提醒你";
 "nudge_phrase_1" = "别放弃！你能行！";
-"nudge_phrase_2" = "你的连胜在等你。今天玩一局吧！";
-"nudge_phrase_3" = "每天一局，连胜不断！";
+"nudge_phrase_2" = "连续记录等你来延续。今天玩一局吧！";
+"nudge_phrase_3" = "每天一局，连续记录不断！";
 "nudge_phrase_4" = "回来让旗帜看看谁才是老大！";
 "nudge_phrase_5" = "我们想你了！来局快的？";
 "nudge_phrase_6" = "朋友们在玩。一起来！";
-"nudge_phrase_7" = "今天一小步，明天大连胜！";
-"nudge_phrase_8" = "就差一点！别断连胜！";
+"nudge_phrase_7" = "今天一小步，明天的连续记录更长！";
+"nudge_phrase_8" = "就差一点！别中断连续记录！";
 "nudge_phrase_9" = "旗帜在召唤。快去应战！";
 "nudge_phrase_10" = "起床啦——该玩旗帜了！";
 "nudge_phrase_11" = "练一练，进步大！";
-"nudge_phrase_12" = "今天就是保住连胜的日子！";
+"nudge_phrase_12" = "今天也来保持连续记录吧！";
 "nudge_phrase_13" = "回到游戏里来！我们相信你！";
 "nudge_phrase_14" = "再玩一局，心情会更好！";
-"nudge_phrase_15" = "你的连胜想你了。快回来！";
+"nudge_phrase_15" = "连续记录等你来延续。快回来！";
 "CONTINUE" = "继续";
-"streak" = "连胜";
+"streak" = "连续游玩";
 "days" = "天";
 "Quest Update!" = "任务更新！";
 "Check your progress" = "检查你的进度";
@@ -349,7 +349,7 @@
 "Статистика флагов" = "国旗统计";
 "Всего стран" = "国家总数";
 "Цветов на флагах" = "国旗颜色";
-"Самый популярный цвет" = "最受欢迎的颜色";
+"Самый популярный цвет" = "最常见的颜色";
 "Красный" = "红色";
 "Флагов с крестом" = "带十字的国旗";
 "Интересные факты" = "有趣的事实";
@@ -359,7 +359,7 @@
 "Флаг Дании используется с 1219 года" = "传说将丹麦国旗的起源与1219年的一场战役联系起来。";
 "Единственный квадратный флаг" = "正方形国旗";
 "У Швейцарии единственный квадратный флаг в мире" = "瑞士和梵蒂冈城国的国旗都是正方形。";
-"Самый сложный флаг" = "最复杂的国旗";
+"Самый сложный флаг" = "绘有龙的国旗";
 "У Бутана на флаге изображен дракон" = "不丹国旗上有龙图案";
 "Go Premium" = "升级到高级版";
 "Мой профиль в World Arena Flags" = "我的World Arena Flags个人资料";
@@ -408,9 +408,9 @@
 "Accept" = "接受";
 "Random opponent" = "随机对手";
 "No friends yet. Add friends in Profile." = "暂无好友。请在个人资料中添加好友。";
-"Standard multiple choice game" = "标准多选题游戏";
+"Standard multiple choice game" = "标准选择题游戏";
 "Answer quickly, time is limited" = "快速回答，时间有限";
-"Game until first mistake" = "游戏直到第一个错误";
+"Game until first mistake" = "答错一次即结束";
 
 // Difficulty
 "Difficulty" = "难度";
@@ -426,7 +426,7 @@
 "30 questions, 5 sec per answer" = "30道题，每题5秒";
 
 "of" = "之";
-"flags" = "旗帜";
+"flags" = "国旗";
 
 // Theme
 "App Theme" = "外观";
@@ -476,7 +476,7 @@
 "Curaçao" = "库拉索";
 "Kosovo" = "科索沃";
 
-"Flags" = "旗帜";
+"Flags" = "Flags";
 
 "City of San Marino" = "圣马力诺城";
 
@@ -496,13 +496,13 @@
 /* Help Center topics */
 "Как играть в World Arena Flags?" = "如何玩 World Arena Flags？";
 "Основы игры и правила" = "基础与规则";
-"HELP_GAME_RULES" = "World Arena Flags 是一款有趣的国旗学习游戏！\n\n规则：\n1. 你会看到一个国家的国旗\n2. 从选项中选择正确的国家名称\n3. 正确回答可获得 XP\n4. 保持每日连胜\n5. 提升等级并晋级联赛\n\n玩得越多，认识的国旗越多！";
-"Что такое серия дней?" = "什么是连胜？";
-"Как работает система серий" = "连胜系统如何运作";
-"HELP_STREAK_TEXT" = "连胜表示你连续多少天进行游戏。\n\n如何保持连胜：\n• 每天至少玩一局\n• 如果有一天未玩，连胜将重置\n• 更长的连胜获得更多额外 XP\n\n连胜有助于养成学习习惯！";
+"HELP_GAME_RULES" = "World Arena Flags 是一款有趣的国旗学习游戏！\n\n规则：\n1. 你会看到一个国家的国旗\n2. 从选项中选择正确的国家名称\n3. 正确回答可获得 XP\n4. 保持每日连续游玩记录\n5. 提升等级并晋级联赛\n\n玩得越多，认识的国旗越多！";
+"Что такое серия дней?" = "什么是连续游玩记录？";
+"Как работает система серий" = "连续记录系统如何运作";
+"HELP_STREAK_TEXT" = "连续记录表示你连续游玩的天数。\n\n• 每天至少玩一局，延续记录。\n• 拥有连续记录保护券时，可以保护错过的天数。\n• 打开连续记录日历，查看游玩日期和可用的保护。\n\n规律练习有助于养成学习习惯！";
 "Как работают лиги?" = "联赛如何运作？";
 "Система рейтингов и соревнований" = "排名与竞赛系统";
-"HELP_LEAGUES_TEXT" = "联赛是与其他玩家的竞赛。\n\n联赛（从低到高）：\n• 青铜\n• 白银\n• 黄金\n• 白金\n• 钻石\n• 大师\n\n每周更新：\n• 前三名获得奖励\n• 第16–20名可能降级\n• 其余保持原联赛";
+"HELP_LEAGUES_TEXT" = "联赛让你与其他玩家一较高下。\n\n从低到高依次为：\n• 青铜\n• 白银\n• 黄金\n• 铂金\n• 钻石\n• 大师\n\n每周排名决定你晋级、保级还是降级。晋级和降级区域取决于你的进度，并显示在联赛排行榜中。晋级可以获得 F-Bucks。";
 
 /* Birthday */
 "День рождения" = "生日";
@@ -521,10 +521,10 @@
 /* Help Center – profile & skin */
 "Как изменить аватар?" = "如何更换头像？";
 "Персонализация профиля" = "个人资料个性化";
-"HELP_PROFILE_AVATAR" = "更换头像的方法：\n1. 打开「个人资料」标签页\n2. 点击齿轮图标（设置）\n3. 选择“用户资料”\n4. 选择新的头像或上传照片\n5. 点击“保存”";
+"HELP_PROFILE_AVATAR" = "更换头像的方法：\n1. 打开个人资料，点击头像以编辑资料。\n2. 打开头像编辑器，或从照片图库中选择照片。\n3. 调整头像或裁剪照片。\n4. 保存更改。";
 "Как работает создание скина?" = "皮肤编辑器如何工作？";
 "Редактор аватара и элементы" = "头像编辑器与部件";
-"HELP_PROFILE_SKIN_EDITOR" = "在皮肤编辑器中，你可以通过多种类别打造形象：\n• 服装（Clothing）\n• 配饰（Accessories）\n• 眼镜（Glasses）\n• 肤色（Skin Tone）\n• 头发（Hair）\n• 脸部（Face：眼睛、嘴巴等）\n\n使用方法：\n1. 打开 个人资料 → 设置 → 用户资料 → 编辑头像\n2. 切换到 “Create skin” 选项卡\n3. 在顶部栏选择类别（帽子、上衣、眼镜、调色板等图标）\n4. 在下方选择具体部件，它会立即出现在预览中\n5. 点击 “Save Avatar” 将皮肤应用到个人资料\n\n部分部件可能带有锁图标——表示需通过进度或 F‑bucks 解锁。";
+"HELP_PROFILE_SKIN_EDITOR" = "在头像编辑器中，可以自定义服装、配饰、眼镜、肤色、发型和面部特征。\n\n打开个人资料，点击头像并进入头像编辑器。选择类别和物品，即可在预览中查看效果。保存更改后，就会应用到个人资料。\n\n带锁的物品可能需要通过游戏进度或 F-Bucks 解锁。";
 
 /* Help Center – friends & social */
 "Как добавить друзей?" = "如何添加好友？";
@@ -532,23 +532,23 @@
 "HELP_SOCIAL_ADD_FRIENDS" = "添加好友的方法：\n1. 打开「个人资料」标签页\n2. 点击“添加好友”\n3. 分享你的好友码，或输入其他玩家的好友码 / 登录名\n4. 发送好友请求\n\n与好友一起你可以：\n• 对比统计数据\n• 查看他们的进度\n• 在联赛和决斗中相互竞争";
 "Как работают напоминания друзьям?" = "给好友的提醒如何工作？";
 "Пуш-уведомления о ежедневном уроке" = "关于每日课程的推送通知";
-"HELP_SOCIAL_REMINDERS" = "完成一局游戏后，你会看到好友及其连胜情况的界面：\n• 今天已经玩过的好友，会显示火焰图标和连续天数\n• 今天还没玩过的好友，会显示“提醒”按钮\n\n如何发送提醒：\n1. 比赛结束后，进入“提醒好友”界面\n2. 在某个好友旁点击“提醒”\n3. 如果 TA 开启了通知，就会收到一条推送，提示今天的每日课程尚未完成\n\n提醒可以帮助好友保持连胜并坚持学习。";
+"HELP_SOCIAL_REMINDERS" = "完成一局游戏后，你会看到好友及其连续游玩记录情况的界面：\n• 今天已经玩过的好友，会显示火焰图标和连续天数\n• 今天还没玩过的好友，会显示“提醒”按钮\n\n如何发送提醒：\n1. 比赛结束后，进入“提醒好友”界面\n2. 在某个好友旁点击“提醒”\n3. 如果 TA 开启了通知，就会收到一条推送，提示今天的每日课程尚未完成\n\n提醒可以帮助好友保持连续游玩记录并坚持学习。";
 
 /* Help Center – duel & progress */
 "Что такое дуэль и как её начать?" = "什么是决斗，如何开始？";
 "Режим соревнований 1 на 1" = "1 对 1 竞赛模式";
-"HELP_GAME_DUEL" = "决斗模式下，你和好友回答同一组问题，用成绩一较高下。\n\n如何发起决斗：\n1. 打开好友资料页（可从好友列表、联赛或提醒进入）\n2. 点击“Challenge to Duel”按钮\n3. 确认后，决斗会使用共同的问题集合\n\n结束后：\n• 你可以看到谁的得分更高\n• 决斗可以提升动力和进度，但不会重置你的每日连胜。";
+"HELP_GAME_DUEL" = "决斗模式下，你和好友回答同一组问题，用成绩一较高下。\n\n如何发起决斗：\n1. 打开好友资料页（可从好友列表、联赛或提醒进入）\n2. 点击“发起对决”按钮\n3. 确认后，决斗会使用共同的问题集合\n\n结束后：\n• 你可以看到谁的得分更高\n• 决斗可以提升动力和进度，但不会重置你的每日连续游玩记录。";
 "Как зарабатывать и тратить F-bucks?" = "如何获取和使用 F‑bucks？";
 "Внутриигровая валюта" = "游戏内货币";
-"HELP_PROGRESS_FBUCKS" = "F‑bucks（Flags Bucks）是 World Arena Flags 的游戏内货币。\n\n如何获取 F‑bucks：\n• 完成满分对局（全部回答正确）\n• 保持较长的每日连胜\n• 完成任务和成就\n\n可以用来：\n• 购买独特的皮肤与头像部件\n• 解锁稀有配饰和特效\n\n重要提示：F‑bucks 不是真实货币，不能提现或兑换为现实货币。";
+"HELP_PROGRESS_FBUCKS" = "F-Bucks（Flags Bucks）是 World Arena Flags 的游戏内货币。\n\n如何获取 F-Bucks：\n• 在符合条件的游戏中答对所有问题\n• 保持较长的每日连续游玩记录\n• 完成任务和成就\n\n可以用来：\n• 购买独特的皮肤与头像部件\n• 解锁稀有配饰和特效\n\n重要提示：F-Bucks 不是真实货币，不能提现或兑换为现实货币。";
 "Как работают квесты и достижения?" = "任务与成就如何运作？";
 "Месячные задания и артефакты" = "每月任务与藏品";
-"HELP_PROGRESS_QUESTS" = "在「任务」标签页你可以看到：\n• 每日任务（如果有）\n• 每月任务及 0–40 的总进度\n\n工作方式：\n1. 完成任务：例如玩指定局数、挑战特定地区的国旗等\n2. 每完成一项任务，都会获得进度和奖励\n3. 总体月度进度会在彩色标题区域以进度条形式显示\n\n成就（藏品）在特殊条件下解锁：\n• 较长的连胜\n• 较高的答题准确率\n• 联赛中的高排名\n已解锁的成就会显示在你的个人资料中。";
+"HELP_PROGRESS_QUESTS" = "在「任务」标签页你可以看到：\n• 每日任务（如果有）\n• 每月任务及 0–40 的总进度\n\n工作方式：\n1. 完成任务：例如玩指定局数、挑战特定地区的国旗等\n2. 每完成一项任务，都会获得进度和奖励\n3. 总体月度进度会在彩色标题区域以进度条形式显示\n\n成就（藏品）在特殊条件下解锁：\n• 较长的连续游玩记录\n• 较高的答题准确率\n• 联赛中的高排名\n已解锁的成就会显示在你的个人资料中。";
 
 /* Help Center – notifications */
 "Уведомления: какие бывают и как их настроить?" = "通知有哪些类型，如何设置？";
 "Ежедневный урок, дуэли и напоминания" = "每日课程、决斗与提醒";
-"HELP_NOTIFICATIONS_TYPES" = "应用可以发送多种通知：\n• 每日课程与连胜提醒\n• 给好友的提醒以及对你提醒的回复\n• 决斗邀请与决斗结果\n\n如何管理通知：\n1. 打开设备系统设置\n2. 找到 World Arena Flags\n3. 按需开启或关闭不同类型的通知\n\n建议保持每日课程提醒开启，这样更不容易断掉连胜。";
+"HELP_NOTIFICATIONS_TYPES" = "应用支持每日练习提醒、连续记录提醒、好友提醒、对决邀请和结果通知。\n\n在应用的通知设置中选择想接收的提醒。设备设置决定 World Arena Flags 是否可以显示通知。\n\n每日提醒可以帮助你记得练习。";
 
 // iPad Main Screen
 "Challenge Yourself, Learn the World" = "挑战自己，学习世界";
@@ -570,7 +570,7 @@
 "25 questions, 10 sec per answer" = "25道题，每题10秒";
 "30 questions, 5 sec per answer" = "30道题，每题5秒";
 "All %d countries of selected regions, 5 sec per answer" = "所选地区的全部%d个国家，每题5秒";
-"All 238 countries of the world, 5 sec per answer" = "全世界238个国家，每题5秒";
+"All 238 countries of the world, 5 sec per answer" = "所有可用的国家和地区，每题 5 秒";
 
 /* Settings - Added */
 "Уведомления" = "通知";
@@ -584,7 +584,7 @@
 "Основные уведомления" = "主要通知";
 "Напоминания об игре" = "游戏提醒";
 "Ежедневные напоминания" = "每日提醒";
-"Напоминания о серии" = "连胜提醒";
+"Напоминания о серии" = "连续记录提醒";
 "Время напоминания" = "提醒时间";
 "Время" = "时间";
 "Достижения и прогресс" = "成就与进度";
@@ -611,7 +611,7 @@
 
 /* 生命与高级版 */
 "Lives" = "生命";
-"Next +%d in %02d:%02d" = "下一次 +%d 于 %02d:%02d";
+"Next +%d in %02d:%02d" = "%2$02d:%3$02d 后补充 +%1$d";
 "Lives refill info" = "生命补充信息";
 "You will receive +%d new lives in %02d:%02d" = "您将在 %2$02d:%3$02d 后获得 +%1$d 条生命";
 "Unlimited hearts enabled" = "已启用无限生命";
@@ -631,13 +631,13 @@
 "F-Bucks (Flags Bucks) — это внутриигровая валюта, которую можно заработать, играя в World Arena Flags. Используйте F-Bucks для покупки уникальных элементов аватара, скинов и других эксклюзивных предметов." = "F-Bucks (Flags Bucks) 是您可以通过玩 World Arena Flags 赚取的游戏内货币。使用 F-Bucks 购买独特的头像物品、皮肤和其他独家物品。";
 "Особенности:" = "特点：";
 "Зарабатывайте за идеальные результаты в играх" = "通过完美的游戏结果赚取";
-"Получайте бонусы за длинные серии дней" = "获得长连续天数奖励";
+"Получайте бонусы за длинные серии дней" = "连续游玩多天可获得奖励";
 "Покупайте эксклюзивные элементы для аватара" = "购买独家头像物品";
 "Создавайте уникальный стиль" = "创造独特风格";
 "Как заработать F-Bucks" = "如何赚取F-Bucks";
 "Идеальный результат" = "完美结果";
 "Идеальный результат игры" = "完美游戏结果";
-"Получите идеальный результат в игре (10/10 или 15/15)" = "在游戏中获得完美结果（10/10 或 15/15）";
+"Получите идеальный результат в игре (10/10 или 15/15)" = "完成一局游戏并答对所有问题";
 "Серия 10 дней" = "连续游玩10天";
 "Играйте 10 дней подряд" = "连续10天玩游戏";
 "Серия 20 дней" = "连续游玩20天";
@@ -669,7 +669,7 @@
 "Купить" = "购买";
 "Покупка" = "购买";
 "Текст гимна" = "国歌歌词";
-"Continue playing with unlimited hearts!" = "继续使用无限生命游戏！";
+"Continue playing with unlimited hearts!" = "享受无限生命，继续游戏！";
 "No lives available" = "没有可用生命";
 "Unfortunately, the game is not available now: you have no lives. You can buy lives or go Premium." = "很遗憾，当前无法开始游戏：你没有生命。你可以购买生命或升级到高级版。";
 "Go Premium" = "升级到高级版";
@@ -683,7 +683,7 @@
 "Out of lives headline 4" = "就差一点！";
 "Out of lives headline 5" = "别停下！";
 "Out of lives headline 6" = "再来一局？";
-"Out of lives headline 7" = "保持连胜！";
+"Out of lives headline 7" = "延续连续游玩记录！";
 "Out of lives continue subtitle" = "从这里继续？";
 "Continue with bonus lives" = "继续（+%d 条生命）";
 "Out of lives perk resume" = "+%d 条生命 — 从你离开的地方继续";
@@ -696,7 +696,7 @@
 "OK" = "确定";
 
 /* 高级版页面 */
-"Learn all countries and flags in ~2 months with Premium" = "使用高级版约 2 个月学完所有国家和国旗";
+"Learn all countries and flags in ~2 months with Premium" = "使用 Premium，积累国家与国旗知识";
 "Unlimited Hearts" = "无限生命";
 "Personalized Practice" = "个性化练习";
 "Explain My Answer" = "答案讲解";
@@ -727,7 +727,7 @@
 
 // Friends messages
 "У вас пока нет друзей" = "您还没有朋友";
-"Добавьте друзей, чтобы видеть их серии" = "添加朋友以查看他们的连胜";
+"Добавьте друзей, чтобы видеть их серии" = "添加好友，查看他们的连续游玩记录";
 
 // Quests page
 "Щоденні квести" = "每日任务";
@@ -789,14 +789,14 @@
 /* Subscription Management */
 "Управление подпиской" = "订阅管理";
 "Ваша премиум подписка активна" = "您的高级订阅已激活";
-"Текущий план" = "当前计划";
+"Текущий план" = "当前套餐";
 "Цена" = "价格";
 "месяц" = "月";
 "Информация о платежах" = "账单信息";
 "Дата начала" = "开始日期";
 "Следующий платеж" = "下次付款";
 "Статус" = "状态";
-"Активна" = "激活";
+"Активна" = "有效";
 "Премиум преимущества" = "高级特权";
 "Безлимитные жизни" = "无限生命";
 "Играйте без ожидания" = "无需等待即可游戏";
@@ -813,7 +813,7 @@
 
 "Manage subscription" = "管理订阅";
 "Your premium subscription is active" = "您的高级订阅已激活";
-"Current plan" = "当前计划";
+"Current plan" = "当前套餐";
 "Price" = "价格";
 "month" = "月";
 "year" = "年";
@@ -833,7 +833,7 @@
 "Are you sure you want to cancel premium? You will lose access to all premium features." = "您确定要取消高级版吗？您将失去所有高级功能的访问权限。";
 "Close" = "关闭";
 "Red" = "红色";
-"Most popular color fact description" = "红色出现在世界上75%的国旗上，使其成为最受欢迎的国旗颜色。";
+"Most popular color fact description" = "加拿大、日本和瑞士等许多国家的国旗都使用红色。";
 
 /* Friend Management */
 "Флаг в профиле" = "个人资料中的旗帜";
@@ -844,14 +844,14 @@
 /* Subscription Cancellation */
 "Нам очень жаль, что вы отменили премиум подписку" = "很遗憾您取消了高级订阅";
 "Ваши результаты за период премиум подписки:" = "您在高级订阅期间的结果：";
-"Изучено флагов" = "学习的旗帜";
+"Изучено флагов" = "已学习的国旗";
 "Лучший результат" = "最佳成绩";
 "очков" = "分";
 "Текущая серия" = "当前连续游玩记录";
 "дней" = "天";
 "Точность" = "准确率";
 "Теперь вы можете без единой ошибки отвечать на все наши вопросы с точностью в %d%%" = "你的答题正确率为%d%%。";
-"Мы будем рады, если вы захотите снова вернуться к нам!" = "如果您想再次回到我们这里，我们会很高兴！";
+"Мы будем рады, если вы захотите снова вернуться к нам!" = "欢迎您随时回来！";
 "Продолжить" = "继续";
 
 /* Learning Section New Strings */
@@ -920,7 +920,7 @@
 "Adaptive sessions based on your progress" = "基于你的进度进行自适应训练";
 "Explain my answer" = "解释我的答案";
 "Understand every mistake and learn faster" = "理解每个错误并学得更快";
-"Up to +750% faster flag learning with Premium" = "使用 Premium，国旗学习速度最高可提升 +750%";
+"Up to +750% faster flag learning with Premium" = "使用 Premium，以更多方式练习国旗";
 "Play without waiting and keep your learning momentum" = "无需等待持续游戏，保持学习节奏";
 "Train flags, listen to anthems, and explore detailed country profiles" = "训练国旗知识，聆听国歌，并查看国家详细资料";
 "Restore Purchases" = "恢复购买";
@@ -951,9 +951,9 @@
 "Speed bonus +1" = "速度奖励 +1";
 "Speed bonus +10 XP" = "速度奖励 +10 XP";
 "Global ranking by countries" = "按国家的全球排名";
-"Country rank line" = "%1$@ 你在%3$@排名第 #%2$d";
-"World rank line" = "🌎 你在全球排名第 #%d";
-"World rank line no emoji" = "你在全球排名第 #%d";
+"Country rank line" = "%1$@ 你在%3$@排名第 %2$d 名";
+"World rank line" = "🌎 你在全球排名第 %d 名";
+"World rank line no emoji" = "你在全球排名第 %d 名";
 "Friend country rank line" = "%1$@ %2$@ #%3$d · %4$@";
 "Friend world rank line" = "%1$@ #%2$d";
 "Spain" = "西班牙";
@@ -993,24 +993,24 @@
 "World Progress Map" = "世界进度地图";
 "Tap a country to see your correct and wrong answers" = "点击国家查看正确与错误答题";
 "Greener country means better mastery" = "颜色越绿表示掌握越好";
-"Continent Mastery" = "大陆掌握";
-"Answered %d of %d countries" = "已答 %d/%d 国家";
-"Mastered %d of %d countries" = "已掌握 %d/%d 国家";
+"Continent Mastery" = "各大洲掌握情况";
+"Answered %d of %d countries" = "已回答 %d/%d 个国家";
+"Mastered %d of %d countries" = "已掌握 %d/%d 个国家";
 "Total" = "总计";
 "Map" = "地图";
-"Weak countries" = "薄弱国家";
+"Weak countries" = "尚未熟练的国家";
 "All countries" = "全部国家";
-"Only weak" = "仅薄弱";
+"Only weak" = "仅显示不熟练的国家";
 "Only mastered" = "仅已掌握";
-"TOP weak countries for review" = "需复习的薄弱国家排行";
-"No weak countries yet" = "暂无薄弱国家";
+"TOP weak countries for review" = "优先复习的国家";
+"No weak countries yet" = "暂无需要加强练习的国家";
 "%@ Master" = "%@ 大师";
 "%@ Master unlocked" = "%@ 大师已解锁";
-"Continent mastered! Keep going." = "大陆已掌握！继续加油。";
+"Continent mastered! Keep going." = "已掌握整个大洲！继续加油。";
 "Weekly challenge" = "每周挑战";
-"Weak country sessions this week" = "本周弱国训练次数";
-"Start Weak Countries Training" = "开始弱国训练";
-"Progress map subtitle" = "按国家和大陆查看您的进度";
+"Weak country sessions this week" = "本周薄弱知识练习次数";
+"Start Weak Countries Training" = "开始薄弱国家知识练习";
+"Progress map subtitle" = "按国家和大洲查看您的进度";
 "How is Mastered calculated?" = "「已掌握」如何计算？";
 "Duel Summary subtitle" = "查看你的对决历史和详细结果";
 "F-Bucks subtitle" = "了解如何获取和使用 F-bucks（游戏内货币）";
@@ -1045,7 +1045,7 @@
 "Other device" = "其他设备";
 "Login with biometrics" = "生物识别登录";
 "Biometric login prompt" = "确认生物识别登录";
-"Current Streak" = "当前连续";
+"Current Streak" = "当前连续游玩记录";
 "days" = "天";
 
 /* 68 interesting facts */
@@ -1060,7 +1060,7 @@
 "FACT_05_TITLE" = "永不降半旗";
 "FACT_05_DESC" = "沙特阿拉伯国旗因上有神圣文字而从不下半旗。";
 "FACT_06_TITLE" = "年轻的国旗";
-"FACT_06_DESC" = "南苏丹国旗于2011年独立后采用。";
+"FACT_06_DESC" = "南苏丹自 2011 年独立以来，一直使用这面国旗。";
 "FACT_07_TITLE" = "带AK-47的国旗";
 "FACT_07_DESC" = "莫桑比克是唯一在国旗上出现现代武器——卡拉什尼科夫步枪的国家。";
 "FACT_08_TITLE" = "几乎相同的国旗";
@@ -1073,8 +1073,8 @@
 "FACT_11_DESC" = "塞浦路斯国旗上有岛屿轮廓，在国旗中较为罕见。";
 "FACT_12_TITLE" = "带圣经的国旗";
 "FACT_12_DESC" = "多米尼加共和国国旗上有打开的圣经，是唯一带宗教书籍的国旗。";
-"FACT_13_TITLE" = "最常见的颜色";
-"FACT_13_DESC" = "红色是世界上国旗上最常见的颜色。";
+"FACT_13_TITLE" = "国旗上的红色";
+"FACT_13_DESC" = "加拿大、日本和瑞士等许多国家的国旗都使用红色。";
 "FACT_14_TITLE" = "带文字的国旗";
 "FACT_14_DESC" = "国旗上出现文字很少见，著名一例是沙特阿拉伯。";
 "FACT_15_TITLE" = "国旗礼仪";
@@ -1082,39 +1082,39 @@
 "FACT_16_TITLE" = "正反面不同的国旗";
 "FACT_16_DESC" = "巴拉圭拥有世界上唯一正反面图案不同的国旗。";
 "FACT_17_TITLE" = "奥运象征";
-"FACT_17_DESC" = "奥运五环颜色被设计为至少一种颜色出现在每个国家的国旗上。";
-"FACT_18_TITLE" = "徽章最复杂的国旗";
-"FACT_18_DESC" = "墨西哥国旗上有鹰立于仙人掌持蛇的图案，是细节最丰富的国旗徽章之一。";
-"FACT_19_TITLE" = "复制版国旗";
-"FACT_19_DESC" = "摩纳哥与印度尼西亚国旗几乎相同——上红下白，仅比例不同。";
+"FACT_17_DESC" = "奥运五环和白色背景共使用六种颜色，用来代表世界各国的国旗。";
+"FACT_18_TITLE" = "墨西哥国徽";
+"FACT_18_DESC" = "墨西哥国旗上绘有一只站在仙人掌上、衔着蛇的鹰。";
+"FACT_19_TITLE" = "相似的红白国旗";
+"FACT_19_DESC" = "摩纳哥和印度尼西亚的国旗都是上红下白，但长宽比例不同。";
 "FACT_20_TITLE" = "50星旗";
-"FACT_20_DESC" = "美国国旗有50颗星，每州一颗。自1777年以来设计变更了27次。";
+"FACT_20_DESC" = "美国国旗上的 50 颗星分别代表 50 个州。";
 "FACT_21_TITLE" = "最北的国旗";
 "FACT_21_DESC" = "北极地区使用具有独特象征意义的国家和地区旗帜。";
 "FACT_22_TITLE" = "带十字的国旗";
-"FACT_22_DESC" = "29个国家国旗上有十字，是最常见的符号之一。";
+"FACT_22_DESC" = "丹麦、芬兰和瑞士等许多国家的国旗上都有十字。";
 "FACT_23_TITLE" = "三色旗";
 "FACT_23_DESC" = "许多国家采用简单的三条纹设计作为历史上稳定的旗帜形式。";
 "FACT_24_TITLE" = "带新月的国旗";
-"FACT_24_DESC" = "新月出现在12国国旗上，多为穆斯林国家，象征伊斯兰信仰。";
+"FACT_24_DESC" = "土耳其、巴基斯坦和突尼斯等国的国旗上都有新月。";
 "FACT_25_TITLE" = "太阳象征";
 "FACT_25_DESC" = "太阳是亚洲和南美国旗上最常见的符号之一。";
 "FACT_26_TITLE" = "带树的国旗";
-"FACT_26_DESC" = "黎巴嫩是唯一国旗上有树（黎巴嫩雪松）的国家，象征永恒与和平。";
-"FACT_27_TITLE" = "最窄的国旗";
-"FACT_27_DESC" = "卡塔尔国旗的宽高比在所有国旗中最特别——11:28。";
+"FACT_26_DESC" = "黎巴嫩国旗上绘有一棵雪松。";
+"FACT_27_TITLE" = "卡塔尔国旗的比例";
+"FACT_27_DESC" = "卡塔尔国旗的高与宽之比为 11:28。";
 "FACT_28_TITLE" = "复杂徽章";
 "FACT_28_DESC" = "拉丁美洲国旗上的徽章常包含大量细节和历史符号。";
 "FACT_29_TITLE" = "彩虹旗";
 "FACT_29_DESC" = "玻利维亚有两面官方旗帜——传统三色旗与土著维帕拉彩虹旗。";
 "FACT_30_TITLE" = "带建筑的国旗";
-"FACT_30_DESC" = "柬埔寨国旗上有吴哥窟，是唯一带建筑的国旗。";
+"FACT_30_DESC" = "柬埔寨国旗上绘有吴哥窟。";
 "FACT_31_TITLE" = "历史争议";
 "FACT_31_DESC" = "部分国旗设计因历史与政治争议而改变。";
 "FACT_32_TITLE" = "带剑的国旗";
 "FACT_32_DESC" = "斯里兰卡国旗上有持剑狮子，象征僧伽罗人的勇气。";
 "FACT_33_TITLE" = "无蓝色的国旗";
-"FACT_33_DESC" = "仅四国国旗不用蓝色：牙买加、毛里塔尼亚、斯里兰卡和梵蒂冈。";
+"FACT_33_DESC" = "牙买加、日本和瑞士等国家的国旗都没有蓝色。";
 "FACT_34_TITLE" = "国旗上的鸟";
 "FACT_34_DESC" = "鹰及其他鸟类在国旗上象征力量、独立与高贵。";
 "FACT_35_TITLE" = "南极象征";
@@ -1140,19 +1140,19 @@
 "FACT_45_TITLE" = "巴西27星";
 "FACT_45_DESC" = "巴西国旗有27颗星，每州和联邦区各一。";
 "FACT_46_TITLE" = "枫叶";
-"FACT_46_DESC" = "加拿大国旗上有唯一的11角枫叶，在各国国旗中独有。";
+"FACT_46_DESC" = "加拿大国旗的白色正方形中绘有一片 11 角红色枫叶。";
 "FACT_47_TITLE" = "米字旗";
-"FACT_47_DESC" = "英国国旗融合了三个圣徒的十字：英格兰、苏格兰与爱尔兰。";
+"FACT_47_DESC" = "英国国旗结合了圣乔治、圣安德鲁和圣帕特里克的十字。";
 "FACT_48_TITLE" = "日本旭日";
-"FACT_48_DESC" = "白底上的红圈代表旭日，日本自7世纪起使用。";
+"FACT_48_DESC" = "日本国旗为白底红圆，红圆代表太阳。";
 "FACT_49_TITLE" = "阿育王法轮";
-"FACT_49_DESC" = "印度国旗上有24辐法轮，象征法与动。";
+"FACT_49_DESC" = "印度国旗上绘有 24 辐法轮，象征法与运动。";
 "FACT_50_TITLE" = "澳大利亚南十字";
-"FACT_50_DESC" = "澳大利亚国旗上有南十字星座，仅在南半球可见。";
+"FACT_50_DESC" = "澳大利亚国旗上的五颗星代表南十字星座。";
 "FACT_51_TITLE" = "新西兰南十字";
 "FACT_51_DESC" = "新西兰国旗也有南十字，但为红星白边。";
 "FACT_52_TITLE" = "韩国太极";
-"FACT_52_DESC" = "韩国国旗上有传统太极（阴阳）与八卦。";
+"FACT_52_DESC" = "韩国国旗上绘有太极图案和四卦。";
 "FACT_53_TITLE" = "葡萄牙浑天仪";
 "FACT_53_DESC" = "葡萄牙国旗上有浑天仪，古代航海仪器。";
 "FACT_54_TITLE" = "阿尔巴尼亚双头鹰";
@@ -1160,7 +1160,7 @@
 "FACT_55_TITLE" = "肯尼亚盾";
 "FACT_55_DESC" = "肯尼亚国旗上有马赛盾与交叉长矛。";
 "FACT_56_TITLE" = "威尔士红龙";
-"FACT_56_DESC" = "威尔士红龙是世界上最古老的国家象征之一。";
+"FACT_56_DESC" = "威尔士国旗为白绿底色上的红龙。这一设计于 1959 年获得正式认可。";
 "FACT_57_TITLE" = "圣安德烈十字";
 "FACT_57_DESC" = "苏格兰国旗为蓝底白斜十字，即圣安德烈十字。";
 "FACT_58_TITLE" = "格陵兰圆";
@@ -1176,7 +1176,7 @@
 "FACT_63_TITLE" = "欧盟旗";
 "FACT_63_DESC" = "蓝底上12颗金星成环，象征欧盟团结。";
 "FACT_64_TITLE" = "奥运旗";
-"FACT_64_DESC" = "白底五环代表五大洲与奥运的全球性。";
+"FACT_64_DESC" = "白色背景上的奥运五环象征五大洲的团结，以及来自世界各地的运动员。";
 "FACT_65_TITLE" = "梵蒂冈方旗";
 "FACT_65_DESC" = "梵蒂冈与瑞士一样使用正方形国旗。";
 "FACT_66_TITLE" = "瑙鲁12芒";
@@ -1199,10 +1199,10 @@
 "league.weekly_result.title.stayed" = "你留在当前联赛";
 "league.weekly_result.title.demotion" = "你降级了";
 "league.weekly_result.title.week_finished" = "联赛周结束";
-"league.weekly_result.body.win" = "你获得第#%d名，本周名列前茅。";
-"league.weekly_result.body.promotion" = "你获得第#%d名，晋级至%@。";
-"league.weekly_result.body.stayed" = "你获得第#%d名，留在%@。";
-"league.weekly_result.body.demotion" = "你获得第#%d名，降级至%@。";
+"league.weekly_result.body.win" = "你获得第%d名，本周名列前茅。";
+"league.weekly_result.body.promotion" = "你获得第%d名，晋级至%@。";
+"league.weekly_result.body.stayed" = "你获得第%d名，留在%@。";
+"league.weekly_result.body.demotion" = "你获得第%d名，降级至%@。";
 "league.weekly_result.body.top3" = "你本周进入前三名。";
 "league.weekly_result.label.rank" = "名次";
 "league.weekly_result.label.new_league" = "新联赛";
@@ -1228,10 +1228,10 @@
 "league.weekly_result.demotion.cta" = "知道了 →";
 "league.weekly_result.stayed.cta" = "前进 →";
 "home.league_banner.title" = "联赛周结束";
-"home.league_banner.body.win" = "你获得第#%d名并赢得了联赛。";
-"home.league_banner.body.promotion" = "你获得第#%d名，晋级至%@。";
-"home.league_banner.body.stayed" = "你获得第#%d名，留在%@。";
-"home.league_banner.body.demotion" = "你获得第#%d名，降级至%@。";
+"home.league_banner.body.win" = "你获得第%d名并赢得了联赛。";
+"home.league_banner.body.promotion" = "你获得第%d名，晋级至%@。";
+"home.league_banner.body.stayed" = "你获得第%d名，留在%@。";
+"home.league_banner.body.demotion" = "你获得第%d名，降级至%@。";
 "home.league_banner.cta" = "查看结果";
 /* Home layout (variant 2 / A-B) */
 "home.layout.section" = "主屏幕";
@@ -1246,7 +1246,7 @@
 "home.league.xp_to_next_fmt" = "距离%@：%d XP";
 "home.league.max" = "已达最高联赛";
 "home.header.lives_max" = "最大";
-"home.lives.refill_in_fmt" = "+%d，%02d:%02d 后";
+"home.lives.refill_in_fmt" = "%2$02d:%3$02d 后补充 +%1$d";
 "home.next_goal.title" = "下一个目标";
 "home.quick_modes.title" = "快速开始";
 "home.social.title" = "好友";
@@ -1270,12 +1270,12 @@
 "home.hero.daily_ready" = "每日 +1 F-Bucks 可领取";
 "home.hero.catch_friend_fmt" = "追上 %@ — %d 天连玩";
 "home.earn.section" = "今天";
-"home.earn.perfect.almost" = "快完成了 — 打完它";
-"home.earn.perfect.start" = "现在开始 — 锁定";
+"home.earn.perfect.almost" = "快完成了——再接再厉";
+"home.earn.perfect.start" = "现在开始，争取奖励";
 "home.earn.perfect.going" = "今天强势收尾";
-"home.earn.streak.almost" = "别现在丢掉";
-"home.earn.streak.start" = "现在玩否则会断连";
-"home.earn.streak.going" = "现在玩否则会断连";
+"home.earn.streak.almost" = "保持记录，别中断";
+"home.earn.streak.start" = "现在游玩，保持连续记录";
+"home.earn.streak.going" = "现在游玩，保持连续记录";
 "home.earn.league.hint" = "冲击前三";
 "home.earn.league.almost" = "你很接近";
 "home.earn.done" = "完成！";
@@ -1290,7 +1290,7 @@
 "home.pride.section_title" = "你的进度";
 "home.pride.streak_line_one" = "连玩：1 天";
 "home.pride.streak_line_fmt" = "连玩：%d 天";
-"home.pride.rank_line_fmt" = "排名：本周第 %d";
+"home.pride.rank_line_fmt" = "排名：本周第 %d 名";
 "home.pride.top10_hint" = "继续冲向前十";
 "home.pride.rank_headline_fmt" = "本周你第 %d 名";
 "home.hero.headline.streak_alive" = "保持连玩";
@@ -1333,7 +1333,7 @@
 "onboarding_reward_correct" = "答对了！🎉";
 "onboarding_reward_almost" = "差一点——正确答案是%@";
 "onboarding_reward_plus_one" = "+1 奖励";
-"onboarding_reward_streak" = "开启你的连胜";
+"onboarding_reward_streak" = "开启连续游玩记录";
 "onboarding_loop_line1" = "每天只玩一分钟";
 "onboarding_loop_line2" = "解锁奖励";
 "onboarding_loop_line3" = "攀登联赛";
@@ -1378,7 +1378,7 @@
 "avatar_editor_hat_beginner" = "新手";
 "avatar_editor_hat_Premium" = "Premium";
 "avatar_editor_editor_section_coming_soon" = "该部分暂时不可用，即将恢复。";
-"avatar_editor_lock_item_title" = "不可用";
+"avatar_editor_lock_item_title" = "已锁定";
 "avatar_editor_lock_item_ok" = "好的";
 "avatar_editor_lock_headwear_premium_body" = "此头饰需 Premium 解锁。请在设置中订阅 Premium。";
 "avatar_editor_lock_headwear_shop_body" = "该物品将在自定义商店中提供（即将推出）。";
@@ -1403,7 +1403,7 @@
 "avatar_editor_opt_trimmed" = "短胡茬";
 "avatar_editor_opt_goatee" = "山羊胡";
 "avatar_editor_opt_beard_full" = "浓胡须";
-"avatar_editor_opt_beard_light" = "浅棕胡须";
+"avatar_editor_opt_beard_light" = "稀疏胡须";
 "avatar_editor_opt_beard_bushy" = "大胡子";
 "avatar_editor_opt_jacket" = "夹克";
 
@@ -1422,11 +1422,11 @@
 "Week leaderboard place" = "周榜名次";
 "Back to Modes" = "返回模式选择";
 "Start" = "开始";
-"TC correct answers headline" = "%d 题答对";
+"TC correct answers headline" = "答对 %d 题";
 "Difficulty description TC" = "%1$d%2$@一局 • 连续答对 5 题 +%3$d%2$@ • 答错 −%4$d%2$@";
 "Difficulty TC erudite all" = "全球所有国家/地区 • %1$d%2$@一局 • 连续答对 5 题 +%3$d%2$@ • 答错 −%4$d%2$@";
 "Difficulty TC erudite regions" = "%1$d 个国家/地区 • %2$d%3$@一局 • 连续答对 5 题 +%4$d%3$@ • 答错 −%5$d%3$@";
-"TC best correct record" = "历史最佳：%d 题答对";
+"TC best correct record" = "历史最佳：答对 %d 题";
 "TC intro best correct title" = "最佳（答对）";
 "TC intro combo5 bonus title" = "连对 5 题";
 "TC detail time penalty fmt" = "计时：−%1$d %2$@（错误）";
@@ -1444,27 +1444,27 @@
 "Time intro duration seconds fmt" = "%1$d%2$@";
 "Time intro penalty seconds fmt" = "−%1$d%2$@";
 "Time intro bonus seconds fmt" = "+%1$d%2$@";
-"Share Survival headline" = "生存模式：存活 %d 面旗 • 答对 %d • 最高阶段 %d";
+"Share Survival headline" = "生存模式：闯过 %d 道国旗题 • 答对 %d 题 • 最高阶段 %d";
 "Survival mode short description" = "生命有限、难度递增——你能走多远？";
 "Survival difficulty blurb fmt" = "回合生命 · 阶段提升 · 连续答对 10 题 +1 生命";
-"Survival depth header" = "深度";
+"Survival depth header" = "闯关进度";
 "Survival stage fmt" = "第 %d 阶段";
 "Survival bonus life streak" = "+1 生命（连续答对 10 题）";
 "Survival milestone banner fmt" = "里程碑 %d！+30 XP • +1 F-Bucks";
 "Survival next milestone fmt" = "距离里程碑 %2$d 还需答对 %1$d 题";
-"Survival result best depth fmt" = "个人最佳深度：%d 面旗";
+"Survival result best depth fmt" = "个人最佳：闯过 %d 道国旗题";
 "Survival result combo fmt" = "本局最佳连击：%d";
-"Survival result survived fmt" = "你挺过了 %d 面旗";
+"Survival result survived fmt" = "你闯过了 %d 道国旗题";
 "Survival result stage reached fmt" = "到达的最高阶段：%d";
 "Survival stat correct" = "正确";
-"Survival intro description" = "逐题辨认国旗。答错会失去生命，难度会上升——打破你的深度纪录。";
+"Survival intro description" = "逐题辨认国旗。答错会失去生命，难度也会逐渐上升——挑战你的闯关纪录！";
 "Survival intro lives title" = "起始生命";
-"Survival intro best depth title" = "最佳深度";
+"Survival intro best depth title" = "最佳闯关纪录";
 "Survival intro choices title" = "选项";
 "Survival intro timer title" = "计时";
 "Survival intro timer value" = "与经典模式相同";
 "Survival weekly title" = "每周生存挑战";
-"Survival weekly target fmt" = "本周在一局内存活 %d 面旗。";
+"Survival weekly target fmt" = "本周在一局内闯过 %d 道国旗题。";
 "Survival weekly best fmt" = "本周最佳：%d 面旗";
 "Survival weekly all milestones met body" = "你已完成本周所有目标，单次闯关达到200面旗帜。太棒了！";
 "Survival weekly reward all claimed" = "本周生存模式奖励已全部领取（最多+4000 XP）。";
@@ -1475,7 +1475,7 @@
 
 "Last login" = "上次登录";
 "Filter by name" = "按名称筛选";
-"Last played" = "最后一次玩";
+"Last played" = "上次游玩";
 
 "1 hour" = "1小时";
 
@@ -1499,7 +1499,7 @@
 "fbucks.earn.today.title" = "今日可赚取";
 "fbucks.earn.today.subtitle" = "今天最多可赚取%d F-Bucks";
 "fbucks.earn.perfect.title" = "满分游戏";
-"fbucks.earn.perfect.sub" = "答对10/10或15/15题可获得1 F-Bucks";
+"fbucks.earn.perfect.sub" = "符合条件的游戏全部答对可得 +1";
 "fbucks.earn.streak" = "连续游玩记录";
 "fbucks.earn.streak.sub" = "连续游玩（%d/10天）";
 "fbucks.earn.league" = "本周高手";
@@ -1528,7 +1528,7 @@
 "fbucks.about.body" = "F-Bucks（Flags Bucks）是游玩World Arena Flags时可以赚取的游戏货币，可用于购买独特的头像配件、皮肤和其他专属物品。";
 "fbucks.about.how" = "如何赚取F-Bucks";
 "fbucks.about.perfect.title" = "满分游戏";
-"fbucks.about.perfect.desc" = "获得满分（10/10或15/15）";
+"fbucks.about.perfect.desc" = "在符合条件的游戏中答对所有问题";
 "fbucks.about.streak10.title" = "连续游玩10天";
 "fbucks.about.streak10.desc" = "连续10天玩游戏";
 "fbucks.about.streak20.title" = "连续游玩20天";
@@ -1685,11 +1685,11 @@
 
 "Try Again" = "重试";
 
-"Server error. Try again." = "服务器暂不可用. 重试";
+"Server error. Try again." = "服务器暂不可用，请重试。";
 
 "Invalid server response." = "服务器暂不可用";
 
-"duel.network.error" = "服务器暂不可用. 重试";
+"duel.network.error" = "服务器暂不可用，请重试。";
 
 "duel.reminder.sent" = "提醒已发送";
 
@@ -1703,7 +1703,7 @@
 
 "duel.reminder.missing" = "此对决已不可用。";
 
-"Flags Brand Title" = "国旗";
+"Flags Brand Title" = "Flags";
 
 "lifecycle.offers" = "任务与优惠";
 
@@ -1759,11 +1759,11 @@
 /* Notification event localization */
 "inbox.progressCTA" = "查看我的进度";
 "inbox.rank" = "你的排名";
-"inbox.leagueStory" = "查看联赛排名，为新的一周选择目标。";
-"inbox.levelStory" = "每认识一面旗帜，知识就更丰富。试试其他难度或地区。";
-"inbox.achievementStory" = "打开成就，查看奖励和下一个目标的进度。";
-"inbox.duelStory" = "打开对决结果比较分数。已完成的比赛会保留在历史记录中。";
-"inbox.messageStory" = "阅读后，你仍可在通知历史中查看这条消息。";
+"inbox.leagueStory" = "每一局游戏都为这次成绩作出了贡献。庆祝这一周的收获，查看联赛排名，并选定下一个目标。新的一周，就是争取更好成绩的新机会。";
+"inbox.levelStory" = "这个等级代表你逐面学习国旗所积累的知识。经验会保留在个人资料中。挑战更高难度或其他地区，继续发现新知识。";
+"inbox.achievementStory" = "新的里程碑值得珍藏。打开成就，查看已经解锁的奖励，以及距离下一项奖励还有多远。按自己的节奏继续探索。";
+"inbox.duelStory" = "对决是共同检验知识的机会。打开对决结果，查看分数和当前状态。已完成的游戏会保留在历史记录中，随时可以回顾。";
+"inbox.messageStory" = "你可以随时从通知历史中重新查看这条消息。阅读消息不会将其删除。";
 "friends.requests.title" = "好友请求";
 "friends.requests.body" = "已添加你为好友。你也要添加对方吗？";
 "notification.nudge.title" = "%@ 提醒你";
@@ -1782,23 +1782,23 @@
 "Accessories" = "配件";
 "Add Friends" = "添加朋友";
 "August Mission" = "八月任务";
-"Best streak" = "最佳连胜纪录";
+"Best streak" = "最长连续游玩记录";
 "Check your internet connection" = "检查您的互联网连接并重试。";
 "Create Avatar" = "创建头像";
-"Current streak" = "当前连胜";
-"Don't break the chain! Come back tomorrow!" = "不要破坏链条！明天再来吧！";
+"Current streak" = "当前连续游玩记录";
+"Don't break the chain! Come back tomorrow!" = "保持连续记录，明天再来吧！";
 "Empty response from server" = "服务器的空响应";
 "Eye Color" = "眼睛颜色";
 "Eye Shape" = "眼睛形状";
 "Eyebrows" = "眉毛";
 "Face Shape" = "脸型";
 "Facial Hair" = "面部毛发";
-"Friend Streaks" = "好友连胜";
+"Friend Streaks" = "好友的连续游玩记录";
 "Game Over!" = "游戏结束！";
 "Gender" = "性别";
 "Glasses" = "眼镜";
-"HELP_TECH_DATA_SYNC" = "您的进度会自动保存在设备上。\n\n要备份：\n• 使用 iCloud 或您的设备备份\n• 通过隐私设置导出数据（如果有）\n• 定期创建设备备份\n\n如果您更换设备，请在启动游戏之前恢复备份，以免丢失您的设备进步。";
-"HELP_TECH_FLAGS_NOT_LOADING" = "如果未加载标志：\n1。检查您的互联网连接\n2。重新启动应用程序\n3。清除应用程序设置中的缓存（如果有）\n4。将应用程序更新到最新版本\n5。如果问题仍然存在，请联系支持人员";
+"HELP_TECH_DATA_SYNC" = "你的进度会自动保存在设备上。如果 Apple 账户可使用 iCloud，应用也可以通过 iCloud 同步本地进度。\n\n• 保持设备备份为最新状态。\n• 恢复 iCloud 进度时，请使用同一 Apple 账户。\n• 可以在应用的隐私设置中导出游戏数据。\n\n更换设备后，请先确认进度已恢复，再删除旧备份。";
+"HELP_TECH_FLAGS_NOT_LOADING" = "如果国旗无法加载：\n1. 检查网络连接。\n2. 重新启动应用。\n3. 将应用更新至最新版本。\n4. 如果问题仍然存在，请联系支持。";
 "HTTP Error: %d" = "HTTP 错误：%d";
 "Hair Color" = "头发颜色";
 "Hair Style" = "发型";
@@ -1840,7 +1840,7 @@
 "facts.map" = "地图";
 "facts.population" = "人口";
 "facts.region" = "区域和次区域";
-"facts.settings" = "国家事实";
+"facts.settings" = "国家知识";
 "fbucks.tx.streak_restore" = "恢复连续游玩记录";
 "friends.duels.with_you" = "与你对决";
 "guide.back" = "后退";
@@ -1900,7 +1900,7 @@
 "premium.story.progress.title" = "查看您的进步";
 "premium.weekly.history" = "Premium 每周奖励";
 "premium.weekly.next" = "下次每周奖励：%@";
-"ranking.motivational.explanation" = "虚拟对手之间基于进度的位置。";
+"ranking.motivational.explanation" = "根据进度确定你在虚拟对手中的排名。";
 "ranking.motivational.title" = "励志排名";
 "registration_failed" = "注册失败。请再试一次。";
 "reset_request_failed" = "密码重置失败。请稍后重试。";
@@ -1908,7 +1908,7 @@
 "streak.recovery.body_fmt" = "你曾连续游玩 %1$d 天。花费 %2$d F-Bucks 恢复连续记录，或免费再玩一局。";
 "streak.recovery.later_btn" = "现在不要";
 "streak.recovery.pay_btn_fmt" = "恢复·%d";
-"streak.recovery.play_btn" = "播放即可恢复";
+"streak.recovery.play_btn" = "玩一局以恢复";
 "streak.recovery.title" = "连续游玩记录中断";
 "system_language" = "系统";
 "uk_language" = "Українська";
@@ -1921,11 +1921,11 @@
 "Глава государства" = "国家元首";
 "Достигни точности 80%" = "准确率达到 80%";
 "Значение гимна" = "国歌的含义";
-"Золото" = "金子";
+"Золото" = "黄金";
 "Информация о стране" = "国家信息";
 "Историческая информация о стране" = "有关国家的历史信息";
-"Как сохранить прогресс" = "如何保证您的进度安全";
-"Мастер" = "掌握";
+"Как сохранить прогресс" = "如何保存进度";
+"Мастер" = "大师";
 "Музыка" = "音乐";
 "Музыкальная культура страны" = "国家的音乐文化";
 "Население" = "人口";
@@ -1933,17 +1933,17 @@
 "Не удалось добавить в друзья. Попробуйте позже." = "无法添加该好友。请再试一次。";
 "Независимость" = "独立";
 "Описание" = "描述";
-"Описание флага" = "标志说明";
+"Описание флага" = "国旗说明";
 "Официальный язык" = "官方语言";
-"Платина" = "铂";
+"Платина" = "铂金";
 "Площадь" = "面积";
 "Правительство" = "政府";
 "Природа" = "自然";
-"Проблемы с загрузкой флагов" = "标志未加载";
-"Продли свою серию" = "延长你的连胜纪录";
+"Проблемы с загрузкой флагов" = "国旗加载问题";
+"Продли свою серию" = "延续连续游玩记录";
 "Серебро" = "银";
 "Синхронизация данных" = "数据同步";
 "Сыграй 3 игры подряд" = "连续玩 3 场比赛";
-"Телефонный код" = "拨号代码";
+"Телефонный код" = "国际电话区号";
 "Уникальная природа и ландшафты этой страны" = "这个国家独特的自然和风景";
-"Что делать если флаги не загружаются" = "如果标志未加载该怎么办";
+"Что делать если флаги не загружаются" = "国旗无法加载时怎么办";

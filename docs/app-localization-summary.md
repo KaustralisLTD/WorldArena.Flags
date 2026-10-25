@@ -41,9 +41,12 @@ No production server deployment or App Store/TestFlight release is included.
 
 Machine-readable coverage: `app-localization-audit.json`.
 
-## Subsequent AI editorial review
+## Completed AI editorial review
 
-The user requested full proofreading and selected AI editorial review. Work is
-in progress: 3,850 further entries corrected and 10,209 of 48,677 entries recorded
-as reviewed. The complete review is **not** finished. See
-`app-localization-editorial-review.md` and the per-language/key progress ledger.
+The user selected AI editorial review. All 48,677 entries in the
+30 language catalogs have now been individually reviewed, with 12,690
+distinct entries corrected against the editorial baseline and no pending keys.
+This includes all sections and locale-specific extras, not only notifications.
+See `app-localization-editorial-review.md` for scope, corrections, sources,
+validation and per-language totals. The exact reviewed values and before/after
+changes are stored in `app-localization-editorial-progress.json`.
