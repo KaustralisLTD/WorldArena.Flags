@@ -34,6 +34,21 @@ extension AppNotificationLogItem {
     let nudge = AppNotificationLogItem(id: "nudge", title: "Alice reminds you", body: "Don't give up! You've got this!", date: nil, source: "server", kind: "nudge")
     for language in languages {
         lm.currentBundleLanguageCode = language
+        let englishPath = Bundle.main.path(forResource: "en", ofType: "lproj")!
+        let data = try! Data(contentsOf: URL(fileURLWithPath: englishPath).appendingPathComponent("Localizable.strings"))
+        let english = try! PropertyListSerialization.propertyList(from: data, format: nil) as! [String: String]
+        let localePath = Bundle.main.path(forResource: language, ofType: "lproj")!
+        let localeBundle = Bundle(path: localePath)!
+        for key in english.keys {
+            let value = localeBundle.localizedString(forKey: key, value: "__MISSING__", table: nil)
+            assert(value != "__MISSING__" && !value.isEmpty, "Missing bundled translation: \(language) / \(key)")
+        }
+        let timer = String(format: lm.localizedString("You will receive +%d new lives in %02d:%02d"), 7, 12, 34)
+        assert(timer.contains("12:34") && timer.contains("7"), "Reordered timer arguments: \(language) / \(timer)")
+        let recovery = String(format: lm.localizedString("streak.recovery.body_fmt"), 17, 23)
+        assert(recovery.contains("17") && recovery.contains("23"), "Lost recovery arguments: \(language)")
+        let accuracy = String(format: lm.localizedString("Теперь вы можете без единой ошибки отвечать на все наши вопросы с точностью в %d%%"), 87)
+        assert(accuracy.contains("87%"), "Missing formatted accuracy: \(language)")
         assert(level.displayTitle == lm.localizedString("Уровень") + " 100")
         assert(level.displayBody == lm.localizedString("Well done! Keep practicing!") + " · 99000 XP")
         assert(achievement.displayTitle == lm.localizedString("Достижения"))
@@ -63,6 +78,6 @@ extension AppNotificationLogItem {
     let restored = try! JSONDecoder().decode(AppNotificationLogItem.self, from: json)
     assert(restored.displayTitle == level.displayTitle && restored.readAt == level.readAt)
     assert(level.readAt == nil && level.deduplicationKey == "level_100")
-    print("Notification localization: 30 languages, cached events, old English payloads, names, scores and read state passed")
+    print("Localization: all app keys in 30 bundles, timers, recovery, accuracy, cached events, names, scores and read state passed")
 }
 MainActor.assumeIsolated { verifyNotifications() }

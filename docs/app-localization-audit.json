@@ -1,0 +1,217 @@
+{
+  "locales": 30,
+  "base_keys": 1613,
+  "errors": [],
+  "languages": [
+    {
+      "locale": "ar",
+      "missing": [],
+      "empty": [],
+      "format_mismatches": [],
+      "unresolved_markers": []
+    },
+    {
+      "locale": "bn",
+      "missing": [],
+      "empty": [],
+      "format_mismatches": [],
+      "unresolved_markers": []
+    },
+    {
+      "locale": "ca",
+      "missing": [],
+      "empty": [],
+      "format_mismatches": [],
+      "unresolved_markers": []
+    },
+    {
+      "locale": "cs",
+      "missing": [],
+      "empty": [],
+      "format_mismatches": [],
+      "unresolved_markers": []
+    },
+    {
+      "locale": "de",
+      "missing": [],
+      "empty": [],
+      "format_mismatches": [],
+      "unresolved_markers": []
+    },
+    {
+      "locale": "el",
+      "missing": [],
+      "empty": [],
+      "format_mismatches": [],
+      "unresolved_markers": []
+    },
+    {
+      "locale": "en",
+      "missing": [],
+      "empty": [],
+      "format_mismatches": [],
+      "unresolved_markers": []
+    },
+    {
+      "locale": "es",
+      "missing": [],
+      "empty": [],
+      "format_mismatches": [],
+      "unresolved_markers": []
+    },
+    {
+      "locale": "fil",
+      "missing": [],
+      "empty": [],
+      "format_mismatches": [],
+      "unresolved_markers": []
+    },
+    {
+      "locale": "fr",
+      "missing": [],
+      "empty": [],
+      "format_mismatches": [],
+      "unresolved_markers": []
+    },
+    {
+      "locale": "hi",
+      "missing": [],
+      "empty": [],
+      "format_mismatches": [],
+      "unresolved_markers": []
+    },
+    {
+      "locale": "hu",
+      "missing": [],
+      "empty": [],
+      "format_mismatches": [],
+      "unresolved_markers": []
+    },
+    {
+      "locale": "id",
+      "missing": [],
+      "empty": [],
+      "format_mismatches": [],
+      "unresolved_markers": []
+    },
+    {
+      "locale": "it",
+      "missing": [],
+      "empty": [],
+      "format_mismatches": [],
+      "unresolved_markers": []
+    },
+    {
+      "locale": "ja",
+      "missing": [],
+      "empty": [],
+      "format_mismatches": [],
+      "unresolved_markers": []
+    },
+    {
+      "locale": "ko",
+      "missing": [],
+      "empty": [],
+      "format_mismatches": [],
+      "unresolved_markers": []
+    },
+    {
+      "locale": "nl",
+      "missing": [],
+      "empty": [],
+      "format_mismatches": [],
+      "unresolved_markers": []
+    },
+    {
+      "locale": "pl",
+      "missing": [],
+      "empty": [],
+      "format_mismatches": [],
+      "unresolved_markers": []
+    },
+    {
+      "locale": "pt-BR",
+      "missing": [],
+      "empty": [],
+      "format_mismatches": [],
+      "unresolved_markers": []
+    },
+    {
+      "locale": "ro",
+      "missing": [],
+      "empty": [],
+      "format_mismatches": [],
+      "unresolved_markers": []
+    },
+    {
+      "locale": "ru",
+      "missing": [],
+      "empty": [],
+      "format_mismatches": [],
+      "unresolved_markers": []
+    },
+    {
+      "locale": "sv",
+      "missing": [],
+      "empty": [],
+      "format_mismatches": [],
+      "unresolved_markers": []
+    },
+    {
+      "locale": "ta",
+      "missing": [],
+      "empty": [],
+      "format_mismatches": [],
+      "unresolved_markers": []
+    },
+    {
+      "locale": "te",
+      "missing": [],
+      "empty": [],
+      "format_mismatches": [],
+      "unresolved_markers": []
+    },
+    {
+      "locale": "th",
+      "missing": [],
+      "empty": [],
+      "format_mismatches": [],
+      "unresolved_markers": []
+    },
+    {
+      "locale": "tr",
+      "missing": [],
+      "empty": [],
+      "format_mismatches": [],
+      "unresolved_markers": []
+    },
+    {
+      "locale": "uk",
+      "missing": [],
+      "empty": [],
+      "format_mismatches": [],
+      "unresolved_markers": []
+    },
+    {
+      "locale": "vi",
+      "missing": [],
+      "empty": [],
+      "format_mismatches": [],
+      "unresolved_markers": []
+    },
+    {
+      "locale": "zh-Hant",
+      "missing": [],
+      "empty": [],
+      "format_mismatches": [],
+      "unresolved_markers": []
+    },
+    {
+      "locale": "zh",
+      "missing": [],
+      "empty": [],
+      "format_mismatches": [],
+      "unresolved_markers": []
+    }
+  ]
+}

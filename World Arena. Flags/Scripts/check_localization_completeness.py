@@ -49,8 +49,8 @@ def main() -> int:
     parser.add_argument(
         "--locales",
         nargs="+",
-        default=["ru", "uk", "es", "ca", "zh", "de", "fr", "it", "pt-BR", "pl", "nl"],
-        help="Locales to verify against base",
+        default=None,
+        help="Locales to verify against base (default: every available locale)",
     )
     args = parser.parse_args()
 
@@ -69,7 +69,8 @@ def main() -> int:
     print("-" * 60)
 
     has_issues = False
-    for locale in args.locales:
+    locales = args.locales or sorted(p.name[:-6] for p in resources_root.glob('*.lproj'))
+    for locale in locales:
         locale_path = resources_root / f"{locale}.lproj" / "Localizable.strings"
         if not locale_path.exists():
             has_issues = True

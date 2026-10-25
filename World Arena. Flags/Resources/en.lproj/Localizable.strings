@@ -934,7 +934,7 @@
 "Текущая серия" = "Current Streak";
 "дней" = "days";
 "Точность" = "Accuracy";
-"Теперь вы можете без единой ошибки отвечать на все наши вопросы с точностью в %d%%" = "";
+"Теперь вы можете без единой ошибки отвечать на все наши вопросы с точностью в %d%%" = "You can now answer our questions with %d%% accuracy.";
 "Мы будем рады, если вы захотите снова вернуться к нам!" = "We would be happy if you want to return to us again!";
 "Продолжить" = "Continue";
 
@@ -1126,7 +1126,7 @@
 "How is Mastered calculated?" = "How is Mastered calculated?";
 "Duel Summary subtitle" = "See your duel history and detailed results";
 "F-Bucks subtitle" = "Earn and spend F-Bucks, the in‑game currency";
-"Mastered explanation" = "A country counts as mastered when you have answered it at least 3 times and have at least 80%% correct answers.";
+"Mastered explanation" = "A country counts as mastered when you have answered it at least 3 times and have at least 80% correct answers.";
 "Name" = "Name";
 "Account login title" = "Create your account";
 "Account login subtitle" = "Keep guest mode or sign in to save identity and security features";

@@ -10,6 +10,9 @@ on:
       - 'World Arena. Flags/Views/FriendRequestsView.swift'
       - 'Server/**'
       - 'scripts/*notification*'
+      - 'scripts/audit_app_localization.py'
+      - 'Tests/LocalizationCatalog/**'
+      - 'World Arena. Flags/Views/NewView.swift'
       - 'Tests/NotificationLocalization/**'
 permissions:
   contents: read
@@ -23,6 +26,10 @@ jobs:
           node-version: '22'
       - name: Verify all 30 notification catalogs
         run: python3 scripts/audit_notification_localization.py
+      - name: Verify complete app catalogs and format arguments
+        run: |
+          python3 Tests/LocalizationCatalog/test_catalog.py
+          python3 scripts/audit_app_localization.py
       - name: Install server test dependencies cleanly
         run: |
           rm -rf Server/node_modules

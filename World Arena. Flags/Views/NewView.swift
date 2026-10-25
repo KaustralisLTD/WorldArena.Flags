@@ -1986,7 +1986,7 @@ struct SubscriptionCancellationView: View {
                         
                         // Encouragement message
                         VStack(spacing: 12) {
-                            Text(localizationManager.localizedString("Теперь вы можете без единой ошибки отвечать на все наши вопросы с точностью в \(Int(userProfile.accuracy))%"))
+                            Text(String(format: localizationManager.localizedString("Теперь вы можете без единой ошибки отвечать на все наши вопросы с точностью в %d%%"), Int(min(100, max(0, userProfile.accuracy)))))
                                 .font(.system(size: 16, weight: .medium))
                                 .multilineTextAlignment(.center)
                                 .foregroundColor(.secondary)
