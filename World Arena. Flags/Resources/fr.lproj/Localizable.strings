@@ -1846,3 +1846,24 @@
 "achievement.friends_10.title" = "Des amis dans le monde entier";
 "achievement.friends_10.body" = "Ajoutez 10 amis";
 "inbox.duelTimeUnavailable" = "Le temps de ce duel n’a pas été enregistré.";
+
+/* Notification event localization */
+"inbox.progressCTA" = "Voir ma progression";
+"inbox.rank" = "Votre position";
+"inbox.leagueStory" = "Consultez votre classement dans la ligue et choisissez un objectif pour la nouvelle semaine.";
+"inbox.levelStory" = "Vos connaissances grandissent avec chaque drapeau. Essayez une autre difficulté ou région.";
+"inbox.achievementStory" = "Ouvrez vos succès pour voir vos récompenses et votre progression vers le prochain objectif.";
+"inbox.duelStory" = "Ouvrez les résultats des duels pour comparer les scores. Les parties terminées restent dans votre historique.";
+"inbox.messageStory" = "Vous pouvez retrouver ce message dans votre historique de notifications après l’avoir lu.";
+"friends.requests.title" = "Demandes d’amitié";
+"friends.requests.body" = "Vous a ajouté comme ami. Voulez-vous l’ajouter en retour ?";
+"notification.nudge.title" = "%@ vous le rappelle";
+"nudge_phrase_16" = "Vous n’avez pas encore terminé votre leçon quotidienne sur les drapeaux !";
+
+/* Friend notification actions */
+"friends.requests.accept" = "Ajouter en retour";
+"friends.requests.decline" = "Refuser";
+"friends.requests.done" = "Terminé";
+"friends.requests.empty" = "Aucune nouvelle demande d’amitié";
+"friends.requests.error" = "Impossible de terminer l’action. Réessayez.";
+"friends.requests.signin" = "Connectez-vous pour voir les demandes d’amitié et y répondre.";

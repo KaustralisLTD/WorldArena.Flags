@@ -291,7 +291,7 @@ final class DuelAPIService {
         var request = URLRequest(url: url)
         request.httpMethod = "POST"
         request.setValue("application/json", forHTTPHeaderField: "Content-Type")
-        var body: [String: Any] = ["userId": userId, "username": username]
+        var body: [String: Any] = ["userId": userId, "username": username, "locale": LocalizationLanguageResolver.resolvedAppLanguageCodeForMetadata()]
         body["duelResultsNotifications"] = UserDefaults.standard.object(forKey: "notificationsEnabled") as? Bool != false && ((UserDefaults.standard.object(forKey: "duelResultsNotifications") as? Bool) ?? true)
         body["duelInvitesNotifications"] = UserDefaults.standard.object(forKey: "notificationsEnabled") as? Bool != false && ((UserDefaults.standard.object(forKey: "duelInvitesNotifications") as? Bool) ?? true)
         if let token = deviceToken { body["deviceToken"] = token }

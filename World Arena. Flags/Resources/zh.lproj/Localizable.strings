@@ -1753,3 +1753,24 @@
 "achievement.friends_10.title" = "世界各地的朋友";
 "achievement.friends_10.body" = "添加10位好友";
 "inbox.duelTimeUnavailable" = "此对决的用时未保存。";
+
+/* Notification event localization */
+"inbox.progressCTA" = "查看我的进度";
+"inbox.rank" = "你的排名";
+"inbox.leagueStory" = "查看联赛排名，为新的一周选择目标。";
+"inbox.levelStory" = "每认识一面旗帜，知识就更丰富。试试其他难度或地区。";
+"inbox.achievementStory" = "打开成就，查看奖励和下一个目标的进度。";
+"inbox.duelStory" = "打开对决结果比较分数。已完成的比赛会保留在历史记录中。";
+"inbox.messageStory" = "阅读后，你仍可在通知历史中查看这条消息。";
+"friends.requests.title" = "好友请求";
+"friends.requests.body" = "已添加你为好友。你也要添加对方吗？";
+"notification.nudge.title" = "%@ 提醒你";
+"nudge_phrase_16" = "你还没有完成今天的旗帜课程！";
+
+/* Friend notification actions */
+"friends.requests.accept" = "也添加对方";
+"friends.requests.decline" = "拒绝";
+"friends.requests.done" = "完成";
+"friends.requests.empty" = "没有新的好友请求";
+"friends.requests.error" = "操作失败，请重试。";
+"friends.requests.signin" = "登录以查看和回应好友请求。";

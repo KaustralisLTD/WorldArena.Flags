@@ -1,7 +1,9 @@
 
 'use strict';
 const crypto=require('node:crypto');
+const localization=require('./notification-localization');
 function initialize(db) {
+ if(!db.prepare('PRAGMA table_info(users)').all().some(c=>c.name==='notification_locale'))db.exec('ALTER TABLE users ADD COLUMN notification_locale TEXT');
  db.exec(`CREATE TABLE IF NOT EXISTS notification_inbox(id TEXT PRIMARY KEY,username TEXT NOT NULL REFERENCES users(username) ON DELETE CASCADE,title TEXT NOT NULL,body TEXT NOT NULL,kind TEXT NOT NULL,created_at INTEGER NOT NULL,read_at INTEGER); CREATE INDEX IF NOT EXISTS notification_inbox_user_unread ON notification_inbox(username,read_at)`);
  for(const name of ['target','details'])if(!db.prepare('PRAGMA table_info(notification_inbox)').all().some(c=>c.name===name))db.exec('ALTER TABLE notification_inbox ADD COLUMN '+name+' TEXT');
 }
@@ -18,7 +20,7 @@ function record(db,token,notification,explicitAlert) {
  const user=db.prepare('SELECT username FROM users WHERE device_token=?').get(token);if(!user)return;
  const payload=notification.payload||{};
  const id=payload.notificationId || (payload.challengeId?`${payload.type}:${payload.challengeId}:${user.username}`:crypto.randomUUID());
- recordForUser(db,user.username,{id,title,body,kind:payload.type||'message',target:payload.challengeId||null});
+ recordForUser(db,user.username,{id,title,body,kind:payload.type||'message',target:payload.challengeId||null,details:payload.details||null});
  notification.payload={...payload,notificationId:id};
  notification.badge=db.prepare('SELECT COUNT(*) AS n FROM (SELECT read_at FROM notification_inbox WHERE username=? ORDER BY created_at DESC LIMIT 200) WHERE read_at IS NULL').get(user.username).n;
 }
@@ -26,6 +28,8 @@ function install(app,db,authenticate) {
  initialize(db);
  app.get('/api/v1/notifications', (req,res)=>{
   const user=authenticate(req);if(!user)return res.status(401).json({error:'Sign in required'});
+  localization.saveLocale(db,user.username,req.headers?.['accept-language']);
+  const language=localization.recipientLocale(db,{username:user.username});
   if(db.prepare("SELECT name FROM sqlite_master WHERE type='table' AND name='duel_challenges'").get() && db.prepare('PRAGMA table_info(duel_challenges)').all().some(c=>c.name==='id')) {
    db.prepare("UPDATE notification_inbox SET read_at=? WHERE username=? AND kind='duel_challenge' AND read_at IS NULL AND EXISTS(SELECT 1 FROM duel_challenges d WHERE (notification_inbox.target=d.id OR notification_inbox.id='duel_challenge:'||d.id||':'||notification_inbox.username) AND (d.status NOT IN ('pending','challenger_completed') OR d.opponent_score IS NOT NULL))").run(Date.now(),user.username);
   }
@@ -35,7 +39,8 @@ function install(app,db,authenticate) {
   const canHydrate=['id','challenger_id','opponent_id','challenger_time_ms','opponent_time_ms'].every(c=>duelColumns.includes(c));
   const findDuel=canHydrate?db.prepare('SELECT * FROM duel_challenges WHERE id=? AND (challenger_id=? OR opponent_id=?)'):null;
   const items=rows.map(r=>{
-   let details=r.details?JSON.parse(r.details):null;
+   let details=null;try{details=r.details?JSON.parse(r.details):null}catch(_){/* retain the historical message */}
+   details=localization.detailsFor(r.kind,details||{},r);
    if(canHydrate && (r.kind==='duel_result' || r.kind==='duel_challenge') && r.target){
     const duel=findDuel.get(r.target,user.username,user.username);
     if(duel){const own=duel.challenger_id===user.username;
@@ -47,7 +52,11 @@ function install(app,db,authenticate) {
      }
     }
    }
-   return {...r,details};
+   if(r.kind==='lifecycle' && !details.localizedTitles && r.target && db.prepare("SELECT name FROM sqlite_master WHERE type='table' AND name='lifecycle_contacts'").get()){
+    const contact=db.prepare('SELECT journey FROM lifecycle_contacts WHERE id=? AND username=?').get(r.target,user.username);
+    if(contact)details={...details,...localization.legacyLifecycleDetails(contact.journey,r)};
+   }
+   return {...r,...localization.render(r.kind,details,language,r),details};
   });
   res.set('Cache-Control','no-store').json({selectiveRead:true,items,unread:rows.filter(x=>x.readAt===null).length});
  });

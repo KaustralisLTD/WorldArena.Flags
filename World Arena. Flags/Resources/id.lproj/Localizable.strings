@@ -1861,3 +1861,24 @@
 "achievement.friends_10.title" = "Teman di seluruh dunia";
 "achievement.friends_10.body" = "Tambahkan 10 teman";
 "inbox.duelTimeUnavailable" = "Waktu duel ini tidak tersimpan.";
+
+/* Notification event localization */
+"inbox.progressCTA" = "Lihat progres saya";
+"inbox.rank" = "Posisimu";
+"inbox.leagueStory" = "Lihat peringkat liga dan pilih target untuk minggu baru.";
+"inbox.levelStory" = "Pengetahuanmu bertambah dengan setiap bendera. Coba tingkat kesulitan atau wilayah lain.";
+"inbox.achievementStory" = "Buka pencapaian untuk melihat hadiah dan progres menuju target berikutnya.";
+"inbox.duelStory" = "Buka hasil duel untuk membandingkan skor. Permainan yang selesai tetap ada di riwayat.";
+"inbox.messageStory" = "Setelah dibaca, pesan ini tetap bisa dilihat di riwayat notifikasi.";
+"friends.requests.title" = "Permintaan pertemanan";
+"friends.requests.body" = "Telah menambahkanmu sebagai teman. Ingin menambahkan balik?";
+"notification.nudge.title" = "%@ mengingatkanmu";
+"nudge_phrase_16" = "Kamu belum menyelesaikan pelajaran bendera harian!";
+
+/* Friend notification actions */
+"friends.requests.accept" = "Tambahkan balik";
+"friends.requests.decline" = "Tolak";
+"friends.requests.done" = "Selesai";
+"friends.requests.empty" = "Tidak ada permintaan pertemanan baru";
+"friends.requests.error" = "Tindakan tidak dapat diselesaikan. Coba lagi.";
+"friends.requests.signin" = "Masuk untuk melihat dan menanggapi permintaan pertemanan.";

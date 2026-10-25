@@ -1861,3 +1861,24 @@
 "achievement.friends_10.title" = "Vänner över hela världen";
 "achievement.friends_10.body" = "Lägg till 10 vänner";
 "inbox.duelTimeUnavailable" = "Tiden för denna duell sparades inte.";
+
+/* Notification event localization */
+"inbox.progressCTA" = "Visa mina framsteg";
+"inbox.rank" = "Din placering";
+"inbox.leagueStory" = "Se din ligaplacering och välj ett mål för den nya veckan.";
+"inbox.levelStory" = "Dina kunskaper växer med varje flagga. Prova en annan svårighetsgrad eller region.";
+"inbox.achievementStory" = "Öppna prestationer för att se dina belöningar och framsteg mot nästa mål.";
+"inbox.duelStory" = "Öppna duellresultaten för att jämföra poäng. Avslutade spel finns kvar i historiken.";
+"inbox.messageStory" = "Du kan återvända till meddelandet i aviseringshistoriken efter att ha läst det.";
+"friends.requests.title" = "Vänförfrågningar";
+"friends.requests.body" = "Har lagt till dig som vän. Vill du lägga till personen också?";
+"notification.nudge.title" = "%@ påminner dig";
+"nudge_phrase_16" = "Du har inte slutfört din dagliga flagglektion ännu!";
+
+/* Friend notification actions */
+"friends.requests.accept" = "Lägg till tillbaka";
+"friends.requests.decline" = "Avböj";
+"friends.requests.done" = "Klart";
+"friends.requests.empty" = "Inga nya vänförfrågningar";
+"friends.requests.error" = "Åtgärden kunde inte slutföras. Försök igen.";
+"friends.requests.signin" = "Logga in för att se och besvara vänförfrågningar.";

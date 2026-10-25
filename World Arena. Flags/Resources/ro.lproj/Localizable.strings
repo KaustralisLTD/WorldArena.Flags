@@ -1861,3 +1861,24 @@
 "achievement.friends_10.title" = "Prieteni în toată lumea";
 "achievement.friends_10.body" = "Adaugă 10 prieteni";
 "inbox.duelTimeUnavailable" = "Timpul acestui duel nu a fost salvat.";
+
+/* Notification event localization */
+"inbox.progressCTA" = "Vezi progresul meu";
+"inbox.rank" = "Poziția ta";
+"inbox.leagueStory" = "Verifică poziția în ligă și alege un obiectiv pentru noua săptămână.";
+"inbox.levelStory" = "Cunoștințele tale cresc cu fiecare steag. Încearcă altă dificultate sau regiune.";
+"inbox.achievementStory" = "Deschide realizările pentru a vedea premiile și progresul spre următorul obiectiv.";
+"inbox.duelStory" = "Deschide rezultatele duelurilor pentru a compara scorurile. Jocurile încheiate rămân în istoric.";
+"inbox.messageStory" = "Poți reveni la acest mesaj în istoricul notificărilor după ce îl citești.";
+"friends.requests.title" = "Cereri de prietenie";
+"friends.requests.body" = "Te-a adăugat ca prieten. Vrei să adaugi persoana la rândul tău?";
+"notification.nudge.title" = "%@ îți amintește";
+"nudge_phrase_16" = "Nu ai terminat încă lecția zilnică despre steaguri!";
+
+/* Friend notification actions */
+"friends.requests.accept" = "Adaugă la rândul tău";
+"friends.requests.decline" = "Refuză";
+"friends.requests.done" = "Gata";
+"friends.requests.empty" = "Nu sunt cereri noi de prietenie";
+"friends.requests.error" = "Acțiunea nu a putut fi finalizată. Încearcă din nou.";
+"friends.requests.signin" = "Autentifică-te pentru a vedea cererile de prietenie și a răspunde.";

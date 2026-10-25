@@ -1861,3 +1861,24 @@
 "achievement.friends_10.title" = "Barátok szerte a világon";
 "achievement.friends_10.body" = "Adj hozzá 10 barátot";
 "inbox.duelTimeUnavailable" = "A párbaj ideje nem lett mentve.";
+
+/* Notification event localization */
+"inbox.progressCTA" = "Haladásom megtekintése";
+"inbox.rank" = "Helyezésed";
+"inbox.leagueStory" = "Nézd meg a ligahelyezésedet, és válassz célt az új hétre.";
+"inbox.levelStory" = "Tudásod minden zászlóval bővül. Próbálj más nehézséget vagy régiót.";
+"inbox.achievementStory" = "Nyisd meg az eredményeket a jutalmak és a következő célhoz vezető haladás megtekintéséhez.";
+"inbox.duelStory" = "Nyisd meg a párbajeredményeket a pontszámok összehasonlításához. A befejezett játékok megmaradnak az előzményekben.";
+"inbox.messageStory" = "Elolvasás után is visszatérhetsz ehhez az üzenethez az értesítési előzményekben.";
+"friends.requests.title" = "Ismerősnek jelölések";
+"friends.requests.body" = "Hozzáadott az ismerőseihez. Te is hozzáadod?";
+"notification.nudge.title" = "%@ emlékeztet";
+"nudge_phrase_16" = "Még nem fejezted be a napi zászlóleckét!";
+
+/* Friend notification actions */
+"friends.requests.accept" = "Visszajelölés";
+"friends.requests.decline" = "Elutasítás";
+"friends.requests.done" = "Kész";
+"friends.requests.empty" = "Nincs új ismerősnek jelölés";
+"friends.requests.error" = "A művelet nem sikerült. Próbáld újra.";
+"friends.requests.signin" = "Jelentkezz be az ismerősnek jelölések megtekintéséhez és megválaszolásához.";

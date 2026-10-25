@@ -1848,3 +1848,24 @@
 "achievement.friends_10.title" = "Vrienden over de hele wereld";
 "achievement.friends_10.body" = "Voeg 10 vrienden toe";
 "inbox.duelTimeUnavailable" = "De tijd van dit duel is niet opgeslagen.";
+
+/* Notification event localization */
+"inbox.progressCTA" = "Mijn voortgang bekijken";
+"inbox.rank" = "Jouw positie";
+"inbox.leagueStory" = "Bekijk je positie in de competitie en kies een doel voor de nieuwe week.";
+"inbox.levelStory" = "Je kennis groeit met elke vlag. Probeer een andere moeilijkheid of regio.";
+"inbox.achievementStory" = "Open je prestaties om je beloningen en voortgang naar het volgende doel te bekijken.";
+"inbox.duelStory" = "Open de duelresultaten om scores te vergelijken. Voltooide spellen blijven in je geschiedenis.";
+"inbox.messageStory" = "Je kunt dit bericht na het lezen terugvinden in je meldingengeschiedenis.";
+"friends.requests.title" = "Vriendschapsverzoeken";
+"friends.requests.body" = "Heeft je als vriend toegevoegd. Wil je diegene ook toevoegen?";
+"notification.nudge.title" = "%@ herinnert je eraan";
+"nudge_phrase_16" = "Je hebt je dagelijkse vlaggenles nog niet voltooid!";
+
+/* Friend notification actions */
+"friends.requests.accept" = "Ook toevoegen";
+"friends.requests.decline" = "Afwijzen";
+"friends.requests.done" = "Gereed";
+"friends.requests.empty" = "Geen nieuwe vriendschapsverzoeken";
+"friends.requests.error" = "De actie is mislukt. Probeer het opnieuw.";
+"friends.requests.signin" = "Log in om vriendschapsverzoeken te bekijken en te beantwoorden.";

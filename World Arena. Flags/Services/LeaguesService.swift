@@ -170,7 +170,7 @@ final class LeaguesService: ObservableObject {
         NotificationService.shared.notifyProgress(id: "league_" + result.weekId,
             title: LocalizationManager.shared.localizedString("Лиги"), body: newLeague.localizedFullName,
             preference: "leagueNotifications", details: .init(rank: result.finalRank, participants: result.participantsCount,
-                                                            league: newLeague.localizedFullName, reward: result.rewardBucks, week: result.weekId))
+                                                            league: newLeague.localizedFullName, reward: result.rewardBucks, week: result.weekId, leagueID: newLeague.rawValue))
     }
 
     func markLeagueResultSeen() {

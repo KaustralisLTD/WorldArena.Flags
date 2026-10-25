@@ -1861,3 +1861,24 @@
 "achievement.friends_10.title" = "Φίλοι σε όλο τον κόσμο";
 "achievement.friends_10.body" = "Πρόσθεσε 10 φίλους";
 "inbox.duelTimeUnavailable" = "Ο χρόνος αυτής της μονομαχίας δεν αποθηκεύτηκε.";
+
+/* Notification event localization */
+"inbox.progressCTA" = "Προβολή της προόδου μου";
+"inbox.rank" = "Η θέση σου";
+"inbox.leagueStory" = "Δες τη θέση σου στο πρωτάθλημα και διάλεξε στόχο για τη νέα εβδομάδα.";
+"inbox.levelStory" = "Οι γνώσεις σου αυξάνονται με κάθε σημαία. Δοκίμασε άλλη δυσκολία ή περιοχή.";
+"inbox.achievementStory" = "Άνοιξε τα επιτεύγματα για να δεις βραβεία και πρόοδο προς τον επόμενο στόχο.";
+"inbox.duelStory" = "Άνοιξε τα αποτελέσματα μονομαχιών για σύγκριση βαθμών. Τα ολοκληρωμένα παιχνίδια μένουν στο ιστορικό.";
+"inbox.messageStory" = "Μπορείς να επιστρέψεις σε αυτό το μήνυμα στο ιστορικό ειδοποιήσεων αφού το διαβάσεις.";
+"friends.requests.title" = "Αιτήματα φιλίας";
+"friends.requests.body" = "Σε πρόσθεσε ως φίλο. Θέλεις να προσθέσεις κι εσύ αυτό το άτομο;";
+"notification.nudge.title" = "Ο χρήστης %@ σου υπενθυμίζει";
+"nudge_phrase_16" = "Δεν έχεις ολοκληρώσει ακόμα το καθημερινό μάθημα σημαιών!";
+
+/* Friend notification actions */
+"friends.requests.accept" = "Προσθήκη επίσης";
+"friends.requests.decline" = "Απόρριψη";
+"friends.requests.done" = "Τέλος";
+"friends.requests.empty" = "Δεν υπάρχουν νέα αιτήματα φιλίας";
+"friends.requests.error" = "Η ενέργεια δεν ολοκληρώθηκε. Δοκίμασε ξανά.";
+"friends.requests.signin" = "Συνδέσου για να δεις και να απαντήσεις σε αιτήματα φιλίας.";

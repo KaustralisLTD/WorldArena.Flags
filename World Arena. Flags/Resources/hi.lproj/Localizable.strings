@@ -1861,3 +1861,24 @@
 "achievement.friends_10.title" = "दुनिया भर में दोस्त";
 "achievement.friends_10.body" = "10 दोस्त जोड़ें";
 "inbox.duelTimeUnavailable" = "इस मुकाबले का समय सहेजा नहीं गया।";
+
+/* Notification event localization */
+"inbox.progressCTA" = "मेरी प्रगति देखें";
+"inbox.rank" = "आपका स्थान";
+"inbox.leagueStory" = "लीग में अपना स्थान देखें और नए सप्ताह के लिए अगला लक्ष्य चुनें।";
+"inbox.levelStory" = "हर झंडे के साथ आपका ज्ञान बढ़ता है। दूसरी कठिनाई या क्षेत्र आज़माएँ।";
+"inbox.achievementStory" = "अपने पुरस्कार और अगले लक्ष्य की प्रगति देखने के लिए उपलब्धियाँ खोलें।";
+"inbox.duelStory" = "स्कोर की तुलना के लिए द्वंद्व के परिणाम खोलें। पूरे हुए खेल इतिहास में रहते हैं।";
+"inbox.messageStory" = "पढ़ने के बाद आप सूचना इतिहास में इस संदेश पर लौट सकते हैं।";
+"friends.requests.title" = "मित्रता अनुरोध";
+"friends.requests.body" = "आपको मित्र बनाया है। क्या आप भी उन्हें मित्र बनाना चाहते हैं?";
+"notification.nudge.title" = "%@ आपको याद दिला रहे हैं";
+"nudge_phrase_16" = "आपने अभी तक झंडों का दैनिक पाठ पूरा नहीं किया है!";
+
+/* Friend notification actions */
+"friends.requests.accept" = "वापस मित्र बनाएँ";
+"friends.requests.decline" = "अस्वीकार करें";
+"friends.requests.done" = "हो गया";
+"friends.requests.empty" = "कोई नया मित्रता अनुरोध नहीं";
+"friends.requests.error" = "कार्रवाई पूरी नहीं हो सकी। फिर कोशिश करें।";
+"friends.requests.signin" = "मित्रता अनुरोध देखने और उत्तर देने के लिए साइन इन करें।";

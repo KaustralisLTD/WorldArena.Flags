@@ -259,8 +259,8 @@ struct NotificationSettingsView: View {
         // Запланировать уведомления на основе настроек пользователя
         if dailyReminders {
             let content = UNMutableNotificationContent()
-            content.title = LocalizationManager.shared.localizedString("World Arena Flags")
-            content.body = LocalizationManager.shared.localizedString("Время изучать флаги! Не забудьте поддержать свою серию 🔥")
+            content.title = LocalizationManager.shared.localizedString("Push Notification Title")
+            content.body = LocalizationManager.shared.localizedString("Push Notification Body")
             content.sound = .default
             
             let calendar = Calendar.current

@@ -1,0 +1,2758 @@
+# Notification localization audit
+
+Scope: all notification inbox screens, detail views, notification settings, friend requests, local reminders, achievement names/descriptions, league events and server push templates.
+
+Checked 149 keys in 30 catalogs. Notification errors: 0.
+
+## Wider catalog inventory
+
+These are missing keys elsewhere in the app compared with the English catalog. They are not silently filled with English or claimed as fixed by the notification patch.
+
+| Language | Notification gaps | Other missing base keys |
+| --- | ---: | ---: |
+| ar | 0 | 84 |
+| bn | 0 | 84 |
+| ca | 0 | 171 |
+| cs | 0 | 84 |
+| de | 0 | 95 |
+| el | 0 | 84 |
+| en | 0 | 0 |
+| es | 0 | 154 |
+| fil | 0 | 84 |
+| fr | 0 | 94 |
+| hi | 0 | 84 |
+| hu | 0 | 84 |
+| id | 0 | 84 |
+| it | 0 | 96 |
+| ja | 0 | 84 |
+| ko | 0 | 84 |
+| nl | 0 | 94 |
+| pl | 0 | 96 |
+| pt-BR | 0 | 94 |
+| ro | 0 | 84 |
+| ru | 0 | 0 |
+| sv | 0 | 84 |
+| ta | 0 | 84 |
+| te | 0 | 84 |
+| th | 0 | 84 |
+| tr | 0 | 84 |
+| uk | 0 | 57 |
+| vi | 0 | 84 |
+| zh-Hant | 0 | 84 |
+| zh | 0 | 169 |
+
+### ar
+
+- `Check your internet connection`
+- `appIcon.automatic`
+- `appIcon.choose`
+- `appIcon.suggestion`
+- `coins`
+- `duel.error.notYours`
+- `education.fbucks.body`
+- `education.fbucks.done`
+- `education.fbucks.shop`
+- `education.fbucks.title`
+- `facts.area`
+- `facts.capital`
+- `facts.explanation`
+- `facts.map`
+- `facts.population`
+- `facts.region`
+- `facts.settings`
+- `fbucks.tx.streak_restore`
+- `friends.duels.with_you`
+- `guide.back`
+- `guide.done`
+- `guide.fbucks.body`
+- `guide.fbucks.title`
+- `guide.friends.body`
+- `guide.friends.title`
+- `guide.next`
+- `guide.play.body`
+- `guide.play.title`
+- `guide.replay`
+- `guide.settings.body`
+- `guide.settings.title`
+- `guide.skip`
+- `guide.streak.body`
+- `guide.streak.title`
+- `learning.anthem.excerpt`
+- `learning.anthem.full_lyrics_source`
+- `learning.anthem.recording_source`
+- `learning.anthem.shared_fmt`
+- `learning.anthem.unavailable`
+- `learning.country.discover`
+- `premium.benefit.anthems.body`
+- `premium.benefit.anthems.title`
+- `premium.benefit.avatar.body`
+- `premium.benefit.avatar.title`
+- `premium.benefit.countries.body`
+- `premium.benefit.countries.title`
+- `premium.benefit.erudite.body`
+- `premium.benefit.erudite.title`
+- `premium.benefit.learning.body`
+- `premium.benefit.learning.title`
+- `premium.benefit.lives.body`
+- `premium.benefit.lives.title`
+- `premium.benefit.map.body`
+- `premium.benefit.map.title`
+- `premium.benefit.mistakes.body`
+- `premium.benefit.mistakes.title`
+- `premium.benefit.weekly.body`
+- `premium.benefit.weekly.title`
+- `premium.details.collapsed`
+- `premium.details.expanded`
+- `premium.family.body`
+- `premium.family.title`
+- `premium.story.countries.body`
+- `premium.story.countries.title`
+- `premium.story.enlarge`
+- `premium.story.example`
+- `premium.story.headline`
+- `premium.story.intro`
+- `premium.story.map.body`
+- `premium.story.map.title`
+- `premium.story.practice.body`
+- `premium.story.practice.title`
+- `premium.story.progress.body`
+- `premium.story.progress.title`
+- `premium.weekly.history`
+- `premium.weekly.next`
+- `ranking.motivational.explanation`
+- `ranking.motivational.title`
+- `streak.recovery.body_fmt`
+- `streak.recovery.later_btn`
+- `streak.recovery.pay_btn_fmt`
+- `streak.recovery.play_btn`
+- `streak.recovery.title`
+- `Не удалось добавить в друзья. Попробуйте позже.`
+
+### bn
+
+- `Check your internet connection`
+- `appIcon.automatic`
+- `appIcon.choose`
+- `appIcon.suggestion`
+- `coins`
+- `duel.error.notYours`
+- `education.fbucks.body`
+- `education.fbucks.done`
+- `education.fbucks.shop`
+- `education.fbucks.title`
+- `facts.area`
+- `facts.capital`
+- `facts.explanation`
+- `facts.map`
+- `facts.population`
+- `facts.region`
+- `facts.settings`
+- `fbucks.tx.streak_restore`
+- `friends.duels.with_you`
+- `guide.back`
+- `guide.done`
+- `guide.fbucks.body`
+- `guide.fbucks.title`
+- `guide.friends.body`
+- `guide.friends.title`
+- `guide.next`
+- `guide.play.body`
+- `guide.play.title`
+- `guide.replay`
+- `guide.settings.body`
+- `guide.settings.title`
+- `guide.skip`
+- `guide.streak.body`
+- `guide.streak.title`
+- `learning.anthem.excerpt`
+- `learning.anthem.full_lyrics_source`
+- `learning.anthem.recording_source`
+- `learning.anthem.shared_fmt`
+- `learning.anthem.unavailable`
+- `learning.country.discover`
+- `premium.benefit.anthems.body`
+- `premium.benefit.anthems.title`
+- `premium.benefit.avatar.body`
+- `premium.benefit.avatar.title`
+- `premium.benefit.countries.body`
+- `premium.benefit.countries.title`
+- `premium.benefit.erudite.body`
+- `premium.benefit.erudite.title`
+- `premium.benefit.learning.body`
+- `premium.benefit.learning.title`
+- `premium.benefit.lives.body`
+- `premium.benefit.lives.title`
+- `premium.benefit.map.body`
+- `premium.benefit.map.title`
+- `premium.benefit.mistakes.body`
+- `premium.benefit.mistakes.title`
+- `premium.benefit.weekly.body`
+- `premium.benefit.weekly.title`
+- `premium.details.collapsed`
+- `premium.details.expanded`
+- `premium.family.body`
+- `premium.family.title`
+- `premium.story.countries.body`
+- `premium.story.countries.title`
+- `premium.story.enlarge`
+- `premium.story.example`
+- `premium.story.headline`
+- `premium.story.intro`
+- `premium.story.map.body`
+- `premium.story.map.title`
+- `premium.story.practice.body`
+- `premium.story.practice.title`
+- `premium.story.progress.body`
+- `premium.story.progress.title`
+- `premium.weekly.history`
+- `premium.weekly.next`
+- `ranking.motivational.explanation`
+- `ranking.motivational.title`
+- `streak.recovery.body_fmt`
+- `streak.recovery.later_btn`
+- `streak.recovery.pay_btn_fmt`
+- `streak.recovery.play_btn`
+- `streak.recovery.title`
+- `Не удалось добавить в друзья. Попробуйте позже.`
+
+### ca
+
+- `10Ч`
+- `Accessories`
+- `Add Friends`
+- `August Mission`
+- `Best streak`
+- `Check your internet connection`
+- `Create Avatar`
+- `Current streak`
+- `Difficulty`
+- `Don't break the chain! Come back tomorrow!`
+- `Empty response from server`
+- `Eye Color`
+- `Eye Shape`
+- `Eyebrows`
+- `Face Shape`
+- `Facial Hair`
+- `Friend Streaks`
+- `Game Over!`
+- `Gender`
+- `Glasses`
+- `HELP_TECH_DATA_SYNC`
+- `HELP_TECH_FLAGS_NOT_LOADING`
+- `HTTP Error: %d`
+- `Hair Color`
+- `Hair Style`
+- `Loading...`
+- `Monthly Badges`
+- `Mouth`
+- `No Internet Connection`
+- `Nose`
+- `Not enough countries in selected regions (found %d, need at least 4)`
+- `Outfit`
+- `Overview`
+- `Remove Photo`
+- `Request Timeout`
+- `Select Photo`
+- `Server Not Found`
+- `Sign in with Apple ID in Settings → App Store to see prices. Tap an option or Retry to try again.`
+- `Sign in with Apple error 1000`
+- `Skin Tone`
+- `Tap to load price`
+- `Too Many Requests`
+- `Total XP`
+- `Total games`
+- `Upload Photo`
+- `Virtual opponent`
+- `appIcon.automatic`
+- `appIcon.choose`
+- `appIcon.suggestion`
+- `ca_language`
+- `coins`
+- `duel.error.notYours`
+- `education.fbucks.body`
+- `education.fbucks.done`
+- `education.fbucks.shop`
+- `education.fbucks.title`
+- `es_language`
+- `facts.area`
+- `facts.capital`
+- `facts.explanation`
+- `facts.map`
+- `facts.population`
+- `facts.region`
+- `facts.settings`
+- `fbucks.tx.streak_restore`
+- `friends.duels.with_you`
+- `guide.back`
+- `guide.done`
+- `guide.fbucks.body`
+- `guide.fbucks.title`
+- `guide.friends.body`
+- `guide.friends.title`
+- `guide.next`
+- `guide.play.body`
+- `guide.play.title`
+- `guide.replay`
+- `guide.settings.body`
+- `guide.settings.title`
+- `guide.skip`
+- `guide.streak.body`
+- `guide.streak.title`
+- `learning.anthem.excerpt`
+- `learning.anthem.full_lyrics_source`
+- `learning.anthem.recording_source`
+- `learning.anthem.shared_fmt`
+- `learning.anthem.unavailable`
+- `learning.country.discover`
+- `premium.benefit.anthems.body`
+- `premium.benefit.anthems.title`
+- `premium.benefit.avatar.body`
+- `premium.benefit.avatar.title`
+- `premium.benefit.countries.body`
+- `premium.benefit.countries.title`
+- `premium.benefit.erudite.body`
+- `premium.benefit.erudite.title`
+- `premium.benefit.learning.body`
+- `premium.benefit.learning.title`
+- `premium.benefit.lives.body`
+- `premium.benefit.lives.title`
+- `premium.benefit.map.body`
+- `premium.benefit.map.title`
+- `premium.benefit.mistakes.body`
+- `premium.benefit.mistakes.title`
+- `premium.benefit.weekly.body`
+- `premium.benefit.weekly.title`
+- `premium.details.collapsed`
+- `premium.details.expanded`
+- `premium.family.body`
+- `premium.family.title`
+- `premium.story.countries.body`
+- `premium.story.countries.title`
+- `premium.story.enlarge`
+- `premium.story.example`
+- `premium.story.headline`
+- `premium.story.intro`
+- `premium.story.map.body`
+- `premium.story.map.title`
+- `premium.story.practice.body`
+- `premium.story.practice.title`
+- `premium.story.progress.body`
+- `premium.story.progress.title`
+- `premium.weekly.history`
+- `premium.weekly.next`
+- `ranking.motivational.explanation`
+- `ranking.motivational.title`
+- `registration_failed`
+- `reset_request_failed`
+- `ru_language`
+- `streak.recovery.body_fmt`
+- `streak.recovery.later_btn`
+- `streak.recovery.pay_btn_fmt`
+- `streak.recovery.play_btn`
+- `streak.recovery.title`
+- `system_language`
+- `uk_language`
+- `zh_language`
+- `Алмаз`
+- `Валюта`
+- `Введите имя`
+- `Галерея`
+- `Гимн страны`
+- `Глава государства`
+- `Достигни точности 80%`
+- `Значение гимна`
+- `Золото`
+- `Информация о стране`
+- `Историческая информация о стране`
+- `Как сохранить прогресс`
+- `МЕСЯЧНЫЕ ЦЕЛИ`
+- `Мастер`
+- `Музыка`
+- `Музыкальная культура страны`
+- `Население`
+- `Национальный гимн`
+- `Не удалось добавить в друзья. Попробуйте позже.`
+- `Независимость`
+- `Описание`
+- `Описание флага`
+- `Официальный язык`
+- `Платина`
+- `Площадь`
+- `Правительство`
+- `Природа`
+- `Проблемы с загрузкой флагов`
+- `Продли свою серию`
+- `Серебро`
+- `Синхронизация данных`
+- `Сыграй 3 игры подряд`
+- `Телефонный код`
+- `Уникальная природа и ландшафты этой страны`
+- `Что делать если флаги не загружаются`
+
+### cs
+
+- `Check your internet connection`
+- `appIcon.automatic`
+- `appIcon.choose`
+- `appIcon.suggestion`
+- `coins`
+- `duel.error.notYours`
+- `education.fbucks.body`
+- `education.fbucks.done`
+- `education.fbucks.shop`
+- `education.fbucks.title`
+- `facts.area`
+- `facts.capital`
+- `facts.explanation`
+- `facts.map`
+- `facts.population`
+- `facts.region`
+- `facts.settings`
+- `fbucks.tx.streak_restore`
+- `friends.duels.with_you`
+- `guide.back`
+- `guide.done`
+- `guide.fbucks.body`
+- `guide.fbucks.title`
+- `guide.friends.body`
+- `guide.friends.title`
+- `guide.next`
+- `guide.play.body`
+- `guide.play.title`
+- `guide.replay`
+- `guide.settings.body`
+- `guide.settings.title`
+- `guide.skip`
+- `guide.streak.body`
+- `guide.streak.title`
+- `learning.anthem.excerpt`
+- `learning.anthem.full_lyrics_source`
+- `learning.anthem.recording_source`
+- `learning.anthem.shared_fmt`
+- `learning.anthem.unavailable`
+- `learning.country.discover`
+- `premium.benefit.anthems.body`
+- `premium.benefit.anthems.title`
+- `premium.benefit.avatar.body`
+- `premium.benefit.avatar.title`
+- `premium.benefit.countries.body`
+- `premium.benefit.countries.title`
+- `premium.benefit.erudite.body`
+- `premium.benefit.erudite.title`
+- `premium.benefit.learning.body`
+- `premium.benefit.learning.title`
+- `premium.benefit.lives.body`
+- `premium.benefit.lives.title`
+- `premium.benefit.map.body`
+- `premium.benefit.map.title`
+- `premium.benefit.mistakes.body`
+- `premium.benefit.mistakes.title`
+- `premium.benefit.weekly.body`
+- `premium.benefit.weekly.title`
+- `premium.details.collapsed`
+- `premium.details.expanded`
+- `premium.family.body`
+- `premium.family.title`
+- `premium.story.countries.body`
+- `premium.story.countries.title`
+- `premium.story.enlarge`
+- `premium.story.example`
+- `premium.story.headline`
+- `premium.story.intro`
+- `premium.story.map.body`
+- `premium.story.map.title`
+- `premium.story.practice.body`
+- `premium.story.practice.title`
+- `premium.story.progress.body`
+- `premium.story.progress.title`
+- `premium.weekly.history`
+- `premium.weekly.next`
+- `ranking.motivational.explanation`
+- `ranking.motivational.title`
+- `streak.recovery.body_fmt`
+- `streak.recovery.later_btn`
+- `streak.recovery.pay_btn_fmt`
+- `streak.recovery.play_btn`
+- `streak.recovery.title`
+- `Не удалось добавить в друзья. Попробуйте позже.`
+
+### de
+
+- `Check your internet connection`
+- `HELP_TECH_DATA_SYNC`
+- `HELP_TECH_FLAGS_NOT_LOADING`
+- `My Mistakes`
+- `Sign in with Apple error 1000`
+- `Virtual opponent`
+- `appIcon.automatic`
+- `appIcon.choose`
+- `appIcon.suggestion`
+- `coins`
+- `duel.error.notYours`
+- `education.fbucks.body`
+- `education.fbucks.done`
+- `education.fbucks.shop`
+- `education.fbucks.title`
+- `facts.area`
+- `facts.capital`
+- `facts.explanation`
+- `facts.map`
+- `facts.population`
+- `facts.region`
+- `facts.settings`
+- `fbucks.tx.streak_restore`
+- `friends.duels.with_you`
+- `guide.back`
+- `guide.done`
+- `guide.fbucks.body`
+- `guide.fbucks.title`
+- `guide.friends.body`
+- `guide.friends.title`
+- `guide.next`
+- `guide.play.body`
+- `guide.play.title`
+- `guide.replay`
+- `guide.settings.body`
+- `guide.settings.title`
+- `guide.skip`
+- `guide.streak.body`
+- `guide.streak.title`
+- `learning.anthem.excerpt`
+- `learning.anthem.full_lyrics_source`
+- `learning.anthem.recording_source`
+- `learning.anthem.shared_fmt`
+- `learning.anthem.unavailable`
+- `learning.country.discover`
+- `premium.benefit.anthems.body`
+- `premium.benefit.anthems.title`
+- `premium.benefit.avatar.body`
+- `premium.benefit.avatar.title`
+- `premium.benefit.countries.body`
+- `premium.benefit.countries.title`
+- `premium.benefit.erudite.body`
+- `premium.benefit.erudite.title`
+- `premium.benefit.learning.body`
+- `premium.benefit.learning.title`
+- `premium.benefit.lives.body`
+- `premium.benefit.lives.title`
+- `premium.benefit.map.body`
+- `premium.benefit.map.title`
+- `premium.benefit.mistakes.body`
+- `premium.benefit.mistakes.title`
+- `premium.benefit.weekly.body`
+- `premium.benefit.weekly.title`
+- `premium.details.collapsed`
+- `premium.details.expanded`
+- `premium.family.body`
+- `premium.family.title`
+- `premium.story.countries.body`
+- `premium.story.countries.title`
+- `premium.story.enlarge`
+- `premium.story.example`
+- `premium.story.headline`
+- `premium.story.intro`
+- `premium.story.map.body`
+- `premium.story.map.title`
+- `premium.story.practice.body`
+- `premium.story.practice.title`
+- `premium.story.progress.body`
+- `premium.story.progress.title`
+- `premium.weekly.history`
+- `premium.weekly.next`
+- `ranking.motivational.explanation`
+- `ranking.motivational.title`
+- `registration_failed`
+- `reset_request_failed`
+- `streak.recovery.body_fmt`
+- `streak.recovery.later_btn`
+- `streak.recovery.pay_btn_fmt`
+- `streak.recovery.play_btn`
+- `streak.recovery.title`
+- `Как сохранить прогресс`
+- `Не удалось добавить в друзья. Попробуйте позже.`
+- `Проблемы с загрузкой флагов`
+- `Синхронизация данных`
+- `Что делать если флаги не загружаются`
+
+### el
+
+- `Check your internet connection`
+- `appIcon.automatic`
+- `appIcon.choose`
+- `appIcon.suggestion`
+- `coins`
+- `duel.error.notYours`
+- `education.fbucks.body`
+- `education.fbucks.done`
+- `education.fbucks.shop`
+- `education.fbucks.title`
+- `facts.area`
+- `facts.capital`
+- `facts.explanation`
+- `facts.map`
+- `facts.population`
+- `facts.region`
+- `facts.settings`
+- `fbucks.tx.streak_restore`
+- `friends.duels.with_you`
+- `guide.back`
+- `guide.done`
+- `guide.fbucks.body`
+- `guide.fbucks.title`
+- `guide.friends.body`
+- `guide.friends.title`
+- `guide.next`
+- `guide.play.body`
+- `guide.play.title`
+- `guide.replay`
+- `guide.settings.body`
+- `guide.settings.title`
+- `guide.skip`
+- `guide.streak.body`
+- `guide.streak.title`
+- `learning.anthem.excerpt`
+- `learning.anthem.full_lyrics_source`
+- `learning.anthem.recording_source`
+- `learning.anthem.shared_fmt`
+- `learning.anthem.unavailable`
+- `learning.country.discover`
+- `premium.benefit.anthems.body`
+- `premium.benefit.anthems.title`
+- `premium.benefit.avatar.body`
+- `premium.benefit.avatar.title`
+- `premium.benefit.countries.body`
+- `premium.benefit.countries.title`
+- `premium.benefit.erudite.body`
+- `premium.benefit.erudite.title`
+- `premium.benefit.learning.body`
+- `premium.benefit.learning.title`
+- `premium.benefit.lives.body`
+- `premium.benefit.lives.title`
+- `premium.benefit.map.body`
+- `premium.benefit.map.title`
+- `premium.benefit.mistakes.body`
+- `premium.benefit.mistakes.title`
+- `premium.benefit.weekly.body`
+- `premium.benefit.weekly.title`
+- `premium.details.collapsed`
+- `premium.details.expanded`
+- `premium.family.body`
+- `premium.family.title`
+- `premium.story.countries.body`
+- `premium.story.countries.title`
+- `premium.story.enlarge`
+- `premium.story.example`
+- `premium.story.headline`
+- `premium.story.intro`
+- `premium.story.map.body`
+- `premium.story.map.title`
+- `premium.story.practice.body`
+- `premium.story.practice.title`
+- `premium.story.progress.body`
+- `premium.story.progress.title`
+- `premium.weekly.history`
+- `premium.weekly.next`
+- `ranking.motivational.explanation`
+- `ranking.motivational.title`
+- `streak.recovery.body_fmt`
+- `streak.recovery.later_btn`
+- `streak.recovery.pay_btn_fmt`
+- `streak.recovery.play_btn`
+- `streak.recovery.title`
+- `Не удалось добавить в друзья. Попробуйте позже.`
+
+### es
+
+- `Accessories`
+- `Add Friends`
+- `August Mission`
+- `Best streak`
+- `Check your internet connection`
+- `Create Avatar`
+- `Current streak`
+- `Difficulty`
+- `Don't break the chain! Come back tomorrow!`
+- `Empty response from server`
+- `Eye Color`
+- `Eye Shape`
+- `Eyebrows`
+- `Face Shape`
+- `Facial Hair`
+- `Friend Streaks`
+- `Game Over!`
+- `Gender`
+- `Glasses`
+- `HTTP Error: %d`
+- `Hair Color`
+- `Hair Style`
+- `Loading...`
+- `Monthly Badges`
+- `Mouth`
+- `No Internet Connection`
+- `Nose`
+- `Not enough countries in selected regions (found %d, need at least 4)`
+- `Outfit`
+- `Overview`
+- `Remove Photo`
+- `Request Timeout`
+- `Select Photo`
+- `Server Not Found`
+- `Sign in with Apple ID in Settings → App Store to see prices. Tap an option or Retry to try again.`
+- `Sign in with Apple error 1000`
+- `Skin Tone`
+- `Tap to load price`
+- `Too Many Requests`
+- `Total XP`
+- `Total games`
+- `Upload Photo`
+- `Virtual opponent`
+- `appIcon.automatic`
+- `appIcon.choose`
+- `appIcon.suggestion`
+- `ca_language`
+- `coins`
+- `duel.error.notYours`
+- `education.fbucks.body`
+- `education.fbucks.done`
+- `education.fbucks.shop`
+- `education.fbucks.title`
+- `es_language`
+- `facts.area`
+- `facts.capital`
+- `facts.explanation`
+- `facts.map`
+- `facts.population`
+- `facts.region`
+- `facts.settings`
+- `fbucks.tx.streak_restore`
+- `friends.duels.with_you`
+- `guide.back`
+- `guide.done`
+- `guide.fbucks.body`
+- `guide.fbucks.title`
+- `guide.friends.body`
+- `guide.friends.title`
+- `guide.next`
+- `guide.play.body`
+- `guide.play.title`
+- `guide.replay`
+- `guide.settings.body`
+- `guide.settings.title`
+- `guide.skip`
+- `guide.streak.body`
+- `guide.streak.title`
+- `learning.anthem.excerpt`
+- `learning.anthem.full_lyrics_source`
+- `learning.anthem.recording_source`
+- `learning.anthem.shared_fmt`
+- `learning.anthem.unavailable`
+- `learning.country.discover`
+- `premium.benefit.anthems.body`
+- `premium.benefit.anthems.title`
+- `premium.benefit.avatar.body`
+- `premium.benefit.avatar.title`
+- `premium.benefit.countries.body`
+- `premium.benefit.countries.title`
+- `premium.benefit.erudite.body`
+- `premium.benefit.erudite.title`
+- `premium.benefit.learning.body`
+- `premium.benefit.learning.title`
+- `premium.benefit.lives.body`
+- `premium.benefit.lives.title`
+- `premium.benefit.map.body`
+- `premium.benefit.map.title`
+- `premium.benefit.mistakes.body`
+- `premium.benefit.mistakes.title`
+- `premium.benefit.weekly.body`
+- `premium.benefit.weekly.title`
+- `premium.details.collapsed`
+- `premium.details.expanded`
+- `premium.family.body`
+- `premium.family.title`
+- `premium.story.countries.body`
+- `premium.story.countries.title`
+- `premium.story.enlarge`
+- `premium.story.example`
+- `premium.story.headline`
+- `premium.story.intro`
+- `premium.story.map.body`
+- `premium.story.map.title`
+- `premium.story.practice.body`
+- `premium.story.practice.title`
+- `premium.story.progress.body`
+- `premium.story.progress.title`
+- `premium.weekly.history`
+- `premium.weekly.next`
+- `ranking.motivational.explanation`
+- `ranking.motivational.title`
+- `registration_failed`
+- `reset_request_failed`
+- `ru_language`
+- `streak.recovery.body_fmt`
+- `streak.recovery.later_btn`
+- `streak.recovery.pay_btn_fmt`
+- `streak.recovery.play_btn`
+- `streak.recovery.title`
+- `system_language`
+- `uk_language`
+- `zh_language`
+- `Валюта`
+- `Галерея`
+- `Гимн страны`
+- `Глава государства`
+- `Значение гимна`
+- `Информация о стране`
+- `Историческая информация о стране`
+- `Музыка`
+- `Музыкальная культура страны`
+- `Население`
+- `Национальный гимн`
+- `Не удалось добавить в друзья. Попробуйте позже.`
+- `Независимость`
+- `Описание`
+- `Описание флага`
+- `Официальный язык`
+- `Площадь`
+- `Правительство`
+- `Природа`
+- `Телефонный код`
+- `Уникальная природа и ландшафты этой страны`
+
+### fil
+
+- `Check your internet connection`
+- `appIcon.automatic`
+- `appIcon.choose`
+- `appIcon.suggestion`
+- `coins`
+- `duel.error.notYours`
+- `education.fbucks.body`
+- `education.fbucks.done`
+- `education.fbucks.shop`
+- `education.fbucks.title`
+- `facts.area`
+- `facts.capital`
+- `facts.explanation`
+- `facts.map`
+- `facts.population`
+- `facts.region`
+- `facts.settings`
+- `fbucks.tx.streak_restore`
+- `friends.duels.with_you`
+- `guide.back`
+- `guide.done`
+- `guide.fbucks.body`
+- `guide.fbucks.title`
+- `guide.friends.body`
+- `guide.friends.title`
+- `guide.next`
+- `guide.play.body`
+- `guide.play.title`
+- `guide.replay`
+- `guide.settings.body`
+- `guide.settings.title`
+- `guide.skip`
+- `guide.streak.body`
+- `guide.streak.title`
+- `learning.anthem.excerpt`
+- `learning.anthem.full_lyrics_source`
+- `learning.anthem.recording_source`
+- `learning.anthem.shared_fmt`
+- `learning.anthem.unavailable`
+- `learning.country.discover`
+- `premium.benefit.anthems.body`
+- `premium.benefit.anthems.title`
+- `premium.benefit.avatar.body`
+- `premium.benefit.avatar.title`
+- `premium.benefit.countries.body`
+- `premium.benefit.countries.title`
+- `premium.benefit.erudite.body`
+- `premium.benefit.erudite.title`
+- `premium.benefit.learning.body`
+- `premium.benefit.learning.title`
+- `premium.benefit.lives.body`
+- `premium.benefit.lives.title`
+- `premium.benefit.map.body`
+- `premium.benefit.map.title`
+- `premium.benefit.mistakes.body`
+- `premium.benefit.mistakes.title`
+- `premium.benefit.weekly.body`
+- `premium.benefit.weekly.title`
+- `premium.details.collapsed`
+- `premium.details.expanded`
+- `premium.family.body`
+- `premium.family.title`
+- `premium.story.countries.body`
+- `premium.story.countries.title`
+- `premium.story.enlarge`
+- `premium.story.example`
+- `premium.story.headline`
+- `premium.story.intro`
+- `premium.story.map.body`
+- `premium.story.map.title`
+- `premium.story.practice.body`
+- `premium.story.practice.title`
+- `premium.story.progress.body`
+- `premium.story.progress.title`
+- `premium.weekly.history`
+- `premium.weekly.next`
+- `ranking.motivational.explanation`
+- `ranking.motivational.title`
+- `streak.recovery.body_fmt`
+- `streak.recovery.later_btn`
+- `streak.recovery.pay_btn_fmt`
+- `streak.recovery.play_btn`
+- `streak.recovery.title`
+- `Не удалось добавить в друзья. Попробуйте позже.`
+
+### fr
+
+- `Check your internet connection`
+- `HELP_TECH_DATA_SYNC`
+- `HELP_TECH_FLAGS_NOT_LOADING`
+- `Sign in with Apple error 1000`
+- `Virtual opponent`
+- `appIcon.automatic`
+- `appIcon.choose`
+- `appIcon.suggestion`
+- `coins`
+- `duel.error.notYours`
+- `education.fbucks.body`
+- `education.fbucks.done`
+- `education.fbucks.shop`
+- `education.fbucks.title`
+- `facts.area`
+- `facts.capital`
+- `facts.explanation`
+- `facts.map`
+- `facts.population`
+- `facts.region`
+- `facts.settings`
+- `fbucks.tx.streak_restore`
+- `friends.duels.with_you`
+- `guide.back`
+- `guide.done`
+- `guide.fbucks.body`
+- `guide.fbucks.title`
+- `guide.friends.body`
+- `guide.friends.title`
+- `guide.next`
+- `guide.play.body`
+- `guide.play.title`
+- `guide.replay`
+- `guide.settings.body`
+- `guide.settings.title`
+- `guide.skip`
+- `guide.streak.body`
+- `guide.streak.title`
+- `learning.anthem.excerpt`
+- `learning.anthem.full_lyrics_source`
+- `learning.anthem.recording_source`
+- `learning.anthem.shared_fmt`
+- `learning.anthem.unavailable`
+- `learning.country.discover`
+- `premium.benefit.anthems.body`
+- `premium.benefit.anthems.title`
+- `premium.benefit.avatar.body`
+- `premium.benefit.avatar.title`
+- `premium.benefit.countries.body`
+- `premium.benefit.countries.title`
+- `premium.benefit.erudite.body`
+- `premium.benefit.erudite.title`
+- `premium.benefit.learning.body`
+- `premium.benefit.learning.title`
+- `premium.benefit.lives.body`
+- `premium.benefit.lives.title`
+- `premium.benefit.map.body`
+- `premium.benefit.map.title`
+- `premium.benefit.mistakes.body`
+- `premium.benefit.mistakes.title`
+- `premium.benefit.weekly.body`
+- `premium.benefit.weekly.title`
+- `premium.details.collapsed`
+- `premium.details.expanded`
+- `premium.family.body`
+- `premium.family.title`
+- `premium.story.countries.body`
+- `premium.story.countries.title`
+- `premium.story.enlarge`
+- `premium.story.example`
+- `premium.story.headline`
+- `premium.story.intro`
+- `premium.story.map.body`
+- `premium.story.map.title`
+- `premium.story.practice.body`
+- `premium.story.practice.title`
+- `premium.story.progress.body`
+- `premium.story.progress.title`
+- `premium.weekly.history`
+- `premium.weekly.next`
+- `ranking.motivational.explanation`
+- `ranking.motivational.title`
+- `registration_failed`
+- `reset_request_failed`
+- `streak.recovery.body_fmt`
+- `streak.recovery.later_btn`
+- `streak.recovery.pay_btn_fmt`
+- `streak.recovery.play_btn`
+- `streak.recovery.title`
+- `Как сохранить прогресс`
+- `Не удалось добавить в друзья. Попробуйте позже.`
+- `Проблемы с загрузкой флагов`
+- `Синхронизация данных`
+- `Что делать если флаги не загружаются`
+
+### hi
+
+- `Check your internet connection`
+- `appIcon.automatic`
+- `appIcon.choose`
+- `appIcon.suggestion`
+- `coins`
+- `duel.error.notYours`
+- `education.fbucks.body`
+- `education.fbucks.done`
+- `education.fbucks.shop`
+- `education.fbucks.title`
+- `facts.area`
+- `facts.capital`
+- `facts.explanation`
+- `facts.map`
+- `facts.population`
+- `facts.region`
+- `facts.settings`
+- `fbucks.tx.streak_restore`
+- `friends.duels.with_you`
+- `guide.back`
+- `guide.done`
+- `guide.fbucks.body`
+- `guide.fbucks.title`
+- `guide.friends.body`
+- `guide.friends.title`
+- `guide.next`
+- `guide.play.body`
+- `guide.play.title`
+- `guide.replay`
+- `guide.settings.body`
+- `guide.settings.title`
+- `guide.skip`
+- `guide.streak.body`
+- `guide.streak.title`
+- `learning.anthem.excerpt`
+- `learning.anthem.full_lyrics_source`
+- `learning.anthem.recording_source`
+- `learning.anthem.shared_fmt`
+- `learning.anthem.unavailable`
+- `learning.country.discover`
+- `premium.benefit.anthems.body`
+- `premium.benefit.anthems.title`
+- `premium.benefit.avatar.body`
+- `premium.benefit.avatar.title`
+- `premium.benefit.countries.body`
+- `premium.benefit.countries.title`
+- `premium.benefit.erudite.body`
+- `premium.benefit.erudite.title`
+- `premium.benefit.learning.body`
+- `premium.benefit.learning.title`
+- `premium.benefit.lives.body`
+- `premium.benefit.lives.title`
+- `premium.benefit.map.body`
+- `premium.benefit.map.title`
+- `premium.benefit.mistakes.body`
+- `premium.benefit.mistakes.title`
+- `premium.benefit.weekly.body`
+- `premium.benefit.weekly.title`
+- `premium.details.collapsed`
+- `premium.details.expanded`
+- `premium.family.body`
+- `premium.family.title`
+- `premium.story.countries.body`
+- `premium.story.countries.title`
+- `premium.story.enlarge`
+- `premium.story.example`
+- `premium.story.headline`
+- `premium.story.intro`
+- `premium.story.map.body`
+- `premium.story.map.title`
+- `premium.story.practice.body`
+- `premium.story.practice.title`
+- `premium.story.progress.body`
+- `premium.story.progress.title`
+- `premium.weekly.history`
+- `premium.weekly.next`
+- `ranking.motivational.explanation`
+- `ranking.motivational.title`
+- `streak.recovery.body_fmt`
+- `streak.recovery.later_btn`
+- `streak.recovery.pay_btn_fmt`
+- `streak.recovery.play_btn`
+- `streak.recovery.title`
+- `Не удалось добавить в друзья. Попробуйте позже.`
+
+### hu
+
+- `Check your internet connection`
+- `appIcon.automatic`
+- `appIcon.choose`
+- `appIcon.suggestion`
+- `coins`
+- `duel.error.notYours`
+- `education.fbucks.body`
+- `education.fbucks.done`
+- `education.fbucks.shop`
+- `education.fbucks.title`
+- `facts.area`
+- `facts.capital`
+- `facts.explanation`
+- `facts.map`
+- `facts.population`
+- `facts.region`
+- `facts.settings`
+- `fbucks.tx.streak_restore`
+- `friends.duels.with_you`
+- `guide.back`
+- `guide.done`
+- `guide.fbucks.body`
+- `guide.fbucks.title`
+- `guide.friends.body`
+- `guide.friends.title`
+- `guide.next`
+- `guide.play.body`
+- `guide.play.title`
+- `guide.replay`
+- `guide.settings.body`
+- `guide.settings.title`
+- `guide.skip`
+- `guide.streak.body`
+- `guide.streak.title`
+- `learning.anthem.excerpt`
+- `learning.anthem.full_lyrics_source`
+- `learning.anthem.recording_source`
+- `learning.anthem.shared_fmt`
+- `learning.anthem.unavailable`
+- `learning.country.discover`
+- `premium.benefit.anthems.body`
+- `premium.benefit.anthems.title`
+- `premium.benefit.avatar.body`
+- `premium.benefit.avatar.title`
+- `premium.benefit.countries.body`
+- `premium.benefit.countries.title`
+- `premium.benefit.erudite.body`
+- `premium.benefit.erudite.title`
+- `premium.benefit.learning.body`
+- `premium.benefit.learning.title`
+- `premium.benefit.lives.body`
+- `premium.benefit.lives.title`
+- `premium.benefit.map.body`
+- `premium.benefit.map.title`
+- `premium.benefit.mistakes.body`
+- `premium.benefit.mistakes.title`
+- `premium.benefit.weekly.body`
+- `premium.benefit.weekly.title`
+- `premium.details.collapsed`
+- `premium.details.expanded`
+- `premium.family.body`
+- `premium.family.title`
+- `premium.story.countries.body`
+- `premium.story.countries.title`
+- `premium.story.enlarge`
+- `premium.story.example`
+- `premium.story.headline`
+- `premium.story.intro`
+- `premium.story.map.body`
+- `premium.story.map.title`
+- `premium.story.practice.body`
+- `premium.story.practice.title`
+- `premium.story.progress.body`
+- `premium.story.progress.title`
+- `premium.weekly.history`
+- `premium.weekly.next`
+- `ranking.motivational.explanation`
+- `ranking.motivational.title`
+- `streak.recovery.body_fmt`
+- `streak.recovery.later_btn`
+- `streak.recovery.pay_btn_fmt`
+- `streak.recovery.play_btn`
+- `streak.recovery.title`
+- `Не удалось добавить в друзья. Попробуйте позже.`
+
+### id
+
+- `Check your internet connection`
+- `appIcon.automatic`
+- `appIcon.choose`
+- `appIcon.suggestion`
+- `coins`
+- `duel.error.notYours`
+- `education.fbucks.body`
+- `education.fbucks.done`
+- `education.fbucks.shop`
+- `education.fbucks.title`
+- `facts.area`
+- `facts.capital`
+- `facts.explanation`
+- `facts.map`
+- `facts.population`
+- `facts.region`
+- `facts.settings`
+- `fbucks.tx.streak_restore`
+- `friends.duels.with_you`
+- `guide.back`
+- `guide.done`
+- `guide.fbucks.body`
+- `guide.fbucks.title`
+- `guide.friends.body`
+- `guide.friends.title`
+- `guide.next`
+- `guide.play.body`
+- `guide.play.title`
+- `guide.replay`
+- `guide.settings.body`
+- `guide.settings.title`
+- `guide.skip`
+- `guide.streak.body`
+- `guide.streak.title`
+- `learning.anthem.excerpt`
+- `learning.anthem.full_lyrics_source`
+- `learning.anthem.recording_source`
+- `learning.anthem.shared_fmt`
+- `learning.anthem.unavailable`
+- `learning.country.discover`
+- `premium.benefit.anthems.body`
+- `premium.benefit.anthems.title`
+- `premium.benefit.avatar.body`
+- `premium.benefit.avatar.title`
+- `premium.benefit.countries.body`
+- `premium.benefit.countries.title`
+- `premium.benefit.erudite.body`
+- `premium.benefit.erudite.title`
+- `premium.benefit.learning.body`
+- `premium.benefit.learning.title`
+- `premium.benefit.lives.body`
+- `premium.benefit.lives.title`
+- `premium.benefit.map.body`
+- `premium.benefit.map.title`
+- `premium.benefit.mistakes.body`
+- `premium.benefit.mistakes.title`
+- `premium.benefit.weekly.body`
+- `premium.benefit.weekly.title`
+- `premium.details.collapsed`
+- `premium.details.expanded`
+- `premium.family.body`
+- `premium.family.title`
+- `premium.story.countries.body`
+- `premium.story.countries.title`
+- `premium.story.enlarge`
+- `premium.story.example`
+- `premium.story.headline`
+- `premium.story.intro`
+- `premium.story.map.body`
+- `premium.story.map.title`
+- `premium.story.practice.body`
+- `premium.story.practice.title`
+- `premium.story.progress.body`
+- `premium.story.progress.title`
+- `premium.weekly.history`
+- `premium.weekly.next`
+- `ranking.motivational.explanation`
+- `ranking.motivational.title`
+- `streak.recovery.body_fmt`
+- `streak.recovery.later_btn`
+- `streak.recovery.pay_btn_fmt`
+- `streak.recovery.play_btn`
+- `streak.recovery.title`
+- `Не удалось добавить в друзья. Попробуйте позже.`
+
+### it
+
+- `Check your internet connection`
+- `Duel Summary subtitle`
+- `F-Bucks subtitle`
+- `HELP_TECH_DATA_SYNC`
+- `HELP_TECH_FLAGS_NOT_LOADING`
+- `Sign in with Apple error 1000`
+- `Virtual opponent`
+- `appIcon.automatic`
+- `appIcon.choose`
+- `appIcon.suggestion`
+- `coins`
+- `duel.error.notYours`
+- `education.fbucks.body`
+- `education.fbucks.done`
+- `education.fbucks.shop`
+- `education.fbucks.title`
+- `facts.area`
+- `facts.capital`
+- `facts.explanation`
+- `facts.map`
+- `facts.population`
+- `facts.region`
+- `facts.settings`
+- `fbucks.tx.streak_restore`
+- `friends.duels.with_you`
+- `guide.back`
+- `guide.done`
+- `guide.fbucks.body`
+- `guide.fbucks.title`
+- `guide.friends.body`
+- `guide.friends.title`
+- `guide.next`
+- `guide.play.body`
+- `guide.play.title`
+- `guide.replay`
+- `guide.settings.body`
+- `guide.settings.title`
+- `guide.skip`
+- `guide.streak.body`
+- `guide.streak.title`
+- `learning.anthem.excerpt`
+- `learning.anthem.full_lyrics_source`
+- `learning.anthem.recording_source`
+- `learning.anthem.shared_fmt`
+- `learning.anthem.unavailable`
+- `learning.country.discover`
+- `premium.benefit.anthems.body`
+- `premium.benefit.anthems.title`
+- `premium.benefit.avatar.body`
+- `premium.benefit.avatar.title`
+- `premium.benefit.countries.body`
+- `premium.benefit.countries.title`
+- `premium.benefit.erudite.body`
+- `premium.benefit.erudite.title`
+- `premium.benefit.learning.body`
+- `premium.benefit.learning.title`
+- `premium.benefit.lives.body`
+- `premium.benefit.lives.title`
+- `premium.benefit.map.body`
+- `premium.benefit.map.title`
+- `premium.benefit.mistakes.body`
+- `premium.benefit.mistakes.title`
+- `premium.benefit.weekly.body`
+- `premium.benefit.weekly.title`
+- `premium.details.collapsed`
+- `premium.details.expanded`
+- `premium.family.body`
+- `premium.family.title`
+- `premium.story.countries.body`
+- `premium.story.countries.title`
+- `premium.story.enlarge`
+- `premium.story.example`
+- `premium.story.headline`
+- `premium.story.intro`
+- `premium.story.map.body`
+- `premium.story.map.title`
+- `premium.story.practice.body`
+- `premium.story.practice.title`
+- `premium.story.progress.body`
+- `premium.story.progress.title`
+- `premium.weekly.history`
+- `premium.weekly.next`
+- `ranking.motivational.explanation`
+- `ranking.motivational.title`
+- `registration_failed`
+- `reset_request_failed`
+- `streak.recovery.body_fmt`
+- `streak.recovery.later_btn`
+- `streak.recovery.pay_btn_fmt`
+- `streak.recovery.play_btn`
+- `streak.recovery.title`
+- `Как сохранить прогресс`
+- `Не удалось добавить в друзья. Попробуйте позже.`
+- `Проблемы с загрузкой флагов`
+- `Синхронизация данных`
+- `Что делать если флаги не загружаются`
+
+### ja
+
+- `Check your internet connection`
+- `appIcon.automatic`
+- `appIcon.choose`
+- `appIcon.suggestion`
+- `coins`
+- `duel.error.notYours`
+- `education.fbucks.body`
+- `education.fbucks.done`
+- `education.fbucks.shop`
+- `education.fbucks.title`
+- `facts.area`
+- `facts.capital`
+- `facts.explanation`
+- `facts.map`
+- `facts.population`
+- `facts.region`
+- `facts.settings`
+- `fbucks.tx.streak_restore`
+- `friends.duels.with_you`
+- `guide.back`
+- `guide.done`
+- `guide.fbucks.body`
+- `guide.fbucks.title`
+- `guide.friends.body`
+- `guide.friends.title`
+- `guide.next`
+- `guide.play.body`
+- `guide.play.title`
+- `guide.replay`
+- `guide.settings.body`
+- `guide.settings.title`
+- `guide.skip`
+- `guide.streak.body`
+- `guide.streak.title`
+- `learning.anthem.excerpt`
+- `learning.anthem.full_lyrics_source`
+- `learning.anthem.recording_source`
+- `learning.anthem.shared_fmt`
+- `learning.anthem.unavailable`
+- `learning.country.discover`
+- `premium.benefit.anthems.body`
+- `premium.benefit.anthems.title`
+- `premium.benefit.avatar.body`
+- `premium.benefit.avatar.title`
+- `premium.benefit.countries.body`
+- `premium.benefit.countries.title`
+- `premium.benefit.erudite.body`
+- `premium.benefit.erudite.title`
+- `premium.benefit.learning.body`
+- `premium.benefit.learning.title`
+- `premium.benefit.lives.body`
+- `premium.benefit.lives.title`
+- `premium.benefit.map.body`
+- `premium.benefit.map.title`
+- `premium.benefit.mistakes.body`
+- `premium.benefit.mistakes.title`
+- `premium.benefit.weekly.body`
+- `premium.benefit.weekly.title`
+- `premium.details.collapsed`
+- `premium.details.expanded`
+- `premium.family.body`
+- `premium.family.title`
+- `premium.story.countries.body`
+- `premium.story.countries.title`
+- `premium.story.enlarge`
+- `premium.story.example`
+- `premium.story.headline`
+- `premium.story.intro`
+- `premium.story.map.body`
+- `premium.story.map.title`
+- `premium.story.practice.body`
+- `premium.story.practice.title`
+- `premium.story.progress.body`
+- `premium.story.progress.title`
+- `premium.weekly.history`
+- `premium.weekly.next`
+- `ranking.motivational.explanation`
+- `ranking.motivational.title`
+- `streak.recovery.body_fmt`
+- `streak.recovery.later_btn`
+- `streak.recovery.pay_btn_fmt`
+- `streak.recovery.play_btn`
+- `streak.recovery.title`
+- `Не удалось добавить в друзья. Попробуйте позже.`
+
+### ko
+
+- `Check your internet connection`
+- `appIcon.automatic`
+- `appIcon.choose`
+- `appIcon.suggestion`
+- `coins`
+- `duel.error.notYours`
+- `education.fbucks.body`
+- `education.fbucks.done`
+- `education.fbucks.shop`
+- `education.fbucks.title`
+- `facts.area`
+- `facts.capital`
+- `facts.explanation`
+- `facts.map`
+- `facts.population`
+- `facts.region`
+- `facts.settings`
+- `fbucks.tx.streak_restore`
+- `friends.duels.with_you`
+- `guide.back`
+- `guide.done`
+- `guide.fbucks.body`
+- `guide.fbucks.title`
+- `guide.friends.body`
+- `guide.friends.title`
+- `guide.next`
+- `guide.play.body`
+- `guide.play.title`
+- `guide.replay`
+- `guide.settings.body`
+- `guide.settings.title`
+- `guide.skip`
+- `guide.streak.body`
+- `guide.streak.title`
+- `learning.anthem.excerpt`
+- `learning.anthem.full_lyrics_source`
+- `learning.anthem.recording_source`
+- `learning.anthem.shared_fmt`
+- `learning.anthem.unavailable`
+- `learning.country.discover`
+- `premium.benefit.anthems.body`
+- `premium.benefit.anthems.title`
+- `premium.benefit.avatar.body`
+- `premium.benefit.avatar.title`
+- `premium.benefit.countries.body`
+- `premium.benefit.countries.title`
+- `premium.benefit.erudite.body`
+- `premium.benefit.erudite.title`
+- `premium.benefit.learning.body`
+- `premium.benefit.learning.title`
+- `premium.benefit.lives.body`
+- `premium.benefit.lives.title`
+- `premium.benefit.map.body`
+- `premium.benefit.map.title`
+- `premium.benefit.mistakes.body`
+- `premium.benefit.mistakes.title`
+- `premium.benefit.weekly.body`
+- `premium.benefit.weekly.title`
+- `premium.details.collapsed`
+- `premium.details.expanded`
+- `premium.family.body`
+- `premium.family.title`
+- `premium.story.countries.body`
+- `premium.story.countries.title`
+- `premium.story.enlarge`
+- `premium.story.example`
+- `premium.story.headline`
+- `premium.story.intro`
+- `premium.story.map.body`
+- `premium.story.map.title`
+- `premium.story.practice.body`
+- `premium.story.practice.title`
+- `premium.story.progress.body`
+- `premium.story.progress.title`
+- `premium.weekly.history`
+- `premium.weekly.next`
+- `ranking.motivational.explanation`
+- `ranking.motivational.title`
+- `streak.recovery.body_fmt`
+- `streak.recovery.later_btn`
+- `streak.recovery.pay_btn_fmt`
+- `streak.recovery.play_btn`
+- `streak.recovery.title`
+- `Не удалось добавить в друзья. Попробуйте позже.`
+
+### nl
+
+- `Check your internet connection`
+- `HELP_TECH_DATA_SYNC`
+- `HELP_TECH_FLAGS_NOT_LOADING`
+- `Sign in with Apple error 1000`
+- `Virtual opponent`
+- `appIcon.automatic`
+- `appIcon.choose`
+- `appIcon.suggestion`
+- `coins`
+- `duel.error.notYours`
+- `education.fbucks.body`
+- `education.fbucks.done`
+- `education.fbucks.shop`
+- `education.fbucks.title`
+- `facts.area`
+- `facts.capital`
+- `facts.explanation`
+- `facts.map`
+- `facts.population`
+- `facts.region`
+- `facts.settings`
+- `fbucks.tx.streak_restore`
+- `friends.duels.with_you`
+- `guide.back`
+- `guide.done`
+- `guide.fbucks.body`
+- `guide.fbucks.title`
+- `guide.friends.body`
+- `guide.friends.title`
+- `guide.next`
+- `guide.play.body`
+- `guide.play.title`
+- `guide.replay`
+- `guide.settings.body`
+- `guide.settings.title`
+- `guide.skip`
+- `guide.streak.body`
+- `guide.streak.title`
+- `learning.anthem.excerpt`
+- `learning.anthem.full_lyrics_source`
+- `learning.anthem.recording_source`
+- `learning.anthem.shared_fmt`
+- `learning.anthem.unavailable`
+- `learning.country.discover`
+- `premium.benefit.anthems.body`
+- `premium.benefit.anthems.title`
+- `premium.benefit.avatar.body`
+- `premium.benefit.avatar.title`
+- `premium.benefit.countries.body`
+- `premium.benefit.countries.title`
+- `premium.benefit.erudite.body`
+- `premium.benefit.erudite.title`
+- `premium.benefit.learning.body`
+- `premium.benefit.learning.title`
+- `premium.benefit.lives.body`
+- `premium.benefit.lives.title`
+- `premium.benefit.map.body`
+- `premium.benefit.map.title`
+- `premium.benefit.mistakes.body`
+- `premium.benefit.mistakes.title`
+- `premium.benefit.weekly.body`
+- `premium.benefit.weekly.title`
+- `premium.details.collapsed`
+- `premium.details.expanded`
+- `premium.family.body`
+- `premium.family.title`
+- `premium.story.countries.body`
+- `premium.story.countries.title`
+- `premium.story.enlarge`
+- `premium.story.example`
+- `premium.story.headline`
+- `premium.story.intro`
+- `premium.story.map.body`
+- `premium.story.map.title`
+- `premium.story.practice.body`
+- `premium.story.practice.title`
+- `premium.story.progress.body`
+- `premium.story.progress.title`
+- `premium.weekly.history`
+- `premium.weekly.next`
+- `ranking.motivational.explanation`
+- `ranking.motivational.title`
+- `registration_failed`
+- `reset_request_failed`
+- `streak.recovery.body_fmt`
+- `streak.recovery.later_btn`
+- `streak.recovery.pay_btn_fmt`
+- `streak.recovery.play_btn`
+- `streak.recovery.title`
+- `Как сохранить прогресс`
+- `Не удалось добавить в друзья. Попробуйте позже.`
+- `Проблемы с загрузкой флагов`
+- `Синхронизация данных`
+- `Что делать если флаги не загружаются`
+
+### pl
+
+- `Check your internet connection`
+- `Duel Summary subtitle`
+- `F-Bucks subtitle`
+- `HELP_TECH_DATA_SYNC`
+- `HELP_TECH_FLAGS_NOT_LOADING`
+- `Sign in with Apple error 1000`
+- `Virtual opponent`
+- `appIcon.automatic`
+- `appIcon.choose`
+- `appIcon.suggestion`
+- `coins`
+- `duel.error.notYours`
+- `education.fbucks.body`
+- `education.fbucks.done`
+- `education.fbucks.shop`
+- `education.fbucks.title`
+- `facts.area`
+- `facts.capital`
+- `facts.explanation`
+- `facts.map`
+- `facts.population`
+- `facts.region`
+- `facts.settings`
+- `fbucks.tx.streak_restore`
+- `friends.duels.with_you`
+- `guide.back`
+- `guide.done`
+- `guide.fbucks.body`
+- `guide.fbucks.title`
+- `guide.friends.body`
+- `guide.friends.title`
+- `guide.next`
+- `guide.play.body`
+- `guide.play.title`
+- `guide.replay`
+- `guide.settings.body`
+- `guide.settings.title`
+- `guide.skip`
+- `guide.streak.body`
+- `guide.streak.title`
+- `learning.anthem.excerpt`
+- `learning.anthem.full_lyrics_source`
+- `learning.anthem.recording_source`
+- `learning.anthem.shared_fmt`
+- `learning.anthem.unavailable`
+- `learning.country.discover`
+- `premium.benefit.anthems.body`
+- `premium.benefit.anthems.title`
+- `premium.benefit.avatar.body`
+- `premium.benefit.avatar.title`
+- `premium.benefit.countries.body`
+- `premium.benefit.countries.title`
+- `premium.benefit.erudite.body`
+- `premium.benefit.erudite.title`
+- `premium.benefit.learning.body`
+- `premium.benefit.learning.title`
+- `premium.benefit.lives.body`
+- `premium.benefit.lives.title`
+- `premium.benefit.map.body`
+- `premium.benefit.map.title`
+- `premium.benefit.mistakes.body`
+- `premium.benefit.mistakes.title`
+- `premium.benefit.weekly.body`
+- `premium.benefit.weekly.title`
+- `premium.details.collapsed`
+- `premium.details.expanded`
+- `premium.family.body`
+- `premium.family.title`
+- `premium.story.countries.body`
+- `premium.story.countries.title`
+- `premium.story.enlarge`
+- `premium.story.example`
+- `premium.story.headline`
+- `premium.story.intro`
+- `premium.story.map.body`
+- `premium.story.map.title`
+- `premium.story.practice.body`
+- `premium.story.practice.title`
+- `premium.story.progress.body`
+- `premium.story.progress.title`
+- `premium.weekly.history`
+- `premium.weekly.next`
+- `ranking.motivational.explanation`
+- `ranking.motivational.title`
+- `registration_failed`
+- `reset_request_failed`
+- `streak.recovery.body_fmt`
+- `streak.recovery.later_btn`
+- `streak.recovery.pay_btn_fmt`
+- `streak.recovery.play_btn`
+- `streak.recovery.title`
+- `Как сохранить прогресс`
+- `Не удалось добавить в друзья. Попробуйте позже.`
+- `Проблемы с загрузкой флагов`
+- `Синхронизация данных`
+- `Что делать если флаги не загружаются`
+
+### pt-BR
+
+- `Check your internet connection`
+- `HELP_TECH_DATA_SYNC`
+- `HELP_TECH_FLAGS_NOT_LOADING`
+- `Sign in with Apple error 1000`
+- `Virtual opponent`
+- `appIcon.automatic`
+- `appIcon.choose`
+- `appIcon.suggestion`
+- `coins`
+- `duel.error.notYours`
+- `education.fbucks.body`
+- `education.fbucks.done`
+- `education.fbucks.shop`
+- `education.fbucks.title`
+- `facts.area`
+- `facts.capital`
+- `facts.explanation`
+- `facts.map`
+- `facts.population`
+- `facts.region`
+- `facts.settings`
+- `fbucks.tx.streak_restore`
+- `friends.duels.with_you`
+- `guide.back`
+- `guide.done`
+- `guide.fbucks.body`
+- `guide.fbucks.title`
+- `guide.friends.body`
+- `guide.friends.title`
+- `guide.next`
+- `guide.play.body`
+- `guide.play.title`
+- `guide.replay`
+- `guide.settings.body`
+- `guide.settings.title`
+- `guide.skip`
+- `guide.streak.body`
+- `guide.streak.title`
+- `learning.anthem.excerpt`
+- `learning.anthem.full_lyrics_source`
+- `learning.anthem.recording_source`
+- `learning.anthem.shared_fmt`
+- `learning.anthem.unavailable`
+- `learning.country.discover`
+- `premium.benefit.anthems.body`
+- `premium.benefit.anthems.title`
+- `premium.benefit.avatar.body`
+- `premium.benefit.avatar.title`
+- `premium.benefit.countries.body`
+- `premium.benefit.countries.title`
+- `premium.benefit.erudite.body`
+- `premium.benefit.erudite.title`
+- `premium.benefit.learning.body`
+- `premium.benefit.learning.title`
+- `premium.benefit.lives.body`
+- `premium.benefit.lives.title`
+- `premium.benefit.map.body`
+- `premium.benefit.map.title`
+- `premium.benefit.mistakes.body`
+- `premium.benefit.mistakes.title`
+- `premium.benefit.weekly.body`
+- `premium.benefit.weekly.title`
+- `premium.details.collapsed`
+- `premium.details.expanded`
+- `premium.family.body`
+- `premium.family.title`
+- `premium.story.countries.body`
+- `premium.story.countries.title`
+- `premium.story.enlarge`
+- `premium.story.example`
+- `premium.story.headline`
+- `premium.story.intro`
+- `premium.story.map.body`
+- `premium.story.map.title`
+- `premium.story.practice.body`
+- `premium.story.practice.title`
+- `premium.story.progress.body`
+- `premium.story.progress.title`
+- `premium.weekly.history`
+- `premium.weekly.next`
+- `ranking.motivational.explanation`
+- `ranking.motivational.title`
+- `registration_failed`
+- `reset_request_failed`
+- `streak.recovery.body_fmt`
+- `streak.recovery.later_btn`
+- `streak.recovery.pay_btn_fmt`
+- `streak.recovery.play_btn`
+- `streak.recovery.title`
+- `Как сохранить прогресс`
+- `Не удалось добавить в друзья. Попробуйте позже.`
+- `Проблемы с загрузкой флагов`
+- `Синхронизация данных`
+- `Что делать если флаги не загружаются`
+
+### ro
+
+- `Check your internet connection`
+- `appIcon.automatic`
+- `appIcon.choose`
+- `appIcon.suggestion`
+- `coins`
+- `duel.error.notYours`
+- `education.fbucks.body`
+- `education.fbucks.done`
+- `education.fbucks.shop`
+- `education.fbucks.title`
+- `facts.area`
+- `facts.capital`
+- `facts.explanation`
+- `facts.map`
+- `facts.population`
+- `facts.region`
+- `facts.settings`
+- `fbucks.tx.streak_restore`
+- `friends.duels.with_you`
+- `guide.back`
+- `guide.done`
+- `guide.fbucks.body`
+- `guide.fbucks.title`
+- `guide.friends.body`
+- `guide.friends.title`
+- `guide.next`
+- `guide.play.body`
+- `guide.play.title`
+- `guide.replay`
+- `guide.settings.body`
+- `guide.settings.title`
+- `guide.skip`
+- `guide.streak.body`
+- `guide.streak.title`
+- `learning.anthem.excerpt`
+- `learning.anthem.full_lyrics_source`
+- `learning.anthem.recording_source`
+- `learning.anthem.shared_fmt`
+- `learning.anthem.unavailable`
+- `learning.country.discover`
+- `premium.benefit.anthems.body`
+- `premium.benefit.anthems.title`
+- `premium.benefit.avatar.body`
+- `premium.benefit.avatar.title`
+- `premium.benefit.countries.body`
+- `premium.benefit.countries.title`
+- `premium.benefit.erudite.body`
+- `premium.benefit.erudite.title`
+- `premium.benefit.learning.body`
+- `premium.benefit.learning.title`
+- `premium.benefit.lives.body`
+- `premium.benefit.lives.title`
+- `premium.benefit.map.body`
+- `premium.benefit.map.title`
+- `premium.benefit.mistakes.body`
+- `premium.benefit.mistakes.title`
+- `premium.benefit.weekly.body`
+- `premium.benefit.weekly.title`
+- `premium.details.collapsed`
+- `premium.details.expanded`
+- `premium.family.body`
+- `premium.family.title`
+- `premium.story.countries.body`
+- `premium.story.countries.title`
+- `premium.story.enlarge`
+- `premium.story.example`
+- `premium.story.headline`
+- `premium.story.intro`
+- `premium.story.map.body`
+- `premium.story.map.title`
+- `premium.story.practice.body`
+- `premium.story.practice.title`
+- `premium.story.progress.body`
+- `premium.story.progress.title`
+- `premium.weekly.history`
+- `premium.weekly.next`
+- `ranking.motivational.explanation`
+- `ranking.motivational.title`
+- `streak.recovery.body_fmt`
+- `streak.recovery.later_btn`
+- `streak.recovery.pay_btn_fmt`
+- `streak.recovery.play_btn`
+- `streak.recovery.title`
+- `Не удалось добавить в друзья. Попробуйте позже.`
+
+### sv
+
+- `Check your internet connection`
+- `appIcon.automatic`
+- `appIcon.choose`
+- `appIcon.suggestion`
+- `coins`
+- `duel.error.notYours`
+- `education.fbucks.body`
+- `education.fbucks.done`
+- `education.fbucks.shop`
+- `education.fbucks.title`
+- `facts.area`
+- `facts.capital`
+- `facts.explanation`
+- `facts.map`
+- `facts.population`
+- `facts.region`
+- `facts.settings`
+- `fbucks.tx.streak_restore`
+- `friends.duels.with_you`
+- `guide.back`
+- `guide.done`
+- `guide.fbucks.body`
+- `guide.fbucks.title`
+- `guide.friends.body`
+- `guide.friends.title`
+- `guide.next`
+- `guide.play.body`
+- `guide.play.title`
+- `guide.replay`
+- `guide.settings.body`
+- `guide.settings.title`
+- `guide.skip`
+- `guide.streak.body`
+- `guide.streak.title`
+- `learning.anthem.excerpt`
+- `learning.anthem.full_lyrics_source`
+- `learning.anthem.recording_source`
+- `learning.anthem.shared_fmt`
+- `learning.anthem.unavailable`
+- `learning.country.discover`
+- `premium.benefit.anthems.body`
+- `premium.benefit.anthems.title`
+- `premium.benefit.avatar.body`
+- `premium.benefit.avatar.title`
+- `premium.benefit.countries.body`
+- `premium.benefit.countries.title`
+- `premium.benefit.erudite.body`
+- `premium.benefit.erudite.title`
+- `premium.benefit.learning.body`
+- `premium.benefit.learning.title`
+- `premium.benefit.lives.body`
+- `premium.benefit.lives.title`
+- `premium.benefit.map.body`
+- `premium.benefit.map.title`
+- `premium.benefit.mistakes.body`
+- `premium.benefit.mistakes.title`
+- `premium.benefit.weekly.body`
+- `premium.benefit.weekly.title`
+- `premium.details.collapsed`
+- `premium.details.expanded`
+- `premium.family.body`
+- `premium.family.title`
+- `premium.story.countries.body`
+- `premium.story.countries.title`
+- `premium.story.enlarge`
+- `premium.story.example`
+- `premium.story.headline`
+- `premium.story.intro`
+- `premium.story.map.body`
+- `premium.story.map.title`
+- `premium.story.practice.body`
+- `premium.story.practice.title`
+- `premium.story.progress.body`
+- `premium.story.progress.title`
+- `premium.weekly.history`
+- `premium.weekly.next`
+- `ranking.motivational.explanation`
+- `ranking.motivational.title`
+- `streak.recovery.body_fmt`
+- `streak.recovery.later_btn`
+- `streak.recovery.pay_btn_fmt`
+- `streak.recovery.play_btn`
+- `streak.recovery.title`
+- `Не удалось добавить в друзья. Попробуйте позже.`
+
+### ta
+
+- `Check your internet connection`
+- `appIcon.automatic`
+- `appIcon.choose`
+- `appIcon.suggestion`
+- `coins`
+- `duel.error.notYours`
+- `education.fbucks.body`
+- `education.fbucks.done`
+- `education.fbucks.shop`
+- `education.fbucks.title`
+- `facts.area`
+- `facts.capital`
+- `facts.explanation`
+- `facts.map`
+- `facts.population`
+- `facts.region`
+- `facts.settings`
+- `fbucks.tx.streak_restore`
+- `friends.duels.with_you`
+- `guide.back`
+- `guide.done`
+- `guide.fbucks.body`
+- `guide.fbucks.title`
+- `guide.friends.body`
+- `guide.friends.title`
+- `guide.next`
+- `guide.play.body`
+- `guide.play.title`
+- `guide.replay`
+- `guide.settings.body`
+- `guide.settings.title`
+- `guide.skip`
+- `guide.streak.body`
+- `guide.streak.title`
+- `learning.anthem.excerpt`
+- `learning.anthem.full_lyrics_source`
+- `learning.anthem.recording_source`
+- `learning.anthem.shared_fmt`
+- `learning.anthem.unavailable`
+- `learning.country.discover`
+- `premium.benefit.anthems.body`
+- `premium.benefit.anthems.title`
+- `premium.benefit.avatar.body`
+- `premium.benefit.avatar.title`
+- `premium.benefit.countries.body`
+- `premium.benefit.countries.title`
+- `premium.benefit.erudite.body`
+- `premium.benefit.erudite.title`
+- `premium.benefit.learning.body`
+- `premium.benefit.learning.title`
+- `premium.benefit.lives.body`
+- `premium.benefit.lives.title`
+- `premium.benefit.map.body`
+- `premium.benefit.map.title`
+- `premium.benefit.mistakes.body`
+- `premium.benefit.mistakes.title`
+- `premium.benefit.weekly.body`
+- `premium.benefit.weekly.title`
+- `premium.details.collapsed`
+- `premium.details.expanded`
+- `premium.family.body`
+- `premium.family.title`
+- `premium.story.countries.body`
+- `premium.story.countries.title`
+- `premium.story.enlarge`
+- `premium.story.example`
+- `premium.story.headline`
+- `premium.story.intro`
+- `premium.story.map.body`
+- `premium.story.map.title`
+- `premium.story.practice.body`
+- `premium.story.practice.title`
+- `premium.story.progress.body`
+- `premium.story.progress.title`
+- `premium.weekly.history`
+- `premium.weekly.next`
+- `ranking.motivational.explanation`
+- `ranking.motivational.title`
+- `streak.recovery.body_fmt`
+- `streak.recovery.later_btn`
+- `streak.recovery.pay_btn_fmt`
+- `streak.recovery.play_btn`
+- `streak.recovery.title`
+- `Не удалось добавить в друзья. Попробуйте позже.`
+
+### te
+
+- `Check your internet connection`
+- `appIcon.automatic`
+- `appIcon.choose`
+- `appIcon.suggestion`
+- `coins`
+- `duel.error.notYours`
+- `education.fbucks.body`
+- `education.fbucks.done`
+- `education.fbucks.shop`
+- `education.fbucks.title`
+- `facts.area`
+- `facts.capital`
+- `facts.explanation`
+- `facts.map`
+- `facts.population`
+- `facts.region`
+- `facts.settings`
+- `fbucks.tx.streak_restore`
+- `friends.duels.with_you`
+- `guide.back`
+- `guide.done`
+- `guide.fbucks.body`
+- `guide.fbucks.title`
+- `guide.friends.body`
+- `guide.friends.title`
+- `guide.next`
+- `guide.play.body`
+- `guide.play.title`
+- `guide.replay`
+- `guide.settings.body`
+- `guide.settings.title`
+- `guide.skip`
+- `guide.streak.body`
+- `guide.streak.title`
+- `learning.anthem.excerpt`
+- `learning.anthem.full_lyrics_source`
+- `learning.anthem.recording_source`
+- `learning.anthem.shared_fmt`
+- `learning.anthem.unavailable`
+- `learning.country.discover`
+- `premium.benefit.anthems.body`
+- `premium.benefit.anthems.title`
+- `premium.benefit.avatar.body`
+- `premium.benefit.avatar.title`
+- `premium.benefit.countries.body`
+- `premium.benefit.countries.title`
+- `premium.benefit.erudite.body`
+- `premium.benefit.erudite.title`
+- `premium.benefit.learning.body`
+- `premium.benefit.learning.title`
+- `premium.benefit.lives.body`
+- `premium.benefit.lives.title`
+- `premium.benefit.map.body`
+- `premium.benefit.map.title`
+- `premium.benefit.mistakes.body`
+- `premium.benefit.mistakes.title`
+- `premium.benefit.weekly.body`
+- `premium.benefit.weekly.title`
+- `premium.details.collapsed`
+- `premium.details.expanded`
+- `premium.family.body`
+- `premium.family.title`
+- `premium.story.countries.body`
+- `premium.story.countries.title`
+- `premium.story.enlarge`
+- `premium.story.example`
+- `premium.story.headline`
+- `premium.story.intro`
+- `premium.story.map.body`
+- `premium.story.map.title`
+- `premium.story.practice.body`
+- `premium.story.practice.title`
+- `premium.story.progress.body`
+- `premium.story.progress.title`
+- `premium.weekly.history`
+- `premium.weekly.next`
+- `ranking.motivational.explanation`
+- `ranking.motivational.title`
+- `streak.recovery.body_fmt`
+- `streak.recovery.later_btn`
+- `streak.recovery.pay_btn_fmt`
+- `streak.recovery.play_btn`
+- `streak.recovery.title`
+- `Не удалось добавить в друзья. Попробуйте позже.`
+
+### th
+
+- `Check your internet connection`
+- `appIcon.automatic`
+- `appIcon.choose`
+- `appIcon.suggestion`
+- `coins`
+- `duel.error.notYours`
+- `education.fbucks.body`
+- `education.fbucks.done`
+- `education.fbucks.shop`
+- `education.fbucks.title`
+- `facts.area`
+- `facts.capital`
+- `facts.explanation`
+- `facts.map`
+- `facts.population`
+- `facts.region`
+- `facts.settings`
+- `fbucks.tx.streak_restore`
+- `friends.duels.with_you`
+- `guide.back`
+- `guide.done`
+- `guide.fbucks.body`
+- `guide.fbucks.title`
+- `guide.friends.body`
+- `guide.friends.title`
+- `guide.next`
+- `guide.play.body`
+- `guide.play.title`
+- `guide.replay`
+- `guide.settings.body`
+- `guide.settings.title`
+- `guide.skip`
+- `guide.streak.body`
+- `guide.streak.title`
+- `learning.anthem.excerpt`
+- `learning.anthem.full_lyrics_source`
+- `learning.anthem.recording_source`
+- `learning.anthem.shared_fmt`
+- `learning.anthem.unavailable`
+- `learning.country.discover`
+- `premium.benefit.anthems.body`
+- `premium.benefit.anthems.title`
+- `premium.benefit.avatar.body`
+- `premium.benefit.avatar.title`
+- `premium.benefit.countries.body`
+- `premium.benefit.countries.title`
+- `premium.benefit.erudite.body`
+- `premium.benefit.erudite.title`
+- `premium.benefit.learning.body`
+- `premium.benefit.learning.title`
+- `premium.benefit.lives.body`
+- `premium.benefit.lives.title`
+- `premium.benefit.map.body`
+- `premium.benefit.map.title`
+- `premium.benefit.mistakes.body`
+- `premium.benefit.mistakes.title`
+- `premium.benefit.weekly.body`
+- `premium.benefit.weekly.title`
+- `premium.details.collapsed`
+- `premium.details.expanded`
+- `premium.family.body`
+- `premium.family.title`
+- `premium.story.countries.body`
+- `premium.story.countries.title`
+- `premium.story.enlarge`
+- `premium.story.example`
+- `premium.story.headline`
+- `premium.story.intro`
+- `premium.story.map.body`
+- `premium.story.map.title`
+- `premium.story.practice.body`
+- `premium.story.practice.title`
+- `premium.story.progress.body`
+- `premium.story.progress.title`
+- `premium.weekly.history`
+- `premium.weekly.next`
+- `ranking.motivational.explanation`
+- `ranking.motivational.title`
+- `streak.recovery.body_fmt`
+- `streak.recovery.later_btn`
+- `streak.recovery.pay_btn_fmt`
+- `streak.recovery.play_btn`
+- `streak.recovery.title`
+- `Не удалось добавить в друзья. Попробуйте позже.`
+
+### tr
+
+- `Check your internet connection`
+- `appIcon.automatic`
+- `appIcon.choose`
+- `appIcon.suggestion`
+- `coins`
+- `duel.error.notYours`
+- `education.fbucks.body`
+- `education.fbucks.done`
+- `education.fbucks.shop`
+- `education.fbucks.title`
+- `facts.area`
+- `facts.capital`
+- `facts.explanation`
+- `facts.map`
+- `facts.population`
+- `facts.region`
+- `facts.settings`
+- `fbucks.tx.streak_restore`
+- `friends.duels.with_you`
+- `guide.back`
+- `guide.done`
+- `guide.fbucks.body`
+- `guide.fbucks.title`
+- `guide.friends.body`
+- `guide.friends.title`
+- `guide.next`
+- `guide.play.body`
+- `guide.play.title`
+- `guide.replay`
+- `guide.settings.body`
+- `guide.settings.title`
+- `guide.skip`
+- `guide.streak.body`
+- `guide.streak.title`
+- `learning.anthem.excerpt`
+- `learning.anthem.full_lyrics_source`
+- `learning.anthem.recording_source`
+- `learning.anthem.shared_fmt`
+- `learning.anthem.unavailable`
+- `learning.country.discover`
+- `premium.benefit.anthems.body`
+- `premium.benefit.anthems.title`
+- `premium.benefit.avatar.body`
+- `premium.benefit.avatar.title`
+- `premium.benefit.countries.body`
+- `premium.benefit.countries.title`
+- `premium.benefit.erudite.body`
+- `premium.benefit.erudite.title`
+- `premium.benefit.learning.body`
+- `premium.benefit.learning.title`
+- `premium.benefit.lives.body`
+- `premium.benefit.lives.title`
+- `premium.benefit.map.body`
+- `premium.benefit.map.title`
+- `premium.benefit.mistakes.body`
+- `premium.benefit.mistakes.title`
+- `premium.benefit.weekly.body`
+- `premium.benefit.weekly.title`
+- `premium.details.collapsed`
+- `premium.details.expanded`
+- `premium.family.body`
+- `premium.family.title`
+- `premium.story.countries.body`
+- `premium.story.countries.title`
+- `premium.story.enlarge`
+- `premium.story.example`
+- `premium.story.headline`
+- `premium.story.intro`
+- `premium.story.map.body`
+- `premium.story.map.title`
+- `premium.story.practice.body`
+- `premium.story.practice.title`
+- `premium.story.progress.body`
+- `premium.story.progress.title`
+- `premium.weekly.history`
+- `premium.weekly.next`
+- `ranking.motivational.explanation`
+- `ranking.motivational.title`
+- `streak.recovery.body_fmt`
+- `streak.recovery.later_btn`
+- `streak.recovery.pay_btn_fmt`
+- `streak.recovery.play_btn`
+- `streak.recovery.title`
+- `Не удалось добавить в друзья. Попробуйте позже.`
+
+### uk
+
+- `10Ч`
+- `Accessories`
+- `Add Friends`
+- `Best streak`
+- `Create Avatar`
+- `Current streak`
+- `Don't break the chain! Come back tomorrow!`
+- `Empty response from server`
+- `Eye Color`
+- `Eye Shape`
+- `Eyebrows`
+- `Face Shape`
+- `Facial Hair`
+- `Friend Streaks`
+- `Game Over!`
+- `Gender`
+- `Glasses`
+- `HELP_GAME_RULES`
+- `HELP_LEAGUES_TEXT`
+- `HELP_STREAK_TEXT`
+- `HTTP Error: %d`
+- `Hair Color`
+- `Hair Style`
+- `Monthly Badges`
+- `Mouth`
+- `No Internet Connection`
+- `Nose`
+- `Not enough countries in selected regions (found %d, need at least 4)`
+- `Outfit`
+- `Overview`
+- `Remove Photo`
+- `Request Timeout`
+- `Select Photo`
+- `Server Not Found`
+- `Sign in with Apple error 1000`
+- `Skin Tone`
+- `Too Many Requests`
+- `Total XP`
+- `Total games`
+- `Upload Photo`
+- `Virtual opponent`
+- `XP Олимпиец`
+- `ca_language`
+- `es_language`
+- `fbucks.tx.streak_restore`
+- `ru_language`
+- `streak.recovery.body_fmt`
+- `streak.recovery.later_btn`
+- `streak.recovery.pay_btn_fmt`
+- `streak.recovery.play_btn`
+- `streak.recovery.title`
+- `system_language`
+- `uk_language`
+- `zh_language`
+- `Введите имя`
+- `Музыка`
+- `Природа`
+
+### vi
+
+- `Check your internet connection`
+- `appIcon.automatic`
+- `appIcon.choose`
+- `appIcon.suggestion`
+- `coins`
+- `duel.error.notYours`
+- `education.fbucks.body`
+- `education.fbucks.done`
+- `education.fbucks.shop`
+- `education.fbucks.title`
+- `facts.area`
+- `facts.capital`
+- `facts.explanation`
+- `facts.map`
+- `facts.population`
+- `facts.region`
+- `facts.settings`
+- `fbucks.tx.streak_restore`
+- `friends.duels.with_you`
+- `guide.back`
+- `guide.done`
+- `guide.fbucks.body`
+- `guide.fbucks.title`
+- `guide.friends.body`
+- `guide.friends.title`
+- `guide.next`
+- `guide.play.body`
+- `guide.play.title`
+- `guide.replay`
+- `guide.settings.body`
+- `guide.settings.title`
+- `guide.skip`
+- `guide.streak.body`
+- `guide.streak.title`
+- `learning.anthem.excerpt`
+- `learning.anthem.full_lyrics_source`
+- `learning.anthem.recording_source`
+- `learning.anthem.shared_fmt`
+- `learning.anthem.unavailable`
+- `learning.country.discover`
+- `premium.benefit.anthems.body`
+- `premium.benefit.anthems.title`
+- `premium.benefit.avatar.body`
+- `premium.benefit.avatar.title`
+- `premium.benefit.countries.body`
+- `premium.benefit.countries.title`
+- `premium.benefit.erudite.body`
+- `premium.benefit.erudite.title`
+- `premium.benefit.learning.body`
+- `premium.benefit.learning.title`
+- `premium.benefit.lives.body`
+- `premium.benefit.lives.title`
+- `premium.benefit.map.body`
+- `premium.benefit.map.title`
+- `premium.benefit.mistakes.body`
+- `premium.benefit.mistakes.title`
+- `premium.benefit.weekly.body`
+- `premium.benefit.weekly.title`
+- `premium.details.collapsed`
+- `premium.details.expanded`
+- `premium.family.body`
+- `premium.family.title`
+- `premium.story.countries.body`
+- `premium.story.countries.title`
+- `premium.story.enlarge`
+- `premium.story.example`
+- `premium.story.headline`
+- `premium.story.intro`
+- `premium.story.map.body`
+- `premium.story.map.title`
+- `premium.story.practice.body`
+- `premium.story.practice.title`
+- `premium.story.progress.body`
+- `premium.story.progress.title`
+- `premium.weekly.history`
+- `premium.weekly.next`
+- `ranking.motivational.explanation`
+- `ranking.motivational.title`
+- `streak.recovery.body_fmt`
+- `streak.recovery.later_btn`
+- `streak.recovery.pay_btn_fmt`
+- `streak.recovery.play_btn`
+- `streak.recovery.title`
+- `Не удалось добавить в друзья. Попробуйте позже.`
+
+### zh-Hant
+
+- `Check your internet connection`
+- `appIcon.automatic`
+- `appIcon.choose`
+- `appIcon.suggestion`
+- `coins`
+- `duel.error.notYours`
+- `education.fbucks.body`
+- `education.fbucks.done`
+- `education.fbucks.shop`
+- `education.fbucks.title`
+- `facts.area`
+- `facts.capital`
+- `facts.explanation`
+- `facts.map`
+- `facts.population`
+- `facts.region`
+- `facts.settings`
+- `fbucks.tx.streak_restore`
+- `friends.duels.with_you`
+- `guide.back`
+- `guide.done`
+- `guide.fbucks.body`
+- `guide.fbucks.title`
+- `guide.friends.body`
+- `guide.friends.title`
+- `guide.next`
+- `guide.play.body`
+- `guide.play.title`
+- `guide.replay`
+- `guide.settings.body`
+- `guide.settings.title`
+- `guide.skip`
+- `guide.streak.body`
+- `guide.streak.title`
+- `learning.anthem.excerpt`
+- `learning.anthem.full_lyrics_source`
+- `learning.anthem.recording_source`
+- `learning.anthem.shared_fmt`
+- `learning.anthem.unavailable`
+- `learning.country.discover`
+- `premium.benefit.anthems.body`
+- `premium.benefit.anthems.title`
+- `premium.benefit.avatar.body`
+- `premium.benefit.avatar.title`
+- `premium.benefit.countries.body`
+- `premium.benefit.countries.title`
+- `premium.benefit.erudite.body`
+- `premium.benefit.erudite.title`
+- `premium.benefit.learning.body`
+- `premium.benefit.learning.title`
+- `premium.benefit.lives.body`
+- `premium.benefit.lives.title`
+- `premium.benefit.map.body`
+- `premium.benefit.map.title`
+- `premium.benefit.mistakes.body`
+- `premium.benefit.mistakes.title`
+- `premium.benefit.weekly.body`
+- `premium.benefit.weekly.title`
+- `premium.details.collapsed`
+- `premium.details.expanded`
+- `premium.family.body`
+- `premium.family.title`
+- `premium.story.countries.body`
+- `premium.story.countries.title`
+- `premium.story.enlarge`
+- `premium.story.example`
+- `premium.story.headline`
+- `premium.story.intro`
+- `premium.story.map.body`
+- `premium.story.map.title`
+- `premium.story.practice.body`
+- `premium.story.practice.title`
+- `premium.story.progress.body`
+- `premium.story.progress.title`
+- `premium.weekly.history`
+- `premium.weekly.next`
+- `ranking.motivational.explanation`
+- `ranking.motivational.title`
+- `streak.recovery.body_fmt`
+- `streak.recovery.later_btn`
+- `streak.recovery.pay_btn_fmt`
+- `streak.recovery.play_btn`
+- `streak.recovery.title`
+- `Не удалось добавить в друзья. Попробуйте позже.`
+
+### zh
+
+- `10Ч`
+- `Accessories`
+- `Add Friends`
+- `August Mission`
+- `Best streak`
+- `Check your internet connection`
+- `Create Avatar`
+- `Current streak`
+- `Don't break the chain! Come back tomorrow!`
+- `Empty response from server`
+- `Eye Color`
+- `Eye Shape`
+- `Eyebrows`
+- `Face Shape`
+- `Facial Hair`
+- `Friend Streaks`
+- `Game Over!`
+- `Gender`
+- `Glasses`
+- `HELP_TECH_DATA_SYNC`
+- `HELP_TECH_FLAGS_NOT_LOADING`
+- `HTTP Error: %d`
+- `Hair Color`
+- `Hair Style`
+- `Loading...`
+- `Monthly Badges`
+- `Mouth`
+- `No Internet Connection`
+- `Nose`
+- `Not enough countries in selected regions (found %d, need at least 4)`
+- `Outfit`
+- `Overview`
+- `Remove Photo`
+- `Request Timeout`
+- `Select Photo`
+- `Server Not Found`
+- `Sign in with Apple ID in Settings → App Store to see prices. Tap an option or Retry to try again.`
+- `Sign in with Apple error 1000`
+- `Skin Tone`
+- `Tap to load price`
+- `Too Many Requests`
+- `Total XP`
+- `Total games`
+- `Upload Photo`
+- `Virtual opponent`
+- `appIcon.automatic`
+- `appIcon.choose`
+- `appIcon.suggestion`
+- `ca_language`
+- `coins`
+- `duel.error.notYours`
+- `education.fbucks.body`
+- `education.fbucks.done`
+- `education.fbucks.shop`
+- `education.fbucks.title`
+- `es_language`
+- `facts.area`
+- `facts.capital`
+- `facts.explanation`
+- `facts.map`
+- `facts.population`
+- `facts.region`
+- `facts.settings`
+- `fbucks.tx.streak_restore`
+- `friends.duels.with_you`
+- `guide.back`
+- `guide.done`
+- `guide.fbucks.body`
+- `guide.fbucks.title`
+- `guide.friends.body`
+- `guide.friends.title`
+- `guide.next`
+- `guide.play.body`
+- `guide.play.title`
+- `guide.replay`
+- `guide.settings.body`
+- `guide.settings.title`
+- `guide.skip`
+- `guide.streak.body`
+- `guide.streak.title`
+- `learning.anthem.excerpt`
+- `learning.anthem.full_lyrics_source`
+- `learning.anthem.recording_source`
+- `learning.anthem.shared_fmt`
+- `learning.anthem.unavailable`
+- `learning.country.discover`
+- `premium.benefit.anthems.body`
+- `premium.benefit.anthems.title`
+- `premium.benefit.avatar.body`
+- `premium.benefit.avatar.title`
+- `premium.benefit.countries.body`
+- `premium.benefit.countries.title`
+- `premium.benefit.erudite.body`
+- `premium.benefit.erudite.title`
+- `premium.benefit.learning.body`
+- `premium.benefit.learning.title`
+- `premium.benefit.lives.body`
+- `premium.benefit.lives.title`
+- `premium.benefit.map.body`
+- `premium.benefit.map.title`
+- `premium.benefit.mistakes.body`
+- `premium.benefit.mistakes.title`
+- `premium.benefit.weekly.body`
+- `premium.benefit.weekly.title`
+- `premium.details.collapsed`
+- `premium.details.expanded`
+- `premium.family.body`
+- `premium.family.title`
+- `premium.story.countries.body`
+- `premium.story.countries.title`
+- `premium.story.enlarge`
+- `premium.story.example`
+- `premium.story.headline`
+- `premium.story.intro`
+- `premium.story.map.body`
+- `premium.story.map.title`
+- `premium.story.practice.body`
+- `premium.story.practice.title`
+- `premium.story.progress.body`
+- `premium.story.progress.title`
+- `premium.weekly.history`
+- `premium.weekly.next`
+- `ranking.motivational.explanation`
+- `ranking.motivational.title`
+- `registration_failed`
+- `reset_request_failed`
+- `ru_language`
+- `streak.recovery.body_fmt`
+- `streak.recovery.later_btn`
+- `streak.recovery.pay_btn_fmt`
+- `streak.recovery.play_btn`
+- `streak.recovery.title`
+- `system_language`
+- `uk_language`
+- `zh_language`
+- `Алмаз`
+- `Валюта`
+- `Введите имя`
+- `Галерея`
+- `Гимн страны`
+- `Глава государства`
+- `Достигни точности 80%`
+- `Значение гимна`
+- `Золото`
+- `Информация о стране`
+- `Историческая информация о стране`
+- `Как сохранить прогресс`
+- `Мастер`
+- `Музыка`
+- `Музыкальная культура страны`
+- `Население`
+- `Национальный гимн`
+- `Не удалось добавить в друзья. Попробуйте позже.`
+- `Независимость`
+- `Описание`
+- `Описание флага`
+- `Официальный язык`
+- `Платина`
+- `Площадь`
+- `Правительство`
+- `Природа`
+- `Проблемы с загрузкой флагов`
+- `Продли свою серию`
+- `Серебро`
+- `Синхронизация данных`
+- `Сыграй 3 игры подряд`
+- `Телефонный код`
+- `Уникальная природа и ландшафты этой страны`
+- `Что делать если флаги не загружаются`

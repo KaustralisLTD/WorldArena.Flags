@@ -1844,3 +1844,24 @@
 "achievement.friends_10.title" = "Przyjaciele na całym świecie";
 "achievement.friends_10.body" = "Dodaj 10 znajomych";
 "inbox.duelTimeUnavailable" = "Czas tego pojedynku nie został zapisany.";
+
+/* Notification event localization */
+"inbox.progressCTA" = "Zobacz moje postępy";
+"inbox.rank" = "Twoja pozycja";
+"inbox.leagueStory" = "Sprawdź swoją pozycję w lidze i wybierz cel na nowy tydzień.";
+"inbox.levelStory" = "Twoja wiedza rośnie z każdą flagą. Wypróbuj inny poziom trudności lub region.";
+"inbox.achievementStory" = "Otwórz osiągnięcia, aby zobaczyć nagrody i postępy w drodze do kolejnego celu.";
+"inbox.duelStory" = "Otwórz wyniki pojedynków i porównaj punkty. Zakończone gry pozostają w historii.";
+"inbox.messageStory" = "Po przeczytaniu możesz wrócić do tej wiadomości w historii powiadomień.";
+"friends.requests.title" = "Zaproszenia do znajomych";
+"friends.requests.body" = "Dodano Cię do znajomych. Czy chcesz odwzajemnić zaproszenie?";
+"notification.nudge.title" = "%@ przypomina Ci";
+"nudge_phrase_16" = "Nie ukończono jeszcze dzisiejszej lekcji flag!";
+
+/* Friend notification actions */
+"friends.requests.accept" = "Dodaj do znajomych";
+"friends.requests.decline" = "Odrzuć";
+"friends.requests.done" = "Gotowe";
+"friends.requests.empty" = "Brak nowych zaproszeń do znajomych";
+"friends.requests.error" = "Nie udało się wykonać działania. Spróbuj ponownie.";
+"friends.requests.signin" = "Zaloguj się, aby przeglądać zaproszenia do znajomych i na nie odpowiadać.";

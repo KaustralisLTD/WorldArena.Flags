@@ -1860,3 +1860,24 @@
 "achievement.friends_10.title" = "世界各地的朋友";
 "achievement.friends_10.body" = "新增10位好友";
 "inbox.duelTimeUnavailable" = "此對決的用時未儲存。";
+
+/* Notification event localization */
+"inbox.progressCTA" = "查看我的進度";
+"inbox.rank" = "你的排名";
+"inbox.leagueStory" = "查看聯賽排名，為新的一週選擇目標。";
+"inbox.levelStory" = "每認識一面旗幟，知識就更豐富。試試其他難度或地區。";
+"inbox.achievementStory" = "開啟成就，查看獎勵和下一個目標的進度。";
+"inbox.duelStory" = "開啟對決結果比較分數。已完成的比賽會保留在歷史紀錄中。";
+"inbox.messageStory" = "閱讀後，你仍可在通知歷史中查看這則訊息。";
+"friends.requests.title" = "好友邀請";
+"friends.requests.body" = "已將你加為好友。你也要加入對方嗎？";
+"notification.nudge.title" = "%@ 提醒你";
+"nudge_phrase_16" = "你還沒完成今天的旗幟課程！";
+
+/* Friend notification actions */
+"friends.requests.accept" = "也加入對方";
+"friends.requests.decline" = "拒絕";
+"friends.requests.done" = "完成";
+"friends.requests.empty" = "沒有新的好友邀請";
+"friends.requests.error" = "操作失敗，請重試。";
+"friends.requests.signin" = "登入以查看及回覆好友邀請。";

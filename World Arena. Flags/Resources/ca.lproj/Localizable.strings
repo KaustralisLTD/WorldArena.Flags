@@ -1737,3 +1737,24 @@
 "achievement.friends_10.title" = "Amics arreu del món";
 "achievement.friends_10.body" = "Afegeix 10 amics";
 "inbox.duelTimeUnavailable" = "No s’ha desat el temps d’aquest duel.";
+
+/* Notification event localization */
+"inbox.progressCTA" = "Veure el meu progrés";
+"inbox.rank" = "La teva posició";
+"inbox.leagueStory" = "Consulta la teva posició a la lliga i tria el pròxim objectiu per a la nova setmana.";
+"inbox.levelStory" = "Els teus coneixements creixen amb cada bandera. Prova una altra dificultat o regió.";
+"inbox.achievementStory" = "Obre els assoliments per veure els premis i el progrés cap al pròxim objectiu.";
+"inbox.duelStory" = "Obre els resultats dels duels per comparar puntuacions. Les partides acabades queden a l’historial.";
+"inbox.messageStory" = "Pots tornar a aquest missatge a l’historial de notificacions després de llegir-lo.";
+"friends.requests.title" = "Sol·licituds d’amistat";
+"friends.requests.body" = "T’ha afegit com a amic. Vols afegir-lo també?";
+"notification.nudge.title" = "%@ t’ho recorda";
+"nudge_phrase_16" = "Encara no has completat la lliçó diària de banderes!";
+
+/* Friend notification actions */
+"friends.requests.accept" = "Afegir també";
+"friends.requests.decline" = "Rebutjar";
+"friends.requests.done" = "Fet";
+"friends.requests.empty" = "No hi ha noves sol·licituds d’amistat";
+"friends.requests.error" = "No s’ha pogut completar l’acció. Torna-ho a provar.";
+"friends.requests.signin" = "Inicia la sessió per veure i respondre a les sol·licituds d’amistat.";

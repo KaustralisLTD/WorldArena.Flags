@@ -1861,3 +1861,24 @@
 "achievement.friends_10.title" = "世界中の友達";
 "achievement.friends_10.body" = "友達を10人追加する";
 "inbox.duelTimeUnavailable" = "この対戦の時間は保存されていません。";
+
+/* Notification event localization */
+"inbox.progressCTA" = "進捗を見る";
+"inbox.rank" = "あなたの順位";
+"inbox.leagueStory" = "リーグ順位を確認して、新しい週の目標を選びましょう。";
+"inbox.levelStory" = "国旗を覚えるたびに知識が広がります。別の難易度や地域に挑戦しましょう。";
+"inbox.achievementStory" = "実績を開くと、獲得した報酬と次の目標への進捗を確認できます。";
+"inbox.duelStory" = "対戦結果を開いてスコアを比べましょう。終了したゲームは履歴に残ります。";
+"inbox.messageStory" = "読んだ後も通知履歴からこのメッセージを確認できます。";
+"friends.requests.title" = "フレンド申請";
+"friends.requests.body" = "あなたをフレンドに追加しました。こちらからも追加しますか？";
+"notification.nudge.title" = "%@さんからのリマインダー";
+"nudge_phrase_16" = "今日の国旗レッスンはまだ終わっていません！";
+
+/* Friend notification actions */
+"friends.requests.accept" = "こちらからも追加";
+"friends.requests.decline" = "拒否";
+"friends.requests.done" = "完了";
+"friends.requests.empty" = "新しいフレンド申請はありません";
+"friends.requests.error" = "操作を完了できませんでした。もう一度お試しください。";
+"friends.requests.signin" = "フレンド申請の確認と返答にはログインが必要です。";

@@ -1860,3 +1860,24 @@
 "achievement.friends_10.title" = "Dünyanın dört yanından arkadaşlar";
 "achievement.friends_10.body" = "10 arkadaş ekle";
 "inbox.duelTimeUnavailable" = "Bu düellonun süresi kaydedilmedi.";
+
+/* Notification event localization */
+"inbox.progressCTA" = "İlerlememi gör";
+"inbox.rank" = "Sıralaman";
+"inbox.leagueStory" = "Lig sıralamanı incele ve yeni hafta için bir hedef seç.";
+"inbox.levelStory" = "Bilgin her bayrakla artar. Başka bir zorluk veya bölge dene.";
+"inbox.achievementStory" = "Ödüllerini ve sonraki hedefe ilerlemeni görmek için başarıları aç.";
+"inbox.duelStory" = "Puanları karşılaştırmak için düello sonuçlarını aç. Tamamlanan oyunlar geçmişte kalır.";
+"inbox.messageStory" = "Okuduktan sonra bu mesaja bildirim geçmişinden dönebilirsin.";
+"friends.requests.title" = "Arkadaşlık istekleri";
+"friends.requests.body" = "Seni arkadaş olarak ekledi. Sen de eklemek ister misin?";
+"notification.nudge.title" = "%@ sana hatırlatıyor";
+"nudge_phrase_16" = "Günlük bayrak dersini henüz tamamlamadın!";
+
+/* Friend notification actions */
+"friends.requests.accept" = "Sen de ekle";
+"friends.requests.decline" = "Reddet";
+"friends.requests.done" = "Bitti";
+"friends.requests.empty" = "Yeni arkadaşlık isteği yok";
+"friends.requests.error" = "İşlem tamamlanamadı. Tekrar dene.";
+"friends.requests.signin" = "Arkadaşlık isteklerini görmek ve yanıtlamak için giriş yap.";

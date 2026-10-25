@@ -1860,3 +1860,24 @@
 "achievement.friends_10.title" = "เพื่อนทั่วโลก";
 "achievement.friends_10.body" = "เพิ่มเพื่อน 10 คน";
 "inbox.duelTimeUnavailable" = "ไม่ได้บันทึกเวลาของการดวลนี้";
+
+/* Notification event localization */
+"inbox.progressCTA" = "ดูความคืบหน้าของฉัน";
+"inbox.rank" = "อันดับของคุณ";
+"inbox.leagueStory" = "ดูอันดับในลีกและเลือกเป้าหมายสำหรับสัปดาห์ใหม่";
+"inbox.levelStory" = "ความรู้เพิ่มขึ้นกับทุกธง ลองระดับความยากหรือภูมิภาคอื่น";
+"inbox.achievementStory" = "เปิดความสำเร็จเพื่อดูรางวัลและความคืบหน้าสู่เป้าหมายถัดไป";
+"inbox.duelStory" = "เปิดผลการดวลเพื่อเทียบคะแนน เกมที่จบแล้วจะอยู่ในประวัติ";
+"inbox.messageStory" = "หลังอ่านแล้ว คุณยังกลับมาดูข้อความนี้ในประวัติการแจ้งเตือนได้";
+"friends.requests.title" = "คำขอเป็นเพื่อน";
+"friends.requests.body" = "ได้เพิ่มคุณเป็นเพื่อน ต้องการเพิ่มกลับไหม";
+"notification.nudge.title" = "%@ เตือนคุณ";
+"nudge_phrase_16" = "คุณยังเรียนบทเรียนธงประจำวันไม่เสร็จ!";
+
+/* Friend notification actions */
+"friends.requests.accept" = "เพิ่มกลับ";
+"friends.requests.decline" = "ปฏิเสธ";
+"friends.requests.done" = "เสร็จสิ้น";
+"friends.requests.empty" = "ไม่มีคำขอเป็นเพื่อนใหม่";
+"friends.requests.error" = "ดำเนินการไม่สำเร็จ โปรดลองอีกครั้ง";
+"friends.requests.signin" = "เข้าสู่ระบบเพื่อดูและตอบคำขอเป็นเพื่อน";

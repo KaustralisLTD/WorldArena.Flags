@@ -1860,3 +1860,24 @@
 "achievement.friends_10.title" = "ప్రపంచవ్యాప్తంగా స్నేహితులు";
 "achievement.friends_10.body" = "10 మంది స్నేహితులను జోడించండి";
 "inbox.duelTimeUnavailable" = "ఈ పోటీ సమయం సేవ్ కాలేదు.";
+
+/* Notification event localization */
+"inbox.progressCTA" = "నా పురోగతిని చూడండి";
+"inbox.rank" = "మీ స్థానం";
+"inbox.leagueStory" = "లీగ్‌లో మీ స్థానాన్ని చూసి కొత్త వారానికి లక్ష్యాన్ని ఎంచుకోండి.";
+"inbox.levelStory" = "ప్రతి జెండాతో మీ జ్ఞానం పెరుగుతుంది. మరో కష్టత స్థాయి లేదా ప్రాంతాన్ని ప్రయత్నించండి.";
+"inbox.achievementStory" = "బహుమతులు, తదుపరి లక్ష్యం వైపు పురోగతి కోసం విజయాలను తెరవండి.";
+"inbox.duelStory" = "స్కోర్‌లను పోల్చడానికి ద్వంద్వ ఫలితాలను తెరవండి. పూర్తయిన ఆటలు చరిత్రలో ఉంటాయి.";
+"inbox.messageStory" = "చదివిన తర్వాత కూడా నోటిఫికేషన్ చరిత్రలో ఈ సందేశాన్ని చూడవచ్చు.";
+"friends.requests.title" = "స్నేహ అభ్యర్థనలు";
+"friends.requests.body" = "మిమ్మల్ని స్నేహితునిగా జోడించారు. మీరు కూడా వారిని జోడించాలనుకుంటున్నారా?";
+"notification.nudge.title" = "%@ మీకు గుర్తు చేస్తున్నారు";
+"nudge_phrase_16" = "మీరు ఇంకా రోజువారీ జెండాల పాఠాన్ని పూర్తి చేయలేదు!";
+
+/* Friend notification actions */
+"friends.requests.accept" = "తిరిగి జోడించండి";
+"friends.requests.decline" = "తిరస్కరించండి";
+"friends.requests.done" = "పూర్తయింది";
+"friends.requests.empty" = "కొత్త స్నేహ అభ్యర్థనలు లేవు";
+"friends.requests.error" = "చర్యను పూర్తి చేయలేకపోయాం. మళ్లీ ప్రయత్నించండి.";
+"friends.requests.signin" = "స్నేహ అభ్యర్థనలను చూడటానికి, స్పందించటానికి సైన్ ఇన్ చేయండి.";

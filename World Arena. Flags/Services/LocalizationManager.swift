@@ -43,6 +43,7 @@ class LocalizationManager: ObservableObject {
         
         // Добавляем отправку уведомления для обновления UI
         NotificationCenter.default.post(name: .languageChanged, object: nil)
+        NotificationService.shared.languageDidChange()
         
         print("Language updated successfully")
         print("=====================\n")

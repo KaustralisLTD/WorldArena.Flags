@@ -466,7 +466,7 @@
 
 /* Game header popovers */
 "Total game time since start" = "Общее время игры с начала";
-"Time limit per question depending on difficulty" = "Time limit per question depending on difficulty";
+"Time limit per question depending on difficulty" = "Время на вопрос зависит от сложности";
 "Total Game Time" = "Общее время игры";
 "Time Per Question" = "Время на вопрос";
 
@@ -1004,7 +1004,7 @@
 
 /* Enhanced Streak View */
 "Don't break the chain! Come back tomorrow!" = "Не прерывай цепочку! Возвращайся завтра!";
-"Time to restart your streak! You can do it!" = "Time to restart your streak! You can do it!";
+"Time to restart your streak! You can do it!" = "Пора начать новую серию! У вас всё получится!";
 
 /* Monthly XP Quest */
 "Заработай %d XP за месяц" = "Заработай %d XP за месяц";
@@ -1519,9 +1519,9 @@
 "TC detail xp earned" = "XP for this answer: +%d";
 "TC detail time penalty fmt" = "Таймер: −%1$d %2$@ (ошибка)";
 "TC detail time combo fmt" = "Таймер: +%1$d %2$@ (5 верных подряд)";
-"TC detail points earned" = "Points for this answer: +%d";
-"TC detail time penalty" = "Timer: −10 s (wrong answer)";
-"TC detail time combo bonus" = "Timer: +10 s (5 correct in a row)";
+"TC detail points earned" = "Баллы за этот ответ: +%d";
+"TC detail time penalty" = "Таймер: −10 с (неверный ответ)";
+"TC detail time combo bonus" = "Таймер: +10 с (5 верных ответов подряд)";
 "Share TC headline" = "Time Challenge: %d верных из %d";
 "Time seconds unit short" = "с";
 "TC stat best combo" = "Лучшая серия";
@@ -1678,7 +1678,7 @@
 "home.streak_nudge.friend_title" = "У %@ серия: %d дн.";
 "home.streak_nudge.friend_sub" = "У тебя: %d дн.";
 "home.streak_nudge.play" = "Играть";
-"home.streak_nudge.catch_up" = "Наздогнать";
+"home.streak_nudge.catch_up" = "Догнать";
 
 "home.hero.play_bonus" = "+1 F-Bucks, если сыграешь сейчас";
 "home.hero.streak_continue_fmt" = "Продли серию — %d/%d";
@@ -2073,3 +2073,21 @@
 "achievement.friends_10.body" = "Добавьте 10 друзей";
 
 "inbox.duelTimeUnavailable" = "Время этой дуэли не сохранилось.";
+
+/* Notification event localization */
+"notification.nudge.title" = "%@ напоминает вам";
+"nudge_phrase_16" = "Вы ещё не прошли ежедневный урок по флагам!";
+
+"ca_language" = "Каталанский";
+
+"es_language" = "Испанский";
+
+"ru_language" = "Русский";
+
+"system_language" = "Системный";
+
+"uk_language" = "Украинский";
+
+"zh_language" = "Китайский";
+
+"До конца лиги: %02dч %02dм (GMT)" = "До конца лиги: %02dч %02dм (GMT)";

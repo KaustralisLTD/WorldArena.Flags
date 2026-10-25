@@ -1846,3 +1846,24 @@
 "achievement.friends_10.title" = "Amigos pelo mundo";
 "achievement.friends_10.body" = "Adicione 10 amigos";
 "inbox.duelTimeUnavailable" = "O tempo deste duelo não foi salvo.";
+
+/* Notification event localization */
+"inbox.progressCTA" = "Ver meu progresso";
+"inbox.rank" = "Sua posição";
+"inbox.leagueStory" = "Confira sua posição na liga e escolha uma meta para a nova semana.";
+"inbox.levelStory" = "Seu conhecimento cresce a cada bandeira. Experimente outra dificuldade ou região.";
+"inbox.achievementStory" = "Abra as conquistas para ver seus prêmios e o progresso até a próxima meta.";
+"inbox.duelStory" = "Abra os resultados dos duelos para comparar as pontuações. As partidas concluídas ficam no histórico.";
+"inbox.messageStory" = "Você pode encontrar esta mensagem no histórico de notificações depois de lê-la.";
+"friends.requests.title" = "Solicitações de amizade";
+"friends.requests.body" = "Adicionou você como amigo. Quer adicionar de volta?";
+"notification.nudge.title" = "%@ lembra você";
+"nudge_phrase_16" = "Você ainda não concluiu sua lição diária de bandeiras!";
+
+/* Friend notification actions */
+"friends.requests.accept" = "Adicionar de volta";
+"friends.requests.decline" = "Recusar";
+"friends.requests.done" = "Concluído";
+"friends.requests.empty" = "Nenhuma nova solicitação de amizade";
+"friends.requests.error" = "Não foi possível concluir a ação. Tente novamente.";
+"friends.requests.signin" = "Entre para ver e responder às solicitações de amizade.";

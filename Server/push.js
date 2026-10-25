@@ -61,14 +61,20 @@ function getProvider() {
  */
 function recordInbox(deviceToken, notification, alert) {
   try {
-    require('./notification-inbox').record(require('./db').db, deviceToken, notification, alert);
+    const db=require('./db').db,inbox=require('./notification-inbox'),i18n=require('./notification-localization');
+    inbox.initialize(db);
+    const details=i18n.detailsFor(notification.payload?.type,notification.payload?.details||{},alert);
+    notification.payload={...notification.payload,details};
+    Object.assign(alert,i18n.render(notification.payload.type,details,i18n.recipientLocale(db,{token:deviceToken}),alert));
+    notification.alert=alert;
+    inbox.record(db,deviceToken,notification,alert);
   } catch (error) {
     // A secondary inbox failure must never turn a saved duel into HTTP 500.
     console.error('[push] inbox persistence failed', { code: error.code || error.name });
   }
 }
 
-function sendNudgePush(deviceToken, fromUsername, bodyText, callback) {
+function sendNudgePush(deviceToken, fromUsername, bodyText, callback, phraseID) {
   if (!deviceToken || typeof callback !== 'function') {
     if (callback) callback();
     return;
@@ -86,7 +92,7 @@ function sendNudgePush(deviceToken, fromUsername, bodyText, callback) {
   notification.pushType = 'alert';
   notification.priority = 10;
   notification.topic = process.env.APNS_BUNDLE_ID || 'com.worldarena.flags';
-  notification.payload = { type: 'nudge', fromUsername };
+  notification.payload = { type: 'nudge', fromUsername, details: {senderName:fromUsername,phraseID} };
   // Persist the actual message and use its unread count, never a fixed badge.
   recordInbox(deviceToken, notification, alert);
   provider.send(notification, deviceToken).then((result) => {
@@ -122,7 +128,7 @@ function sendDuelChallengePush(deviceToken, challengerName, callback, challengeI
   notification.pushType = 'alert';
   notification.priority = 10;
   notification.topic = process.env.APNS_BUNDLE_ID || 'com.worldarena.flags';
-  notification.payload = { type: 'duel_challenge', challengerName, challengeId };
+  notification.payload = { type: 'duel_challenge', challengerName, challengeId, details: {opponentName:challengerName} };
   if (challengeId) notification.collapseId = `invite-${challengeId}`;
   const tokenHint = deviceToken.length > 14 ? `${deviceToken.slice(0, 14)}…` : deviceToken;
   // Persist the actual message and use its unread count, never a fixed badge.
@@ -161,7 +167,7 @@ function sendDuelResultPush(deviceToken, match, callback) {
   notification.priority = 10;
   notification.topic = process.env.APNS_BUNDLE_ID || 'com.worldarena.flags';
   notification.collapseId = `result-${match.challengeId}`;
-  notification.payload = { type: 'duel_result', challengeId: match.challengeId };
+  notification.payload = { type: 'duel_result', challengeId: match.challengeId, details: {...match} };
   // Persist the actual message and use its unread count, never a fixed badge.
   recordInbox(deviceToken, notification, alert);
   provider.send(notification, deviceToken).then(result => {
@@ -180,7 +186,7 @@ function sendFriendRequestPush(deviceToken, senderName, callback) {
   notification.pushType = 'alert';
   notification.priority = 10;
   notification.topic = process.env.APNS_BUNDLE_ID || 'com.worldarena.flags';
-  notification.payload = { type: 'friend_request' };
+  notification.payload = { type: 'friend_request', details: {senderName} };
   // Persist the actual message and use its unread count, never a fixed badge.
   recordInbox(deviceToken, notification, alert);
   provider.send(notification, deviceToken).then(result => {

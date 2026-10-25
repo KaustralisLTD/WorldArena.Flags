@@ -137,6 +137,7 @@ class NotificationService: NSObject, ObservableObject {
     @MainActor private func remoteInbox(token: String) async -> RemoteInbox? {
         var request = URLRequest(url: URL(string: "https://flags.worldarena.games/api/v1/notifications")!)
         request.setValue("Bearer " + token, forHTTPHeaderField: "Authorization")
+        request.setValue(LocalizationManager.shared.apiLanguageCode, forHTTPHeaderField: "Accept-Language")
         request.timeoutInterval = 15
         guard let (data, response) = try? await URLSession.shared.data(for: request),
               (response as? HTTPURLResponse)?.statusCode == 200 else { return nil }
@@ -182,7 +183,7 @@ class NotificationService: NSObject, ObservableObject {
             let p=n.request.content.userInfo
             let type=p["type"] as? String ?? "message"
             if n.request.identifier.contains("reminder") || n.request.identifier == "dailyReminder" { continue }
-            combined.append(AppNotificationLogItem(id:p["notificationId"] as? String ?? n.request.identifier,title:n.request.content.title,body:n.request.content.body,date:n.date,source:"delivered",kind:type,target:p["challengeId"] as? String))
+            combined.append(AppNotificationLogItem(id:p["notificationId"] as? String ?? n.request.identifier,title:n.request.content.title,body:n.request.content.body,date:n.date,source:"delivered",kind:type,target:p["challengeId"] as? String,details:NotificationTextLocalization.details(from: p)))
         }
         readIDs.formUnion(userDefaults.stringArray(forKey:account + ".read") ?? [])
         var seen=Set<String>()
@@ -269,9 +270,40 @@ class NotificationService: NSObject, ObservableObject {
         content.title = title
         content.body = body
         content.sound = .default
+        content.userInfo = ["type": "progress"]
+        if let details, let data = try? JSONEncoder().encode(details), let object = try? JSONSerialization.jsonObject(with: data) { content.userInfo["details"] = object }
         let request = UNNotificationRequest(identifier: id, content: content,
             trigger: UNTimeIntervalNotificationTrigger(timeInterval: 1, repeats: false))
         UNUserNotificationCenter.current().add(request)
+    }
+
+    @MainActor
+    func languageDidChange() {
+        Task { @MainActor in
+            let center = UNUserNotificationCenter.current()
+            let requests = await center.pendingNotificationRequests()
+            for request in requests {
+                guard let content = request.content.mutableCopy() as? UNMutableNotificationContent else { continue }
+                if request.identifier == "dailyReminder" || request.identifier == "inactivity_reminder" {
+                    content.title = LocalizationManager.shared.localizedString("Push Notification Title")
+                    content.body = LocalizationManager.shared.localizedString("Push Notification Body")
+                } else if request.identifier == "league_weekly" {
+                    content.title = LocalizationManager.shared.localizedString("Лиги")
+                    content.body = LocalizationManager.shared.localizedString("league.weekly_result.title.week_finished")
+                } else if content.userInfo["type"] as? String == "birthday", let details = NotificationTextLocalization.details(from: content.userInfo), let name = details.senderName {
+                    content.title = LocalizationManager.shared.localizedString("День рождения друга")
+                    content.body = String(format: LocalizationManager.shared.localizedString("Friend birthday push body"), name)
+                } else { continue }
+                var trigger = request.trigger
+                if let interval = trigger as? UNTimeIntervalNotificationTrigger, !interval.repeats {
+                    guard let next = interval.nextTriggerDate(), next.timeIntervalSinceNow > 0 else { continue }
+                    trigger = UNTimeIntervalNotificationTrigger(timeInterval: max(1, next.timeIntervalSinceNow), repeats: false)
+                }
+                try? await center.add(UNNotificationRequest(identifier: request.identifier, content: content, trigger: trigger))
+            }
+            await FriendsService.shared.syncServerFriendCode(for: UserProfile.shared, maxAttempts: 1)
+            await self.refreshInbox()
+        }
     }
 
     // Обновление времени последнего открытия приложения
@@ -328,6 +360,7 @@ class NotificationService: NSObject, ObservableObject {
         let content = UNMutableNotificationContent()
         content.title = LocalizationManager.shared.localizedString("Duel")
         content.body = body
+        content.userInfo = ["type": "duel_challenge", "details": ["opponentName": challengerName]]
         content.sound = .default
         let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 1, repeats: false)
         let request = UNNotificationRequest(identifier: "duel_challenge_\(UUID().uuidString)", content: content, trigger: trigger)
@@ -340,6 +373,7 @@ class NotificationService: NSObject, ObservableObject {
         let content = UNMutableNotificationContent()
         content.title = LocalizationManager.shared.localizedString("Duel")
         content.body = LocalizationManager.shared.localizedString("You won the duel!")
+        content.userInfo = ["type": "duel_result", "details": ["iWon": true, "bodyKey": "You won the duel!"]]
         content.sound = .default
         let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 1, repeats: false)
         let request = UNNotificationRequest(identifier: "duel_won_\(UUID().uuidString)", content: content, trigger: trigger)
@@ -389,6 +423,7 @@ class NotificationService: NSObject, ObservableObject {
             content.title = LocalizationManager.shared.localizedString("День рождения друга")
             let bodyTemplate = LocalizationManager.shared.localizedString("Friend birthday push body")
             content.body = String(format: bodyTemplate, friend.displayNameOrUsername)
+            content.userInfo = ["type": "birthday", "details": ["senderName": friend.displayNameOrUsername]]
             content.sound = .default
             let comps = Calendar.current.dateComponents([.year, .month, .day, .hour, .minute], from: triggerDate)
             let trigger = UNCalendarNotificationTrigger(dateMatching: comps, repeats: false)
@@ -415,6 +450,7 @@ class NotificationService: NSObject, ObservableObject {
         )
         let motivationKey = iWon ? "Duel motivation win" : "Duel motivation lose"
         content.body = "\(base) \(LocalizationManager.shared.localizedString(motivationKey))"
+        content.userInfo = ["type": "duel_result", "details": ["opponentName": challengerName, "myScore": myScore, "opponentScore": challengerScore, "iWon": iWon]]
         content.sound = .default
         let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 1, repeats: false)
         let request = UNNotificationRequest(identifier: "duel_result_\(UUID().uuidString)", content: content, trigger: trigger)
@@ -452,7 +488,7 @@ struct AppNotificationLogItem: Identifiable, Codable {
     var kind: String = "message"
     var target: String? = nil
     var readAt: Date? = nil
-    struct Details: Codable { var opponentName: String?; var myScore: Int?; var opponentScore: Int?; var iWon: Bool?; var level: Int? = nil; var xp: Int? = nil; var rank: Int? = nil; var participants: Int? = nil; var league: String? = nil; var reward: Int? = nil; var achievementID: String? = nil; var week: String? = nil; var myTimeMs: Int? = nil; var opponentTimeMs: Int? = nil }
+    struct Details: Codable { var opponentName: String?; var myScore: Int?; var opponentScore: Int?; var iWon: Bool?; var level: Int? = nil; var xp: Int? = nil; var rank: Int? = nil; var participants: Int? = nil; var league: String? = nil; var reward: Int? = nil; var achievementID: String? = nil; var week: String? = nil; var myTimeMs: Int? = nil; var opponentTimeMs: Int? = nil; var senderName: String? = nil; var phraseID: Int? = nil; var leagueID: String? = nil; var titleKey: String? = nil; var bodyKey: String? = nil; var titleArgs: [String]? = nil; var bodyArgs: [String]? = nil; var localizedTitles: [String: String]? = nil; var localizedBodies: [String: String]? = nil }
     var details: Details? = nil
     var deduplicationKey: String {
         if isDuel, let target { return kind + ":" + target }
@@ -462,7 +498,7 @@ struct AppNotificationLogItem: Identifiable, Codable {
         return id
     }
     var duelDetails: Details? {
-        if let details { return details }
+        if let details, details.opponentName != nil || details.myScore != nil || details.iWon != nil { return details }
         if kind == "duel_challenge", body.hasSuffix(" challenged you to a duel") {
             return .init(opponentName: String(body.dropLast(" challenged you to a duel".count)))
         }
@@ -476,18 +512,65 @@ struct AppNotificationLogItem: Identifiable, Codable {
     }
     var isUnread: Bool { readAt == nil }
     @MainActor var displayTitle: String {
-        let lm=LocalizationManager.shared
+        let lm = LocalizationManager.shared
+        if let translated = details?.localizedTitles?[lm.currentBundleLanguageCode] { return translated }
+        if let key = details?.titleKey { return NotificationTextLocalization.format(key, args: details?.titleArgs ?? []) }
         if kind == "duel_result" { return lm.localizedString(duelDetails?.iWon == true ? "Victory" : duelDetails?.iWon == false ? "Defeat" : "Duel result") }
         if kind == "duel_challenge" { return lm.localizedString("Duel") }
+        if kind == "friend_request" { return lm.localizedString("friends.requests.title") }
+        if kind == "nudge", let sender = nudgeSender {
+            return NotificationTextLocalization.format("notification.nudge.title", args: [sender])
+        }
+        if let level = eventLevel { return lm.localizedString("Уровень") + " " + String(level) }
+        if isLeagueEvent { return lm.localizedString("Лиги") }
+        if achievementDefinition != nil || id.hasPrefix("achievement_") { return lm.localizedString("Достижения") }
+        if kind == "birthday" { return lm.localizedString("День рождения друга") }
         return title
     }
     @MainActor var displayBody: String {
-        let lm=LocalizationManager.shared
-        if kind == "duel_challenge", let name=duelDetails?.opponentName { return String(format:lm.localizedString("Duel challenge from %@"),name) }
-        if kind == "duel_result", let d=duelDetails,let own=d.myScore,let other=d.opponentScore {
-            return "\(lm.localizedString("You")): \(own) · \(d.opponentName ?? "—"): \(other)"
+        let lm = LocalizationManager.shared
+        if let translated = details?.localizedBodies?[lm.currentBundleLanguageCode] { return translated }
+        if let key = details?.bodyKey { return NotificationTextLocalization.format(key, args: details?.bodyArgs ?? []) }
+        if kind == "duel_challenge" {
+            if let name = duelDetails?.opponentName { return String(format: lm.localizedString("Duel challenge from %@"), name) }
+            return lm.localizedString("inbox.duelStory")
         }
+        if kind == "duel_result" {
+            if let d = duelDetails, let own = d.myScore, let other = d.opponentScore {
+                return "\(lm.localizedString("You")): \(own) · \(d.opponentName ?? "—"): \(other)"
+            }
+            return lm.localizedString("inbox.duelStory")
+        }
+        if kind == "friend_request" {
+            let suffix = " added you as a friend. Open the app to add them back or decline."
+            let sender = details?.senderName ?? (body.hasSuffix(suffix) ? String(body.dropLast(suffix.count)) : nil)
+            return [sender, lm.localizedString("friends.requests.body")].compactMap { $0 }.joined(separator: ": ")
+        }
+        if kind == "nudge" {
+            if let phrase = details?.phraseID, (0...15).contains(phrase) { return lm.localizedString("nudge_phrase_" + String(phrase + 1)) }
+            if let key = NotificationTextLocalization.legacyKey(for: body, prefix: "nudge_phrase_") { return lm.localizedString(key) }
+        }
+        if eventLevel != nil {
+            let text = lm.localizedString("Well done! Keep practicing!")
+            return details?.xp.map { text + " · " + String($0) + " XP" } ?? text
+        }
+        if isLeagueEvent {
+            let raw = details?.leagueID ?? details?.league ?? body
+            let league = League(rawValue: raw)?.localizedFullName
+                ?? NotificationTextLocalization.legacyKey(for: raw).map { lm.localizedString($0) }
+            if let league { return [league, details?.rank.map { "#" + String($0) }].compactMap { $0 }.joined(separator: " · ") }
+            return lm.localizedString("league.weekly_result.title.week_finished")
+        }
+        if let definition = achievementDefinition { return lm.localizedString(definition.titleKey) }
+        if kind == "birthday", let name = details?.senderName { return String(format: lm.localizedString("Friend birthday push body"), name) }
+        // Only recognized system events are relocalized. Free-form messages stay intact.
+        if kind == "progress" || source == "progress", let key = NotificationTextLocalization.legacyKey(for: body) { return lm.localizedString(key) }
         return body
+    }
+    private var eventLevel: Int? { details?.level ?? (id.hasPrefix("level_") ? Int(id.dropFirst("level_".count)) : nil) }
+    private var isLeagueEvent: Bool { details?.league != nil || details?.leagueID != nil || id.hasPrefix("league_") || kind == "league_weekly" }
+    private var nudgeSender: String? {
+        details?.senderName ?? (title.hasSuffix(" reminds you") ? String(title.dropLast(" reminds you".count)) : nil)
     }
     var isDuel: Bool { kind.hasPrefix("duel") || source == "duel" }
 }

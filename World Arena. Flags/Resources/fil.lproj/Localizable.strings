@@ -1861,3 +1861,24 @@
 "achievement.friends_10.title" = "Mga kaibigan sa buong mundo";
 "achievement.friends_10.body" = "Magdagdag ng 10 kaibigan";
 "inbox.duelTimeUnavailable" = "Hindi na-save ang oras ng duel na ito.";
+
+/* Notification event localization */
+"inbox.progressCTA" = "Tingnan ang progreso ko";
+"inbox.rank" = "Iyong puwesto";
+"inbox.leagueStory" = "Tingnan ang puwesto mo sa liga at pumili ng layunin para sa bagong linggo.";
+"inbox.levelStory" = "Lumalawak ang kaalaman mo sa bawat bandila. Subukan ang ibang antas o rehiyon.";
+"inbox.achievementStory" = "Buksan ang mga nakamit para makita ang mga gantimpala at progreso sa susunod na layunin.";
+"inbox.duelStory" = "Buksan ang resulta ng mga duwelo para ihambing ang puntos. Nananatili sa kasaysayan ang mga natapos na laro.";
+"inbox.messageStory" = "Maaari mong balikan ang mensaheng ito sa kasaysayan ng mga abiso pagkatapos basahin.";
+"friends.requests.title" = "Mga kahilingan ng pagkakaibigan";
+"friends.requests.body" = "Idinagdag ka bilang kaibigan. Gusto mo rin ba siyang idagdag?";
+"notification.nudge.title" = "Ipinapaalala sa iyo ni %@";
+"nudge_phrase_16" = "Hindi mo pa natatapos ang pang-araw-araw na aralin sa mga bandila!";
+
+/* Friend notification actions */
+"friends.requests.accept" = "Idagdag din";
+"friends.requests.decline" = "Tanggihan";
+"friends.requests.done" = "Tapos";
+"friends.requests.empty" = "Walang bagong kahilingan ng pagkakaibigan";
+"friends.requests.error" = "Hindi makumpleto ang aksyon. Subukan ulit.";
+"friends.requests.signin" = "Mag-sign in para makita at sagutin ang mga kahilingan ng pagkakaibigan.";

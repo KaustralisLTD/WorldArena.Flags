@@ -1988,3 +1988,7 @@
 "achievement.friends_10.body" = "Додайте 10 друзів";
 
 "inbox.duelTimeUnavailable" = "Час цієї дуелі не збережено.";
+
+/* Notification event localization */
+"notification.nudge.title" = "%@ нагадує вам";
+"nudge_phrase_16" = "Ви ще не пройшли щоденний урок із прапорів!";
