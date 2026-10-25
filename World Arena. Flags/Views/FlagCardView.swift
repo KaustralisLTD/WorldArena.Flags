@@ -115,7 +115,7 @@ struct FlagCardView: View {
                             // Население
                             if showPopulation {
                             let populationText = getLocalizedText("Population")
-                            Text("\(populationText): \(formatPopulation(country.population))")
+                            Text("\(populationText): \(CountryService.shared.population(for: country).map(formatPopulation) ?? "—")")
                                 .font(backInfoFont)
 
                             }

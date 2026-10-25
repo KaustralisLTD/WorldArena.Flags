@@ -1,0 +1,254 @@
+{
+  "AW": {
+    "population": 107995,
+    "year": 2024,
+    "source": "https://api.worldbank.org/v2/country/ABW/indicator/SP.POP.TOTL?format=json&date=2024",
+    "note": "World Bank SP.POP.TOTL, 2024 estimate."
+  },
+  "AI": {
+    "population": 14435,
+    "year": 2023,
+    "source": "https://ourworldindata.org/grapher/population",
+    "note": "Published historical estimate from Our World in Data population series; not a live population count."
+  },
+  "AS": {
+    "population": 46765,
+    "year": 2024,
+    "source": "https://api.worldbank.org/v2/country/ASM/indicator/SP.POP.TOTL?format=json&date=2024",
+    "note": "World Bank SP.POP.TOTL, 2024 estimate."
+  },
+  "BQ": {
+    "population": 29920,
+    "year": 2023,
+    "source": "https://ourworldindata.org/grapher/population",
+    "note": "Published historical estimate from Our World in Data population series; not a live population count."
+  },
+  "BL": {
+    "population": 11112,
+    "year": 2023,
+    "source": "https://ourworldindata.org/grapher/population",
+    "note": "Published historical estimate from Our World in Data population series; not a live population count."
+  },
+  "BM": {
+    "population": 64636,
+    "year": 2024,
+    "source": "https://api.worldbank.org/v2/country/BMU/indicator/SP.POP.TOTL?format=json&date=2024",
+    "note": "World Bank SP.POP.TOTL, 2024 estimate."
+  },
+  "CC": {
+    "population": 593,
+    "year": 2021,
+    "source": "https://www.abs.gov.au/census/find-census-data/quickstats/2021/901021002",
+    "note": "Census or published estimate."
+  },
+  "CK": {
+    "population": 14244,
+    "year": 2023,
+    "source": "https://ourworldindata.org/grapher/population",
+    "note": "Published historical estimate from Our World in Data population series; not a live population count."
+  },
+  "CW": {
+    "population": 155967,
+    "year": 2024,
+    "source": "https://api.worldbank.org/v2/country/CUW/indicator/SP.POP.TOTL?format=json&date=2024",
+    "note": "World Bank SP.POP.TOTL, 2024 estimate."
+  },
+  "CX": {
+    "population": 1692,
+    "year": 2021,
+    "source": "https://abs.gov.au/census/find-census-data/quickstats/2021/LGA51710",
+    "note": "Census or published estimate."
+  },
+  "KY": {
+    "population": 74457,
+    "year": 2024,
+    "source": "https://api.worldbank.org/v2/country/CYM/indicator/SP.POP.TOTL?format=json&date=2024",
+    "note": "World Bank SP.POP.TOTL, 2024 estimate."
+  },
+  "EH": {
+    "population": 579734,
+    "year": 2023,
+    "source": "https://ourworldindata.org/grapher/population",
+    "note": "Published historical estimate from Our World in Data population series; not a live population count."
+  },
+  "FK": {
+    "population": 3498,
+    "year": 2023,
+    "source": "https://ourworldindata.org/grapher/population",
+    "note": "Published historical estimate from Our World in Data population series; not a live population count."
+  },
+  "FO": {
+    "population": 54640,
+    "year": 2024,
+    "source": "https://api.worldbank.org/v2/country/FRO/indicator/SP.POP.TOTL?format=json&date=2024",
+    "note": "World Bank SP.POP.TOTL, 2024 estimate."
+  },
+  "GG": {
+    "population": 64043,
+    "year": 2023,
+    "source": "https://ourworldindata.org/grapher/population",
+    "note": "Published historical estimate from Our World in Data population series; not a live population count."
+  },
+  "GI": {
+    "population": 39329,
+    "year": 2024,
+    "source": "https://api.worldbank.org/v2/country/GIB/indicator/SP.POP.TOTL?format=json&date=2024",
+    "note": "World Bank SP.POP.TOTL, 2024 estimate."
+  },
+  "GP": {
+    "population": 376518,
+    "year": 2023,
+    "source": "https://ourworldindata.org/grapher/population",
+    "note": "Published historical estimate from Our World in Data population series; not a live population count."
+  },
+  "GF": {
+    "population": 303408,
+    "year": 2023,
+    "source": "https://ourworldindata.org/grapher/population",
+    "note": "Published historical estimate from Our World in Data population series; not a live population count."
+  },
+  "GU": {
+    "population": 167777,
+    "year": 2024,
+    "source": "https://api.worldbank.org/v2/country/GUM/indicator/SP.POP.TOTL?format=json&date=2024",
+    "note": "World Bank SP.POP.TOTL, 2024 estimate."
+  },
+  "IM": {
+    "population": 84160,
+    "year": 2024,
+    "source": "https://api.worldbank.org/v2/country/IMN/indicator/SP.POP.TOTL?format=json&date=2024",
+    "note": "World Bank SP.POP.TOTL, 2024 estimate."
+  },
+  "IO": {
+    "population": 0,
+    "year": 2026,
+    "source": "https://www.gov.uk/world/british-indian-ocean-territory/news",
+    "note": "Permanent resident population; excludes temporary military personnel."
+  },
+  "JE": {
+    "population": 103680,
+    "year": 2023,
+    "source": "https://ourworldindata.org/grapher/population",
+    "note": "Published historical estimate from Our World in Data population series; not a live population count."
+  },
+  "MF": {
+    "population": 26129,
+    "year": 2024,
+    "source": "https://api.worldbank.org/v2/country/MAF/indicator/SP.POP.TOTL?format=json&date=2024",
+    "note": "World Bank SP.POP.TOTL, 2024 estimate."
+  },
+  "MP": {
+    "population": 44278,
+    "year": 2024,
+    "source": "https://api.worldbank.org/v2/country/MNP/indicator/SP.POP.TOTL?format=json&date=2024",
+    "note": "World Bank SP.POP.TOTL, 2024 estimate."
+  },
+  "MS": {
+    "population": 4440,
+    "year": 2023,
+    "source": "https://ourworldindata.org/grapher/population",
+    "note": "Published historical estimate from Our World in Data population series; not a live population count."
+  },
+  "MQ": {
+    "population": 346008,
+    "year": 2023,
+    "source": "https://ourworldindata.org/grapher/population",
+    "note": "Published historical estimate from Our World in Data population series; not a live population count."
+  },
+  "YT": {
+    "population": 316028,
+    "year": 2023,
+    "source": "https://ourworldindata.org/grapher/population",
+    "note": "Published historical estimate from Our World in Data population series; not a live population count."
+  },
+  "NC": {
+    "population": 292639,
+    "year": 2024,
+    "source": "https://api.worldbank.org/v2/country/NCL/indicator/SP.POP.TOTL?format=json&date=2024",
+    "note": "World Bank SP.POP.TOTL, 2024 estimate."
+  },
+  "NF": {
+    "population": 2188,
+    "year": 2021,
+    "source": "https://www.abs.gov.au/articles/understanding-ancestry-language-and-birthplace-norfolk-island-population",
+    "note": "Census or published estimate."
+  },
+  "NU": {
+    "population": 1841,
+    "year": 2023,
+    "source": "https://ourworldindata.org/grapher/population",
+    "note": "Published historical estimate from Our World in Data population series; not a live population count."
+  },
+  "PN": {
+    "population": 50,
+    "year": 2024,
+    "source": "https://www.pphsn.net/members/core-members/pitcairn-islands/",
+    "note": "Census or published estimate."
+  },
+  "PF": {
+    "population": 281807,
+    "year": 2024,
+    "source": "https://api.worldbank.org/v2/country/PYF/indicator/SP.POP.TOTL?format=json&date=2024",
+    "note": "World Bank SP.POP.TOTL, 2024 estimate."
+  },
+  "RE": {
+    "population": 874883,
+    "year": 2023,
+    "source": "https://ourworldindata.org/grapher/population",
+    "note": "Published historical estimate from Our World in Data population series; not a live population count."
+  },
+  "SH": {
+    "population": 5316,
+    "year": 2023,
+    "source": "https://ourworldindata.org/grapher/population",
+    "note": "Published historical estimate from Our World in Data population series; not a live population count."
+  },
+  "SJ": {
+    "population": 2400,
+    "year": 2023,
+    "source": "https://ourworldindata.org/grapher/population",
+    "note": "Published historical estimate from Our World in Data population series; not a live population count."
+  },
+  "PM": {
+    "population": 5707,
+    "year": 2023,
+    "source": "https://ourworldindata.org/grapher/population",
+    "note": "Published historical estimate from Our World in Data population series; not a live population count."
+  },
+  "SX": {
+    "population": 43350,
+    "year": 2024,
+    "source": "https://api.worldbank.org/v2/country/SXM/indicator/SP.POP.TOTL?format=json&date=2024",
+    "note": "World Bank SP.POP.TOTL, 2024 estimate."
+  },
+  "TC": {
+    "population": 46535,
+    "year": 2024,
+    "source": "https://api.worldbank.org/v2/country/TCA/indicator/SP.POP.TOTL?format=json&date=2024",
+    "note": "World Bank SP.POP.TOTL, 2024 estimate."
+  },
+  "TK": {
+    "population": 2424,
+    "year": 2023,
+    "source": "https://ourworldindata.org/grapher/population",
+    "note": "Published historical estimate from Our World in Data population series; not a live population count."
+  },
+  "VG": {
+    "population": 39471,
+    "year": 2024,
+    "source": "https://api.worldbank.org/v2/country/VGB/indicator/SP.POP.TOTL?format=json&date=2024",
+    "note": "World Bank SP.POP.TOTL, 2024 estimate."
+  },
+  "VI": {
+    "population": 104377,
+    "year": 2024,
+    "source": "https://api.worldbank.org/v2/country/VIR/indicator/SP.POP.TOTL?format=json&date=2024",
+    "note": "World Bank SP.POP.TOTL, 2024 estimate."
+  },
+  "WF": {
+    "population": 11394,
+    "year": 2023,
+    "source": "https://ourworldindata.org/grapher/population",
+    "note": "Published historical estimate from Our World in Data population series; not a live population count."
+  }
+}

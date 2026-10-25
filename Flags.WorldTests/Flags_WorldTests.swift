@@ -190,3 +190,19 @@ struct LearningAlphabetTests {
         #expect(names.sorted { LearningAlphabetOrder.precedes($0, $1, locale: Locale(identifier: "uk")) } == ["Албанія", "Ірландія", "Ісландія", "Іспанія", "Італія"])
     }
 }
+
+@MainActor
+struct ResultAnswersAndPopulationTests {
+    @Test func resultsAlwaysKeepCorrectAndOnlyDistinctSelection() {
+        let correct = Country.sample
+        let wrong = Country(id: "GIB", name: correct.name, flagURL: correct.flagURL, region: "Europe", subregion: nil,
+                            capital: nil, population: 1, area: nil, translations: nil)
+        #expect(QuizAnswerFit.resultOptions(correct: correct, selected: nil).map(\.id) == [correct.id])
+        #expect(QuizAnswerFit.resultOptions(correct: correct, selected: correct).map(\.id) == [correct.id])
+        #expect(QuizAnswerFit.resultOptions(correct: correct, selected: wrong).map(\.id) == [correct.id, "GIB"])
+        #expect(CountryService.shared.population(for: wrong) == 39329)
+        let unknown = Country(id: "UNKNOWN", name: correct.name, flagURL: correct.flagURL, region: "Europe", subregion: nil,
+                            capital: nil, population: -1, area: nil, translations: nil)
+        #expect(CountryService.shared.population(for: unknown) == nil)
+    }
+}

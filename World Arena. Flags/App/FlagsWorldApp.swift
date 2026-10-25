@@ -552,6 +552,11 @@ private struct LargeQuizPreview: View {
         _model = StateObject(wrappedValue: GameViewModel(gameState: gameState))
     }
     private var country: Country {
+        if CommandLine.arguments.contains("UITestingGibraltarPopulation") {
+            return Country(id: "GIB", name: .init(common: "Gibraltar", official: "Gibraltar", nativeName: nil),
+                flagURL: URL(string: "https://flagcdn.com/w320/gi.png")!, region: "Europe", subregion: "Europe", latlng: [36.13, -5.35],
+                capital: ["Gibraltar"], population: 1, area: nil, translations: nil)
+        }
         if CommandLine.arguments.contains("UITestingBelarusMap") {
             return Country(id: "BLR", name: .init(common: "Belarus", official: "Republic of Belarus", nativeName: nil),
                 flagURL: URL(string: "https://flagcdn.com/w320/by.png")!, region: "Europe", subregion: "Eastern Europe", latlng: [53, 28],
@@ -564,7 +569,11 @@ private struct LargeQuizPreview: View {
     var body: some View {
         VStack(spacing: 0) {
             if !CommandLine.arguments.contains("StoreMediaCapture") {
-                Button("Flip QA card") { model.isShowingInfo.toggle(); model.isShowingResult = model.isShowingInfo }
+                Button("Flip QA card") {
+                    model.isShowingInfo.toggle(); model.isShowingResult = model.isShowingInfo
+                    if CommandLine.arguments.contains("UITestingCorrectResult") { model.selectedAnswer = model.isShowingInfo ? country : nil }
+                    if CommandLine.arguments.contains("UITestingWrongResult") { model.selectedAnswer = model.isShowingInfo ? gameState.options.first : nil }
+                }
                     .font(.system(size: 16)).frame(height: 120).accessibilityIdentifier("qa.flip")
             }
             FittingPhoneQuizContent(viewModel: model, country: country)
@@ -573,7 +582,7 @@ private struct LargeQuizPreview: View {
         .onAppear {
             gameState.currentFlag = country
             gameState.options = (CommandLine.arguments.contains("UITestingNormalText") ? ["ARE", "ROU", "AUS", "TUR", "USA", "BRA"] : ["ARE", "ROU", "AUS", "TUR", "PER", "GBR", "USA", "BRA"]).map { code in
-                Country(id: code, name: .init(common: code, official: code, nativeName: nil), flagURL: country.flagURL,
+                code == "BRA" ? country : Country(id: code, name: .init(common: code, official: code, nativeName: nil), flagURL: country.flagURL,
                     region: "Americas", subregion: nil, capital: nil, population: 0, area: nil, translations: nil)
             }
         }
