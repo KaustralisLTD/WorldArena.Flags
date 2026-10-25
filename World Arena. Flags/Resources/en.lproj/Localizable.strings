@@ -1714,7 +1714,7 @@
 "learning.status.favorite_short" = "Favorite";
 "learning.country.train_cta" = "Add to next game";
 "learning.country.playlist_status_added" = "Country added";
-"learning.country.playlist_play_cta" = "Play with queued countries";
+"learning.country.playlist_play_cta" = "Play selected countries";
 "learning.country.playlist_added" = "Added to your next game";
 "learning.country.playlist_duplicate" = "Already in the queue";
 "learning.country.playlist_queue_fmt" = "%d countries in queue";
@@ -1831,16 +1831,16 @@
 
 // Verified Premium benefits and Apple Family Sharing
 "premium.benefit.lives.title" = "Unlimited Hearts";
-"premium.benefit.lives.body" = "Classic and Time Challenge without waiting for lives. Survival keeps its own rules.";
+"premium.benefit.lives.body" = "Play Classic and Time Challenge without waiting for lives to refill. Survival keeps its own rules.";
 "premium.benefit.map.title" = "World progress map";
 "premium.benefit.map.body" = "See your progress by country and continent, and find flags to practise.";
 "premium.benefit.countries.title" = "Detailed country slides";
-"premium.benefit.countries.body" = "Explore capitals, population, area, languages, currencies and interesting facts.";
+"premium.benefit.countries.body" = "Explore capitals, population, land area, languages, currencies and interesting facts.";
 "premium.benefit.anthems.title" = "National anthems";
 "premium.benefit.anthems.body" = "Listen to available anthem recordings and discover their history and meaning.";
 "premium.benefit.learning.title" = "Learning library";
 "premium.benefit.learning.body" = "Browse countries and continents at your own pace between games.";
-"premium.benefit.mistakes.title" = "Practice your mistakes";
+"premium.benefit.mistakes.title" = "Learn from your mistakes";
 "premium.benefit.mistakes.body" = "Play with flags you previously answered incorrectly.";
 "premium.benefit.erudite.title" = "Erudite difficulty";
 "premium.benefit.erudite.body" = "Unlock the highest difficulty for a greater challenge.";
@@ -1857,11 +1857,11 @@
 "premium.story.headline" = "Learn the flags. Remember the world.";
 "premium.story.intro" = "Make every session count: practise difficult flags, understand the countries behind them and see what to learn next.";
 "premium.story.practice.title" = "More practice. Fewer gaps.";
-"premium.story.practice.body" = "Keep practising without waiting for hearts. My Mistakes helps you focus on the flags that need another try.";
+"premium.story.practice.body" = "Keep practising without waiting for lives to refill. My Mistakes helps you focus on flags you need to review.";
 "premium.story.countries.title" = "Give each flag a story.";
 "premium.story.countries.body" = "Explore country slides, capitals, currencies and anthem recordings. Connect a flag with the country it represents.";
 "premium.story.map.title" = "Know what to learn next.";
-"premium.story.map.body" = "Your world progress map shows mastered and weaker countries, so you can choose your next practice session.";
+"premium.story.map.body" = "Your world progress map shows which flags you know well and which need more practice, helping you choose what to practise next.";
 "premium.story.example" = "Example screen · English";
 "premium.story.enlarge" = "Enlarge example screen";
 
@@ -1883,7 +1883,7 @@
 
 "learning.country.discover" = "A closer look";
 
-"learning.anthem.shared_fmt" = "National anthem shared with %@. The regional song may differ.";
+"learning.anthem.shared_fmt" = "The national anthem is also used by %@. The regional song may differ.";
 "learning.anthem.recording_source" = "Recording and source ↗";
 
 "learning.anthem.excerpt" = "Original lyrics · excerpt";

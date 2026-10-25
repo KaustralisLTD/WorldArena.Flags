@@ -1757,26 +1757,26 @@
 "learning.empty.search.reset" = "Сбросить поиск";
 "learning.empty.unlearned.title" = "Отлично!";
 "learning.empty.unlearned.message" = "Все страны в этом разделе уже изучены 🎉";
-"learning.empty.difficult.title" = "Пока нет сложных";
-"learning.empty.difficult.message" = "У вас пока нет отмеченных сложных стран в этом списке. Играйте — слабые места видны на карте прогресса.";
+"learning.empty.difficult.title" = "Пока нет сложных стран";
+"learning.empty.difficult.message" = "Здесь появятся страны, с которыми возникают трудности. Продолжайте играть и следите за картой прогресса.";
 "learning.status.learned" = "Изучено";
 "learning.status.not_learned" = "Не изучено";
 "learning.status.difficult" = "Сложная";
 "learning.status.favorite_short" = "В избранном";
 "learning.country.train_cta" = "Добавить в следующую игру";
 "learning.country.playlist_status_added" = "Страна добавлена";
-"learning.country.playlist_play_cta" = "Играть с очередью стран";
+"learning.country.playlist_play_cta" = "Играть с выбранными странами";
 "learning.country.playlist_added" = "Страна добавлена в следующую игру";
 "learning.country.playlist_duplicate" = "Уже в очереди на игру";
 "learning.country.playlist_queue_fmt" = "В очереди: %d";
 "learning.country.playlist_min_progress_fmt" = "%d / %d";
 "learning.country.study_selected_flags" = "Изучать выбранные флаги";
 "learning.country.section.main" = "Основное";
-"learning.country.section.gov" = "Языки и устройство";
+"learning.country.section.gov" = "Языки и государственное устройство";
 "learning.country.section.more" = "Дополнительно";
 "learning.country.region" = "Регион";
 "learning.country.gallery.title" = "Галерея";
-"learning.country.gallery.tap_hint" = "Нажмите на плитку, чтобы открыть";
+"learning.country.gallery.tap_hint" = "Нажмите на изображение, чтобы увеличить";
 "learning.country.a11y.favorite" = "Избранное";
 "learning.country.a11y.difficult" = "Отметить как сложную";
 "learning.country.a11y.next" = "Следующая страна";
@@ -1785,7 +1785,7 @@
 "learning.gallery.tile.landmark" = "Достопримечательность";
 "learning.gallery.tile.nature" = "Природа";
 "learning.gallery.tile.culture" = "Культура";
-"learning.gallery.tile.government" = "Власть";
+"learning.gallery.tile.government" = "Правительство";
 "learning.gallery.tile.coat" = "Герб";
 "learning.empty.favorites.title" = "Пока нет избранного";
 "learning.empty.favorites.message" = "Откройте страну и нажмите звезду, чтобы добавить её сюда.";
@@ -1882,11 +1882,11 @@
 
 // Verified Premium benefits and Apple Family Sharing
 "premium.benefit.lives.title" = "Безлимитные жизни";
-"premium.benefit.lives.body" = "Классика и игра на время без ожидания жизней. В Выживании действуют свои правила.";
+"premium.benefit.lives.body" = "Играй в классическом режиме и испытании на время, не дожидаясь восстановления жизней. В режиме выживания действуют свои правила.";
 "premium.benefit.map.title" = "Карта прогресса мира";
 "premium.benefit.map.body" = "Следите за прогрессом по странам и континентам и находите флаги для тренировки.";
 "premium.benefit.countries.title" = "Подробные слайды о странах";
-"premium.benefit.countries.body" = "Изучайте столицы, население, площадь, языки, валюты и интересные факты.";
+"premium.benefit.countries.body" = "Узнавай о столицах, населении, площади, языках и валютах стран, а также интересные факты о них.";
 "premium.benefit.anthems.title" = "Гимны стран";
 "premium.benefit.anthems.body" = "Слушайте доступные записи гимнов, узнавайте их историю и смысл.";
 "premium.benefit.learning.title" = "Библиотека обучения";
@@ -1898,7 +1898,7 @@
 "premium.benefit.avatar.title" = "Premium-аксессуар для аватара";
 "premium.benefit.avatar.body" = "Носите головной убор Premium, пока подписка активна.";
 "premium.family.title" = "Одна подписка для всей семьи";
-"premium.family.body" = "Premium для 6 участников, включая вас, через Семейный доступ Apple. Включите общий доступ к подписке в настройках семьи Apple. У каждого игрока — свой прогресс.";
+"premium.family.body" = "Делись Premium через «Семейный доступ» Apple: до 6 участников, включая тебя. Включи общий доступ к подписке в настройках семьи Apple. У каждого игрока сохраняется собственный прогресс.";
 
 // Premium learning stories and earned weekly reward
 "premium.weekly.history" = "Еженедельный бонус Premium";
@@ -1908,11 +1908,11 @@
 "premium.story.headline" = "Изучай флаги. Запоминай мир.";
 "premium.story.intro" = "Приближайся к знанию всех флагов: закрепляй сложные, узнавай страны и понимай, что учить дальше.";
 "premium.story.practice.title" = "Больше практики. Меньше пробелов.";
-"premium.story.practice.body" = "Тренируйся без ожидания жизней. «Мои ошибки» помогает сосредоточиться на флагах, которые ещё путаешь.";
+"premium.story.practice.body" = "Продолжай тренироваться, не дожидаясь восстановления жизней. Раздел «Мои ошибки» помогает повторить флаги, которые ты ещё путаешь.";
 "premium.story.countries.title" = "За каждым флагом — история.";
 "premium.story.countries.body" = "Изучай слайды о странах, столицы, валюты и записи гимнов. Связывай флаг со страной, которую он представляет.";
 "premium.story.map.title" = "Знай, что учить дальше.";
-"premium.story.map.body" = "Карта прогресса показывает освоенные страны и слабые места — выбирай следующую тренировку осознанно.";
+"premium.story.map.body" = "Карта прогресса показывает, какие флаги ты уже хорошо знаешь, а какие стоит повторить, и помогает выбрать следующую тренировку.";
 "premium.story.example" = "Пример экрана · английский";
 "premium.story.enlarge" = "Увеличить пример экрана";
 
@@ -1926,15 +1926,15 @@
 "ranking.motivational.explanation" = "Позиции по прогрессу среди виртуальных соперников.";
 "friends.duels.with_you" = "Дуэли с вами";
 
-"premium.story.progress.title" = "Видьте свой результат";
+"premium.story.progress.title" = "Следи за прогрессом";
 
 "premium.story.progress.body" = "Следите за точностью и правильными ответами. Карта мира Premium поможет выбрать, какие флаги повторить дальше.";
 
 "learning.anthem.unavailable" = "Не удалось загрузить гимн. Проверьте соединение и нажмите «Воспроизвести» ещё раз.";
 
-"learning.country.discover" = "Открой страну";
+"learning.country.discover" = "Подробнее о стране";
 
-"learning.anthem.shared_fmt" = "Используется государственный гимн: %@. Региональный гимн может отличаться.";
+"learning.anthem.shared_fmt" = "Здесь используется тот же государственный гимн, что и в стране «%@». Региональный гимн может отличаться.";
 "learning.anthem.recording_source" = "Запись и источник ↗";
 
 "learning.anthem.excerpt" = "Текст на языке оригинала · отрывок";

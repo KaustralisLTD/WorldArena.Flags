@@ -1662,22 +1662,22 @@
 "learning.empty.search.reset" = "Скинути пошук";
 "learning.empty.unlearned.title" = "Чудово!";
 "learning.empty.unlearned.message" = "Усі країни в цьому списку вже вивчені 🎉";
-"learning.empty.difficult.title" = "Поки немає складних";
-"learning.empty.difficult.message" = "Країни, з якими вам важко, з’являться тут — грайте далі й перегляньте карту світового прогресу.";
+"learning.empty.difficult.title" = "Поки немає складних країн";
+"learning.empty.difficult.message" = "Тут з’являться країни, з якими виникають труднощі. Продовжуйте грати та стежте за картою прогресу.";
 "learning.status.learned" = "Вивчено";
 "learning.status.not_learned" = "Не вивчено";
-"learning.status.difficult" = "Складно";
+"learning.status.difficult" = "Складна";
 "learning.status.favorite_short" = "Обране";
 "learning.country.train_cta" = "Додати до наступної гри";
 "learning.country.playlist_status_added" = "Країну додано";
-"learning.country.playlist_play_cta" = "Грати з чергою";
+"learning.country.playlist_play_cta" = "Грати з обраними країнами";
 "learning.country.playlist_added" = "Додано до наступної гри";
 "learning.country.playlist_duplicate" = "Уже в черзі";
 "learning.country.playlist_queue_fmt" = "У черзі: %d";
 "learning.country.playlist_min_progress_fmt" = "%d / %d";
 "learning.country.study_selected_flags" = "Вивчати обрані прапори";
 "learning.country.section.main" = "Огляд";
-"learning.country.section.gov" = "Мови та устрій";
+"learning.country.section.gov" = "Мови та державний устрій";
 "learning.country.section.more" = "Більше";
 "learning.country.region" = "Регіон";
 "learning.country.gallery.title" = "Галерея";
@@ -1797,11 +1797,11 @@
 
 // Verified Premium benefits and Apple Family Sharing
 "premium.benefit.lives.title" = "Безлімітні життя";
-"premium.benefit.lives.body" = "Класика та гра на час без очікування життів. У Виживанні діють власні правила.";
+"premium.benefit.lives.body" = "Грай у класичному режимі та випробуванні на час, не чекаючи відновлення життів. У режимі виживання діють власні правила.";
 "premium.benefit.map.title" = "Карта прогресу світу";
 "premium.benefit.map.body" = "Стежте за прогресом за країнами й континентами та знаходьте прапори для тренування.";
 "premium.benefit.countries.title" = "Докладні слайди про країни";
-"premium.benefit.countries.body" = "Вивчайте столиці, населення, площу, мови, валюти та цікаві факти.";
+"premium.benefit.countries.body" = "Дізнавайся про столиці, населення, площу, мови й валюти країн, а також цікаві факти про них.";
 "premium.benefit.anthems.title" = "Гімни країн";
 "premium.benefit.anthems.body" = "Слухайте доступні записи гімнів, дізнавайтеся про їхню історію та зміст.";
 "premium.benefit.learning.title" = "Бібліотека навчання";
@@ -1813,7 +1813,7 @@
 "premium.benefit.avatar.title" = "Premium-аксесуар для аватара";
 "premium.benefit.avatar.body" = "Носіть головний убір Premium, поки підписка активна.";
 "premium.family.title" = "Одна підписка для всієї родини";
-"premium.family.body" = "Premium для 6 учасників, включно з вами, через Сімейний доступ Apple. Увімкніть спільний доступ до підписки в налаштуваннях родини Apple. У кожного гравця — власний прогрес.";
+"premium.family.body" = "Ділися Premium через «Сімейний доступ» Apple: до 6 учасників, включно з тобою. Увімкни спільний доступ до підписки в налаштуваннях родини Apple. Кожен гравець зберігає власний прогрес.";
 
 // Premium learning stories and earned weekly reward
 "premium.weekly.history" = "Щотижневий бонус Premium";
@@ -1823,11 +1823,11 @@
 "premium.story.headline" = "Вивчай прапори. Запам’ятовуй світ.";
 "premium.story.intro" = "Наближайся до знання всіх прапорів: закріплюй складні, пізнавай країни й розумій, що вчити далі.";
 "premium.story.practice.title" = "Більше практики. Менше прогалин.";
-"premium.story.practice.body" = "Тренуйся без очікування життів. «Мої помилки» допомагає зосередитися на прапорах, які ще плутаєш.";
+"premium.story.practice.body" = "Продовжуй тренуватися, не чекаючи відновлення життів. Розділ «Мої помилки» допомагає повторити прапори, які ти ще плутаєш.";
 "premium.story.countries.title" = "За кожним прапором — історія.";
 "premium.story.countries.body" = "Вивчай слайди про країни, столиці, валюти й записи гімнів. Пов’язуй прапор із країною, яку він представляє.";
 "premium.story.map.title" = "Знай, що вчити далі.";
-"premium.story.map.body" = "Карта прогресу показує опановані країни та слабкі місця — обирай наступне тренування усвідомлено.";
+"premium.story.map.body" = "Карта прогресу показує, які прапори ти вже добре знаєш, а які варто повторити, і допомагає вибрати наступне тренування.";
 "premium.story.example" = "Приклад екрана · англійська";
 "premium.story.enlarge" = "Збільшити приклад екрана";
 
@@ -1841,15 +1841,15 @@
 "ranking.motivational.explanation" = "Позиції за прогресом серед віртуальних суперників.";
 "friends.duels.with_you" = "Дуелі з вами";
 
-"premium.story.progress.title" = "Бачте свій результат";
+"premium.story.progress.title" = "Стеж за прогресом";
 
 "premium.story.progress.body" = "Стежте за точністю та правильними відповідями. Карта світу Premium допоможе обрати, які прапори повторити далі.";
 
 "learning.anthem.unavailable" = "Не вдалося завантажити гімн. Перевірте з’єднання та натисніть «Відтворити» ще раз.";
 
-"learning.country.discover" = "Відкрий країну";
+"learning.country.discover" = "Докладніше про країну";
 
-"learning.anthem.shared_fmt" = "Використовується державний гімн: %@. Регіональний гімн може відрізнятися.";
+"learning.anthem.shared_fmt" = "Тут використовується той самий державний гімн, що й у країні «%@». Регіональний гімн може відрізнятися.";
 "learning.anthem.recording_source" = "Запис і джерело ↗";
 
 "learning.anthem.excerpt" = "Текст мовою оригіналу · уривок";
