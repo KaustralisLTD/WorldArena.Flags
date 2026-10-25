@@ -518,6 +518,49 @@ final class Flags_WorldUITests: XCTestCase {
     }
 
     @MainActor
+    func testBelarusMapBackCardScrolling() throws {
+        try checkBelarusMapScrolling(textArgument: "UITestingNormalText")
+    }
+
+    @MainActor
+    func testBelarusMapBackCardScrollingLargeText() throws {
+        try checkBelarusMapScrolling(textArgument: "UITestingExtremeText")
+    }
+
+    @MainActor
+    private func checkBelarusMapScrolling(textArgument: String) throws {
+        continueAfterFailure = false
+        let app = XCUIApplication()
+        app.launchArguments = ["UITesting", "UITestingLargeQuiz", textArgument, "UITestingBelarusMap",
+                               "-selectedLanguage", "ru", "-facts.map", "YES"]
+        app.launch()
+        XCTAssertTrue(app.buttons["qa.flip"].waitForExistence(timeout: 20))
+        for cycle in 0..<3 {
+            app.buttons["qa.flip"].tap()
+            let details = app.scrollViews["quiz.countryDetails"]
+            XCTAssertTrue(details.waitForExistence(timeout: 5))
+            let start = details.coordinate(withNormalizedOffset: CGVector(dx: 0.5, dy: 0.85))
+            let end = details.coordinate(withNormalizedOffset: CGVector(dx: 0.5, dy: 0.15))
+            for _ in 0..<5 {
+                start.press(forDuration: 0.05, thenDragTo: end)
+                end.press(forDuration: 0.05, thenDragTo: start)
+            }
+            details.swipeUp()
+            let map = app.descendants(matching: .any)["quiz.countryMap"].firstMatch
+            XCTAssertTrue(map.exists)
+            XCTAssertEqual(app.state, .runningForeground)
+            if cycle == 0 {
+                let ready = expectation(for: NSPredicate(format: "value == %@", "ready"), evaluatedWith: map)
+                wait(for: [ready], timeout: 45)
+                let shot = XCTAttachment(screenshot: app.screenshot())
+                shot.name = "Belarus map after scrolling"; shot.lifetime = .keepAlways; add(shot)
+            }
+            app.buttons["qa.flip"].tap()
+            XCTAssertFalse(details.exists)
+        }
+    }
+
+    @MainActor
     func testCountryBoundaryScreenshot() throws {
         let app = XCUIApplication()
         app.launchArguments = ["UITesting", "UITestingLargeQuiz", "UITestingNormalText",

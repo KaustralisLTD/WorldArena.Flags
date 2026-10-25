@@ -551,9 +551,16 @@ private struct LargeQuizPreview: View {
         self.gameState = gameState
         _model = StateObject(wrappedValue: GameViewModel(gameState: gameState))
     }
-    private let country = Country(id: "BRA", name: .init(common: "Brazil", official: "Brazil", nativeName: nil),
+    private var country: Country {
+        if CommandLine.arguments.contains("UITestingBelarusMap") {
+            return Country(id: "BLR", name: .init(common: "Belarus", official: "Republic of Belarus", nativeName: nil),
+                flagURL: URL(string: "https://flagcdn.com/w320/by.png")!, region: "Europe", subregion: "Eastern Europe", latlng: [53, 28],
+                capital: ["Minsk"], population: 9398861, area: 207600, translations: nil)
+        }
+        return Country(id: "BRA", name: .init(common: "Brazil", official: "Brazil", nativeName: nil),
         flagURL: URL(string: "https://flagcdn.com/w320/br.png")!, region: "Americas", subregion: "South America", latlng: [-10, -55],
         capital: ["Brasília"], population: 215000000, area: 8520000, translations: nil)
+    }
     var body: some View {
         VStack(spacing: 0) {
             if !CommandLine.arguments.contains("StoreMediaCapture") {
