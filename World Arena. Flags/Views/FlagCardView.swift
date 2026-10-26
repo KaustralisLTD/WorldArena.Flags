@@ -1408,6 +1408,10 @@ struct FlagCardView: View {
     }
     
     private func getLocalizedSubregion(_ subregion: String) -> String {
+        // Some catalog entries use a continent as their subregion (e.g. Europe).
+        // Resolve those through the shared translations for every app language.
+        let translated = LocalizationManager.shared.localizedString(subregion)
+        if translated != subregion { return translated }
         let currentLanguage = LocalizationManager.shared.currentLocale.languageCode ?? "en"
         if currentLanguage == "system" { return subregion }
         

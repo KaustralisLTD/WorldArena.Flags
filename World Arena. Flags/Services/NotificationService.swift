@@ -110,6 +110,7 @@ class NotificationService: NSObject, ObservableObject {
     private var inboxRefreshing = false
     private var loadedInboxAccount: String?
     private var supportsSelectiveRead = false
+    private var badgeUpdateTask: Task<Void, Never>?
 
     private struct RemoteInbox: Decodable {
         struct Item: Decodable {
@@ -212,11 +213,25 @@ class NotificationService: NSObject, ObservableObject {
     @MainActor private func persistInbox() {
         if let data=try? JSONEncoder().encode(inboxItems) { userDefaults.set(data,forKey:accountKey) }
         unreadCount=inboxItems.filter(\.isUnread).count
-        let count=unreadCount
-        if #available(iOS 16.0, *) { Task { try? await UNUserNotificationCenter.current().setBadgeCount(count) } }
-        else {
+        updateIconBadge()
+    }
+
+    @MainActor private func updateIconBadge() {
+        if #available(iOS 16.0, *) {
+            // Serialize writes. Reading an event while an older update is awaiting
+            // completion must not leave the older count on the Home Screen.
+            guard badgeUpdateTask == nil else { return }
+            badgeUpdateTask = Task { @MainActor in
+                defer { badgeUpdateTask = nil }
+                while true {
+                    let count = unreadCount
+                    try? await UNUserNotificationCenter.current().setBadgeCount(count)
+                    if count == unreadCount { break }
+                }
+            }
+        } else {
             #if os(iOS)
-            UIApplication.shared.applicationIconBadgeNumber=count
+            UIApplication.shared.applicationIconBadgeNumber=unreadCount
             #endif
         }
     }
@@ -679,6 +694,8 @@ extension NotificationService: UNUserNotificationCenterDelegate {
     
     // Обработка уведомлений когда приложение на переднем плане
     func userNotificationCenter(_ center: UNUserNotificationCenter, willPresent notification: UNNotification, withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Void) {
+        // In the foreground the merged inbox owns the badge. An APNs badge may
+        // predate locally read events or an offline read receipt.
         refreshBadge()
         let duelType = notification.request.content.userInfo["type"] as? String
         if duelType == "duel_challenge" {
@@ -686,14 +703,14 @@ extension NotificationService: UNUserNotificationCenterDelegate {
             if #available(iOS 14.0, *) {
                 completionHandler([.banner, .list, .sound])
             } else {
-                completionHandler([.alert, .badge, .sound])
+                completionHandler([.alert, .sound])
             }
             return
         }
         if #available(iOS 14.0, *) {
-            completionHandler([.banner, .list, .badge, .sound])
+            completionHandler([.banner, .list, .sound])
         } else {
-            completionHandler([.alert, .badge, .sound])
+            completionHandler([.alert, .sound])
         }
     }
     
