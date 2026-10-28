@@ -110,6 +110,7 @@ class NotificationService: NSObject, ObservableObject {
     private var inboxRefreshing = false
     private var loadedInboxAccount: String?
     private var supportsSelectiveRead = false
+    private var badgeUpdateTask: Task<Void, Never>?
 
     private struct RemoteInbox: Decodable {
         struct Item: Decodable {
@@ -139,8 +140,10 @@ class NotificationService: NSObject, ObservableObject {
         request.setValue("Bearer " + token, forHTTPHeaderField: "Authorization")
         request.setValue(LocalizationManager.shared.apiLanguageCode, forHTTPHeaderField: "Accept-Language")
         request.timeoutInterval = 15
-        guard let (data, response) = try? await URLSession.shared.data(for: request),
-              (response as? HTTPURLResponse)?.statusCode == 200 else { return nil }
+        guard let (data, response) = try? await URLSession.shared.data(for: request) else { return nil }
+        let status = (response as? HTTPURLResponse)?.statusCode
+        if status == 401 { AuthService.shared.rejectSession(token: token) }
+        guard status == 200 else { return nil }
         return try? JSONDecoder().decode(RemoteInbox.self, from: data)
     }
 
@@ -164,14 +167,20 @@ class NotificationService: NSObject, ObservableObject {
         guard account == accountKey else { return }
         inboxRefreshFailed = token != nil && remote == nil
         var readIDs = Set(userDefaults.stringArray(forKey: account + ".read") ?? [])
+        // Preserve read receipts even when a cached item is replaced by a server ID.
+        for item in cached where !item.isUnread {
+            readIDs.insert(item.id); readIDs.insert(item.deduplicationKey)
+        }
+        var serverItems: [AppNotificationLogItem] = []
         if let remote {
             supportsSelectiveRead = remote.selectiveRead == true
-            cached = remote.items.map { r in
+            serverItems = remote.items.map { r in
                 var target = r.target
                 if target == nil && r.kind?.hasPrefix("duel_") == true { target = r.id.split(separator: ":").dropFirst().first.map(String.init) }
                 if r.readAt != nil { readIDs.insert(r.id) }
                 return AppNotificationLogItem(id:r.id,title:r.title,body:r.body,date:Date(timeIntervalSince1970:r.createdAt/1000),source:"server",kind:r.kind ?? "message",target:target,readAt:r.readAt.map { Date(timeIntervalSince1970:$0/1000) },details:r.details)
-            } + cached.filter { $0.source != "server" }
+            }
+            cached = serverItems + cached.filter { $0.source != "server" }
         }
         // Scheduled reminders are future requests, not unread events.
         let delivered = await UNUserNotificationCenter.current().deliveredNotifications()
@@ -202,9 +211,7 @@ class NotificationService: NSObject, ObservableObject {
         userDefaults.set(Array(readIDs),forKey:account + ".read")
         persistInbox()
         var queue=Set(userDefaults.stringArray(forKey:account + ".readQueue") ?? [])
-        for item in inboxItems where item.source == "server" && item.readAt != nil {
-            if remote?.items.first(where: { $0.id == item.id })?.readAt == nil { queue.insert(item.id) }
-        }
+        queue.formUnion(NotificationReadReceipts.serverIDsToAcknowledge(items: serverItems, readIDs: readIDs))
         userDefaults.set(Array(queue),forKey:account + ".readQueue")
         if let token { await flushReadQueue(account:account,token:token) }
     }
@@ -212,11 +219,25 @@ class NotificationService: NSObject, ObservableObject {
     @MainActor private func persistInbox() {
         if let data=try? JSONEncoder().encode(inboxItems) { userDefaults.set(data,forKey:accountKey) }
         unreadCount=inboxItems.filter(\.isUnread).count
-        let count=unreadCount
-        if #available(iOS 16.0, *) { Task { try? await UNUserNotificationCenter.current().setBadgeCount(count) } }
-        else {
+        updateIconBadge()
+    }
+
+    @MainActor private func updateIconBadge() {
+        if #available(iOS 16.0, *) {
+            // Serialize writes. Reading an event while an older update is awaiting
+            // completion must not leave the older count on the Home Screen.
+            guard badgeUpdateTask == nil else { return }
+            badgeUpdateTask = Task { @MainActor in
+                defer { badgeUpdateTask = nil }
+                while true {
+                    let count = unreadCount
+                    try? await UNUserNotificationCenter.current().setBadgeCount(count)
+                    if count == unreadCount { break }
+                }
+            }
+        } else {
             #if os(iOS)
-            UIApplication.shared.applicationIconBadgeNumber=count
+            UIApplication.shared.applicationIconBadgeNumber=unreadCount
             #endif
         }
     }
@@ -254,7 +275,10 @@ class NotificationService: NSObject, ObservableObject {
         r.setValue("Bearer " + token,forHTTPHeaderField:"Authorization")
         r.setValue("application/json",forHTTPHeaderField:"Content-Type")
         r.httpBody=try? JSONEncoder().encode(["ids":ids])
-        guard let (_,response)=try? await URLSession.shared.data(for:r),(response as? HTTPURLResponse)?.statusCode==200 else { return }
+        guard let (_,response)=try? await URLSession.shared.data(for:r) else { return }
+        let status = (response as? HTTPURLResponse)?.statusCode
+        if status == 401 { AuthService.shared.rejectSession(token: token) }
+        guard status == 200 else { return }
         var pending=Set(userDefaults.stringArray(forKey:account + ".readQueue") ?? []);pending.subtract(ids)
         userDefaults.set(Array(pending),forKey:account + ".readQueue")
     }
@@ -679,6 +703,8 @@ extension NotificationService: UNUserNotificationCenterDelegate {
     
     // Обработка уведомлений когда приложение на переднем плане
     func userNotificationCenter(_ center: UNUserNotificationCenter, willPresent notification: UNNotification, withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Void) {
+        // In the foreground the merged inbox owns the badge. An APNs badge may
+        // predate locally read events or an offline read receipt.
         refreshBadge()
         let duelType = notification.request.content.userInfo["type"] as? String
         if duelType == "duel_challenge" {
@@ -686,14 +712,14 @@ extension NotificationService: UNUserNotificationCenterDelegate {
             if #available(iOS 14.0, *) {
                 completionHandler([.banner, .list, .sound])
             } else {
-                completionHandler([.alert, .badge, .sound])
+                completionHandler([.alert, .sound])
             }
             return
         }
         if #available(iOS 14.0, *) {
-            completionHandler([.banner, .list, .badge, .sound])
+            completionHandler([.banner, .list, .sound])
         } else {
-            completionHandler([.alert, .badge, .sound])
+            completionHandler([.alert, .sound])
         }
     }
     
@@ -749,3 +775,10 @@ extension NotificationService {
     }
 }
 #endif
+
+/// Acknowledges every server copy of a locally read event, before UI deduplication.
+enum NotificationReadReceipts {
+    static func serverIDsToAcknowledge(items: [AppNotificationLogItem], readIDs: Set<String>) -> Set<String> {
+        Set(items.filter { $0.isUnread && (readIDs.contains($0.id) || readIDs.contains($0.deduplicationKey)) }.map(\.id))
+    }
+}

@@ -1970,3 +1970,10 @@
 "streak.recovery.play_btn" = "Joacă pentru a restabili";
 "streak.recovery.title" = "Seria zilnică a fost întreruptă";
 "Не удалось добавить в друзья. Попробуйте позже." = "Nu s-a putut adăuga acest prieten. Încearcă din nou.";
+
+/* Public profile links */
+"Пользователь не найден" = "Utilizatorul nu a fost găsit";
+"profile.link.you" = "Acesta este profilul tău public";
+"Поздравить друга" = "Trimite urări de ziua de naștere";
+
+"inbox.signinRequired" = "Conectează-te din nou pentru a sincroniza notificările citite și contorul de pe pictogramă. Marcajele de citire salvate vor fi păstrate.";

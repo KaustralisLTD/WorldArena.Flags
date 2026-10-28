@@ -1933,3 +1933,10 @@
 "Телефонный код" = "Codi de marcatge";
 "Уникальная природа и ландшафты этой страны" = "Natura i paisatges únics d'aquest país";
 "Что делать если флаги не загружаются" = "Què fer si les banderes no es carreguen";
+
+/* Public profile links */
+"Пользователь не найден" = "No s’ha trobat l’usuari";
+"profile.link.you" = "Aquest és el teu perfil públic";
+"Поздравить друга" = "Envia una felicitació d’aniversari";
+
+"inbox.signinRequired" = "Torna a iniciar sessió per sincronitzar les notificacions llegides i el comptador de la icona. Es conservaran les marques de lectura desades.";

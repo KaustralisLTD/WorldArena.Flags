@@ -166,7 +166,7 @@ final class LeaguesService: ObservableObject {
         )
         saveWeeklyResult(result)
         AwardMailSync.enqueue(["type": "league", "week": result.weekId, "rank": result.finalRank,
-                              "participants": result.participantsCount, "league": newLeague.localizedFullName], id: "league:" + result.weekId)
+                              "participants": result.participantsCount, "league": newLeague.localizedFullName, "leagueID": newLeague.rawValue], id: "league:" + result.weekId)
         NotificationService.shared.notifyProgress(id: "league_" + result.weekId,
             title: LocalizationManager.shared.localizedString("Лиги"), body: newLeague.localizedFullName,
             preference: "leagueNotifications", details: .init(rank: result.finalRank, participants: result.participantsCount,

@@ -1970,3 +1970,10 @@
 "streak.recovery.play_btn" = "Main untuk memulihkan";
 "streak.recovery.title" = "Rentetan hari bermain terputus";
 "Не удалось добавить в друзья. Попробуйте позже." = "Tidak dapat menambahkan teman ini. Silakan coba lagi.";
+
+/* Public profile links */
+"Пользователь не найден" = "Pengguna tidak ditemukan";
+"profile.link.you" = "Ini profil publik Anda";
+"Поздравить друга" = "Kirim ucapan selamat ulang tahun";
+
+"inbox.signinRequired" = "Masuk lagi untuk menyinkronkan notifikasi yang sudah dibaca dan jumlah pada ikon aplikasi. Status baca yang tersimpan akan tetap terjaga.";

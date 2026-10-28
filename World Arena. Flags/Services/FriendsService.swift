@@ -233,8 +233,7 @@ class FriendsService: ObservableObject {
     
     // MARK: - Profile URL Generation
     func generateProfileURL(for username: String) -> String {
-        let friendCode = generateFriendCode(for: username)
-        return "https://flags.worldarena.games/profile/\(friendCode)"
+        ShareService.shared.profileURL(username: username).absoluteString
     }
 
     /// URL профиля по коду друга (серверный код — для шаринга).
@@ -246,8 +245,8 @@ class FriendsService: ObservableObject {
     @MainActor
     func shareProfile(for userProfile: UserProfile, friendCode: String? = nil) {
         #if os(iOS)
-        let code = friendCode ?? generateFriendCode(for: userProfile.username)
-        let profileURL = profileURL(friendCode: code)
+        let profileURL = friendCode.map { self.profileURL(friendCode: $0) }
+            ?? ShareService.shared.profileURL(username: AuthService.shared.authUsername ?? userProfile.username).absoluteString
         let format = LocalizationManager.shared.localizedString("Statistics Share Promo")
         let accuracy = userProfile.totalAnswers > 0
             ? min(100.0, max(0.0, Double(userProfile.correctAnswers) / Double(userProfile.totalAnswers) * 100.0))
@@ -314,7 +313,7 @@ extension Friend {
     #endif
 
     var profileURL: String {
-        return "https://flags.worldarena.games/profile/\(username.uppercased().replacingOccurrences(of: " ", with: ""))"
+        return ShareService.shared.profileURL(username: username).absoluteString
     }
 
     /// Country is profile metadata, never a replacement for the chosen avatar.

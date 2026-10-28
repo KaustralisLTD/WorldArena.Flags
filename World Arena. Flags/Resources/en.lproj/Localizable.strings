@@ -2026,3 +2026,10 @@
 /* Notification event localization */
 "notification.nudge.title" = "%@ reminds you";
 "nudge_phrase_16" = "You have not completed your daily Flags lesson yet!";
+
+/* Public profile links */
+"Пользователь не найден" = "User not found";
+"profile.link.you" = "This is your public profile";
+"Поздравить друга" = "Send birthday wishes";
+
+"inbox.signinRequired" = "Sign in again to sync read notifications and the app icon count. Your saved read status will be kept.";

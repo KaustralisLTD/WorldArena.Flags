@@ -1360,11 +1360,11 @@ enum League: String, CaseIterable {
         case .gold:
             return LocalizationManager.shared.localizedString("Золотая лига")
         case .platinum:
-            return LocalizationManager.shared.localizedString("Лига Мастеров")
+            return localizedName
         case .diamond:
-            return LocalizationManager.shared.localizedString("Лига Мастеров")
+            return localizedName
         case .master:
-            return LocalizationManager.shared.localizedString("Лига Чемпионов Мира")
+            return LocalizationManager.shared.localizedString("Лига Мастеров")
         }
     }
     
@@ -1651,7 +1651,7 @@ struct DuelChallenge: Identifiable, Codable {
     let opponentId: String
     let opponentName: String
     let seed: Int
-    let createdAt: Date
+    var createdAt: Date
     var challengerScore: Int?
     var opponentScore: Int?
     var status: Status

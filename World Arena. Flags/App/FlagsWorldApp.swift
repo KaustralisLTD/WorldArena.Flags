@@ -116,7 +116,13 @@ struct FlagsWorldApp: App {
 
     @ViewBuilder private var launchContent: some View {
         #if targetEnvironment(simulator) && DEBUG
-        if CommandLine.arguments.contains("StoreCaptureGallery") {
+        if CommandLine.arguments.contains("ProfileLinkQA") {
+            ProfileByLinkView(friendCode: "profile-preview", loadProfile: { _ in
+                FriendFromAPI(from: ["username": "profile-preview", "displayName": "Preview", "friendCode": "ABC123", "level": 12, "xp": 1200, "streak": 7])
+            }, gameState: gameState)
+                .environmentObject(UserProfile.shared)
+                .onAppear { UserProfile.shared.username = "profile-preview" }
+        } else if CommandLine.arguments.contains("StoreCaptureGallery") {
             StoreCaptureGallery(gameState: gameState)
         } else if CommandLine.arguments.contains("NotificationDuelRoutingQA") {
             MainTabView().task {
@@ -124,7 +130,12 @@ struct FlagsWorldApp: App {
                 NotificationService.shared.pendingInbox = true
             }
         } else if CommandLine.arguments.contains("NotificationInboxQA") {
-            MyNotificationsView().onAppear { NotificationService.shared.seedInboxPreview() }
+            MyNotificationsView().onAppear {
+                NotificationService.shared.seedInboxPreview()
+                if CommandLine.arguments.contains("NotificationReauthQA"), let token = AuthService.shared.authToken {
+                    AuthService.shared.rejectSession(token: token)
+                }
+            }
         } else if CommandLine.arguments.contains("AchievementCollectionQA") {
             NavigationView { AchievementsView().environmentObject(UserProfile.shared) }
         } else if CommandLine.arguments.contains("AppIconQA") {
@@ -551,13 +562,29 @@ private struct LargeQuizPreview: View {
         self.gameState = gameState
         _model = StateObject(wrappedValue: GameViewModel(gameState: gameState))
     }
-    private let country = Country(id: "BRA", name: .init(common: "Brazil", official: "Brazil", nativeName: nil),
+    private var country: Country {
+        if CommandLine.arguments.contains("UITestingGibraltarPopulation") {
+            return Country(id: "GIB", name: .init(common: "Gibraltar", official: "Gibraltar", nativeName: nil),
+                flagURL: URL(string: "https://flagcdn.com/w320/gi.png")!, region: "Europe", subregion: "Europe", latlng: [36.13, -5.35],
+                capital: ["Gibraltar"], population: 1, area: nil, translations: nil)
+        }
+        if CommandLine.arguments.contains("UITestingBelarusMap") {
+            return Country(id: "BLR", name: .init(common: "Belarus", official: "Republic of Belarus", nativeName: nil),
+                flagURL: URL(string: "https://flagcdn.com/w320/by.png")!, region: "Europe", subregion: "Eastern Europe", latlng: [53, 28],
+                capital: ["Minsk"], population: 9398861, area: 207600, translations: nil)
+        }
+        return Country(id: "BRA", name: .init(common: "Brazil", official: "Brazil", nativeName: nil),
         flagURL: URL(string: "https://flagcdn.com/w320/br.png")!, region: "Americas", subregion: "South America", latlng: [-10, -55],
         capital: ["Brasília"], population: 215000000, area: 8520000, translations: nil)
+    }
     var body: some View {
         VStack(spacing: 0) {
             if !CommandLine.arguments.contains("StoreMediaCapture") {
-                Button("Flip QA card") { model.isShowingInfo.toggle(); model.isShowingResult = model.isShowingInfo }
+                Button("Flip QA card") {
+                    model.isShowingInfo.toggle(); model.isShowingResult = model.isShowingInfo
+                    if CommandLine.arguments.contains("UITestingCorrectResult") { model.selectedAnswer = model.isShowingInfo ? country : nil }
+                    if CommandLine.arguments.contains("UITestingWrongResult") { model.selectedAnswer = model.isShowingInfo ? gameState.options.first : nil }
+                }
                     .font(.system(size: 16)).frame(height: 120).accessibilityIdentifier("qa.flip")
             }
             FittingPhoneQuizContent(viewModel: model, country: country)
@@ -566,7 +593,7 @@ private struct LargeQuizPreview: View {
         .onAppear {
             gameState.currentFlag = country
             gameState.options = (CommandLine.arguments.contains("UITestingNormalText") ? ["ARE", "ROU", "AUS", "TUR", "USA", "BRA"] : ["ARE", "ROU", "AUS", "TUR", "PER", "GBR", "USA", "BRA"]).map { code in
-                Country(id: code, name: .init(common: code, official: code, nativeName: nil), flagURL: country.flagURL,
+                code == "BRA" ? country : Country(id: code, name: .init(common: code, official: code, nativeName: nil), flagURL: country.flagURL,
                     region: "Americas", subregion: nil, capital: nil, population: 0, area: nil, translations: nil)
             }
         }
