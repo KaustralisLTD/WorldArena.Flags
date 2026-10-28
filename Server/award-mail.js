@@ -25,6 +25,7 @@ function install(app,store,authenticate,sendMail,{now=()=>Date.now(),enabled=()=
   const level=e.type==='level';
   if(level && (!Number.isSafeInteger(e.xp)||e.xp<99000||e.xp>1e9))return res.status(400).json({error:'Invalid level'});
   if(!level && (typeof e.week!=='string'||!/^\d{4}-W?\d{1,2}$/.test(e.week)||!Number.isSafeInteger(e.rank)||e.rank<1||e.rank>1000||!Number.isSafeInteger(e.participants)||e.participants<e.rank||e.participants>1000||typeof e.league!=='string'||e.league.length>100))return res.status(400).json({error:'Invalid league result'});
+  if(!level && e.leagueID != null && !['Бронза','Серебро','Золото','Платина','Алмаз','Мастер'].includes(e.leagueID))return res.status(400).json({error:'Invalid league ID'});
   if(!db.prepare("SELECT 1 FROM sqlite_master WHERE type='table' AND name='lifecycle_prefs'").get())return res.status(503).json({error:'Preferences not ready'});
   const consent=db.prepare('SELECT progress,progress_blocked FROM lifecycle_prefs WHERE username=?').get(user.username);
   if(!consent)return res.status(409).json({error:'Sync email preferences first'});
@@ -32,7 +33,7 @@ function install(app,store,authenticate,sendMail,{now=()=>Date.now(),enabled=()=
   // congratulations when they subscribe months later.
   if(consent.progress!==1||consent.progress_blocked===1)return res.json({ok:true,subscribed:false});
   const key=level?'level:100':'league:'+e.week;
-  const payload=level?{type:'level',xp:e.xp}:{type:'league',week:e.week,rank:e.rank,participants:e.participants,league:e.league};
+  const payload=level?{type:'level',xp:e.xp}:{type:'league',week:e.week,rank:e.rank,participants:e.participants,league:e.league,...(e.leagueID?{leagueID:e.leagueID}:{})};
   db.prepare('INSERT OR IGNORE INTO award_mail(username,event_key,payload,created_at) VALUES(?,?,?,?)').run(user.username,key,JSON.stringify(payload),now());
   res.json({ok:true});
  });
@@ -48,7 +49,7 @@ function install(app,store,authenticate,sendMail,{now=()=>Date.now(),enabled=()=
     const claim=db.prepare("UPDATE award_mail SET status='sending',attempts=attempts+1 WHERE username=? AND event_key=? AND status='pending'").run(row.username,row.event_key);if(!claim.changes)continue;
     try{await sendMail(row.email,content.subject,content.text,content.html,{unsubscribeURL:url,tag:'lifecycle'});db.prepare("UPDATE award_mail SET status='sent' WHERE username=? AND event_key=?").run(row.username,row.event_key)}
     catch(error){db.prepare("UPDATE award_mail SET status='pending',retry_at=? WHERE username=? AND event_key=?").run(now()+Math.min(86400000,300000*2**row.attempts),row.username,row.event_key);continue}
-    try{inbox.recordForUser(db,row.username,{id:'award:'+crypto.createHash('sha256').update(row.username+':'+row.event_key).digest('hex'),title:content.title,body:content.body,kind:'progress',details:e.type==='level'?{level:100,xp:e.xp}:{rank:e.rank,participants:e.participants,league:e.league,week:e.week}})}catch(error){console.error('[award inbox]',error.message)}
+    try{inbox.recordForUser(db,row.username,{id:'award:'+crypto.createHash('sha256').update(row.username+':'+row.event_key).digest('hex'),title:content.title,body:content.body,kind:'progress',details:e.type==='level'?{level:100,xp:e.xp}:{rank:e.rank,participants:e.participants,league:e.league,week:e.week,...(e.leagueID?{leagueID:e.leagueID}:{})}})}catch(error){console.error('[award inbox]',error.message)}
    }
   }finally{busy=false}
  }

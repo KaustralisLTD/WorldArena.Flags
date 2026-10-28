@@ -1970,3 +1970,8 @@
 "streak.recovery.play_btn" = "Zahrát si a obnovit";
 "streak.recovery.title" = "Denní série přerušena";
 "Не удалось добавить в друзья. Попробуйте позже." = "Tohoto přítele se nepodařilo přidat. Zkuste to prosím znovu.";
+
+/* Public profile links */
+"Пользователь не найден" = "Uživatel nebyl nalezen";
+"profile.link.you" = "Toto je váš veřejný profil";
+"Поздравить друга" = "Popřát k narozeninám";

@@ -2010,3 +2010,8 @@
 "Природа" = "Naturaleza";
 "Телефонный код" = "Código de marcación";
 "Уникальная природа и ландшафты этой страны" = "Naturaleza y paisajes únicos de este país.";
+
+/* Public profile links */
+"Пользователь не найден" = "Usuario no encontrado";
+"profile.link.you" = "Este es tu perfil público";
+"Поздравить друга" = "Felicitar por su cumpleaños";

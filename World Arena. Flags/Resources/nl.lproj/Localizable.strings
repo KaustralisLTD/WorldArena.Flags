@@ -1966,3 +1966,8 @@
 "Проблемы с загрузкой флагов" = "Vlaggen worden niet geladen";
 "Синхронизация данных" = "Gegevenssynchronisatie";
 "Что делать если флаги не загружаются" = "Wat te doen als vlaggen niet laden";
+
+/* Public profile links */
+"Пользователь не найден" = "Gebruiker niet gevonden";
+"profile.link.you" = "Dit is je openbare profiel";
+"Поздравить друга" = "Feliciteren met verjaardag";

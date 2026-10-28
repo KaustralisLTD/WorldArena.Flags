@@ -116,7 +116,13 @@ struct FlagsWorldApp: App {
 
     @ViewBuilder private var launchContent: some View {
         #if targetEnvironment(simulator) && DEBUG
-        if CommandLine.arguments.contains("StoreCaptureGallery") {
+        if CommandLine.arguments.contains("ProfileLinkQA") {
+            ProfileByLinkView(friendCode: "profile-preview", loadProfile: { _ in
+                FriendFromAPI(from: ["username": "profile-preview", "displayName": "Preview", "friendCode": "ABC123", "level": 12, "xp": 1200, "streak": 7])
+            }, gameState: gameState)
+                .environmentObject(UserProfile.shared)
+                .onAppear { UserProfile.shared.username = "profile-preview" }
+        } else if CommandLine.arguments.contains("StoreCaptureGallery") {
             StoreCaptureGallery(gameState: gameState)
         } else if CommandLine.arguments.contains("NotificationDuelRoutingQA") {
             MainTabView().task {

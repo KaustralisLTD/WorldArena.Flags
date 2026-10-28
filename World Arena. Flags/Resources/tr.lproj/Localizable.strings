@@ -1969,3 +1969,8 @@
 "streak.recovery.play_btn" = "Oyna ve seriyi geri yükle";
 "streak.recovery.title" = "Günlük seri kesintiye uğradı";
 "Не удалось добавить в друзья. Попробуйте позже." = "Bu arkadaş eklenemedi. Lütfen tekrar deneyin.";
+
+/* Public profile links */
+"Пользователь не найден" = "Kullanıcı bulunamadı";
+"profile.link.you" = "Bu sizin herkese açık profiliniz";
+"Поздравить друга" = "Doğum gününü kutla";

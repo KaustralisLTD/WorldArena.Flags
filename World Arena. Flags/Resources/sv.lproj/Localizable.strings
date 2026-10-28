@@ -1970,3 +1970,8 @@
 "streak.recovery.play_btn" = "Spela för att återställa";
 "streak.recovery.title" = "Den dagliga sviten bröts";
 "Не удалось добавить в друзья. Попробуйте позже." = "Det gick inte att lägga till den här vännen. Försök igen.";
+
+/* Public profile links */
+"Пользователь не найден" = "Användaren hittades inte";
+"profile.link.you" = "Det här är din offentliga profil";
+"Поздравить друга" = "Skicka en födelsedagshälsning";

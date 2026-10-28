@@ -29,6 +29,8 @@ final class DuelAPIService {
         session = URLSession(configuration: config)
     }
 
+    init(session: URLSession) { self.session = session }
+
     struct DuelSetup: Sendable {
         let regions: [String]
         let difficulty: String
@@ -313,6 +315,12 @@ final class DuelAPIService {
             worldRank = nil
         }
         return (code, worldRank)
+    }
+
+    /// Shared links may contain a server friend code or the player's username.
+    func fetchProfileByLink(_ reference: String) async throws -> FriendFromAPI? {
+        if let byCode = try await fetchUserByCode(reference) { return byCode }
+        return try await fetchUserByUsername(reference)
     }
 
     /// Найти пользователя по коду друга (для добавления в друзья).

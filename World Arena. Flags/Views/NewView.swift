@@ -496,6 +496,10 @@ struct FriendProfileView: View {
     @State private var birthdayGiftSentThisSession = false
     @State private var birthdayGiftError: String?
     
+    private var isOwnProfile: Bool {
+        friend.username.caseInsensitiveCompare(AuthService.shared.authUsername ?? userProfile.username) == .orderedSame
+    }
+
     var body: some View {
         ScrollView {
             VStack(spacing: 24) {
@@ -509,6 +513,12 @@ struct FriendProfileView: View {
                     .font(.system(size: 14, weight: .medium))
                     .foregroundColor(.secondary)
 
+                if isOwnProfile {
+                    Label(localizationManager.localizedString("profile.link.you"), systemImage: "person.crop.circle.badge.checkmark")
+                        .font(.subheadline.weight(.semibold)).foregroundStyle(.secondary)
+                        .accessibilityIdentifier("profile.link.you")
+                }
+
                 // Серия дней и прогресс
                 VStack(alignment: .leading, spacing: 8) {
                     Text(localizationManager.localizedString("Friend profile progress title"))
@@ -517,7 +527,7 @@ struct FriendProfileView: View {
                     HStack(spacing: 16) {
                         stat("flame.fill", String(format: "%d", friend.streak), localizationManager.localizedString("days"))
                         stat("bolt.fill", String(format: "%d", friend.xp), "XP")
-                        stat("chart.bar.fill", String(format: "%d", friend.level), localizationManager.localizedString("Level"))
+                        stat("chart.bar.fill", String(format: "%d", friend.level), localizationManager.localizedString("Уровень"))
                     }
                     .padding()
                     .frame(maxWidth: .infinity)
@@ -554,7 +564,7 @@ struct FriendProfileView: View {
                 friendAchievementsSection
 
                 // Подарок на день рождения (если сегодня ДР друга)
-                if let bday = friend.birthday, userProfile.isTodayBirthday(bday), !birthdayGiftSentThisSession {
+                if !isOwnProfile, let bday = friend.birthday, userProfile.isTodayBirthday(bday), !birthdayGiftSentThisSession {
                     Button(action: { Task { await sendBirthdayGift() } }) {
                         HStack(spacing: 8) {
                             Image(systemName: "gift.fill")
@@ -588,18 +598,18 @@ struct FriendProfileView: View {
         #endif
         .alert(localizationManager.localizedString("Удалить друга"), isPresented: $showDeleteAlert) {
             Button(localizationManager.localizedString("Отмена"), role: .cancel) { }
-            Button(localizationManager.localizedString("Удалить"), role: .destructive) {
+            Button(localizationManager.localizedString("Удалить из друзей"), role: .destructive) {
                 removeFriend()
             }
         } message: {
-            Text(localizationManager.localizedString("Вы уверены, что хотите удалить \(friend.displayNameOrUsername) из друзей и перестать следить за его успехами?"))
+            Text(String(format: localizationManager.localizedString("Вы уверены, что хотите удалить %@ из друзей и перестать следить за его успехами?"), friend.displayNameOrUsername))
         }
         .alert(isPresented: Binding(
             get: { birthdayGiftError != nil },
             set: { if !$0 { birthdayGiftError = nil } }
         )) {
             Alert(
-                title: Text(localizationManager.localizedString("Ошибка")),
+                title: Text(localizationManager.localizedString("duel.error.alert.title")),
                 message: Text(birthdayGiftError ?? ""),
                 dismissButton: .default(Text(localizationManager.localizedString("OK")))
             )
@@ -610,6 +620,7 @@ struct FriendProfileView: View {
             Text(localizationManager.localizedString("duel.error.prepare_questions"))
         }
         .safeAreaInset(edge: .bottom) {
+            if !isOwnProfile {
             VStack(spacing: 10) {
                 Button(action: { startDuel() }) {
                     HStack {
@@ -646,6 +657,7 @@ struct FriendProfileView: View {
             .padding(.top, 8)
             .padding(.bottom, 8)
             .background(.ultraThinMaterial)
+            }
         }
     }
 
@@ -656,7 +668,7 @@ struct FriendProfileView: View {
         defer { isSendingBirthdayGift = false }
         let me = userProfile.username.trimmingCharacters(in: .whitespacesAndNewlines)
         guard !me.isEmpty else {
-            birthdayGiftError = localizationManager.localizedString("Укажите имя профиля перед отправкой подарка")
+            birthdayGiftError = localizationManager.localizedString("Введите имя пользователя")
             return
         }
         do {
@@ -900,11 +912,13 @@ struct FriendProfileView: View {
 // MARK: - Профиль по ссылке (deep link: worldarena.games/profile/CODE)
 struct ProfileByLinkView: View {
     let friendCode: String
+    var loadProfile: (String) async throws -> FriendFromAPI? = { try await DuelAPIService.shared.fetchProfileByLink($0) }
     @Environment(\.dismiss) private var dismiss
     @EnvironmentObject var userProfile: UserProfile
     @ObservedObject var gameState: GameState
     @ObservedObject private var lm = LocalizationManager.shared
     @State private var loadedFriend: Friend?
+    @State private var resolvedFriendCode: String?
     @State private var isLoading = true
     @State private var errorMessage: String?
     @State private var isAdding = false
@@ -921,7 +935,7 @@ struct ProfileByLinkView: View {
                 if isLoading {
                     VStack(spacing: 16) {
                         ProgressView()
-                        Text(lm.localizedString("Загрузка..."))
+                        Text(lm.localizedString("Loading..."))
                             .font(.subheadline)
                             .foregroundColor(.secondary)
                     }
@@ -938,6 +952,10 @@ struct ProfileByLinkView: View {
                             .padding(.horizontal)
                     }
                     .frame(maxWidth: .infinity, maxHeight: .infinity)
+                } else if let friend = loadedFriend,
+                          friend.username.caseInsensitiveCompare(AuthService.shared.authUsername ?? userProfile.username) == .orderedSame {
+                    FriendProfileView(friend: friend, gameState: gameState)
+                        .environmentObject(userProfile)
                 } else if let friend = existingFriend ?? addedFriend {
                     FriendProfileView(friend: friend, gameState: gameState)
                         .environmentObject(userProfile)
@@ -976,7 +994,7 @@ struct ProfileByLinkView: View {
                     HStack(spacing: 16) {
                         statRow("flame.fill", "\(friend.streak)", lm.localizedString("days"))
                         statRow("bolt.fill", "\(friend.xp)", "XP")
-                        statRow("chart.bar.fill", "\(friend.level)", lm.localizedString("Level"))
+                        statRow("chart.bar.fill", "\(friend.level)", lm.localizedString("Уровень"))
                     }
                     .padding()
                     .frame(maxWidth: .infinity)
@@ -987,7 +1005,7 @@ struct ProfileByLinkView: View {
                 Button(action: { Task { await addFriend() } }) {
                     HStack {
                         if isAdding { ProgressView().tint(.white) }
-                        Text(isAdding ? lm.localizedString("Добавляем...") : lm.localizedString("Добавить в друзья"))
+                        Text(isAdding ? lm.localizedString("Loading...") : lm.localizedString("Добавить"))
                             .fontWeight(.semibold)
                     }
                     .foregroundColor(.white)
@@ -1018,10 +1036,11 @@ struct ProfileByLinkView: View {
         errorMessage = nil
         defer { isLoading = false }
         do {
-            guard let api = try await DuelAPIService.shared.fetchUserByCode(friendCode) else {
+            guard let api = try await loadProfile(friendCode) else {
                 errorMessage = lm.localizedString("Пользователь не найден")
                 return
             }
+            resolvedFriendCode = api.friendCode
             loadedFriend = api.toFriend()
         } catch {
             errorMessage = error.localizedDescription
@@ -1030,10 +1049,12 @@ struct ProfileByLinkView: View {
 
     @MainActor
     private func addFriend() async {
-        guard !isAdding, let _ = loadedFriend else { return }
+        guard !isAdding, let friend = loadedFriend,
+              friend.username.caseInsensitiveCompare(AuthService.shared.authUsername ?? userProfile.username) != .orderedSame,
+              let code = resolvedFriendCode, !code.isEmpty else { return }
         isAdding = true
         defer { isAdding = false }
-        let result = await FriendsService.shared.addFriend(by: friendCode, to: userProfile)
+        let result = await FriendsService.shared.addFriend(by: code, to: userProfile)
         switch result {
         case .success:
             if let f = userProfile.friends.first(where: { $0.username.lowercased() == loadedFriend?.username.lowercased() }) {
@@ -1044,7 +1065,7 @@ struct ProfileByLinkView: View {
                 addedFriend = f
             }
         default:
-            errorMessage = lm.localizedString("Не удалось добавить друга")
+            errorMessage = lm.localizedString("Не удалось добавить в друзья. Попробуйте позже.")
         }
     }
 }

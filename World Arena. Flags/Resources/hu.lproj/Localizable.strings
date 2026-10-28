@@ -1970,3 +1970,8 @@
 "streak.recovery.play_btn" = "Játék a visszaállításhoz";
 "streak.recovery.title" = "A napi sorozat megszakadt";
 "Не удалось добавить в друзья. Попробуйте позже." = "Nem sikerült hozzáadni ezt a barátot. Próbáld újra.";
+
+/* Public profile links */
+"Пользователь не найден" = "A felhasználó nem található";
+"profile.link.you" = "Ez a nyilvános profilod";
+"Поздравить друга" = "Születésnapi köszöntés küldése";

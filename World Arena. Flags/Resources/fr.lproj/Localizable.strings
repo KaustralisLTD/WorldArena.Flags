@@ -1965,3 +1965,8 @@
 "Проблемы с загрузкой флагов" = "Les drapeaux ne se chargent pas";
 "Синхронизация данных" = "Synchronisation des données";
 "Что делать если флаги не загружаются" = "Que faire si les drapeaux ne se chargent pas";
+
+/* Public profile links */
+"Пользователь не найден" = "Utilisateur introuvable";
+"profile.link.you" = "Voici votre profil public";
+"Поздравить друга" = "Souhaiter un joyeux anniversaire";

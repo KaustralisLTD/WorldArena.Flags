@@ -48,6 +48,19 @@ final class Flags_WorldUITests: XCTestCase {
     }
 
     @MainActor
+    func testOwnPublicProfileInUkrainian() throws {
+        let app = XCUIApplication()
+        app.launchArguments = ["UITesting", "ProfileLinkQA", "-selectedLanguage", "uk", "-selectedTheme", "dark"]
+        app.launch()
+        XCTAssertTrue(app.staticTexts["profile.link.you"].waitForExistence(timeout: 15))
+        XCTAssertTrue(app.staticTexts["Це ваш публічний профіль"].exists)
+        XCTAssertFalse(app.buttons["Додати"].exists)
+        XCTAssertFalse(app.buttons["Викликати на дуель"].exists)
+        let shot = XCTAttachment(screenshot: app.screenshot())
+        shot.name = "own-public-profile-uk"; shot.lifetime = .keepAlways; add(shot)
+    }
+
+    @MainActor
     func testDuelNotificationLightAndDarkThemes() throws {
         let app = XCUIApplication()
         for style in ["Light", "Dark"] {

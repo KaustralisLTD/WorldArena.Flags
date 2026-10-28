@@ -233,3 +233,50 @@ struct DuelInvitationDateTests {
         }
     }
 }
+
+@MainActor
+struct LeagueNotificationIdentityTests {
+    @Test func platinumAndDiamondNeverBecomeMasters() {
+        let lm = LocalizationManager.shared
+        #expect(League.platinum.localizedFullName == lm.localizedString("Платина"))
+        #expect(League.diamond.localizedFullName == lm.localizedString("Алмаз"))
+        #expect(League.master.localizedFullName == lm.localizedString("Лига Мастеров"))
+        #expect(Set(League.allCases.map(\.localizedFullName)).count == 6)
+        let old = AppNotificationLogItem(id: "league_old", title: "Лиги", body: "Лига Мастеров", date: Date(), source: "progress", kind: "progress", readAt: nil,
+                                        details: .init(rank: 4, league: "Лига Мастеров", leagueID: League.platinum.rawValue))
+        #expect(old.displayBody == lm.localizedString("Платина") + " · #4")
+    }
+}
+
+private final class ProfileLinkURLProtocol: URLProtocol {
+    override class func canInit(with request: URLRequest) -> Bool { true }
+    override class func canonicalRequest(for request: URLRequest) -> URLRequest { request }
+    override func startLoading() {
+        let path = request.url!.path
+        let found = path.hasSuffix("/users/by-code/ABC123") || path.hasSuffix("/users/by-username/profile-preview")
+        let status = path.contains("offline") ? 503 : (found ? 200 : 404)
+        let response = HTTPURLResponse(url: request.url!, statusCode: status, httpVersion: nil, headerFields: nil)!
+        client?.urlProtocol(self, didReceive: response, cacheStoragePolicy: .notAllowed)
+        let body = found ? #"{"username":"profile-preview","friendCode":"ABC123","level":12,"xp":1200,"streak":7}"# : #"{"error":"Not found"}"#
+        client?.urlProtocol(self, didLoad: Data(body.utf8))
+        client?.urlProtocolDidFinishLoading(self)
+    }
+    override func stopLoading() {}
+}
+struct PublicProfileLinkTests {
+    @Test func usernamesAndServerCodesResolveTheSameProfile() async throws {
+        let config = URLSessionConfiguration.ephemeral
+        config.protocolClasses = [ProfileLinkURLProtocol.self]
+        let session = URLSession(configuration: config)
+        defer { session.invalidateAndCancel() }
+        let api = DuelAPIService(session: session)
+        for reference in ["ABC123", "profile-preview"] {
+            let profile = try #require(await api.fetchProfileByLink(reference))
+            #expect(profile.username == "profile-preview")
+            #expect(profile.friendCode == "ABC123")
+        }
+        #expect(try await api.fetchProfileByLink("missing") == nil)
+        do { _ = try await api.fetchProfileByLink("offline"); Issue.record("A network/server failure must not become a missing profile") }
+        catch { }
+    }
+}
