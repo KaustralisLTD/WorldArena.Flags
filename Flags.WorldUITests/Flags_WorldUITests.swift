@@ -48,6 +48,20 @@ final class Flags_WorldUITests: XCTestCase {
     }
 
     @MainActor
+    func testExpiredInboxSessionOffersLoginInUkrainian() throws {
+        let app = XCUIApplication()
+        app.launchArguments = ["UITesting", "NotificationInboxQA", "NotificationReauthQA", "-auth.token.v1", "preview-expired-token", "-auth.username.v1", "preview", "-selectedLanguage", "uk"]
+        app.launch()
+        let login = app.buttons["inbox.signin"]
+        XCTAssertTrue(login.waitForExistence(timeout: 15))
+        XCTAssertTrue(app.staticTexts.containing(NSPredicate(format: "label CONTAINS %@", "Увійдіть знову")).firstMatch.exists)
+        let shot = XCTAttachment(screenshot: app.screenshot())
+        shot.name = "expired-session-uk"; shot.lifetime = .keepAlways; add(shot)
+        login.tap()
+        XCTAssertTrue(app.secureTextFields.firstMatch.waitForExistence(timeout: 10))
+    }
+
+    @MainActor
     func testOwnPublicProfileInUkrainian() throws {
         let app = XCUIApplication()
         app.launchArguments = ["UITesting", "ProfileLinkQA", "-selectedLanguage", "uk", "-selectedTheme", "dark"]

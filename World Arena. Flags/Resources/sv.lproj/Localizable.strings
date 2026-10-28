@@ -1975,3 +1975,5 @@
 "Пользователь не найден" = "Användaren hittades inte";
 "profile.link.you" = "Det här är din offentliga profil";
 "Поздравить друга" = "Skicka en födelsedagshälsning";
+
+"inbox.signinRequired" = "Logga in igen för att synkronisera lästa aviseringar och räknaren på appikonen. Sparade läsmarkeringar behålls.";

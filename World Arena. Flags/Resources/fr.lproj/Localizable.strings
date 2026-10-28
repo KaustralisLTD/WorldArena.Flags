@@ -1970,3 +1970,5 @@
 "Пользователь не найден" = "Utilisateur introuvable";
 "profile.link.you" = "Voici votre profil public";
 "Поздравить друга" = "Souhaiter un joyeux anniversaire";
+
+"inbox.signinRequired" = "Reconnectez-vous pour synchroniser les notifications lues et le compteur de l’icône. Les marques de lecture enregistrées seront conservées.";

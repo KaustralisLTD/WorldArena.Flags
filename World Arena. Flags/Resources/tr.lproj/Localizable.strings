@@ -1974,3 +1974,5 @@
 "Пользователь не найден" = "Kullanıcı bulunamadı";
 "profile.link.you" = "Bu sizin herkese açık profiliniz";
 "Поздравить друга" = "Doğum gününü kutla";
+
+"inbox.signinRequired" = "Okunan bildirimleri ve uygulama simgesindeki sayacı eşitlemek için yeniden giriş yapın. Kaydedilen okundu işaretleri korunacaktır.";

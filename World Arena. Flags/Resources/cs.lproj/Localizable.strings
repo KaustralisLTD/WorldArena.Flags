@@ -1975,3 +1975,5 @@
 "Пользователь не найден" = "Uživatel nebyl nalezen";
 "profile.link.you" = "Toto je váš veřejný profil";
 "Поздравить друга" = "Popřát k narozeninám";
+
+"inbox.signinRequired" = "Přihlaste se znovu, aby se synchronizovala přečtená oznámení a počet na ikoně aplikace. Uložené označení přečtených oznámení zůstane zachováno.";

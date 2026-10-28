@@ -1975,3 +1975,5 @@
 "Пользователь не найден" = "Hindi nahanap ang user";
 "profile.link.you" = "Ito ang iyong pampublikong profile";
 "Поздравить друга" = "Batiin ng maligayang kaarawan";
+
+"inbox.signinRequired" = "Mag-sign in muli para i-sync ang mga nabasang notification at ang bilang sa icon ng app. Mananatili ang mga naka-save na marka ng pagbasa.";

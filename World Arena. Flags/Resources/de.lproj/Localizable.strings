@@ -1970,3 +1970,5 @@
 "Пользователь не найден" = "Nutzer nicht gefunden";
 "profile.link.you" = "Das ist dein öffentliches Profil";
 "Поздравить друга" = "Zum Geburtstag gratulieren";
+
+"inbox.signinRequired" = "Melde dich erneut an, um gelesene Mitteilungen und den Zähler am App-Symbol zu synchronisieren. Gespeicherte Lesemarkierungen bleiben erhalten.";

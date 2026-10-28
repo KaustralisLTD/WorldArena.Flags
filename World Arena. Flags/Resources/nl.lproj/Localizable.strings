@@ -1971,3 +1971,5 @@
 "Пользователь не найден" = "Gebruiker niet gevonden";
 "profile.link.you" = "Dit is je openbare profiel";
 "Поздравить друга" = "Feliciteren met verjaardag";
+
+"inbox.signinRequired" = "Log opnieuw in om gelezen meldingen en het aantal op het app-icoon te synchroniseren. Opgeslagen leesmarkeringen blijven behouden.";

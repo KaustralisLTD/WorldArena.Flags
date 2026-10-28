@@ -130,7 +130,12 @@ struct FlagsWorldApp: App {
                 NotificationService.shared.pendingInbox = true
             }
         } else if CommandLine.arguments.contains("NotificationInboxQA") {
-            MyNotificationsView().onAppear { NotificationService.shared.seedInboxPreview() }
+            MyNotificationsView().onAppear {
+                NotificationService.shared.seedInboxPreview()
+                if CommandLine.arguments.contains("NotificationReauthQA"), let token = AuthService.shared.authToken {
+                    AuthService.shared.rejectSession(token: token)
+                }
+            }
         } else if CommandLine.arguments.contains("AchievementCollectionQA") {
             NavigationView { AchievementsView().environmentObject(UserProfile.shared) }
         } else if CommandLine.arguments.contains("AppIconQA") {

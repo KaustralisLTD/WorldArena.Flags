@@ -1970,3 +1970,5 @@
 "Пользователь не найден" = "Utente non trovato";
 "profile.link.you" = "Questo è il tuo profilo pubblico";
 "Поздравить друга" = "Fai gli auguri di compleanno";
+
+"inbox.signinRequired" = "Accedi di nuovo per sincronizzare le notifiche lette e il contatore sull’icona. Le conferme di lettura salvate verranno conservate.";

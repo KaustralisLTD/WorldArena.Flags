@@ -17,6 +17,8 @@ struct MyNotificationsView: View {
     @Environment(\.dismiss) private var dismiss
     @ObservedObject private var inbox = NotificationService.shared
     @ObservedObject private var language = LocalizationManager.shared
+    @ObservedObject private var auth = AuthService.shared
+    @State private var showAuth = false
     @State private var filter = 0
     @State private var selected: AppNotificationLogItem?
     @State private var openDuelsAfterDetail = false
@@ -57,7 +59,14 @@ struct MyNotificationsView: View {
                             }
                         }
                     }
-                    if inbox.inboxRefreshFailed {
+                    if auth.requiresReauthentication {
+                        VStack(alignment: .leading, spacing: 10) {
+                            Label(tr("inbox.signinRequired"), systemImage: "person.crop.circle.badge.exclamationmark")
+                                .font(.subheadline)
+                            Button(tr("Login")) { showAuth = true }.buttonStyle(.borderedProminent)
+                                .accessibilityIdentifier("inbox.signin")
+                        }.frame(maxWidth: .infinity, alignment: .leading)
+                    } else if inbox.inboxRefreshFailed {
                         Label(tr("inbox.cached"), systemImage: "arrow.clockwise").font(.caption).foregroundColor(.secondary)
                     }
                     if visible.isEmpty {
@@ -86,6 +95,9 @@ struct MyNotificationsView: View {
                 }
             }
             .refreshable { await inbox.refreshInbox() }
+            .fullScreenCover(isPresented: $showAuth, onDismiss: { Task { await inbox.refreshInbox() } }) {
+                AuthGatewayView()
+            }
             .sheet(item: $selected, onDismiss: {
                 if openDuelsAfterDetail {
                     openDuelsAfterDetail = false

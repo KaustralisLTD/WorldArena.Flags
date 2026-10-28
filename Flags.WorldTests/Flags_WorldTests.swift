@@ -280,3 +280,43 @@ struct PublicProfileLinkTests {
         catch { }
     }
 }
+
+struct NotificationReadReceiptTests {
+    private func event(_ id: String, target: String) -> AppNotificationLogItem {
+        .init(id: id, title: "Result", body: "15:15", date: Date(), source: "server", kind: "duel_result", target: target)
+    }
+    @Test func reconnectAcknowledges33OldEventsButKeepsOneNewEvent() {
+        let old = (0..<33).map { event("server-\($0)", target: "duel-\($0)") }
+        let latest = event("latest", target: "new-duel")
+        let savedReads = Set(old.map(\.deduplicationKey))
+        let ids = NotificationReadReceipts.serverIDsToAcknowledge(items: old + [latest], readIDs: savedReads)
+        #expect(ids.count == 33)
+        #expect(!ids.contains("latest"))
+        #expect((old + [latest]).filter { !ids.contains($0.id) }.count == 1)
+    }
+    @Test func everyServerCopyIsAcknowledgedBeforeDeduplication() {
+        let a = event("first", target: "same-duel"), b = event("second", target: "same-duel")
+        #expect(NotificationReadReceipts.serverIDsToAcknowledge(items: [a,b], readIDs: [a.deduplicationKey]) == ["first", "second"])
+        #expect(NotificationReadReceipts.serverIDsToAcknowledge(items: [a,b], readIDs: []).isEmpty)
+    }
+}
+
+@MainActor
+struct ExpiredNotificationSessionTests {
+    @Test func unauthorizedResponseKeepsAccountAndRejectsOldBiometricSession() throws {
+        let name = "expired-session-tests-" + UUID().uuidString
+        let defaults = try #require(UserDefaults(suiteName: name))
+        defer { defaults.removePersistentDomain(forName: name) }
+        defaults.set("current-token", forKey: "auth.token.v1")
+        defaults.set("preview", forKey: "auth.username.v1")
+        let auth = AuthService(defaults: defaults)
+        auth.rejectSession(token: "previous-token")
+        #expect(!auth.requiresReauthentication)
+        auth.rejectSession(token: "current-token")
+        #expect(auth.requiresReauthentication)
+        #expect(auth.authUsername == "preview")
+        #expect(auth.authToken == "current-token")
+        #expect(!auth.hasBiometricRestoreAvailable)
+        #expect(AuthService(defaults: defaults).requiresReauthentication)
+    }
+}
