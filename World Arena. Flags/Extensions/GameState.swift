@@ -1616,9 +1616,15 @@ class GameState: ObservableObject {
                     NotificationService.shared.removeSynthesizedDuelResult(row.id)
                     self.duelHistory.removeAll { $0.duelChallengeId == row.id }
                 }
+                guard ["pending", "accepted", "challenger_completed", "opponent_completed", "completed"].contains(row.status),
+                      DuelServerDate.parse(row.createdAt) != nil else {
+                    profile.outgoingDuelChallenges.removeAll { $0.id == row.id }
+                    continue
+                }
                 let opponentNameForSync: String
                 if let idx = profile.outgoingDuelChallenges.firstIndex(where: { $0.id == row.id }) {
                     var local = profile.outgoingDuelChallenges[idx]
+                    if let serverDate = DuelServerDate.parse(row.createdAt) { local.createdAt = serverDate }
                     if let cs = row.challengerScore { local.challengerScore = cs }
                     if let os = row.opponentScore { local.opponentScore = os }
                     local.status = mapDuelServerStatusToLocal(row.status)
@@ -1675,8 +1681,14 @@ class GameState: ObservableObject {
                     NotificationService.shared.removeSynthesizedDuelResult(row.id)
                     self.duelHistory.removeAll { $0.duelChallengeId == row.id }
                 }
+                guard ["pending", "accepted", "challenger_completed", "opponent_completed", "completed"].contains(row.status),
+                      DuelServerDate.parse(row.createdAt) != nil else {
+                    profile.incomingDuelChallenges.removeAll { $0.id == row.id }
+                    continue
+                }
                 if let idx = profile.incomingDuelChallenges.firstIndex(where: { $0.id == row.id }) {
                     var local = profile.incomingDuelChallenges[idx]
+                    if let serverDate = DuelServerDate.parse(row.createdAt) { local.createdAt = serverDate }
                     if let cs = row.challengerScore { local.challengerScore = cs }
                     if let os = row.opponentScore { local.opponentScore = os }
                     local.status = mapDuelServerStatusToLocal(row.status)

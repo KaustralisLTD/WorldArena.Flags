@@ -1701,7 +1701,7 @@ struct DuelSummaryView: View {
         do {
             let result = try await DuelAPIService.shared.acceptChallenge(
                 challengeId: challenge.id,
-                userId: userProfile.username
+                userId: AuthService.shared.authUsername ?? userProfile.username
             )
             await MainActor.run {
                 gameState.selectedPlayMode = .duel
@@ -1736,6 +1736,12 @@ struct DuelSummaryView: View {
 
             await gameState.startNewGameWithCurrentRegions()
         } catch {
+            if (error as? DuelAPIError)?.isUnavailableChallenge == true {
+                // Remove the stale action immediately; refresh can restore the
+                // authoritative expired card or completed result.
+                userProfile.incomingDuelChallenges.removeAll { $0.id == challenge.id }
+                _ = await gameState.syncIncomingDuelsWithServer(profile: userProfile)
+            }
             actionError = error.localizedDescription
         }
     }

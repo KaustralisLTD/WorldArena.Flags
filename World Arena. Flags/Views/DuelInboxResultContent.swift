@@ -43,13 +43,23 @@ struct DuelInboxResultContent: View {
     let item: AppNotificationLogItem
     let openDuels: () -> Void
     @ObservedObject private var language = LocalizationManager.shared
+    @Environment(\.colorScheme) private var colorScheme
     @Environment(\.accessibilityReduceMotion) private var reduceMotion
     @State private var appeared = false
     private func tr(_ key: String) -> String { language.localizedString(key) }
     private var detail: AppNotificationLogItem.Details { item.duelDetails ?? .init() }
     private var tied: Bool { detail.myScore != nil && detail.myScore == detail.opponentScore }
     private var hasTimes: Bool { detail.myTimeMs != nil && detail.opponentTimeMs != nil }
-    private var accent: Color { detail.iWon == true ? .cyan : .orange }
+    private var isDark: Bool { colorScheme == .dark }
+    private var winnerAccent: Color { isDark ? .cyan : Color(red: 0.0, green: 0.38, blue: 0.52) }
+    private var accent: Color { detail.iWon == true ? winnerAccent : .orange }
+    private var primaryInk: Color { isDark ? .white : Color(red: 0.08, green: 0.13, blue: 0.23) }
+    private var secondaryInk: Color { isDark ? .white.opacity(0.65) : Color(red: 0.35, green: 0.40, blue: 0.49) }
+    private var cardColors: [Color] {
+        isDark
+            ? [Color(red: 0.04, green: 0.08, blue: 0.19), Color(red: 0.12, green: 0.11, blue: 0.30)]
+            : [Color(red: 0.94, green: 0.98, blue: 1), Color(red: 0.97, green: 0.96, blue: 1)]
+    }
     private func time(_ milliseconds: Int?) -> String {
         guard let milliseconds, milliseconds >= 0 else { return "—" }
         return (Double(milliseconds) / 1000).formatted(.number.locale(Locale(identifier: language.currentBundleLanguageCode)).precision(.fractionLength(2))) + " " + tr("Time seconds unit short")
@@ -63,11 +73,11 @@ struct DuelInboxResultContent: View {
                 Text(item.displayTitle).font(.system(size: 32, weight: .heavy, design: .rounded))
                 if let date = item.date {
                     Text(date.formatted(Date.FormatStyle(date: .abbreviated, time: .shortened).locale(Locale(identifier: language.currentBundleLanguageCode))))
-                        .font(.caption).foregroundColor(.white.opacity(0.65))
+                        .font(.caption).foregroundColor(secondaryInk)
                 }
                 HStack(spacing: 10) {
                     player(name: tr("You"), score: detail.myScore, milliseconds: detail.myTimeMs, winner: detail.iWon == true)
-                    Text(":").font(.title.bold()).foregroundColor(.white.opacity(0.45)).accessibilityHidden(true)
+                    Text(":").font(.title.bold()).foregroundColor(isDark ? .white.opacity(0.45) : secondaryInk).accessibilityHidden(true)
                     player(name: detail.opponentName ?? tr("Duel"), score: detail.opponentScore, milliseconds: detail.opponentTimeMs, winner: detail.iWon == false)
                 }.padding(.top, 8)
                 if tied && hasTimes {
@@ -78,9 +88,10 @@ struct DuelInboxResultContent: View {
                         .accessibilityIdentifier("inbox.duel.tieReason")
                 }
             }
-            .foregroundColor(.white).padding(22)
+            .foregroundColor(primaryInk).padding(22)
             .frame(maxWidth: .infinity)
-            .background(LinearGradient(colors: [Color(red: 0.04, green: 0.08, blue: 0.19), Color(red: 0.12, green: 0.11, blue: 0.30)], startPoint: .topLeading, endPoint: .bottomTrailing), in: RoundedRectangle(cornerRadius: 28))
+            .background(LinearGradient(colors: cardColors, startPoint: .topLeading, endPoint: .bottomTrailing), in: RoundedRectangle(cornerRadius: 28))
+            .overlay(RoundedRectangle(cornerRadius: 28).stroke(isDark ? Color.clear : Color.blue.opacity(0.12), lineWidth: 1))
             if !hasTimes {
                 Text(tr("inbox.duelTimeUnavailable")).font(.subheadline).foregroundColor(.secondary).multilineTextAlignment(.center)
             }
@@ -106,10 +117,10 @@ struct DuelInboxResultContent: View {
             Text(score.map(String.init) ?? "—").font(.system(size: 48, weight: .heavy, design: .rounded)).monospacedDigit().minimumScaleFactor(0.6).lineLimit(1)
             Label(time(milliseconds), systemImage: "stopwatch")
                 .font(.subheadline.weight(.semibold)).monospacedDigit().lineLimit(1).minimumScaleFactor(0.7)
-                .foregroundColor(winner ? .cyan : .white.opacity(0.75))
+                .foregroundColor(winner ? winnerAccent : (isDark ? .white.opacity(0.75) : secondaryInk))
                 .accessibilityIdentifier(winner ? "inbox.duel.winnerTime" : "inbox.duel.otherTime")
         }.multilineTextAlignment(.center).frame(maxWidth: .infinity).padding(.horizontal, 10).padding(.vertical, 16)
-            .background(Color.white.opacity(winner ? 0.10 : 0.045), in: RoundedRectangle(cornerRadius: 20))
-            .overlay(RoundedRectangle(cornerRadius: 20).stroke(winner ? Color.cyan.opacity(0.65) : Color.white.opacity(0.10), lineWidth: 1))
+            .background(isDark ? Color.white.opacity(winner ? 0.10 : 0.045) : Color.white.opacity(0.92), in: RoundedRectangle(cornerRadius: 20))
+            .overlay(RoundedRectangle(cornerRadius: 20).stroke(winner ? winnerAccent.opacity(0.65) : (isDark ? Color.white.opacity(0.10) : Color.blue.opacity(0.12)), lineWidth: 1))
     }
 }

@@ -206,3 +206,30 @@ struct ResultAnswersAndPopulationTests {
         #expect(CountryService.shared.population(for: unknown) == nil)
     }
 }
+
+@MainActor
+struct DuelInvitationDateTests {
+    private func row(date: String, status: String = "pending") throws -> DuelChallengeFromAPI {
+        try #require(DuelChallengeFromAPI(from: ["id":"old-invite", "challengerId":"Nadiia", "challengerName":"Nadiia", "seed":42, "createdAt":date, "status":status]))
+    }
+    @Test func sqliteInvitationKeepsItsRealExpiry() throws {
+        let challenge = try #require(row(date: "2026-10-26 19:16:31").toDuelChallenge(opponentId:"sspilberg", opponentName:"sspilberg"))
+        let expected = try #require(DuelServerDate.parse("2026-10-26T19:16:31Z"))
+        #expect(challenge.createdAt == expected)
+        let screenshotTime = try #require(DuelServerDate.parse("2026-10-27T20:56:00Z"))
+        #expect(screenshotTime.timeIntervalSince(challenge.createdAt) > 24 * 3600)
+    }
+    @Test func isoFormatsAndSQLiteAgree() throws {
+        let expected = DuelServerDate.parse("2026-10-26 19:16:31")
+        for date in ["2026-10-26T19:16:31Z", "2026-10-26T19:16:31.000Z", "2026-10-26T20:16:31+01:00"] {
+            #expect(try row(date:date).toDuelChallenge(opponentId:"me",opponentName:"me")?.createdAt == expected)
+        }
+    }
+    @Test func invalidDateAndTerminalStatusCannotBecomeNewInvitations() throws {
+        #expect(try row(date:"").toDuelChallenge(opponentId:"me",opponentName:"me") == nil)
+        #expect(try row(date:"invalid").toDuelChallenge(opponentId:"me",opponentName:"me") == nil)
+        for status in ["declined", "expired", "unknown"] {
+            #expect(try row(date:"2026-10-26 19:16:31",status:status).toDuelChallenge(opponentId:"me",opponentName:"me") == nil)
+        }
+    }
+}

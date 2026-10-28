@@ -1103,22 +1103,16 @@ struct DuelChallengeFromAPI {
     }
     
     func toDuelChallenge(opponentId: String, opponentName: String) -> DuelChallenge? {
-        let formatter = ISO8601DateFormatter()
-        formatter.formatOptions = [.withInternetDateTime, .withFractionalSeconds]
-        var date = formatter.date(from: createdAt)
-        if date == nil {
-            let fallback = ISO8601DateFormatter()
-            fallback.formatOptions = [.withInternetDateTime]
-            date = fallback.date(from: createdAt)
-        }
-        let dateResolved = date ?? Date()
+        // SQLite UTC timestamps and ISO timestamps describe the same server date.
+        // Never renew an invalid/old invitation by substituting the current time.
+        guard let dateResolved = DuelServerDate.parse(createdAt) else { return nil }
         let statusEnum: DuelChallenge.Status
         switch status {
         case "pending", "accepted": statusEnum = .pending
         case "challenger_completed": statusEnum = .challengerCompleted
         case "opponent_completed": statusEnum = .opponentCompleted
         case "completed": statusEnum = .completed
-        default: statusEnum = .pending
+        default: return nil
         }
         return DuelChallenge(
             id: id,

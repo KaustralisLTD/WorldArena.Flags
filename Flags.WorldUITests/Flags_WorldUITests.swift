@@ -48,6 +48,24 @@ final class Flags_WorldUITests: XCTestCase {
     }
 
     @MainActor
+    func testDuelNotificationLightAndDarkThemes() throws {
+        let app = XCUIApplication()
+        for style in ["Light", "Dark"] {
+            app.launchArguments = ["UITesting", "NotificationInboxQA", "-selectedLanguage", "uk", "-selectedTheme", style.lowercased()]
+            app.launch()
+            let result = app.buttons["inbox.item.preview-duel"]
+            XCTAssertTrue(result.waitForExistence(timeout: 20))
+            result.tap()
+            XCTAssertTrue(app.staticTexts["inbox.duel.tieReason"].waitForExistence(timeout: 5))
+            XCTAssertTrue(app.buttons["inbox.duel.openSummary"].exists)
+            XCTAssertTrue(app.staticTexts.containing(NSPredicate(format: "label CONTAINS %@", "41,23")).firstMatch.exists)
+            let shot = XCTAttachment(screenshot: app.screenshot())
+            shot.name = "duel-result-" + style.lowercased(); shot.lifetime = .keepAlways; add(shot)
+            app.terminate()
+        }
+    }
+
+    @MainActor
     func testDuelNotificationTimesAndSummaryNavigation() throws {
         let app = XCUIApplication()
         app.launchArguments = ["UITesting", "NotificationInboxQA", "-selectedLanguage", "uk", "-AppleInterfaceStyle", "Light"]
