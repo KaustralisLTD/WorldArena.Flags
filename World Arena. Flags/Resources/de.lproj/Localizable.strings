@@ -1974,3 +1974,10 @@
 "inbox.signinRequired" = "Melde dich erneut an, um gelesene Mitteilungen und den Zähler am App-Symbol zu synchronisieren. Gespeicherte Lesemarkierungen bleiben erhalten.";
 
 "duel.acceptAndPlay" = "Annehmen und jetzt spielen";
+
+// Duel opponent picker
+"duel.picker.title" = "Gegen wen spielst du?";
+"duel.picker.subtitle" = "Wähle jemanden für dein Duell aus.";
+"duel.picker.friends" = "Freunde";
+"duel.picker.search" = "Freunde suchen";
+"duel.picker.empty" = "Keine Freunde gefunden.";

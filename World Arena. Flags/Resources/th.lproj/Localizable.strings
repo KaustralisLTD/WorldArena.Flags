@@ -1978,3 +1978,10 @@
 "inbox.signinRequired" = "ลงชื่อเข้าใช้อีกครั้งเพื่อซิงค์การแจ้งเตือนที่อ่านแล้วและจำนวนบนไอคอนแอป สถานะการอ่านที่บันทึกไว้จะยังคงอยู่";
 
 "duel.acceptAndPlay" = "ยอมรับและเล่นตอนนี้";
+
+// Duel opponent picker
+"duel.picker.title" = "จะเล่นกับใครดี?";
+"duel.picker.subtitle" = "เลือกเพื่อนแล้วเริ่มดวลกันเลย";
+"duel.picker.friends" = "เพื่อน";
+"duel.picker.search" = "ค้นหาเพื่อน";
+"duel.picker.empty" = "ไม่พบเพื่อน";

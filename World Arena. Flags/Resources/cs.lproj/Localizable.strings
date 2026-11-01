@@ -1979,3 +1979,10 @@
 "inbox.signinRequired" = "Přihlaste se znovu, aby se synchronizovala přečtená oznámení a počet na ikoně aplikace. Uložené označení přečtených oznámení zůstane zachováno.";
 
 "duel.acceptAndPlay" = "Přijmout a hrát nyní";
+
+// Duel opponent picker
+"duel.picker.title" = "S kým si zahrajeme?";
+"duel.picker.subtitle" = "Vyber si přítele a začni duel.";
+"duel.picker.friends" = "Přátelé";
+"duel.picker.search" = "Hledat přátele";
+"duel.picker.empty" = "Žádní přátelé nenalezeni.";

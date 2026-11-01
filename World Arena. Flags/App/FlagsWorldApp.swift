@@ -116,7 +116,16 @@ struct FlagsWorldApp: App {
 
     @ViewBuilder private var launchContent: some View {
         #if targetEnvironment(simulator) && DEBUG
-        if CommandLine.arguments.contains("DuelSetupQA") {
+        if CommandLine.arguments.contains("DuelPickerQA") {
+            DuelOpponentPickerView(gameState: gameState, onDuelReadyToStart: {})
+                .dynamicTypeSize(CommandLine.arguments.contains("DuelPickerLargeTextQA") ? .accessibility2 : .large)
+                .environmentObject(UserProfile.shared)
+                .onAppear {
+                    UserProfile.shared.friends = zip(["AtlasMind", "MarkWinner", "Nadiia", "Zallevski", "nazar", "salex", "superman", "ірина"], [9860, 1690, 16130, 2230, 1970, 38760, 16730, 327260]).map { name, xp in
+                        Friend(id: UUID(), username: name, avatar: "person.fill", level: 5, xp: xp, streak: 7, isOnline: false, joinDate: Date())
+                    }
+                }
+        } else if CommandLine.arguments.contains("DuelSetupQA") {
             DuelAnnouncementView(gameState: gameState, onDismiss: {}, onStart: {})
                 .task {
                     gameState.selectedPlayMode = .duel

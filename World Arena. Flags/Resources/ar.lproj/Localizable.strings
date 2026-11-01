@@ -1979,3 +1979,10 @@
 "inbox.signinRequired" = "سجّل الدخول مجددًا لمزامنة الإشعارات المقروءة والعدد على أيقونة التطبيق. ستُحفظ علامات القراءة السابقة.";
 
 "duel.acceptAndPlay" = "قبول واللعب الآن";
+
+// Duel opponent picker
+"duel.picker.title" = "مع من نلعب؟";
+"duel.picker.subtitle" = "اختر صديقًا وابدأ المبارزة.";
+"duel.picker.friends" = "الأصدقاء";
+"duel.picker.search" = "البحث عن أصدقاء";
+"duel.picker.empty" = "لم يتم العثور على أصدقاء.";

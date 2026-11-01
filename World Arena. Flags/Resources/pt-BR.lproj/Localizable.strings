@@ -1974,3 +1974,10 @@
 "inbox.signinRequired" = "Entre novamente para sincronizar as notificações lidas e o contador no ícone. As marcações de leitura salvas serão mantidas.";
 
 "duel.acceptAndPlay" = "Aceitar e jogar agora";
+
+// Duel opponent picker
+"duel.picker.title" = "Com quem vamos jogar?";
+"duel.picker.subtitle" = "Escolha um amigo e comece um duelo.";
+"duel.picker.friends" = "Amigos";
+"duel.picker.search" = "Buscar amigos";
+"duel.picker.empty" = "Nenhum amigo encontrado.";

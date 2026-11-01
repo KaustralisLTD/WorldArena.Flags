@@ -1979,3 +1979,10 @@
 "inbox.signinRequired" = "Jelentkezz be újra az olvasott értesítések és az alkalmazásikon számlálójának szinkronizálásához. A mentett olvasási jelölések megmaradnak.";
 
 "duel.acceptAndPlay" = "Elfogadás és játék most";
+
+// Duel opponent picker
+"duel.picker.title" = "Kivel játszunk?";
+"duel.picker.subtitle" = "Válassz egy barátot, és kezdj párbajt.";
+"duel.picker.friends" = "Barátok";
+"duel.picker.search" = "Barátok keresése";
+"duel.picker.empty" = "Nem található barát.";

@@ -1978,3 +1978,10 @@
 "inbox.signinRequired" = "Okunan bildirimleri ve uygulama simgesindeki sayacı eşitlemek için yeniden giriş yapın. Kaydedilen okundu işaretleri korunacaktır.";
 
 "duel.acceptAndPlay" = "Kabul et ve şimdi oyna";
+
+// Duel opponent picker
+"duel.picker.title" = "Kiminle oynayalım?";
+"duel.picker.subtitle" = "Bir arkadaş seç ve düelloya başla.";
+"duel.picker.friends" = "Arkadaşlar";
+"duel.picker.search" = "Arkadaş ara";
+"duel.picker.empty" = "Arkadaş bulunamadı.";

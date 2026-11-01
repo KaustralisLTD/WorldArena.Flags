@@ -1979,3 +1979,10 @@
 "inbox.signinRequired" = "পড়া বিজ্ঞপ্তি ও অ্যাপ আইকনের সংখ্যা সিঙ্ক করতে আবার সাইন ইন করুন। সংরক্ষিত পঠিত অবস্থা অক্ষুণ্ণ থাকবে।";
 
 "duel.acceptAndPlay" = "গ্রহণ করে এখনই খেলুন";
+
+// Duel opponent picker
+"duel.picker.title" = "কার সঙ্গে খেলবেন?";
+"duel.picker.subtitle" = "বন্ধু বেছে নিয়ে দ্বৈরথ শুরু করুন।";
+"duel.picker.friends" = "বন্ধুরা";
+"duel.picker.search" = "বন্ধু খুঁজুন";
+"duel.picker.empty" = "কোনো বন্ধু পাওয়া যায়নি।";

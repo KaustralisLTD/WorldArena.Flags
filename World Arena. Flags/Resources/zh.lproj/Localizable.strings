@@ -1956,3 +1956,10 @@
 "inbox.signinRequired" = "请重新登录，以同步已读通知和应用图标上的数量。已保存的阅读状态将会保留。";
 
 "duel.acceptAndPlay" = "接受并立即开始";
+
+// Duel opponent picker
+"duel.picker.title" = "和谁对战？";
+"duel.picker.subtitle" = "选择好友，开始对决。";
+"duel.picker.friends" = "好友";
+"duel.picker.search" = "搜索好友";
+"duel.picker.empty" = "未找到好友。";

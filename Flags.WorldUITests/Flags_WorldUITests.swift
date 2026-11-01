@@ -28,6 +28,45 @@ final class Flags_WorldUITests: XCTestCase {
     }
 
     @MainActor
+    func testDuelPickerDesignAndSearch() throws {
+        let app = XCUIApplication()
+        for theme in ["dark", "light"] {
+            app.launchArguments = ["UITesting", "DuelPickerQA", "-selectedLanguage", "uk", "-selectedTheme", theme]
+            app.launch()
+            let search = app.textFields["duel.picker.search"]
+            XCTAssertTrue(search.waitForExistence(timeout: 20))
+            XCTAssertTrue(app.buttons["duel.picker.addFriends"].exists)
+            XCTAssertTrue(app.buttons["duel.picker.summary"].exists)
+            let shot = XCTAttachment(screenshot: app.screenshot()); shot.name = "duel-picker-" + theme; shot.lifetime = .keepAlways; add(shot)
+            search.tap(); search.typeText("Nadiia")
+            XCTAssertTrue(app.buttons["duel.picker.friend.Nadiia"].exists)
+            XCTAssertFalse(app.buttons["duel.picker.friend.AtlasMind"].exists)
+            search.typeText("zzzz")
+            XCTAssertTrue(app.staticTexts["duel.picker.empty"].exists)
+            search.typeText("\n")
+            app.buttons["duel.picker.addFriends"].tap()
+            XCTAssertTrue(app.navigationBars["Друзі"].waitForExistence(timeout: 5))
+            app.buttons["Готово"].tap()
+            XCTAssertTrue(search.waitForExistence(timeout: 5))
+            app.buttons["duel.picker.summary"].tap()
+            XCTAssertTrue(app.navigationBars["Виклики"].waitForExistence(timeout: 5))
+            app.terminate()
+        }
+    }
+
+    @MainActor
+    func testDuelPickerLargeTextAndRTL() throws {
+        let app = XCUIApplication()
+        app.launchArguments = ["UITesting", "DuelPickerQA", "DuelPickerLargeTextQA", "-selectedLanguage", "ar", "-selectedTheme", "dark"]
+        app.launch()
+        XCTAssertTrue(app.buttons["duel.picker.addFriends"].waitForExistence(timeout: 20))
+        XCTAssertTrue(app.buttons["duel.picker.addFriends"].isHittable)
+        XCTAssertTrue(app.buttons["duel.picker.summary"].isHittable)
+        app.swipeUp()
+        let shot = XCTAttachment(screenshot: app.screenshot()); shot.name = "duel-picker-arabic-large"; shot.lifetime = .keepAlways; add(shot)
+    }
+
+    @MainActor
     func testDuelSetupCreatorAndRecipient() throws {
         let app = XCUIApplication()
         app.launchArguments = ["UITesting", "DuelSetupQA", "-selectedLanguage", "uk"]

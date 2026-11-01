@@ -1979,3 +1979,10 @@
 "inbox.signinRequired" = "Mag-sign in muli para i-sync ang mga nabasang notification at ang bilang sa icon ng app. Mananatili ang mga naka-save na marka ng pagbasa.";
 
 "duel.acceptAndPlay" = "Tanggapin at maglaro ngayon";
+
+// Duel opponent picker
+"duel.picker.title" = "Sino ang makakalaban?";
+"duel.picker.subtitle" = "Pumili ng kaibigan at simulan ang duwelo.";
+"duel.picker.friends" = "Mga kaibigan";
+"duel.picker.search" = "Maghanap ng kaibigan";
+"duel.picker.empty" = "Walang nahanap na kaibigan.";

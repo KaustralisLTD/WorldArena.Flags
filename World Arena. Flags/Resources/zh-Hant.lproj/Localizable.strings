@@ -1978,3 +1978,10 @@
 "inbox.signinRequired" = "請重新登入，以同步已讀通知和應用程式圖示上的數量。已儲存的閱讀狀態將會保留。";
 
 "duel.acceptAndPlay" = "接受並立即開始";
+
+// Duel opponent picker
+"duel.picker.title" = "和誰對戰？";
+"duel.picker.subtitle" = "選擇好友，開始對決。";
+"duel.picker.friends" = "好友";
+"duel.picker.search" = "搜尋好友";
+"duel.picker.empty" = "找不到好友。";

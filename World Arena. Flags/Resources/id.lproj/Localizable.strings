@@ -1979,3 +1979,10 @@
 "inbox.signinRequired" = "Masuk lagi untuk menyinkronkan notifikasi yang sudah dibaca dan jumlah pada ikon aplikasi. Status baca yang tersimpan akan tetap terjaga.";
 
 "duel.acceptAndPlay" = "Terima dan main sekarang";
+
+// Duel opponent picker
+"duel.picker.title" = "Mau main dengan siapa?";
+"duel.picker.subtitle" = "Pilih teman dan mulai duel.";
+"duel.picker.friends" = "Teman";
+"duel.picker.search" = "Cari teman";
+"duel.picker.empty" = "Teman tidak ditemukan.";

@@ -2060,3 +2060,10 @@
 "inbox.signinRequired" = "Увійдіть знову, щоб синхронізувати прочитані сповіщення й лічильник на іконці. Збережені позначки про прочитання не зникнуть.";
 
 "duel.acceptAndPlay" = "Прийняти та зіграти зараз";
+
+// Duel opponent picker
+"duel.picker.title" = "З ким зіграємо?";
+"duel.picker.subtitle" = "Обери друга та починай дуель.";
+"duel.picker.friends" = "Друзі";
+"duel.picker.search" = "Пошук друзів";
+"duel.picker.empty" = "Друзів не знайдено.";

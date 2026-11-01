@@ -1942,3 +1942,10 @@
 "inbox.signinRequired" = "Torna a iniciar sessió per sincronitzar les notificacions llegides i el comptador de la icona. Es conservaran les marques de lectura desades.";
 
 "duel.acceptAndPlay" = "Accepta i juga ara";
+
+// Duel opponent picker
+"duel.picker.title" = "Amb qui juguem?";
+"duel.picker.subtitle" = "Tria un amic i comença un duel.";
+"duel.picker.friends" = "Amics";
+"duel.picker.search" = "Cerca amics";
+"duel.picker.empty" = "No s’ha trobat cap amic.";

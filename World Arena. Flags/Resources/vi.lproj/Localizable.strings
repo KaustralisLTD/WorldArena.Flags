@@ -1979,3 +1979,10 @@
 "inbox.signinRequired" = "Đăng nhập lại để đồng bộ thông báo đã đọc và số trên biểu tượng ứng dụng. Trạng thái đã đọc được lưu sẽ được giữ nguyên.";
 
 "duel.acceptAndPlay" = "Chấp nhận và chơi ngay";
+
+// Duel opponent picker
+"duel.picker.title" = "Chơi với ai nào?";
+"duel.picker.subtitle" = "Chọn một người bạn và bắt đầu đấu.";
+"duel.picker.friends" = "Bạn bè";
+"duel.picker.search" = "Tìm bạn bè";
+"duel.picker.empty" = "Không tìm thấy bạn bè.";

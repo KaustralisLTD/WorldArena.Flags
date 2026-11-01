@@ -1979,3 +1979,10 @@
 "inbox.signinRequired" = "Conectează-te din nou pentru a sincroniza notificările citite și contorul de pe pictogramă. Marcajele de citire salvate vor fi păstrate.";
 
 "duel.acceptAndPlay" = "Acceptă și joacă acum";
+
+// Duel opponent picker
+"duel.picker.title" = "Cu cine jucăm?";
+"duel.picker.subtitle" = "Alege un prieten și începe un duel.";
+"duel.picker.friends" = "Prieteni";
+"duel.picker.search" = "Caută prieteni";
+"duel.picker.empty" = "Nu s-au găsit prieteni.";
