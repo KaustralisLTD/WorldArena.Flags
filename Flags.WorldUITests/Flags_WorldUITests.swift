@@ -28,6 +28,43 @@ final class Flags_WorldUITests: XCTestCase {
     }
 
     @MainActor
+    func testDuelSetupCreatorAndRecipient() throws {
+        let app = XCUIApplication()
+        app.launchArguments = ["UITesting", "DuelSetupQA", "-selectedLanguage", "uk"]
+        app.launch()
+        let difficulty = app.buttons["duel.setup.difficulty"]
+        XCTAssertTrue(difficulty.waitForExistence(timeout: 20))
+        XCTAssertTrue(app.staticTexts["duel.metric.0"].waitForExistence(timeout: 10))
+        difficulty.tap()
+        app.buttons.containing(NSPredicate(format: "label CONTAINS %@", "Складний")).firstMatch.tap()
+        XCTAssertEqual(app.staticTexts["duel.metric.0"].label, "20")
+        XCTAssertTrue(app.staticTexts["duel.metric.1"].label.hasPrefix("15"))
+        app.buttons["duel.setup.region"].tap()
+        app.buttons["Океанія"].tap()
+        XCTAssertTrue(app.buttons["duel.setup.region"].label.contains("Океанія"))
+        let shot = XCTAttachment(screenshot: app.screenshot()); shot.name = "duel-editable-setup"; shot.lifetime = .keepAlways; add(shot)
+        app.terminate()
+        app.launchArguments += ["DuelRecipientQA"]
+        app.launch()
+        XCTAssertTrue(app.buttons["duel.setup.start"].waitForExistence(timeout: 20))
+        XCTAssertFalse(app.buttons["duel.setup.region"].exists)
+        XCTAssertFalse(app.buttons["duel.setup.difficulty"].exists)
+        XCTAssertEqual(app.staticTexts["duel.metric.0"].label, "12")
+    }
+
+    @MainActor
+    func testDuelInvitationHasLocalizedAcceptAction() throws {
+        let app = XCUIApplication()
+        app.launchArguments = ["UITesting", "NotificationInboxQA", "-selectedLanguage", "uk"]
+        app.launch()
+        let invite = app.buttons["inbox.item.preview-invite"]
+        XCTAssertTrue(invite.waitForExistence(timeout: 20)); invite.tap()
+        let accept = app.buttons["inbox.duel.accept"]
+        XCTAssertTrue(accept.waitForExistence(timeout: 5))
+        XCTAssertEqual(accept.label, "Прийняти та зіграти зараз")
+    }
+
+    @MainActor
     func testOctoberDuelStoreScreenshot() throws {
         let app = XCUIApplication()
         app.launchArguments = ["UITesting", "UITestingDuelResults", "StoreMediaCapture", "-selectedLanguage", "ru"]

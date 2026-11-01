@@ -764,6 +764,7 @@ extension NotificationService: UNUserNotificationCenterDelegate {
 extension NotificationService {
     @MainActor func seedInboxPreview() {
         inboxItems = [
+            .init(id:"preview-invite",title:"Duel",body:"Opponent",date:Date(),source:"preview",kind:"duel_challenge",target:"preview-invite-match"),
             .init(id:"preview-duel",title:LocalizationManager.shared.localizedString("Victory"),body:"Sergii · 20 : 14 · Nadiia",date:Date(),source:"preview",kind:"duel_result",target:"preview-match",details:.init(opponentName:"Nadiia",myScore:15,opponentScore:15,iWon:true,myTimeMs:41230,opponentTimeMs:43780)),
             .init(id:"preview-achievement",title:LocalizationManager.shared.localizedString("Достижения"),body:LocalizationManager.shared.localizedString("Ранняя птица") + " · " + LocalizationManager.shared.localizedString("Достигните серии 5 дней"),date:Date().addingTimeInterval(-900),source:"preview",kind:"progress"),
             .init(id:"achievement_journey_streak_100",title:LocalizationManager.shared.localizedString("Достижения"),body:LocalizationManager.shared.localizedString("achievement.streak_100.title"),date:Date().addingTimeInterval(-1200),source:"preview",kind:"progress",readAt:Date(),details:.init(achievementID:"journey_streak_100")),

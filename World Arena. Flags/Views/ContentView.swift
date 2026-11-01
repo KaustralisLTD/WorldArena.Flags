@@ -538,15 +538,13 @@ struct ContentView: View {
                     gameState: gameState,
                     onDismiss: { showDuelAnnouncement = false },
                     onStart: {
-                        Task {
-                            let ok = await createDuelChallengeIfNeeded()
-                            if !ok {
-                                await MainActor.run { showDuelPrepareFailedAlert = true }
-                                return
-                            }
-                            await gameState.startNewGameWithCurrentRegions()
-                            await MainActor.run { showDuelAnnouncement = false }
+                        let ok = await createDuelChallengeIfNeeded()
+                        if !ok {
+                            showDuelPrepareFailedAlert = true
+                            return
                         }
+                        await gameState.startNewGameWithCurrentRegions()
+                        showDuelAnnouncement = false
                     }
                 )
             }
@@ -941,22 +939,18 @@ struct ContentView: View {
         guard !opponentUsername.isEmpty, !myName.isEmpty else { return false }
 
         let seed = gameState.duelSeed ?? Int.random(in: 0..<Int.max)
-        await MainActor.run {
-            if gameState.duelServerQuestionsCount == nil {
-                gameState.duelServerQuestionsCount = gameState.questionsPerGame
-            }
-        }
         let regions = await MainActor.run { gameState.duelRegionsServerStrings() }
         let difficulty = await MainActor.run { gameState.selectedDifficulty.rawValue }
         let gameMode = await MainActor.run { gameState.selectedGameMode.rawValue }
-        let questionsCount = await MainActor.run { gameState.duelServerQuestionsCount ?? gameState.questionsPerGame }
+        let requestedCount = await MainActor.run { gameState.questionsPerGame }
         let optionsCount = await MainActor.run { gameState.optionsCount }
         let questionsPayload = await gameState.buildDuelQuestionsPayload(
             seed: seed,
-            questionsCount: questionsCount,
+            questionsCount: requestedCount,
             optionsCount: optionsCount
         )
         guard let questionsPayload, !questionsPayload.isEmpty else { return false }
+        let questionsCount = questionsPayload.count
         let challengeId: String
         do {
             challengeId = try await DuelAPIService.shared.createChallenge(
@@ -1770,12 +1764,17 @@ struct SurvivalIntroView: View {
 struct DuelAnnouncementView: View {
     @ObservedObject var gameState: GameState
     var onDismiss: () -> Void
-    var onStart: () -> Void
+    var onStart: () async -> Void
     @ObservedObject private var localizationManager = LocalizationManager.shared
     @ObservedObject private var themeManager = AppThemeManager.shared
     @Environment(\.colorScheme) private var systemColorScheme
     @State private var headerAppeared = false
     @State private var cardsAppeared = false
+    @State private var isStarting = false
+    @State private var availableQuestions: Int? = nil
+    private var canEditSetup: Bool { gameState.duelRoleIsChallenger && gameState.duelChallengeId == nil }
+    private var regionKey: String { gameState.duelRegionsServerStrings().joined(separator: ",") }
+    private var canStart: Bool { !isStarting && (!canEditSetup || (availableQuestions ?? 0) > 0) }
 
     private var effectiveColorScheme: ColorScheme {
         themeManager.colorScheme ?? systemColorScheme
@@ -1814,7 +1813,10 @@ struct DuelAnnouncementView: View {
     private var user2Wins: Int { isUserChallenger ? myLosses : myWins }
     private var timeLimitSeconds: Int { max(0, Int(gameState.selectedDifficulty.timeLimit)) }
     private var timeUnit: String { localizationManager.localizedString("Time seconds unit short") }
-    private var questionsCount: Int { gameState.questionsPerGame }
+    private var questionsCount: Int {
+        if !canEditSetup { return gameState.duelQuestionsPayload?.count ?? gameState.duelServerQuestionsCount ?? gameState.questionsPerGame }
+        return min(gameState.questionsPerGame, availableQuestions ?? 0)
+    }
     private var duelRegionDisplay: String {
         gameState.selectedRegions.count == 1
             ? (gameState.selectedRegions.first?.displayName ?? localizationManager.localizedString("All Regions"))
@@ -1860,12 +1862,41 @@ struct DuelAnnouncementView: View {
                             .multilineTextAlignment(.center)
                             .lineSpacing(3)
                             .fixedSize(horizontal: false, vertical: true)
-                        Text("\(localizationManager.localizedString("Select Region")): \(duelRegionDisplay)")
-                            .font(.system(size: 15, weight: .semibold, design: .rounded))
-                            .foregroundColor(.secondary)
-                            .multilineTextAlignment(.center)
-                            .lineLimit(2)
-                            .fixedSize(horizontal: false, vertical: true)
+                        if canEditSetup {
+                            VStack(spacing: 12) {
+                                Menu {
+                                    ForEach(GameState.Region.allCases.filter { $0 != .myMistakes }, id: \.self) { region in
+                                        Button(region.displayName) {
+                                            guard gameState.selectedRegions != [region] else { return }
+                                            availableQuestions = nil
+                                            gameState.selectedRegions = [region]
+                                            gameState.duelServerQuestionsCount = nil
+                                            gameState.duelQuestionsPayload = nil
+                                        }
+                                    }
+                                } label: {
+                                    Label("\(localizationManager.localizedString("Select Region")): \(duelRegionDisplay)", systemImage: "globe")
+                                }.accessibilityIdentifier("duel.setup.region")
+                                Menu {
+                                    ForEach(GameState.Difficulty.allCases, id: \.self) { difficulty in
+                                        Button(difficulty.displayName) {
+                                            gameState.selectedDifficulty = difficulty
+                                            gameState.duelServerQuestionsCount = nil
+                                            gameState.duelQuestionsPayload = nil
+                                        }.disabled(difficulty == .erudite && !gameState.isPremium)
+                                    }
+                                } label: {
+                                    Label(gameState.selectedDifficulty.displayName, systemImage: "slider.horizontal.3")
+                                }.accessibilityIdentifier("duel.setup.difficulty")
+                            }
+                            .buttonStyle(.bordered)
+                            .disabled(isStarting)
+                        } else {
+                            Text("\(duelRegionDisplay) · \(gameState.selectedDifficulty.displayName)")
+                                .font(.subheadline.weight(.semibold))
+                                .foregroundColor(.secondary)
+                                .multilineTextAlignment(.center)
+                        }
                     }
                     .padding(.top, 36)
                     .padding(.horizontal, 24)
@@ -1885,7 +1916,7 @@ struct DuelAnnouncementView: View {
                     ) {
                         duelIntroMetricCard(
                             title: localizationManager.localizedString("Number of Questions"),
-                            value: "\(questionsCount)",
+                            value: canEditSetup && availableQuestions == nil ? "…" : "\(questionsCount)",
                             accent: Color(red: 1.0, green: 0.62, blue: 0.22),
                             symbol: "list.bullet.rectangle.portrait",
                             index: 0
@@ -1922,6 +1953,15 @@ struct DuelAnnouncementView: View {
                 duelIntroBottomBar
             }
         }
+        .task(id: regionKey) {
+            guard canEditSetup else { return }
+            availableQuestions = nil
+            let regions = gameState.selectedRegions.filter { $0 != .myMistakes }
+            let countries = try? await gameState.fetchCountries(for: Array(regions.isEmpty ? [.all] : regions))
+            guard !Task.isCancelled else { return }
+            availableQuestions = countries?.count ?? 0
+        }
+        .interactiveDismissDisabled(isStarting)
         .onAppear {
             headerAppeared = true
             cardsAppeared = true
@@ -1997,7 +2037,7 @@ struct DuelAnnouncementView: View {
     private var duelIntroBottomBar: some View {
         VStack(spacing: 0) {
             HStack(spacing: 14) {
-                Button(action: onDismiss) {
+                Button { if !isStarting { onDismiss() } } label: {
                     Text(localizationManager.localizedString("Cancel"))
                         .font(.system(size: 17, weight: .semibold, design: .rounded))
                         .foregroundColor(.primary)
@@ -2012,7 +2052,14 @@ struct DuelAnnouncementView: View {
                                 .stroke(Color.primary.opacity(isDark ? 0.22 : 0.12), lineWidth: 1)
                         )
                 }
-                Button(action: onStart) {
+                Button {
+                    guard canStart else { return }
+                    isStarting = true
+                    Task {
+                        await onStart()
+                        isStarting = false
+                    }
+                } label: {
                     Text(localizationManager.localizedString("Start duel"))
                         .font(.system(size: 17, weight: .heavy, design: .rounded))
                         .foregroundColor(.white)
@@ -2033,7 +2080,10 @@ struct DuelAnnouncementView: View {
                         )
                         .shadow(color: Color.orange.opacity(0.42), radius: 16, x: 0, y: 10)
                 }
+                .disabled(!canStart)
+                .accessibilityIdentifier("duel.setup.start")
             }
+            .disabled(isStarting)
             .padding(.horizontal, 20)
             .padding(.top, 12)
             .padding(.bottom, 8)
@@ -2079,6 +2129,7 @@ struct DuelAnnouncementView: View {
                 .multilineTextAlignment(.center)
                 .fixedSize(horizontal: false, vertical: true)
             Text(value)
+                .accessibilityIdentifier("duel.metric.\(index)")
                 .font(.system(size: 26, weight: .heavy, design: .rounded))
                 .foregroundColor(.primary)
                 .multilineTextAlignment(.center)

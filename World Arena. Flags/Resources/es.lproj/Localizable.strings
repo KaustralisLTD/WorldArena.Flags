@@ -2017,3 +2017,5 @@
 "Поздравить друга" = "Felicitar por su cumpleaños";
 
 "inbox.signinRequired" = "Vuelve a iniciar sesión para sincronizar las notificaciones leídas y el contador del icono. Se conservarán las marcas de lectura guardadas.";
+
+"duel.acceptAndPlay" = "Aceptar y jugar ahora";

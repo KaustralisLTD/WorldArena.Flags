@@ -116,7 +116,19 @@ struct FlagsWorldApp: App {
 
     @ViewBuilder private var launchContent: some View {
         #if targetEnvironment(simulator) && DEBUG
-        if CommandLine.arguments.contains("ProfileLinkQA") {
+        if CommandLine.arguments.contains("DuelSetupQA") {
+            DuelAnnouncementView(gameState: gameState, onDismiss: {}, onStart: {})
+                .task {
+                    gameState.selectedPlayMode = .duel
+                    gameState.selectedRegions = [.europe]
+                    gameState.selectedDifficulty = .easy
+                    gameState.duelChallengerName = "Preview"
+                    gameState.duelOpponentName = "Opponent"
+                    gameState.duelRoleIsChallenger = !CommandLine.arguments.contains("DuelRecipientQA")
+                    gameState.duelChallengeId = gameState.duelRoleIsChallenger ? nil : "preview-locked"
+                    gameState.duelServerQuestionsCount = gameState.duelRoleIsChallenger ? nil : 12
+                }
+        } else if CommandLine.arguments.contains("ProfileLinkQA") {
             ProfileByLinkView(friendCode: "profile-preview", loadProfile: { _ in
                 FriendFromAPI(from: ["username": "profile-preview", "displayName": "Preview", "friendCode": "ABC123", "level": 12, "xp": 1200, "streak": 7])
             }, gameState: gameState)

@@ -22,6 +22,7 @@ struct MyNotificationsView: View {
     @State private var filter = 0
     @State private var selected: AppNotificationLogItem?
     @State private var openDuelsAfterDetail = false
+    @State private var acceptDuelAfterDetail: String?
     @EnvironmentObject private var gameState: GameState
     private func tr(_ key: String) -> String { language.localizedString(key) }
     private var visible: [AppNotificationLogItem] {
@@ -99,7 +100,10 @@ struct MyNotificationsView: View {
                 AuthGatewayView()
             }
             .sheet(item: $selected, onDismiss: {
-                if openDuelsAfterDetail {
+                if let id = acceptDuelAfterDetail {
+                    acceptDuelAfterDetail = nil
+                    NotificationCenter.default.post(name: Notification.Name("AcceptDuelFromInbox"), object: id)
+                } else if openDuelsAfterDetail {
                     openDuelsAfterDetail = false
                     dismiss()
                     NotificationCenter.default.post(name: Notification.Name("OpenDuelSummary"), object: nil)
@@ -132,6 +136,15 @@ struct MyNotificationsView: View {
                                     if !(item.id.hasPrefix("league_") || item.details?.league != nil) { NotificationCenter.default.post(name: Notification.Name("OpenAchievements"), object: nil) }
                                 }.buttonStyle(.borderedProminent)
                             }
+                            }
+                            if item.kind == "duel_challenge", let id = item.target, !id.isEmpty,
+                               !DuelInviteSuppression.wasAccepted(id), !DuelInviteSuppression.isDeclined(id) {
+                                Button(tr("duel.acceptAndPlay")) {
+                                    acceptDuelAfterDetail = id
+                                    selected = nil
+                                }
+                                .buttonStyle(.borderedProminent)
+                                .accessibilityIdentifier("inbox.duel.accept")
                             }
                             if item.isDuel && item.kind != "duel_result" {
                                 Button(tr("Duel Summary")) {

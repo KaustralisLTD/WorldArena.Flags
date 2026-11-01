@@ -205,6 +205,34 @@ final class FlagsExperienceTests: XCTestCase {
         XCTAssertEqual(AppIconChoice.preferred(language: "ja").id, "en")
     }
 
+    func testAcceptedDuelNotifiesVisibleHomeWithoutChangingHistory() async {
+        let profile = UserProfile.shared
+        let before = profile.incomingDuelChallenges.map(\.id)
+        let id = "accepted-refresh-" + UUID().uuidString
+        defer { UserDefaults.standard.removeObject(forKey: "duelInvite.accepted." + id) }
+        let refreshed = expectation(description: "Home observes accepted invitation")
+        let subscription = profile.objectWillChange.sink { refreshed.fulfill() }
+        DuelInviteSuppression.markAccepted(id)
+        await fulfillment(of: [refreshed], timeout: 2)
+        withExtendedLifetime(subscription) {}
+        XCTAssertTrue(DuelInviteSuppression.isSuppressed(id))
+        XCTAssertEqual(profile.incomingDuelChallenges.map(\.id), before)
+    }
+
+    func testDuelQuestionCountMatchesSelectedRegionAndDifficulty() async throws {
+        let state = GameState()
+        state.selectedPlayMode = .duel
+        state.selectedRegions = [.oceania]
+        state.selectedDifficulty = .expert
+        let available = try await state.fetchCountries(for: [.oceania])
+        let payload = await state.buildDuelQuestionsPayload(seed: 42, questionsCount: state.questionsPerGame, optionsCount: 6)
+        XCTAssertEqual(payload?.count, min(state.questionsPerGame, available.count))
+        state.selectedDifficulty = .easy
+        let easy = await state.buildDuelQuestionsPayload(seed: 42, questionsCount: state.questionsPerGame, optionsCount: 6)
+        XCTAssertEqual(easy?.count, min(state.questionsPerGame, available.count))
+        XCTAssertEqual(state.selectedDifficulty.timeLimit, 45)
+    }
+
     func testAcceptedDuelNeverReturnsAsANewInvitation() {
         let id = "accepted-invite-test-" + UUID().uuidString
         defer { UserDefaults.standard.removeObject(forKey: "duelInvite.accepted." + id) }

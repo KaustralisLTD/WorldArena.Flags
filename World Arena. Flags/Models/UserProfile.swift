@@ -1,4 +1,5 @@
 import Foundation
+import Combine
 
 // MARK: - F-Bucks Transaction Model
 struct FBucksTransaction: Identifiable, Codable {
@@ -212,7 +213,12 @@ class UserProfile: ObservableObject {
     private static let fBucksHistoryBackupKey = "user.profile.fBucksHistory.backup.v1"
     private var isLoadedFromStorage = false
     
+    private var duelInviteObserver: AnyCancellable?
+
     private init() {
+        duelInviteObserver = NotificationCenter.default.publisher(for: DuelInviteSuppression.didChange)
+            .receive(on: RunLoop.main)
+            .sink { [weak self] _ in self?.objectWillChange.send() }
         loadFromStorage()
         loadDuelChallenges()
         ensureMonthlyQuestsForCurrentMonth()
