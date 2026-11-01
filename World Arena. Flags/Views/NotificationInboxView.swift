@@ -17,9 +17,12 @@ struct MyNotificationsView: View {
     @Environment(\.dismiss) private var dismiss
     @ObservedObject private var inbox = NotificationService.shared
     @ObservedObject private var language = LocalizationManager.shared
+    @ObservedObject private var auth = AuthService.shared
+    @State private var showAuth = false
     @State private var filter = 0
     @State private var selected: AppNotificationLogItem?
     @State private var openDuelsAfterDetail = false
+    @State private var acceptDuelAfterDetail: String?
     @EnvironmentObject private var gameState: GameState
     private func tr(_ key: String) -> String { language.localizedString(key) }
     private var visible: [AppNotificationLogItem] {
@@ -57,7 +60,14 @@ struct MyNotificationsView: View {
                             }
                         }
                     }
-                    if inbox.inboxRefreshFailed {
+                    if auth.requiresReauthentication {
+                        VStack(alignment: .leading, spacing: 10) {
+                            Label(tr("inbox.signinRequired"), systemImage: "person.crop.circle.badge.exclamationmark")
+                                .font(.subheadline)
+                            Button(tr("Login")) { showAuth = true }.buttonStyle(.borderedProminent)
+                                .accessibilityIdentifier("inbox.signin")
+                        }.frame(maxWidth: .infinity, alignment: .leading)
+                    } else if inbox.inboxRefreshFailed {
                         Label(tr("inbox.cached"), systemImage: "arrow.clockwise").font(.caption).foregroundColor(.secondary)
                     }
                     if visible.isEmpty {
@@ -86,8 +96,14 @@ struct MyNotificationsView: View {
                 }
             }
             .refreshable { await inbox.refreshInbox() }
+            .fullScreenCover(isPresented: $showAuth, onDismiss: { Task { await inbox.refreshInbox() } }) {
+                AuthGatewayView()
+            }
             .sheet(item: $selected, onDismiss: {
-                if openDuelsAfterDetail {
+                if let id = acceptDuelAfterDetail {
+                    acceptDuelAfterDetail = nil
+                    NotificationCenter.default.post(name: Notification.Name("AcceptDuelFromInbox"), object: id)
+                } else if openDuelsAfterDetail {
                     openDuelsAfterDetail = false
                     dismiss()
                     NotificationCenter.default.post(name: Notification.Name("OpenDuelSummary"), object: nil)
@@ -120,6 +136,15 @@ struct MyNotificationsView: View {
                                     if !(item.id.hasPrefix("league_") || item.details?.league != nil) { NotificationCenter.default.post(name: Notification.Name("OpenAchievements"), object: nil) }
                                 }.buttonStyle(.borderedProminent)
                             }
+                            }
+                            if item.kind == "duel_challenge", let id = item.target, !id.isEmpty,
+                               !DuelInviteSuppression.wasAccepted(id), !DuelInviteSuppression.isDeclined(id) {
+                                Button(tr("duel.acceptAndPlay")) {
+                                    acceptDuelAfterDetail = id
+                                    selected = nil
+                                }
+                                .buttonStyle(.borderedProminent)
+                                .accessibilityIdentifier("inbox.duel.accept")
                             }
                             if item.isDuel && item.kind != "duel_result" {
                                 Button(tr("Duel Summary")) {

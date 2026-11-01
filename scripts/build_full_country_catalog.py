@@ -21,6 +21,7 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parents[1]
 RES = ROOT / "World Arena. Flags" / "Resources"
 ISO_SWIFT = ROOT / "World Arena. Flags" / "Extensions" / "ISO3166.swift"
+POPULATION_CORRECTIONS = json.loads((ROOT / "scripts/data/country_population_corrections.json").read_text())
 COUNTRY_COORDINATES = json.loads((ROOT / "scripts/data/country_coordinates.json").read_text())
 
 # Не включаем в игровой каталог (необитаемые / без полноценного «флаг-квиза»)
@@ -352,7 +353,7 @@ EXTRA_NAMES: dict[str, dict[str, tuple[str, str]]] = {
 
 def parse_pop(s: str) -> int:
     digits = re.sub(r"[^0-9]", "", s or "")
-    return int(digits) if digits else 1
+    return int(digits) if digits and not (s or "").strip().startswith("-") else -1
 
 
 def parse_area(s: str) -> float | None:
@@ -540,7 +541,7 @@ def to_game_country(code: str, a2_to_a3: dict[str, str], item: dict) -> dict | N
         "region": region,
         "subregion": sub,
         "capital": [en["capital"]] if en.get("capital") and en["capital"] != "—" else [],
-        "population": parse_pop(en.get("population", "")),
+        "population": POPULATION_CORRECTIONS.get(code, {}).get("population", parse_pop(en.get("population", ""))),
         "area": parse_area(en.get("area", "")),
         "translations": None,
         "latlng": COUNTRY_COORDINATES[a3],
@@ -572,6 +573,10 @@ def main() -> None:
     for code, compact in COMPACT.items():
         if compact is not None:
             existing[code] = build_from_compact(code, compact)
+
+    for code, correction in POPULATION_CORRECTIONS.items():
+        for localized in existing.get(code, {}).values():
+            localized["population"] = f"{correction['population']:,}"
 
     all_codes = sorted(existing.keys())
     print(f"Total LocalizedCountryData: {len(all_codes)}")

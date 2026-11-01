@@ -13,6 +13,17 @@ function recordForUser(db,username,{id=crypto.randomUUID(),title,body,kind='mess
  db.prepare('INSERT OR IGNORE INTO notification_inbox(id,username,title,body,kind,created_at,read_at,target,details) VALUES(?,?,?,?,?,?,?,?,?)').run(id,username,title,body,kind,createdAt,readAt,target,details?JSON.stringify(details):null);
  return id;
 }
+// Apply the same lifecycle rules before both an inbox fetch and an APNs badge.
+// Otherwise completed invitations stay "new" until the recipient opens the inbox.
+function reconcileResolvedInvitations(db,username) {
+  if(db.prepare("SELECT name FROM sqlite_master WHERE type='table' AND name='duel_challenges'").get() && db.prepare('PRAGMA table_info(duel_challenges)').all().some(c=>c.name==='id')) {
+   db.prepare("UPDATE notification_inbox SET read_at=? WHERE username=? AND kind='duel_challenge' AND read_at IS NULL AND EXISTS(SELECT 1 FROM duel_challenges d WHERE (notification_inbox.target=d.id OR notification_inbox.id='duel_challenge:'||d.id||':'||notification_inbox.username) AND (d.status NOT IN ('pending','challenger_completed') OR d.opponent_score IS NOT NULL))").run(Date.now(),username);
+  }
+}
+function unreadCount(db,username) {
+ reconcileResolvedInvitations(db,username);
+ return db.prepare('SELECT COUNT(*) AS n FROM (SELECT read_at FROM notification_inbox WHERE username=? ORDER BY created_at DESC,id DESC LIMIT 200) WHERE read_at IS NULL').get(username).n;
+}
 function record(db,token,notification,explicitAlert) {
  const alert=explicitAlert||notification.alert||notification.aps?.alert;if(!alert)return;
  const title=typeof alert==='string'?'World Arena':alert.title,body=typeof alert==='string'?alert:alert.body;
@@ -22,7 +33,7 @@ function record(db,token,notification,explicitAlert) {
  const id=payload.notificationId || (payload.challengeId?`${payload.type}:${payload.challengeId}:${user.username}`:crypto.randomUUID());
  recordForUser(db,user.username,{id,title,body,kind:payload.type||'message',target:payload.challengeId||null,details:payload.details||null});
  notification.payload={...payload,notificationId:id};
- notification.badge=db.prepare('SELECT COUNT(*) AS n FROM (SELECT read_at FROM notification_inbox WHERE username=? ORDER BY created_at DESC LIMIT 200) WHERE read_at IS NULL').get(user.username).n;
+ notification.badge=unreadCount(db,user.username);
 }
 function install(app,db,authenticate) {
  initialize(db);
@@ -30,10 +41,8 @@ function install(app,db,authenticate) {
   const user=authenticate(req);if(!user)return res.status(401).json({error:'Sign in required'});
   localization.saveLocale(db,user.username,req.headers?.['accept-language']);
   const language=localization.recipientLocale(db,{username:user.username});
-  if(db.prepare("SELECT name FROM sqlite_master WHERE type='table' AND name='duel_challenges'").get() && db.prepare('PRAGMA table_info(duel_challenges)').all().some(c=>c.name==='id')) {
-   db.prepare("UPDATE notification_inbox SET read_at=? WHERE username=? AND kind='duel_challenge' AND read_at IS NULL AND EXISTS(SELECT 1 FROM duel_challenges d WHERE (notification_inbox.target=d.id OR notification_inbox.id='duel_challenge:'||d.id||':'||notification_inbox.username) AND (d.status NOT IN ('pending','challenger_completed') OR d.opponent_score IS NOT NULL))").run(Date.now(),user.username);
-  }
-  const rows=db.prepare('SELECT id,title,body,kind,target,details,created_at AS createdAt,read_at AS readAt FROM notification_inbox WHERE username=? ORDER BY created_at DESC LIMIT 200').all(user.username);
+  reconcileResolvedInvitations(db,user.username);
+  const rows=db.prepare('SELECT id,title,body,kind,target,details,created_at AS createdAt,read_at AS readAt FROM notification_inbox WHERE username=? ORDER BY created_at DESC,id DESC LIMIT 200').all(user.username);
   // Hydrate historical result notifications without changing their read state.
   const duelColumns=db.prepare('PRAGMA table_info(duel_challenges)').all().map(c=>c.name);
   const canHydrate=['id','challenger_id','opponent_id','challenger_time_ms','opponent_time_ms'].every(c=>duelColumns.includes(c));
@@ -69,4 +78,4 @@ function install(app,db,authenticate) {
   res.json({ok:true});
  });
 }
-module.exports={initialize,record,recordForUser,install};
+module.exports={initialize,record,recordForUser,install,unreadCount};

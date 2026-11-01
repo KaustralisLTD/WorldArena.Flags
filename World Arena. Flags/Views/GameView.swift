@@ -1675,7 +1675,7 @@ private struct iPadGameLayout: View {
 
     private func tabletAnswers(country: Country, columns: Int) -> some View {
         LazyVGrid(columns: Array(repeating: GridItem(.flexible(), spacing: 16), count: columns), spacing: 16) {
-            ForEach(viewModel.options, id: \.id) { option in
+            ForEach(viewModel.isShowingResult ? QuizAnswerFit.resultOptions(correct: country, selected: viewModel.selectedAnswer) : viewModel.options, id: \.id) { option in
                 AnswerButton(
                     country: option,
                     isSelected: viewModel.selectedAnswer == option,
@@ -2432,6 +2432,11 @@ private struct phoneGameLayout: View {
 
 /// The answer set fits the remaining viewport; only distractors may be removed.
 struct QuizAnswerFit {
+    static func resultOptions(correct: Country, selected: Country?) -> [Country] {
+        guard let selected, selected != correct else { return [correct] }
+        return [correct, selected]
+    }
+
     /// Preserve the full-size flag unless the measured answer stack needs its space.
     static func flagHeight(preferred: CGFloat, minimum: CGFloat, available: CGFloat, answerHeights: [CGFloat]) -> CGFloat {
         let answers = answerHeights.reduce(0, +) + CGFloat(max(0, answerHeights.count - 1)) * 8
@@ -2460,7 +2465,6 @@ struct FittingPhoneQuizContent: View {
     @ObservedObject var viewModel: GameViewModel
     let country: Country
     @State private var measurements: [String: CGFloat] = [:]
-    @State private var lockedIndices: [Int]?
     @Environment(\.sizeCategory) private var sizeCategory
     private var question: some View {
         Text(LocalizationManager.shared.localizedString("Quiz identify flag"))
@@ -2480,15 +2484,24 @@ struct FittingPhoneQuizContent: View {
             let promptHeight = measurements["prompt"] ?? 60
             let heights = viewModel.options.map { measurements[$0.id] ?? 60 }
             let available = geometry.size.height - promptHeight - 60
-            let flagHeight = QuizAnswerFit.flagHeight(
+            let questionFlagHeight = QuizAnswerFit.flagHeight(
                 preferred: min(width, 360) * 2 / 3,
                 minimum: sizeCategory >= .extraExtraLarge ? 90 : 130,
                 available: available, answerHeights: heights)
-            let budget = max(96, available - flagHeight)
+            let budget = max(96, available - questionFlagHeight)
             let correctIndex = viewModel.options.firstIndex(of: country) ?? 0
-            let indices = (lockedIndices ?? QuizAnswerFit.indices(heights: heights, correctIndex: correctIndex, budget: budget)).filter { viewModel.options.indices.contains($0) }
-            let answerHeight = indices.reduce(CGFloat(0)) { $0 + heights[$1] } + CGFloat(max(0, indices.count - 1)) * 8
-            let emergencyHeight = answerHeight > budget ? max(48, (budget - CGFloat(max(0, indices.count - 1)) * 8) / CGFloat(max(1, indices.count))) : nil
+            let indices = QuizAnswerFit.indices(heights: heights, correctIndex: correctIndex, budget: budget)
+            let visibleOptions = viewModel.isShowingResult
+                ? QuizAnswerFit.resultOptions(correct: country, selected: viewModel.selectedAnswer)
+                : indices.map { viewModel.options[$0] }
+            let answerHeight = visibleOptions.reduce(CGFloat(0)) { $0 + (measurements[$1.id] ?? 60) }
+                + CGFloat(max(0, visibleOptions.count - 1)) * 8
+            // Result answers relinquish their space to the facts and full map.
+            // Keep overflow scrolling for accessibility sizes and short screens.
+            let answerBudget = viewModel.isShowingResult ? max(96, available - 90) : budget
+            let flagHeight = viewModel.isShowingResult ? max(90, available - min(answerHeight, answerBudget)) : questionFlagHeight
+            let emergencyHeight = answerHeight > answerBudget
+                ? max(48, (answerBudget - CGFloat(max(0, visibleOptions.count - 1)) * 8) / CGFloat(max(1, visibleOptions.count))) : nil
             VStack(spacing: 12) {
                 question.opacity(viewModel.isShowingResult ? 0 : 1)
                     .overlay {
@@ -2500,10 +2513,11 @@ struct FittingPhoneQuizContent: View {
                 FlagCardView(country: country, isShowingInfo: $viewModel.isShowingInfo,
                     flagScale: 1, flagRotation: 0, gameState: viewModel.gameState,
                     onNextQuestion: {}, presentationSize: CGSize(width: min(width, 360),
-                        height: flagHeight), expandsForInfo: false)
+                        height: questionFlagHeight), expandsForInfo: true,
+                    maximumInfoHeight: viewModel.isShowingResult ? flagHeight : questionFlagHeight)
                 VStack(spacing: 8) {
-                    ForEach(indices, id: \.self) { index in
-                        answer(viewModel.options[index], fitHeight: emergencyHeight)
+                    ForEach(visibleOptions) { option in
+                        answer(option, fitHeight: emergencyHeight)
                     }
                 }
                 .disabled(viewModel.isShowingResult)
@@ -2523,9 +2537,7 @@ struct FittingPhoneQuizContent: View {
                 .hidden().accessibilityHidden(true).allowsHitTesting(false)
             }
             .onPreferenceChange(QuizContentMeasurements.self) { measurements = $0 }
-            .onChange(of: viewModel.isShowingResult) { result in
-                lockedIndices = result ? indices : nil
-            }
+            .animation(.easeInOut(duration: 0.25), value: viewModel.isShowingResult)
         }
     }
 }
@@ -2626,7 +2638,7 @@ struct AnswerOptionsView: View {
     
     var body: some View {
         VStack(spacing: isCompactPhone ? 10 : 12) {
-            ForEach(viewModel.options, id: \.id) { country in
+            ForEach(viewModel.isShowingResult ? QuizAnswerFit.resultOptions(correct: currentFlag, selected: viewModel.selectedAnswer) : viewModel.options, id: \.id) { country in
                 AnswerButton(
                     country: country,
                     isSelected: viewModel.selectedAnswer == country,

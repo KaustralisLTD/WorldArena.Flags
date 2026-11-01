@@ -7,7 +7,7 @@ PAIR=re.compile(r'^\s*"((?:[^"\\]|\\.)*)"\s*=\s*"((?:[^"\\]|\\.)*)"\s*;',re.M)
 def catalog(path):
     return {json.loads('"'+k+'"'):json.loads('"'+v+'"') for k,v in PAIR.findall(path.read_text())}
 def compile_catalogs():
-    required=['Duel','Victory','Defeat','You','Duel challenge from %@','friends.requests.title','friends.requests.body','notification.nudge.title','Уровень','Лиги','Достижения','Well done! Keep practicing!','league.weekly_result.title.week_finished','Бронзовая лига','Серебряная лига','Золотая лига','Лига Мастеров','Лига Чемпионов Мира']+[f'nudge_phrase_{i}' for i in range(1,17)]
+    required=['Duel','Victory','Defeat','You','Duel challenge from %@','friends.requests.title','friends.requests.body','notification.nudge.title','Уровень','Лиги','Достижения','Well done! Keep practicing!','league.weekly_result.title.week_finished','Бронзовая лига','Серебряная лига','Золотая лига','Лига Мастеров','Лига Чемпионов Мира','Платина','Алмаз']+[f'nudge_phrase_{i}' for i in range(1,17)]
     result={}
     for path in sorted((ROOT/'World Arena. Flags/Resources').glob('*.lproj/Localizable.strings')):
         data=catalog(path);lang=path.parent.name[:-6]

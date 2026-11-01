@@ -48,8 +48,8 @@ function render(kind,rawDetails,language,fallback={title:'World Arena',body:''})
  if(kind==='progress'&&Number.isInteger(d.level))return {title:t('Уровень')+' '+d.level,body:t('Well done! Keep practicing!')+(Number.isInteger(d.xp)?` · ${d.xp} XP`:'')};
  if(kind==='progress'&&(d.league||d.leagueID)){
   const keys=['Бронзовая лига','Серебряная лига','Золотая лига','Лига Мастеров','Лига Чемпионов Мира'];
-  const ids={'Бронза':keys[0],'Серебро':keys[1],'Золото':keys[2],'Платина':keys[3],'Алмаз':keys[3],'Мастер':keys[4]};
-  const raw=d.leagueID||d.league,key=ids[raw]||keys.find(k=>k===raw||Object.values(copies).some(c=>c[k]===raw));
+  const ids={'Бронза':keys[0],'Серебро':keys[1],'Золото':keys[2],'Платина':'Платина','Алмаз':'Алмаз','Мастер':keys[3]};
+  const raw=d.leagueID||d.league,key=ids[raw]||[...keys,'Платина','Алмаз'].find(k=>k===raw||Object.values(copies).some(c=>c[k]===raw));
   return {title:t('Лиги'),body:[key?t(key):t('league.weekly_result.title.week_finished'),Number.isInteger(d.rank)?'#'+d.rank:null].filter(Boolean).join(' · ')};
  }
  return {title:fallback.title,body:fallback.body};

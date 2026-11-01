@@ -12,6 +12,7 @@ private struct BiometricRestoreData: Codable {
 final class AuthService: ObservableObject {
     static let shared = AuthService()
 
+    @Published private(set) var requiresReauthentication = false
     @Published private(set) var isAuthenticated = false
     @Published private(set) var isGuestMode = true
     @Published private(set) var authEmail: String?
@@ -19,7 +20,7 @@ final class AuthService: ObservableObject {
     @Published private(set) var lastLoginAt: Date?
     @Published var biometricEnabled = false {
         didSet {
-            UserDefaults.standard.set(biometricEnabled, forKey: Self.biometricEnabledKey)
+            defaults.set(biometricEnabled, forKey: Self.biometricEnabledKey)
             if biometricEnabled, let t = authToken, let e = authEmail, let u = authUsername {
                 saveBiometricRestore(token: t, email: e, username: u)
             } else if !biometricEnabled {
@@ -37,19 +38,23 @@ final class AuthService: ObservableObject {
     private static let biometricEnabledKey = "auth.biometric.enabled.v1"
     private static let biometricRestoreKey = "auth.biometric.restore.v1"
 
-    private init() {
-        authToken = UserDefaults.standard.string(forKey: Self.tokenKey)
-        authEmail = UserDefaults.standard.string(forKey: Self.emailKey)
-        authUsername = UserDefaults.standard.string(forKey: Self.usernameKey)
-        lastLoginAt = UserDefaults.standard.object(forKey: Self.lastLoginAtKey) as? Date
-        biometricEnabled = UserDefaults.standard.bool(forKey: Self.biometricEnabledKey)
+    private let defaults: UserDefaults
+
+    init(defaults: UserDefaults = .standard) {
+        self.defaults = defaults
+        requiresReauthentication = defaults.bool(forKey: "auth.requiresReauthentication")
+        authToken = defaults.string(forKey: Self.tokenKey)
+        authEmail = defaults.string(forKey: Self.emailKey)
+        authUsername = defaults.string(forKey: Self.usernameKey)
+        lastLoginAt = defaults.object(forKey: Self.lastLoginAtKey) as? Date
+        biometricEnabled = defaults.bool(forKey: Self.biometricEnabledKey)
         isAuthenticated = (authToken?.isEmpty == false)
         isGuestMode = !isAuthenticated
     }
 
     /// Есть ли сохранённые данные для входа по биометрии (после выхода).
     var hasBiometricRestoreAvailable: Bool {
-        biometricEnabled && loadBiometricRestore() != nil
+        !requiresReauthentication && biometricEnabled && loadBiometricRestore() != nil
     }
 
     private func saveBiometricRestore(token: String, email: String, username: String) {
@@ -117,15 +122,15 @@ final class AuthService: ObservableObject {
         authUsername = nil
         isAuthenticated = false
         isGuestMode = true
-        UserDefaults.standard.removeObject(forKey: Self.tokenKey)
-        UserDefaults.standard.removeObject(forKey: Self.emailKey)
-        UserDefaults.standard.removeObject(forKey: Self.usernameKey)
+        defaults.removeObject(forKey: Self.tokenKey)
+        defaults.removeObject(forKey: Self.emailKey)
+        defaults.removeObject(forKey: Self.usernameKey)
         // Keychain с данными для биометрии не удаляем — при следующем входе будет опция «Вход по биометрии»
     }
 
     /// Вход по биометрии: проверка лица/пальца, затем восстановление сессии из Keychain (работает и после выхода).
     func unlockWithBiometrics() async -> Bool {
-        guard biometricEnabled else { return false }
+        guard biometricEnabled, !requiresReauthentication else { return false }
         let context = LAContext()
         var error: NSError?
         guard context.canEvaluatePolicy(.deviceOwnerAuthenticationWithBiometrics, error: &error) else {
@@ -151,16 +156,25 @@ final class AuthService: ObservableObject {
         lastLoginAt = now
         isAuthenticated = true
         isGuestMode = false
-        UserDefaults.standard.set(restore.token, forKey: Self.tokenKey)
-        UserDefaults.standard.set(restore.email, forKey: Self.emailKey)
-        UserDefaults.standard.set(restore.username, forKey: Self.usernameKey)
-        UserDefaults.standard.set(now, forKey: Self.lastLoginAtKey)
+        defaults.set(restore.token, forKey: Self.tokenKey)
+        defaults.set(restore.email, forKey: Self.emailKey)
+        defaults.set(restore.username, forKey: Self.usernameKey)
+        defaults.set(now, forKey: Self.lastLoginAtKey)
         UserProfile.shared.username = restore.username
         UserProfile.shared.saveToStorage()
         return true
     }
 
+    /// A delayed response from an older login must not invalidate a new session.
+    func rejectSession(token: String) {
+        guard token == authToken else { return }
+        requiresReauthentication = true
+        defaults.set(true, forKey: "auth.requiresReauthentication")
+    }
+
     private func applyAuth(response: AuthResponse) {
+        requiresReauthentication = false
+        defaults.set(false, forKey: "auth.requiresReauthentication")
         authToken = response.token
         authEmail = response.user.email
         authUsername = response.user.username
@@ -169,12 +183,12 @@ final class AuthService: ObservableObject {
         isAuthenticated = true
         isGuestMode = false
 
-        UserDefaults.standard.set(response.token, forKey: Self.tokenKey)
-        UserDefaults.standard.set(response.user.email, forKey: Self.emailKey)
-        UserDefaults.standard.set(response.user.username, forKey: Self.usernameKey)
-        UserDefaults.standard.set(now, forKey: Self.lastLoginAtKey)
+        defaults.set(response.token, forKey: Self.tokenKey)
+        defaults.set(response.user.email, forKey: Self.emailKey)
+        defaults.set(response.user.username, forKey: Self.usernameKey)
+        defaults.set(now, forKey: Self.lastLoginAtKey)
         if let friendCode = response.user.friendCode {
-            UserDefaults.standard.set(friendCode, forKey: "user.serverFriendCode")
+            defaults.set(friendCode, forKey: "user.serverFriendCode")
         }
         if biometricEnabled {
             saveBiometricRestore(token: response.token, email: response.user.email ?? "", username: response.user.username)

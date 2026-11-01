@@ -1970,3 +1970,19 @@
 "streak.recovery.play_btn" = "Chơi để khôi phục";
 "streak.recovery.title" = "Chuỗi ngày chơi bị gián đoạn";
 "Не удалось добавить в друзья. Попробуйте позже." = "Không thể thêm người bạn này. Vui lòng thử lại.";
+
+/* Public profile links */
+"Пользователь не найден" = "Không tìm thấy người dùng";
+"profile.link.you" = "Đây là hồ sơ công khai của bạn";
+"Поздравить друга" = "Gửi lời chúc sinh nhật";
+
+"inbox.signinRequired" = "Đăng nhập lại để đồng bộ thông báo đã đọc và số trên biểu tượng ứng dụng. Trạng thái đã đọc được lưu sẽ được giữ nguyên.";
+
+"duel.acceptAndPlay" = "Chấp nhận và chơi ngay";
+
+// Duel opponent picker
+"duel.picker.title" = "Chơi với ai nào?";
+"duel.picker.subtitle" = "Chọn một người bạn và bắt đầu đấu.";
+"duel.picker.friends" = "Bạn bè";
+"duel.picker.search" = "Tìm bạn bè";
+"duel.picker.empty" = "Không tìm thấy bạn bè.";

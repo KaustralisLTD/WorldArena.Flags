@@ -83,6 +83,10 @@ struct FlagCardView: View {
                 .accessibilityLabel(LocalizationManager.shared.localizedString("Flag"))
                 .opacity(isShowingInfo ? 0 : 1)
                 .accessibilityHidden(isShowingInfo)
+                // Only the noninteractive flag face rotates. A 3D transform on
+                // UIScrollView (even nested opposing 180° rotations) can produce
+                // invalid bounds while UIKit converts a pan gesture's coordinates.
+                .rotation3DEffect(.degrees(isShowingInfo && !reduceMotion ? 90 : 0), axis: (x: 0, y: 1, z: 0))
 
                 if isShowingInfo {
                 // Задняя сторона (информация)
@@ -111,7 +115,7 @@ struct FlagCardView: View {
                             // Население
                             if showPopulation {
                             let populationText = getLocalizedText("Population")
-                            Text("\(populationText): \(formatPopulation(country.population))")
+                            Text("\(populationText): \(CountryService.shared.population(for: country).map(formatPopulation) ?? "—")")
                                 .font(backInfoFont)
 
                             }
@@ -162,7 +166,10 @@ struct FlagCardView: View {
                         Color.clear.preference(key: FlagInfoHeightKey.self, value: proxy.size.height)
                     })
                 }
-                .onPreferenceChange(FlagInfoHeightKey.self) { measuredInfoHeight = $0 }
+                .onPreferenceChange(FlagInfoHeightKey.self) { height in
+                    guard height.isFinite, height >= 0 else { return }
+                    measuredInfoHeight = height
+                }
                 .accessibilityIdentifier("quiz.countryDetails")
                 .accessibilityHidden(!isShowingInfo)
                 .allowsHitTesting(isShowingInfo)
@@ -173,7 +180,7 @@ struct FlagCardView: View {
                         .stroke(Color.primary.opacity(0.1), lineWidth: 1)
                 )
                 .opacity(isShowingInfo ? 1 : 0)
-                .rotation3DEffect(.degrees(reduceMotion ? 0 : 180), axis: (x: 0, y: 1, z: 0))
+                .transition(.opacity)
                 }
             }
             .frame(width: cardSize.width, height: cardSize.height, alignment: .center)
@@ -183,10 +190,6 @@ struct FlagCardView: View {
         .overlay(RoundedRectangle(cornerRadius: presentationSize == nil ? 10 : 18).stroke(Color.primary.opacity(0.06), lineWidth: 1))
         .shadow(color: .black.opacity(0.05), radius: 8, x: 0, y: 3)
         .scaleEffect(flagScale)
-        .rotation3DEffect(
-            .degrees(isShowingInfo && !reduceMotion ? 180 : 0),
-            axis: (x: 0, y: 1, z: 0)
-        )
         .animation(reduceMotion ? nil : .easeInOut(duration: 0.25), value: isShowingInfo)
         .task(id: country.flagURL) {
             guard presentationSize != nil else { return }
@@ -1405,6 +1408,10 @@ struct FlagCardView: View {
     }
     
     private func getLocalizedSubregion(_ subregion: String) -> String {
+        // Some catalog entries use a continent as their subregion (e.g. Europe).
+        // Resolve those through the shared translations for every app language.
+        let translated = LocalizationManager.shared.localizedString(subregion)
+        if translated != subregion { return translated }
         let currentLanguage = LocalizationManager.shared.currentLocale.languageCode ?? "en"
         if currentLanguage == "system" { return subregion }
         

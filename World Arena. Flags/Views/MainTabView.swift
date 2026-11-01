@@ -16,6 +16,7 @@ struct MainTabView: View {
     @State private var notificationResult: DuelHistoryEntry?
     @State private var showNotificationInbox = false
     @State private var showUnifiedInbox = false
+    @State private var dismissingInboxForDuel = false
     @State private var showInboxAchievements = false
     @State private var selectedTab = 0
     @State private var pendingNudgeAlert: NudgeFromAPI?
@@ -137,7 +138,10 @@ struct MainTabView: View {
         .sheet(item: $notificationResult) { entry in
             DuelNotificationResultView(entry: entry)
         }
-        .sheet(isPresented: $showUnifiedInbox) { MyNotificationsView() }
+        .sheet(isPresented: $showUnifiedInbox, onDismiss: {
+            dismissingInboxForDuel = false
+            Task { await openNotificationDuel() }
+        }) { MyNotificationsView() }
         .sheet(isPresented: $showInboxAchievements) {
             NavigationView { AchievementsView().environmentObject(userProfile).toolbar {
                 ToolbarItem(placement: .confirmationAction) { Button(localizationManager.localizedString("Close")) { showInboxAchievements = false } }
@@ -167,8 +171,38 @@ struct MainTabView: View {
                 notificationRouter.pendingLeague = false
             }
         }
+        .onReceive(NotificationCenter.default.publisher(for: Notification.Name("AcceptDuelFromInbox"))) { event in
+            guard let id = event.object as? String else { return }
+            // The inbox can also be nested in Profile → Settings. Close the entire
+            // presentation chain before routing to the game's full-screen cover.
+            let route = {
+                showUnifiedInbox = false
+                dismissingInboxForDuel = false
+                notificationRouter.pendingDuelIsResult = false
+                notificationRouter.pendingDuelID = id
+            }
+            #if os(iOS)
+            let root = UIApplication.shared.connectedScenes
+                .compactMap { $0 as? UIWindowScene }
+                .flatMap(\.windows).first(where: \.isKeyWindow)?.rootViewController
+            if let root, root.presentedViewController != nil {
+                dismissingInboxForDuel = true
+                root.dismiss(animated: true, completion: route)
+            } else { route() }
+            #else
+            route()
+            #endif
+        }
+        .onReceive(NotificationCenter.default.publisher(for: DuelInviteSuppression.didChange).receive(on: RunLoop.main)) { _ in
+            if let invite = incomingDuelPopup, DuelInviteSuppression.isSuppressed(invite.id) {
+                incomingDuelPopup = nil
+            }
+        }
         .onReceive(notificationRouter.$pendingDuelID) { id in
-            if id != nil { Task { await openNotificationDuel() } }
+            if id != nil {
+                if showUnifiedInbox { dismissingInboxForDuel = true; showUnifiedInbox = false }
+                else { Task { await openNotificationDuel() } }
+            }
         }
         .sheet(isPresented: $friendRequests.showInbox) { FriendRequestsView() }
         .onReceive(NotificationCenter.default.publisher(for: Notification.Name("OpenFriendRequests"))) { _ in
@@ -264,10 +298,8 @@ struct MainTabView: View {
                 gameState: gameState,
                 onDismiss: { showDuelAnnouncement = false },
                 onStart: {
-                    Task {
-                        await gameState.startNewGameWithCurrentRegions()
-                        await MainActor.run { showDuelAnnouncement = false }
-                    }
+                    await gameState.startNewGameWithCurrentRegions()
+                    showDuelAnnouncement = false
                 }
             )
         }
@@ -275,7 +307,7 @@ struct MainTabView: View {
 
     @MainActor
     private func openNotificationDuel() async {
-        guard !openingNotification, !gameState.isNavigatingToGame, let id = notificationRouter.pendingDuelID, !userProfile.username.isEmpty else { return }
+        guard !showUnifiedInbox, !dismissingInboxForDuel, !openingNotification, !gameState.isNavigatingToGame, let id = notificationRouter.pendingDuelID, !userProfile.username.isEmpty else { return }
         openingNotification = true
         defer { openingNotification = false }
         selectedTab = 0

@@ -258,7 +258,7 @@ struct AuthGatewayView: View {
                         }
                         .disabled(isGoogleSigningIn || loading)
 
-                        if auth.biometricEnabled || auth.hasBiometricRestoreAvailable {
+                        if !auth.requiresReauthentication && (auth.biometricEnabled || auth.hasBiometricRestoreAvailable) {
                             Button {
                                 Task {
                                     let unlocked = await auth.unlockWithBiometrics()

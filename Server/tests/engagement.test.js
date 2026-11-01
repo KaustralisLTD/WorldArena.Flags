@@ -110,3 +110,38 @@ test('accepted invitations stop counting as new while the result stays unread',(
  routes.get('/api/v1/notifications')({},res);assert.equal(res.body.unread,1);assert.equal(res.body.items.find(x=>x.id==='invite').readAt!==null,true);assert.equal(res.body.items.find(x=>x.id==='result').readAt,null);
  }finally{db.close()}
 });
+
+test('push badge is 3, not 37, when 34 invitations were resolved before inbox refresh',()=>{
+ const db=new Database(':memory:'),inbox=require('../notification-inbox');
+ try {
+  db.exec("CREATE TABLE users(username TEXT PRIMARY KEY,device_token TEXT);INSERT INTO users VALUES('alice','a'),('bob','b');CREATE TABLE duel_challenges(id TEXT PRIMARY KEY,status TEXT,opponent_score INTEGER)");
+  for(let i=0;i<34;i++) {
+   db.prepare('INSERT INTO duel_challenges VALUES(?,?,?)').run('match'+i,i%2?'completed':'declined',null);
+   inbox.recordForUser(db,'alice',{id:'invite'+i,title:'Duel',body:'Old invitation',kind:'duel_challenge',target:'match'+i});
+  }
+  for(let i=0;i<2;i++)inbox.recordForUser(db,'alice',{id:'new'+i,title:'Result',body:'Unread result',kind:'duel_result'});
+  inbox.recordForUser(db,'bob',{id:'bob-invite',title:'Duel',body:'Bob invitation',kind:'duel_challenge',target:'match0'});
+  const push={payload:{notificationId:'new-push'},alert:{title:'News',body:'New message'}};
+  inbox.record(db,'a',push);
+  assert.equal(push.badge,3);
+  assert.equal(db.prepare("SELECT COUNT(*) AS n FROM notification_inbox WHERE username='alice'").get().n,37,'history is retained');
+  assert.equal(db.prepare("SELECT read_at FROM notification_inbox WHERE id='bob-invite'").get().read_at,null,'recipient isolation');
+  const routes=new Map();inbox.install({get:(p,h)=>routes.set(p,h),post(){}},db,()=>({username:'alice'}));
+  const res={set(){return this},json(x){this.body=x;return this}};
+  routes.get('/api/v1/notifications')({},res);
+  assert.equal(res.body.unread,push.badge);
+  assert.equal(res.body.items.length,37);
+ } finally {db.close()}
+});
+
+test('push excludes read history but retains pending invitations and unread results',()=>{
+ const db=new Database(':memory:'),inbox=require('../notification-inbox');
+ try {
+  db.exec("CREATE TABLE users(username TEXT PRIMARY KEY,device_token TEXT);INSERT INTO users VALUES('alice','a');CREATE TABLE duel_challenges(id TEXT PRIMARY KEY,status TEXT,opponent_score INTEGER);INSERT INTO duel_challenges VALUES('pending','pending',NULL),('done','completed',12)");
+  for(let i=0;i<34;i++)inbox.recordForUser(db,'alice',{id:'read'+i,title:'News',body:'Read history',readAt:123});
+  inbox.recordForUser(db,'alice',{id:'pending-invite',title:'Duel',body:'Still actionable',kind:'duel_challenge',target:'pending'});
+  inbox.recordForUser(db,'alice',{id:'result',title:'Result',body:'Still unread',kind:'duel_result',target:'done'});
+  const push={payload:{notificationId:'last'},alert:{title:'News',body:'New'}};
+  inbox.record(db,'a',push);assert.equal(push.badge,3);
+ } finally {db.close()}
+});

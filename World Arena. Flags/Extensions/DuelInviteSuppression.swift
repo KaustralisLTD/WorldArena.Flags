@@ -1,6 +1,7 @@
 import Foundation
 
 enum DuelInviteSuppression {
+    static let didChange = Notification.Name("DuelInviteSuppressionDidChange")
     private static func snoozeUntilKey(_ challengeId: String) -> String {
         "duelInvite.snoozeUntil.\(challengeId)"
     }
@@ -11,6 +12,7 @@ enum DuelInviteSuppression {
 
     static func markAccepted(_ challengeId: String) {
         UserDefaults.standard.set(true, forKey: "duelInvite.accepted." + challengeId)
+        NotificationCenter.default.post(name: didChange, object: challengeId)
     }
 
     static func wasAccepted(_ challengeId: String) -> Bool {

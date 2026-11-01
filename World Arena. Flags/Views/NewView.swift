@@ -203,100 +203,188 @@ struct DuelOpponentPickerView: View {
     /// Если задан — после выбора соперника не запускаем игру, а вызываем callback (показать анонс на главной).
     var onDuelReadyToStart: (() -> Void)?
     
+    @ObservedObject private var themeManager = AppThemeManager.shared
+    @Environment(\.colorScheme) private var systemScheme
+    @Environment(\.accessibilityReduceTransparency) private var reduceTransparency
+    @State private var search = ""
+    @FocusState private var searchFocused: Bool
+    @ScaledMetric(relativeTo: .largeTitle) private var headingSize = 42
+
+    private var scheme: ColorScheme { themeManager.colorScheme ?? systemScheme }
+    private var surface: Color { scheme == .dark ? Color(white: 0.10) : Color(white: 0.94) }
+    private var page: Color { scheme == .dark ? Color(white: 0.025) : Color(UIColor.systemBackground) }
+    private func tr(_ key: String) -> String { localizationManager.localizedString(key) }
+    private var filteredFriends: [Friend] {
+        let query = search.trimmingCharacters(in: .whitespacesAndNewlines)
+        return userProfile.friends.filter {
+            query.isEmpty || $0.displayNameOrUsername.localizedStandardContains(query) || $0.username.localizedStandardContains(query)
+        }
+    }
+
     var body: some View {
         NavigationView {
-            List {
-                Section(localizationManager.localizedString("Friends")) {
-                    if userProfile.friends.isEmpty {
-                        Text(localizationManager.localizedString("No friends yet. Add friends in Profile."))
-                            .foregroundColor(.secondary)
+            ScrollView {
+                VStack(alignment: .leading, spacing: 16) {
+                    VStack(alignment: .leading, spacing: 12) {
+                        HStack {
+                            Text(tr("Duel").uppercased())
+                                .font(.caption.weight(.semibold)).tracking(2).foregroundColor(.secondary)
+                            Spacer()
+                            Button { dismiss() } label: {
+                                Image(systemName: "xmark").font(.system(size: 18, weight: .medium))
+                                    .frame(width: 44, height: 44).background(surface, in: Circle())
+                            }
+                            .buttonStyle(.plain).accessibilityLabel(tr("Close"))
+                            .accessibilityIdentifier("duel.picker.close")
+                        }
+                        Text(tr("duel.picker.title"))
+                            .font(.system(size: headingSize, weight: .bold))
+                            .tracking(localizationManager.currentBundleLanguageCode == "ar" ? 0 : -1.4)
+                            .frame(maxWidth: 280, alignment: .leading)
+                            .fixedSize(horizontal: false, vertical: true)
+                            .accessibilityAddTraits(.isHeader)
+                        Text(tr("duel.picker.subtitle"))
+                            .font(.body).foregroundColor(.secondary)
+                            .fixedSize(horizontal: false, vertical: true)
                     }
-                    ForEach(userProfile.friends, id: \.id) { friend in
-                        Button(action: { startDuel(with: friend) }) {
-                            HStack(spacing: 12) {
-                                friendAvatarView(friend, size: 40)
-                                VStack(alignment: .leading, spacing: 2) {
-                                    Text(friend.displayNameOrUsername).font(.headline)
-                                    Text("\(friend.xp) XP · \(friend.streak) \(localizationManager.localizedString("days"))")
-                                        .font(.caption).foregroundColor(.secondary)
+                    Button(action: startVirtualDuel) {
+                        HStack(spacing: 16) {
+                            Image(systemName: "shuffle").font(.title2.weight(.medium)).foregroundColor(.secondary)
+                            Text(tr("Random opponent")).font(.headline)
+                            Spacer(minLength: 0)
+                            Image(systemName: "chevron.forward").font(.footnote.weight(.semibold)).foregroundColor(.secondary)
+                        }
+                        .padding(18).frame(maxWidth: .infinity, minHeight: 60)
+                        .background(surface, in: RoundedRectangle(cornerRadius: 24, style: .continuous))
+                    }
+                    .buttonStyle(DuelPickerPressStyle()).accessibilityIdentifier("duel.picker.random")
+
+                    HStack(spacing: 12) {
+                        Image(systemName: "magnifyingglass").font(.title3).foregroundColor(.secondary)
+                        TextField(tr("duel.picker.search"), text: $search)
+                            .textInputAutocapitalization(.never).disableAutocorrection(true)
+                            .focused($searchFocused).submitLabel(.search)
+                            .onSubmit { searchFocused = false }
+                            .accessibilityIdentifier("duel.picker.search")
+                        if !search.isEmpty {
+                            Button { search = "" } label: {
+                                Image(systemName: "xmark.circle.fill").foregroundColor(.secondary).frame(width: 32, height: 44)
+                            }.accessibilityLabel(tr("Clear"))
+                        }
+                    }
+                    .padding(.horizontal, 16).frame(minHeight: 48)
+                    .background(surface, in: RoundedRectangle(cornerRadius: 18, style: .continuous))
+
+                    VStack(spacing: 8) {
+                        HStack {
+                            Text(tr("duel.picker.friends")).font(.title3.bold()).accessibilityAddTraits(.isHeader)
+                            Spacer()
+                            Text("\(filteredFriends.count)").font(.subheadline).foregroundColor(.secondary)
+                        }.padding(.bottom, 4)
+                        if filteredFriends.isEmpty {
+                            Text(tr(userProfile.friends.isEmpty ? "No friends yet. Add friends in Profile." : "duel.picker.empty"))
+                                .font(.body).foregroundColor(.secondary)
+                                .frame(maxWidth: .infinity, alignment: .leading).padding(.vertical, 28)
+                                .accessibilityIdentifier("duel.picker.empty")
+                        }
+                        LazyVStack(spacing: 0) {
+                            ForEach(filteredFriends, id: \.id) { friend in
+                                Button { searchFocused = false; startDuel(with: friend) } label: {
+                                    HStack(spacing: 16) {
+                                        pickerAvatar(friend).accessibilityHidden(true)
+                                        VStack(alignment: .leading, spacing: 5) {
+                                            Text(friend.displayNameOrUsername).font(.headline).foregroundColor(.primary)
+                                                .lineLimit(2).multilineTextAlignment(.leading)
+                                            Text("\(friend.xp.formatted(.number.locale(Locale(identifier: localizationManager.currentBundleLanguageCode)))) XP")
+                                                .font(.subheadline).foregroundColor(.secondary)
+                                        }
+                                        Spacer(minLength: 4)
+                                        Image(systemName: "chevron.forward").font(.footnote.weight(.medium)).foregroundColor(.secondary)
+                                    }
+                                    .padding(.vertical, 10).padding(.horizontal, 4)
+                                    .frame(maxWidth: .infinity, minHeight: 64)
+                                    .contentShape(Rectangle())
                                 }
-                                Spacer()
+                                .buttonStyle(DuelPickerPressStyle())
+                                .accessibilityIdentifier("duel.picker.friend." + friend.username)
+                                if friend.id != filteredFriends.last?.id {
+                                    Divider().padding(.leading, 72).opacity(0.45)
+                                }
                             }
                         }
-                        .disabled(isStarting)
                     }
                 }
-                Section(localizationManager.localizedString("Random opponent")) {
-                    Button(action: startVirtualDuel) {
-                        HStack {
-                            Image(systemName: "person.2.fill")
-                            Text(localizationManager.localizedString("Random opponent"))
-                        }
-                    }
-                    .disabled(isStarting)
-                }
+                .padding(.horizontal, 24).padding(.top, 8).padding(.bottom, 24)
+                .frame(maxWidth: 620).frame(maxWidth: .infinity)
             }
-            .safeAreaInset(edge: .bottom, spacing: 0) {
-                VStack(spacing: 8) {
-                    Button(action: {
-                        showingAddFriends = true
-                    }) {
-                        HStack(spacing: 12) {
-                            Image("IconAddFriends")
-                                .resizable()
-                                .scaledToFit()
-                                .frame(width: 44, height: 44)
-                            Text(localizationManager.localizedString("ДОБАВИТЬ ДРУЗЕЙ"))
-                                .font(.system(size: 16, weight: .semibold))
-                        }
-                        .foregroundColor(.primary)
-                        .frame(maxWidth: .infinity)
-                        .padding(.vertical, 12)
-                        .background(Color(UIColor.secondarySystemGroupedBackground))
-                        .cornerRadius(12)
-                    }
-                    .buttonStyle(.plain)
-
-                    NavigationLink(destination: DuelSummaryView().environmentObject(gameState).environmentObject(userProfile)) {
-                        HStack(spacing: 6) {
-                            ProfileFeatureIcon(name: "IconDuelSummary")
-                                .frame(width: 32, height: 32)
-                            Text(localizationManager.localizedString("Duel Summary"))
-                                .font(.system(size: 20, weight: .bold))
-                        }
-                        .foregroundColor(.primary)
-                        .frame(maxWidth: .infinity)
-                        .padding(.vertical, 8)
-                    }
-                    .buttonStyle(.plain)
-                }
-                .padding(.horizontal, 16)
-                .padding(.top, 8)
-                .padding(.bottom, 4)
-                .background(Color(UIColor.secondarySystemGroupedBackground))
-            }
-            .navigationTitle(localizationManager.localizedString("Duel"))
-            .navigationBarTitleDisplayMode(.inline)
-            .toolbar {
-                ToolbarItem(placement: .cancellationAction) {
-                    Button(localizationManager.localizedString("Cancel")) {
-                        dismiss()
-                    }
-                }
-            }
-            .alert(localizationManager.localizedString("duel.error.alert.title"), isPresented: $showDuelPrepareFailedAlert) {
-                Button(localizationManager.localizedString("OK"), role: .cancel) { }
-            } message: {
-                Text(localizationManager.localizedString("duel.error.prepare_questions"))
-            }
+            .clipped()
+            .background(page.ignoresSafeArea())
+            .safeAreaInset(edge: .bottom, spacing: 0) { actionDock }
+            .navigationBarHidden(true)
+            .disabled(isStarting)
+            .overlay { if isStarting { ProgressView().padding(24).background(.regularMaterial, in: RoundedRectangle(cornerRadius: 20)) } }
+            .alert(tr("duel.error.alert.title"), isPresented: $showDuelPrepareFailedAlert) {
+                Button(tr("OK"), role: .cancel) { }
+            } message: { Text(tr("duel.error.prepare_questions")) }
             .sheetOrFullScreenOnIPad(isPresented: $showingAddFriends) {
-                AddFriendsView()
-                    .environmentObject(userProfile)
+                AddFriendsView().environmentObject(userProfile)
             }
         }
         .navigationViewStyle(.stack)
+        .preferredColorScheme(themeManager.colorScheme)
+        .environment(\.layoutDirection, localizationManager.currentBundleLanguageCode == "ar" ? .rightToLeft : .leftToRight)
     }
-    
+
+    private var actionDock: some View {
+        HStack(spacing: 0) {
+            Button { searchFocused = false; showingAddFriends = true } label: {
+                dockLabel("Add Friends", symbol: "person.badge.plus")
+            }.accessibilityIdentifier("duel.picker.addFriends")
+            Rectangle().fill(Color.secondary.opacity(0.25)).frame(width: 0.5, height: 30)
+            NavigationLink(destination: DuelSummaryView().environmentObject(gameState).environmentObject(userProfile).navigationBarHidden(false)) {
+                dockLabel("Duel Summary", symbol: "chart.bar.xaxis")
+            }.accessibilityIdentifier("duel.picker.summary")
+        }
+        .buttonStyle(DuelPickerPressStyle())
+        .padding(8)
+        .background {
+            if reduceTransparency {
+                RoundedRectangle(cornerRadius: 30, style: .continuous).fill(surface)
+            } else {
+                RoundedRectangle(cornerRadius: 30, style: .continuous).fill(.ultraThinMaterial)
+            }
+        }
+        .overlay(RoundedRectangle(cornerRadius: 30, style: .continuous)
+            .strokeBorder(Color.primary.opacity(scheme == .dark ? 0.17 : 0.08), lineWidth: 0.75))
+        .shadow(color: .black.opacity(scheme == .dark ? 0.25 : 0.08), radius: 20, y: 8)
+        .padding(.horizontal, 16).padding(.top, 8).padding(.bottom, 8)
+        .frame(maxWidth: 620).frame(maxWidth: .infinity)
+        .background(
+            LinearGradient(colors: [page.opacity(0), page.opacity(0.96), page], startPoint: .top, endPoint: .bottom)
+                .ignoresSafeArea(edges: .bottom)
+        )
+    }
+
+    private func dockLabel(_ key: String, symbol: String) -> some View {
+        VStack(spacing: 8) {
+            Image(systemName: symbol).font(.system(size: 23, weight: .regular))
+            Text(tr(key)).font(.footnote.weight(.medium))
+                .multilineTextAlignment(.center).fixedSize(horizontal: false, vertical: true)
+        }
+        .foregroundColor(.primary).padding(.horizontal, 8).padding(.vertical, 10)
+        .frame(maxWidth: .infinity, minHeight: 72).contentShape(Rectangle())
+    }
+
+    @ViewBuilder private func pickerAvatar(_ friend: Friend) -> some View {
+        if friend.remotePhotoAvatarData != nil || !["person", "person.fill", "person.circle.fill", "person.crop.circle.fill"].contains(friend.avatar) {
+            friendAvatarView(friend, size: 44)
+        } else {
+            Text(String(friend.displayNameOrUsername.prefix(1)).uppercased())
+                .font(.title3.weight(.medium)).foregroundColor(.secondary)
+                .frame(width: 44, height: 44).background(surface, in: Circle())
+        }
+    }
+
     private func startDuel(with friend: Friend) {
         guard !isStarting, gameState.canStartGameWithLives() else { return }
         if gameState.isGameInProgress && gameState.selectedPlayMode == .duel { return }
@@ -468,6 +556,14 @@ func friendAvatarView(_ friend: Friend, size: CGFloat) -> some View {
     }
 }
 
+private struct DuelPickerPressStyle: ButtonStyle {
+    func makeBody(configuration: Configuration) -> some View {
+        configuration.label
+            .background(Color.primary.opacity(configuration.isPressed ? 0.07 : 0), in: RoundedRectangle(cornerRadius: 18, style: .continuous))
+            .opacity(configuration.isPressed ? 0.75 : 1)
+    }
+}
+
 // Подбор соперника с похожей статистикой (XP, streak)
 enum DuelService {
     static func pickSimilarOpponent(from friends: [Friend], myXP: Int, myStreak: Int) -> Friend? {
@@ -496,6 +592,10 @@ struct FriendProfileView: View {
     @State private var birthdayGiftSentThisSession = false
     @State private var birthdayGiftError: String?
     
+    private var isOwnProfile: Bool {
+        friend.username.caseInsensitiveCompare(AuthService.shared.authUsername ?? userProfile.username) == .orderedSame
+    }
+
     var body: some View {
         ScrollView {
             VStack(spacing: 24) {
@@ -509,6 +609,12 @@ struct FriendProfileView: View {
                     .font(.system(size: 14, weight: .medium))
                     .foregroundColor(.secondary)
 
+                if isOwnProfile {
+                    Label(localizationManager.localizedString("profile.link.you"), systemImage: "person.crop.circle.badge.checkmark")
+                        .font(.subheadline.weight(.semibold)).foregroundStyle(.secondary)
+                        .accessibilityIdentifier("profile.link.you")
+                }
+
                 // Серия дней и прогресс
                 VStack(alignment: .leading, spacing: 8) {
                     Text(localizationManager.localizedString("Friend profile progress title"))
@@ -517,7 +623,7 @@ struct FriendProfileView: View {
                     HStack(spacing: 16) {
                         stat("flame.fill", String(format: "%d", friend.streak), localizationManager.localizedString("days"))
                         stat("bolt.fill", String(format: "%d", friend.xp), "XP")
-                        stat("chart.bar.fill", String(format: "%d", friend.level), localizationManager.localizedString("Level"))
+                        stat("chart.bar.fill", String(format: "%d", friend.level), localizationManager.localizedString("Уровень"))
                     }
                     .padding()
                     .frame(maxWidth: .infinity)
@@ -554,7 +660,7 @@ struct FriendProfileView: View {
                 friendAchievementsSection
 
                 // Подарок на день рождения (если сегодня ДР друга)
-                if let bday = friend.birthday, userProfile.isTodayBirthday(bday), !birthdayGiftSentThisSession {
+                if !isOwnProfile, let bday = friend.birthday, userProfile.isTodayBirthday(bday), !birthdayGiftSentThisSession {
                     Button(action: { Task { await sendBirthdayGift() } }) {
                         HStack(spacing: 8) {
                             Image(systemName: "gift.fill")
@@ -588,18 +694,18 @@ struct FriendProfileView: View {
         #endif
         .alert(localizationManager.localizedString("Удалить друга"), isPresented: $showDeleteAlert) {
             Button(localizationManager.localizedString("Отмена"), role: .cancel) { }
-            Button(localizationManager.localizedString("Удалить"), role: .destructive) {
+            Button(localizationManager.localizedString("Удалить из друзей"), role: .destructive) {
                 removeFriend()
             }
         } message: {
-            Text(localizationManager.localizedString("Вы уверены, что хотите удалить \(friend.displayNameOrUsername) из друзей и перестать следить за его успехами?"))
+            Text(String(format: localizationManager.localizedString("Вы уверены, что хотите удалить %@ из друзей и перестать следить за его успехами?"), friend.displayNameOrUsername))
         }
         .alert(isPresented: Binding(
             get: { birthdayGiftError != nil },
             set: { if !$0 { birthdayGiftError = nil } }
         )) {
             Alert(
-                title: Text(localizationManager.localizedString("Ошибка")),
+                title: Text(localizationManager.localizedString("duel.error.alert.title")),
                 message: Text(birthdayGiftError ?? ""),
                 dismissButton: .default(Text(localizationManager.localizedString("OK")))
             )
@@ -610,6 +716,7 @@ struct FriendProfileView: View {
             Text(localizationManager.localizedString("duel.error.prepare_questions"))
         }
         .safeAreaInset(edge: .bottom) {
+            if !isOwnProfile {
             VStack(spacing: 10) {
                 Button(action: { startDuel() }) {
                     HStack {
@@ -646,6 +753,7 @@ struct FriendProfileView: View {
             .padding(.top, 8)
             .padding(.bottom, 8)
             .background(.ultraThinMaterial)
+            }
         }
     }
 
@@ -656,7 +764,7 @@ struct FriendProfileView: View {
         defer { isSendingBirthdayGift = false }
         let me = userProfile.username.trimmingCharacters(in: .whitespacesAndNewlines)
         guard !me.isEmpty else {
-            birthdayGiftError = localizationManager.localizedString("Укажите имя профиля перед отправкой подарка")
+            birthdayGiftError = localizationManager.localizedString("Введите имя пользователя")
             return
         }
         do {
@@ -900,11 +1008,13 @@ struct FriendProfileView: View {
 // MARK: - Профиль по ссылке (deep link: worldarena.games/profile/CODE)
 struct ProfileByLinkView: View {
     let friendCode: String
+    var loadProfile: (String) async throws -> FriendFromAPI? = { try await DuelAPIService.shared.fetchProfileByLink($0) }
     @Environment(\.dismiss) private var dismiss
     @EnvironmentObject var userProfile: UserProfile
     @ObservedObject var gameState: GameState
     @ObservedObject private var lm = LocalizationManager.shared
     @State private var loadedFriend: Friend?
+    @State private var resolvedFriendCode: String?
     @State private var isLoading = true
     @State private var errorMessage: String?
     @State private var isAdding = false
@@ -921,7 +1031,7 @@ struct ProfileByLinkView: View {
                 if isLoading {
                     VStack(spacing: 16) {
                         ProgressView()
-                        Text(lm.localizedString("Загрузка..."))
+                        Text(lm.localizedString("Loading..."))
                             .font(.subheadline)
                             .foregroundColor(.secondary)
                     }
@@ -938,6 +1048,10 @@ struct ProfileByLinkView: View {
                             .padding(.horizontal)
                     }
                     .frame(maxWidth: .infinity, maxHeight: .infinity)
+                } else if let friend = loadedFriend,
+                          friend.username.caseInsensitiveCompare(AuthService.shared.authUsername ?? userProfile.username) == .orderedSame {
+                    FriendProfileView(friend: friend, gameState: gameState)
+                        .environmentObject(userProfile)
                 } else if let friend = existingFriend ?? addedFriend {
                     FriendProfileView(friend: friend, gameState: gameState)
                         .environmentObject(userProfile)
@@ -976,7 +1090,7 @@ struct ProfileByLinkView: View {
                     HStack(spacing: 16) {
                         statRow("flame.fill", "\(friend.streak)", lm.localizedString("days"))
                         statRow("bolt.fill", "\(friend.xp)", "XP")
-                        statRow("chart.bar.fill", "\(friend.level)", lm.localizedString("Level"))
+                        statRow("chart.bar.fill", "\(friend.level)", lm.localizedString("Уровень"))
                     }
                     .padding()
                     .frame(maxWidth: .infinity)
@@ -987,7 +1101,7 @@ struct ProfileByLinkView: View {
                 Button(action: { Task { await addFriend() } }) {
                     HStack {
                         if isAdding { ProgressView().tint(.white) }
-                        Text(isAdding ? lm.localizedString("Добавляем...") : lm.localizedString("Добавить в друзья"))
+                        Text(isAdding ? lm.localizedString("Loading...") : lm.localizedString("Добавить"))
                             .fontWeight(.semibold)
                     }
                     .foregroundColor(.white)
@@ -1018,10 +1132,11 @@ struct ProfileByLinkView: View {
         errorMessage = nil
         defer { isLoading = false }
         do {
-            guard let api = try await DuelAPIService.shared.fetchUserByCode(friendCode) else {
+            guard let api = try await loadProfile(friendCode) else {
                 errorMessage = lm.localizedString("Пользователь не найден")
                 return
             }
+            resolvedFriendCode = api.friendCode
             loadedFriend = api.toFriend()
         } catch {
             errorMessage = error.localizedDescription
@@ -1030,10 +1145,12 @@ struct ProfileByLinkView: View {
 
     @MainActor
     private func addFriend() async {
-        guard !isAdding, let _ = loadedFriend else { return }
+        guard !isAdding, let friend = loadedFriend,
+              friend.username.caseInsensitiveCompare(AuthService.shared.authUsername ?? userProfile.username) != .orderedSame,
+              let code = resolvedFriendCode, !code.isEmpty else { return }
         isAdding = true
         defer { isAdding = false }
-        let result = await FriendsService.shared.addFriend(by: friendCode, to: userProfile)
+        let result = await FriendsService.shared.addFriend(by: code, to: userProfile)
         switch result {
         case .success:
             if let f = userProfile.friends.first(where: { $0.username.lowercased() == loadedFriend?.username.lowercased() }) {
@@ -1044,7 +1161,7 @@ struct ProfileByLinkView: View {
                 addedFriend = f
             }
         default:
-            errorMessage = lm.localizedString("Не удалось добавить друга")
+            errorMessage = lm.localizedString("Не удалось добавить в друзья. Попробуйте позже.")
         }
     }
 }

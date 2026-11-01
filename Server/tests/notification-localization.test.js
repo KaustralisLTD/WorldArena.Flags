@@ -52,3 +52,16 @@ test('legacy duel scores survive empty metadata without a matching database row'
  const fallback={title:'Duel victory!',body:'You won against Alice. Your score: 15; opponent: 14.'};
  assert.deepEqual(i18n.render('duel_result',{},'ru',fallback),{title:copies.ru.Victory,body:copies.ru.You+': 15 · Alice: 14'});
 });
+
+test('six league identities remain distinct in every locale, even with an old incorrect label',()=>{
+ const expected={'Бронза':'Бронзовая лига','Серебро':'Серебряная лига','Золото':'Золотая лига','Платина':'Платина','Алмаз':'Алмаз','Мастер':'Лига Мастеров'};
+ for(const [code,t] of Object.entries(copies)) {
+  const names=[];
+  for(const [leagueID,key] of Object.entries(expected)) {
+   const rendered=i18n.render('progress',{leagueID,league:t['Лига Мастеров'],rank:4},code);
+   assert.equal(rendered.body,t[key]+' · #4');names.push(rendered.body);
+  }
+  assert.equal(new Set(names).size,6,code);
+  for(const key of ['Платина','Алмаз'])assert.equal(i18n.render('progress',{league:t[key]},code).body,t[key]);
+ }
+});

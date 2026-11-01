@@ -1966,3 +1966,19 @@
 "Проблемы с загрузкой флагов" = "Vlaggen worden niet geladen";
 "Синхронизация данных" = "Gegevenssynchronisatie";
 "Что делать если флаги не загружаются" = "Wat te doen als vlaggen niet laden";
+
+/* Public profile links */
+"Пользователь не найден" = "Gebruiker niet gevonden";
+"profile.link.you" = "Dit is je openbare profiel";
+"Поздравить друга" = "Feliciteren met verjaardag";
+
+"inbox.signinRequired" = "Log opnieuw in om gelezen meldingen en het aantal op het app-icoon te synchroniseren. Opgeslagen leesmarkeringen blijven behouden.";
+
+"duel.acceptAndPlay" = "Accepteren en nu spelen";
+
+// Duel opponent picker
+"duel.picker.title" = "Tegen wie speel je?";
+"duel.picker.subtitle" = "Kies een vriend en begin een duel.";
+"duel.picker.friends" = "Vrienden";
+"duel.picker.search" = "Vrienden zoeken";
+"duel.picker.empty" = "Geen vrienden gevonden.";

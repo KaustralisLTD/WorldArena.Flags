@@ -29,6 +29,14 @@ class CountryService {
         }
     }
 
+    /// Old saved mistakes may still contain the former placeholder population of 1.
+    func population(for country: Country) -> Int? {
+        let value = (country.population <= 1
+            ? localCatalog.first(where: { $0.id == country.id })?.population
+            : country.population) ?? country.population
+        return value >= 0 && value != 1 ? value : nil
+    }
+
     func fetchCountries(for regions: Set<GameState.Region>) async throws -> [Country] {
         print("Fetching countries for regions: \(regions.map { $0.rawValue })")
 

@@ -190,3 +190,133 @@ struct LearningAlphabetTests {
         #expect(names.sorted { LearningAlphabetOrder.precedes($0, $1, locale: Locale(identifier: "uk")) } == ["Албанія", "Ірландія", "Ісландія", "Іспанія", "Італія"])
     }
 }
+
+@MainActor
+struct ResultAnswersAndPopulationTests {
+    @Test func resultsAlwaysKeepCorrectAndOnlyDistinctSelection() {
+        let correct = Country.sample
+        let wrong = Country(id: "GIB", name: correct.name, flagURL: correct.flagURL, region: "Europe", subregion: nil,
+                            capital: nil, population: 1, area: nil, translations: nil)
+        #expect(QuizAnswerFit.resultOptions(correct: correct, selected: nil).map(\.id) == [correct.id])
+        #expect(QuizAnswerFit.resultOptions(correct: correct, selected: correct).map(\.id) == [correct.id])
+        #expect(QuizAnswerFit.resultOptions(correct: correct, selected: wrong).map(\.id) == [correct.id, "GIB"])
+        #expect(CountryService.shared.population(for: wrong) == 39329)
+        let unknown = Country(id: "UNKNOWN", name: correct.name, flagURL: correct.flagURL, region: "Europe", subregion: nil,
+                            capital: nil, population: -1, area: nil, translations: nil)
+        #expect(CountryService.shared.population(for: unknown) == nil)
+    }
+}
+
+@MainActor
+struct DuelInvitationDateTests {
+    private func row(date: String, status: String = "pending") throws -> DuelChallengeFromAPI {
+        try #require(DuelChallengeFromAPI(from: ["id":"old-invite", "challengerId":"Nadiia", "challengerName":"Nadiia", "seed":42, "createdAt":date, "status":status]))
+    }
+    @Test func sqliteInvitationKeepsItsRealExpiry() throws {
+        let challenge = try #require(row(date: "2026-10-26 19:16:31").toDuelChallenge(opponentId:"sspilberg", opponentName:"sspilberg"))
+        let expected = try #require(DuelServerDate.parse("2026-10-26T19:16:31Z"))
+        #expect(challenge.createdAt == expected)
+        let screenshotTime = try #require(DuelServerDate.parse("2026-10-27T20:56:00Z"))
+        #expect(screenshotTime.timeIntervalSince(challenge.createdAt) > 24 * 3600)
+    }
+    @Test func isoFormatsAndSQLiteAgree() throws {
+        let expected = DuelServerDate.parse("2026-10-26 19:16:31")
+        for date in ["2026-10-26T19:16:31Z", "2026-10-26T19:16:31.000Z", "2026-10-26T20:16:31+01:00"] {
+            #expect(try row(date:date).toDuelChallenge(opponentId:"me",opponentName:"me")?.createdAt == expected)
+        }
+    }
+    @Test func invalidDateAndTerminalStatusCannotBecomeNewInvitations() throws {
+        #expect(try row(date:"").toDuelChallenge(opponentId:"me",opponentName:"me") == nil)
+        #expect(try row(date:"invalid").toDuelChallenge(opponentId:"me",opponentName:"me") == nil)
+        for status in ["declined", "expired", "unknown"] {
+            #expect(try row(date:"2026-10-26 19:16:31",status:status).toDuelChallenge(opponentId:"me",opponentName:"me") == nil)
+        }
+    }
+}
+
+@MainActor
+struct LeagueNotificationIdentityTests {
+    @Test func platinumAndDiamondNeverBecomeMasters() {
+        let lm = LocalizationManager.shared
+        #expect(League.platinum.localizedFullName == lm.localizedString("Платина"))
+        #expect(League.diamond.localizedFullName == lm.localizedString("Алмаз"))
+        #expect(League.master.localizedFullName == lm.localizedString("Лига Мастеров"))
+        #expect(Set(League.allCases.map(\.localizedFullName)).count == 6)
+        let old = AppNotificationLogItem(id: "league_old", title: "Лиги", body: "Лига Мастеров", date: Date(), source: "progress", kind: "progress", readAt: nil,
+                                        details: .init(rank: 4, league: "Лига Мастеров", leagueID: League.platinum.rawValue))
+        #expect(old.displayBody == lm.localizedString("Платина") + " · #4")
+    }
+}
+
+private final class ProfileLinkURLProtocol: URLProtocol {
+    override class func canInit(with request: URLRequest) -> Bool { true }
+    override class func canonicalRequest(for request: URLRequest) -> URLRequest { request }
+    override func startLoading() {
+        let path = request.url!.path
+        let found = path.hasSuffix("/users/by-code/ABC123") || path.hasSuffix("/users/by-username/profile-preview")
+        let status = path.contains("offline") ? 503 : (found ? 200 : 404)
+        let response = HTTPURLResponse(url: request.url!, statusCode: status, httpVersion: nil, headerFields: nil)!
+        client?.urlProtocol(self, didReceive: response, cacheStoragePolicy: .notAllowed)
+        let body = found ? #"{"username":"profile-preview","friendCode":"ABC123","level":12,"xp":1200,"streak":7}"# : #"{"error":"Not found"}"#
+        client?.urlProtocol(self, didLoad: Data(body.utf8))
+        client?.urlProtocolDidFinishLoading(self)
+    }
+    override func stopLoading() {}
+}
+struct PublicProfileLinkTests {
+    @Test func usernamesAndServerCodesResolveTheSameProfile() async throws {
+        let config = URLSessionConfiguration.ephemeral
+        config.protocolClasses = [ProfileLinkURLProtocol.self]
+        let session = URLSession(configuration: config)
+        defer { session.invalidateAndCancel() }
+        let api = DuelAPIService(session: session)
+        for reference in ["ABC123", "profile-preview"] {
+            let profile = try #require(await api.fetchProfileByLink(reference))
+            #expect(profile.username == "profile-preview")
+            #expect(profile.friendCode == "ABC123")
+        }
+        #expect(try await api.fetchProfileByLink("missing") == nil)
+        do { _ = try await api.fetchProfileByLink("offline"); Issue.record("A network/server failure must not become a missing profile") }
+        catch { }
+    }
+}
+
+struct NotificationReadReceiptTests {
+    private func event(_ id: String, target: String) -> AppNotificationLogItem {
+        .init(id: id, title: "Result", body: "15:15", date: Date(), source: "server", kind: "duel_result", target: target)
+    }
+    @Test func reconnectAcknowledges33OldEventsButKeepsOneNewEvent() {
+        let old = (0..<33).map { event("server-\($0)", target: "duel-\($0)") }
+        let latest = event("latest", target: "new-duel")
+        let savedReads = Set(old.map(\.deduplicationKey))
+        let ids = NotificationReadReceipts.serverIDsToAcknowledge(items: old + [latest], readIDs: savedReads)
+        #expect(ids.count == 33)
+        #expect(!ids.contains("latest"))
+        #expect((old + [latest]).filter { !ids.contains($0.id) }.count == 1)
+    }
+    @Test func everyServerCopyIsAcknowledgedBeforeDeduplication() {
+        let a = event("first", target: "same-duel"), b = event("second", target: "same-duel")
+        #expect(NotificationReadReceipts.serverIDsToAcknowledge(items: [a,b], readIDs: [a.deduplicationKey]) == ["first", "second"])
+        #expect(NotificationReadReceipts.serverIDsToAcknowledge(items: [a,b], readIDs: []).isEmpty)
+    }
+}
+
+@MainActor
+struct ExpiredNotificationSessionTests {
+    @Test func unauthorizedResponseKeepsAccountAndRejectsOldBiometricSession() throws {
+        let name = "expired-session-tests-" + UUID().uuidString
+        let defaults = try #require(UserDefaults(suiteName: name))
+        defer { defaults.removePersistentDomain(forName: name) }
+        defaults.set("current-token", forKey: "auth.token.v1")
+        defaults.set("preview", forKey: "auth.username.v1")
+        let auth = AuthService(defaults: defaults)
+        auth.rejectSession(token: "previous-token")
+        #expect(!auth.requiresReauthentication)
+        auth.rejectSession(token: "current-token")
+        #expect(auth.requiresReauthentication)
+        #expect(auth.authUsername == "preview")
+        #expect(auth.authToken == "current-token")
+        #expect(!auth.hasBiometricRestoreAvailable)
+        #expect(AuthService(defaults: defaults).requiresReauthentication)
+    }
+}

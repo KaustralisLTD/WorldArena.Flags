@@ -1970,3 +1970,19 @@
 "streak.recovery.play_btn" = "Spela för att återställa";
 "streak.recovery.title" = "Den dagliga sviten bröts";
 "Не удалось добавить в друзья. Попробуйте позже." = "Det gick inte att lägga till den här vännen. Försök igen.";
+
+/* Public profile links */
+"Пользователь не найден" = "Användaren hittades inte";
+"profile.link.you" = "Det här är din offentliga profil";
+"Поздравить друга" = "Skicka en födelsedagshälsning";
+
+"inbox.signinRequired" = "Logga in igen för att synkronisera lästa aviseringar och räknaren på appikonen. Sparade läsmarkeringar behålls.";
+
+"duel.acceptAndPlay" = "Acceptera och spela nu";
+
+// Duel opponent picker
+"duel.picker.title" = "Vem vill du spela mot?";
+"duel.picker.subtitle" = "Välj en vän och starta en duell.";
+"duel.picker.friends" = "Vänner";
+"duel.picker.search" = "Sök vänner";
+"duel.picker.empty" = "Inga vänner hittades.";

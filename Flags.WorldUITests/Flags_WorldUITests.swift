@@ -28,6 +28,82 @@ final class Flags_WorldUITests: XCTestCase {
     }
 
     @MainActor
+    func testDuelPickerDesignAndSearch() throws {
+        let app = XCUIApplication()
+        for theme in ["dark", "light"] {
+            app.launchArguments = ["UITesting", "DuelPickerQA", "-selectedLanguage", "uk", "-selectedTheme", theme]
+            app.launch()
+            let search = app.textFields["duel.picker.search"]
+            XCTAssertTrue(search.waitForExistence(timeout: 20))
+            XCTAssertTrue(app.buttons["duel.picker.addFriends"].exists)
+            XCTAssertTrue(app.buttons["duel.picker.summary"].exists)
+            let shot = XCTAttachment(screenshot: app.screenshot()); shot.name = "duel-picker-" + theme; shot.lifetime = .keepAlways; add(shot)
+            search.tap(); search.typeText("Nadiia")
+            XCTAssertTrue(app.buttons["duel.picker.friend.Nadiia"].exists)
+            XCTAssertFalse(app.buttons["duel.picker.friend.AtlasMind"].exists)
+            search.typeText("zzzz")
+            XCTAssertTrue(app.staticTexts["duel.picker.empty"].exists)
+            search.typeText("\n")
+            app.buttons["duel.picker.addFriends"].tap()
+            XCTAssertTrue(app.navigationBars["Друзі"].waitForExistence(timeout: 5))
+            app.buttons["Готово"].tap()
+            XCTAssertTrue(search.waitForExistence(timeout: 5))
+            app.buttons["duel.picker.summary"].tap()
+            XCTAssertTrue(app.navigationBars["Виклики"].waitForExistence(timeout: 5))
+            app.terminate()
+        }
+    }
+
+    @MainActor
+    func testDuelPickerLargeTextAndRTL() throws {
+        let app = XCUIApplication()
+        app.launchArguments = ["UITesting", "DuelPickerQA", "DuelPickerLargeTextQA", "-selectedLanguage", "ar", "-selectedTheme", "dark"]
+        app.launch()
+        XCTAssertTrue(app.buttons["duel.picker.addFriends"].waitForExistence(timeout: 20))
+        XCTAssertTrue(app.buttons["duel.picker.addFriends"].isHittable)
+        XCTAssertTrue(app.buttons["duel.picker.summary"].isHittable)
+        app.swipeUp()
+        let shot = XCTAttachment(screenshot: app.screenshot()); shot.name = "duel-picker-arabic-large"; shot.lifetime = .keepAlways; add(shot)
+    }
+
+    @MainActor
+    func testDuelSetupCreatorAndRecipient() throws {
+        let app = XCUIApplication()
+        app.launchArguments = ["UITesting", "DuelSetupQA", "-selectedLanguage", "uk"]
+        app.launch()
+        let difficulty = app.buttons["duel.setup.difficulty"]
+        XCTAssertTrue(difficulty.waitForExistence(timeout: 20))
+        XCTAssertTrue(app.staticTexts["duel.metric.0"].waitForExistence(timeout: 10))
+        difficulty.tap()
+        app.buttons.containing(NSPredicate(format: "label CONTAINS %@", "Складний")).firstMatch.tap()
+        XCTAssertEqual(app.staticTexts["duel.metric.0"].label, "20")
+        XCTAssertTrue(app.staticTexts["duel.metric.1"].label.hasPrefix("15"))
+        app.buttons["duel.setup.region"].tap()
+        app.buttons["Океанія"].tap()
+        XCTAssertTrue(app.buttons["duel.setup.region"].label.contains("Океанія"))
+        let shot = XCTAttachment(screenshot: app.screenshot()); shot.name = "duel-editable-setup"; shot.lifetime = .keepAlways; add(shot)
+        app.terminate()
+        app.launchArguments += ["DuelRecipientQA"]
+        app.launch()
+        XCTAssertTrue(app.buttons["duel.setup.start"].waitForExistence(timeout: 20))
+        XCTAssertFalse(app.buttons["duel.setup.region"].exists)
+        XCTAssertFalse(app.buttons["duel.setup.difficulty"].exists)
+        XCTAssertEqual(app.staticTexts["duel.metric.0"].label, "12")
+    }
+
+    @MainActor
+    func testDuelInvitationHasLocalizedAcceptAction() throws {
+        let app = XCUIApplication()
+        app.launchArguments = ["UITesting", "NotificationInboxQA", "-selectedLanguage", "uk"]
+        app.launch()
+        let invite = app.buttons["inbox.item.preview-invite"]
+        XCTAssertTrue(invite.waitForExistence(timeout: 20)); invite.tap()
+        let accept = app.buttons["inbox.duel.accept"]
+        XCTAssertTrue(accept.waitForExistence(timeout: 5))
+        XCTAssertEqual(accept.label, "Прийняти та зіграти зараз")
+    }
+
+    @MainActor
     func testOctoberDuelStoreScreenshot() throws {
         let app = XCUIApplication()
         app.launchArguments = ["UITesting", "UITestingDuelResults", "StoreMediaCapture", "-selectedLanguage", "ru"]
@@ -43,6 +119,51 @@ final class Flags_WorldUITests: XCTestCase {
             app.launch(); sleep(3)
             if name == "achievements" { app.swipeUp(); app.swipeUp(); app.swipeUp() }
             let shot = XCTAttachment(screenshot: app.screenshot()); shot.name = "store-" + name; shot.lifetime = .keepAlways; add(shot)
+            app.terminate()
+        }
+    }
+
+    @MainActor
+    func testExpiredInboxSessionOffersLoginInUkrainian() throws {
+        let app = XCUIApplication()
+        app.launchArguments = ["UITesting", "NotificationInboxQA", "NotificationReauthQA", "-auth.token.v1", "preview-expired-token", "-auth.username.v1", "preview", "-selectedLanguage", "uk"]
+        app.launch()
+        let login = app.buttons["inbox.signin"]
+        XCTAssertTrue(login.waitForExistence(timeout: 15))
+        XCTAssertTrue(app.staticTexts.containing(NSPredicate(format: "label CONTAINS %@", "Увійдіть знову")).firstMatch.exists)
+        let shot = XCTAttachment(screenshot: app.screenshot())
+        shot.name = "expired-session-uk"; shot.lifetime = .keepAlways; add(shot)
+        login.tap()
+        XCTAssertTrue(app.secureTextFields.firstMatch.waitForExistence(timeout: 10))
+    }
+
+    @MainActor
+    func testOwnPublicProfileInUkrainian() throws {
+        let app = XCUIApplication()
+        app.launchArguments = ["UITesting", "ProfileLinkQA", "-selectedLanguage", "uk", "-selectedTheme", "dark"]
+        app.launch()
+        XCTAssertTrue(app.staticTexts["profile.link.you"].waitForExistence(timeout: 15))
+        XCTAssertTrue(app.staticTexts["Це ваш публічний профіль"].exists)
+        XCTAssertFalse(app.buttons["Додати"].exists)
+        XCTAssertFalse(app.buttons["Викликати на дуель"].exists)
+        let shot = XCTAttachment(screenshot: app.screenshot())
+        shot.name = "own-public-profile-uk"; shot.lifetime = .keepAlways; add(shot)
+    }
+
+    @MainActor
+    func testDuelNotificationLightAndDarkThemes() throws {
+        let app = XCUIApplication()
+        for style in ["Light", "Dark"] {
+            app.launchArguments = ["UITesting", "NotificationInboxQA", "-selectedLanguage", "uk", "-selectedTheme", style.lowercased()]
+            app.launch()
+            let result = app.buttons["inbox.item.preview-duel"]
+            XCTAssertTrue(result.waitForExistence(timeout: 20))
+            result.tap()
+            XCTAssertTrue(app.staticTexts["inbox.duel.tieReason"].waitForExistence(timeout: 5))
+            XCTAssertTrue(app.buttons["inbox.duel.openSummary"].exists)
+            XCTAssertTrue(app.staticTexts.containing(NSPredicate(format: "label CONTAINS %@", "41,23")).firstMatch.exists)
+            let shot = XCTAttachment(screenshot: app.screenshot())
+            shot.name = "duel-result-" + style.lowercased(); shot.lifetime = .keepAlways; add(shot)
             app.terminate()
         }
     }
@@ -518,6 +639,49 @@ final class Flags_WorldUITests: XCTestCase {
     }
 
     @MainActor
+    func testBelarusMapBackCardScrolling() throws {
+        try checkBelarusMapScrolling(textArgument: "UITestingNormalText")
+    }
+
+    @MainActor
+    func testBelarusMapBackCardScrollingLargeText() throws {
+        try checkBelarusMapScrolling(textArgument: "UITestingExtremeText")
+    }
+
+    @MainActor
+    private func checkBelarusMapScrolling(textArgument: String) throws {
+        continueAfterFailure = false
+        let app = XCUIApplication()
+        app.launchArguments = ["UITesting", "UITestingLargeQuiz", textArgument, "UITestingBelarusMap",
+                               "-selectedLanguage", "ru", "-facts.map", "YES"]
+        app.launch()
+        XCTAssertTrue(app.buttons["qa.flip"].waitForExistence(timeout: 20))
+        for cycle in 0..<3 {
+            app.buttons["qa.flip"].tap()
+            let details = app.scrollViews["quiz.countryDetails"]
+            XCTAssertTrue(details.waitForExistence(timeout: 5))
+            let start = details.coordinate(withNormalizedOffset: CGVector(dx: 0.5, dy: 0.85))
+            let end = details.coordinate(withNormalizedOffset: CGVector(dx: 0.5, dy: 0.15))
+            for _ in 0..<5 {
+                start.press(forDuration: 0.05, thenDragTo: end)
+                end.press(forDuration: 0.05, thenDragTo: start)
+            }
+            details.swipeUp()
+            let map = app.descendants(matching: .any)["quiz.countryMap"].firstMatch
+            XCTAssertTrue(map.exists)
+            XCTAssertEqual(app.state, .runningForeground)
+            if cycle == 0 {
+                let ready = expectation(for: NSPredicate(format: "value == %@", "ready"), evaluatedWith: map)
+                wait(for: [ready], timeout: 45)
+                let shot = XCTAttachment(screenshot: app.screenshot())
+                shot.name = "Belarus map after scrolling"; shot.lifetime = .keepAlways; add(shot)
+            }
+            app.buttons["qa.flip"].tap()
+            XCTAssertFalse(details.exists)
+        }
+    }
+
+    @MainActor
     func testCountryBoundaryScreenshot() throws {
         let app = XCUIApplication()
         app.launchArguments = ["UITesting", "UITestingLargeQuiz", "UITestingNormalText",
@@ -554,10 +718,78 @@ final class Flags_WorldUITests: XCTestCase {
             map.coordinate(withNormalizedOffset: CGVector(dx: 0.5, dy: 0.5)).tap()
             XCTAssertEqual(app.state, .runningForeground)
             XCTAssertTrue(details.exists)
-            XCTAssertEqual(app.buttons.matching(NSPredicate(format: "identifier BEGINSWITH %@", "quiz.answer.")).count, 6)
+            XCTAssertEqual(app.buttons.matching(NSPredicate(format: "identifier BEGINSWITH %@", "quiz.answer.")).count, 1)
             app.buttons["qa.flip"].tap()
             XCTAssertTrue(app.buttons["quiz.answer.BRA"].firstMatch.exists)
         }
+    }
+
+    @MainActor
+    func testExpandedMapResultAnswers() throws {
+        continueAfterFailure = false
+        let app = XCUIApplication()
+        for mode in ["UITestingCorrectResult", "UITestingWrongResult", "UITestingTimeoutResult"] {
+            app.launchArguments = ["UITesting", "UITestingLargeQuiz", "UITestingNormalText", "UITestingBelarusMap", mode,
+                                   "-selectedLanguage", "ru", "-facts.map", "YES"]
+            app.launch()
+            XCTAssertTrue(app.buttons["quiz.answer.BLR"].waitForExistence(timeout: 20))
+            XCTAssertEqual(app.buttons.matching(NSPredicate(format: "identifier BEGINSWITH %@", "quiz.answer.")).count, 6)
+            app.buttons["qa.flip"].tap()
+            let details = app.scrollViews["quiz.countryDetails"]
+            XCTAssertTrue(details.waitForExistence(timeout: 5))
+            let map = app.descendants(matching: .any)["quiz.countryMap"].firstMatch
+            XCTAssertTrue(map.waitForExistence(timeout: 5))
+            let ready = expectation(for: NSPredicate(format: "value == %@", "ready"), evaluatedWith: map)
+            wait(for: [ready], timeout: 45)
+            XCTAssertGreaterThanOrEqual(map.frame.minY, details.frame.minY)
+            XCTAssertLessThanOrEqual(map.frame.maxY, details.frame.maxY + 1, "Entire map fits without scrolling")
+            XCTAssertTrue(app.staticTexts["quiz.subregion"].isHittable)
+            let answers = app.buttons.matching(NSPredicate(format: "identifier BEGINSWITH %@", "quiz.answer.")).allElementsBoundByIndex
+            XCTAssertEqual(answers.count, mode == "UITestingWrongResult" ? 2 : 1)
+            XCTAssertTrue(app.buttons["quiz.answer.BLR"].exists)
+            if mode == "UITestingWrongResult" { XCTAssertTrue(app.buttons["quiz.answer.ARE"].exists) }
+            for answer in answers {
+                XCTAssertFalse(answer.isEnabled)
+                XCTAssertGreaterThanOrEqual(answer.frame.minY, details.frame.maxY)
+                XCTAssertLessThan(answer.frame.maxY, app.frame.maxY)
+            }
+            let shot = XCTAttachment(screenshot: app.screenshot()); shot.name = mode; shot.lifetime = .keepAlways; add(shot)
+            app.buttons["qa.flip"].tap()
+            let returning = XCTAttachment(screenshot: app.screenshot()); returning.name = "Returning to question " + mode; returning.lifetime = .keepAlways; add(returning)
+            print("RETURNING QUESTION", app.debugDescription)
+            let restored = expectation(for: NSPredicate { _, _ in
+                app.buttons.matching(NSPredicate(format: "identifier BEGINSWITH %@", "quiz.answer.")).count == 6
+            }, evaluatedWith: app)
+            wait(for: [restored], timeout: 10)
+            app.terminate()
+        }
+    }
+
+    @MainActor
+    func testExpandedMapWrongAnswerLargeText() throws {
+        let app = XCUIApplication()
+        app.launchArguments = ["UITesting", "UITestingLargeQuiz", "UITestingExtremeText", "UITestingBelarusMap", "UITestingWrongResult", "-selectedLanguage", "ru", "-facts.map", "YES"]
+        app.launch()
+        XCTAssertTrue(app.buttons["qa.flip"].waitForExistence(timeout: 20)); app.buttons["qa.flip"].tap()
+        let details = app.scrollViews["quiz.countryDetails"]
+        XCTAssertTrue(details.waitForExistence(timeout: 5))
+        let answers = app.buttons.matching(NSPredicate(format: "identifier BEGINSWITH %@", "quiz.answer.")).allElementsBoundByIndex
+        XCTAssertEqual(answers.count, 2)
+        for answer in answers {
+            XCTAssertGreaterThanOrEqual(answer.frame.minY, details.frame.maxY)
+            XCTAssertLessThan(answer.frame.maxY, app.frame.maxY - 10)
+        }
+        details.swipeUp(); details.swipeDown()
+        XCTAssertEqual(app.state, .runningForeground)
+    }
+
+    @MainActor
+    func testLegacyGibraltarPopulation() throws {
+        let app = XCUIApplication()
+        app.launchArguments = ["UITesting", "UITestingLargeQuiz", "UITestingNormalText", "UITestingGibraltarPopulation", "-selectedLanguage", "ru"]
+        app.launch()
+        XCTAssertTrue(app.buttons["qa.flip"].waitForExistence(timeout: 20)); app.buttons["qa.flip"].tap()
+        XCTAssertTrue(app.staticTexts.containing(NSPredicate(format: "label CONTAINS %@", "39.3")).firstMatch.waitForExistence(timeout: 5))
     }
 
     @MainActor
@@ -567,8 +799,9 @@ final class Flags_WorldUITests: XCTestCase {
         app.launch()
         XCTAssertTrue(app.buttons["quiz.answer.BRA"].firstMatch.waitForExistence(timeout: 15))
         sleep(1)
+        print("NORMAL QUESTION", app.debugDescription)
+        let initial = XCTAttachment(screenshot: app.screenshot()); initial.name = "Initial normal question"; initial.lifetime = .keepAlways; add(initial)
         XCTAssertEqual(app.buttons.matching(NSPredicate(format: "identifier BEGINSWITH %@", "quiz.answer.")).count, 6)
-        let originalFrames = app.buttons.matching(NSPredicate(format: "identifier BEGINSWITH %@", "quiz.answer.")).allElementsBoundByIndex.map { $0.frame }
         let front = XCTAttachment(screenshot: XCUIScreen.main.screenshot())
         front.name = "Normal font full-size flag"; front.lifetime = .keepAlways; add(front)
         app.buttons["qa.flip"].tap()
@@ -576,14 +809,12 @@ final class Flags_WorldUITests: XCTestCase {
         XCTAssertTrue(details.waitForExistence(timeout: 5))
         sleep(1)
         XCTAssertGreaterThanOrEqual(details.frame.height, 220)
-        XCTAssertLessThan(details.frame.height, 320, "Facts must not stretch to fill the viewport")
+        XCTAssertLessThan(details.frame.height, 400, "Without a map, facts should size to their content")
         XCTAssertTrue(app.staticTexts["quiz.subregion"].isHittable)
         let remaining = app.buttons.matching(NSPredicate(format: "identifier BEGINSWITH %@", "quiz.answer.")).allElementsBoundByIndex
-        XCTAssertEqual(remaining.count, originalFrames.count)
-        for (answer, frame) in zip(remaining, originalFrames) {
-            XCTAssertEqual(answer.frame.minY, frame.minY, accuracy: 1)
-            XCTAssertFalse(answer.isEnabled)
-        }
+        XCTAssertEqual(remaining.count, 1)
+        XCTAssertEqual(remaining.first?.identifier, "quiz.answer.BRA")
+        XCTAssertFalse(remaining[0].isEnabled)
         let back = XCTAttachment(screenshot: XCUIScreen.main.screenshot())
         back.name = "Normal font compact facts"; back.lifetime = .keepAlways; add(back)
     }
@@ -615,7 +846,7 @@ final class Flags_WorldUITests: XCTestCase {
             sleep(1)
             XCTAssertLessThan(details.frame.maxY, app.frame.maxY - 20)
             let remaining = app.buttons.matching(NSPredicate(format: "identifier BEGINSWITH %@", "quiz.answer.")).allElementsBoundByIndex
-            XCTAssertEqual(remaining.count, answers.count)
+            XCTAssertEqual(remaining.count, 1)
             for answer in remaining {
                 XCTAssertLessThan(answer.frame.maxY, app.frame.maxY - 20)
                 XCTAssertGreaterThanOrEqual(answer.frame.minY, details.frame.maxY)
