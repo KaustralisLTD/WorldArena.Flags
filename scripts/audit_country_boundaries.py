@@ -6,6 +6,7 @@ from PIL import Image, ImageDraw, ImageFont
 root=Path(__file__).resolve().parents[1]
 res=root/'World Arena. Flags/Resources'
 data=json.loads((res/'country-boundaries.json').read_text())
+data.update(json.loads((res/'country-boundaries-detailed.json').read_text()))
 cat=json.loads((res/'game_countries.json').read_text())
 out=Path(sys.argv[1]);out.mkdir(parents=True,exist_ok=True)
 assert {c['cca3'] for c in cat} == set(data)

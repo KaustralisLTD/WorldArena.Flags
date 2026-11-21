@@ -1,0 +1,11 @@
+Detailed land contours: © OpenStreetMap contributors.
+Database license: Open Data Commons Open Database License (ODbL) 1.0.
+https://www.openstreetmap.org/copyright
+https://opendatacommons.org/licenses/odbl/1-0/
+
+The editable derived database is distributed in this app as
+country-boundaries-detailed.json. It contains land contours for AND, GGY, GIB,
+IMN, JEY, LIE, MCO, MLT, SMR, VAT, extracted and simplified to 5 metre tolerance
+from OpenStreetMap data downloaded 2026-11-21 via Geofabrik and the OSM API.
+Administrative waters are excluded. Other country outlines in
+country-boundaries.json are Natural Earth public-domain data.

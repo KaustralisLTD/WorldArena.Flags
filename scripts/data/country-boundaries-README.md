@@ -13,3 +13,5 @@ Country records are keyed by ADM0_A3 with explicit application aliases, not ISO_
 The 1:50m/1:10m shapes are generalized educational outlines, not cadastral or navigation data. Viewports show all islands in compact archipelagos and the connected main cluster for countries with remote dependencies. Apple provides its own background map and labels. The app draws its corrected boundary overlay independently. Offline, the app immediately renders its bundled outline, without network or stored Apple tile images; a bounded memory cache reuses Apple snapshots during a session.
 
 License: https://www.naturalearthdata.com/about/terms-of-use/
+
+Detailed small-country overlays are loaded from a separate ODbL resource; see `detailed-boundaries-README.md`. These take precedence over Natural Earth for the ten audited small countries/territories.

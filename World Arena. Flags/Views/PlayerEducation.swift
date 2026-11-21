@@ -76,23 +76,31 @@ struct CountryFactMap: View {
 
     var body: some View {
         if let coordinate {
-            GeometryReader { geometry in
-                ZStack {
-                    Color(uiColor: .tertiarySystemFill)
-                    if let snapshot {
-                        Image(uiImage: snapshot).resizable().scaledToFit()
-                    } else {
-                        Image(systemName: "map").font(.title2).foregroundStyle(.secondary)
+            VStack(alignment: .trailing, spacing: 2) {
+                GeometryReader { geometry in
+                    ZStack {
+                        Color(uiColor: .tertiarySystemFill)
+                        if let snapshot {
+                            Image(uiImage: snapshot).resizable().scaledToFit()
+                        } else {
+                            Image(systemName: "map").font(.title2).foregroundStyle(.secondary)
+                        }
+                    }
+                    .task(id: "\(countryCode):\(coordinate.latitude):\(coordinate.longitude):\(geometry.size.width):\(colorScheme)") {
+                        loadSnapshot(coordinate: coordinate, size: geometry.size)
                     }
                 }
-                .task(id: "\(countryCode):\(coordinate.latitude):\(coordinate.longitude):\(geometry.size.width):\(colorScheme)") {
-                    loadSnapshot(coordinate: coordinate, size: geometry.size)
+                .frame(height: 130)
+                .clipShape(RoundedRectangle(cornerRadius: 12))
+                .allowsHitTesting(false)
+                if CountryFactBoundaries.hasDetailedBoundary(for: countryCode) {
+                    Link("© OpenStreetMap", destination: URL(string: "https://www.openstreetmap.org/copyright")!)
+                        .font(.system(size: 9))
+                        .foregroundStyle(.secondary)
+                        .padding(.trailing, 4)
                 }
             }
-            .frame(height: 130)
-            .clipShape(RoundedRectangle(cornerRadius: 12))
-            .allowsHitTesting(false)
-            .accessibilityElement(children: .ignore)
+            .accessibilityElement(children: .contain)
             .accessibilityLabel(LocalizationManager.shared.localizedString("facts.map"))
             .accessibilityIdentifier("quiz.countryMap")
             .accessibilityValue(snapshot == nil ? "loading" : "ready")
@@ -142,18 +150,23 @@ struct CountryFactMap: View {
     }
 }
 
-// Natural Earth 1:50m Admin 0 polygons, bundled for offline boundary lookup.
+// Bundled Natural Earth outlines, with separately licensed detailed OpenStreetMap land contours.
 // Rings retain their holes and detached islands; only the selected country is drawn.
 enum CountryFactBoundaries {
     typealias Polygon = [[[Double]]]
-    private static let countries: [String: [Polygon]] = {
-        guard let url = Bundle.main.url(forResource: "country-boundaries", withExtension: "json"),
+    private static func load(_ resource: String) -> [String: [Polygon]] {
+        guard let url = Bundle.main.url(forResource: resource, withExtension: "json"),
               let data = try? Data(contentsOf: url),
               let decoded = try? JSONDecoder().decode([String: [Polygon]].self, from: data) else { return [:] }
         return decoded
-    }()
+    }
+    private static let countries = load("country-boundaries")
+    private static let detailedCountries = load("country-boundaries-detailed")
+    static func hasDetailedBoundary(for code: String) -> Bool {
+        detailedCountries[code.uppercased()] != nil
+    }
     static func polygons(for code: String) -> [Polygon] {
-        countries[code.uppercased()] ?? []
+        detailedCountries[code.uppercased()] ?? countries[code.uppercased()] ?? []
     }
     static func focusRect(polygons: [Polygon], near center: CLLocationCoordinate2D) -> MKMapRect? {
         let anchor = MKMapPoint(center)

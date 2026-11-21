@@ -1,0 +1,101 @@
+{
+  "downloaded": "2026-11-21",
+  "attribution": "\u00a9 OpenStreetMap contributors",
+  "license": "ODbL 1.0",
+  "licenseURL": "https://opendatacommons.org/licenses/odbl/1-0/",
+  "countries": [
+    "AND",
+    "GGY",
+    "GIB",
+    "IMN",
+    "JEY",
+    "LIE",
+    "MCO",
+    "MLT",
+    "SMR",
+    "VAT"
+  ],
+  "simplificationMetres": 5,
+  "sources": [
+    {
+      "file": "monaco.osm.pbf",
+      "url": "https://download.geofabrik.de/europe/monaco-latest.osm.pbf",
+      "sha256": "0138f33c14c8e2116ff77277682e26cda9502199905a73a1876f905b8c0a27d1"
+    },
+    {
+      "file": "andorra.osm.pbf",
+      "url": "https://download.geofabrik.de/europe/andorra-latest.osm.pbf",
+      "sha256": "de106dd5edccb89d12267c6283d43c644ac7ae75048acd66405d96cd074ac37e"
+    },
+    {
+      "file": "liechtenstein.osm.pbf",
+      "url": "https://download.geofabrik.de/europe/liechtenstein-latest.osm.pbf",
+      "sha256": "baee73804986e6dbe33345aabaeb69773c5b9a42fd9e3f152274411ff1da05a3"
+    },
+    {
+      "file": "malta.osm.pbf",
+      "url": "https://download.geofabrik.de/europe/malta-latest.osm.pbf",
+      "sha256": "4ba11b07524a1fa3da1b35379c727e88f17c21c7f6578340ac46b418e3b3b3d8"
+    },
+    {
+      "file": "isle-of-man.osm.pbf",
+      "url": "https://download.geofabrik.de/europe/isle-of-man-latest.osm.pbf",
+      "sha256": "01d1bb9d8e045630cd3a753be7fb2ff069e36be748d48ad8c790477580ed0230"
+    },
+    {
+      "file": "channel-islands.osm.pbf",
+      "url": "https://download.geofabrik.de/europe/guernsey-jersey-latest.osm.pbf",
+      "sha256": "e01be59273b72755259d94b00f0b65b7be59bd23e80e2be6c20b139ea81c64eb"
+    },
+    {
+      "file": "JEY.osm",
+      "url": "https://www.openstreetmap.org/api/0.6/relation/367988/full",
+      "sha256": "f0ecef0b36121de2a9dea7673ffede7b9a4a51e670ed3f3a367ae49665f58a49"
+    },
+    {
+      "file": "GIB.osm",
+      "url": "https://www.openstreetmap.org/api/0.6/relation/1278736/full",
+      "sha256": "1e8f27d711f15dca2bae016eb3bdab42247ffff98e2f57898a4590eb5c4209e0"
+    },
+    {
+      "file": "VAT.osm",
+      "url": "https://www.openstreetmap.org/api/0.6/relation/36989/full",
+      "sha256": "02947409b30de1c8d4f229f9577bf3389ab1a7fda6568382ea0bd0fbfdbee0d7"
+    },
+    {
+      "file": "SMR.osm",
+      "url": "https://www.openstreetmap.org/api/0.6/relation/54624/full",
+      "sha256": "e232cdc3cb43584c8912a319db7e52590dedeb9e367e0f1759706ab47059b0e4"
+    },
+    {
+      "file": "GIB-map-0.osm",
+      "url": "https://www.openstreetmap.org/api/0.6/map?bbox=-5.373,36.105,-5.335,36.114",
+      "sha256": "edb30739ccad2b61612c32d5a171f4df0ad0f1f755bf51a13c8d32dbf879233e"
+    },
+    {
+      "file": "GIB-map-1.osm",
+      "url": "https://www.openstreetmap.org/api/0.6/map?bbox=-5.373,36.114,-5.335,36.123",
+      "sha256": "dde5daa286178b37b512afefffab80caeb640484771ddebd70db25faf15d9d7d"
+    },
+    {
+      "file": "GIB-map-2.osm",
+      "url": "https://www.openstreetmap.org/api/0.6/map?bbox=-5.373,36.123,-5.335,36.132",
+      "sha256": "1f9ce570cb596922e1fb644ee209c7d58520ae66254313db6936d70aa5b7bfb0"
+    },
+    {
+      "file": "GIB-map-3.osm",
+      "url": "https://www.openstreetmap.org/api/0.6/map?bbox=-5.373,36.132,-5.335,36.141",
+      "sha256": "67d39c84c6b7dcc0216f35122e184c782da91729dbe0193581c81a522640b3a3"
+    },
+    {
+      "file": "GIB-map-4.osm",
+      "url": "https://www.openstreetmap.org/api/0.6/map?bbox=-5.373,36.141,-5.335,36.15",
+      "sha256": "bf6eca3cae38a73732679e8413fc6f7a4c228610fe67cb3273df7c391b440e58"
+    },
+    {
+      "file": "GIB-map-5.osm",
+      "url": "https://www.openstreetmap.org/api/0.6/map?bbox=-5.373,36.15,-5.335,36.159",
+      "sha256": "d1bb07c00e1981c05b6aece5904a0dc29ca7b5f4b8baabf8965888982de2e7ce"
+    }
+  ]
+}
