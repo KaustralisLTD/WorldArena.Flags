@@ -110,6 +110,7 @@ struct CountryFactMap: View {
         let id = UUID()
         requestID = id
         snapshotter?.cancel()
+        snapshotter = nil
         snapshot = nil
         guard size.width.isFinite, size.width > 0 else { return }
         let options = MKMapSnapshotter.Options()

@@ -518,8 +518,8 @@ final class DuelAPIService {
         guard let http = response as? HTTPURLResponse, (200...299).contains(http.statusCode) else {
             throw DuelAPIError.serverError(String(data: data, encoding: .utf8) ?? "")
         }
-        FriendReminderHistory.record(sender: fromUsername, recipient: toUsername)
         let result = try JSONSerialization.jsonObject(with: data) as? [String: Any]
+        FriendReminderHistory.record(sender: fromUsername, recipient: toUsername)
         return result?["skipped"] as? Bool != true
     }
 
