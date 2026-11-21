@@ -18,7 +18,10 @@ Verification completed:
 Still required:
 - Finish unit/UI tests and actual screenshots. Test execution stalled at simulator installation as free disk space dropped to ~150 MB; stopped test process and removed only generated intermediates. No claim that UI tests passed.
 - User was asked to free 8–10 GB. Existing source edits are preserved.
-- TestFlight archive/upload now explicitly authorized. App Store publication is not requested.
-- Archive uses the already mounted user volume `/Volumes/spilberg/3.Work/9.iOS/Flags-Builds/8.0.4-110` because simulator startup exhausted the local disk twice; do not retry simulator on this disk until space is freed.
+- Release archive 8.0.4 (110) and App Store Connect upload succeeded on 2026-11-21. App Store publication is not requested. Apple processing state VALID; internal state IN_BETA_TESTING. Build 110 confirmed in World Arena. Test Group (1612e624-7090-4416-98d2-99212c5d96a1). Beta notes saved in en-US, ru, uk. Build ID: 9d146e87-10f8-4bae-84cc-b1ff5e2c6185.
+- Upload warnings: missing vendor dSYMs for GoogleMobileAds and UserMessagingPlatform; upload itself succeeded. App dSYM is present.
+- Final archive was built locally at `/private/tmp/Flags-8.0.4-110.xcarchive`. SMB DerivedData failed with filesystem/mmap errors; local build succeeded. Generated DerivedData was removed after archiving to make room for upload. Do not retry simulator until space is freed.
 
 Tests to run after freeing space: CountryBoundaryTests; testReminderListExcludesPlayedAndSentAndPinsContinue; testAustraliaAndUkraineMaps. Disable Xcode parallel test execution to avoid creating multiple simulator copies.
+
+Release archive backup verified (ZIP CRC): `/Volumes/spilberg/3.Work/9.iOS/Flags-Builds/8.0.4-110/Flags-8.0.4-110.xcarchive.zip`.
