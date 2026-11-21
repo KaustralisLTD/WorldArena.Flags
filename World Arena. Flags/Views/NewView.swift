@@ -128,9 +128,10 @@ struct PostGameFlowContainer: View {
                             guard !me.isEmpty else { return nil }
                             // phraseId 15 = «не выполнен ежедневный урок на пути в изучении Флагов»
                             do {
-                                try await DuelAPIService.shared.sendNudge(fromUsername: me, toUsername: friend.username, phraseId: 15)
+                                let sent = try await DuelAPIService.shared.sendNudge(fromUsername: me, toUsername: friend.username, phraseId: 15)
+                                if !sent { return "" } // Already handled today: remove without claiming a new delivery.
                             } catch {
-                                // Бэкенд может ещё не иметь /nudge — всё равно показываем тост
+                                return nil // Never show success or hide a friend after a failed request.
                             }
                             return await MainActor.run {
                                 String(format: LocalizationManager.shared.localizedString("Reminder sent to %@"), friend.displayNameOrUsername)

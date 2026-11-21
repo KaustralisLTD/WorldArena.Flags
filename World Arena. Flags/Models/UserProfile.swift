@@ -1564,6 +1564,7 @@ struct Friend: Identifiable, Codable {
     let joinDate: Date
     /// true если друг уже играл сегодня (показываем огонёк и дни, иначе кнопку «Напомнить»).
     var playedToday: Bool
+    var remindedToday: Bool? = nil
     /// День рождения (опционально; с сервера или локально) — для уведомления «Поздравьте друга».
     var birthday: Date?
     /// Список id достижений, открытых у друга (приходит с сервера).
@@ -1576,12 +1577,12 @@ struct Friend: Identifiable, Codable {
 
     enum CodingKeys: String, CodingKey {
         case id, username, displayName, avatar, avatarPhotoBase64, level, xp, streak, isOnline, joinDate
-        case countryCode, playedToday, birthday, achievements
+        case countryCode, playedToday, remindedToday, birthday, achievements
         case totalGamesPlayed, correctAnswers
         case worldRankFromServer
     }
 
-    init(id: UUID, username: String, displayName: String? = nil, avatar: String, avatarPhotoBase64: String? = nil, countryCode: String? = nil, level: Int, xp: Int, streak: Int, totalGamesPlayed: Int = 0, correctAnswers: Int = 0, isOnline: Bool, joinDate: Date, playedToday: Bool = false, birthday: Date? = nil, achievements: [String] = [], worldRankFromServer: Int? = nil) {
+    init(id: UUID, username: String, displayName: String? = nil, avatar: String, avatarPhotoBase64: String? = nil, countryCode: String? = nil, level: Int, xp: Int, streak: Int, totalGamesPlayed: Int = 0, correctAnswers: Int = 0, isOnline: Bool, joinDate: Date, playedToday: Bool = false, birthday: Date? = nil, achievements: [String] = [], worldRankFromServer: Int? = nil, remindedToday: Bool? = nil) {
         self.id = id
         self.username = username
         self.displayName = displayName
@@ -1596,6 +1597,7 @@ struct Friend: Identifiable, Codable {
         self.isOnline = isOnline
         self.joinDate = joinDate
         self.playedToday = playedToday
+        self.remindedToday = remindedToday
         self.birthday = birthday
         self.achievements = achievements
         self.worldRankFromServer = worldRankFromServer
@@ -1617,6 +1619,7 @@ struct Friend: Identifiable, Codable {
         isOnline = try c.decode(Bool.self, forKey: .isOnline)
         joinDate = try c.decode(Date.self, forKey: .joinDate)
         playedToday = try c.decodeIfPresent(Bool.self, forKey: .playedToday) ?? false
+        remindedToday = try c.decodeIfPresent(Bool.self, forKey: .remindedToday)
         birthday = try c.decodeIfPresent(Date.self, forKey: .birthday)
         achievements = try c.decodeIfPresent([String].self, forKey: .achievements) ?? []
         worldRankFromServer = try c.decodeIfPresent(Int.self, forKey: .worldRankFromServer)
@@ -1638,6 +1641,7 @@ struct Friend: Identifiable, Codable {
         try c.encode(isOnline, forKey: .isOnline)
         try c.encode(joinDate, forKey: .joinDate)
         try c.encode(playedToday, forKey: .playedToday)
+        try c.encodeIfPresent(remindedToday, forKey: .remindedToday)
         try c.encodeIfPresent(birthday, forKey: .birthday)
         try c.encode(achievements, forKey: .achievements)
         try c.encodeIfPresent(worldRankFromServer, forKey: .worldRankFromServer)

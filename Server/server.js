@@ -9,6 +9,8 @@ const express = require('express');
 const cors = require('cors');
 const { v4: uuidv4 } = require('uuid');
 const db = require('./db');
+const friendReminders = require('./friend-reminders');
+friendReminders.initialize(db.db);
 if (process.env.MAILGUN_API_KEY && process.env.MAILGUN_DOMAIN) {
   console.log('[server] .env loaded, Mailgun enabled');
 }
@@ -383,6 +385,7 @@ app.post('/api/v1/users/register', (req, res) => {
       stats: req.body.stats || {},
     });
     require('./notification-localization').saveLocale(db.db,result.username,req.body.locale || req.headers['accept-language']);
+    friendReminders.recordActivity(db.db, result.username, req.body.lastPlayedAt, req.body.timezone);
     db.setDuelNotificationPreferences(result.username, req.body.duelResultsNotifications, req.body.duelInvitesNotifications);
     const worldRank = db.getWorldRank(result.username);
     res.json({ ok: true, username: result.username, friendCode: result.friendCode, worldRank });
@@ -467,7 +470,7 @@ app.get('/api/v1/users/me/friends', (req, res) => {
         totalGamesPlayed: f.total_games_played ?? 0,
         correctAnswers: f.correct_answers ?? 0,
         createdAt: millisFromSqliteDateTime(f.created_at),
-        playedToday: isPlayedToday(f.updated_at),
+        ...friendReminders.status(db.db, userId, f.username),
         birthday: f.birthday || null,
         avatar: f.avatar || null,
         avatarPhotoBase64: f.avatar_photo_base64 || null,
@@ -997,6 +1000,10 @@ app.post('/api/v1/nudge', (req, res) => {
   if (!db.areFriends(fromUsername, toUsername)) return res.status(400).json({ error: 'Can only nudge friends' });
   const toUser = db.getUserByUsername(toUsername);
   if (!toUser) return res.status(404).json({ error: 'Recipient not found' });
+  const eligibility = friendReminders.status(db.db, fromUsername, toUser.username);
+  if (eligibility.remindedToday || (phrase === 15 && eligibility.playedToday)) {
+    return res.json({ ok: true, skipped: true, ...eligibility });
+  }
   const id = uuidv4();
   db.createNudge({ id, fromUsername, toUsername, phraseId: phrase });
   const bodyText = NUDGE_PHRASES_EN[phrase] || NUDGE_PHRASES_EN[0];

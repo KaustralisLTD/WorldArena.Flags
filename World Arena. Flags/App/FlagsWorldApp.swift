@@ -116,7 +116,21 @@ struct FlagsWorldApp: App {
 
     @ViewBuilder private var launchContent: some View {
         #if targetEnvironment(simulator) && DEBUG
-        if CommandLine.arguments.contains("DuelPickerQA") {
+        if CommandLine.arguments.contains("FriendRemindersQA") {
+            FriendStreaksView(friends: (0..<18).map { index in
+                Friend(id: UUID(), username: "Friend\(index)", avatar: "person.fill", level: 5, xp: 1200, streak: index + 1,
+                       isOnline: false, joinDate: Date(), playedToday: index == 0, remindedToday: index == 1)
+            }, gameState: gameState, onRemind: { _ in "✓" }, onContinue: {}, refreshFromServer: false)
+        } else if CommandLine.arguments.contains("CountryMapsQA") {
+            VStack(spacing: 24) {
+                ForEach(["AUS", "UKR"], id: \.self) { code in
+                    VStack(alignment: .leading, spacing: 12) {
+                        Text(code == "AUS" ? "Австралія" : "Україна").font(.title2.bold())
+                        CountryFactMap(coordinates: code == "AUS" ? [-25, 133] : [49, 32], countryCode: code)
+                    }.padding(20).background(Color(uiColor: .secondarySystemGroupedBackground), in: RoundedRectangle(cornerRadius: 24))
+                }
+            }.padding(20).frame(maxHeight: .infinity).background(Color(uiColor: .systemGroupedBackground))
+        } else if CommandLine.arguments.contains("DuelPickerQA") {
             DuelOpponentPickerView(gameState: gameState, onDuelReadyToStart: {})
                 .dynamicTypeSize(CommandLine.arguments.contains("DuelPickerLargeTextQA") ? .accessibility2 : .large)
                 .environmentObject(UserProfile.shared)

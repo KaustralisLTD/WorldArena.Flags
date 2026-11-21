@@ -62,6 +62,9 @@ struct CountryFactMap: View {
     @State private var snapshot: UIImage?
     @State private var snapshotter: MKMapSnapshotter?
     @State private var requestID = UUID()
+    private static let images: NSCache<NSString, UIImage> = {
+        let cache = NSCache<NSString, UIImage>(); cache.totalCostLimit = 24 * 1024 * 1024; return cache
+    }()
 
     private var coordinate: CLLocationCoordinate2D? {
         guard let coordinates, coordinates.count >= 2,
@@ -111,25 +114,27 @@ struct CountryFactMap: View {
         guard size.width.isFinite, size.width > 0 else { return }
         let options = MKMapSnapshotter.Options()
         let polygons = CountryFactBoundaries.polygons(for: countryCode)
-        if let rect = CountryFactBoundaries.focusRect(polygons: polygons, near: coordinate) {
-            // Match the image aspect ratio so tall and small countries stay fully visible.
-            let aspect = min(size.width, 720) / 130
-            let width = max(rect.size.width * 1.3, rect.size.height * 1.3 * aspect, 3000)
-            let height = max(rect.size.height * 1.3, width / aspect)
-            options.mapRect = MKMapRect(x: rect.midX - width / 2, y: rect.midY - height / 2, width: width, height: height)
+        let imageSize = CGSize(width: min(size.width, 720), height: 130)
+        if let rect = CountryFactBoundaries.viewport(polygons: polygons, near: coordinate, size: imageSize) {
+            options.mapRect = rect
+            snapshot = CountryFactBoundaries.offlineImage(polygons: polygons, rect: rect, size: imageSize, dark: colorScheme == .dark)
         } else {
             options.region = MKCoordinateRegion(center: coordinate,
                 span: MKCoordinateSpan(latitudeDelta: 3, longitudeDelta: 3))
         }
-        options.size = CGSize(width: min(size.width, 720), height: 130)
+        options.size = imageSize
         options.scale = 2
         options.traitCollection = UITraitCollection(userInterfaceStyle: colorScheme == .dark ? .dark : .light)
+        let cacheKey = "\(countryCode):\(imageSize.width):\(colorScheme):\(Locale.preferredLanguages.joined(separator: ","))" as NSString
+        if let cached = Self.images.object(forKey: cacheKey) { snapshot = cached; return }
         let renderer = MKMapSnapshotter(options: options)
         snapshotter = renderer
         renderer.start { result, _ in
             guard requestID == id else { return }
             if let result {
-                snapshot = CountryFactBoundaries.draw(polygons: polygons, on: result)
+                let image = CountryFactBoundaries.draw(polygons: polygons, on: result)
+                snapshot = image
+                Self.images.setObject(image, forKey: cacheKey, cost: Int(image.size.width * image.size.height * image.scale * image.scale * 4))
             }
             snapshotter = nil
         }
@@ -147,7 +152,7 @@ enum CountryFactBoundaries {
         return decoded
     }()
     static func polygons(for code: String) -> [Polygon] {
-        countries[code == "XKX" ? "KOS" : code.uppercased()] ?? []
+        countries[code.uppercased()] ?? []
     }
     static func focusRect(polygons: [Polygon], near center: CLLocationCoordinate2D) -> MKMapRect? {
         let anchor = MKMapPoint(center)
@@ -163,17 +168,65 @@ enum CountryFactBoundaries {
             }
             return rect.isNull ? nil : rect
         }
-        // Focus the main territory near the country's coordinates rather than
-        // zooming out to encompass overseas possessions on other continents.
-        return rects.min { a, b in
-            func distance(_ r: MKMapRect) -> Double {
-                let dx = max(r.minX - anchor.x, 0, anchor.x - r.maxX)
-                let dy = max(r.minY - anchor.y, 0, anchor.y - r.maxY)
-                return dx * dx + dy * dy
+        let whole = rects.reduce(MKMapRect.null) { $0.union($1) }
+        if !whole.isNull && whole.width < worldWidth / 12 && whole.height < worldWidth / 12 {
+            return whole // Compact archipelagos: include every island, not only the main cluster.
+        }
+        // Start with the largest landmass, never the island nearest an approximate center.
+        // Include neighbouring islands (Tasmania, Japan, Indonesia, Fiji), excluding distant dependencies.
+        guard let main = rects.max(by: { $0.width * $0.height < $1.width * $1.height }) else { return nil }
+        let reach = max(main.width, main.height) * 0.35
+        func sameRect(_ a: MKMapRect, _ b: MKMapRect) -> Bool {
+            a.minX == b.minX && a.minY == b.minY && a.width == b.width && a.height == b.height
+        }
+        var cluster = [main]
+        var remaining = rects.filter { !sameRect($0, main) }
+        // Flood fill the archipelago instead of clipping islands beyond the first main-island box.
+        while true {
+            let neighbours = remaining.filter { candidate in
+                cluster.contains { $0.insetBy(dx: -reach, dy: -reach).intersects(candidate) }
             }
-            return distance(a) < distance(b)
+            guard !neighbours.isEmpty else { break }
+            cluster.append(contentsOf: neighbours)
+            remaining.removeAll { candidate in neighbours.contains { sameRect($0, candidate) } }
+        }
+        return cluster.reduce(main) { $0.union($1) }
+    }
+
+    static func viewport(polygons: [Polygon], near center: CLLocationCoordinate2D, size: CGSize) -> MKMapRect? {
+        guard let rect = focusRect(polygons: polygons, near: center), size.width > 0, size.height > 0 else { return nil }
+        let aspect = Double(size.width / size.height)
+        let width = max(rect.width * 1.18, rect.height * 1.18 * aspect, 1000)
+        let height = max(rect.height * 1.18, width / aspect)
+        return MKMapRect(x: rect.midX - width / 2, y: rect.midY - height / 2, width: width, height: height)
+    }
+
+    /// Offline preview uses the same bundled geometry and viewport as the Apple map overlay.
+    static func offlineImage(polygons: [Polygon], rect: MKMapRect, size: CGSize, dark: Bool) -> UIImage {
+        UIGraphicsImageRenderer(size: size).image { context in
+            (dark ? UIColor(red: 0.07, green: 0.14, blue: 0.21, alpha: 1) : UIColor(red: 0.88, green: 0.95, blue: 0.99, alpha: 1)).setFill()
+            context.fill(CGRect(origin: .zero, size: size))
+            let cg = context.cgContext
+            cg.setFillColor((dark ? UIColor.systemTeal.withAlphaComponent(0.3) : UIColor.systemBlue.withAlphaComponent(0.18)).cgColor)
+            cg.setStrokeColor(UIColor.systemBlue.cgColor)
+            cg.setLineWidth(1.6)
+            cg.setLineJoin(.round)
+            for polygon in polygons {
+                let path = CGMutablePath()
+                for ring in polygon {
+                    for (index, pair) in ring.enumerated() where pair.count >= 2 {
+                        var p = MKMapPoint(CLLocationCoordinate2D(latitude: pair[1], longitude: pair[0]))
+                        p.x += ((rect.midX - p.x) / MKMapRect.world.width).rounded() * MKMapRect.world.width
+                        let point = CGPoint(x: (p.x - rect.minX) / rect.width * size.width, y: (p.y - rect.minY) / rect.height * size.height)
+                        if index == 0 { path.move(to: point) } else { path.addLine(to: point) }
+                    }
+                    path.closeSubpath()
+                }
+                cg.addPath(path); cg.drawPath(using: .eoFillStroke)
+            }
         }
     }
+
     static func draw(polygons: [Polygon], on snapshot: MKMapSnapshotter.Snapshot) -> UIImage {
         let format = UIGraphicsImageRendererFormat()
         format.scale = snapshot.image.scale

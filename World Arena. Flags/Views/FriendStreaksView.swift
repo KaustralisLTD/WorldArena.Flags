@@ -9,7 +9,9 @@ struct FriendStreaksView: View {
     /// Отправить напоминание выбранному другу; возвращает строку для тоста или nil при ошибке.
     let onRemind: (Friend) async -> String?
     let onContinue: () -> Void
+    var refreshFromServer = true
     
+    @State private var refreshedFriends: [Friend]?
     @State private var showContent = false
     @State private var showFriends = false
     @State private var showButtons = false
@@ -26,6 +28,14 @@ struct FriendStreaksView: View {
     private var accentA: Color { Color(red: 0.35, green: 0.22, blue: 0.98) }
     private var accentB: Color { Color(red: 0.1, green: 0.55, blue: 1.0) }
     
+    private var eligibleFriends: [Friend] {
+        (refreshedFriends ?? friends).filter {
+            !$0.playedToday && $0.remindedToday != true &&
+            !remindedUsernames.contains($0.username) &&
+            !FriendReminderHistory.sentToday(sender: UserProfile.shared.username, recipient: $0.username)
+        }
+    }
+
     private var pageBackground: some View {
         Group {
             if colorScheme == .dark {
@@ -57,10 +67,8 @@ struct FriendStreaksView: View {
         ZStack {
             pageBackground
             
-            GeometryReader { geometry in
-            ScrollView {
-            VStack(spacing: 26) {
-                Spacer(minLength: 8)
+            VStack(spacing: 20) {
+                Color.clear.frame(height: 8)
                 
                 VStack(spacing: 14) {
                     ZStack {
@@ -96,32 +104,28 @@ struct FriendStreaksView: View {
                 .opacity(showContent ? 1 : 0)
                 .offset(y: showContent ? 0 : -24)
                 
-                // Friends list
+                // Only this middle region scrolls. Header and Continue remain visible.
+                ScrollView {
                 VStack(spacing: 16) {
-                    if friends.isEmpty {
+                    if eligibleFriends.isEmpty {
                         // Empty state
                         VStack(spacing: 16) {
-                            Image(systemName: "person.2.slash")
+                            Image(systemName: "checkmark.circle")
                                 .font(.system(size: 48))
                                 .symbolRenderingMode(.hierarchical)
                                 .foregroundStyle(colorScheme == .dark ? .white.opacity(0.5) : .secondary)
                             
-                            Text(localizationManager.localizedString("No friends yet"))
+                            Text(localizationManager.localizedString("learning.empty.unlearned.title"))
                                 .font(.system(size: 18, weight: .semibold))
                                 .foregroundStyle(colorScheme == .dark ? .white : .primary)
                             
-                            Text(localizationManager.localizedString("Add friends to see their streaks and compete together!"))
-                                .font(.system(size: 14, weight: .medium))
-                                .foregroundStyle(colorScheme == .dark ? .white.opacity(0.75) : .secondary)
-                                .multilineTextAlignment(.center)
-                                .padding(.horizontal, 40)
                         }
                         .opacity(showFriends ? 1 : 0)
                         .scaleEffect(showFriends ? 1 : 0.8)
                     } else {
                         // Friends list
                         VStack(spacing: 12) {
-                            ForEach(Array(friends.enumerated()), id: \.element.id) { index, friend in
+                            ForEach(Array(eligibleFriends.enumerated()), id: \.element.id) { index, friend in
                                 HStack(spacing: 0) {
                                     NavigationLink(destination: FriendProfileView(friend: friend, gameState: gameState)) {
                                         FriendStreakRow(
@@ -160,10 +164,12 @@ struct FriendStreaksView: View {
                                                     DispatchQueue.main.asyncAfter(deadline: .now() + 0.55) {
                                                         remindPulseUsernames.remove(friend.username)
                                                     }
-                                                    nudgeToastMessage = msg
+                                                    nudgeToastMessage = msg.isEmpty ? nil : msg
                                                     DispatchQueue.main.asyncAfter(deadline: .now() + 2.4) {
                                                         nudgeToastMessage = nil
                                                     }
+                                                } else {
+                                                    nudgeToastMessage = localizationManager.localizedString("friends.requests.error")
                                                 }
                                             }
                                         }) {
@@ -201,6 +207,7 @@ struct FriendStreaksView: View {
                                             .scaleEffect(pulse ? 1.06 : 1.0)
                                             .animation(.spring(response: 0.28, dampingFraction: 0.62), value: pulse)
                                         }
+                                        .accessibilityIdentifier("friends.reminders.send." + friend.username)
                                         .buttonStyle(BorderlessButtonStyle())
                                         .disabled(isSendingNudge || remindSent)
                                         .padding(.leading, 8)
@@ -211,8 +218,10 @@ struct FriendStreaksView: View {
                     }
                 }
                 .padding(.horizontal, 20)
-                
-                Spacer()
+                .padding(.vertical, 8)
+                }
+                .accessibilityIdentifier("friends.reminders.list")
+                .frame(maxHeight: .infinity)
                 
                 // Action buttons — в одном стиле с экраном результатов игры
                 VStack(spacing: 16) {
@@ -241,6 +250,7 @@ struct FriendStreaksView: View {
                                 .stroke(Color.white.opacity(0.3), lineWidth: 1)
                         )
                     }
+                    .accessibilityIdentifier("friends.reminders.continue")
                     .opacity(showButtons ? 1 : 0)
                     .scaleEffect(showButtons ? 1 : 0.8)
                 }
@@ -249,10 +259,7 @@ struct FriendStreaksView: View {
                 .padding(.bottom, 24)
             }
             .frame(maxWidth: 1000)
-            .frame(minHeight: geometry.size.height)
-            .frame(maxWidth: .infinity)
-            }
-            }
+            .frame(maxWidth: .infinity, maxHeight: .infinity)
         }
         .overlay(alignment: .bottom) {
             if let msg = nudgeToastMessage {
@@ -278,6 +285,12 @@ struct FriendStreaksView: View {
                 )
                 .padding(.bottom, 108)
                 .transition(.move(edge: .bottom).combined(with: .opacity))
+            }
+        }
+        .task {
+            guard refreshFromServer else { return }
+            if let current = try? await DuelAPIService.shared.fetchMyFriends(userId: UserProfile.shared.username) {
+                refreshedFriends = current.map { $0.toFriend() }
             }
         }
         .onAppear {
@@ -411,4 +424,18 @@ struct FriendStreakRow: View {
         onRemind: { _ async in LocalizationManager.shared.localizedString("friends.remind.status_sent") },
         onContinue: {}
     )
+}
+
+/// Sender-scoped day receipts survive screen changes and app restarts.
+enum FriendReminderHistory {
+    private static func key(_ sender: String, _ recipient: String) -> String {
+        "friends.reminder.v1." + sender.lowercased() + ":" + recipient.lowercased()
+    }
+    static func sentToday(sender: String, recipient: String, now: Date = Date(), defaults: UserDefaults = .standard) -> Bool {
+        guard let date = defaults.object(forKey: key(sender, recipient)) as? Date else { return false }
+        return Calendar.current.isDate(date, inSameDayAs: now)
+    }
+    static func record(sender: String, recipient: String, now: Date = Date(), defaults: UserDefaults = .standard) {
+        defaults.set(now, forKey: key(sender, recipient))
+    }
 }

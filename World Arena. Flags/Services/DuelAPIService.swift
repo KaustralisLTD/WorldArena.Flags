@@ -296,6 +296,11 @@ final class DuelAPIService {
         var body: [String: Any] = ["userId": userId, "username": username, "locale": LocalizationLanguageResolver.resolvedAppLanguageCodeForMetadata()]
         body["duelResultsNotifications"] = UserDefaults.standard.object(forKey: "notificationsEnabled") as? Bool != false && ((UserDefaults.standard.object(forKey: "duelResultsNotifications") as? Bool) ?? true)
         body["duelInvitesNotifications"] = UserDefaults.standard.object(forKey: "notificationsEnabled") as? Bool != false && ((UserDefaults.standard.object(forKey: "duelInvitesNotifications") as? Bool) ?? true)
+        body["timezone"] = TimeZone.current.identifier
+        if let lastGame = await MainActor.run(body: {
+            UserProfile.shared.username.caseInsensitiveCompare(username) == .orderedSame
+                ? UserProfile.shared.lastGameDate : nil
+        }) { body["lastPlayedAt"] = Int64(lastGame.timeIntervalSince1970 * 1000) }
         if let token = deviceToken { body["deviceToken"] = token }
         if let stats = stats { body["stats"] = stats }
         if let cc = countryCode, !cc.isEmpty { body["countryCode"] = cc }
@@ -499,7 +504,7 @@ final class DuelAPIService {
     }
 
     /// Отправить напоминание другу (nudge). phraseId — индекс мотивационной фразы (0..<N) для отображения у получателя на его языке.
-    func sendNudge(fromUsername: String, toUsername: String, phraseId: Int) async throws {
+    func sendNudge(fromUsername: String, toUsername: String, phraseId: Int) async throws -> Bool {
         let url = URL(string: "\(baseURL)/nudge")!
         var request = URLRequest(url: url)
         request.httpMethod = "POST"
@@ -513,6 +518,9 @@ final class DuelAPIService {
         guard let http = response as? HTTPURLResponse, (200...299).contains(http.statusCode) else {
             throw DuelAPIError.serverError(String(data: data, encoding: .utf8) ?? "")
         }
+        FriendReminderHistory.record(sender: fromUsername, recipient: toUsername)
+        let result = try JSONSerialization.jsonObject(with: data) as? [String: Any]
+        return result?["skipped"] as? Bool != true
     }
 
     /// Получить непрочитанные напоминания для пользователя.
@@ -907,6 +915,7 @@ struct FriendFromAPI {
     let streak: Int
     /// true если друг уже играл сегодня (тогда показываем огонёк и дни, а не кнопку «Напомнить»).
     let playedToday: Bool
+    let remindedToday: Bool
     /// Регистрация на сервере (мс с 1970) — тот же anchor, что у `UserProfile.joinDate`, для совпадения рангов.
     let joinDateFromServer: Date?
     let totalGamesPlayed: Int
@@ -930,6 +939,7 @@ struct FriendFromAPI {
         self.xp = json["xp"] as? Int ?? 0
         self.streak = json["streak"] as? Int ?? 0
         self.playedToday = json["playedToday"] as? Bool ?? false
+        self.remindedToday = json["remindedToday"] as? Bool ?? false
         if let n = json["createdAt"] as? NSNumber {
             self.joinDateFromServer = Date(timeIntervalSince1970: n.doubleValue / 1000.0)
         } else {
@@ -993,7 +1003,8 @@ struct FriendFromAPI {
             playedToday: playedToday,
             birthday: birthday,
             achievements: achievements,
-            worldRankFromServer: worldRank
+            worldRankFromServer: worldRank,
+            remindedToday: remindedToday
         )
     }
 

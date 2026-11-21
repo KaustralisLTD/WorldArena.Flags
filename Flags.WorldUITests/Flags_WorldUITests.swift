@@ -10,6 +10,37 @@ import StoreKitTest
 
 final class Flags_WorldUITests: XCTestCase {
     @MainActor
+    func testReminderListExcludesPlayedAndSentAndPinsContinue() throws {
+        let app = XCUIApplication()
+        app.launchArguments = ["UITesting", "FriendRemindersQA", "-selectedLanguage", "uk", "-selectedTheme", "light"]
+        app.launch()
+        let button = app.buttons["friends.reminders.continue"]
+        XCTAssertTrue(button.waitForExistence(timeout: 20))
+        XCTAssertTrue(button.isHittable)
+        XCTAssertFalse(app.buttons["friends.reminders.send.Friend0"].exists)
+        XCTAssertFalse(app.buttons["friends.reminders.send.Friend1"].exists)
+        let send = app.buttons["friends.reminders.send.Friend2"]
+        XCTAssertTrue(send.waitForExistence(timeout: 5))
+        send.tap()
+        XCTAssertFalse(send.exists)
+        let before = button.frame
+        app.scrollViews["friends.reminders.list"].swipeUp()
+        XCTAssertEqual(before.minY, button.frame.minY, accuracy: 1)
+        XCTAssertTrue(button.isHittable)
+        let shot = XCTAttachment(screenshot: app.screenshot()); shot.name = "friend-reminders-fixed-footer"; shot.lifetime = .keepAlways; add(shot)
+    }
+
+    @MainActor
+    func testAustraliaAndUkraineMaps() throws {
+        let app = XCUIApplication()
+        app.launchArguments = ["UITesting", "CountryMapsQA", "-selectedTheme", "light"]
+        app.launch()
+        XCTAssertTrue(app.staticTexts["Австралія"].waitForExistence(timeout: 20))
+        XCTAssertEqual(app.descendants(matching: .any).matching(identifier: "quiz.countryMap").count, 2)
+        let shot = XCTAttachment(screenshot: app.screenshot()); shot.name = "australia-ukraine-maps"; shot.lifetime = .keepAlways; add(shot)
+    }
+
+    @MainActor
     func testLocalizedTenScreenCapture() throws {
         let app = XCUIApplication()
         let names = ["quiz", "duel", "map", "achievements", "quests", "league", "statistics", "country", "regions", "avatars"]
