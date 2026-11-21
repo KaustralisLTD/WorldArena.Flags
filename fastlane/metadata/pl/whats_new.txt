@@ -1,10 +1,4 @@
-Nowe cele. Postępy, które mają znaczenie.
-
-• 12 nowych osiągnięć uzupełnia kolekcję. Nazwy i cele są dostępne we wszystkich 30 językach aplikacji.
-• Kolejne poziomy wymagają więcej XP. Zachowujesz zdobyte poziomy i łączne XP. Powiadomienia o poziomach świętują tylko ważne kamienie milowe.
-• Bogatsze powiadomienia z ilustracjami, szczegółami wyników, historią odczytanych zdarzeń i odnośnikami do postępów.
-• Ulepszone dodawanie znajomych i zaproszenia do pojedynków, także dla ukraińskich nazw i starszych wersji aplikacji.
-• Wielojęzyczne ikony, wyróżnione granice kraju na mapie w ciekawostkach o flagach i nowe karty udostępniania profilu.
-• Lepsze zapisywanie ustawień, przypomnienia i liczniki nieprzeczytanych zdarzeń. Opcjonalne e-maile dla subskrybentów obejmują poziom 100 i wyniki ligi tygodniowej.
-
-Wybierz region i odkrywaj świat z każdą rundą.
+• Dokładniejsze granice małych państw i wysp, w tym Jersey, Andory, San Marino, Monako i Gibraltaru.
+• Kontury państw są dostępne offline, a kadrowanie map zostało ulepszone.
+• Po grze lista przypomnień pomija znajomych, którzy już grali lub otrzymali Twoje przypomnienie tego dnia.
+• Przycisk „Kontynuuj” pozostaje widoczny podczas przewijania listy znajomych.

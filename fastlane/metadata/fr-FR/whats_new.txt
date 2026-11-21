@@ -1,13 +1,4 @@
-Plus de découvertes. Des progrès qui comptent.
-
-• 12 nouveaux succès enrichissent ta collection, avec des noms et objectifs dans les 30 langues de l’application.
-• Une nouvelle progression : chaque niveau demande davantage d’XP. Tes niveaux acquis et ton XP total sont conservés.
-• Les notifications de niveau célèbrent les étapes importantes, sans interrompre chaque partie.
-• Une boîte de notifications enrichie : illustrations, détails des résultats, événements lus et accès à ta progression.
-• Demandes d’amis et invitations en duel améliorées, y compris pour les pseudonymes ukrainiens et les anciennes versions.
-• Des icônes en plusieurs langues, avec sélection selon la langue et choix manuel.
-• Frontières du pays mises en évidence sur la carte des fiches de drapeaux et nouvelles cartes de partage du profil.
-• Réglages de jeu, rappels et compteurs d’événements non lus améliorés.
-• E-mails de progression facultatifs pour les joueurs abonnés, dont le niveau 100 et les résultats de la ligue hebdomadaire.
-
-Choisis une région et découvre un nouvel horizon à chaque partie.
+• Des frontières plus détaillées pour les petits pays et les îles, notamment Jersey, Andorre, Saint-Marin, Monaco et Gibraltar.
+• Les contours des pays sont disponibles hors ligne, avec un meilleur cadrage des cartes.
+• Après une partie, la liste des rappels exclut les amis qui ont déjà joué ou reçu votre rappel dans la journée.
+• Le bouton « Continuer » reste visible lorsque vous faites défiler la liste d’amis.

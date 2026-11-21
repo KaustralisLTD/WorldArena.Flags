@@ -1,10 +1,4 @@
-Mục tiêu mới. Tiến bộ ý nghĩa hơn.
-
-• Thêm 12 thành tích vào bộ sưu tập hiện có. Tên và mục tiêu hỗ trợ đủ 30 ngôn ngữ của ứng dụng.
-• Cấp độ tiếp theo cần nhiều XP hơn. Cấp độ đã đạt và tổng XP được giữ nguyên. Thông báo cấp độ chỉ xuất hiện ở các cột mốc quan trọng.
-• Hộp thông báo phong phú hơn với hình minh họa, kết quả chi tiết, lịch sử đã đọc và liên kết đến tiến độ.
-• Cải thiện kết bạn và lời mời đấu, hỗ trợ tên tiếng Ukraina và các phiên bản ứng dụng cũ.
-• Biểu tượng nhiều ngôn ngữ, đường biên quốc gia nổi bật trên bản đồ trong thông tin lá cờ và thẻ chia sẻ hồ sơ mới.
-• Cải thiện lưu cài đặt, lời nhắc và bộ đếm chưa đọc. Email tiến độ tùy chọn cho người đăng ký, gồm cấp 100 và kết quả giải đấu tuần.
-
-Chọn khu vực và khám phá thêm sau mỗi vòng chơi.
+• Đường biên giới chi tiết hơn cho các quốc gia nhỏ và đảo, gồm Jersey, Andorra, San Marino, Monaco và Gibraltar.
+• Có thể xem đường viền quốc gia khi ngoại tuyến, với khung hiển thị bản đồ được cải thiện.
+• Sau khi chơi, danh sách nhắc nhở không hiển thị những người bạn đã chơi hoặc đã nhận lời nhắc của bạn trong ngày.
+• Nút «Tiếp tục» luôn hiển thị khi bạn cuộn danh sách bạn bè.
