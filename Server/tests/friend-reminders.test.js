@@ -1,6 +1,7 @@
 const {test}=require('node:test');
 const assert=require('node:assert/strict');
-const {DatabaseSync: Database}=require('node:sqlite');
+let Database;
+try { ({DatabaseSync: Database}=require('node:sqlite')); } catch { Database=require('better-sqlite3'); }
 const reminders=require('../friend-reminders');
 function fixture() {
  const db=new Database(':memory:');
