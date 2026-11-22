@@ -1,4 +1,1 @@
-• Đường biên giới chi tiết hơn cho các quốc gia nhỏ và đảo, gồm Jersey, Andorra, San Marino, Monaco và Gibraltar.
-• Có thể xem đường viền quốc gia khi ngoại tuyến, với khung hiển thị bản đồ được cải thiện.
-• Sau khi chơi, danh sách nhắc nhở không hiển thị những người bạn đã chơi hoặc đã nhận lời nhắc của bạn trong ngày.
-• Nút «Tiếp tục» luôn hiển thị khi bạn cuộn danh sách bạn bè.
+Đã sửa lỗi ứng dụng bị đóng khi nhấn «Tiếp tục với Google». Cải thiện việc quay lại ứng dụng sau khi đăng nhập bằng Google.

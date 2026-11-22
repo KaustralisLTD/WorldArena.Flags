@@ -1,4 +1,1 @@
-• Gedetailleerdere grenzen van kleine landen en eilanden, waaronder Jersey, Andorra, San Marino, Monaco en Gibraltar.
-• Landomtrekken zijn offline beschikbaar en kaarten worden beter in beeld gebracht.
-• Na een spel toont de herinneringslijst geen vrienden die die dag al hebben gespeeld of jouw herinnering hebben ontvangen.
-• De knop ‘Doorgaan’ blijft zichtbaar terwijl je door de vriendenlijst scrolt.
+Een crash bij het tikken op ‘Doorgaan met Google’ is verholpen. De terugkeer naar de app na het inloggen met Google is verbeterd.

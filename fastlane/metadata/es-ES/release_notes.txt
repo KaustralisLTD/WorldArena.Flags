@@ -1,4 +1,1 @@
-• Fronteras más detalladas de países pequeños e islas, como Jersey, Andorra, San Marino, Mónaco y Gibraltar.
-• Contornos de países disponibles sin conexión y un mejor encuadre de los mapas.
-• Después de jugar, la lista de recordatorios excluye a los amigos que ya han jugado o recibido tu recordatorio ese día.
-• El botón «Continuar» permanece visible al desplazarte por la lista de amigos.
+Corregido un cierre inesperado al pulsar «Continuar con Google». Mejorada la gestión del regreso a la aplicación tras iniciar sesión con Google.

@@ -1,4 +1,1 @@
-• Confini più dettagliati per piccoli Paesi e isole, tra cui Jersey, Andorra, San Marino, Monaco e Gibilterra.
-• I contorni dei Paesi sono disponibili offline, con una migliore inquadratura delle mappe.
-• Dopo una partita, l’elenco dei promemoria esclude gli amici che hanno già giocato o ricevuto il tuo promemoria quel giorno.
-• Il pulsante «Continua» resta visibile mentre scorri l’elenco degli amici.
+Risolto un arresto anomalo toccando «Continua con Google». Migliorata la gestione del ritorno all’app dopo l’accesso con Google.

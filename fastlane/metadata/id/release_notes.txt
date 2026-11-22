@@ -1,4 +1,1 @@
-• Batas wilayah negara kecil dan pulau kini lebih terperinci, termasuk Jersey, Andorra, San Marino, Monako, dan Gibraltar.
-• Garis batas negara tersedia secara offline, dengan area tampilan peta yang lebih baik.
-• Setelah bermain, daftar pengingat tidak menampilkan teman yang sudah bermain atau menerima pengingat Anda pada hari itu.
-• Tombol «Lanjutkan» tetap terlihat saat Anda menggulir daftar teman.
+Memperbaiki aplikasi yang tertutup saat mengetuk «Lanjutkan dengan Google». Meningkatkan penanganan saat kembali ke aplikasi setelah login dengan Google.

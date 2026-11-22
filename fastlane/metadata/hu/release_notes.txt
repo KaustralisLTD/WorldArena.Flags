@@ -1,4 +1,1 @@
-• Részletesebb határok a kis országoknál és szigeteknél, többek között Jersey, Andorra, San Marino, Monaco és Gibraltár esetében.
-• Az országok körvonalai offline is elérhetők, a térképkivágások pedig javultak.
-• Játék után az emlékeztetők listáján nem jelennek meg azok a barátok, akik aznap már játszottak vagy kaptak tőled emlékeztetőt.
-• A „Folytatás” gomb a barátlista görgetése közben is látható marad.
+Javítottuk az alkalmazás összeomlását a „Folytatás Google-fiókkal” gomb megnyomásakor. Fejlesztettük a Google-bejelentkezés utáni visszatérést az alkalmazásba.

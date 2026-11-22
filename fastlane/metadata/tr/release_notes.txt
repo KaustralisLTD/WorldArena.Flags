@@ -1,4 +1,1 @@
-• Jersey, Andorra, San Marino, Monako ve Cebelitarık dahil küçük ülkeler ve adalar için daha ayrıntılı sınırlar.
-• Ülke sınır çizgileri çevrimdışı kullanılabilir; haritaların görünüm alanı iyileştirildi.
-• Oyun sonrasında hatırlatma listesinde o gün zaten oynamış veya hatırlatmanızı almış arkadaşlar gösterilmez.
-• Arkadaş listesini kaydırırken «Devam» düğmesi görünür kalır.
+«Google ile devam et» düğmesine dokunulduğunda oluşan çökme düzeltildi. Google ile giriş yaptıktan sonra uygulamaya dönüş iyileştirildi.

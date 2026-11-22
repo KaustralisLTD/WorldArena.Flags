@@ -484,7 +484,7 @@
 				CODE_SIGN_IDENTITY = "Apple Development";
 				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 111;
+				CURRENT_PROJECT_VERSION = 112;
 				DEAD_CODE_STRIPPING = YES;
 				DEVELOPMENT_ASSET_PATHS = "\"World Arena. Flags/Preview Content\"";
 				DEVELOPMENT_TEAM = 8QK64BF264;
@@ -523,7 +523,7 @@
 				);
 				"LD_RUNPATH_SEARCH_PATHS[sdk=macosx*]" = "@executable_path/../Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 12.4;
-				MARKETING_VERSION = 8.0.4;
+				MARKETING_VERSION = 8.0.5;
 				PRODUCT_BUNDLE_IDENTIFIER = Kaustralis.WorldArena.Flags;
 				"PRODUCT_BUNDLE_IDENTIFIER[sdk=iphoneos*]" = "World-Arena.-Flags";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -549,7 +549,7 @@
 				CODE_SIGN_IDENTITY = "Apple Development";
 				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 111;
+				CURRENT_PROJECT_VERSION = 112;
 				DEAD_CODE_STRIPPING = YES;
 				DEVELOPMENT_ASSET_PATHS = "\"World Arena. Flags/Preview Content\"";
 				DEVELOPMENT_TEAM = 8QK64BF264;
@@ -588,7 +588,7 @@
 				);
 				"LD_RUNPATH_SEARCH_PATHS[sdk=macosx*]" = "@executable_path/../Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 12.4;
-				MARKETING_VERSION = 8.0.4;
+				MARKETING_VERSION = 8.0.5;
 				PRODUCT_BUNDLE_IDENTIFIER = Kaustralis.WorldArena.Flags;
 				"PRODUCT_BUNDLE_IDENTIFIER[sdk=iphoneos*]" = "World-Arena.-Flags";
 				PRODUCT_NAME = "$(TARGET_NAME)";

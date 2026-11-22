@@ -1,4 +1,1 @@
-• Mer detaljerade gränser för små länder och öar, bland annat Jersey, Andorra, San Marino, Monaco och Gibraltar.
-• Ländernas konturer är tillgängliga offline och kartutsnitten har förbättrats.
-• Efter ett spel visas inte vänner som redan har spelat eller fått din påminnelse samma dag i påminnelselistan.
-• Knappen ”Fortsätt” är synlig även när du rullar i vänlistan.
+Åtgärdat en krasch när du trycker på ”Fortsätt med Google”. Förbättrat återgången till appen efter inloggning med Google.

@@ -1,4 +1,1 @@
-• Dokładniejsze granice małych państw i wysp, w tym Jersey, Andory, San Marino, Monako i Gibraltaru.
-• Kontury państw są dostępne offline, a kadrowanie map zostało ulepszone.
-• Po grze lista przypomnień pomija znajomych, którzy już grali lub otrzymali Twoje przypomnienie tego dnia.
-• Przycisk „Kontynuuj” pozostaje widoczny podczas przewijania listy znajomych.
+Naprawiono awarię po naciśnięciu „Kontynuuj z Google”. Usprawniono powrót do aplikacji po zalogowaniu przez Google.

@@ -1,4 +1,1 @@
-• Podrobnější hranice malých zemí a ostrovů včetně Jersey, Andorry, San Marina, Monaka a Gibraltaru.
-• Obrysy zemí jsou dostupné offline a výřezy map byly vylepšeny.
-• Po hře se v seznamu připomenutí nezobrazují přátelé, kteří už dnes hráli nebo od vás dostali připomenutí.
-• Tlačítko „Pokračovat“ zůstává viditelné při posouvání seznamu přátel.
+Opravili jsme pád aplikace po klepnutí na „Pokračovat přes Google“. Vylepšili jsme návrat do aplikace po přihlášení přes Google.

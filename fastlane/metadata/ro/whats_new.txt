@@ -1,4 +1,1 @@
-• Granițe mai detaliate pentru țări mici și insule, inclusiv Jersey, Andorra, San Marino, Monaco și Gibraltar.
-• Contururile țărilor sunt disponibile offline, iar încadrarea hărților a fost îmbunătățită.
-• După un joc, lista de mementouri exclude prietenii care au jucat deja sau au primit mementoul tău în acea zi.
-• Butonul „Continuă” rămâne vizibil când derulezi lista de prieteni.
+Am remediat închiderea neașteptată la apăsarea butonului „Continuă cu Google”. Am îmbunătățit revenirea în aplicație după autentificarea cu Google.

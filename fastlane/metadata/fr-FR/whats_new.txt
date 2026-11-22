@@ -1,4 +1,1 @@
-• Des frontières plus détaillées pour les petits pays et les îles, notamment Jersey, Andorre, Saint-Marin, Monaco et Gibraltar.
-• Les contours des pays sont disponibles hors ligne, avec un meilleur cadrage des cartes.
-• Après une partie, la liste des rappels exclut les amis qui ont déjà joué ou reçu votre rappel dans la journée.
-• Le bouton « Continuer » reste visible lorsque vous faites défiler la liste d’amis.
+Correction d’un plantage lors de l’appui sur « Continuer avec Google ». Amélioration du retour dans l’application après la connexion avec Google.

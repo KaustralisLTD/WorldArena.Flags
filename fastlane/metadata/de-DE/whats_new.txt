@@ -1,4 +1,1 @@
-• Detailliertere Grenzen kleiner Länder und Inseln, darunter Jersey, Andorra, San Marino, Monaco und Gibraltar.
-• Länderumrisse sind offline verfügbar; die Kartenausschnitte wurden verbessert.
-• Nach dem Spiel werden Freunde, die heute bereits gespielt oder deine Erinnerung erhalten haben, nicht mehr in der Erinnerungsliste angezeigt.
-• Die Schaltfläche „Weiter“ bleibt beim Scrollen durch die Freundesliste sichtbar.
+Ein Absturz beim Tippen auf „Mit Google fortfahren“ wurde behoben. Die Rückkehr zur App nach der Google-Anmeldung wurde verbessert.

@@ -1,4 +1,1 @@
-• Fronteiras mais detalhadas de pequenos países e ilhas, incluindo Jersey, Andorra, San Marino, Mônaco e Gibraltar.
-• Contornos dos países disponíveis offline e melhor enquadramento dos mapas.
-• Após uma partida, a lista de lembretes não mostra amigos que já jogaram ou receberam seu lembrete naquele dia.
-• O botão «Continuar» permanece visível enquanto você percorre a lista de amigos.
+Corrigida uma falha que fechava o aplicativo ao tocar em «Continuar com o Google». Melhorado o retorno ao aplicativo após o login com o Google.

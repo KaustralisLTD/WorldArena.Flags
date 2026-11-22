@@ -1,4 +1,1 @@
-• More detailed borders for small countries and islands, including Jersey, Andorra, San Marino, Monaco and Gibraltar.
-• Country outlines are available offline, with improved map framing.
-• After a game, the reminder list excludes friends who have already played or received your reminder that day.
-• The Continue button stays visible while you scroll through friends.
+Fixed a crash when tapping Continue with Google. Improved handling of the return to the app after Google sign-in.
