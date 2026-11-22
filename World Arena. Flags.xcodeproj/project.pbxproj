@@ -127,6 +127,7 @@
 				3A7379262D6F36E70075C1D9 /* Sources */,
 				3A7379272D6F36E70075C1D9 /* Frameworks */,
 				3A7379282D6F36E70075C1D9 /* Resources */,
+                A80400000000000000000112 /* Validate Google Sign-In */,
 			);
 			buildRules = (
 			);
@@ -290,6 +291,25 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+        A80400000000000000000112 /* Validate Google Sign-In */ = {
+            isa = PBXShellScriptBuildPhase;
+            alwaysOutOfDate = 1;
+            buildActionMask = 2147483647;
+            files = ();
+            inputPaths = (
+                "$(SRCROOT)/scripts/validate_google_signin.py",
+                "$(TARGET_BUILD_DIR)/$(INFOPLIST_PATH)",
+                "$(TARGET_BUILD_DIR)/$(UNLOCALIZED_RESOURCES_FOLDER_PATH)/GoogleService-Info.plist",
+            );
+            name = "Validate Google Sign-In";
+            outputPaths = ();
+            runOnlyForDeploymentPostprocessing = 0;
+            shellPath = /bin/sh;
+            shellScript = "set -eu\n/usr/bin/python3 \"$SRCROOT/scripts/validate_google_signin.py\" \"$TARGET_BUILD_DIR/$INFOPLIST_PATH\" \"$TARGET_BUILD_DIR/$UNLOCALIZED_RESOURCES_FOLDER_PATH/GoogleService-Info.plist\"\n";
+        };
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		3A7379262D6F36E70075C1D9 /* Sources */ = {

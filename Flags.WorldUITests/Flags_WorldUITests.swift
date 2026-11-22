@@ -9,6 +9,26 @@ import XCTest
 import StoreKitTest
 
 final class Flags_WorldUITests: XCTestCase {
+
+    @MainActor
+    func testGoogleSignInOpensAuthorizationWithoutCrashing() throws {
+        let app = XCUIApplication()
+        app.launchArguments = ["UITesting", "GoogleSignInQA", "-selectedLanguage", "en", "-AppleLanguages", "(en)", "-AppleLocale", "en_US"]
+        app.launch()
+        let google = app.buttons["auth.google.signIn"]
+        XCTAssertTrue(google.waitForExistence(timeout: 25))
+        if !google.isHittable { app.swipeUp() }
+        google.tap()
+        let system = XCUIApplication(bundleIdentifier: "com.apple.springboard")
+        let dialog = system.alerts.firstMatch
+        XCTAssertTrue(dialog.waitForExistence(timeout: 15), "Expected Google web authentication consent, not a process exit")
+        XCTAssertTrue(dialog.staticTexts.containing(NSPredicate(format: "label CONTAINS[c] %@", "google.com")).firstMatch.exists)
+        XCTAssertNotEqual(app.state, .notRunning)
+        let shot = XCTAttachment(screenshot: XCUIScreen.main.screenshot())
+        shot.name = "google-auth-consent-no-crash"; shot.lifetime = .keepAlways; add(shot)
+        dialog.buttons["Cancel"].tap()
+        XCTAssertTrue(google.waitForExistence(timeout: 5))
+    }
     @MainActor
     func testReminderListExcludesPlayedAndSentAndPinsContinue() throws {
         let app = XCUIApplication()

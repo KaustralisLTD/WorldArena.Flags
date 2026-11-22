@@ -28,12 +28,9 @@ final class AppDelegate: NSObject, UIApplicationDelegate {
         FirebaseApp.configure()
         #endif
 
-        // Для Google Sign-In на реальном устройстве иногда нужен явный clientID.
+        // The checked-in app Info.plist is the authoritative OAuth configuration.
         #if canImport(GoogleSignIn) && os(iOS)
-        if let url = Bundle.main.url(forResource: "GoogleService-Info", withExtension: "plist"),
-           let dict = NSDictionary(contentsOf: url),
-           let clientID = dict["CLIENT_ID"] as? String,
-           !clientID.isEmpty {
+        if let clientID = GoogleSignInSetup.configuredClientID {
             GIDSignIn.sharedInstance.configuration = GIDConfiguration(clientID: clientID)
         }
         #endif
@@ -116,7 +113,9 @@ struct FlagsWorldApp: App {
 
     @ViewBuilder private var launchContent: some View {
         #if targetEnvironment(simulator) && DEBUG
-        if CommandLine.arguments.contains("FriendRemindersQA") {
+        if CommandLine.arguments.contains("GoogleSignInQA") {
+            AuthGatewayView()
+        } else if CommandLine.arguments.contains("FriendRemindersQA") {
             FriendStreaksView(friends: (0..<18).map { index in
                 Friend(id: UUID(), username: "Friend\(index)", avatar: "person.fill", level: 5, xp: 1200, streak: index + 1,
                        isOnline: false, joinDate: Date(), playedToday: index == 0, remindedToday: index == 1)
@@ -253,6 +252,9 @@ struct FlagsWorldApp: App {
                     }
                 }
                 .onOpenURL { url in
+                    #if canImport(GoogleSignIn) && os(iOS)
+                    if GIDSignIn.sharedInstance.handle(url) { return }
+                    #endif
                     if url.scheme == "worldarenaflags", url.host == "campaign", let id = url.pathComponents.last, UUID(uuidString: id) != nil {
                         UserDefaults.standard.set(id, forKey: "lifecycle.pendingLink")
                         NotificationCenter.default.post(name: Notification.Name("OpenLifecycleCampaign"), object: id)

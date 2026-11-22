@@ -256,6 +256,7 @@ struct AuthGatewayView: View {
                             .background(fieldBackground)
                             .cornerRadius(14)
                         }
+                        .accessibilityIdentifier("auth.google.signIn")
                         .disabled(isGoogleSigningIn || loading)
 
                         if !auth.requiresReauthentication && (auth.biometricEnabled || auth.hasBiometricRestoreAvailable) {
@@ -388,6 +389,15 @@ struct AuthGatewayView: View {
         isGoogleSigningIn = true
         defer { isGoogleSigningIn = false }
 
+        errorText = nil
+        guard let clientID = GoogleSignInSetup.configuredClientID else {
+            // Reuse the generic localized failure message; never launch an
+            // unconfigured SDK or replace OAuth with an email-only login.
+            errorText = localizationManager.localizedString("friends.requests.error")
+            return
+        }
+        GIDSignIn.sharedInstance.configuration = GIDConfiguration(clientID: clientID)
+
         func topMostViewController() -> UIViewController? {
             let scenes = UIApplication.shared.connectedScenes
                 .compactMap { $0 as? UIWindowScene }
@@ -402,8 +412,10 @@ struct AuthGatewayView: View {
             return top
         }
 
-        guard let presentingVC = topMostViewController() else {
-            showGooglePrompt = true
+        guard let presentingVC = topMostViewController(),
+              presentingVC.viewIfLoaded?.window != nil,
+              !presentingVC.isBeingDismissed else {
+            errorText = localizationManager.localizedString("friends.requests.error")
             return
         }
 
